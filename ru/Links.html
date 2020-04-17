@@ -1,0 +1,441 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>.NET Platform Architecture</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <link rel="stylesheet" href="../res/bootstrap.css">
+    <style>
+        body {
+    padding: 60px 60px 60px 100px;
+    font-family: PF Regal,Georgia,serif;
+    font-size: 16pt;
+    font-weight: 300;
+}
+
+strong {
+    font-weight: 500;
+}
+
+p, li {
+    margin: 0 0 25px;
+    line-height: 32px;
+    font-family: inherit;
+}
+
+ol, ul {
+    padding-left: 35px;
+    margin-top: 1.1rem;
+    margin-bottom: 1.1rem;
+}
+
+ol li {
+    padding-left: 10px;	
+    font-family: inherit;
+}
+
+ul li {
+    padding-left: 12px;	
+    font-family: inherit;
+}
+
+table {
+    margin: 30px 0;
+    width: 100%;
+}
+
+thead {                         
+    background-color: aliceblue;
+}
+
+table th {
+    font-weight: 400;
+}
+
+table td, table th {
+    padding: 7px;
+    border-top: solid darkgrey 1px;
+    border-bottom: solid darkgrey 1px;
+    border-right: dotted darkgray 1px;
+    border-left: dotted darkgray 1px;
+    font-size: smaller;
+}
+
+code, *[class*='lang-'] span, *[class*='lang-'] pre {
+    font-family: JB Mono, monospace !important;
+}
+
+*[class*='lang-'] {
+    padding: 0px 0px 25px 0px;
+}
+
+
+*[class*='lang-'] > div, pre > code {
+    border-left-color: #eee;
+    border-left-style: dotted;
+    border-left-width: 3px;
+    padding-left: 25px;
+    display: block;
+    background-color: aliceblue !important;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+*[class*='lang-'] > div pre, pre > code pre {
+    margin-bottom: 0;
+}
+
+p code:not(.highlight), li code:not(.highlight) {
+    font-size: 16px;
+    border: gainsboro;
+    border-width: 1px;
+    border-style: solid;
+    padding: 4px;
+    color: darkslateblue;
+}
+
+code.highlight {
+    font-family: inherit !important;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+}
+
+p code.highlight, li code.highlight {
+    padding: 4px;
+    background-color: #ffffa1;
+}
+
+.wide {
+    width:150%;
+}
+
+*[class*='lang-'] span, *[class*='lang-'] pre, pre > code {
+    font-size: 13px;
+    line-height: 20px;
+}
+
+p a, li a {
+    text-decoration: none;
+    color: inherit;
+    box-shadow: inset 0 -1px #b88b59;
+}
+
+blockquote h5 {
+    background-color: aquamarine;
+    margin: 16px 0 16px -20px;
+    padding: 15px 30px 15px;
+}
+
+p img {
+    width: 95%;
+}
+
+blockquote > p.big-quote {
+    margin: 40px 0 60px 0;
+    font-family: Charter;
+    font-size: 55px;
+    line-height: 60px;
+    width: 150%;
+    padding: 0;
+}
+
+blockquote:not( p.big-quote) {
+    background-color: lavenderblush !important;
+    padding-left: 20px !important;
+    border-left: 1px solid rgba(0,0,0,.08) !important;
+}
+
+blockquote p {
+    margin: 16px 0;
+    padding: 12px 12px 13px;
+    font-family: inherit;
+}
+
+blockquote p code {
+    font-family: consolas, monospace;
+    font-size: 17px;
+    background-color: aliceblue;
+    padding: 4px 6px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-family: inherit;
+}
+
+h1 {
+    font-size: 40px;
+    font-family: PF Regal,Georgia,serif;
+    font-weight: 300;
+    margin: 40px 0 20px 0;
+    border-bottom-style: ridge;
+    padding-bottom: 10px;
+}
+
+h1 b {
+    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
+    font-weight: 700;
+    font-size: 37px;
+    line-height: 42px;
+}
+
+h2 {
+    margin-top: 35px;
+    margin-bottom: 10px;
+    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    border-bottom-color: grey;
+    border-bottom-style: solid;
+    padding-bottom: 5px;
+}
+
+h3 {
+    margin: 30px 0 15px 0;
+    font-size: 17pt;
+    font-weight: 500;
+}
+
+h4 {
+    margin: 20px 0 10px 0;
+    font-size: 16pt;
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* Sidenotes */
+
+.aside-container {
+    position: relative;
+}
+.aside-container > p {
+    position: relative;
+    top: 9px;
+}
+
+.aside-container > .aside-side-container {
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 110%;
+    width: 40%;
+    font-size: 12pt;
+    line-height: 20px;
+
+    z-index: 1000;
+}
+
+.side-regular-block {
+    border-radius: 5px;
+    background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
+    padding: 22px;
+}
+
+/* Music side player */
+
+.aside-side-container .music-player {
+    width: 100%;
+    height: 400px;
+}
+
+.aside-side-container.side-media-block h2 {
+    margin-top: -12px;
+}
+
+.aside-side-container > li {
+    display: block;
+    font-family: Charter;
+}
+
+.aside-side-container > li ul, .aside-side-container > li ol {
+    padding-left: 30px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.aside-side-container > li li {
+    padding-left: 6px;
+    margin: 0 0 6px;
+    line-height: 22px;
+
+    font-family: Charter;
+}
+
+.aside-side-container p {
+    line-height: 25px;
+    font-size: 13pt;
+    margin: 0 0 15px 0;
+}
+
+.aside-side-container blockquote {
+    border: aliceblue;
+    border-left-style: solid;
+}
+
+/* Fonts 
+
+/*@font-face {*/
+/*    font-family: 'PF Regal';*/
+/*    src: url('../res/fonts/PFRegalTextPro-RegularA.eot');*/
+/*    src: local('../res/fonts/PFRegalTextPro-RegularA'),*/
+/*        url('../res/fonts/PFRegalTextPro-RegularA.woff2') format('woff2'),*/
+/*        url('../res/fonts/PFRegalTextPro-RegularA.woff') format('woff'),*/
+/*        url('../res/fonts/PFRegalTextPro-RegularA.ttf') format('truetype');*/
+/*    font-weight: 300;*/
+/*    font-style: normal;*/
+/*}*/
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../res/fonts/PFRegalTextPro-Bold.eot');
+    src: local('../res/fonts/PFRegalTextPro-Bold'),
+        url('../res/fonts/PFRegalTextPro-Bold.woff2') format('woff2'),
+        url('../res/fonts/PFRegalTextPro-Bold.woff') format('woff'),
+        url('../res/fonts/PFRegalTextPro-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+*/
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../res/fonts/PFRegalTextPro-Medium.eot');
+    src: local('../res/fonts/PFRegalTextPro-Medium'),
+        url('../res/fonts/PFRegalTextPro-Medium.woff2') format('woff2'),
+        url('../res/fonts/PFRegalTextPro-Medium.woff') format('woff'),
+        url('../res/fonts/PFRegalTextPro-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../res/fonts/PFRegalTextPro-BlackItalic.eot');
+    src: local('../res/fonts/PFRegalTextPro-BlackItalic'),
+        url('../res/fonts/PFRegalTextPro-BlackItalic.woff2') format('woff2'),
+        url('../res/fonts/PFRegalTextPro-BlackItalic.woff') format('woff'),
+        url('../res/fonts/PFRegalTextPro-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../res/fonts/PFRegalTextPro-Black.eot');
+    src: local('../res/fonts/PFRegalTextPro-Black'),
+        url('../res/fonts/PFRegalTextPro-Black.woff2') format('woff2'),
+        url('../res/fonts/PFRegalTextPro-Black.woff') format('woff'),
+        url('../res/fonts/PFRegalTextPro-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Regal UBlack';
+    src: url('../res/fonts/PFRegalTextPro-UBlack.eot');
+    src: local('../res/fonts/PFRegalTextPro-UBlack'),
+        url('../res/fonts/PFRegalTextPro-UBlack.woff2') format('woff2'),
+        url('../res/fonts/PFRegalTextPro-UBlack.woff') format('woff'),
+        url('../res/fonts/PFRegalTextPro-UBlack.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../res/fonts/PFRegalTextPro-MediumItalic.eot');
+    src: local('../res/fonts/PFRegalTextPro-MediumItalic'),
+        url('../res/fonts/PFRegalTextPro-MediumItalic.woff2') format('woff2'),
+        url('../res/fonts/PFRegalTextPro-MediumItalic.woff') format('woff'),
+        url('../res/fonts/PFRegalTextPro-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../res/fonts/PFRegalTextPro-UBlackItalic.eot');
+    src: local('../res/fonts/PFRegalTextPro-UBlackItalic'),
+        url('../res/fonts/PFRegalTextPro-UBlackItalic.woff2') format('woff2'),
+        url('../res/fonts/PFRegalTextPro-UBlackItalic.woff') format('woff'),
+        url('../res/fonts/PFRegalTextPro-UBlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../res/fonts/PFRegalTextPro-RegularAItalic.eot');
+    src: local('../res/fonts/PFRegalTextPro-RegularAItalic'),
+        url('../res/fonts/PFRegalTextPro-RegularAItalic.woff2') format('woff2'),
+        url('../res/fonts/PFRegalTextPro-RegularAItalic.woff') format('woff'),
+        url('../res/fonts/PFRegalTextPro-RegularAItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../res/fonts/PFRegalTextPro-BoldItalic.eot');
+    src: local('../res/fonts/PFRegalTextPro-BoldItalic'),
+        url('../res/fonts/PFRegalTextPro-BoldItalic.woff2') format('woff2'),
+        url('../res/fonts/PFRegalTextPro-BoldItalic.woff') format('woff'),
+        url('../res/fonts/PFRegalTextPro-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Charter';
+    src: url('../res/fonts/charter-regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*  Regular B */
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../res/fonts/PFRegalTextPro-RegularBItalic.eot');
+    src: local('../res/fonts/PFRegalTextPro-RegularBItalic'),
+        url('../res/fonts/PFRegalTextPro-RegularBItalic.woff2') format('woff2'),
+        url('../res/fonts/PFRegalTextPro-RegularBItalic.woff') format('woff'),
+        url('../res/fonts/PFRegalTextPro-RegularBItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../res/fonts/PFRegalTextPro-RegularB.eot');
+    src: local('../res/fonts/PFRegalTextPro-RegularB'),
+        url('../res/fonts/PFRegalTextPro-RegularB.woff2') format('woff2'),
+        url('../res/fonts/PFRegalTextPro-RegularB.woff') format('woff'),
+        url('../res/fonts/PFRegalTextPro-RegularB.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}              
+  
+    </style>
+
+<div class="row">
+<div class="offset-1 col-7">
+    <p>Литература и ссылки, использованные при написании книги:</p>
+<ol>
+<li><a href="https://www.amazon.com/CLR-via-4th-Developer-Reference/dp/0735667454">CLR via C#</a> by <a href="https://github.com/JeffreyRichter">Jeffrey Richter</a></li>
+<li><a href="https://mattwarren.org/">Matt Warren blog</a></li>
+<li><a href="https://www.jetbrains.com/help/resharper/sdk/Platform/Lifetime.html">JetBrains Lifetime</a></li>
+<li><a href="https://prodotnetmemory.com/">Pro .NET Memory Management</a> by <a href="https://twitter.com/konradkokosa">Konrad Kokosa</a></li>
+<li><a href="http://tooslowexception.com">Konrad Kokosa blog</a></li>
+<li><a href="https://yizhang82.dev/">Yi Zhang</a></li>
+<li><a href="https://devblogs.microsoft.com/dotnet/">.NET official blog</a></li>
+</ol>
+
+</div>
+</div>
+</body>
+</html>

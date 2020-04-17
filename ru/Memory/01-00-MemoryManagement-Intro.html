@@ -1,0 +1,460 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>.NET Platform Architecture</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <link rel="stylesheet" href="../../res/bootstrap.css">
+    <style>
+        body {
+    padding: 60px 60px 60px 100px;
+    font-family: PF Regal,Georgia,serif;
+    font-size: 16pt;
+    font-weight: 300;
+}
+
+strong {
+    font-weight: 500;
+}
+
+p, li {
+    margin: 0 0 25px;
+    line-height: 32px;
+    font-family: inherit;
+}
+
+ol, ul {
+    padding-left: 35px;
+    margin-top: 1.1rem;
+    margin-bottom: 1.1rem;
+}
+
+ol li {
+    padding-left: 10px;	
+    font-family: inherit;
+}
+
+ul li {
+    padding-left: 12px;	
+    font-family: inherit;
+}
+
+table {
+    margin: 30px 0;
+    width: 100%;
+}
+
+thead {                         
+    background-color: aliceblue;
+}
+
+table th {
+    font-weight: 400;
+}
+
+table td, table th {
+    padding: 7px;
+    border-top: solid darkgrey 1px;
+    border-bottom: solid darkgrey 1px;
+    border-right: dotted darkgray 1px;
+    border-left: dotted darkgray 1px;
+    font-size: smaller;
+}
+
+code, *[class*='lang-'] span, *[class*='lang-'] pre {
+    font-family: JB Mono, monospace !important;
+}
+
+*[class*='lang-'] {
+    padding: 0px 0px 25px 0px;
+}
+
+
+*[class*='lang-'] > div, pre > code {
+    border-left-color: #eee;
+    border-left-style: dotted;
+    border-left-width: 3px;
+    padding-left: 25px;
+    display: block;
+    background-color: aliceblue !important;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+*[class*='lang-'] > div pre, pre > code pre {
+    margin-bottom: 0;
+}
+
+p code:not(.highlight), li code:not(.highlight) {
+    font-size: 16px;
+    border: gainsboro;
+    border-width: 1px;
+    border-style: solid;
+    padding: 4px;
+    color: darkslateblue;
+}
+
+code.highlight {
+    font-family: inherit !important;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+}
+
+p code.highlight, li code.highlight {
+    padding: 4px;
+    background-color: #ffffa1;
+}
+
+.wide {
+    width:150%;
+}
+
+*[class*='lang-'] span, *[class*='lang-'] pre, pre > code {
+    font-size: 13px;
+    line-height: 20px;
+}
+
+p a, li a {
+    text-decoration: none;
+    color: inherit;
+    box-shadow: inset 0 -1px #b88b59;
+}
+
+blockquote h5 {
+    background-color: aquamarine;
+    margin: 16px 0 16px -20px;
+    padding: 15px 30px 15px;
+}
+
+p img {
+    width: 95%;
+}
+
+blockquote > p.big-quote {
+    margin: 40px 0 60px 0;
+    font-family: Charter;
+    font-size: 55px;
+    line-height: 60px;
+    width: 150%;
+    padding: 0;
+}
+
+blockquote:not( p.big-quote) {
+    background-color: lavenderblush !important;
+    padding-left: 20px !important;
+    border-left: 1px solid rgba(0,0,0,.08) !important;
+}
+
+blockquote p {
+    margin: 16px 0;
+    padding: 12px 12px 13px;
+    font-family: inherit;
+}
+
+blockquote p code {
+    font-family: consolas, monospace;
+    font-size: 17px;
+    background-color: aliceblue;
+    padding: 4px 6px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-family: inherit;
+}
+
+h1 {
+    font-size: 40px;
+    font-family: PF Regal,Georgia,serif;
+    font-weight: 300;
+    margin: 40px 0 20px 0;
+    border-bottom-style: ridge;
+    padding-bottom: 10px;
+}
+
+h1 b {
+    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
+    font-weight: 700;
+    font-size: 37px;
+    line-height: 42px;
+}
+
+h2 {
+    margin-top: 35px;
+    margin-bottom: 10px;
+    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    border-bottom-color: grey;
+    border-bottom-style: solid;
+    padding-bottom: 5px;
+}
+
+h3 {
+    margin: 30px 0 15px 0;
+    font-size: 17pt;
+    font-weight: 500;
+}
+
+h4 {
+    margin: 20px 0 10px 0;
+    font-size: 16pt;
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* Sidenotes */
+
+.aside-container {
+    position: relative;
+}
+.aside-container > p {
+    position: relative;
+    top: 9px;
+}
+
+.aside-container > .aside-side-container {
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 110%;
+    width: 40%;
+    font-size: 12pt;
+    line-height: 20px;
+
+    z-index: 1000;
+}
+
+.side-regular-block {
+    border-radius: 5px;
+    background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
+    padding: 22px;
+}
+
+/* Music side player */
+
+.aside-side-container .music-player {
+    width: 100%;
+    height: 400px;
+}
+
+.aside-side-container.side-media-block h2 {
+    margin-top: -12px;
+}
+
+.aside-side-container > li {
+    display: block;
+    font-family: Charter;
+}
+
+.aside-side-container > li ul, .aside-side-container > li ol {
+    padding-left: 30px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.aside-side-container > li li {
+    padding-left: 6px;
+    margin: 0 0 6px;
+    line-height: 22px;
+
+    font-family: Charter;
+}
+
+.aside-side-container p {
+    line-height: 25px;
+    font-size: 13pt;
+    margin: 0 0 15px 0;
+}
+
+.aside-side-container blockquote {
+    border: aliceblue;
+    border-left-style: solid;
+}
+
+/* Fonts 
+
+/*@font-face {*/
+/*    font-family: 'PF Regal';*/
+/*    src: url('../../res/fonts/PFRegalTextPro-RegularA.eot');*/
+/*    src: local('../../res/fonts/PFRegalTextPro-RegularA'),*/
+/*        url('../../res/fonts/PFRegalTextPro-RegularA.woff2') format('woff2'),*/
+/*        url('../../res/fonts/PFRegalTextPro-RegularA.woff') format('woff'),*/
+/*        url('../../res/fonts/PFRegalTextPro-RegularA.ttf') format('truetype');*/
+/*    font-weight: 300;*/
+/*    font-style: normal;*/
+/*}*/
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../../res/fonts/PFRegalTextPro-Bold.eot');
+    src: local('../../res/fonts/PFRegalTextPro-Bold'),
+        url('../../res/fonts/PFRegalTextPro-Bold.woff2') format('woff2'),
+        url('../../res/fonts/PFRegalTextPro-Bold.woff') format('woff'),
+        url('../../res/fonts/PFRegalTextPro-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+*/
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../../res/fonts/PFRegalTextPro-Medium.eot');
+    src: local('../../res/fonts/PFRegalTextPro-Medium'),
+        url('../../res/fonts/PFRegalTextPro-Medium.woff2') format('woff2'),
+        url('../../res/fonts/PFRegalTextPro-Medium.woff') format('woff'),
+        url('../../res/fonts/PFRegalTextPro-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../../res/fonts/PFRegalTextPro-BlackItalic.eot');
+    src: local('../../res/fonts/PFRegalTextPro-BlackItalic'),
+        url('../../res/fonts/PFRegalTextPro-BlackItalic.woff2') format('woff2'),
+        url('../../res/fonts/PFRegalTextPro-BlackItalic.woff') format('woff'),
+        url('../../res/fonts/PFRegalTextPro-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../../res/fonts/PFRegalTextPro-Black.eot');
+    src: local('../../res/fonts/PFRegalTextPro-Black'),
+        url('../../res/fonts/PFRegalTextPro-Black.woff2') format('woff2'),
+        url('../../res/fonts/PFRegalTextPro-Black.woff') format('woff'),
+        url('../../res/fonts/PFRegalTextPro-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Regal UBlack';
+    src: url('../../res/fonts/PFRegalTextPro-UBlack.eot');
+    src: local('../../res/fonts/PFRegalTextPro-UBlack'),
+        url('../../res/fonts/PFRegalTextPro-UBlack.woff2') format('woff2'),
+        url('../../res/fonts/PFRegalTextPro-UBlack.woff') format('woff'),
+        url('../../res/fonts/PFRegalTextPro-UBlack.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../../res/fonts/PFRegalTextPro-MediumItalic.eot');
+    src: local('../../res/fonts/PFRegalTextPro-MediumItalic'),
+        url('../../res/fonts/PFRegalTextPro-MediumItalic.woff2') format('woff2'),
+        url('../../res/fonts/PFRegalTextPro-MediumItalic.woff') format('woff'),
+        url('../../res/fonts/PFRegalTextPro-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../../res/fonts/PFRegalTextPro-UBlackItalic.eot');
+    src: local('../../res/fonts/PFRegalTextPro-UBlackItalic'),
+        url('../../res/fonts/PFRegalTextPro-UBlackItalic.woff2') format('woff2'),
+        url('../../res/fonts/PFRegalTextPro-UBlackItalic.woff') format('woff'),
+        url('../../res/fonts/PFRegalTextPro-UBlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../../res/fonts/PFRegalTextPro-RegularAItalic.eot');
+    src: local('../../res/fonts/PFRegalTextPro-RegularAItalic'),
+        url('../../res/fonts/PFRegalTextPro-RegularAItalic.woff2') format('woff2'),
+        url('../../res/fonts/PFRegalTextPro-RegularAItalic.woff') format('woff'),
+        url('../../res/fonts/PFRegalTextPro-RegularAItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../../res/fonts/PFRegalTextPro-BoldItalic.eot');
+    src: local('../../res/fonts/PFRegalTextPro-BoldItalic'),
+        url('../../res/fonts/PFRegalTextPro-BoldItalic.woff2') format('woff2'),
+        url('../../res/fonts/PFRegalTextPro-BoldItalic.woff') format('woff'),
+        url('../../res/fonts/PFRegalTextPro-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Charter';
+    src: url('../../res/fonts/charter-regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*  Regular B */
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../../res/fonts/PFRegalTextPro-RegularBItalic.eot');
+    src: local('../../res/fonts/PFRegalTextPro-RegularBItalic'),
+        url('../../res/fonts/PFRegalTextPro-RegularBItalic.woff2') format('woff2'),
+        url('../../res/fonts/PFRegalTextPro-RegularBItalic.woff') format('woff'),
+        url('../../res/fonts/PFRegalTextPro-RegularBItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../../res/fonts/PFRegalTextPro-RegularB.eot');
+    src: local('../../res/fonts/PFRegalTextPro-RegularB'),
+        url('../../res/fonts/PFRegalTextPro-RegularB.woff2') format('woff2'),
+        url('../../res/fonts/PFRegalTextPro-RegularB.woff') format('woff'),
+        url('../../res/fonts/PFRegalTextPro-RegularB.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}              
+  
+    </style>
+
+<div class="row">
+<div class="offset-1 col-7">
+    <h1 id="section">Основы управления памятью</h1>
+<h2 id="section-1">Введение</h2>
+<p>Когда вы думаете о разработке любого .NET приложения до недавних пор можно было себе позволить считать, что приложение, которое вы делаете, будет всегда работать на одной и той же платформе: это операционная система Windows, запущенная поверх технологического стека Intel. Сейчас же с каждым прожитым днем мы входим в новую эпоху: платформа .NET стала поистине кроссплатформенной, пустив новые корни в сторону всех доступных настольных операционных систем. Это  &mdash;  прекрасное время и наш долг сейчас не потерять нить и остаться востребованными специалистами. Ведь когда toolset становится кроссплатформенным, это означает что мы обязаны начать смотреть внутрь. Изучать, как работает двигатель нашей платформы. Чтобы понимать, почему тот ведет себя, так или иначе, на различных системах.</p>
+<div class="aside-container"><p>Вторая мысль, которую мне хотелось бы передать через страницы данной книги: даже если ваши сервера будут сверхпроизводительными. Даже если они будут настолько быстрыми, что будет казаться, что оптимизации  &mdash;  последнее дело, о котором стоит думать&hellip; Вы всё равно начнёте оптимизировать код. Вспомните: когда-то всем известный системный программист Билл Гейтс сказал, что 640 Кб памяти должно хватить любому. И на тот момент это было правдой. И на тот момент если скажи любому, что через каких-то 20 лет один компьютер сможет заменить несколько тысяч серверов того времени, вам бы сказали: в ваше время производительность настолько высокая, что над оптимизацией наверняка не стоит даже задумываться. Но что мы видим? Всё большее количество людей уходит в онлайн. Всё большее количество людей начинает пользоваться смартфонами и как следствие  &mdash;  онлайн торговлей. А этим системам чтобы выдерживать всё нарастающие нагрузки хочется сэкономить: арендовывать меньшее количество серверов при всё нарастающей нагрузке. И поверьте: эпоха сети Интернет только взяла старт: в прошлое уйдёт население, не принимающее современных технологий, а на смену ему придёт поколение, не знающее другого пути. И даже если серверные системы будущего будут выдерживать нагрузки в 1,000 раз большие.. Конечно же сайты &laquo;попроще&raquo; могут быть написаны как угодно плохо&hellip; Но если ваша цель  &mdash;  работать в компаниях топового уровня, оптимизацией вы будете заниматься всегда.</p>
+<div class="aside-side-container side-regular-block">
+<p>Касательно этого вопроса, конечно же, может существовать множество мнений. Однако, как опыт так и статистика по зарплатам на различных порталах говорит нам о том, что вектор развития индустрии именно такой.</p>
+</div>
+</div>
+<p>Программисты, на мой взгляд, разделятся если можно так выразиться на классы: это деление уже в некотором смысле началось. Однако сегментация будет более выраженной: на мой взгляд сливки будут снимать люди с хорошим математическим аппаратом. Эти люди будут решать вопросы разработки систем ИИ, нейросетей, потокового шифрования и передачи больших объёмов траффика. Вопросы кратко- и долгосрочного хранения данных, высокоскоростного извлечения данных по нечётким критериям, ассоциативным критериям. Распознания и синтеза образов и речи. Системы слежения за всеми аспектами жизни людей и продажи этой информации через API. Эта работа возможна только со знанием математического аппарата и с глубоким знанием платформы, на которой идёт работа. Обилие вывода разработчиков ВУЗами создаст избыточное предложение, излишки которого будут заниматься настройкой шаблонов &laquo;под магазин&raquo;. Они будут мастера этого дела: ведь работа эта  &mdash;  потоковая. И каждый из классов будет, как это принято, иметь зарплатную вилку. Уйти в верхнюю зарплатную вилку помимо всего прочего вам помогут страницы этой книги. Ровно как и создать её этими знаниями.</p>
+<blockquote>
+<p class="big-quote"> Рынок высокопроизводительного программного обеспечения создаётся наличием профессионалов, которые своей работой сами создают спрос на себя.</p>
+</blockquote>
+<p>Подсистему управления памятью мы будем изучать слой за слоем. Начнем от слоя, близкого к пониманию ее работы &laquo;на пальцах&raquo; и закончим  &mdash;  слоем архитектуры на самом низком уровне  &mdash;  процессорном. Ведь чтобы до конца понимать всю проблематику работы с памятью  &mdash;  надо знать все, начиная от процессорных кэшей заканчивая оптимизациями работы c кучами .NET.</p>
+<h2 id="section-2">Основы основ</h2>
+<div class="aside-container"><p>Если взять любое приложение и попробовать грубо разделить его на две части, то получится, что любое приложение состоит фактически из двух самых важных вещей: кода, который исполняется процессором, и данных, которыми этот код оперирует в своей работе. Причем если с кодом все более-менее ясно, то данные можно поделить на несколько больших секций:</p>
+<div class="aside-side-container side-regular-block">
+<p>Самым большим вопросом при формировании линии повествования был вопрос выбора тем: что конкретно включать в книгу? Понятно, что работа с памятью и библиотека, определяющая модель работы в многопоточной среде включены быть должны в полоном (но адекватном) объеме. Однако не только ими формируется платформа.</p>
+<p>Что ещё включать в архитектуру, а что  &mdash;  оставить за бортом как часть BCL? Ведь BCL одними своими частями задаёт тон всему .NET: определяет архитектуру ваших приложений. С другой  &mdash;  являетя библиотекой стандартных классов.</p>
+</div>
+</div>
+<ul>
+<li><strong>Thread stack</strong>  &mdash;  область памяти, которая есть у любого потока и через которую работают все вызовы всех методов, плюс там же организовано хранилище для локальных переменных методов;</li>
+<li><strong>Code Heap</strong>  &mdash;  это область памяти, куда JITter складывает результаты компиляции MSIL;</li>
+<li><strong>Small Objects Heap</strong>  &mdash;  это куча маленьких объектов. Как бы это не звучало, именно так это и называется. По своей сути это  &mdash;  хранилище объектов, размер которых не превышает 85К байт;</li>
+<li><strong>Large Objects Heap</strong>  &mdash;  это куча больших объектов. Сюда попадают объекты, размеры которых превышают 85K байт;</li>
+<li><strong>TypeRefs Heap</strong>  &mdash;  куча Type References  &mdash;  описателей типов .NET  &mdash;  со стороны подсистемы CLR (со стороны .NET типов выступает подсистема Reflection)</li>
+<li><strong>MethodRefs Heap</strong>  &mdash;  куча Methods References  &mdash;  описателей методов .NET  &mdash;  со стороны подсистемы CLR (со стороны .NET типов выступает подсистема Reflection)</li>
+<li>И многие другие</li>
+</ul>
+
+</div>
+</div>
+</body>
+</html>

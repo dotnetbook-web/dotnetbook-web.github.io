@@ -1,0 +1,456 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>.NET Platform Architecture</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <link rel="stylesheet" href="../../../res/bootstrap.css">
+    <style>
+        body {
+    padding: 60px 60px 60px 100px;
+    font-family: PF Regal,Georgia,serif;
+    font-size: 16pt;
+    font-weight: 300;
+}
+
+strong {
+    font-weight: 500;
+}
+
+p, li {
+    margin: 0 0 25px;
+    line-height: 32px;
+    font-family: inherit;
+}
+
+ol, ul {
+    padding-left: 35px;
+    margin-top: 1.1rem;
+    margin-bottom: 1.1rem;
+}
+
+ol li {
+    padding-left: 10px;	
+    font-family: inherit;
+}
+
+ul li {
+    padding-left: 12px;	
+    font-family: inherit;
+}
+
+table {
+    margin: 30px 0;
+    width: 100%;
+}
+
+thead {                         
+    background-color: aliceblue;
+}
+
+table th {
+    font-weight: 400;
+}
+
+table td, table th {
+    padding: 7px;
+    border-top: solid darkgrey 1px;
+    border-bottom: solid darkgrey 1px;
+    border-right: dotted darkgray 1px;
+    border-left: dotted darkgray 1px;
+    font-size: smaller;
+}
+
+code, *[class*='lang-'] span, *[class*='lang-'] pre {
+    font-family: JB Mono, monospace !important;
+}
+
+*[class*='lang-'] {
+    padding: 0px 0px 25px 0px;
+}
+
+
+*[class*='lang-'] > div, pre > code {
+    border-left-color: #eee;
+    border-left-style: dotted;
+    border-left-width: 3px;
+    padding-left: 25px;
+    display: block;
+    background-color: aliceblue !important;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+*[class*='lang-'] > div pre, pre > code pre {
+    margin-bottom: 0;
+}
+
+p code:not(.highlight), li code:not(.highlight) {
+    font-size: 16px;
+    border: gainsboro;
+    border-width: 1px;
+    border-style: solid;
+    padding: 4px;
+    color: darkslateblue;
+}
+
+code.highlight {
+    font-family: inherit !important;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+}
+
+p code.highlight, li code.highlight {
+    padding: 4px;
+    background-color: #ffffa1;
+}
+
+.wide {
+    width:150%;
+}
+
+*[class*='lang-'] span, *[class*='lang-'] pre, pre > code {
+    font-size: 13px;
+    line-height: 20px;
+}
+
+p a, li a {
+    text-decoration: none;
+    color: inherit;
+    box-shadow: inset 0 -1px #b88b59;
+}
+
+blockquote h5 {
+    background-color: aquamarine;
+    margin: 16px 0 16px -20px;
+    padding: 15px 30px 15px;
+}
+
+p img {
+    width: 95%;
+}
+
+blockquote > p.big-quote {
+    margin: 40px 0 60px 0;
+    font-family: Charter;
+    font-size: 55px;
+    line-height: 60px;
+    width: 150%;
+    padding: 0;
+}
+
+blockquote:not( p.big-quote) {
+    background-color: lavenderblush !important;
+    padding-left: 20px !important;
+    border-left: 1px solid rgba(0,0,0,.08) !important;
+}
+
+blockquote p {
+    margin: 16px 0;
+    padding: 12px 12px 13px;
+    font-family: inherit;
+}
+
+blockquote p code {
+    font-family: consolas, monospace;
+    font-size: 17px;
+    background-color: aliceblue;
+    padding: 4px 6px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-family: inherit;
+}
+
+h1 {
+    font-size: 40px;
+    font-family: PF Regal,Georgia,serif;
+    font-weight: 300;
+    margin: 40px 0 20px 0;
+    border-bottom-style: ridge;
+    padding-bottom: 10px;
+}
+
+h1 b {
+    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
+    font-weight: 700;
+    font-size: 37px;
+    line-height: 42px;
+}
+
+h2 {
+    margin-top: 35px;
+    margin-bottom: 10px;
+    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    border-bottom-color: grey;
+    border-bottom-style: solid;
+    padding-bottom: 5px;
+}
+
+h3 {
+    margin: 30px 0 15px 0;
+    font-size: 17pt;
+    font-weight: 500;
+}
+
+h4 {
+    margin: 20px 0 10px 0;
+    font-size: 16pt;
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* Sidenotes */
+
+.aside-container {
+    position: relative;
+}
+.aside-container > p {
+    position: relative;
+    top: 9px;
+}
+
+.aside-container > .aside-side-container {
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 110%;
+    width: 40%;
+    font-size: 12pt;
+    line-height: 20px;
+
+    z-index: 1000;
+}
+
+.side-regular-block {
+    border-radius: 5px;
+    background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
+    padding: 22px;
+}
+
+/* Music side player */
+
+.aside-side-container .music-player {
+    width: 100%;
+    height: 400px;
+}
+
+.aside-side-container.side-media-block h2 {
+    margin-top: -12px;
+}
+
+.aside-side-container > li {
+    display: block;
+    font-family: Charter;
+}
+
+.aside-side-container > li ul, .aside-side-container > li ol {
+    padding-left: 30px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.aside-side-container > li li {
+    padding-left: 6px;
+    margin: 0 0 6px;
+    line-height: 22px;
+
+    font-family: Charter;
+}
+
+.aside-side-container p {
+    line-height: 25px;
+    font-size: 13pt;
+    margin: 0 0 15px 0;
+}
+
+.aside-side-container blockquote {
+    border: aliceblue;
+    border-left-style: solid;
+}
+
+/* Fonts 
+
+/*@font-face {*/
+/*    font-family: 'PF Regal';*/
+/*    src: url('../../../res/fonts/PFRegalTextPro-RegularA.eot');*/
+/*    src: local('../../../res/fonts/PFRegalTextPro-RegularA'),*/
+/*        url('../../../res/fonts/PFRegalTextPro-RegularA.woff2') format('woff2'),*/
+/*        url('../../../res/fonts/PFRegalTextPro-RegularA.woff') format('woff'),*/
+/*        url('../../../res/fonts/PFRegalTextPro-RegularA.ttf') format('truetype');*/
+/*    font-weight: 300;*/
+/*    font-style: normal;*/
+/*}*/
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../../../res/fonts/PFRegalTextPro-Bold.eot');
+    src: local('../../../res/fonts/PFRegalTextPro-Bold'),
+        url('../../../res/fonts/PFRegalTextPro-Bold.woff2') format('woff2'),
+        url('../../../res/fonts/PFRegalTextPro-Bold.woff') format('woff'),
+        url('../../../res/fonts/PFRegalTextPro-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+*/
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../../../res/fonts/PFRegalTextPro-Medium.eot');
+    src: local('../../../res/fonts/PFRegalTextPro-Medium'),
+        url('../../../res/fonts/PFRegalTextPro-Medium.woff2') format('woff2'),
+        url('../../../res/fonts/PFRegalTextPro-Medium.woff') format('woff'),
+        url('../../../res/fonts/PFRegalTextPro-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../../../res/fonts/PFRegalTextPro-BlackItalic.eot');
+    src: local('../../../res/fonts/PFRegalTextPro-BlackItalic'),
+        url('../../../res/fonts/PFRegalTextPro-BlackItalic.woff2') format('woff2'),
+        url('../../../res/fonts/PFRegalTextPro-BlackItalic.woff') format('woff'),
+        url('../../../res/fonts/PFRegalTextPro-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../../../res/fonts/PFRegalTextPro-Black.eot');
+    src: local('../../../res/fonts/PFRegalTextPro-Black'),
+        url('../../../res/fonts/PFRegalTextPro-Black.woff2') format('woff2'),
+        url('../../../res/fonts/PFRegalTextPro-Black.woff') format('woff'),
+        url('../../../res/fonts/PFRegalTextPro-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Regal UBlack';
+    src: url('../../../res/fonts/PFRegalTextPro-UBlack.eot');
+    src: local('../../../res/fonts/PFRegalTextPro-UBlack'),
+        url('../../../res/fonts/PFRegalTextPro-UBlack.woff2') format('woff2'),
+        url('../../../res/fonts/PFRegalTextPro-UBlack.woff') format('woff'),
+        url('../../../res/fonts/PFRegalTextPro-UBlack.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../../../res/fonts/PFRegalTextPro-MediumItalic.eot');
+    src: local('../../../res/fonts/PFRegalTextPro-MediumItalic'),
+        url('../../../res/fonts/PFRegalTextPro-MediumItalic.woff2') format('woff2'),
+        url('../../../res/fonts/PFRegalTextPro-MediumItalic.woff') format('woff'),
+        url('../../../res/fonts/PFRegalTextPro-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../../../res/fonts/PFRegalTextPro-UBlackItalic.eot');
+    src: local('../../../res/fonts/PFRegalTextPro-UBlackItalic'),
+        url('../../../res/fonts/PFRegalTextPro-UBlackItalic.woff2') format('woff2'),
+        url('../../../res/fonts/PFRegalTextPro-UBlackItalic.woff') format('woff'),
+        url('../../../res/fonts/PFRegalTextPro-UBlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../../../res/fonts/PFRegalTextPro-RegularAItalic.eot');
+    src: local('../../../res/fonts/PFRegalTextPro-RegularAItalic'),
+        url('../../../res/fonts/PFRegalTextPro-RegularAItalic.woff2') format('woff2'),
+        url('../../../res/fonts/PFRegalTextPro-RegularAItalic.woff') format('woff'),
+        url('../../../res/fonts/PFRegalTextPro-RegularAItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../../../res/fonts/PFRegalTextPro-BoldItalic.eot');
+    src: local('../../../res/fonts/PFRegalTextPro-BoldItalic'),
+        url('../../../res/fonts/PFRegalTextPro-BoldItalic.woff2') format('woff2'),
+        url('../../../res/fonts/PFRegalTextPro-BoldItalic.woff') format('woff'),
+        url('../../../res/fonts/PFRegalTextPro-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Charter';
+    src: url('../../../res/fonts/charter-regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*  Regular B */
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../../../res/fonts/PFRegalTextPro-RegularBItalic.eot');
+    src: local('../../../res/fonts/PFRegalTextPro-RegularBItalic'),
+        url('../../../res/fonts/PFRegalTextPro-RegularBItalic.woff2') format('woff2'),
+        url('../../../res/fonts/PFRegalTextPro-RegularBItalic.woff') format('woff'),
+        url('../../../res/fonts/PFRegalTextPro-RegularBItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('../../../res/fonts/PFRegalTextPro-RegularB.eot');
+    src: local('../../../res/fonts/PFRegalTextPro-RegularB'),
+        url('../../../res/fonts/PFRegalTextPro-RegularB.woff2') format('woff2'),
+        url('../../../res/fonts/PFRegalTextPro-RegularB.woff') format('woff'),
+        url('../../../res/fonts/PFRegalTextPro-RegularB.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}              
+  
+    </style>
+
+<div class="row">
+<div class="offset-1 col-7">
+    <h1 id="section">Домены приложений</h1>
+<p>Самое время пришло поговорить про домены приложений (AppDomains). Причем если вы скажете, что эта тема достаточно элементарна и понятна чтобы позволить себе пропустить данную главу, то в её защиту скажу что тема эта кажется такой простой по одной причине: её зачем-то обходят стороной, тогда как если вглядеться поглубже, выяснится что она очень интересна и многогранна.</p>
+<p>Начнем мы наше изучение с несколько философского вопроса: зачем вообще вводили домены приложений? Чтобы ответить на этот вопрос необходимо немного окунуться в историю: когда балом правил С++ и технология COM, а программисты только прощупывали почву чтобы изобрести что-то наподобие нашей любимой платформы. Работа приложений в те времена по большей части была построена следующим образом: если некоторое программа позволяет расширять собственный функционал, то оно должно выставить некоторые стандартизированные методы наружу: это либо банальный экспорт методов, либо экспорт объектно-ориентированного API через COM. Однако, поскольку мы в любом случае имеем дело с общей для обоих участников процесса памятью (память линейна для процесса, процессы изолированы друг от друга), то и программа и код, её расширяющий имеют общий доступ к памяти друг друга. Как следствие этого - между ними изоляции нет абсолютно никакой. А потому, правильным образом подшаманив с указателями можно легко и просто прочитать память хоста, находясь в плагине.</p>
+<p>Это вызывает множество проблем с безопасностью: если само приложение можно сделать безопасным с точки зрения проникновения, то расширив его функционал сторонним кодом такая уверенность сходит на нет: теперь вы живете с мыслью, что пользователь в поисках взломанной версии дорогого плагина отправится скачивать его со стороннего ресурса и скачает некий вылеченный от жадности плагин к вашему приложению чтобы запустить его. Конечно же, бесплатный сыр бывает только в мышеловке: установив его и запустив приложение такой пользователь ничего не заметит, но внедрённый авторами сайта, с которого скачан плагин, код начнёт изучать ваш компьютер в поисках наживы. Или просто заснёт до лучших времён, когда такая нажива на вашем компьютере появится.</p>
+<p>Одним из решений подобной проблемы может стать запуск плагинов в отдельных процессах: это будет идеальной изоляцией памяти хоста от его расширений на уровне железа: процессы изолируются операционной системой в паре с процессором. Однако, это накладывает определённые ограничения: скорость заметно снижается на всех этапах взаимодействия. Ведь при вызове методов API вы должны:</p>
+<ul>
+<li>Сериализовать данные (параметры метода)</li>
+<li>Осуществить передачу до получателя через кросспроцессный механизм:
+<ul>
+<li>Например, через сокет</li>
+<li>Или Shared Memory</li>
+</ul>
+</li>
+<li>На другом конце - десериализовать</li>
+<li>Вызвать метод</li>
+<li>Сериализовать ответ</li>
+<li>прокачать его через кросспроцессный механизм</li>
+<li>вернуть тому, кто запросил вызов метода</li>
+</ul>
+<p>Т.е. нам необходимо выполнить <strong>очень</strong> много действий. Однако плата хоть и велика, результат будет прекрасен: при вызове метода гарантируется полная изоляция между хостом и плагинами по памяти. Плюс ко всему поскольку протокол контролируете именно вы, вы контролируете все возможности по переполнению буферов, которые зачастую используются при взломах.</p>
+<p>Теория звучит великолепно, если бы не одно &laquo;но&raquo;: необходимы дополнительные средства автоматизации кодогенерации библиотеки для клиента и хоста по некоторому файлу с описанием интерфейса API. Иначе велик риск человеческого фактора при ручной реализации такой обёртки. Таких средств на горизонте не наблюдалось по одной простой причине: пока мы боремся за изоляцию памяти никто не мешает процессу плагина что-либо записать на жёсткий диск (например, модифицировав некий исполняемый файл, внедрив в него вредоносные инструкции) или же обратиться по сети к какому-либо сайту. Другими словами, создав изоляцию по памяти, мы поставили дверь, вокруг которой нет ни одной стены. Согласитесь, тут мы очень похожи на кошку, которая спряталась за шторой одной только головой. Что делать в такой ситуации? Оборачивать весь WinAPI своими обёртками? Это возможно: чтобы получить доступ к WinAPI вы импортируете dll библиотеки и можете переопределить точки входа в методы, заменив их на свои и возвращать ошибки, когда плагин начнёт работать с файлами, с которыми работать не должен. Звучит практично, безопасно, элегантно. Если бы не одно но: код плагина имеет доступ к собственной памяти, а его программист - умеет пользоваться отладчиком и легко сможет понять, где ему необходимо искать таблицу расположения реальных адресов методов WinAPI.</p>
+<p>Всё это звучит как безнадёга. Однако, в данном разговоре не хватает понимания: что конкретно мы защищаем и от чего (а главное, почему?) мы защищаемся. Защитить мы пытаемся наши данные, которые могут содержать некие пароли, средства доступа к нашим финансам, личным фотоархивам и прочей конфиденциальной информации. Скрывать всегда есть что, однако скрываем мы всегда данные. От чего мы их скрываем? От неких действий. Если нет действий, значит, данные находятся в безопасности. Значит, если обзавестись средством контроля над тем, что делает (какой исполняет код) наш плагин, значит, мы получим средство обеспечения безопасности наших данных не прибегая к созданию сложной системы взаимодействия между процессами. А как достичь полного контроля? Мы же не станем анализировать реальный скомпилированный код: средств обмана анализаторов и прочих антивирусов предостаточно. Идеально - это когда мы сами осуществляем компиляцию приложения - раз. И два - когда исходный для компиляции язык не может содержать подводных камней, позволяющих компилятор обмануть. Этими задачами занимается JIT: он просто не даст скомпилировать что-либо опасное. Второе - необходимо иметь уровни доверия: ведь в конце концов само приложение <em>может</em> иметь средства сборки опасного кода. Запрещать опасные участки необходимо плагинам и прочим средствам расширения: им-то мы не доверяем. И тут мы вплотную подошли к теме нашего разговора: JIT и домены приложений.</p>
+<p>Поскольку наш код и код, которому мы по каким-то причинам не доверяем порождается единым компилятором (JIT), который собирает приложение относительно MSIL, то компилятор этот может быть настроен таким образом, чтобы не собирать код, который будет признан опасным. Имея единственный компилятор мы получаем средство тотального контроля над кодом, который исполняется процессором. Осталось получить абстракцию, в рамках которой будут существовать некие жёсткие правила: это и есть домены приложений.</p>
+<p>Если попытаться обобщить, то домен приложения - это изолированная область исполнения кода. Вы можете настроить любые правила исполнения: от доступа к рефлексии до доступа к жёсткому диску. И поскольку все базовые методы доступа к этим ресурсам находятся во владении BCL и CLR, то сторонний код, загруженный в хорошо настроенную среду не сможет выбраться из такой песочницы.</p>
+<p>Если рассматривать домены в вопросе архитектуры системы, то в понимании иерархии компонентов может сложиться не совсем верная картина мира: что базовым элементом системы типов является сам тип, далее - находятся пространства имён, модули и сборки, которые их объединяют. И венцом иерархии является домен приложения. А на самом деле всё совсем не так. Видимая иерархия является переплетением различных слоёв фреймворка .NET: если типы и пространства имён образуют систему типов и кода (мысленно расположим их по центру), то модули (слева) - средство их объединения в единую группу <strong>в вопросе хранения</strong>. Они не оказывают никакого влияния с точки зрения смыслового объединения. Сборка при этом - также средство хранения и объединяет модули в единый файл. Домен же занимает совершенно обособленную позицию: справа. Ведь это ни средство хранения ни средство логического разделения: это средство исполнения кода, в него загруженного.</p>
+
+</div>
+</div>
+</body>
+</html>
