@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../../res/bootstrap.css">
     <style>
         body {
-    padding: 60px 60px 60px 100px;
     font-family: PF Regal,Georgia,serif;
     font-size: 16pt;
     font-weight: 300;
@@ -124,6 +123,12 @@ p a, li a {
     box-shadow: inset 0 -1px #b88b59;
 }
 
+p a:hover, li a:hover {
+    text-decoration: none;
+    color: inherit;
+    box-shadow: inset 0 -1px #0056b3;
+}
+
 blockquote h5 {
     background-color: aquamarine;
     margin: 16px 0 16px -20px;
@@ -134,19 +139,25 @@ p img {
     width: 95%;
 }
 
-blockquote > p.big-quote {
-    margin: 40px 0 60px 0;
-    font-family: Charter;
-    font-size: 55px;
-    line-height: 60px;
-    width: 150%;
-    padding: 0;
+blockquote 
+{
+    background-color: lavenderblush;
+    padding-left: 20px;
+    border-left: 1px solid rgba(0,0,0,.08);
 }
 
-blockquote:not( p.big-quote) {
-    background-color: lavenderblush !important;
-    padding-left: 20px !important;
-    border-left: 1px solid rgba(0,0,0,.08) !important;
+blockquote.big-quote, 
+blockquote.breadcrumbs 
+{
+    background-color: transparent;
+    padding: 0;
+    border-left: none;
+}
+
+blockquote.breadcrumbs, blockquote.breadcrumbs  p
+{
+    margin: 0;
+    padding: 0;
 }
 
 blockquote p {
@@ -160,6 +171,14 @@ blockquote p code {
     font-size: 17px;
     background-color: aliceblue;
     padding: 4px 6px;
+}
+
+blockquote.big-quote > p {
+    margin: 40px 0 60px 0;
+    font-family: Charter;
+    font-size: 55px;
+    line-height: 60px;
+    width: 150%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -276,6 +295,106 @@ h4 {
 .aside-side-container blockquote {
     border: aliceblue;
     border-left-style: solid;
+}
+
+/* .book-container
+{
+    ;
+} */
+
+.article-container
+{
+    width: 65%;
+}
+
+/* MEDIA */
+/* XL */
+@media (min-width: 1200px) {
+    .book-container
+    {
+        max-width: 1200px;
+        margin-left: 100px;
+        margin-right: 50px;
+    }
+}
+
+/* LG */
+@media (max-width: 1200px) {
+    .book-container
+    {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    blockquote.big-quote > p {
+        width: 130%;
+        font-size: 30pt;
+        line-height: 45px;
+        margin: 0;
+        padding: 4px 0 30px 0;
+    }
+}
+
+/* MD */
+
+@media (max-width: 991px) {
+    .book-container {
+        margin: 0 100px;
+    }
+    .article-container {
+        width: 100%;
+    }
+    .aside-container > .aside-side-container
+    {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: auto;
+        height: auto;
+    }
+    .side-regular-block {
+        margin: 40px 10px;
+    }
+    .aside-side-container .music-player {
+        width: 100%;
+        height: 100px;
+    }
+    .aside-side-container.side-media-block h2 {
+        margin-top: 20px;
+        font-size: 13pt;
+        border: none;
+    }
+
+    blockquote.big-quote > p {
+        width: 100%;
+        font-size: 30pt;
+        line-height: 40px;
+        margin: 0;
+        padding: 4px 0 30px 0;
+    }
+}
+
+/* Smartphone horizontal - SM */
+@media (max-width: 767px) {
+    .book-container {
+        margin: 0 50px;
+    }
+    ul {
+        margin-left: 30px;
+        margin-right: 30px;
+        padding-left: 25px;
+    }
+}
+
+/* Smartphone - XS */
+@media (max-width: 575px) {
+    .book-container {
+        margin: 0 30px;
+    }
+    ul {
+        margin: 0;
+        padding-left: 20px;
+    }
 }
 
 /* Fonts 
@@ -422,9 +541,17 @@ h4 {
   
     </style>
 
-<div class="row">
-<div class="offset-1 col-7">
-    <h1 id="section">Основы управления памятью</h1>
+<div class="book-container">
+<div class="article-container">
+    <!--<p class="d-xs-block d-sm-none">XS</p>
+    <p class="d-none d-xs-block d-sm-none">SM</p>
+    <p class="d-none d-sm-block d-md-none">MD</p>
+    <p class="d-none d-lg-block d-xl-none">LG</p>
+    <p class="d-none d-xl-block">XL</p> -->
+    <blockquote class="breadcrumbs">
+<p> <a href="../readme.html">Содержание</a></p>
+</blockquote>
+<h1 id="section">Основы управления памятью</h1>
 <h2 id="section-1">Введение</h2>
 <p>Когда вы думаете о разработке любого .NET приложения до недавних пор можно было себе позволить считать, что приложение, которое вы делаете, будет всегда работать на одной и той же платформе: это операционная система Windows, запущенная поверх технологического стека Intel. Сейчас же с каждым прожитым днем мы входим в новую эпоху: платформа .NET стала поистине кроссплатформенной, пустив новые корни в сторону всех доступных настольных операционных систем. Это  &mdash;  прекрасное время и наш долг сейчас не потерять нить и остаться востребованными специалистами. Ведь когда toolset становится кроссплатформенным, это означает что мы обязаны начать смотреть внутрь. Изучать, как работает двигатель нашей платформы. Чтобы понимать, почему тот ведет себя, так или иначе, на различных системах.</p>
 <div class="aside-container"><p>Вторая мысль, которую мне хотелось бы передать через страницы данной книги: даже если ваши сервера будут сверхпроизводительными. Даже если они будут настолько быстрыми, что будет казаться, что оптимизации  &mdash;  последнее дело, о котором стоит думать&hellip; Вы всё равно начнёте оптимизировать код. Вспомните: когда-то всем известный системный программист Билл Гейтс сказал, что 640 Кб памяти должно хватить любому. И на тот момент это было правдой. И на тот момент если скажи любому, что через каких-то 20 лет один компьютер сможет заменить несколько тысяч серверов того времени, вам бы сказали: в ваше время производительность настолько высокая, что над оптимизацией наверняка не стоит даже задумываться. Но что мы видим? Всё большее количество людей уходит в онлайн. Всё большее количество людей начинает пользоваться смартфонами и как следствие  &mdash;  онлайн торговлей. А этим системам чтобы выдерживать всё нарастающие нагрузки хочется сэкономить: арендовывать меньшее количество серверов при всё нарастающей нагрузке. И поверьте: эпоха сети Интернет только взяла старт: в прошлое уйдёт население, не принимающее современных технологий, а на смену ему придёт поколение, не знающее другого пути. И даже если серверные системы будущего будут выдерживать нагрузки в 1,000 раз большие.. Конечно же сайты &laquo;попроще&raquo; могут быть написаны как угодно плохо&hellip; Но если ваша цель  &mdash;  работать в компаниях топового уровня, оптимизацией вы будете заниматься всегда.</p>
@@ -433,8 +560,8 @@ h4 {
 </div>
 </div>
 <p>Программисты, на мой взгляд, разделятся если можно так выразиться на классы: это деление уже в некотором смысле началось. Однако сегментация будет более выраженной: на мой взгляд сливки будут снимать люди с хорошим математическим аппаратом. Эти люди будут решать вопросы разработки систем ИИ, нейросетей, потокового шифрования и передачи больших объёмов траффика. Вопросы кратко- и долгосрочного хранения данных, высокоскоростного извлечения данных по нечётким критериям, ассоциативным критериям. Распознания и синтеза образов и речи. Системы слежения за всеми аспектами жизни людей и продажи этой информации через API. Эта работа возможна только со знанием математического аппарата и с глубоким знанием платформы, на которой идёт работа. Обилие вывода разработчиков ВУЗами создаст избыточное предложение, излишки которого будут заниматься настройкой шаблонов &laquo;под магазин&raquo;. Они будут мастера этого дела: ведь работа эта  &mdash;  потоковая. И каждый из классов будет, как это принято, иметь зарплатную вилку. Уйти в верхнюю зарплатную вилку помимо всего прочего вам помогут страницы этой книги. Ровно как и создать её этими знаниями.</p>
-<blockquote>
-<p class="big-quote"> Рынок высокопроизводительного программного обеспечения создаётся наличием профессионалов, которые своей работой сами создают спрос на себя.</p>
+<blockquote class="big-quote">
+<p> Рынок высокопроизводительного программного обеспечения создаётся наличием профессионалов, которые своей работой сами создают спрос на себя.</p>
 </blockquote>
 <p>Подсистему управления памятью мы будем изучать слой за слоем. Начнем от слоя, близкого к пониманию ее работы &laquo;на пальцах&raquo; и закончим  &mdash;  слоем архитектуры на самом низком уровне  &mdash;  процессорном. Ведь чтобы до конца понимать всю проблематику работы с памятью  &mdash;  надо знать все, начиная от процессорных кэшей заканчивая оптимизациями работы c кучами .NET.</p>
 <h2 id="section-2">Основы основ</h2>

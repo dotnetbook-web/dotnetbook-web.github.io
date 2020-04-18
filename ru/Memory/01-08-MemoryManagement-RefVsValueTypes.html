@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../../res/bootstrap.css">
     <style>
         body {
-    padding: 60px 60px 60px 100px;
     font-family: PF Regal,Georgia,serif;
     font-size: 16pt;
     font-weight: 300;
@@ -124,6 +123,12 @@ p a, li a {
     box-shadow: inset 0 -1px #b88b59;
 }
 
+p a:hover, li a:hover {
+    text-decoration: none;
+    color: inherit;
+    box-shadow: inset 0 -1px #0056b3;
+}
+
 blockquote h5 {
     background-color: aquamarine;
     margin: 16px 0 16px -20px;
@@ -134,19 +139,25 @@ p img {
     width: 95%;
 }
 
-blockquote > p.big-quote {
-    margin: 40px 0 60px 0;
-    font-family: Charter;
-    font-size: 55px;
-    line-height: 60px;
-    width: 150%;
-    padding: 0;
+blockquote 
+{
+    background-color: lavenderblush;
+    padding-left: 20px;
+    border-left: 1px solid rgba(0,0,0,.08);
 }
 
-blockquote:not( p.big-quote) {
-    background-color: lavenderblush !important;
-    padding-left: 20px !important;
-    border-left: 1px solid rgba(0,0,0,.08) !important;
+blockquote.big-quote, 
+blockquote.breadcrumbs 
+{
+    background-color: transparent;
+    padding: 0;
+    border-left: none;
+}
+
+blockquote.breadcrumbs, blockquote.breadcrumbs  p
+{
+    margin: 0;
+    padding: 0;
 }
 
 blockquote p {
@@ -160,6 +171,14 @@ blockquote p code {
     font-size: 17px;
     background-color: aliceblue;
     padding: 4px 6px;
+}
+
+blockquote.big-quote > p {
+    margin: 40px 0 60px 0;
+    font-family: Charter;
+    font-size: 55px;
+    line-height: 60px;
+    width: 150%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -276,6 +295,106 @@ h4 {
 .aside-side-container blockquote {
     border: aliceblue;
     border-left-style: solid;
+}
+
+/* .book-container
+{
+    ;
+} */
+
+.article-container
+{
+    width: 65%;
+}
+
+/* MEDIA */
+/* XL */
+@media (min-width: 1200px) {
+    .book-container
+    {
+        max-width: 1200px;
+        margin-left: 100px;
+        margin-right: 50px;
+    }
+}
+
+/* LG */
+@media (max-width: 1200px) {
+    .book-container
+    {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    blockquote.big-quote > p {
+        width: 130%;
+        font-size: 30pt;
+        line-height: 45px;
+        margin: 0;
+        padding: 4px 0 30px 0;
+    }
+}
+
+/* MD */
+
+@media (max-width: 991px) {
+    .book-container {
+        margin: 0 100px;
+    }
+    .article-container {
+        width: 100%;
+    }
+    .aside-container > .aside-side-container
+    {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: auto;
+        height: auto;
+    }
+    .side-regular-block {
+        margin: 40px 10px;
+    }
+    .aside-side-container .music-player {
+        width: 100%;
+        height: 100px;
+    }
+    .aside-side-container.side-media-block h2 {
+        margin-top: 20px;
+        font-size: 13pt;
+        border: none;
+    }
+
+    blockquote.big-quote > p {
+        width: 100%;
+        font-size: 30pt;
+        line-height: 40px;
+        margin: 0;
+        padding: 4px 0 30px 0;
+    }
+}
+
+/* Smartphone horizontal - SM */
+@media (max-width: 767px) {
+    .book-container {
+        margin: 0 50px;
+    }
+    ul {
+        margin-left: 30px;
+        margin-right: 30px;
+        padding-left: 25px;
+    }
+}
+
+/* Smartphone - XS */
+@media (max-width: 575px) {
+    .book-container {
+        margin: 0 30px;
+    }
+    ul {
+        margin: 0;
+        padding-left: 20px;
+    }
 }
 
 /* Fonts 
@@ -422,9 +541,17 @@ h4 {
   
     </style>
 
-<div class="row">
-<div class="offset-1 col-7">
-    <h1 id="section">Ссылочные и значимые типы данных</h1>
+<div class="book-container">
+<div class="article-container">
+    <!--<p class="d-xs-block d-sm-none">XS</p>
+    <p class="d-none d-xs-block d-sm-none">SM</p>
+    <p class="d-none d-sm-block d-md-none">MD</p>
+    <p class="d-none d-lg-block d-xl-none">LG</p>
+    <p class="d-none d-xl-block">XL</p> -->
+    <blockquote class="breadcrumbs">
+<p> <a href="../readme.html">Содержание</a> / <a href="./01-00-MemoryManagement-Intro.html">Основы управления памятью</a></p>
+</blockquote>
+<h1 id="section">Ссылочные и значимые типы данных</h1>
 <p>Теперь, когда мы укрепили свои знания основ в управлении памятью в .NET, давайте поговорим про Reference Types и Value Types. И если говорить про разницу между ними и про полезность каждого из типов, то первое, о чем я бы упомянул - так это о своих мыслях об их названии. На мой скромный взгляд, если бы в русскоязычном сегменте их назвали ссылочные и значимые типы вместо проговаривания Value Types и Reference Types, то с пониманием разницы между ними все бы встало на свои места.</p>
 <blockquote>
 <p>Очень часто при вопросе что такое ссылочные и значимые типы, люди отвечают, что ссылочные живут в куче, а значимые - в стеке. И это в корне неправильно. Это настолько маленькая часть правды, что правдой не может считаться в принципе</p>
@@ -437,8 +564,8 @@ h4 {
 <li>Но, чтобы выделить ссылочный тип, надо аллоцировать место в куче. Значимый тип <em>может</em> работать на стеке, не уходя в кучу, а может стать частью ссылочного типа. Это свойство может значительно повысить производительность для некоторых алгоритмов;</li>
 </ul>
 <p>Однако, есть и общие черты.</p>
-<blockquote>
-<p class="big-quote">  Оба подкласса наследуют тип object, а значит - могут выступать как его представители - на полных правах</p>
+<blockquote class="big-quote">
+<p>  Оба подкласса наследуют тип object, а значит - могут выступать как его представители - на полных правах</p>
 </blockquote>
 <p>Рассмотрим каждую особенность в отдельности.</p>
 <h2 id="section-1">Копирование</h2>
@@ -593,8 +720,8 @@ PersonInfo person;
 <li>Структуры в принципе нельзя наследовать друг от друга. Единственный способ сделать эмуляцию наследования - расположить структуру базового типа первым полем. Тогда по смещениям они будут совпадать, поля &laquo;унаследованной&raquo; структуры будут располагаться после полей &laquo;базовой&raquo;, и логически вы сделаете наследование;</li>
 <li>Структуры в отличии от классов можно передавать в unmanaged код. Я имею ввиду именно значение. Информация о методах, естественно, будет утеряна. Ведь структура - это просто отрезок памяти, заполненный данными без информации о типе. А это значит, что её можно без изменений отдавать в unmanaged методы, написанные, например, на C++.</li>
 </ol>
-<blockquote>
-<p class="big-quote">   Отсутствие таблицы виртуальных методов хоть и отнимает у структур часть &laquo;магии&raquo;, которую вносит понятие наследования, но и наделяет рядом преимуществ.</p>
+<blockquote class="big-quote">
+<p>   Отсутствие таблицы виртуальных методов хоть и отнимает у структур часть &laquo;магии&raquo;, которую вносит понятие наследования, но и наделяет рядом преимуществ.</p>
 </blockquote>
 <p>Первое и самое главное уже было оговорено: мы можем легко и просто отдать во внешний мир (за пределы .NET Framework) экземпляр такой структуры. Это ведь просто участок памяти! Либо мы можем принять из unmanaged кода некий участок памяти и сделать приведение типа к нашей структуре, чтобы сделать более удобный доступ к её полям. С классами такое поведение не пройдёт: у классов существует два поля, которые никому не доступны: это SyncBlockIndex и адрес таблицы виртуальных методов. Если эти два поля уйдут в unmanaged код, это станет очень опасным. Ведь с любой таблицей виртуальных методов можно умеючи достучаться до любого типа и поменять его, осуществив атаку на приложение.</p>
 <p>Давайте докажем, что это просто участок памяти без какой-либо дополнительной логики:</p>
