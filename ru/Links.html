@@ -13,6 +13,7 @@
     font-family: PF Regal,Georgia,serif;
     font-size: 16pt;
     font-weight: 300;
+    padding-top: 60px;
 }
 
 strong {
@@ -310,7 +311,7 @@ h4 {
     display: block;
     position: absolute;
     top: 17px;
-    font-size: 11pt;
+    font-size: 10pt;
     line-height: 20px;
     color: #86abc4;
     z-index: 1000;
@@ -435,8 +436,12 @@ h4 {
         margin-right: 30px;
         padding-left: 25px;
     }
+    .paragraph-container > .paragraph-left-side {
+        top: 15px;
+    }
     .paragraph-container > .paragraph-right-side {
         padding-left: 20px;
+        top: 15px;
     }
 }
 
@@ -459,11 +464,12 @@ h4 {
     }    
     .paragraph-container .paragraph-left-side {
         display: none;
+        top: 14px;
     }
     .paragraph-container .paragraph-right-side {
         padding-left: 10px;
+        top: 14px;
     }
-
 }
 
 /* Fonts 
@@ -606,8 +612,49 @@ h4 {
         url('../res/fonts/PFRegalTextPro-RegularB.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
-}              
-  
+}
+
+@font-face {
+    font-family: 'JB Mono';
+    src: url('../res/fonts/JetBrainsMono-Regular.eot');
+    src: local('../res/fonts/JetBrainsMono-Regular'),
+        url('../res/fonts/JetBrainsMono-Regular.woff2') format('woff2'),
+        url('../res/fonts/JetBrainsMono-Regular.woff') format('woff'),
+        url('../res/fonts/JetBrainsMono-Regular.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'JB Mono';
+    src: url('../res/fonts/JetBrainsMono-Italic.eot');
+    src: local('../res/fonts/JetBrainsMono-Italic'),
+        url('../res/fonts/JetBrainsMono-Italic.woff2') format('woff2'),
+        url('../res/fonts/JetBrainsMono-Italic.woff') format('woff'),
+        url('../res/fonts/JetBrainsMono-Italic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'JB Mono';
+    src: url('../res/fonts/JetBrainsMono-Medium.eot');
+    src: local('../res/fonts/JetBrainsMono-Medium'),
+        url('../res/fonts/JetBrainsMono-Medium.woff2') format('woff2'),
+        url('../res/fonts/JetBrainsMono-Medium.woff') format('woff'),
+        url('../res/fonts/JetBrainsMono-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'JB Mono';
+    src: url('../res/fonts/JetBrainsMono-Medium-Italic.eot');
+    src: local('../res/fonts/JetBrainsMono-Medium-Italic'),
+        url('../res/fonts/JetBrainsMono-Medium-Italic.woff2') format('woff2'),
+        url('../res/fonts/JetBrainsMono-Medium-Italic.woff') format('woff'),
+        url('../res/fonts/JetBrainsMono-Medium-Italic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}  
     </style>
 
 <div class="book-container">
