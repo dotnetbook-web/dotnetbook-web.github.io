@@ -234,7 +234,7 @@ h4 {
 .aside-container {
     position: relative;
 }
-.aside-container > p {
+.aside-container p {
     position: relative;
     top: 9px;
 }
@@ -243,11 +243,11 @@ h4 {
     display: block;
     position: absolute;
     top: 12px;
-    left: 110%;
+    left: 100%;
     width: 40%;
     font-size: 12pt;
     line-height: 20px;
-
+    margin-left: 100px;
     z-index: 1000;
 }
 
@@ -297,6 +297,35 @@ h4 {
     border-left-style: solid;
 }
 
+/* Paragraphs numbering */
+.paragraph-container {
+    position: relative;
+}
+.paragraph-container p {
+    position: relative;
+    top: 9px;
+}
+.paragraph-container > .paragraph-left-side, .paragraph-container > .paragraph-right-side  {
+    font-family: JB Mono, consolas;
+    display: block;
+    position: absolute;
+    top: 17px;
+    font-size: 11pt;
+    line-height: 20px;
+    color: #86abc4;
+    z-index: 1000;
+}
+.paragraph-container > .paragraph-left-side {
+    left: -55px;
+    width: 35px;
+}
+
+.paragraph-container > .paragraph-right-side  {
+    left: 100%;
+    width: 35px;
+    padding-left: 45px;
+}
+
 /* .book-container
 {
     ;
@@ -333,10 +362,13 @@ h4 {
         margin: 0;
         padding: 4px 0 30px 0;
     }
+
+    .paragraph-container .paragraph-left-side {
+        left: -32px;
+    }
 }
 
 /* MD */
-
 @media (max-width: 991px) {
     .book-container {
         margin: 0 100px;
@@ -351,13 +383,24 @@ h4 {
         left: auto;
         width: auto;
         height: auto;
+        margin: 0;
+        padding: 17px;
     }
+
+    .aside-container p {
+        top: 0;
+    }
+
     .side-regular-block {
         margin: 40px 10px;
+        padding-left: 100px;
     }
     .aside-side-container .music-player {
         width: 100%;
         height: 100px;
+    }
+    .aside-side-container.side-media-block {
+        padding: 17px 0;
     }
     .aside-side-container.side-media-block h2 {
         margin-top: 20px;
@@ -392,12 +435,15 @@ h4 {
         margin-right: 30px;
         padding-left: 25px;
     }
+    .paragraph-container > .paragraph-right-side {
+        padding-left: 20px;
+    }
 }
 
 /* Smartphone - XS */
 @media (max-width: 575px) {
     .book-container {
-        margin: 0 30px;
+        margin: 0 50px 0 30px;
     }
     ul {
         margin: 0;
@@ -411,6 +457,13 @@ h4 {
     p, li {
         line-height: 28px;
     }    
+    .paragraph-container .paragraph-left-side {
+        display: none;
+    }
+    .paragraph-container .paragraph-right-side {
+        padding-left: 10px;
+    }
+
 }
 
 /* Fonts 
@@ -436,7 +489,7 @@ h4 {
     font-weight: bold;
     font-style: normal;
 }
-*/
+
 @font-face {
     font-family: 'PF Regal';
     src: url('../../../res/fonts/PFRegalTextPro-Medium.eot');
@@ -565,8 +618,16 @@ h4 {
     <p class="d-none d-lg-block d-xl-none">LG</p>
     <p class="d-none d-xl-block">XL</p> -->
     <h2 id="section">Архитектура изоляции</h2>
+<div class="paragraph-container">
+<div class="paragraph-left-side">01</div>
 <p>Как я уже говорил, нам нет никакой необходимости делать изоляцию по памяти: т.к. контроль над исполнением кода (путём его самостоятельной компиляции) даёт домену все возможности для контроля всего приложения. Но как это достигается? Домен - это некий изолирующий контейнер. Потому, если мы имеем дело с загружаемыми библиотеками, было бы логично если бы эти библиотеки загружались бы не в общее для всех место, а в эту песочницу.</p>
+<div class="paragraph-right-side">01</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">02</div>
 <p>Давайте рассмотрим пример с загрузкой экземпляра типа в два домена. Тогда при таком раскладе мы имеем один и тот же тип:</p>
+<div class="paragraph-right-side">02</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">class</span> SomeType
 {
@@ -574,7 +635,11 @@ h4 {
 }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">03</div>
 <p>Который мы загрузим в оба домена, при этом мы получим дважды скомпилированный код. Что это будет означать? Что у экземпляров этих типов адрес таблицы виртуальных методов совпадать не будет:</p>
+<div class="paragraph-right-side">03</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Green;">// В первом домене:</span>
 <span style="color:Blue;">var</span> x = <span style="color:Blue;">new</span> SomeType();
@@ -589,7 +654,11 @@ Console.WriteLine(handle1 == handle2);
 <span style="color:Green;">// --&gt; false</span>
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">04</div>
 <p>Это значит что если мы получим каким-либо образом из второго домена ссылку на объект и в первом домене попробуем привести к типу <code>SomeHandle</code>, то ничего не получится: типы не совпадут. Ведь из-за того что таблицы виртуальных методов разные, то и типы будут считаться разными и не совместимыми. Получается, что загрузив код в разные домены вместо загрузки в некое междоменное пространство <code>CLR</code> строит первый барьер защиты. Второй барьер защиты: нам необходимо организовать взаимодействие между доменами: быть полностью изолированными - так себе возможности и хочется иметь не полную изоляцию, а контролируемое взаимодействие. Интереснее получать данные из плагина для неких расчётов или действий и получать результаты работы - назад. Это можно организовать при помощи системных (организованных JITом)прокси-методов, которые будут переносить данные между двумя несовместимыми типами (а по сут - одним и тем же типом, загруженным в разные домены). Посмотрим на пример такого вызова с использованием псевдокода:</p>
+<div class="paragraph-right-side">04</div>
+</div>
 <pre><code>TODO: изображение, поясняющее процесс взаимодействия между доменами
 </code></pre>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -633,15 +702,35 @@ Console.WriteLine(handle1 == handle2);
 }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">05</div>
 <p>Хорошо: теперь мы знаем обо всех вызовах, которые происходят в системе. Однако, это накладывает огромные расходы: нам ведь каждый раз необходимо понимать, что мы вызываем метод именно в другом домене, а не в текущем. А таких вызовов будет большинство: междоменного взаимодействия очень мало. Значит, чтобы такие расходы ложились бы только на необходимо ввести некий специальный тип, при наследовании от которого CLR поймёт, что он будет участвовать в междоменном взаимодействии и создаст прокси-методы только для него. Тип этот - <code>MarshalByRefObject</code> и это решение также создаст ещё один барьер безопастности: вы не можете вызывать методы, скомпилированные для других доменов напрямую: только для <code>MarshalByRefObject</code> типов.</p>
+<div class="paragraph-right-side">05</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">06</div>
 <p>Что мы имеем на данный момент? Во-первых, если наш код загружен в два и более доменов, то скомпилирован он будет соответствующее число раз, а значит с точки зрения типов один и тот же тип, скомпилированных для нескольких доменов - это несколько разных типов. Далее, вводятся проверки для вызовов методов из одного домена в другой. Можно назвать это словом &laquo;таможня&raquo;. При пересечении границы всё, что проходит через такую вот таможню должно досматриваться: этим действием контролируется, что все ограничения соблюдены. Ну и чтобы CLR понимала, какие типы могут участвовать во взаимодействии между доменами проходить границу могут не все типы, а только те, которые унаследовали <code>MarshalByRefObject</code>. Достаточно ли этого? Наверное, нет: мы отдаём в метод, скомпилированный для другого домена некую ссылку на свой объект, тот его принимает, но в другом домене работать с таким доменом нет никакой возможности: его система типов отлична и приведение типов работать не будет. Как тогда организовать взаимодействие?</p>
+<div class="paragraph-right-side">06</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">07</div>
 <p>Решения для такой проблематики два. Перовое решение - необходимо сделать так, чтобы передаваемые данные полностью бы отражали содержание объекта, но при этом не были бы самим объектом - раз. И при этом были бы достаточно простыми чтобы не представлять опасности - два. Такими данными яввяются сериализованные данные:</p>
+<div class="paragraph-right-side">07</div>
+</div>
 <ul>
 <li>При сериализации CLR превращает данные в некий формат. Т.е. мы не можем передать ссылку на объект, обладающий <em>повышенными</em> привилегиями в код, обладающий более низкими привилегиями;</li>
 <li>При десериализации мы можем сформировать объекты только из того что было передано через сериализованный объект. Ничего опасного мы оттуда получить не сможем именно благодаря процессу сериализации.</li>
 </ul>
+<div class="paragraph-container">
+<div class="paragraph-left-side">08</div>
 <p>Второе решение - организовать средство повышенного доверия к передаваемым между доменами данным. Такого доверия, что можно не волнуясь отдавать без всякой сериализации и десериализации ссылки на объекты в соседний домен и не волноваться, что это как-то повлияет на безопасность. Чтобы решить эту задачу, был разработан FullTrust, который может быть применён к отдельным сборкам домена.</p>
+<div class="paragraph-right-side">08</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">09</div>
 <p>Касательно Shared AppDomains мы поговорим немного позже: слово за слово мне придётся написать о многих вопросах. А потому эта тема поставлена на временную паузу. Сейчас же попробуем обосновать, создали ли мы идеальную песочницу:</p>
+<div class="paragraph-right-side">09</div>
+</div>
 <ul>
 <li>Итак, для начала мы рассмотрели понятие домена как места, создающего изоляцию в вопросах исполнения кода. Внешние библиотеки загружаются отдельно в каждый их доменов и нет возможности кода одного домена работать с кодом другого нарямую, т.к. указатели на таблицы виртуальных методов (VMT) будут разными;</li>
 <li>Из-за этого возникает в некоторой степени изоляция по памяти: код <code>домена 1</code> не сможет работать с объектами, созданными в рамках <code>домена 2</code> по ранее указанной причине;</li>

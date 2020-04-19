@@ -234,7 +234,7 @@ h4 {
 .aside-container {
     position: relative;
 }
-.aside-container > p {
+.aside-container p {
     position: relative;
     top: 9px;
 }
@@ -243,11 +243,11 @@ h4 {
     display: block;
     position: absolute;
     top: 12px;
-    left: 110%;
+    left: 100%;
     width: 40%;
     font-size: 12pt;
     line-height: 20px;
-
+    margin-left: 100px;
     z-index: 1000;
 }
 
@@ -297,6 +297,35 @@ h4 {
     border-left-style: solid;
 }
 
+/* Paragraphs numbering */
+.paragraph-container {
+    position: relative;
+}
+.paragraph-container p {
+    position: relative;
+    top: 9px;
+}
+.paragraph-container > .paragraph-left-side, .paragraph-container > .paragraph-right-side  {
+    font-family: JB Mono, consolas;
+    display: block;
+    position: absolute;
+    top: 17px;
+    font-size: 11pt;
+    line-height: 20px;
+    color: #86abc4;
+    z-index: 1000;
+}
+.paragraph-container > .paragraph-left-side {
+    left: -55px;
+    width: 35px;
+}
+
+.paragraph-container > .paragraph-right-side  {
+    left: 100%;
+    width: 35px;
+    padding-left: 45px;
+}
+
 /* .book-container
 {
     ;
@@ -333,10 +362,13 @@ h4 {
         margin: 0;
         padding: 4px 0 30px 0;
     }
+
+    .paragraph-container .paragraph-left-side {
+        left: -32px;
+    }
 }
 
 /* MD */
-
 @media (max-width: 991px) {
     .book-container {
         margin: 0 100px;
@@ -351,13 +383,24 @@ h4 {
         left: auto;
         width: auto;
         height: auto;
+        margin: 0;
+        padding: 17px;
     }
+
+    .aside-container p {
+        top: 0;
+    }
+
     .side-regular-block {
         margin: 40px 10px;
+        padding-left: 100px;
     }
     .aside-side-container .music-player {
         width: 100%;
         height: 100px;
+    }
+    .aside-side-container.side-media-block {
+        padding: 17px 0;
     }
     .aside-side-container.side-media-block h2 {
         margin-top: 20px;
@@ -392,12 +435,15 @@ h4 {
         margin-right: 30px;
         padding-left: 25px;
     }
+    .paragraph-container > .paragraph-right-side {
+        padding-left: 20px;
+    }
 }
 
 /* Smartphone - XS */
 @media (max-width: 575px) {
     .book-container {
-        margin: 0 30px;
+        margin: 0 50px 0 30px;
     }
     ul {
         margin: 0;
@@ -411,6 +457,13 @@ h4 {
     p, li {
         line-height: 28px;
     }    
+    .paragraph-container .paragraph-left-side {
+        display: none;
+    }
+    .paragraph-container .paragraph-right-side {
+        padding-left: 10px;
+    }
+
 }
 
 /* Fonts 
@@ -436,7 +489,7 @@ h4 {
     font-weight: bold;
     font-style: normal;
 }
-*/
+
 @font-face {
     font-family: 'PF Regal';
     src: url('../../res/fonts/PFRegalTextPro-Medium.eot');
@@ -568,7 +621,11 @@ h4 {
 <p> <a href="../readme.html">Содержание</a> / <a href="./01-00-MemoryManagement-Intro.html">Основы управления памятью</a></p>
 </blockquote>
 <h2 id="lifetime">Шаблон Lifetime</h2>
+<div class="paragraph-container">
+<div class="paragraph-left-side">01</div>
 <p>После того как мы так подробно рассмотрели шаблон освобождения ресурсов под названием IDisposable, мы сформулировали ряд проблемных зон этого шаблона, которые усложняют его использование. Чтобы решить эти проблемы, мы должны разработать некие противодействия, которые приведут нас к абсолютно новому и мощному инструменту. Итак, если представить что мы хотим изменить шаблон IDisposable или заменить чем-то другим, избавив при этом его от присущих ему недостатков, то что мы должны сделать? Давайте возьмем группу минусов из предыдущей главы и попробуем где это вообще возможно переделать поведение так, чтобы получить плюсы:</p>
+<div class="paragraph-right-side">01</div>
+</div>
 <ol>
 <li>Чтобы избежать не явности объявления разрушаемости объекта, мы должны ввести новый способ уведомления о том, что класс разрушаем. Причем необходимо сделать это так, чтобы пользователь экземпляра не смог бы обойти этот механизм стороной. А какой код экземпляра типа отрабатывает в любом случае? Только конструктор. Получается, конструктор должен обладать такими свойствами, которые подскажут вызвавшему его коду что экземпляр разрушаем. И механизмов тут может быть целых два: либо имя класса должно содержать ключевое слово (например, по аналогии с <code>Async</code>, слово <code>Disposable</code>) либо должен быть некий параметр, который необходимо передать конструктору;</li>
 <li>Проблема необходимости тянуть за собой некий интерфейс чтобы разрушить сущность может быть решена выносом контроля за временем жизни сущности из самой сущности. По сути, реализацией inversion of control процесса разрушения объекта в некий сторонний механизм;</li>
@@ -577,8 +634,16 @@ h4 {
 <li>Проблематика разделения выделения ресурсов и их освобождения по разным методам может быть решена регистрацией ресурсов в некотором контейнере, освобождение которого будет происходить автоматически;</li>
 <li>Если говорить о сложности разрушения графа объектов, разделенных на некие слои, которые разрушаются сами по себе (например, может быть необходимо чтобы был разрушен какой-то один слой графа, а остальные должны корректно существовать дальше), отписываясь от изменений в соседних слоях, то тут можно явно выделить одну общую особенность: о чём бы ни шла речь, логически мы говорим о неких группах объектов, время жизни которых зависит друг от друга. Т.е. введя понятие зависимости времени жизни одной сущности от времени жизни другой сущности мы решим проблему очистки конкретной группы объектов не затрагивая другую группу;</li>
 </ol>
+<div class="paragraph-container">
+<div class="paragraph-left-side">02</div>
 <p>Объединяя все выше сказанное, можно сделать базовый вывод что IDisposable не дает нам полной гибкости в управлении разрушением состояния объектов. Он безусловно полезен в рамках некоторой группы сценариев, но не является универсальным инструментом, который способен решить все задачи.</p>
+<div class="paragraph-right-side">02</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">03</div>
 <p>Давайте же найдем тот механизм, который призван помочь нам в разрушении сложных структур объектов. Итак, основываясь на ранее перечисленных рассуждениях о механизмах улучшения шаблона IDisposable, составим список тезисов:</p>
+<div class="paragraph-right-side">03</div>
+</div>
 <ul>
 <li>Наш класс либо должен как-то особо называться либо что-либо принимать в качестве параметра конструктора;</li>
 <li>Процесс разрушения должен быть отдан на сторону;</li>
@@ -586,21 +651,45 @@ h4 {
 <li>Также должна существовать некая зависимость времени жизни одних объектов от времени жизни других других;</li>
 <li>Мы при этом не должны каждый раз писать всю инфраструктуру, как мы делаем это для случая с IDisposable;</li>
 </ul>
+<div class="paragraph-container">
+<div class="paragraph-left-side">04</div>
 <p>Поэтому:</p>
+<div class="paragraph-right-side">04</div>
+</div>
 <ul>
 <li>Процессом разрушения должна заниматься отдельная сущность. Назовём её <code>Lifetime</code>;</li>
 <li>Конструктор класса должен принимать на вход экземпляр типа <code>Lifetime</code> если жизнь экземпляра нашего класса зависит от времени жизни внешнего <code>Lifetime</code> либо создавать свой собственный если зависимостей не существует;</li>
 </ul>
+<div class="paragraph-container">
+<div class="paragraph-left-side">05</div>
 <p>Теперь, в новых реалиях, внешний код будет передавать нам специальный экземпляр <code>Lifetime</code>, от которого мы будем зависеть и относительно времени жизни которого мы будем существовать. А чтобы нас разрушить, внешний тип не будет разрушать нас напрямую: вместо этого он закончит время жизни экземпляра <code>Lifetime</code>, который самостоятельно завершить время жизни всех, кто на него подписан.</p>
+<div class="paragraph-right-side">05</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">06</div>
 <p>С таким подходом мы более не отдаем каждому, кто имеет ссылку на наш объект возможность разрушить нас. Помните что мы имели в шаблоне IDisposable? При проектировании класса мы должны были реализовать интерфейс IDisposable: сделать метод <code>Dispose()</code> публичным для всех. Это значит что любой, кто получал ссылку на экземпляр нашего типа получал также средство уничтожения экземпляра нашего типа. Теперь ситуация совершенно иная: конструктор экземпляра типа получает в качестве параметра отрезок собственной жизни как внешнюю зависимость. Не выставляя при этом никаких методов наружу. Получается, что в данном сценарии временем жизни нашего экземпляра типа владеет только тот, кто его создал и никто иной. С шаблоном IDisposable единственный путь обойти публикацию метода - реализовать этот интерфейс неявно, скрыв таким образом метод <code>Dispose</code>. Однако, неявная реализация интерфейса будет вызывать много вопросов, т.к. современные IDE позволяют легко и просто увидеть наличие этого метода в структуре типа.</p>
+<div class="paragraph-right-side">06</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">07</div>
 <p>Теперь осталось закрыть еще один вопрос: разделение зон ответственности. Ведь если у нас появляется задача передать кому-либо свой <code>Lifetime</code>, не хотелось бы отдавать контроль над возможностью вызова метода запуска разрушения, который закончит жизнь всех, кто подписан на переданный экземпляр <code>Lifetime</code>.</p>
+<div class="paragraph-right-side">07</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">08</div>
 <p>Также, чтобы использующие <code>Lifetime</code> сущности не могли прервать время его жизни самостоятельно, необходимо ввести разделение зон ответственности между участниками процесса:</p>
+<div class="paragraph-right-side">08</div>
+</div>
 <ol>
 <li><code>LifetimeDef</code>. Экземпляр данного типа хранится у того объекта, который будет владеть завершением времени жизни зависящих от него объектов;</li>
 <li><code>Lifetime</code> создается экземпляром <code>LifetimeDef</code> и будет передан всем тем, кто будет так или иначе зависеть от владельца. Сами они не могут вызвать метод <code>Terminate</code>: он доступен только у <code>LifetimeDef</code>. Забота экземпляров типов, которые получили <code>Lifetime</code> - просто накидать внутрь него действий, которые будут их разрушать.</li>
 <li><code>OuterLifetime</code> - инкапсулирует понятие readonly <code>Lifetime</code>. Другими словами, это средство защиты от конечного программиста: чтобы он не мог в переданную зависимость добавить действия по уничтожению своей. Этот тип используется, когда вы отдаете кому-либо экземпляр <code>Lifetime</code> так, чтобы относительно него можно было бы только создать новый, зависимый <code>LifetimeDef</code>. Но добавить туда свои собственные было бы не возможно. Публично, как и <code>Lifetime</code>, <code>OuterLifetime</code> содержит только свойство <code>IsTerminated</code>, однако на основе него можно создать зависимый экземпляр <code>LifetimeDef</code>, на основе которого можно осуществлять менеджмент жизни собственного экземпляра.</li>
 </ol>
+<div class="paragraph-container">
+<div class="paragraph-left-side">09</div>
 <p>Рассмотрим самый базовый вариант интерфейса типа:</p>
+<div class="paragraph-right-side">09</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">class</span> Lifetime
 {
@@ -612,8 +701,16 @@ h4 {
 }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">10</div>
 <p>Что мы здесь видим? Есть новая сущность, <code>Lifetime</code>. Сущность эта имеет свойство <code>IsTerminated</code>, которое призвано помочь в понимании, закончилось ли время жизни Lifetime и всех, кто от него зависит или еще нет. Задать список действий, которые должны произойти в случае смерти экземпляра типа <code>Lifetime</code> можно путем их добавления во внутренний список методом <code>Add</code>.</p>
+<div class="paragraph-right-side">10</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">11</div>
 <p>Также давайте рассмотрим второй краеугольный камень этого шаблона: класс <code>LifetimeDef</code>, который владеет правом на останов срока жизни экземпляра <code>Lifetime</code>, которым владеет.</p>
+<div class="paragraph-right-side">11</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">class</span> LifetimeDef : IDisposable
 {
@@ -640,7 +737,11 @@ h4 {
 }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">12</div>
 <p>Для удобности он содержит необязательное поле <code>Name</code>. Это введено чтобы при отладке множественные экземпляры типа <code>LifetimeDef</code> не вводили бы в заблужение и позволяли бы легко находить необходимые сущности. Метод <code>Terminate</code> обрывает жизнь экземпляру класса Lifetime, а реализация шаблона <code>IDisposable</code> позволяет использовать <code>LifetimeDef</code> в классических сценариях. Например, в блоке <code>using</code>:</p>
+<div class="paragraph-right-side">12</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 [Test]
 <span style="color:Blue;">void</span> EntityTest()
@@ -658,7 +759,11 @@ h4 {
 </pre></div>
 </div>
 <h2 id="section">Сценарии использования</h2>
+<div class="paragraph-container">
+<div class="paragraph-left-side">13</div>
 <p>Для того чтобы разобраться, с чем мы имеем дело, я предлагаю рассмотреть ряд примеров.</p>
+<div class="paragraph-right-side">13</div>
+</div>
 <h3 id="section-1">Пример 1</h3>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 

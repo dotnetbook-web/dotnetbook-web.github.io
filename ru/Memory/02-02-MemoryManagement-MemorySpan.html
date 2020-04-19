@@ -234,7 +234,7 @@ h4 {
 .aside-container {
     position: relative;
 }
-.aside-container > p {
+.aside-container p {
     position: relative;
     top: 9px;
 }
@@ -243,11 +243,11 @@ h4 {
     display: block;
     position: absolute;
     top: 12px;
-    left: 110%;
+    left: 100%;
     width: 40%;
     font-size: 12pt;
     line-height: 20px;
-
+    margin-left: 100px;
     z-index: 1000;
 }
 
@@ -297,6 +297,35 @@ h4 {
     border-left-style: solid;
 }
 
+/* Paragraphs numbering */
+.paragraph-container {
+    position: relative;
+}
+.paragraph-container p {
+    position: relative;
+    top: 9px;
+}
+.paragraph-container > .paragraph-left-side, .paragraph-container > .paragraph-right-side  {
+    font-family: JB Mono, consolas;
+    display: block;
+    position: absolute;
+    top: 17px;
+    font-size: 11pt;
+    line-height: 20px;
+    color: #86abc4;
+    z-index: 1000;
+}
+.paragraph-container > .paragraph-left-side {
+    left: -55px;
+    width: 35px;
+}
+
+.paragraph-container > .paragraph-right-side  {
+    left: 100%;
+    width: 35px;
+    padding-left: 45px;
+}
+
 /* .book-container
 {
     ;
@@ -333,10 +362,13 @@ h4 {
         margin: 0;
         padding: 4px 0 30px 0;
     }
+
+    .paragraph-container .paragraph-left-side {
+        left: -32px;
+    }
 }
 
 /* MD */
-
 @media (max-width: 991px) {
     .book-container {
         margin: 0 100px;
@@ -351,13 +383,24 @@ h4 {
         left: auto;
         width: auto;
         height: auto;
+        margin: 0;
+        padding: 17px;
     }
+
+    .aside-container p {
+        top: 0;
+    }
+
     .side-regular-block {
         margin: 40px 10px;
+        padding-left: 100px;
     }
     .aside-side-container .music-player {
         width: 100%;
         height: 100px;
+    }
+    .aside-side-container.side-media-block {
+        padding: 17px 0;
     }
     .aside-side-container.side-media-block h2 {
         margin-top: 20px;
@@ -392,12 +435,15 @@ h4 {
         margin-right: 30px;
         padding-left: 25px;
     }
+    .paragraph-container > .paragraph-right-side {
+        padding-left: 20px;
+    }
 }
 
 /* Smartphone - XS */
 @media (max-width: 575px) {
     .book-container {
-        margin: 0 30px;
+        margin: 0 50px 0 30px;
     }
     ul {
         margin: 0;
@@ -411,6 +457,13 @@ h4 {
     p, li {
         line-height: 28px;
     }    
+    .paragraph-container .paragraph-left-side {
+        display: none;
+    }
+    .paragraph-container .paragraph-right-side {
+        padding-left: 10px;
+    }
+
 }
 
 /* Fonts 
@@ -436,7 +489,7 @@ h4 {
     font-weight: bold;
     font-style: normal;
 }
-*/
+
 @font-face {
     font-family: 'PF Regal';
     src: url('../../res/fonts/PFRegalTextPro-Medium.eot');
@@ -571,17 +624,45 @@ h4 {
 <blockquote>
 <p><a href="https://github.com/sidristij/dotnetbook/issues/55">Ссылка на обсуждение</a></p>
 </blockquote>
+<div class="paragraph-container">
+<div class="paragraph-left-side">01</div>
 <p>Начиная с версий .NET Core 2.0 и .NET Framework 4.5 нам стали доступны новые типы данных: это <code>Span</code> и <code>Memory</code>. Чтобы ими воспользоваться, достаточно установить nuget пакет <code>System.Memory</code>:</p>
+<div class="paragraph-right-side">01</div>
+</div>
 <ul>
 <li><code>PM&gt; Install-Package System.Memory</code></li>
 </ul>
+<div class="paragraph-container">
+<div class="paragraph-left-side">02</div>
 <p>И примечательны эти типы данных тем, что специально для них была проделана огромная работа командой <code>CLR</code> чтобы реализовать их специальную поддержку в коде JIT компилятора .NET Core 2.1+, вживив их прямо в ядро. Что это за типы данных и почему на них стоит выделить целую часть книги?</p>
+<div class="paragraph-right-side">02</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">03</div>
 <p>Если говорить о проблематике, приведшей к появлению данного функционала, я бы выбрал три основные. И первая из них - это неуправляемый код.</p>
+<div class="paragraph-right-side">03</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">04</div>
 <p>Как язык, так и платформа существуют уже много лет: и все это время существовало множество средств для работы с неуправляемым кодом. Так почему же сейчас выходит очередной API для работы с неуправляемым кодом, если, по сути, он существовал уже много-много лет? Для того чтобы ответить на этот вопрос, достаточно понять, чего не хватало нам раньше.</p>
+<div class="paragraph-right-side">04</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">05</div>
 <p>Разработчики платформы и раньше пытались нам помочь скрасить будни разработки с использованием неуправляемых ресурсов: это и автоматические врапперы для импортируемых методов, и маршаллинг, который в большинстве случаев работает автоматически. Это также инструкция <code>stackalloc</code>, о которой говорится в главе про стек потока. Однако, как по мне если ранние разработчики с использованием языка C# приходили из мира C++ (как сделал это и я), то сейчас они приходят из более высокоуровневых языков (я, например, знаю разработчика, который пришел из JavaScript). Это означает, что люди со все большим подозрением начинают относиться к неуправляемым ресурсам и конструкциям, близким по духу к C/C++, и уж тем более - к языку Ассемблера.</p>
+<div class="paragraph-right-side">05</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">06</div>
 <p>Как результат такого отношения - все меньшее и меньшее содержание unsafe кода в проектах и все большее доверие к API самой платформы. Это легко проверяется, если поискать использование конструкции <code>stackalloc</code> по открытым репозиториям: оно ничтожно мало. Но если взять любой код, который его использует:</p>
+<div class="paragraph-right-side">06</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">07</div>
 <p><strong>Класс Interop.ReadDir</strong>
 <a href="https://github.com/dotnet/coreclr/blob/b29f6328510207970763580d6f4db864e4b198af/src/mscorlib/shared/Interop/Unix/System.Native/Interop.ReadDir.cs#L71-L83">/src/mscorlib/shared/Interop/Unix/System.Native/Interop.ReadDir.cs</a></p>
+<div class="paragraph-right-side">07</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">unsafe</span>
 {
@@ -598,9 +679,21 @@ h4 {
 }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">08</div>
 <p>Становится понятна причина непопулярности. Посмотрите, не вчитываясь в код, и ответьте для себя на один вопрос: доверяете ли вы ему? Могу предположить, что ответом будет &laquo;нет&raquo;. Тогда ответьте на другой: почему? Ответ будет очевиден: помимо того что мы видим слово <code>Dangerous</code>, которое как бы намекает, что что-то может пойти не так, второй фактор, влияющий на наше отношение, - это запись <code>unsafe</code> и строчка <code>byte* buffer = stackalloc byte[s_readBufferSize];</code>, а если еще конкретнее - <code>byte*</code>. Эта запись - триггер для любого, чтобы в голове появилась мысль: &quot;а что, по-другому сделать нельзя было что ли?&quot;. Тогда давайте еще чуть-чуть разберемся с психоанализом: отчего может возникнуть подобная мысль? С одной стороны мы пользуемся конструкциями языка и предложенный здесь синтаксис далек от, например, C++/CLI, который позволяет делать вообще все что угодно (в том числе делать вставки на чистом Assembler), а с другой он выглядит непривычно.</p>
+<div class="paragraph-right-side">08</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">09</div>
 <p>Второй вопрос, который явно или неявно возникал в головах у многих разработчиков - это несовместимость типов: строки <code>string</code> и массива символов <code>char[]</code>, хотя чисто логически строка - это и есть массив символов, привести string к char[] возможности нет никакой: только создание нового объекта и копирование содержимого строки в массив. Причем несовместимость такая введена для оптимизации строк с точки зрения хранения (readonly массивов не существует), но проблемы возникают, когда вы начинаете работать с файлами. Как прочитать? Строкой или массивом? Ведь если массивом, станет невозможным пользоваться некоторыми методами, рассчитанными на работу со строками. А если строкой? Может оказаться слишком длинной. Если речь идет о последующем парсинге, возникает вопрос выбора парсеров примитивов: далеко не всегда хочется парсить их все вручную (целые числа, числа с плавающей точкой, в разных форматах записанных). Есть же множество алгоритмов, проверенных годами, которые делают это быстро и эффективно. Но такие алгоритмы часто работают на строках, в которых кроме самого примитива ничего другого нет. Другими словами, дилемма.</p>
+<div class="paragraph-right-side">09</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">10</div>
 <p>Третья проблематика заключается в том, что необходимые для некоторого алгоритма данные редко лежат от начала и до самого конца считанного с некоторого источника массива. Например, если речь опять же идет о файлах или о данных, считанных с сокета, то есть некоторая уже обработанная неким алгоритмом часть, дальше идет то, что должен обработать некий наш метод, после чего идут данные, которые нам обработать, еще предстоит. И этот самый метод в идеале хочет, чтобы ему отдали только то, что он ожидает. Например, метод парсинга целых чисел вряд ли будет сильно благодарен, если вы отдадите ему строку с разговором о чём-либо, где в некоторой позиции будет находиться нужное число. Такой метод ожидает, что вы отдадите ему число и ничего больше. Если же мы отдадим массив целиком, то возникает требование указать, например, смещение числа относительно начала массива:</p>
+<div class="paragraph-right-side">10</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">int</span> ParseInt(<span style="color:Blue;">char</span>[] input, <span style="color:Blue;">int</span> index)
 {
@@ -612,7 +705,11 @@ h4 {
 }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">11</div>
 <p>Однако данный способ плох тем, что метод получает данные, которые ему не нужны. Другими словами, <em>метод не введен в контекст своей задачи</em>. Ведь помимо своей задачи метод решает еще и некоторую внешнюю. А это - признак плохого проектирования. Как избежать данной проблемы? Как вариант, можно воспользоваться типом <code>ArraySegment&lt;T&gt;</code>, суть которого - предоставить &laquo;окно&raquo; в некий массив:</p>
+<div class="paragraph-right-side">11</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">int</span> ParseInt(IList&lt;<span style="color:Blue;">char</span>&gt;[] input)
 {
@@ -627,11 +724,27 @@ h4 {
 <span style="color:Blue;">var</span> res = ParseInt((IList&lt;<span style="color:Blue;">char</span>&gt;)arraySegment);
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">12</div>
 <p>Но как по мне, так это - перебор, как с точки зрения логики, так и с точки зрения просадки по производительности. <code>ArraySegment</code> - ужасно сделан и обеспечивает замедление доступа к элементам в 7 раз относительно тех же самых операций, но с массивом.</p>
+<div class="paragraph-right-side">12</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">13</div>
 <p>Так как же решить все эти проблемы? Как вернуть разработчиков обратно в лоно неуправляемого кода, при этом дав им механизм унифицированной и быстрой работы с разнородными источниками данных: массивами, строками и неуправляемой памятью? Необходимо дать им чувство спокойствия, что они не могут сделать ошибку случайно, по незнанию. Необходимо дать им инструмент, не уступающий в производительности нативным типам данных, но решающих перечисленные проблемы. Этим инструментом являются типы  <code>Span&lt;T&gt;</code> и <code>Memory&lt;T&gt;</code>.</p>
+<div class="paragraph-right-side">13</div>
+</div>
 <h2 id="spant-readonlyspant">Span&lt;T&gt;, ReadOnlySpan&lt;T&gt;</h2>
+<div class="paragraph-container">
+<div class="paragraph-left-side">14</div>
 <p>Тип <code>Span</code> олицетворяет собой инструмент для работы с данными части некоторого массива данных либо поддиапазона его значений. При этом позволяя, как и в случае массива работать с элементами этого диапазона, как на запись, так и на чтение, но с одним важным ограничением: <code>Span&lt;T&gt;</code> вы получаете или создаете только для того, чтобы <em>временно</em> поработать с массивом. В рамках вызова группы методов, но не более того. Однако давайте для разгона и общего понимания сравним типы данных, для которых сделана реализация типа <code>Span</code>, и посмотрим на возможные сценарии для работы с ним.</p>
+<div class="paragraph-right-side">14</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">15</div>
 <p>Первый тип данных, о котором хочется завести речь, - это обычный массив. Для массивов работа со <code>Span</code> будет выглядеть следующим образом:</p>
+<div class="paragraph-right-side">15</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
     <span style="color:Blue;">var</span> array = <span style="color:Blue;">new</span> [] {1,2,3,4,5,6};
     <span style="color:Blue;">var</span> span = <span style="color:Blue;">new</span> Span&lt;<span style="color:Blue;">int</span>&gt;(array, 1, 3);
@@ -639,8 +752,16 @@ h4 {
     Console.WriteLine(span[position]);  <span style="color:Green;">// -&gt; 3</span>
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">16</div>
 <p>Как мы видим в данном примере, для начала мы создаем некий массив данных. После этого мы создаем <code>Span</code> (или подмножество), который, ссылаясь на сам массив, разрешает доступ использующему его коду только в тот диапазон значений, который был указан при инициализации.</p>
+<div class="paragraph-right-side">16</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">17</div>
 <p>Тут мы видим первое свойство этого типа данных: это создание некоторого контекста. Давайте разовьем нашу идею с контекстами:</p>
+<div class="paragraph-right-side">17</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">void</span> Main()
 {
@@ -672,7 +793,11 @@ h4 {
 234
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">18</div>
 <p>Как мы видим, <code>Span&lt;T&gt;</code> вводит абстракцию доступа к некоторому участку памяти, как на чтение, так и на запись. Что нам это дает? Если вспомнить, на основе чего еще может быть сделан <code>Span</code>, то мы вспомним как про неуправляемые ресурсы, так и про строки:</p>
+<div class="paragraph-right-side">18</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Green;">// Managed array</span>
 <span style="color:Blue;">var</span> array = <span style="color:Blue;">new</span>[] { <span style="color:#A31515;">&#39;1&#39;</span>, <span style="color:#A31515;">&#39;2&#39;</span>, <span style="color:#A31515;">&#39;3&#39;</span>, <span style="color:#A31515;">&#39;4&#39;</span>, <span style="color:#A31515;">&#39;5&#39;</span>, <span style="color:#A31515;">&#39;6&#39;</span> };
@@ -706,8 +831,16 @@ buf[3] = <span style="color:#A31515;">&#39;4&#39;</span>; buf[4] = <span style="
 234
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">19</div>
 <p>Т.е., получается, что <code>Span&lt;T&gt;</code> - это средство унификации по работе с памятью: управляемой и неуправляемой, которое гарантирует безопасность в работе с такого рода данными во время Garbage Collection: если участки памяти с управляемыми массивами начнут двигаться, то для нас это будет безопасно.</p>
+<div class="paragraph-right-side">19</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">20</div>
 <p>Однако, стоит ли так сильно радоваться? Можно ли было всего этого добиться и раньше? Например, если говорить об управляемых массивах, то тут даже сомневаться не приходится: достаточно просто обернуть массив в еще один класс (например давно существующий <a href="https://referencesource.microsoft.com/#mscorlib/system/arraysegment.cs,31">ArraySegment</a>), предоставив аналогичный интерфейс, и все готово. Мало того, аналогичную операцию можно проделать и со строками: они обладают необходимыми методами. Опять же, достаточно строку завернуть в точно такой же тип и предоставить методы по работе с ней. Другое дело, что для того чтобы хранить в одном типе строку, буфер или массив, придется сильно повозиться, храня в едином экземпляре ссылки на каждый из возможных вариантов (активным, понятное дело, будет только один):</p>
+<div class="paragraph-right-side">20</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">readonly</span> <span style="color:Blue;">ref</span> <span style="color:Blue;">struct</span> OurSpan&lt;T&gt;
 {
@@ -719,13 +852,29 @@ buf[3] = <span style="color:#A31515;">&#39;4&#39;</span>; buf[4] = <span style="
 }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">21</div>
 <p>Или же если отталкиваться от архитектуры, то делать три типа, которые наследуют единый интерфейс. Получается, что невозможно сделать средство единого интерфейса, отличное от <code>Span&lt;T&gt;</code>, между этими типами данных, сохранив при этом максимальную производительность.</p>
+<div class="paragraph-right-side">21</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">22</div>
 <p>Далее, если продолжить рассуждения, то, что такое <code>ref struct</code> в понятиях <code>Span</code>? Это именно те самые &laquo;структуры, они только на стеке&raquo;, о которых мы так часто слышим на собеседованиях. А это значит, что этот тип данных может идти только через стек и не имеет права уходить в кучу. А потому <code>Span</code>, будучи ref структурой, является контекстным типом данных, обеспечивающим работу методов, но не объектов в памяти. От этого для его понимания и надо отталкиваться.</p>
+<div class="paragraph-right-side">22</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">23</div>
 <p>Отсюда мы можем сформулировать определение типа Span и связанного с ним readonly типа ReadOnlySpan:</p>
+<div class="paragraph-right-side">23</div>
+</div>
 <blockquote>
 <p>Span - это тип данных, обеспечивающий единый интерфейс работы с разнородными типами массивов данных, а также возможность передать в другой метод подмножество этого массива таким образом, чтобы вне зависимости от глубины взятия контекста скорость доступа к исходному массиву была константной и максимально высокой.</p>
 </blockquote>
+<div class="paragraph-container">
+<div class="paragraph-left-side">24</div>
 <p>И действительно: если мы имеем примерно такой код:</p>
+<div class="paragraph-right-side">24</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">void</span> Method1(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 {
@@ -743,21 +892,53 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">25</div>
 <p>то скорость доступа к исходному буферу будет максимально высокой: вы работаете не с managed объектом, а с managed указателем. Т.е. не с .NET managed типом, а с unsafe типом, заключенным в managed оболочку.</p>
+<div class="paragraph-right-side">25</div>
+</div>
 <h3 id="spant">Span&lt;T&gt; на примерах</h3>
+<div class="paragraph-container">
+<div class="paragraph-left-side">26</div>
 <p>Человек так устроен, что зачастую пока он не получит определенного опыта, то конечного понимания, для чего необходим инструмент, часто не приходит. А потому, поскольку нам нужен некий опыт, давайте обратимся к примерам.</p>
+<div class="paragraph-right-side">26</div>
+</div>
 <h4 id="valuestringbuilder">ValueStringBuilder</h4>
+<div class="paragraph-container">
+<div class="paragraph-left-side">27</div>
 <p>Одним из самых алгоритмически интересных примеров является тип <code>ValueStringBuilder</code>, который прикопан где-то в недрах <code>mscorlib</code> и почему-то, как и многие другие интереснейшие типы данных помечен модификатором <code>internal</code>, что означает, что, если бы не исследование исходного кода mscorlib, о таком замечательном способе оптимизации мы бы никогда не узнали.</p>
+<div class="paragraph-right-side">27</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">28</div>
 <p>Каков основной минус системного типа <code>StringBuilder</code>? Это, конечно же, его суть: как он сам, так и то, на чем он основан (а это - массив символов <code>char[]</code>) - являются типами ссылочными. А это значит как минимум две вещи: мы все равно (хоть и немного) нагружаем кучу и второе - увеличиваем шансы промаха по кэшам процессора.</p>
+<div class="paragraph-right-side">28</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">29</div>
 <p>Еще один вопрос, который у меня возникал к <code>StringBuilder</code> - это формирование маленьких строк. Т.е. когда результирующая строка &laquo;зуб даю&raquo; будет короткой: например, менее 100 символов. Когда мы имеем достаточно короткие форматирования, к производительности возникают вопросы:</p>
+<div class="paragraph-right-side">29</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
     $<span style="color:#A31515;">&quot;{x} is in range [{min};{max}]&quot;</span>
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">30</div>
 <p>Насколько эта запись хуже, чем ручное формирование через <code>StringBuilder</code>? Ответ далеко не всегда очевиден: все сильно зависит от места формирования: как часто будет вызван данный метод. Ведь сначала <code>string.Format</code> выделяет память под внутренний <code>StringBuilder</code>, который создаст массив символов (SourceString.Length + args.Length * 8) и если в процессе формирования массива выяснится, что длина не была угадана, то для формирования продолжения будет создан еще один <code>StringBuilder</code>, формируя тем самым односвязный список. А в результате - необходимо будет вернуть сформированную строку: а это еще одно копирование. Транжирство и расточительство. Вот если бы избавиться от размещения в куче первого массива формируемой строки, было бы замечательно: от одной проблемы мы бы точно избавились.</p>
+<div class="paragraph-right-side">30</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">31</div>
 <p>Взглянем на тип из недр <code>mscorlib</code>:</p>
+<div class="paragraph-right-side">31</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">32</div>
 <p><strong>Класс ValueStringBuilder</strong>
 <a href="https://github.com/dotnet/coreclr/blob/efebb38f3c18425c57f94ff910a50e038d13c848/src/mscorlib/shared/System/Text/ValueStringBuilder.cs">/src/mscorlib/shared/System/Text/ValueStringBuilder</a></p>
+<div class="paragraph-right-side">32</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
     <span style="color:Blue;">internal</span> <span style="color:Blue;">ref</span> <span style="color:Blue;">struct</span> ValueStringBuilder
     {
@@ -878,8 +1059,16 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
     }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">33</div>
 <p>Этот класс по своему функционалу сходен со своим старшим собратом <code>StringBuilder</code>, обладая при этом одной интересной и очень важной особенностью: он является значимым типом. Т.е. хранится и передается целиком по значению. А новейший модификатор типа <code>ref</code>, который приписан к сигнатуре объявления типа, говорит нам о том, что данный тип обладает дополнительным ограничением: он имеет право находиться только на стеке. Т.е. вывод его экземпляров в поля классов приведет к ошибке. К чему все эти приседания? Для ответа на этот вопрос достаточно посмотреть на класс <code>StringBuilder</code>, суть которого мы только что описали:</p>
+<div class="paragraph-right-side">33</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">34</div>
 <p><strong>Класс StringBuilder</strong> <a href="https://github.com/dotnet/coreclr/blob/68f72dd2587c3365a9fe74d1991f93612c3bc62a/src/mscorlib/src/System/Text/StringBuilder.cs#L47-L62">/src/mscorlib/src/System/Text/StringBuilder.cs</a></p>
+<div class="paragraph-right-side">34</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">sealed</span> <span style="color:Blue;">class</span> StringBuilder : ISerializable
 {
@@ -897,7 +1086,11 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
     <span style="color:Blue;">internal</span> <span style="color:Blue;">const</span> <span style="color:Blue;">int</span> DefaultCapacity = 16;
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">35</div>
 <p><code>StringBuilder</code> - это класс, внутри которого находится ссылка на массив символов. Т.е. когда вы создаете его, то по сути создается как минимум два объекта: сам <code>StringBuilder</code> и массив символов в как минимум 16 символов (кстати именно поэтому так важно задавать предполагаемую длину строки: ее построение будет идти через генерацию односвязного списка 16-символьных массивов. Согласитесь, расточительство). Что это значит в контексте нашего разговора о типе <code>ValueStringBuilder</code>: capacity по умолчанию отсутствует, т.к. он заимствует память извне, плюс он сам является значимым типом и заставляет пользователя расположить буфер для символов на стеке. Как итог весь экземпляр типа помещается на стек вместе с его содержимым и вопрос оптимизации здесь становится решенным. Нет выделения памяти в куче? Нет проблем с проседанием производительности по куче. Но вы мне скажите: почему тогда не пользоваться ValueStringBuilder (или его самописной версией: сам он internal и нам не доступен) всегда? Ответ такой: надо смотреть на задачу, которая вами решается. Будет ли результирующая строка известного размера? Будет ли она иметь некий известный максимум по длине? Если ответ &laquo;да&raquo; и если при этом размер строки не выходит за некоторые разумные границы, то можно использовать значимую версию <code>StringBuilder</code>. Иначе, если мы ожидаем длинные строки, переходим на использование обычной версии.</p>
+<div class="paragraph-right-side">35</div>
+</div>
 <h4 id="valuelistbuilder">ValueListBuilder</h4>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">internal</span> <span style="color:Blue;">ref</span> <span style="color:Blue;">partial</span> <span style="color:Blue;">struct</span> ValueListBuilder&lt;T&gt;
@@ -929,21 +1122,53 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">36</div>
 <p>Второй тип данных, который хочется особенно - отметить - это тип <code>ValueListBuilder</code>. Создан он для ситуаций, когда необходимо на короткое время создать некоторую коллекцию элементов и тут же отдать ее в обработку некоторому алгоритму.</p>
+<div class="paragraph-right-side">36</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">37</div>
 <p>Согласитесь: задача очень похожа на задачу <code>ValueStringBuilder</code>. Да и решена она очень похожим образом:</p>
+<div class="paragraph-right-side">37</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">38</div>
 <p><strong>Файл <a href="https://github.com/dotnet/coreclr/blob/dbaf2957387c5290a680c8918779683194137b1d/src/System.Private.CoreLib/shared/System/Collections/Generic/ValueListBuilder.cs">ValueListBuilder.cs</a></strong></p>
+<div class="paragraph-right-side">38</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">39</div>
 <p>Если говорить прямо, то такие ситуации достаточно частые. Однако раньше мы решали этот вопрос другим способом: создавали <code>List</code>, заполняли его данными и теряли ссылку. Если при этом метод вызывается достаточно часто, возникает печальная ситуация: множество экземпляров класса <code>List</code> повисает в куче, а вместе с ними повисают в куче и массивы, с ними ассоциированные. Теперь эта проблема решена: дополнительных объектов создано не будет. Однако, как и в случае с <code>ValueStringBuilder</code>, решена она только для программистов Microsoft: класс имеет модификатор <code>internal</code>.</p>
+<div class="paragraph-right-side">39</div>
+</div>
 <h3 id="section">Правила и практика использования</h3>
+<div class="paragraph-container">
+<div class="paragraph-left-side">40</div>
 <p>Для того чтобы окончательно понять суть нового типа данных, необходимо &laquo;поиграться&raquo; с ним, написав пару-тройку, а лучше - больше методов, его использующих. Однако, основные правила можно почерпнуть уже сейчас:</p>
+<div class="paragraph-right-side">40</div>
+</div>
 <ul>
 <li>Если ваш метод будет обрабатывать некоторый входящий набор данных, не меняя его размер, можно попробовать остановиться на типе <code>Span</code>. Если при этом не будет модификации этого буфера, то на типе <code>ReadOnlySpan</code>;</li>
 <li>Если ваш метод будет работать со строками, вычисляя какую-то статистику либо производя синтаксический разбор строки, то ваш метод <em>обязан</em> принимать <code>ReadOnlySpan&lt;char&gt;</code>. Именно обязан: это новое правило. Ведь если вы принимаете строку, тем самым вы заставляете кого-то сделать для вас подстроку</li>
 <li>Если необходимо в рамках работы метода сделать достаточно короткий массив с данными (скажем, 10Кб максимум), то вы с легкостью можете организовать такой массив при помощи <code>Span&lt;TType&gt; buf = stackalloc TType[size]</code>. Однако, конечно, TType должен быть только значимым типом, т.к. <code>stackalloc</code> работает только со значимыми типами.</li>
 </ul>
+<div class="paragraph-container">
+<div class="paragraph-left-side">41</div>
 <p>В остальных случаях стоит присмотреться либо к <code>Memory</code> либо использовать классические типы данных.</p>
+<div class="paragraph-right-side">41</div>
+</div>
 <h3 id="span">Как работает Span</h3>
+<div class="paragraph-container">
+<div class="paragraph-left-side">42</div>
 <p>Дополнительно хотелось бы поговорить о том, как работает <code>Span</code> и что в нем такого примечательного. А поговорить есть о чем: сам тип данных делится на две версии: для .NET Core 2.0+ и для всех остальных.</p>
+<div class="paragraph-right-side">42</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">43</div>
 <p><strong>Файл <a href="https://github.com/dotnet/coreclr/blob/38403e661a4202ca4c8a72e4bbd9a263bddeb891/src/System.Private.CoreLib/shared/System/Span.Fast.cs">Span.Fast.cs, .NET Core 2.0</a></strong></p>
+<div class="paragraph-right-side">43</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">readonly</span> <span style="color:Blue;">ref</span> <span style="color:Blue;">partial</span> <span style="color:Blue;">struct</span> Span&lt;T&gt;
 {
@@ -955,7 +1180,11 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">44</div>
 <p><strong>Файл ??? [decompiled]</strong></p>
+<div class="paragraph-right-side">44</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">ref</span> <span style="color:Blue;">readonly</span> <span style="color:Blue;">struct</span> Span&lt;T&gt;
 {
@@ -966,9 +1195,21 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">45</div>
 <p>Все дело в том что <em>большой</em> .NET Framework и .NET Core 1.* не имеют специальным образом измененного сборщика мусора (в отличии от версии .NET Core 2.0+) и потому вынуждены тащить за собой дополнительный указатель: на начало буфера, с которым идет работа. Т.е. получается, что <code>Span</code> внутри себя работает с управляемыми объектами платформы .NET как с неуправляемыми. Взгляните на внутренности второго варианта структуры: там присутствует три поля. Первое поле - это ссылка на managed объект. Второе - смещение относительно начала этого объекта в байтах, чтобы получить начало буфера данных (в строках это буфер с символами <code>char</code>, в массивах - буфер с данными массива). И, наконец, третье поле - количество уложенных друг за другом элементов этого буфера.</p>
+<div class="paragraph-right-side">45</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">46</div>
 <p>Для примера возьмем работу <code>Span</code> для строк:</p>
+<div class="paragraph-right-side">46</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">47</div>
 <p><strong>Файл <a href="https://github.com/dotnet/coreclr/blob/2b50bba8131acca2ab535e144796941ad93487b7/src/System.Private.CoreLib/shared/System/MemoryExtensions.Fast.cs#L409-L416">coreclr::src/System.Private.CoreLib/shared/System/MemoryExtensions.Fast.cs</a></strong></p>
+<div class="paragraph-right-side">47</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">static</span> ReadOnlySpan&lt;<span style="color:Blue;">char</span>&gt; AsSpan(<span style="color:Blue;">this</span> <span style="color:Blue;">string</span> text)
 {
@@ -979,9 +1220,21 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">48</div>
 <p>Где <code>string.GetRawStringData()</code> выглядит следующим образом:</p>
+<div class="paragraph-right-side">48</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">49</div>
 <p><strong>Файл с определением полей <a href="https://github.com/dotnet/coreclr/blob/2b50bba8131acca2ab535e144796941ad93487b7/src/System.Private.CoreLib/src/System/String.CoreCLR.cs#L16-L23">coreclr::src/System.Private.CoreLib/src/System/String.CoreCLR.cs</a></strong></p>
+<div class="paragraph-right-side">49</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">50</div>
 <p><strong>Файл с определением GetRawStringData <a href="https://github.com/dotnet/coreclr/blob/2b50bba8131acca2ab535e144796941ad93487b7/src/System.Private.CoreLib/shared/System/String.cs#L462">coreclr::src/System.Private.CoreLib/shared/System/String.cs</a></strong></p>
+<div class="paragraph-right-side">50</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">sealed</span> <span style="color:Blue;">partial</span> <span style="color:Blue;">class</span> String :
     IComparable, IEnumerable, IConvertible, IEnumerable&lt;<span style="color:Blue;">char</span>&gt;,
@@ -1002,10 +1255,22 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">51</div>
 <p>Т.е. получается, что метод лезет напрямую вовнутрь строки, а спецификация <code>ref char</code> позволяет отслеживать GC неуправляемую ссылку во внутрь строки, перемещая его вместе со строкой во время срабатывания GC.</p>
+<div class="paragraph-right-side">51</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">52</div>
 <p>Та же самая история происходит и с массивами: когда создается <code>Span</code>, то некий код внутри JIT рассчитывает смещение начала данных массива и этим смещением инициализирует <code>Span</code>. А как подсчитать смещения для строк и массивов, мы научились в главе <a href=".%5CObjectsStructure.md">про структуру объектов в памяти</a>.</p>
+<div class="paragraph-right-side">52</div>
+</div>
 <h3 id="spant-1">Span&lt;T&gt; как возвращаемое значение</h3>
+<div class="paragraph-container">
+<div class="paragraph-left-side">53</div>
 <p>Несмотря на всю идиллию, связанную со <code>Span</code>, существуют хоть и логичные, но неожиданные ограничения на его возврат из метода. Если взглянуть на следующий код:</p>
+<div class="paragraph-right-side">53</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">unsafe</span> <span style="color:Blue;">void</span> Main()
 {
@@ -1019,7 +1284,11 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">54</div>
 <p>то все выглядит крайне логично и хорошо. Однако, стоит заменить одну инструкцию другой:</p>
+<div class="paragraph-right-side">54</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">unsafe</span> <span style="color:Blue;">void</span> Main()
 {
@@ -1033,16 +1302,36 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">55</div>
 <p>как компилятор запретит инструкцию такого вида. Но прежде чем написать, почему, я прошу вас самим догадаться, какие проблемы понесет за собой такая конструкция.</p>
+<div class="paragraph-right-side">55</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">56</div>
 <p>Итак, я надеюсь, что вы подумали, построили догадки и предположения, а может даже и поняли причину. Если так, главу про <a href="./ThreadStack.html">стек потока</a> я по винтикам расписывал не зря. Ведь дав таким образом ссылку на локальные переменные метода, который закончил работу, вы можете вызвать другой метод, дождаться окончания его работы и через x[0.99] прочитать его локальные переменные.</p>
+<div class="paragraph-right-side">56</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">57</div>
 <p>Однако, к счастью, когда мы делаем попытку написать такого рода код, компилятор дает нам по рукам, выдав предупреждение: <code>CS8352 Cannot use local 'reff' in this context because it may expose referenced variables outside of their declaration scope</code> и будет прав: ведь если обойти эту ошибку, то возникает возможность, например, находясь в плагине подстроить такую ситуацию, что станет возможным украсть чужие пароли или повысить привилегии выполнения нашего плагина.</p>
+<div class="paragraph-right-side">57</div>
+</div>
 <h2 id="memoryt-readonlymemoryt">Memory&lt;T&gt; и ReadOnlyMemory&lt;T&gt;</h2>
+<div class="paragraph-container">
+<div class="paragraph-left-side">58</div>
 <p>Визуальных отличий <code>Memory&lt;T&gt;</code> от <code>Span&lt;T&gt;</code> два. Первое - тип <code>Memory&lt;T&gt;</code> не содержит ограничения <code>ref</code> в заголовке типа. Т.е., другими словами, тип <code>Memory&lt;T&gt;</code> имеет право находиться не только на стеке, являясь либо локальной переменной, либо параметром метода, либо его возвращаемым значением, но и находиться в куче, ссылаясь оттуда на некоторые данные в памяти. Однако, эта маленькая разница создает огромную разницу в поведении и возможностях <code>Memory&lt;T&gt;</code> в сравнении с <code>Span&lt;T&gt;</code>. В отличии от <code>Span&lt;T&gt;</code>, который представляет собой <em>средство пользования</em> неким буфером данных для некоторых методов, тип <code>Memory&lt;T&gt;</code> предназначен для <em>хранения</em> информации о буфере, а не для работы с ним. Отсюда возникает разница в API:</p>
+<div class="paragraph-right-side">58</div>
+</div>
 <ul>
 <li><code>Memory&lt;T&gt;</code> не содержит методов доступа к данным, которыми он заведует. Вместо этого он имеет свойство <code>Span</code> и метод <code>Slice</code>, которые возвращают рабочую лошадку - экземпляр типа <code>Span</code>.</li>
 <li><code>Memory&lt;T&gt;</code> дополнительно содержит метод <code>Pin()</code>, предназначенный для сценариев, когда хранящийся буфер необходимо передать в <code>unsafe</code> код. При его вызове для случаев, когда память была выделена в .NET, буфер будет закреплен (pinned) и не будет перемещаться при срабатывании GC, возвращая пользователю экземпляр структуры <code>MemoryHandle</code>, инкапсулирующей в себе понятие отрезка жизни <code>GCHandle</code>, закрепившего буфер в памяти.</li>
 </ul>
+<div class="paragraph-container">
+<div class="paragraph-left-side">59</div>
 <p>Однако, для начала предлагаю познакомиться со всем набором классов. И в качестве первого из них, взглянем на саму структуру <code>Memory&lt;T&gt;</code> (показаны не все члены типа, а показавшиеся наиболее важными):</p>
+<div class="paragraph-right-side">59</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
     <span style="color:Blue;">public</span> <span style="color:Blue;">readonly</span> <span style="color:Blue;">struct</span> Memory&lt;T&gt;
     {
@@ -1066,9 +1355,21 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
     }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">60</div>
 <p>Как мы видим, структура содержит конструктор на основе массивов, но хранит данные в object. Сделано это для того чтобы дополнительно ссылаться на строки, для которых конструктор не предусмотрен, зато предусмотрен метод расширения для типа <code>string</code> <code>AsMemory()</code>, возвращающий <code>ReadOnlyMemory</code>. Однако, поскольку бинарно оба типа должны быть одинаковыми, типом поля <code>_object</code> является <code>Object</code>.</p>
+<div class="paragraph-right-side">60</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">61</div>
 <p>Далее мы видим два конструктора, работающих на основе <code>MemoryManager</code>. О них мы поговорим попозже. Свойства получения размера <code>Length</code> и проверки на пустое множество <code>IsEmpty</code>. Также имеется метод получения подмножества <code>Slice</code> и методы копирования <code>CopyTo</code> и <code>TryCopyTo</code>.</p>
+<div class="paragraph-right-side">61</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">62</div>
 <p>Подробнее же в разговоре о <code>Memory</code> хочется остановиться на двух методах этого типа: на свойстве <code>Span</code> и методе <code>Pin</code>.</p>
+<div class="paragraph-right-side">62</div>
+</div>
 <h3 id="memoryt.span">Memory&lt;T&gt;.Span</h3>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> Span&lt;T&gt; Span
@@ -1100,7 +1401,11 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">63</div>
 <p>А точнее, на строчки, обрабатывающие работу со строками. Ведь в них говорится о том, что если мы каким-либо образом сконвертировали <code>ReadOnlyMemory&lt;T&gt;</code> в <code>Memory&lt;T&gt;</code> (а в двоичном представлении это одно и тоже. Мало того, существует комментарий, предупреждающий, что бинарно эти два типа обязаны совпадать, т.к. один из другого получается путем вызова <code>Unsafe.As</code>), то мы получаем <sub>доступ в тайную комнату</sub> возможность менять строки. А это крайне опасный механизм:</p>
+<div class="paragraph-right-side">63</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">unsafe</span> <span style="color:Blue;">void</span> Main()
 {
@@ -1115,9 +1420,17 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 Hello?
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">64</div>
 <p>Который в купе с интернированием строк может дать весьма плачевные последствия.</p>
+<div class="paragraph-right-side">64</div>
+</div>
 <h3 id="memoryt.pin">Memory&lt;T&gt;.Pin</h3>
+<div class="paragraph-container">
+<div class="paragraph-left-side">65</div>
 <p>Второй метод, который вызывает не поддельный интерес - это метод <code>Pin</code>:</p>
+<div class="paragraph-right-side">65</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">unsafe</span> MemoryHandle Pin()
 {
@@ -1155,7 +1468,11 @@ Hello?
 }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">66</div>
 <p>Который также является очень важным инструментом унификации: ведь вне зависимости от типа данных, на которые ссылается <code>Memory&lt;T&gt;</code>, если мы захотим отдать буфер в неуправляемый код, то единственное, что нам надо сделать - вызвать метод <code>Pin()</code> и передать указатель, который будет храниться в свойстве полученной структуры в неуправляемый код:</p>
+<div class="paragraph-right-side">66</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">void</span> PinSample(Memory&lt;<span style="color:Blue;">byte</span>&gt; memory)
 {
@@ -1166,10 +1483,22 @@ Hello?
 }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">67</div>
 <p>И в данном коде нет никакой разницы, для чего вызван <code>Pin()</code>: для <code>Memory</code> над <code>T[]</code>, над <code>string</code> или же над буфером неуправляемой памяти. Просто для массивов и строк будет создан реальный <code>GCHandle.Alloc(array, GCHandleType.Pinned)</code>, а для неуправляемой памяти - просто ничего не произойдет.</p>
+<div class="paragraph-right-side">67</div>
+</div>
 <h2 id="memorymanager-imemoryowner-memorypool">MemoryManager, IMemoryOwner, MemoryPool</h2>
+<div class="paragraph-container">
+<div class="paragraph-left-side">68</div>
 <p>Помимо указания полей структуры я хочу дополнительно указать на то, что существует еще два <code>internal</code> конструктора типа, работающих на основании еще одной сущности - <code>MemoryManager</code>, речь о котором зайдет несколько дальше и что не является чем-то, о чем вы, возможно, только что подумали: менеджером памяти в классическом понимании. Однако, как и <code>Span</code>, <code>Memory</code> точно также содержит в себе ссылку на объект, по которому будет производиться навигация, а также смещение и размер внутреннего буфера. Также дополнительно стоит отметить, что <code>Memory</code> может быть создан оператором <code>new</code> только на основании массива плюс методами расширения - на основании строки, массива и <code>ArraySegment</code>. Т.е. его создание на основании unmanaged памяти вручную не подразумевается. Однако, как мы видим, существует некий внутренний метод создания этой структуры на основании <code>MemoryManager</code>:</p>
+<div class="paragraph-right-side">68</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">69</div>
 <p><strong>Файл <a href="https://github.com/dotnet/corefx/blob/master/src/Common/src/CoreLib/System/Buffers/MemoryManager.cs">MemoryManager.cs</a></strong></p>
+<div class="paragraph-right-side">69</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">abstract</span> <span style="color:Blue;">class</span> MemoryManager&lt;T&gt; : IMemoryOwner&lt;T&gt;, IPinnable
 {
@@ -1186,8 +1515,16 @@ Hello?
 }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">70</div>
 <p>Которая инкапсулирует в себе понятие владельца участка памяти. Другими словами, если <code>Span</code> - средство работы с памятью, а <code>Memory</code> - средство хранения информации о конкретном участке, то <code>MemoryManager</code> - средство контроля его жизни, его владелец. Для примера можно взять тип <code>NativeMemoryManager&lt;T&gt;</code>, который хоть и написан для тестов, однако неплохо отражает суть понятия &laquo;владение&raquo;:</p>
+<div class="paragraph-right-side">70</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">71</div>
 <p><strong>Файл <a href="https://github.com/dotnet/corefx/blob/888088448ac5dd1053d88434dfd819dcbc0fd9a1/src/Common/tests/System/Buffers/NativeMemoryManager.cs">NativeMemoryManager.cs</a></strong></p>
+<div class="paragraph-right-side">71</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">internal</span> <span style="color:Blue;">sealed</span> <span style="color:Blue;">class</span> NativeMemoryManager : MemoryManager&lt;<span style="color:Blue;">byte</span>&gt;
 {
@@ -1227,9 +1564,21 @@ Hello?
 }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">72</div>
 <p>Т.е., другими словами, класс обеспечивает возможность вложенных вызовов метода <code>Pin()</code> подсчитывая тем самым образующиеся ссылки из <code>unsafe</code> мира.</p>
+<div class="paragraph-right-side">72</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">73</div>
 <p>Еще одной сущностью, тесно связанной с <code>Memory</code>, является <code>MemoryPool</code>, который обеспечивает пулинг экземпляров <code>MemoryManager</code> (а по факту - <code>IMemoryOwner</code>):</p>
+<div class="paragraph-right-side">73</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">74</div>
 <p><strong>Файл <a href="https://github.com/dotnet/corefx/blob/f592e887e2349ed52af6a83070c42adb9d26408c/src/System.Memory/src/System/Buffers/MemoryPool.cs">MemoryPool.cs</a></strong></p>
+<div class="paragraph-right-side">74</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">abstract</span> <span style="color:Blue;">class</span> MemoryPool&lt;T&gt; : IDisposable
 {
@@ -1241,8 +1590,16 @@ Hello?
 }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">75</div>
 <p>Который предназначен для выдачи буферов необходимого размера во временное пользование. Арендуемые экземпляры, реализующие интерфейс <code>IMemoryOwner&lt;T&gt;</code>, имеют метод <code>Dispose()</code>, который возвращает арендованный массив обратно в пул массивов. Причем, по умолчанию вы можете пользоваться общим пулом буферов, который построен на основе <code>ArrayMemoryPool</code>:</p>
+<div class="paragraph-right-side">75</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">76</div>
 <p><strong>Файл <a href="https://github.com/dotnet/corefx/blob/56dfb8834fa50f3bc61ea9b4bfdc9dcc759b6ec9/src/System.Memory/src/System/Buffers/ArrayMemoryPool.cs">ArrayMemoryPool.cs</a></strong></p>
+<div class="paragraph-right-side">76</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">internal</span> <span style="color:Blue;">sealed</span> <span style="color:Blue;">partial</span> <span style="color:Blue;">class</span> ArrayMemoryPool&lt;T&gt; : MemoryPool&lt;T&gt;
 {
@@ -1261,7 +1618,11 @@ Hello?
 }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">77</div>
 <p>И на основании данной архитектуры вырисовывается следующая картина мира:</p>
+<div class="paragraph-right-side">77</div>
+</div>
 <ul>
 <li>Тип данных <code>Span</code> необходимо использовать в параметрах методов, если вы подразумеваете либо считывание данных (<code>ReadOnlySpan</code>), либо считывание или запись (<code>Span</code>). Но не задачу его сохранения в поле класса для использования в будущем</li>
 <li>Если вам необходимо хранить ссылку на буфер данных из поля класса, необходимо использовать <code>Memory&lt;T&gt;</code> или <code>ReadOnlyMemory&lt;T&gt;</code> - в зависимости от целей</li>
@@ -1272,7 +1633,11 @@ Hello?
 <li>Если же вы имеете некий трафик буферов (например, вы решаете задачу парсинга текста программы или какого-то DSL), стоит воспользоваться типом <code>MemoryPool</code>, который можно организовать очень правильным образом, выдавая из пула буферы подходящего размера (например, немного большего, если не нашлось подходящего, но с обрезкой <code>originalMemory.Slice(requiredSize)</code> чтобы не фрагментировать пул)</li>
 </ul>
 <h2 id="section-1">Производительность</h2>
+<div class="paragraph-container">
+<div class="paragraph-left-side">78</div>
 <p>Для того чтобы понять производительность новых типов данных, я решил воспользоваться уже ставшей стандартной библиотекой <a href="https://github.com/dotnet/BenchmarkDotNet">BenchmarkDotNet</a>:</p>
+<div class="paragraph-right-side">78</div>
+</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 [Config(<span style="color:Blue;">typeof</span>(MultipleRuntimesConfig))]
 <span style="color:Blue;">public</span> <span style="color:Blue;">class</span> SpanIndexer
@@ -1424,15 +1789,31 @@ Hello?
 }
 </pre></div>
 </div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">79</div>
 <p>После чего изучим результаты:</p>
+<div class="paragraph-right-side">79</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">80</div>
 <p><img src="./imgs/Span/Performance.png" alt="Performance chart" /></p>
+<div class="paragraph-right-side">80</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">81</div>
 <p>Смотря на них можно почерпнуть следующую информацию:</p>
+<div class="paragraph-right-side">81</div>
+</div>
 <ul>
 <li>ArraySegment ужасен. Но его можно сделать не таким ужасным, обернув в <code>Span</code>. Производительность вырастет при этом в 7 раз;</li>
 <li>Если рассматривать <code>.NET Framework 4.7.1</code> (а для 4.5 это будет аналогичным), то переход на Span заметно просадит работу с буферами данных. Примерно на 30-35%;</li>
 <li>Однако если посмотреть в сторону .NET Core 2.1+, то здесь производительность станет сопоставимой, а с учетом того что Span может работать на части буфера данных, создавая контекст, то вообще быстрее: ведь аналогичным функционалом обладает ArraySegment, который работает крайне медленно.</li>
 </ul>
+<div class="paragraph-container">
+<div class="paragraph-left-side">82</div>
 <p>Отсюда можно сделать простые выводы по использованию этих типов данных:</p>
+<div class="paragraph-right-side">82</div>
+</div>
 <ul>
 <li>Для <code>.NET Framework 4.5+</code> и <code>.NET Core</code> их использование даст только один плюс: они быстрее их альтернативы в виде ArraySegment - на подмножестве исходного массива;</li>
 <li>Для <code>.NET Core 2.1+</code> их использование даст неоспоримое преимущество как перед использованием ArraySegment, так и перед любыми видами ручной реализации <code>Slice</code></li>

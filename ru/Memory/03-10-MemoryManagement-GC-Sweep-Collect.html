@@ -234,7 +234,7 @@ h4 {
 .aside-container {
     position: relative;
 }
-.aside-container > p {
+.aside-container p {
     position: relative;
     top: 9px;
 }
@@ -243,11 +243,11 @@ h4 {
     display: block;
     position: absolute;
     top: 12px;
-    left: 110%;
+    left: 100%;
     width: 40%;
     font-size: 12pt;
     line-height: 20px;
-
+    margin-left: 100px;
     z-index: 1000;
 }
 
@@ -297,6 +297,35 @@ h4 {
     border-left-style: solid;
 }
 
+/* Paragraphs numbering */
+.paragraph-container {
+    position: relative;
+}
+.paragraph-container p {
+    position: relative;
+    top: 9px;
+}
+.paragraph-container > .paragraph-left-side, .paragraph-container > .paragraph-right-side  {
+    font-family: JB Mono, consolas;
+    display: block;
+    position: absolute;
+    top: 17px;
+    font-size: 11pt;
+    line-height: 20px;
+    color: #86abc4;
+    z-index: 1000;
+}
+.paragraph-container > .paragraph-left-side {
+    left: -55px;
+    width: 35px;
+}
+
+.paragraph-container > .paragraph-right-side  {
+    left: 100%;
+    width: 35px;
+    padding-left: 45px;
+}
+
 /* .book-container
 {
     ;
@@ -333,10 +362,13 @@ h4 {
         margin: 0;
         padding: 4px 0 30px 0;
     }
+
+    .paragraph-container .paragraph-left-side {
+        left: -32px;
+    }
 }
 
 /* MD */
-
 @media (max-width: 991px) {
     .book-container {
         margin: 0 100px;
@@ -351,13 +383,24 @@ h4 {
         left: auto;
         width: auto;
         height: auto;
+        margin: 0;
+        padding: 17px;
     }
+
+    .aside-container p {
+        top: 0;
+    }
+
     .side-regular-block {
         margin: 40px 10px;
+        padding-left: 100px;
     }
     .aside-side-container .music-player {
         width: 100%;
         height: 100px;
+    }
+    .aside-side-container.side-media-block {
+        padding: 17px 0;
     }
     .aside-side-container.side-media-block h2 {
         margin-top: 20px;
@@ -392,12 +435,15 @@ h4 {
         margin-right: 30px;
         padding-left: 25px;
     }
+    .paragraph-container > .paragraph-right-side {
+        padding-left: 20px;
+    }
 }
 
 /* Smartphone - XS */
 @media (max-width: 575px) {
     .book-container {
-        margin: 0 30px;
+        margin: 0 50px 0 30px;
     }
     ul {
         margin: 0;
@@ -411,6 +457,13 @@ h4 {
     p, li {
         line-height: 28px;
     }    
+    .paragraph-container .paragraph-left-side {
+        display: none;
+    }
+    .paragraph-container .paragraph-right-side {
+        padding-left: 10px;
+    }
+
 }
 
 /* Fonts 
@@ -436,7 +489,7 @@ h4 {
     font-weight: bold;
     font-style: normal;
 }
-*/
+
 @font-face {
     font-family: 'PF Regal';
     src: url('../../res/fonts/PFRegalTextPro-Medium.eot');
@@ -571,22 +624,86 @@ h4 {
 <blockquote class="big-quote">
 <p> Адаптация курса в процессе</p>
 </blockquote>
+<div class="paragraph-container">
+<div class="paragraph-left-side">01</div>
 <p>Мы рассмотрели практически все стадии, кроме последней. Эта фаза зачистки и сжатия.</p>
+<div class="paragraph-right-side">01</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">02</div>
 <p>Если на фазе планирования было решено использовать sweep, мы должны осуществить GC путем отдачи всех неиспользуемых участков на переиспользование. Когда наши allocation context, которые существуют от разных потоков, начнут заканчиваться, они будут занимать эти свободные участки между другими объектами, таким образом исключая фазу сжатия. Фаза сжатия работает дольше. После этого этапа мы имеем такую таблицу 01:27. У нас есть поколения с бакетами, которые указывают на односвязаный список свободных участков. Бакеты сгруппированы по размерам. Внутри одного бакета идет список участков примерно одного размера. Мы можем попросить у бакетов участок нужного размера, и он по принципу first fit найдет нужный бакет и через best fit найдет подходящий участок внутри бакета.</p>
+<div class="paragraph-right-side">02</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">03</div>
 <p>Gaps, которые меньше размера объекта игнорируются.</p>
+<div class="paragraph-right-side">03</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">04</div>
 <p>После этого saved_pre_plug и saved_post_plugs расставляются по местам. Потом выполняется работа по обновлению очереди на финализацию. И затем - перестроение сегментов памяти.</p>
+<div class="paragraph-right-side">04</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">05</div>
 <p>Например, может так случится, что после GC у нас часть страниц или сегментов больше не нужны. Зачем их держать, если можно отдать кому-то еще? Операционная система большая. Если не отдать, то все соседние приложения будут ругаться, что работают медленно. Так и есть: потому что наше приложение не освободило оперативную память под соседей.</p>
+<div class="paragraph-right-side">05</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">06</div>
 <p>Sweep на LOH работает по-другому. Он не использует планирование, он обходит кучу. Свободные участки объединяет с состыкованными в один. Освободившиеся участки между занятыми добавляются в список свободных участков.</p>
+<div class="paragraph-right-side">06</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">07</div>
 <p>Для меня было откровением, что в обоих хипах механизмы одни и те же. Просто в одном хипе у них разные приоритеты. В LOH compacting в настолько низком приоритете, что часть алгоритма просто отключена. Но в целом SOH и LOH использует одни и те же алгоритмы.</p>
+<div class="paragraph-right-side">07</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">08</div>
 <p>Compacting.</p>
+<div class="paragraph-right-side">08</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">09</div>
 <p>Если необходимо создается новый эфемерный сегмент. Если фаза планирования решила, что после сжатия места под gen_0 будет мало - создаем новый сегмент. Заменяем все ссылки на корректные. Для этого у нас есть информация по gaps&amp;plugs, по которым легко посчитать все смещения. Перед тем, как сжимать, мы должны все ссылки поменять. Собирая gen_0 мы просматриваем его и карточный стол старшего поколения. Когда это сделано - начинаем менять ссылки в фазе сжатия до самого сжатия, чтобы не потерять информация по gaps и офсетам. Сканируем все места, производя замену. Сначала ссылки со стека, которые включают в себя все локальные переменные и параметры методов, переданные через стек, а так же eager roots collection. Потом ссылки с полей объектов, полученные через карточный стол. Затем ссылки с полей объектов SOH и LOH с этапа обхода графа. Также ссылки с pre и post plugs, потому что при сохранении туда могли попасть и ссылки. Pinned plugs queue. Ссылки с полей объектов, находящихся в finalization queue. Ссылки с handle tables.</p>
+<div class="paragraph-right-side">09</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">10</div>
 <p>Мы должны выполнить все эти шесть шагов. Вывод - чем сильнее связанность графа, тем дольше работает этот шаг. Нужно обойти все это очень аккуратно, чтобы не промахиваться по кешу в рамках одного участка памяти.</p>
+<div class="paragraph-right-side">10</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">11</div>
 <p>Далее выполняется копирование объектов на их новые места. После того, как мы поменяли все адреса, происходит сама фаза сжатия. Из последних байт gaps берется значение офсета, и на него смещаются все выжившие объекты, чтобы сжать кучу. Естественно, кроме запиненых объектов и тех, которые размещены после них.</p>
+<div class="paragraph-right-side">11</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">12</div>
 <p>После этого восстанавливаются все pre и post plugs участки и исправляем положение поколений (после GC нулевое поколение становится первым, первое - вторым и нулевое сдвигается так, чтобы можно было выделять память дальше).</p>
+<div class="paragraph-right-side">12</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">13</div>
 <p>После этого удаляется и разкоммичеивается память из-под полностью освободившихся сегментов.</p>
+<div class="paragraph-right-side">13</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">14</div>
 <p>Перед каждым запиненым объектом образуется свободный участок. Его надо сохранить для дальнейшего выделения памяти. То есть объект запинен. Слева от него занятое место. И между занятым местом и запиненым объектом  - свободные участки. Чтобы их потом переиспользовать, они сохраняются в список свободных участков. Чтобы это сделать нужно убедиться, что есть нужный бакет, либо создать новый, и уже оттуда спустить ссылку на односвязаный список занятых участков определенного размера.</p>
+<div class="paragraph-right-side">14</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">15</div>
 <p>Получается, что задача sweep - создать односвязаный список на свободных участках. Сжатие - это дольше. Чтобы сработал sweep, надо группировать объекты, срок жизни которых совпадает.  Это максимум, что мы можем сделать.</p>
+<div class="paragraph-right-side">15</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">16</div>
 <p>Чтобы не мешать GC, мы не используем GCHandle bind. По возможности, мы используем только fixed. В этом случае мы можем избежать пининга, потому что fixed - это просто напоминание GC, что если он здесь очутился, то пинить надо.</p>
+<div class="paragraph-right-side">16</div>
+</div>
 
 </div>
 </div>
