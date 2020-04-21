@@ -13,7 +13,12 @@
     font-family: PF Regal,Georgia,serif;
     font-size: 16pt;
     font-weight: 300;
-    padding-top: 60px;
+    margin-top: 60px;
+}
+
+.article-container
+{
+    width: 62%;
 }
 
 strong {
@@ -47,7 +52,7 @@ table {
     width: 100%;
 }
 
-thead {                         
+thead {
     background-color: aliceblue;
 }
 
@@ -179,6 +184,7 @@ blockquote.big-quote > p {
     font-family: Charter;
     font-size: 55px;
     line-height: 60px;
+    padding: 0;
     width: 150%;
 }
 
@@ -196,6 +202,7 @@ h1 {
     margin: 40px 0 20px 0;
     border-bottom-style: ridge;
     padding-bottom: 10px;
+    width: 151%;
 }
 
 h1 b {
@@ -252,12 +259,22 @@ h4 {
     z-index: 1000;
 }
 
+.aside-container > .aside-side-container p {
+    line-height: 24px;
+    font-size: 13pt;
+    margin: 0 0 13px 0;
+    font-family: Charter;
+}
+
 .side-regular-block {
     border-radius: 5px;
     background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
     padding: 22px;
 }
 
+.side-regular-block p {
+    top: 0;
+}
 /* Music side player */
 
 .aside-side-container .music-player {
@@ -313,7 +330,7 @@ h4 {
     top: 17px;
     font-size: 10pt;
     line-height: 20px;
-    color: #86abc4;
+    color: #86abc473;
     z-index: 1000;
 }
 .paragraph-container > .paragraph-left-side {
@@ -327,11 +344,6 @@ h4 {
     padding-left: 45px;
 }
 
-/* .book-container
-{
-    ;
-} */
-
 .article-container
 {
     width: 65%;
@@ -339,21 +351,21 @@ h4 {
 
 /* MEDIA */
 /* XL */
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
     .book-container
     {
         max-width: 1200px;
-        margin-left: 100px;
-        margin-right: 50px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
 /* LG */
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
     .book-container
     {
-        margin-left: 50px;
-        margin-right: 50px;
+        margin-left: 70px;
+        margin-right: 70px;
     }
 
     blockquote.big-quote > p {
@@ -365,7 +377,7 @@ h4 {
     }
 
     .paragraph-container .paragraph-left-side {
-        left: -32px;
+        left: -40px;
     }
 }
 
@@ -415,6 +427,10 @@ h4 {
         line-height: 40px;
         margin: 0;
         padding: 4px 0 30px 0;
+    }
+
+    .paragraph-container .paragraph-left-side {
+        left: -55px;
     }
 
     body {
