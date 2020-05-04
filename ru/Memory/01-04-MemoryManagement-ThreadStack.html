@@ -16,6 +16,37 @@
     margin-top: 60px;
 }
 
+.book-title-container {
+    width: 100%;
+    text-align: center;
+    margin: 73px 0 110px 0;
+}
+
+.book-title {
+    font-size: 57pt;
+    margin: 50px 0 70px 0;
+    user-select: none;
+}
+.book-part-title-block {
+    display: inline-block;
+}
+.book-part-title {
+    font-size: 21pt;
+    color: #656ab6;
+    margin: 0 7px;
+}
+
+.book-part-title:hover {
+    box-shadow: inset 0 -1px #007bff;
+    text-decoration: none;
+}
+
+.book-superheading-title {
+    font-size: 15pt;
+    margin: 0 7px;
+    color: #656ab6;
+}
+
 .article-container
 {
     width: 62%;
@@ -31,19 +62,21 @@ p, li {
     font-family: inherit;
 }
 
-ol, ul {
+ol, li {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+ol {
+    padding-left: 1.2rem;
+}
+
+ul  {
     padding-left: 35px;
-    margin-top: 1.1rem;
-    margin-bottom: 1.1rem;
 }
 
-ol li {
-    padding-left: 10px;	
-    font-family: inherit;
-}
-
-ul li {
-    padding-left: 12px;	
+ol li, ul li {
+    padding-left: 1rem;	
     font-family: inherit;
 }
 
@@ -84,7 +117,6 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
     border-left-width: 3px;
     padding-left: 25px;
     display: block;
-    background-color: aliceblue !important;
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -175,7 +207,6 @@ blockquote p {
 blockquote p code {
     font-family: consolas, monospace;
     font-size: 17px;
-    background-color: aliceblue;
     padding: 4px 6px;
 }
 
@@ -202,7 +233,6 @@ h1 {
     margin: 40px 0 20px 0;
     border-bottom-style: ridge;
     padding-bottom: 10px;
-    width: 151%;
 }
 
 h1 b {
@@ -336,18 +366,38 @@ h4 {
 .paragraph-container > .paragraph-left-side {
     left: -55px;
     width: 35px;
+    user-select: none;
 }
 
 .paragraph-container > .paragraph-right-side  {
     left: 100%;
     width: 35px;
     padding-left: 45px;
+    user-select: none;
 }
 
 .article-container
 {
     width: 65%;
 }
+
+.menu-title {
+    text-align: center;
+    margin: 35px 50px 35px 50px;
+    font-size: 24pt;
+    font-family: Charter;
+}
+
+.menu-container ol {
+    margin: 0;
+    padding: 0;
+}
+
+.menu-container ol li {
+    margin: 0;
+    padding: 0;
+}
+
 
 /* MEDIA */
 /* XL */
@@ -383,6 +433,27 @@ h4 {
 
 /* MD */
 @media (max-width: 991px) {
+    
+    .book-title-container {
+        margin: 73px 0 110px 0;
+    }
+
+    .book-title {
+        font-size: 50pt;
+        margin: 50px 0 70px 0;
+    }
+
+    .book-part-title {
+        font-size: 19pt;
+    }
+
+    .book-part-title:hover {
+        box-shadow: inset 0 -1px #007bff;
+    }
+
+    .book-superheading-title {
+        font-size: 15pt;
+    }
     .book-container {
         margin: 0 100px;
     }
@@ -437,13 +508,42 @@ h4 {
         font-size: 15pt;
     }
 
+    p code:not(.highlight), li code:not(.highlight) {
+        font-size: 11pt;
+    }
+
     p, li {
         line-height: 30px;
-    }    
+    }
+    
+    li {
+        margin: 0 0 10px 0;
+    }
 }
 
 /* Smartphone horizontal - SM */
 @media (max-width: 767px) {
+    .book-title-container {
+        margin: 73px 0 110px 0;
+    }
+
+    .book-title {
+        font-size: 40pt;
+        margin: 50px 0 70px 0;
+    }
+
+    .book-part-title {
+        font-size: 19pt;
+    }
+
+    .book-part-title:hover {
+        box-shadow: inset 0 -1px #007bff;
+    }
+
+    .book-superheading-title {
+        font-size: 17pt;
+    }
+
     .book-container {
         margin: 0 50px;
     }
@@ -475,6 +575,11 @@ h4 {
         font-size: 13pt;
     }
 
+    p code:not(.highlight), li code:not(.highlight) {
+        font-size: 10pt;
+        padding: 3px;
+    }
+   
     p, li {
         line-height: 28px;
     }    
@@ -488,18 +593,7 @@ h4 {
     }
 }
 
-/* Fonts 
-
-/*@font-face {*/
-/*    font-family: 'PF Regal';*/
-/*    src: url('../../res/fonts/PFRegalTextPro-RegularA.eot');*/
-/*    src: local('../../res/fonts/PFRegalTextPro-RegularA'),*/
-/*        url('../../res/fonts/PFRegalTextPro-RegularA.woff2') format('woff2'),*/
-/*        url('../../res/fonts/PFRegalTextPro-RegularA.woff') format('woff'),*/
-/*        url('../../res/fonts/PFRegalTextPro-RegularA.ttf') format('truetype');*/
-/*    font-weight: 300;*/
-/*    font-style: normal;*/
-/*}*/
+/* Fonts */
 
 @font-face {
     font-family: 'PF Regal';
@@ -672,7 +766,61 @@ h4 {
     font-style: italic;
 }  
     </style>
+    
+<div class="book-title-container d-none d-md-block">
+    <div class="book-title">Knowledge Base</div>
+    <div class="book-part-title-block">pt.1 <a href="../..//ru/Memory/01-00-MemoryManagement-Intro.html" class="book-part-title">Управление памятью</a></div>
+    <div class="book-part-title-block">pt.2 <a href="../..//ru/Execution/02-00-ExecutionFlow-Intro.html" class="book-part-title">Поток исполнения команд</a></div>
+    <br><a href="#" class="book-superheading-title">Обоснование выбора</a>
+    / <a href="#" class="book-superheading-title">Упрощенное описание</a>
+    / <a href="#" class="book-superheading-title">Подробное описание</a>
+</div>
 
+<!--
+<div style="
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    padding: 0px 50px 110px 50px;">
+<div style="
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: white;
+    box-shadow: 0 0 45px rgba(0,0,0,0.2);">
+
+    <div class="container">
+    <div class="row menu-container">
+        <div class="col-6">
+            <p class="menu-title">Введение в управление памятью</p>
+	        <ol>
+                <li><a href="./Memory/01-00-MemoryManagement-Intro.html">Общие слова</a></li>
+                <li><a href="./Memory/01-02-MemoryManagement-Basics.html">Введение в управление памятью</a></li>
+                <li><a href="./Memory/01-04-MemoryManagement-ThreadStack.html">Стек потока</a></li>
+                <li><a href="./Memory/01-06-MemoryManagement-EntitiesLifetime.html">Время жизни сущности</a></li>
+                <li><a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html">RefTypes, ValueTypes, Boxing &amp; Unboxing</a></li>
+                <li><a href="./Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></li>
+                <li><a href="./Memory/01-12-MemoryManagement-Finalizer.html">Финализация</a></li>
+                <li><a href="./Memory/01-14-MemoryManagement-Results.html">Выводы</a></li>
+            </ol>
+        </div>
+        <div class="col-6">
+            <p class="menu-title">Подробности<br> реализации GC</p>
+            <ol>
+                <li><a href="./Memory/03-02-MemoryManagement-Allocation.html">Выделение памяти под объект</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-04-MemoryManagement-GC-Intro.html">Введение в сборку мусора</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-06-MemoryManagement-GC-Mark-Phase.html">Фаза маркировки</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-08-MemoryManagement-GC-Planning-Phase.html">Фаза планирования</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-10-MemoryManagement-GC-Sweep-Collect.html">Фазы Sweep/Collect</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-12-MemoryMenegement-GC-Results.html">Выводы по менеджменту памяти и работе над производительностью</a> <em>(Только наговорен текст)</em></li>
+            </ol>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+-->
 <div class="book-container">
 <div class="article-container">
     <!--<p class="d-xs-block d-sm-none">XS</p>
@@ -690,11 +838,7 @@ h4 {
 <p>Существует область памяти, про которую редко заходит разговор. Однако эта область является, возможно, основной в работе приложения. Самой часто используемой, достаточно ограниченной с моментальным выделением и освобождением памяти. Область эта называется &laquo;стек потока&raquo;. Причём поскольку указатель на него кодируется по своей сути регистрами процессора, которые входят в контекст потока, то в рамках исполнения любого потока стек потока свой. Зачем он необходим?</p>
 <div class="paragraph-right-side">01</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">02</div>
 <p>Итак, разберём элементарный пример кода:</p>
-<div class="paragraph-right-side">02</div>
-</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">void</span> Method1()
 {
@@ -708,9 +852,9 @@ h4 {
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">03</div>
+<div class="paragraph-left-side">02</div>
 <p>В данном коде не происходит ничего примечательного, однако не будем его пропускать, а наоборот: посмотрим на него максимально внимательно. Когда любой <code>Method1</code> вызывает любой <code>Method2</code>, то абсолютно любой такой вызов (и не только в .NET, но и в других платформах) осуществляет следующие операции:</p>
-<div class="paragraph-right-side">03</div>
+<div class="paragraph-right-side">02</div>
 </div>
 <ol>
 <li>Первое, что делает код, скомпилированный JIT'ом: он сохраняет параметры метода в стек (начиная с третьего). При этом первые два передаются через регистры. Тут важно помнить, что первым параметром экземплярных методов передаётся указатель на тот объект, с которым работает метод. Т.е. указатель <code>this</code>. Так что в этих (почти всех) случаях для регистров остаётся всего один параметр, а для всех остальных - стек;</li>
@@ -721,31 +865,23 @@ h4 {
 <li>Когда происходит выход из метода, то вершина стека восстанавливается из EBP - места, где хранится начало текущего стекового кадра;</li>
 <li>Далее, последним этапом осуществляется выход из метода через инструкцию <code>ret</code>. Она забирает со стека адрес возврата, заботливо оставленный ранее инструкцией <code>call</code> и делает <code>jmp</code> по этому адресу.</li>
 </ol>
+<p>Те же самые процессы можно посмотреть на изображении:</p>
+<p><img src="./imgs/ThreadStack/AnyMethodCall.png" alt="" /></p>
+<div class="paragraph-container">
+<div class="paragraph-left-side">03</div>
+<p>Также замечу, что стек &laquo;растёт&raquo;, начиная со старших адресов и заканчивая младшими, т.е. в обратную сторону.</p>
+<div class="paragraph-right-side">03</div>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p>Те же самые процессы можно посмотреть на изображении:</p>
-<div class="paragraph-right-side">04</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">05</div>
-<p><img src="./imgs/ThreadStack/AnyMethodCall.png" alt="" /></p>
-<div class="paragraph-right-side">05</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">06</div>
-<p>Также замечу, что стек &laquo;растёт&raquo;, начиная со старших адресов и заканчивая младшими, т.е. в обратную сторону.</p>
-<div class="paragraph-right-side">06</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">07</div>
 <p>Глядя на все это, невольно приходишь к выводу, что если не большинство, то минимум половина всех операций, которыми занимается процессор - это обслуживание структуры программы, а не её полезной нагрузки. Т.е. обслуживание вызовов методов, проверки типов на возможность привести один к другому, компиляцию Generic вариаций, поиск методов в таблицах интерфейсов&hellip; Особенно если мы вспомним, что большинство современного кода написано с подходом работы через интерфейсы, разбивку на множество пусть маленьких, но выполняющих каждый - своё - методов… А работа при этом часто идёт с базовыми типами и приведением типов то к интерфейсу, то к наследнику. При всех таких входящих условиях вывод о расточительности инфраструктурного кода вполне может назреть. Единственное, что я могу вам на это все сказать: компиляторы, в том числе и JIT, обладают множеством техник, позволяющим им делать более продуктивный код. Где можно - вместо вызова метода вставляется его тело целиком, а где возможно вместо поиска метода в VSD интерфейса осуществляется его прямой вызов. Что самое грустное, инфраструктурную нагрузку очень сложно замерить: надо чтобы JITter либо какой-либо компилятор вставлял бы какие-то метрики до и после мест работы инфраструктурного кода. Т.е. до вызова метода, а внутри метода - после инициализации кадра стека. До выхода из метода, после выхода из метода. До компиляции, после компиляции. И так далее. Однако, давайте не будем о грустном, а поговорим лучше о том, что мы можем с вами сделать с полученной информацией.</p>
-<div class="paragraph-right-side">07</div>
+<div class="paragraph-right-side">04</div>
 </div>
 <h2 id="x86-1">Немного про исключения на платформе x86</h2>
 <div class="paragraph-container">
-<div class="paragraph-left-side">08</div>
+<div class="paragraph-left-side">05</div>
 <p>Если мы посмотрим внутрь кода методов, то мы заметим ещё одну структуру, работающую со стеком потока. Посудите сами:</p>
-<div class="paragraph-right-side">08</div>
+<div class="paragraph-right-side">05</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">void</span> Method1()
@@ -775,9 +911,9 @@ h4 {
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">09</div>
+<div class="paragraph-left-side">06</div>
 <p>Если исключение возникнет в любом из методов, вызванных из <code>Method3</code>, то управление будет возвращено в блок <code>catch</code> метода <code>Method3</code>. При этом если исключение обработано не будет, то его обработка начнётся в методе <code>Method1</code>. Однако если ничего не случится, то <code>Method3</code> завершит свою работу, управление перейдёт в метод <code>Method2</code>, где также может возникнуть исключение. Однако по естественным причинам обработано оно будет не в <code>Method3</code>, а в <code>Method1</code>. Вопрос такого удобного автоматизма заключается в том, что структуры данных, образующие цепочки обработчиков исключений, также находятся в стековом кадре метода, где они объявлены. Про сами исключения мы поговорим отдельно, а здесь скажу только, что модель исключений в .NET Framework CLR и в Core CLR отличается. CoreCLR вынуждена быть разной на разных платформах, а потому модель исключений там другая и представляется в зависимости от платформы через прослойку PAL (Platform Adaption Layer) различными имплементациями. Большому .NET Framework CLR это не нужно: он живёт в экосистеме платформы Windows, в которой есть уже много лет общеизвестный механизм обработки исключений, который называется SEH (Structured Exception Handling). Этот механизм используется практически всеми языками программирования (при конечной компиляции), потому что обеспечивает сквозную обработку исключений между модулями, написанными на различных языках программирования. Работает это примерно так:</p>
-<div class="paragraph-right-side">09</div>
+<div class="paragraph-right-side">06</div>
 </div>
 <ol>
 <li>При вхождении в блок try на стек кладётся структура, которая первым полем указывает на предыдущий блок обработки исключений (например, вызывающий метод, у которого также есть try-catch), тип блока, код исключения и адрес обработчика;</li>
@@ -786,28 +922,16 @@ h4 {
 <li>Если возникает исключение, то из TEB забирается вершина и по очереди по цепочке вызываются обработчики, которые проверяют, подходит ли исключение конкретно им. Если да, выполняется блок обработки (например, catch).</li>
 <li>В TEB восстанавливается тот адрес структуры SEH, который находится в стеке ДО метода, обработавшего исключение.</li>
 </ol>
-<div class="paragraph-container">
-<div class="paragraph-left-side">10</div>
 <p>Как видите, совсем не сложно. Однако вся эта информация также находится в стеке.</p>
-<div class="paragraph-right-side">10</div>
-</div>
 <h2 id="x64-amd64-in-progress">Базовые сведения про платформы x64, AMD64 [In Progress]</h2>
-<div class="paragraph-container">
-<div class="paragraph-left-side">11</div>
 <p>TODO</p>
-<div class="paragraph-right-side">11</div>
-</div>
 <h2 id="x64-amd64-in-progress-1">Исключения на платформах x64, AMD64 [In Progress]</h2>
-<div class="paragraph-container">
-<div class="paragraph-left-side">12</div>
 <p>TODO</p>
-<div class="paragraph-right-side">12</div>
-</div>
 <h2 id="section-1">Совсем немного про несовершенство стека потока</h2>
 <div class="paragraph-container">
-<div class="paragraph-left-side">13</div>
+<div class="paragraph-left-side">07</div>
 <p>Давайте немного подумаем о вопросе безопасности и возможных проблемах, которые чисто теоретически могут возникнуть. Для этого давайте ещё раз глянем на структуру стека потока, которая по своей сути - обычный массив. Диапазон памяти, в котором строятся фреймы, организован так, что он растёт с конца в начало. Т.е. более поздние фреймы располагаются по более ранним адресам. Так же, как уже было сказано, фреймы связаны односвязным списком. Это сделано потому, что размер фрейма не является фиксированным и должен быть &laquo;считан&raquo; любым отладчиком. Процессор при этом не разграничивает фреймы между собой: любой метод по своему желанию может считать всю область памяти целиком. А если учесть при этом, что мы находимся в виртуальной памяти, которая поделена на участки, являющиеся реально выделенной памятью, то можно при помощи специальной функции WinAPI по любому адресу со стека получить диапазон выделенной памяти, в которой этот адрес находится. Ну а разобрать односвязный список - дело техники:</p>
-<div class="paragraph-right-side">13</div>
+<div class="paragraph-right-side">07</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
     <span style="color:Green;">// переменная находится в стеке</span>
@@ -819,15 +943,15 @@ h4 {
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">14</div>
+<div class="paragraph-left-side">08</div>
 <p>Это даёт нам возможность получить и модифицировать все данные, которые находятся в качестве локальных переменных у методов, которые нас вызвали. Если приложение никак не настраивает песочницу, в рамках которой вызываются сторонние библиотеки, расширяющие функционал приложения, то сторонняя библиотека сможет утащить данные, даже если тот API, который вы ей отдаёте, этого не предполагает. Методика эта может показаться вам надуманной, однако в мире C/C++, где нет такой прекрасной вещи как AppDomain с настроенными правами атака по стеку - это самое типичное, что только можно встретить из взлома приложений. Мало того, можно через рефлексию посмотреть на тип, который нам необходим, повторить его структуру у себя, и, пройдя по ссылке со стека на объект, заменить адрес VMT на наш, перенаправив таким образом всю работу с конкретным экземпляром к нам. SEH, кстати говоря, также вовсю используется для взлома приложений. Через него вы также можете, меняя адрес обработчика исключения, заставлять ОС выполнить вредоносный код. Но вывод из всего этого очень простой: всегда настраивайте песочницу, когда хотите работать с библиотеками, расширяющими функционал вашего приложения. Я, конечно же, имею ввиду всяческие плагины, аддоны и прочие расширения.</p>
-<div class="paragraph-right-side">14</div>
+<div class="paragraph-right-side">08</div>
 </div>
 <h2 id="section-2">Большой пример: клонирование потока на платформе х86</h2>
 <div class="paragraph-container">
-<div class="paragraph-left-side">15</div>
+<div class="paragraph-left-side">09</div>
 <p>Чтобы запомнить все, что мы прочитали до мельчайших подробностей, надо зайти к вопросу освещения какой-либо темы с нескольких сторон. Казалось бы, какой пример можно построить для стека потока? Вызвать метод из другого? Магия&hellip; Конечно же, нет: это мы делаем ежедневно по много раз. Вместо этого мы склонируем поток исполнения. Т.е. сделаем так, чтобы после вызова определённого метода у нас вместо одного потока оказалось бы два: наш и новый, но продолжающий выполнять код с точки вызова метода клонирования так, как будто он сам туда дошёл. А выглядеть это будет так:</p>
-<div class="paragraph-right-side">15</div>
+<div class="paragraph-right-side">09</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">void</span> MakeFork()
@@ -865,9 +989,9 @@ h4 {
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">16</div>
+<div class="paragraph-left-side">10</div>
 <p>Согласитесь, концепт интересный. Конечно же, тут можно много спорить про целесообразность таких действий, но задача этого примера - поставить жирную точку в понимании работы этой структуры данных. Как же сделать клонирование? Для ответа на данный вопрос надо ответить на другой вопрос: что вообще определяет поток? А поток определяют следующие структуры и области данных:</p>
-<div class="paragraph-right-side">16</div>
+<div class="paragraph-right-side">10</div>
 </div>
 <ol>
 <li>Набор регистров процессора. Все регистры определяют состояние потока исполнения инструкций: от адреса текущей инструкции исполнения до адресов стека потока и данных, которыми он оперирует;</li>
@@ -876,14 +1000,14 @@ h4 {
 <li>Платформенный контекст потока, который содержит локальные для потока данные (ссылка идёт из TIB)</li>
 </ol>
 <div class="paragraph-container">
-<div class="paragraph-left-side">17</div>
+<div class="paragraph-left-side">11</div>
 <p>Ну и наверняка что-то ещё, о чем мы можем не знать. Да и знать нам всего для примера нет никакой надобности: в промышленное использование данный код не пойдёт, а скорее будет служить нам отличным примером, который поможет разобраться в теме. А потому он не будет учитывать всего, а только самое основное. А для того чтобы он заработал в базовом виде, нам понадобится скопировать в новый поток набор регистров (исправив SS:ESP, т.к. стек будет новым), а также подредактировать сам стек, чтобы он содержал ровно то что нам надо.</p>
-<div class="paragraph-right-side">17</div>
+<div class="paragraph-right-side">11</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">18</div>
+<div class="paragraph-left-side">12</div>
 <p>Итак. Если стек потока определяет, по сути, какие методы были вызваны и какими данными они оперируют, то получается что по идее, меняя эти структуры, можно поменять как локальные переменные методов, так и вырезать из стека вызов какого-то метода, поменять метод на другой или же добавить в любое место цепочки свой. Хорошо, с этим определились. Теперь давайте посмотрим на некий псевдокод:</p>
-<div class="paragraph-right-side">18</div>
+<div class="paragraph-right-side">12</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">void</span> RootMethod()
@@ -893,9 +1017,9 @@ h4 {
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">19</div>
+<div class="paragraph-left-side">13</div>
 <p>Когда вызовется MakeFork(), что мы ожидаем с точки зрения стек трейсов? Что в родительском потоке все останется без изменений, а дочерний будет взят из пула потоков (для скорости), в нем будет сымитирован вызов метода <code>MakeFork</code> вместе с его локальными переменными, а код продолжит выполнение не с начала метода, а с точки, следующей после вызова <code>CloneThread</code>. Т.е. стек трейс в наших фантазиях будет выглядеть примерно так:</p>
-<div class="paragraph-right-side">19</div>
+<div class="paragraph-right-side">13</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Green;">// Parent Thread</span>
@@ -906,79 +1030,55 @@ ThreadPool -&gt; MakeFork
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">20</div>
+<div class="paragraph-left-side">14</div>
 <p>Что у нас есть изначально? Есть наш поток. Также есть возможность создать новый поток либо запланировать задачу в пул потоков, выполнив там свой код. Также мы понимаем, что информация по вложенным вызовам хранится в стеке вызовов и что при желании мы можем ею манипулировать (например, используя C++/CLI). Причём, если следовать соглашениям и вписать в верхушку стека адрес возврата для инструкции ret, значение регистра EBP и выделить место под локальные (если необходимо), то можно имитировать вызов метода. Ручную запись в стек потока возможно сделать из C#, однако нам понадобятся регистры и их очень аккуратное использование, а потому без ухода в C++ нам не обойтись. Тут к нам на помощь впервые в жизни (лично у меня) приходит CLI/C++, который позволяет писать смешанный код: часть инструкций - на .NET, часть - на C++, а иногда даже уходить на уровень ассемблера. Именно то, что нам надо.</p>
-<div class="paragraph-right-side">20</div>
+<div class="paragraph-right-side">14</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">21</div>
+<div class="paragraph-left-side">15</div>
 <p>Итак, как будет выглядеть стек потока, когда наш код вызовет MakeFork, который вызовет CloneThread, который уйдёт в unmanaged мир CLI/C++ и вызовет метод клонирование (саму реализацию) - там? Давайте посмотрим на схему (ещё раз напомню, что стек растёт от старших адресов к младшим. Справа налево):</p>
+<div class="paragraph-right-side">15</div>
+</div>
+<p><img src="./imgs/ThreadStack/step1.png" alt="" /></p>
+<div class="paragraph-container">
+<div class="paragraph-left-side">16</div>
+<p>Ну а для того чтобы не тащить всю простыню со схемы на схему, упростим, отбросив то, что нам не нужно:</p>
+<div class="paragraph-right-side">16</div>
+</div>
+<p><img src="./imgs/ThreadStack/step2.png" alt="" /></p>
+<div class="paragraph-container">
+<div class="paragraph-left-side">17</div>
+<p>Когда мы создадим поток либо возьмём готовый из пула потоков, в нашей схеме появляется ещё один стек, пока ещё ничем не проинициализированный:</p>
+<div class="paragraph-right-side">17</div>
+</div>
+<p><img src="./imgs/ThreadStack/step3.png" alt="" /></p>
+<div class="paragraph-container">
+<div class="paragraph-left-side">18</div>
+<p>Теперь наша задача - сымитировать запуск метода <code>Fork.CloneThread()</code> в новом потоке. Для этого мы должны в конец его стека потока дописать серию кадров: как будто из делегата, переданного ThreadPool'у был вызван <code>Fork.CloneThread()</code>, из которого через враппер C++ кода managed обёрткой был вызван CLI/C++ метод. Для этого мы просто скопируем необходимый участок стека в массив (замечу, что со склонированного участка на старый &laquo;смотрят&raquo; копии регистров EBP, обеспечивающих построение цепочки кадров):</p>
+<div class="paragraph-right-side">18</div>
+</div>
+<p><img src="./imgs/ThreadStack/step4.png" alt="" /></p>
+<div class="paragraph-container">
+<div class="paragraph-left-side">19</div>
+<p>Далее чтобы обеспечить целостность стека после операции копирования склонированного на предыдущем шаге участка, мы заранее рассчитываем, по каким адресам будут находиться поля <code>EBP</code> на новом месте, и сразу же исправляем их, прямо на копии:</p>
+<div class="paragraph-right-side">19</div>
+</div>
+<p><img src="./imgs/ThreadStack/step5.png" alt="" /></p>
+<div class="paragraph-container">
+<div class="paragraph-left-side">20</div>
+<p>Последним шагом, очень аккуратно, задействуя минимальное количество регистров, копируем наш массив в конец стека дочернего потока, после чего сдвигаем регистры ESP и EBP на новые места. С точки зрения стека мы сымитировали вызов всех этих методов:</p>
+<div class="paragraph-right-side">20</div>
+</div>
+<p><img src="./imgs/ThreadStack/step6.png" alt="" /></p>
+<div class="paragraph-container">
+<div class="paragraph-left-side">21</div>
+<p>Но пока не с точки зрения кода. С точки зрения кода нам надо попасть в те методы, которые только что создали. Самое простое - просто сымитировать выход из метода: восстановить <code>ESP</code> до <code>EBP</code>, в <code>EBP</code> положить то, на что он указывает и вызвать инструкцию <code>ret</code>, инициировав выход из якобы вызванного C++ метода клонирования потока, что приведёт к возврату в реальный wrapper CLI/C++ вызова, который вернёт управление в <code>MakeFork()</code>, но в дочернем потоке. Техника сработала.</p>
 <div class="paragraph-right-side">21</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
-<p><img src="./imgs/ThreadStack/step1.png" alt="" /></p>
-<div class="paragraph-right-side">22</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">23</div>
-<p>Ну а для того чтобы не тащить всю простыню со схемы на схему, упростим, отбросив то, что нам не нужно:</p>
-<div class="paragraph-right-side">23</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">24</div>
-<p><img src="./imgs/ThreadStack/step2.png" alt="" /></p>
-<div class="paragraph-right-side">24</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">25</div>
-<p>Когда мы создадим поток либо возьмём готовый из пула потоков, в нашей схеме появляется ещё один стек, пока ещё ничем не проинициализированный:</p>
-<div class="paragraph-right-side">25</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">26</div>
-<p><img src="./imgs/ThreadStack/step3.png" alt="" /></p>
-<div class="paragraph-right-side">26</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">27</div>
-<p>Теперь наша задача - сымитировать запуск метода <code>Fork.CloneThread()</code> в новом потоке. Для этого мы должны в конец его стека потока дописать серию кадров: как будто из делегата, переданного ThreadPool'у был вызван <code>Fork.CloneThread()</code>, из которого через враппер C++ кода managed обёрткой был вызван CLI/C++ метод. Для этого мы просто скопируем необходимый участок стека в массив (замечу, что со склонированного участка на старый &laquo;смотрят&raquo; копии регистров EBP, обеспечивающих построение цепочки кадров):</p>
-<div class="paragraph-right-side">27</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">28</div>
-<p><img src="./imgs/ThreadStack/step4.png" alt="" /></p>
-<div class="paragraph-right-side">28</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">29</div>
-<p>Далее чтобы обеспечить целостность стека после операции копирования склонированного на предыдущем шаге участка, мы заранее рассчитываем, по каким адресам будут находиться поля <code>EBP</code> на новом месте, и сразу же исправляем их, прямо на копии:</p>
-<div class="paragraph-right-side">29</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">30</div>
-<p><img src="./imgs/ThreadStack/step5.png" alt="" /></p>
-<div class="paragraph-right-side">30</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">31</div>
-<p>Последним шагом, очень аккуратно, задействуя минимальное количество регистров, копируем наш массив в конец стека дочернего потока, после чего сдвигаем регистры ESP и EBP на новые места. С точки зрения стека мы сымитировали вызов всех этих методов:</p>
-<div class="paragraph-right-side">31</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">32</div>
-<p><img src="./imgs/ThreadStack/step6.png" alt="" /></p>
-<div class="paragraph-right-side">32</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">33</div>
-<p>Но пока не с точки зрения кода. С точки зрения кода нам надо попасть в те методы, которые только что создали. Самое простое - просто сымитировать выход из метода: восстановить <code>ESP</code> до <code>EBP</code>, в <code>EBP</code> положить то, на что он указывает и вызвать инструкцию <code>ret</code>, инициировав выход из якобы вызванного C++ метода клонирования потока, что приведёт к возврату в реальный wrapper CLI/C++ вызова, который вернёт управление в <code>MakeFork()</code>, но в дочернем потоке. Техника сработала.</p>
-<div class="paragraph-right-side">33</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">34</div>
 <p>Теперь давайте взглянем на код. Первое что мы сделаем - это возможность для CLI/C++ кода создать .NET поток. Для этого мы его должны создать в .NET:</p>
-<div class="paragraph-right-side">34</div>
+<div class="paragraph-right-side">22</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">extern</span> <span style="color:#A31515;">&quot;C&quot;</span> __declspec(dllexport)
@@ -989,9 +1089,9 @@ ThreadPool -&gt; MakeFork
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">35</div>
+<div class="paragraph-left-side">23</div>
 <p>На типы параметров пока не обращайте внимания. Они нужны для передачи информации о том, какой участок стека необходимо у себя рисовать из родительского потока в дочерний. Метод создания потока оборачивает в делегат вызов unmanaged метода, передаёт данные и ставит делегат в очередь на обработку пулом потоков.</p>
-<div class="paragraph-right-side">35</div>
+<div class="paragraph-right-side">23</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 [MethodImpl(MethodImplOptions::NoInlining | MethodImplOptions::NoOptimization | MethodImplOptions::PreserveSig)]
@@ -1012,11 +1112,7 @@ ThreadPool -&gt; MakeFork
 }
 </pre></div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">36</div>
 <p>И, наконец, сам метод клонирования (вернее, его .NET часть):</p>
-<div class="paragraph-right-side">36</div>
-</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 [MethodImpl(MethodImplOptions::NoInlining | MethodImplOptions::NoOptimization | MethodImplOptions::PreserveSig)]
 <span style="color:Blue;">static</span> <span style="color:Blue;">bool</span> CloneThread()
@@ -1041,9 +1137,9 @@ ThreadPool -&gt; MakeFork
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">37</div>
+<div class="paragraph-left-side">24</div>
 <p>Чтобы понимать, где в цепочке кадров стека находится данный метод, мы сохраняем себе адрес стековой переменной (*). Использовать этот адрес мы будем в методе клонирования, речь о котором пойдёт чуть ниже. Также, чтобы вы понимали, о чем идёт речь, приведу код структуры, необходимой для хранения информации о копии стека:</p>
-<div class="paragraph-right-side">37</div>
+<div class="paragraph-right-side">24</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">class</span> StackInfo
@@ -1070,15 +1166,15 @@ ThreadPool -&gt; MakeFork
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">38</div>
+<div class="paragraph-left-side">25</div>
 <p>Работа же самого алгоритма разделена на две части: в родительском потоке мы подготавливаем данные для того, чтобы в дочернем потоке отрисовать нужные кадры стека. Вторым же этапом восстанавливаются данные в дочернем потоке, накладываясь на свой собственный стек потока исполнения, имитируя, таким образом, вызовы методов, которые в реальности вызваны не были.</p>
-<div class="paragraph-right-side">38</div>
+<div class="paragraph-right-side">25</div>
 </div>
 <h3 id="section-3">Метод подготовки к копированию</h3>
 <div class="paragraph-container">
-<div class="paragraph-left-side">39</div>
+<div class="paragraph-left-side">26</div>
 <p>Описание кода я буду делать блоками. Т.е. единый код будет разбит на части, и каждая из частей будет отдельно прокомментирована. Итак, приступим. Когда внешний код вызывает <code>Fork.CloneThread()</code>, то через внутреннюю обёртку над неуправляемым кодом и через ряд дополнительных методов, если код работает под отладкой (так называемые debugger assistants). Именно поэтому мы в .NET части запомнили адрес переменной в стеке: для C++ метода этот адрес является своеобразной меткой: теперь мы точно знаем, какой участок стека мы можем спокойно копировать.</p>
-<div class="paragraph-right-side">39</div>
+<div class="paragraph-right-side">26</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">int</span> AdvancedThreading_Unmanaged::ForkImpl()
@@ -1088,9 +1184,9 @@ ThreadPool -&gt; MakeFork
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">40</div>
+<div class="paragraph-left-side">27</div>
 <p>Первым делом, до того как произойдёт хоть какая-то операция, чтобы не получить запорченные регистры, мы их копируем локально. Также дополнительно необходимо сохранить адрес кода, куда будет сделан <code>goto</code>, когда в дочернем потоке стек будет сымитирован, и необходимо будет произвести процеруду выхода из <code>CloneThread</code> из дочернего потока. В качестве &laquo;точки выхода&raquo; мы выбираем <code>JmpPointOnMethodsChainCallEmulation</code> и не просто так: после операции сохранения этого адреса &laquo;на будущее&raquo; мы дополнительно закладываем в стек число 0.</p>
-<div class="paragraph-right-side">40</div>
+<div class="paragraph-right-side">27</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
     <span style="color:Green;">// Save ALL registers</span>
@@ -1115,9 +1211,9 @@ ThreadPool -&gt; MakeFork
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">41</div>
+<div class="paragraph-left-side">28</div>
 <p>После чего, после <code>JmpPointOnMethodsChainCallEmulation</code> мы достаём это число из стека и проверяем: там лежит <code>0</code>? Если да, мы находимся в том же самом потоке: а значит у нас ещё много дел, и мы переходим на <code>NonClonned</code>. Если же там не <code>0</code>, а по факту <code>1</code>, это значит, что дочерний поток закончил &laquo;дорисовку&raquo; стека потока до необходимого состояния, положил на стек число <code>1</code> и сделал goto в эту точку (замечу, что goto он делает из другого метода). А это значит, что настало время для выхода из <code>CloneThread</code> в дочернем потоке, вызов которого был сымитирован.</p>
-<div class="paragraph-right-side">41</div>
+<div class="paragraph-right-side">28</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 JmpPointOnMethodsChainCallEmulation:
@@ -1136,9 +1232,9 @@ NonClonned:
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">42</div>
+<div class="paragraph-left-side">29</div>
 <p>Хорошо, мы убедились, что мы все ещё мы, а значит надо подготовить данные для дочернего потока. Чтобы более не спускаться на уровень ассемблера, работать мы будем со структурой ранее сохранённых регистров. Достанем из неё значение регистра EBP: он по сути является полем &laquo;Next&raquo; в односвязном списке кардов стека. Перейдя по адресу, который там содержится, мы очутимся в кадре метода, который нас вызвал. Если и там возьмём первое поле и перейдём по тому адресу, то окажемся в ещё более раннем кадре. Так мы сможем дойти до managed части <code>CloneThread</code>: ведь мы сохранили адрес переменной в её стековом кадре, а значит, прекрасно знаем, где остановиться. Этой задачей и занимается цикл, приведённый ниже.</p>
-<div class="paragraph-right-side">42</div>
+<div class="paragraph-right-side">29</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
     <span style="color:Blue;">int</span> *curptr = (<span style="color:Blue;">int</span> *)copy.EBP;
@@ -1155,9 +1251,9 @@ NonClonned:
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">43</div>
+<div class="paragraph-left-side">30</div>
 <p>Получив адрес начала кадра managed метода <code>CloneThread</code>, мы теперь знаем, сколько надо копировать для имитации вызова <code>CloneThread</code> из <code>MakeFork</code>. Однако поскольку нам <code>MakeFork</code> также нужен (наша задача выйти именно в него), то мы делаем дополнительно ещё один переход по односвязному списку: <code>*(int *)curptr</code>. После чего создаём массив под сохранение стека и сохраняем его простым копированием.</p>
-<div class="paragraph-right-side">43</div>
+<div class="paragraph-right-side">30</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
     <span style="color:Green;">//</span>
@@ -1171,9 +1267,9 @@ NonClonned:
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">44</div>
+<div class="paragraph-left-side">31</div>
 <p>Ещё одна задача, которую надо будет решить, - это исправление адресов переменных, которые попали на стек и при этом указывающих на стек. Для решения этой проблемы мы получаем диапазон адресов, которые нам выделила операционная система под стек потока. Сохраняем полученную информацию и запукаем вторую часть процесса клонирования, запланировав делегат в пул потоков:</p>
-<div class="paragraph-right-side">44</div>
+<div class="paragraph-right-side">31</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
     <span style="color:Green;">// Get information about stack pages</span>
@@ -1196,9 +1292,9 @@ NonClonned:
 </div>
 <h3 id="section-4">Метод восстановления из копии</h3>
 <div class="paragraph-container">
-<div class="paragraph-left-side">45</div>
+<div class="paragraph-left-side">32</div>
 <p>Этот метод вызывается как результат работы предыдущего: нам переданы копия участка стека родительского потока, а также полный набор его регистров. Наша задача в нашем потоке, взятом из пула потоков, дорисовать все вызовы, скопированные из родительского потока таким образом, как будто мы сами их осуществили. Завершив работу, MakeFork дочернего потока попадёт обратно в этот метод, который, завершив работу, освободит поток и вернёт его в пул потоков.</p>
-<div class="paragraph-right-side">45</div>
+<div class="paragraph-right-side">32</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">void</span> AdvancedThreading_Unmanaged::InForkedThread(StackInfo * stackCopy)
@@ -1207,9 +1303,9 @@ NonClonned:
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">46</div>
+<div class="paragraph-left-side">33</div>
 <p>Первым делом мы сохраняем значения рабочих регистров, чтобы, когда <code>MakeFork</code> завершит свою работу, мы смогли их безболезненно восставновить. Чтобы в дальнейшем минимально влиять на регистры, мы выгружаем переданные нам параметры к себе на стек. Доступ к ним будет идти только через <code>SS:ESP</code>, что для нас будет предсказуемым.</p>
-<div class="paragraph-right-side">46</div>
+<div class="paragraph-right-side">33</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
     <span style="color:Blue;">short</span> CS_EIP[3];
@@ -1227,9 +1323,9 @@ NonClonned:
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">47</div>
+<div class="paragraph-left-side">34</div>
 <p>Наша следующая задача - это исправить в копии стека значения <code>EBP</code>, которые образуют односвязный список кадров на их будущие новые положения. Для этого мы рассчитываем дельту между адресом нашего стека потока и родительского стека потока, дельту между копией диапазона стека родительского потока и самим родительским потоком.</p>
-<div class="paragraph-right-side">47</div>
+<div class="paragraph-right-side">34</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
     <span style="color:Green;">// calculate ranges</span>
@@ -1252,9 +1348,9 @@ NonClonned:
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">48</div>
+<div class="paragraph-left-side">35</div>
 <p>Используя эти данные, мы в цикле идём по копии стека и исправляем адреса на их будущие новые положения.</p>
-<div class="paragraph-right-side">48</div>
+<div class="paragraph-right-side">35</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
     <span style="color:Green;">// In stack copy we have many saved EPBs, which where actually one-way linked list.</span>
@@ -1276,9 +1372,9 @@ NonClonned:
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">49</div>
+<div class="paragraph-left-side">36</div>
 <p>Когда правка односвязного списка завершена, мы должны исправить значения регистров в их копии, чтобы, если там присутствуют ссылки на стек, они были бы исправлены. Тут на самом деле алгоритм совсем не точен. Ведь если там по некоторой случайности окажется не удачное число из диапазона адресов стека, то оно будет исправлено по ошибке. Но наша задача не для продукта концепт написать, а просто понять работу стека потока. Потому для этих целей нам данная методика подойдёт.</p>
-<div class="paragraph-right-side">49</div>
+<div class="paragraph-right-side">36</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
     CHECKREF(EAX);
@@ -1291,9 +1387,9 @@ NonClonned:
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">50</div>
+<div class="paragraph-left-side">37</div>
 <p>Теперь, основная и самая ответственная часть. Когда мы скопируем в конец нашего стека копию диапазона родительского, все будет хорошо до момента, когда <code>MakeFork</code> в дочернем потоке захочет выйти (сделать <code>return</code>). Нам надо указать ему, куда он должен выйти. Для этого мы также имитируем вызов самого &lsquo;MakeFork&rsquo; из этого метода. Мы закладываем в стек адрес метки <code>RestorePointAfterClonnedExited</code>, как будто инструкция процессора <code>call</code> заложила в стек адрес возврата, а также положили текущий <code>EBP</code>, сымитировав построение односвязного списка цепочек кадров методов. После чего закладываем в стек обычной операцией <code>push</code> копию родительского стека тем самым отрисовав все методы, которые были вызваны в родительском стеке из метода <code>MakeFork</code>, включая его самого. Стек готов!</p>
-<div class="paragraph-right-side">50</div>
+<div class="paragraph-right-side">37</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
     <span style="color:Green;">// prepare for __asm nret</span>
@@ -1308,9 +1404,9 @@ NonClonned:
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">51</div>
+<div class="paragraph-left-side">38</div>
 <p>Далее поскольку мы также должны восстановить и регистры, восстанавливаем и их самих.</p>
-<div class="paragraph-right-side">51</div>
+<div class="paragraph-right-side">38</div>
 </div>
 <pre><code>    // restore registers, push 1 for Fork() and jmp
     _asm {
@@ -1328,9 +1424,9 @@ NonClonned:
         pop EAX
 </code></pre>
 <div class="paragraph-container">
-<div class="paragraph-left-side">52</div>
+<div class="paragraph-left-side">39</div>
 <p>А вот теперь самое время вспомнить тот странный код с закладыванием <code>0</code> в стек и проверки на <code>0</code>. В этом потоке мы закладываем <code>1</code> и делаем дальний jmp в код метода <code>ForkImpl</code>. Ведь по стеку мы находимся именно там, а реально все ещё тут. Когда мы туда попадём, то <code>ForkImpl</code> распознает смену потока и осуществит выход в метод <code>MakeFork</code>, который, завершив работу, попадёт в точку <code>RestorePointAfterClonnedExited</code>, т.к. немного ранее мы сымтировали вызов <code>MakeFork</code> из этой точки. Восстановив регистры до состояния &laquo;только что вызваны из TheadPool&raquo;, мы завершаем работу, отдавая поток в пул потоков.</p>
-<div class="paragraph-right-side">52</div>
+<div class="paragraph-right-side">39</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
         push 1
@@ -1345,58 +1441,42 @@ RestorePointAfterClonnedExited:
  }
 </pre></div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">53</div>
 <p>Проверим? Это - скриншот до вызова клонирования потока:</p>
-<div class="paragraph-right-side">53</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">54</div>
 <p><img src="./imgs/ThreadStack/ForkBeforeEnter.png" alt="" /></p>
-<div class="paragraph-right-side">54</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">55</div>
 <p>И после:</p>
-<div class="paragraph-right-side">55</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">56</div>
 <p><img src="./imgs/ThreadStack/ForkAfterEnter.png" alt="" /></p>
-<div class="paragraph-right-side">56</div>
-</div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">57</div>
+<div class="paragraph-left-side">40</div>
 <p>Как мы видим, теперь вместо одного потока внутри ForkImpl мы видим два. И оба - вышли из этого метода.</p>
-<div class="paragraph-right-side">57</div>
+<div class="paragraph-right-side">40</div>
 </div>
 <h1 id="section-5">Пара слов об уровне пониже</h1>
 <div class="paragraph-container">
-<div class="paragraph-left-side">58</div>
+<div class="paragraph-left-side">41</div>
 <p>Если мы заглянем краем глаза на ещё более низкий уровень, то узнаем или же вспомним, что память на самом деле является виртуальной и что она поделена на страницы объёмом 8 или 4 Кб. Каждая такая страница может физически существовать или же нет. А если она существует, то может быть отображена на файл или же реальную оперативную память. Именно этот механизм виртуализации позволяет приложениям иметь раздельную друг от друга память и обеспечивает уровни безопасности между приложением и операционной системой. При чем же здесь стек потока? Как и любая другая оперативная память приложения стек потока является её частью и также состоит из страниц объёмом 4 или 8 Кб. По краям от выделенного для стека пространства находятся две страницы, доступ к которым приводит к системному исключению, нотифицирующему операционную систему о том, что приложение пытается обратиться в невыделенный участок памяти. Внутри этого региона реально выделенными участками являются только те страницы, к которым обратилось приложение: т.е. если приложение резервирует под поток 2Мб памяти, это не значит, что они будут выделены сразу же. Отнюдь, они будут выделены по требованию: если стек потока вырастет до 1 Мб, это будет означать, что приложение получило именно 1 Мб оперативной памяти под стек.</p>
-<div class="paragraph-right-side">58</div>
+<div class="paragraph-right-side">41</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">59</div>
+<div class="paragraph-left-side">42</div>
 <p>Когда приложение резервирует память под локальные переменные, то происходят две вещи: наращивается значение регистра ESP и зануляется память под сами переменные. Поэтому, когда вы напишете рекурсивный метод, который уходит в бесконечную рекурсию, вы получите StackOverflowException: заняв всю выделенную под стек память (весь доступный регион), вы напоритесь на специальную страницу, Guard Page, доступ к которой вызовет нотификацию операционной системы, которая инициирует StackOverflow уровня ОС, которое уйдёт в .NET, будет перехвачено и выбросется исключение StackOverflowException для .NET приложения.</p>
-<div class="paragraph-right-side">59</div>
+<div class="paragraph-right-side">42</div>
 </div>
 <h1 id="stackalloc">Выделение памяти на стеке: stackalloc</h1>
 <div class="paragraph-container">
-<div class="paragraph-left-side">60</div>
+<div class="paragraph-left-side">43</div>
 <p>В C# существует достаточно интересное и очень редко используемое ключевое слово <code>stackalloc</code>. Оно настолько редко встречается в коде (тут я даже со словом &laquo;немного&raquo; преуменьшил. Скорее, &laquo;никогда&raquo;), что найти подходящий пример его использования достаточно трудно, а уж придумать тем более трудно: ведь если что-то редко используется, то и опыт работы с ним слишком мал. А все почему? Потому что для тех, кто наконец решается выяснить, что делает эта команда, <code>stackalloc</code> становится более пугающим чем полезным: тёмная сторона <code>stackalloc</code> - unsafe код. Тот результат, что он возвращает не является managed указателем: значение - обычный указатель на участок не защищённой памяти. Причём если по этому адресу сделать запись уже после того, как метод завершил работу, вы начнёте писать в локальные переменные некоторого метода или же вообще перетрёте адрес возврата из метода, после чего приложение закончит работу с ошибкой. Однако наша задача - проникнуть в самые уголки и разобраться, что в них скрыто. И понять, в частности, что если нам дали этот инструмент, то не просто же так, чтобы мы смогли найти секретные грабли и наступить на них со всего маху. Наоборот: нам дали этот инструмент чтобы мы смогли им воспользоваться и делать поистине быстрый софт. Я, надеюсь, вдохновил вас? Тогда начнём.</p>
-<div class="paragraph-right-side">60</div>
+<div class="paragraph-right-side">43</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">61</div>
+<div class="paragraph-left-side">44</div>
 <p>Чтобы найти правильные примеры использования этого ключевого слова надо проследовать прежде всего к его авторам: компании Microsoft и посмотреть как его используют они. Сделать это можно поискав полнотекстовым поиском по репозиторию <a href="https://github.com/dotnet/coreclr">coreclr</a>. Помимо различных тестов самого ключевого слова мы найдём не более 25 использований этого ключевого слова по коду библиотеки. Я надеюсь, что в предыдущем абзаце я достаточно сильно вас мотивировал, чтобы вы не остановили чтение, увидев эту маленькую цифру, и не закрыли мой труд. Скажу честно: команда CLR куда более дальновидная и профессиональная чем команда .NET Framework. И если она что-то сделала, то это нам сильно в чем-то должно помочь. А если это не использовано в .NET Framework&hellip; Ну, тут можно предположить, что там не все инженеры в курсе, что есть такой мощный инструмент оптимизации. Иначе бы объёмы его использования были бы гораздо больше.</p>
-<div class="paragraph-right-side">61</div>
+<div class="paragraph-right-side">44</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">62</div>
+<div class="paragraph-left-side">45</div>
 <p><strong>Класс Interop.ReadDir</strong>
 <a href="https://github.com/dotnet/coreclr/blob/b29f6328510207970763580d6f4db864e4b198af/src/mscorlib/shared/Interop/Unix/System.Native/Interop.ReadDir.cs#L71-L83">/src/mscorlib/shared/Interop/Unix/System.Native/Interop.ReadDir.cs</a></p>
-<div class="paragraph-right-side">62</div>
+<div class="paragraph-right-side">45</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">unsafe</span>
@@ -1415,20 +1495,16 @@ RestorePointAfterClonnedExited:
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">63</div>
+<div class="paragraph-left-side">46</div>
 <p>Для чего здесь используется <code>stackalloc</code>? Как мы видим, после выделения памяти код уходит в unsafe метод для заполнения созданного буфера данными. Т.е. unsafe метод, которому необходим участок для записи, выделяется место прямо на стеке: динамически. Это отличная оптимизация, если учесть, что альтернативы: запросить участок памяти у Windows или fixed (pinned) массив .NET, который помимо нагрузки на кучу нагружает GC тем, что массив прибивается гвоздями, чтобы GC его не пододвинул во время доступа к его данным. Выделяя память на стеке, мы не рискуем ничем: выделение происходит почти моментально, и мы можем совершенно спокойно заполнить его данными и выйти из метода. А вместе с выходом из метода исчезнет и stack frame метода. В общем, экономия времени значительнейшая.</p>
-<div class="paragraph-right-side">63</div>
+<div class="paragraph-right-side">46</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">64</div>
 <p>Давайте рассмотрим ещё один пример:</p>
-<div class="paragraph-right-side">64</div>
-</div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">65</div>
+<div class="paragraph-left-side">47</div>
 <p><strong>Класс Number.Formatting::FormatDecimal</strong>
 <a href="https://github.com/dotnet/coreclr/blob/efebb38f3c18425c57f94ff910a50e038d13c848/src/mscorlib/shared/System/Number.Formatting.cs#L287-L311">/src/mscorlib/shared/System/Number.Formatting.cs</a></p>
-<div class="paragraph-right-side">65</div>
+<div class="paragraph-right-side">47</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">static</span> <span style="color:Blue;">string</span> FormatDecimal(<span style="color:Blue;">decimal</span> value, ReadOnlySpan&lt;<span style="color:Blue;">char</span>&gt; format, NumberFormatInfo info)
@@ -1459,14 +1535,14 @@ RestorePointAfterClonnedExited:
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">66</div>
+<div class="paragraph-left-side">48</div>
 <p>Это - пример форматирования чисел, опирающийся на ещё более интересный пример класса <a href="https://github.com/dotnet/coreclr/blob/efebb38f3c18425c57f94ff910a50e038d13c848/src/mscorlib/shared/System/Text/ValueStringBuilder.cs">ValueStringBuilder</a>, работающий на основе <code>Span&lt;T&gt;</code>. Суть данного участка кода в том, что для того чтобы собрать текстовое представление форматированного числа максимально быстро, код не использует выделения памяти под буфер накопления символов. Этот прекрасный код выделяет память прямо в стековом кадре метода, обеспечивая тем самым отсутствие работы сборщика мусора по экземплярам StringBuilder, если бы метод работал на его основе. Плюс уменьшается время работы самого метода: выделение памяти в куче тоже время занимает. А использование типа <code>Span&lt;T&gt;</code> вместо голых указателей вносит чувство безопасности в работу кода, основанного на stackalloc.</p>
-<div class="paragraph-right-side">66</div>
+<div class="paragraph-right-side">48</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">67</div>
+<div class="paragraph-left-side">49</div>
 <p>Также, перед тем как перейти к выводам, стоит упомянуть, как делать нельзя. Другими словами, какой код может работать хорошо, но в один прекрасный момент выстрелит в самый не подходящий момент. Опять же, рассмотрим пример:</p>
-<div class="paragraph-right-side">67</div>
+<div class="paragraph-right-side">49</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">void</span> GenerateNoise(<span style="color:Blue;">int</span> noiseLength)
@@ -1477,9 +1553,9 @@ RestorePointAfterClonnedExited:
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">68</div>
+<div class="paragraph-left-side">50</div>
 <p>Код мал да удал: нельзя вот так брать и передавать размер для выделения памяти на стеке извне. Если вам так нужен заданный снаружи размер, примите сам буфер:</p>
-<div class="paragraph-right-side">68</div>
+<div class="paragraph-right-side">50</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">void</span> GenerateNoise(Span&lt;<span style="color:Blue;">int</span>&gt; noiseBuf)
@@ -1489,21 +1565,17 @@ RestorePointAfterClonnedExited:
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">69</div>
+<div class="paragraph-left-side">51</div>
 <p>Этот код гораздо информативнее, т.к. заставляет пользователя задуматься и быть аккуратным при выборе чисел. Первый вариант при неудачно сложившихся обстоятельствах может выбросить <code>StackOverflowException</code> при достаточно неглубоком положении метода в стеке потока: достаточно передать большое число в качестве параметра. Второй вариант, когда размер принимать всё-таки можно - это когда этот метод вызывается в конкретных случаях и при этом вызывающий код &laquo;знает&raquo; алгоритм работы этого метода. Без знания о внутреннем устройстве метода нет конкретного понимания возможного диапазона для noiseLength и как следствие - возможны ошибки</p>
-<div class="paragraph-right-side">69</div>
+<div class="paragraph-right-side">51</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">70</div>
+<div class="paragraph-left-side">52</div>
 <p>Вторая проблема, которую я вижу: если нам случайным образом не удалось попасть в размер того буфера, который мы сами себе выделили на стеке, а терять работоспособность мы не хотим, то, конечно, можно пойти несколькими путями: либо довыделить памяти, опять же на стеке, либо выделить её в куче. Причём, скорее всего второй вариант в большинстве случаев окажется более предпочтительным (так и поступили в случае <code>ValueStringBuffer</code>), т.к. более безопасен с точки зрения получения <code>StackOverflowException</code>.</p>
-<div class="paragraph-right-side">70</div>
+<div class="paragraph-right-side">52</div>
 </div>
 <h2 id="stackalloc-1">Выводы к stackalloc</h2>
-<div class="paragraph-container">
-<div class="paragraph-left-side">71</div>
 <p>Итак, для чего же лучше всего использовать <code>stackalloc</code>?</p>
-<div class="paragraph-right-side">71</div>
-</div>
 <ul>
 <li><p>Для работы с неуправляемым кодом, когда необходимо заполнить неуправляемым методом некоторый буфер данных или же принять от неуправляемого метода некий буфер данных, который будет использоваться в рамках жизни тела метода;</p>
 </li>
@@ -1511,15 +1583,15 @@ RestorePointAfterClonnedExited:
 </li>
 </ul>
 <div class="paragraph-container">
-<div class="paragraph-left-side">72</div>
+<div class="paragraph-left-side">53</div>
 <p>Использование данного аллокатора может сильно повысить производительность ваших приложений.</p>
-<div class="paragraph-right-side">72</div>
+<div class="paragraph-right-side">53</div>
 </div>
 <h1 id="section-6">Выводы к разделу</h1>
 <div class="paragraph-container">
-<div class="paragraph-left-side">73</div>
+<div class="paragraph-left-side">54</div>
 <p>Конечно же, в общем виде нам нет надобности редактировать стек в продуктовом коде: только если захочется занять своё свободное время интересной задачкой. Однако понимание его структуры даёт нам видимость простоты задачи получения данных из него и его редактирования. Т.е. если вы разработаете API для расширения функционала вашего приложения и если это API не предоставляет доступа к каким-либо данным это не значит что эти данные невозможно получить. Потому всегда проверяйте ваше приложение на устойчивость к взломам.</p>
-<div class="paragraph-right-side">73</div>
+<div class="paragraph-right-side">54</div>
 </div>
 
 </div>

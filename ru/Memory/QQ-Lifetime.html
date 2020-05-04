@@ -16,6 +16,37 @@
     margin-top: 60px;
 }
 
+.book-title-container {
+    width: 100%;
+    text-align: center;
+    margin: 73px 0 110px 0;
+}
+
+.book-title {
+    font-size: 57pt;
+    margin: 50px 0 70px 0;
+    user-select: none;
+}
+.book-part-title-block {
+    display: inline-block;
+}
+.book-part-title {
+    font-size: 21pt;
+    color: #656ab6;
+    margin: 0 7px;
+}
+
+.book-part-title:hover {
+    box-shadow: inset 0 -1px #007bff;
+    text-decoration: none;
+}
+
+.book-superheading-title {
+    font-size: 15pt;
+    margin: 0 7px;
+    color: #656ab6;
+}
+
 .article-container
 {
     width: 62%;
@@ -31,19 +62,21 @@ p, li {
     font-family: inherit;
 }
 
-ol, ul {
+ol, li {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+ol {
+    padding-left: 1.2rem;
+}
+
+ul  {
     padding-left: 35px;
-    margin-top: 1.1rem;
-    margin-bottom: 1.1rem;
 }
 
-ol li {
-    padding-left: 10px;	
-    font-family: inherit;
-}
-
-ul li {
-    padding-left: 12px;	
+ol li, ul li {
+    padding-left: 1rem;	
     font-family: inherit;
 }
 
@@ -84,7 +117,6 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
     border-left-width: 3px;
     padding-left: 25px;
     display: block;
-    background-color: aliceblue !important;
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -175,7 +207,6 @@ blockquote p {
 blockquote p code {
     font-family: consolas, monospace;
     font-size: 17px;
-    background-color: aliceblue;
     padding: 4px 6px;
 }
 
@@ -202,7 +233,6 @@ h1 {
     margin: 40px 0 20px 0;
     border-bottom-style: ridge;
     padding-bottom: 10px;
-    width: 151%;
 }
 
 h1 b {
@@ -336,18 +366,38 @@ h4 {
 .paragraph-container > .paragraph-left-side {
     left: -55px;
     width: 35px;
+    user-select: none;
 }
 
 .paragraph-container > .paragraph-right-side  {
     left: 100%;
     width: 35px;
     padding-left: 45px;
+    user-select: none;
 }
 
 .article-container
 {
     width: 65%;
 }
+
+.menu-title {
+    text-align: center;
+    margin: 35px 50px 35px 50px;
+    font-size: 24pt;
+    font-family: Charter;
+}
+
+.menu-container ol {
+    margin: 0;
+    padding: 0;
+}
+
+.menu-container ol li {
+    margin: 0;
+    padding: 0;
+}
+
 
 /* MEDIA */
 /* XL */
@@ -383,6 +433,27 @@ h4 {
 
 /* MD */
 @media (max-width: 991px) {
+    
+    .book-title-container {
+        margin: 73px 0 110px 0;
+    }
+
+    .book-title {
+        font-size: 50pt;
+        margin: 50px 0 70px 0;
+    }
+
+    .book-part-title {
+        font-size: 19pt;
+    }
+
+    .book-part-title:hover {
+        box-shadow: inset 0 -1px #007bff;
+    }
+
+    .book-superheading-title {
+        font-size: 15pt;
+    }
     .book-container {
         margin: 0 100px;
     }
@@ -437,13 +508,42 @@ h4 {
         font-size: 15pt;
     }
 
+    p code:not(.highlight), li code:not(.highlight) {
+        font-size: 11pt;
+    }
+
     p, li {
         line-height: 30px;
-    }    
+    }
+    
+    li {
+        margin: 0 0 10px 0;
+    }
 }
 
 /* Smartphone horizontal - SM */
 @media (max-width: 767px) {
+    .book-title-container {
+        margin: 73px 0 110px 0;
+    }
+
+    .book-title {
+        font-size: 40pt;
+        margin: 50px 0 70px 0;
+    }
+
+    .book-part-title {
+        font-size: 19pt;
+    }
+
+    .book-part-title:hover {
+        box-shadow: inset 0 -1px #007bff;
+    }
+
+    .book-superheading-title {
+        font-size: 17pt;
+    }
+
     .book-container {
         margin: 0 50px;
     }
@@ -475,6 +575,11 @@ h4 {
         font-size: 13pt;
     }
 
+    p code:not(.highlight), li code:not(.highlight) {
+        font-size: 10pt;
+        padding: 3px;
+    }
+   
     p, li {
         line-height: 28px;
     }    
@@ -488,18 +593,7 @@ h4 {
     }
 }
 
-/* Fonts 
-
-/*@font-face {*/
-/*    font-family: 'PF Regal';*/
-/*    src: url('../../res/fonts/PFRegalTextPro-RegularA.eot');*/
-/*    src: local('../../res/fonts/PFRegalTextPro-RegularA'),*/
-/*        url('../../res/fonts/PFRegalTextPro-RegularA.woff2') format('woff2'),*/
-/*        url('../../res/fonts/PFRegalTextPro-RegularA.woff') format('woff'),*/
-/*        url('../../res/fonts/PFRegalTextPro-RegularA.ttf') format('truetype');*/
-/*    font-weight: 300;*/
-/*    font-style: normal;*/
-/*}*/
+/* Fonts */
 
 @font-face {
     font-family: 'PF Regal';
@@ -672,7 +766,61 @@ h4 {
     font-style: italic;
 }  
     </style>
+    
+<div class="book-title-container d-none d-md-block">
+    <div class="book-title">Knowledge Base</div>
+    <div class="book-part-title-block">pt.1 <a href="../..//ru/Memory/01-00-MemoryManagement-Intro.html" class="book-part-title">Управление памятью</a></div>
+    <div class="book-part-title-block">pt.2 <a href="../..//ru/Execution/02-00-ExecutionFlow-Intro.html" class="book-part-title">Поток исполнения команд</a></div>
+    <br><a href="#" class="book-superheading-title">Обоснование выбора</a>
+    / <a href="#" class="book-superheading-title">Упрощенное описание</a>
+    / <a href="#" class="book-superheading-title">Подробное описание</a>
+</div>
 
+<!--
+<div style="
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    padding: 0px 50px 110px 50px;">
+<div style="
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: white;
+    box-shadow: 0 0 45px rgba(0,0,0,0.2);">
+
+    <div class="container">
+    <div class="row menu-container">
+        <div class="col-6">
+            <p class="menu-title">Введение в управление памятью</p>
+	        <ol>
+                <li><a href="./Memory/01-00-MemoryManagement-Intro.html">Общие слова</a></li>
+                <li><a href="./Memory/01-02-MemoryManagement-Basics.html">Введение в управление памятью</a></li>
+                <li><a href="./Memory/01-04-MemoryManagement-ThreadStack.html">Стек потока</a></li>
+                <li><a href="./Memory/01-06-MemoryManagement-EntitiesLifetime.html">Время жизни сущности</a></li>
+                <li><a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html">RefTypes, ValueTypes, Boxing &amp; Unboxing</a></li>
+                <li><a href="./Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></li>
+                <li><a href="./Memory/01-12-MemoryManagement-Finalizer.html">Финализация</a></li>
+                <li><a href="./Memory/01-14-MemoryManagement-Results.html">Выводы</a></li>
+            </ol>
+        </div>
+        <div class="col-6">
+            <p class="menu-title">Подробности<br> реализации GC</p>
+            <ol>
+                <li><a href="./Memory/03-02-MemoryManagement-Allocation.html">Выделение памяти под объект</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-04-MemoryManagement-GC-Intro.html">Введение в сборку мусора</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-06-MemoryManagement-GC-Mark-Phase.html">Фаза маркировки</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-08-MemoryManagement-GC-Planning-Phase.html">Фаза планирования</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-10-MemoryManagement-GC-Sweep-Collect.html">Фазы Sweep/Collect</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-12-MemoryMenegement-GC-Results.html">Выводы по менеджменту памяти и работе над производительностью</a> <em>(Только наговорен текст)</em></li>
+            </ol>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+-->
 <div class="book-container">
 <div class="article-container">
     <!--<p class="d-xs-block d-sm-none">XS</p>
@@ -714,45 +862,37 @@ h4 {
 <li>Также должна существовать некая зависимость времени жизни одних объектов от времени жизни других других;</li>
 <li>Мы при этом не должны каждый раз писать всю инфраструктуру, как мы делаем это для случая с IDisposable;</li>
 </ul>
-<div class="paragraph-container">
-<div class="paragraph-left-side">04</div>
 <p>Поэтому:</p>
-<div class="paragraph-right-side">04</div>
-</div>
 <ul>
 <li>Процессом разрушения должна заниматься отдельная сущность. Назовём её <code>Lifetime</code>;</li>
 <li>Конструктор класса должен принимать на вход экземпляр типа <code>Lifetime</code> если жизнь экземпляра нашего класса зависит от времени жизни внешнего <code>Lifetime</code> либо создавать свой собственный если зависимостей не существует;</li>
 </ul>
 <div class="paragraph-container">
-<div class="paragraph-left-side">05</div>
+<div class="paragraph-left-side">04</div>
 <p>Теперь, в новых реалиях, внешний код будет передавать нам специальный экземпляр <code>Lifetime</code>, от которого мы будем зависеть и относительно времени жизни которого мы будем существовать. А чтобы нас разрушить, внешний тип не будет разрушать нас напрямую: вместо этого он закончит время жизни экземпляра <code>Lifetime</code>, который самостоятельно завершить время жизни всех, кто на него подписан.</p>
+<div class="paragraph-right-side">04</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">05</div>
+<p>С таким подходом мы более не отдаем каждому, кто имеет ссылку на наш объект возможность разрушить нас. Помните что мы имели в шаблоне IDisposable? При проектировании класса мы должны были реализовать интерфейс IDisposable: сделать метод <code>Dispose()</code> публичным для всех. Это значит что любой, кто получал ссылку на экземпляр нашего типа получал также средство уничтожения экземпляра нашего типа. Теперь ситуация совершенно иная: конструктор экземпляра типа получает в качестве параметра отрезок собственной жизни как внешнюю зависимость. Не выставляя при этом никаких методов наружу. Получается, что в данном сценарии временем жизни нашего экземпляра типа владеет только тот, кто его создал и никто иной. С шаблоном IDisposable единственный путь обойти публикацию метода - реализовать этот интерфейс неявно, скрыв таким образом метод <code>Dispose</code>. Однако, неявная реализация интерфейса будет вызывать много вопросов, т.к. современные IDE позволяют легко и просто увидеть наличие этого метода в структуре типа.</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p>С таким подходом мы более не отдаем каждому, кто имеет ссылку на наш объект возможность разрушить нас. Помните что мы имели в шаблоне IDisposable? При проектировании класса мы должны были реализовать интерфейс IDisposable: сделать метод <code>Dispose()</code> публичным для всех. Это значит что любой, кто получал ссылку на экземпляр нашего типа получал также средство уничтожения экземпляра нашего типа. Теперь ситуация совершенно иная: конструктор экземпляра типа получает в качестве параметра отрезок собственной жизни как внешнюю зависимость. Не выставляя при этом никаких методов наружу. Получается, что в данном сценарии временем жизни нашего экземпляра типа владеет только тот, кто его создал и никто иной. С шаблоном IDisposable единственный путь обойти публикацию метода - реализовать этот интерфейс неявно, скрыв таким образом метод <code>Dispose</code>. Однако, неявная реализация интерфейса будет вызывать много вопросов, т.к. современные IDE позволяют легко и просто увидеть наличие этого метода в структуре типа.</p>
+<p>Теперь осталось закрыть еще один вопрос: разделение зон ответственности. Ведь если у нас появляется задача передать кому-либо свой <code>Lifetime</code>, не хотелось бы отдавать контроль над возможностью вызова метода запуска разрушения, который закончит жизнь всех, кто подписан на переданный экземпляр <code>Lifetime</code>.</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p>Теперь осталось закрыть еще один вопрос: разделение зон ответственности. Ведь если у нас появляется задача передать кому-либо свой <code>Lifetime</code>, не хотелось бы отдавать контроль над возможностью вызова метода запуска разрушения, который закончит жизнь всех, кто подписан на переданный экземпляр <code>Lifetime</code>.</p>
-<div class="paragraph-right-side">07</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">08</div>
 <p>Также, чтобы использующие <code>Lifetime</code> сущности не могли прервать время его жизни самостоятельно, необходимо ввести разделение зон ответственности между участниками процесса:</p>
-<div class="paragraph-right-side">08</div>
+<div class="paragraph-right-side">07</div>
 </div>
 <ol>
 <li><code>LifetimeDef</code>. Экземпляр данного типа хранится у того объекта, который будет владеть завершением времени жизни зависящих от него объектов;</li>
 <li><code>Lifetime</code> создается экземпляром <code>LifetimeDef</code> и будет передан всем тем, кто будет так или иначе зависеть от владельца. Сами они не могут вызвать метод <code>Terminate</code>: он доступен только у <code>LifetimeDef</code>. Забота экземпляров типов, которые получили <code>Lifetime</code> - просто накидать внутрь него действий, которые будут их разрушать.</li>
 <li><code>OuterLifetime</code> - инкапсулирует понятие readonly <code>Lifetime</code>. Другими словами, это средство защиты от конечного программиста: чтобы он не мог в переданную зависимость добавить действия по уничтожению своей. Этот тип используется, когда вы отдаете кому-либо экземпляр <code>Lifetime</code> так, чтобы относительно него можно было бы только создать новый, зависимый <code>LifetimeDef</code>. Но добавить туда свои собственные было бы не возможно. Публично, как и <code>Lifetime</code>, <code>OuterLifetime</code> содержит только свойство <code>IsTerminated</code>, однако на основе него можно создать зависимый экземпляр <code>LifetimeDef</code>, на основе которого можно осуществлять менеджмент жизни собственного экземпляра.</li>
 </ol>
-<div class="paragraph-container">
-<div class="paragraph-left-side">09</div>
 <p>Рассмотрим самый базовый вариант интерфейса типа:</p>
-<div class="paragraph-right-side">09</div>
-</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">class</span> Lifetime
 {
@@ -765,14 +905,14 @@ h4 {
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">10</div>
+<div class="paragraph-left-side">08</div>
 <p>Что мы здесь видим? Есть новая сущность, <code>Lifetime</code>. Сущность эта имеет свойство <code>IsTerminated</code>, которое призвано помочь в понимании, закончилось ли время жизни Lifetime и всех, кто от него зависит или еще нет. Задать список действий, которые должны произойти в случае смерти экземпляра типа <code>Lifetime</code> можно путем их добавления во внутренний список методом <code>Add</code>.</p>
-<div class="paragraph-right-side">10</div>
+<div class="paragraph-right-side">08</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">11</div>
+<div class="paragraph-left-side">09</div>
 <p>Также давайте рассмотрим второй краеугольный камень этого шаблона: класс <code>LifetimeDef</code>, который владеет правом на останов срока жизни экземпляра <code>Lifetime</code>, которым владеет.</p>
-<div class="paragraph-right-side">11</div>
+<div class="paragraph-right-side">09</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">class</span> LifetimeDef : IDisposable
@@ -801,9 +941,9 @@ h4 {
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">12</div>
+<div class="paragraph-left-side">10</div>
 <p>Для удобности он содержит необязательное поле <code>Name</code>. Это введено чтобы при отладке множественные экземпляры типа <code>LifetimeDef</code> не вводили бы в заблужение и позволяли бы легко находить необходимые сущности. Метод <code>Terminate</code> обрывает жизнь экземпляру класса Lifetime, а реализация шаблона <code>IDisposable</code> позволяет использовать <code>LifetimeDef</code> в классических сценариях. Например, в блоке <code>using</code>:</p>
-<div class="paragraph-right-side">12</div>
+<div class="paragraph-right-side">10</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 [Test]
@@ -823,9 +963,9 @@ h4 {
 </div>
 <h2 id="section">Сценарии использования</h2>
 <div class="paragraph-container">
-<div class="paragraph-left-side">13</div>
+<div class="paragraph-left-side">11</div>
 <p>Для того чтобы разобраться, с чем мы имеем дело, я предлагаю рассмотреть ряд примеров.</p>
-<div class="paragraph-right-side">13</div>
+<div class="paragraph-right-side">11</div>
 </div>
 <h3 id="section-1">Пример 1</h3>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>

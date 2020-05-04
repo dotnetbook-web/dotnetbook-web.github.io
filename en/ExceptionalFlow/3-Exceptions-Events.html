@@ -16,6 +16,37 @@
     margin-top: 60px;
 }
 
+.book-title-container {
+    width: 100%;
+    text-align: center;
+    margin: 73px 0 110px 0;
+}
+
+.book-title {
+    font-size: 57pt;
+    margin: 50px 0 70px 0;
+    user-select: none;
+}
+.book-part-title-block {
+    display: inline-block;
+}
+.book-part-title {
+    font-size: 21pt;
+    color: #656ab6;
+    margin: 0 7px;
+}
+
+.book-part-title:hover {
+    box-shadow: inset 0 -1px #007bff;
+    text-decoration: none;
+}
+
+.book-superheading-title {
+    font-size: 15pt;
+    margin: 0 7px;
+    color: #656ab6;
+}
+
 .article-container
 {
     width: 62%;
@@ -31,19 +62,21 @@ p, li {
     font-family: inherit;
 }
 
-ol, ul {
+ol, li {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+ol {
+    padding-left: 1.2rem;
+}
+
+ul  {
     padding-left: 35px;
-    margin-top: 1.1rem;
-    margin-bottom: 1.1rem;
 }
 
-ol li {
-    padding-left: 10px;	
-    font-family: inherit;
-}
-
-ul li {
-    padding-left: 12px;	
+ol li, ul li {
+    padding-left: 1rem;	
     font-family: inherit;
 }
 
@@ -84,7 +117,6 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
     border-left-width: 3px;
     padding-left: 25px;
     display: block;
-    background-color: aliceblue !important;
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -175,7 +207,6 @@ blockquote p {
 blockquote p code {
     font-family: consolas, monospace;
     font-size: 17px;
-    background-color: aliceblue;
     padding: 4px 6px;
 }
 
@@ -202,7 +233,6 @@ h1 {
     margin: 40px 0 20px 0;
     border-bottom-style: ridge;
     padding-bottom: 10px;
-    width: 151%;
 }
 
 h1 b {
@@ -336,18 +366,38 @@ h4 {
 .paragraph-container > .paragraph-left-side {
     left: -55px;
     width: 35px;
+    user-select: none;
 }
 
 .paragraph-container > .paragraph-right-side  {
     left: 100%;
     width: 35px;
     padding-left: 45px;
+    user-select: none;
 }
 
 .article-container
 {
     width: 65%;
 }
+
+.menu-title {
+    text-align: center;
+    margin: 35px 50px 35px 50px;
+    font-size: 24pt;
+    font-family: Charter;
+}
+
+.menu-container ol {
+    margin: 0;
+    padding: 0;
+}
+
+.menu-container ol li {
+    margin: 0;
+    padding: 0;
+}
+
 
 /* MEDIA */
 /* XL */
@@ -383,6 +433,27 @@ h4 {
 
 /* MD */
 @media (max-width: 991px) {
+    
+    .book-title-container {
+        margin: 73px 0 110px 0;
+    }
+
+    .book-title {
+        font-size: 50pt;
+        margin: 50px 0 70px 0;
+    }
+
+    .book-part-title {
+        font-size: 19pt;
+    }
+
+    .book-part-title:hover {
+        box-shadow: inset 0 -1px #007bff;
+    }
+
+    .book-superheading-title {
+        font-size: 15pt;
+    }
     .book-container {
         margin: 0 100px;
     }
@@ -437,13 +508,42 @@ h4 {
         font-size: 15pt;
     }
 
+    p code:not(.highlight), li code:not(.highlight) {
+        font-size: 11pt;
+    }
+
     p, li {
         line-height: 30px;
-    }    
+    }
+    
+    li {
+        margin: 0 0 10px 0;
+    }
 }
 
 /* Smartphone horizontal - SM */
 @media (max-width: 767px) {
+    .book-title-container {
+        margin: 73px 0 110px 0;
+    }
+
+    .book-title {
+        font-size: 40pt;
+        margin: 50px 0 70px 0;
+    }
+
+    .book-part-title {
+        font-size: 19pt;
+    }
+
+    .book-part-title:hover {
+        box-shadow: inset 0 -1px #007bff;
+    }
+
+    .book-superheading-title {
+        font-size: 17pt;
+    }
+
     .book-container {
         margin: 0 50px;
     }
@@ -475,6 +575,11 @@ h4 {
         font-size: 13pt;
     }
 
+    p code:not(.highlight), li code:not(.highlight) {
+        font-size: 10pt;
+        padding: 3px;
+    }
+   
     p, li {
         line-height: 28px;
     }    
@@ -488,18 +593,7 @@ h4 {
     }
 }
 
-/* Fonts 
-
-/*@font-face {*/
-/*    font-family: 'PF Regal';*/
-/*    src: url('../../res/fonts/PFRegalTextPro-RegularA.eot');*/
-/*    src: local('../../res/fonts/PFRegalTextPro-RegularA'),*/
-/*        url('../../res/fonts/PFRegalTextPro-RegularA.woff2') format('woff2'),*/
-/*        url('../../res/fonts/PFRegalTextPro-RegularA.woff') format('woff'),*/
-/*        url('../../res/fonts/PFRegalTextPro-RegularA.ttf') format('truetype');*/
-/*    font-weight: 300;*/
-/*    font-style: normal;*/
-/*}*/
+/* Fonts */
 
 @font-face {
     font-family: 'PF Regal';
@@ -672,7 +766,61 @@ h4 {
     font-style: italic;
 }  
     </style>
+    
+<div class="book-title-container d-none d-md-block">
+    <div class="book-title">Knowledge Base</div>
+    <div class="book-part-title-block">pt.1 <a href="../..//ru/Memory/01-00-MemoryManagement-Intro.html" class="book-part-title">Управление памятью</a></div>
+    <div class="book-part-title-block">pt.2 <a href="../..//ru/Execution/02-00-ExecutionFlow-Intro.html" class="book-part-title">Поток исполнения команд</a></div>
+    <br><a href="#" class="book-superheading-title">Обоснование выбора</a>
+    / <a href="#" class="book-superheading-title">Упрощенное описание</a>
+    / <a href="#" class="book-superheading-title">Подробное описание</a>
+</div>
 
+<!--
+<div style="
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    padding: 0px 50px 110px 50px;">
+<div style="
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: white;
+    box-shadow: 0 0 45px rgba(0,0,0,0.2);">
+
+    <div class="container">
+    <div class="row menu-container">
+        <div class="col-6">
+            <p class="menu-title">Введение в управление памятью</p>
+	        <ol>
+                <li><a href="./Memory/01-00-MemoryManagement-Intro.html">Общие слова</a></li>
+                <li><a href="./Memory/01-02-MemoryManagement-Basics.html">Введение в управление памятью</a></li>
+                <li><a href="./Memory/01-04-MemoryManagement-ThreadStack.html">Стек потока</a></li>
+                <li><a href="./Memory/01-06-MemoryManagement-EntitiesLifetime.html">Время жизни сущности</a></li>
+                <li><a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html">RefTypes, ValueTypes, Boxing &amp; Unboxing</a></li>
+                <li><a href="./Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></li>
+                <li><a href="./Memory/01-12-MemoryManagement-Finalizer.html">Финализация</a></li>
+                <li><a href="./Memory/01-14-MemoryManagement-Results.html">Выводы</a></li>
+            </ol>
+        </div>
+        <div class="col-6">
+            <p class="menu-title">Подробности<br> реализации GC</p>
+            <ol>
+                <li><a href="./Memory/03-02-MemoryManagement-Allocation.html">Выделение памяти под объект</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-04-MemoryManagement-GC-Intro.html">Введение в сборку мусора</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-06-MemoryManagement-GC-Mark-Phase.html">Фаза маркировки</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-08-MemoryManagement-GC-Planning-Phase.html">Фаза планирования</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-10-MemoryManagement-GC-Sweep-Collect.html">Фазы Sweep/Collect</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-12-MemoryMenegement-GC-Results.html">Выводы по менеджменту памяти и работе над производительностью</a> <em>(Только наговорен текст)</em></li>
+            </ol>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+-->
 <div class="book-container">
 <div class="article-container">
     <!--<p class="d-xs-block d-sm-none">XS</p>
@@ -744,11 +892,7 @@ h4 {
 <p>This event is purely informational and can’t be handled. Its task is to notify us about an exception that happened within this domain and will be processed by the application code after processing the event. Its execution has several features we should be aware of when designing a handler.</p>
 <div class="paragraph-right-side">09</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">10</div>
 <p>However, let’s first look at a simple synthetic example of exception handling:</p>
-<div class="paragraph-right-side">10</div>
-</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">void</span> Main()
 {
@@ -768,35 +912,31 @@ h4 {
 
 </pre></div>
 </div>
+<p>What is in this code?</p>
+<div class="paragraph-container">
+<div class="paragraph-left-side">10</div>
+<p>Firstly, no matter where an exception is generated, it will be logged in a console first. I mean even if you forget or can’t implement the handling of some type of exception it will anyway appear in a log that you arrange.</p>
+<div class="paragraph-right-side">10</div>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
-<p>What is in this code?</p>
+<p>Secontly, we see a somewhat strange condition for throwing an internal exception. It is because you can’t just throw another exception inside a <code>FirstChanceException</code> handler. Or, it’s better to say you <em>don’t have an opportunity</em> to throw an exception inside <code>FirstChanceException</code>. If you do this, it may have two possible outcomes.</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
-<p>Firstly, no matter where an exception is generated, it will be logged in a console first. I mean even if you forget or can’t implement the handling of some type of exception it will anyway appear in a log that you arrange.</p>
+<p>First, if we didn’t have the <code>if(++counter == 1)</code> condition, we would get infinite <code>FirstChanceException</code> for all new <code>ArgumentOutOfRangeException</code>. What does it mean? It means that at some point we would get <code>StackOverflowException</code>: <code>throw new Exception(&quot;Hello!&quot;)</code> calls the <code>Throw</code> CLR method that calls <code>FirstChanceException</code> which calls <code>Throw</code> for <code>ArgumentOutOfRangeException</code> already and so on based on recursion. The second variant involves protecting ourselves in terms of recursion depth using <code>counter</code> condition. In this case, we throw an exception only once. The result is unexpected as we get an exceptional situation which in fact occurs inside a <code>throw</code> instruction.</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
-<p>Secontly, we see a somewhat strange condition for throwing an internal exception. It is because you can’t just throw another exception inside a <code>FirstChanceException</code> handler. Or, it’s better to say you <em>don’t have an opportunity</em> to throw an exception inside <code>FirstChanceException</code>. If you do this, it may have two possible outcomes.</p>
+<p>What does fit best for such an error type? ECMA-335 says that if an instruction came to an unexpected state, <code>ExecutionEngineException</code> should be thrown. This is an exception that we can’t handle. It leads to application termination. What variants of safe handling do we have?</p>
 <div class="paragraph-right-side">13</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
-<p>First, if we didn’t have the <code>if(++counter == 1)</code> condition, we would get infinite <code>FirstChanceException</code> for all new <code>ArgumentOutOfRangeException</code>. What does it mean? It means that at some point we would get <code>StackOverflowException</code>: <code>throw new Exception(&quot;Hello!&quot;)</code> calls the <code>Throw</code> CLR method that calls <code>FirstChanceException</code> which calls <code>Throw</code> for <code>ArgumentOutOfRangeException</code> already and so on based on recursion. The second variant involves protecting ourselves in terms of recursion depth using <code>counter</code> condition. In this case, we throw an exception only once. The result is unexpected as we get an exceptional situation which in fact occurs inside a <code>throw</code> instruction.</p>
-<div class="paragraph-right-side">14</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">15</div>
-<p>What does fit best for such an error type? ECMA-335 says that if an instruction came to an unexpected state, <code>ExecutionEngineException</code> should be thrown. This is an exception that we can’t handle. It leads to application termination. What variants of safe handling do we have?</p>
-<div class="paragraph-right-side">15</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">16</div>
 <p>The first that comes to mind is to secure the whole <code>FirstChanceException</code> handler code by a <code>try-catch</code> block:</p>
-<div class="paragraph-right-side">16</div>
+<div class="paragraph-right-side">14</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">void</span> Main()
@@ -857,24 +997,24 @@ Success
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">17</div>
+<div class="paragraph-left-side">15</div>
 <p>Thus, on the one hand, we have a code to handle a <code>FirstChanceException</code> event and on the other hand, we have an additional code to handle exceptions in <code>FirstChanceException</code> itself.</p>
+<div class="paragraph-right-side">15</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">16</div>
+<p>However, approaches to log both scenarios should be different. If event processing can be logged in any possible way, the handling of <code>FirstChanceException</code> logic error should be done without any exceptions. The second thing, which you probably noticed, is the synchronization among threads. You may ask why it should be here if any exception appears in some thread which means that <code>FirstChanceException</code> is thread-safe in theory.</p>
+<div class="paragraph-right-side">16</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">17</div>
+<p>Don’t be so optimistic. <code>FirstChanceException</code> happens in <code>AppDomain</code>.  It means it impacts any thread started in a particular domain. Thus, if we have a domain with several running threads, then <code>FirstChanceException</code> can run in parallel. It means that we should protect our thread by synchronization, e.g. using <code>lock</code>.</p>
 <div class="paragraph-right-side">17</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
-<p>However, approaches to log both scenarios should be different. If event processing can be logged in any possible way, the handling of <code>FirstChanceException</code> logic error should be done without any exceptions. The second thing, which you probably noticed, is the synchronization among threads. You may ask why it should be here if any exception appears in some thread which means that <code>FirstChanceException</code> is thread-safe in theory.</p>
-<div class="paragraph-right-side">18</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">19</div>
-<p>Don’t be so optimistic. <code>FirstChanceException</code> happens in <code>AppDomain</code>.  It means it impacts any thread started in a particular domain. Thus, if we have a domain with several running threads, then <code>FirstChanceException</code> can run in parallel. It means that we should protect our thread by synchronization, e.g. using <code>lock</code>.</p>
-<div class="paragraph-right-side">19</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">20</div>
 <p>Another way is to transfer exception handling to an adjacent thread, belonging to another application domain. However, in this case we should build a domain, dedicated for this task so that other worker threads wouldn’t bring this domain down.</p>
-<div class="paragraph-right-side">20</div>
+<div class="paragraph-right-side">18</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">static</span> <span style="color:Blue;">void</span>  Main()
@@ -960,25 +1100,25 @@ Success
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">21</div>
+<div class="paragraph-left-side">19</div>
 <p>In this case, the handling of <code>FirstChanceException</code> is done safely in an adjacent thread that belongs to a neighboring domain. Thus, the errors of message handling can’t bring worker threads down. Additionally, we can listen to <code>UnhandledException</code> in message logging domain: fatal errors during logging won’t bring the whole application down.</p>
-<div class="paragraph-right-side">21</div>
+<div class="paragraph-right-side">19</div>
 </div>
 <h3 id="appdomain.unhandledexception">AppDomain.UnhandledException</h3>
 <div class="paragraph-container">
-<div class="paragraph-left-side">22</div>
+<div class="paragraph-left-side">20</div>
 <p>The second message which we can catch and which refers to exception handling is <code>AppDomain.UnhandledException</code>. This message is bad news for us as it means that nobody was able to handle an error in some thread. It also means, that the only thing we can do is to clean up the consequences of such an error,  i.e. the resources assigned to this thread if they were created. However, it’s better to handle exceptions within threads, without bringing a thread down,  that means to use <code>try-catch</code>. Let’s check the efficiency of this approach.</p>
-<div class="paragraph-right-side">22</div>
+<div class="paragraph-right-side">20</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">23</div>
+<div class="paragraph-left-side">21</div>
 <p>Assume that we have a library that should create threads and implement some logic in them. We, as users of this library, are interested only in guaranteed API calls and getting error messages.</p>
-<div class="paragraph-right-side">23</div>
+<div class="paragraph-right-side">21</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">24</div>
+<div class="paragraph-left-side">22</div>
 <p>If the library brings down threads quietly, it won’t be of much use for us. Moreover, bringing down a thread will lead to an <code>AppDomain.UnhandledException</code> message which doesn’t indicates the affected thread. In case of our own code, this thread won’t be helpful either. Anyway, I haven’t seen situations where it could be necessary. Our task is to handle errors properly, log them, and terminate a thread correctly. In fact it means that we should wrap a method that starts a thread in <code>try-catch</code>:</p>
-<div class="paragraph-right-side">24</div>
+<div class="paragraph-right-side">22</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
     ThreadPool.QueueUserWorkitem(_ =&gt; {
@@ -996,19 +1136,19 @@ Success
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">25</div>
+<div class="paragraph-left-side">23</div>
 <p>With this scheme we will meet our goal: on the one hand, we don’t bring a thread down, on the other hand, we clean up local resources correctly if they were created. Also, we log those errors that we get.</p>
-<div class="paragraph-right-side">25</div>
+<div class="paragraph-right-side">23</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">26</div>
+<div class="paragraph-left-side">24</div>
 <p>&laquo;<em>Hold on</em>&raquo; - you might say - &laquo;<em>You left the topic of</em> <code>AppDomain.UnhandledException</code> <em>event too quickly. Is it really unnecessary?</em>&raquo;</p>
-<div class="paragraph-right-side">26</div>
+<div class="paragraph-right-side">24</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">27</div>
+<div class="paragraph-left-side">25</div>
 <p>Well, it is necessary. But we need it only to alert us if we forgot to wrap some threads in <code>try-catch</code> with all the necessary logic, including logging and resource cleanup. Otherwise, it would be completely wrong to address all exceptions as if they never occured.</p>
-<div class="paragraph-right-side">27</div>
+<div class="paragraph-right-side">25</div>
 </div>
 
 </div>

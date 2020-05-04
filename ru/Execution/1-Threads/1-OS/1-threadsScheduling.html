@@ -16,6 +16,37 @@
     margin-top: 60px;
 }
 
+.book-title-container {
+    width: 100%;
+    text-align: center;
+    margin: 73px 0 110px 0;
+}
+
+.book-title {
+    font-size: 57pt;
+    margin: 50px 0 70px 0;
+    user-select: none;
+}
+.book-part-title-block {
+    display: inline-block;
+}
+.book-part-title {
+    font-size: 21pt;
+    color: #656ab6;
+    margin: 0 7px;
+}
+
+.book-part-title:hover {
+    box-shadow: inset 0 -1px #007bff;
+    text-decoration: none;
+}
+
+.book-superheading-title {
+    font-size: 15pt;
+    margin: 0 7px;
+    color: #656ab6;
+}
+
 .article-container
 {
     width: 62%;
@@ -31,19 +62,21 @@ p, li {
     font-family: inherit;
 }
 
-ol, ul {
+ol, li {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+ol {
+    padding-left: 1.2rem;
+}
+
+ul  {
     padding-left: 35px;
-    margin-top: 1.1rem;
-    margin-bottom: 1.1rem;
 }
 
-ol li {
-    padding-left: 10px;	
-    font-family: inherit;
-}
-
-ul li {
-    padding-left: 12px;	
+ol li, ul li {
+    padding-left: 1rem;	
     font-family: inherit;
 }
 
@@ -84,7 +117,6 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
     border-left-width: 3px;
     padding-left: 25px;
     display: block;
-    background-color: aliceblue !important;
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -175,7 +207,6 @@ blockquote p {
 blockquote p code {
     font-family: consolas, monospace;
     font-size: 17px;
-    background-color: aliceblue;
     padding: 4px 6px;
 }
 
@@ -202,7 +233,6 @@ h1 {
     margin: 40px 0 20px 0;
     border-bottom-style: ridge;
     padding-bottom: 10px;
-    width: 151%;
 }
 
 h1 b {
@@ -336,18 +366,38 @@ h4 {
 .paragraph-container > .paragraph-left-side {
     left: -55px;
     width: 35px;
+    user-select: none;
 }
 
 .paragraph-container > .paragraph-right-side  {
     left: 100%;
     width: 35px;
     padding-left: 45px;
+    user-select: none;
 }
 
 .article-container
 {
     width: 65%;
 }
+
+.menu-title {
+    text-align: center;
+    margin: 35px 50px 35px 50px;
+    font-size: 24pt;
+    font-family: Charter;
+}
+
+.menu-container ol {
+    margin: 0;
+    padding: 0;
+}
+
+.menu-container ol li {
+    margin: 0;
+    padding: 0;
+}
+
 
 /* MEDIA */
 /* XL */
@@ -383,6 +433,27 @@ h4 {
 
 /* MD */
 @media (max-width: 991px) {
+    
+    .book-title-container {
+        margin: 73px 0 110px 0;
+    }
+
+    .book-title {
+        font-size: 50pt;
+        margin: 50px 0 70px 0;
+    }
+
+    .book-part-title {
+        font-size: 19pt;
+    }
+
+    .book-part-title:hover {
+        box-shadow: inset 0 -1px #007bff;
+    }
+
+    .book-superheading-title {
+        font-size: 15pt;
+    }
     .book-container {
         margin: 0 100px;
     }
@@ -437,13 +508,42 @@ h4 {
         font-size: 15pt;
     }
 
+    p code:not(.highlight), li code:not(.highlight) {
+        font-size: 11pt;
+    }
+
     p, li {
         line-height: 30px;
-    }    
+    }
+    
+    li {
+        margin: 0 0 10px 0;
+    }
 }
 
 /* Smartphone horizontal - SM */
 @media (max-width: 767px) {
+    .book-title-container {
+        margin: 73px 0 110px 0;
+    }
+
+    .book-title {
+        font-size: 40pt;
+        margin: 50px 0 70px 0;
+    }
+
+    .book-part-title {
+        font-size: 19pt;
+    }
+
+    .book-part-title:hover {
+        box-shadow: inset 0 -1px #007bff;
+    }
+
+    .book-superheading-title {
+        font-size: 17pt;
+    }
+
     .book-container {
         margin: 0 50px;
     }
@@ -475,6 +575,11 @@ h4 {
         font-size: 13pt;
     }
 
+    p code:not(.highlight), li code:not(.highlight) {
+        font-size: 10pt;
+        padding: 3px;
+    }
+   
     p, li {
         line-height: 28px;
     }    
@@ -488,18 +593,7 @@ h4 {
     }
 }
 
-/* Fonts 
-
-/*@font-face {*/
-/*    font-family: 'PF Regal';*/
-/*    src: url('../../../../res/fonts/PFRegalTextPro-RegularA.eot');*/
-/*    src: local('../../../../res/fonts/PFRegalTextPro-RegularA'),*/
-/*        url('../../../../res/fonts/PFRegalTextPro-RegularA.woff2') format('woff2'),*/
-/*        url('../../../../res/fonts/PFRegalTextPro-RegularA.woff') format('woff'),*/
-/*        url('../../../../res/fonts/PFRegalTextPro-RegularA.ttf') format('truetype');*/
-/*    font-weight: 300;*/
-/*    font-style: normal;*/
-/*}*/
+/* Fonts */
 
 @font-face {
     font-family: 'PF Regal';
@@ -672,7 +766,61 @@ h4 {
     font-style: italic;
 }  
     </style>
+    
+<div class="book-title-container d-none d-md-block">
+    <div class="book-title">Knowledge Base</div>
+    <div class="book-part-title-block">pt.1 <a href="../../../..//ru/Memory/01-00-MemoryManagement-Intro.html" class="book-part-title">Управление памятью</a></div>
+    <div class="book-part-title-block">pt.2 <a href="../../../..//ru/Execution/02-00-ExecutionFlow-Intro.html" class="book-part-title">Поток исполнения команд</a></div>
+    <br><a href="#" class="book-superheading-title">Обоснование выбора</a>
+    / <a href="#" class="book-superheading-title">Упрощенное описание</a>
+    / <a href="#" class="book-superheading-title">Подробное описание</a>
+</div>
 
+<!--
+<div style="
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    padding: 0px 50px 110px 50px;">
+<div style="
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: white;
+    box-shadow: 0 0 45px rgba(0,0,0,0.2);">
+
+    <div class="container">
+    <div class="row menu-container">
+        <div class="col-6">
+            <p class="menu-title">Введение в управление памятью</p>
+	        <ol>
+                <li><a href="./Memory/01-00-MemoryManagement-Intro.html">Общие слова</a></li>
+                <li><a href="./Memory/01-02-MemoryManagement-Basics.html">Введение в управление памятью</a></li>
+                <li><a href="./Memory/01-04-MemoryManagement-ThreadStack.html">Стек потока</a></li>
+                <li><a href="./Memory/01-06-MemoryManagement-EntitiesLifetime.html">Время жизни сущности</a></li>
+                <li><a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html">RefTypes, ValueTypes, Boxing &amp; Unboxing</a></li>
+                <li><a href="./Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></li>
+                <li><a href="./Memory/01-12-MemoryManagement-Finalizer.html">Финализация</a></li>
+                <li><a href="./Memory/01-14-MemoryManagement-Results.html">Выводы</a></li>
+            </ol>
+        </div>
+        <div class="col-6">
+            <p class="menu-title">Подробности<br> реализации GC</p>
+            <ol>
+                <li><a href="./Memory/03-02-MemoryManagement-Allocation.html">Выделение памяти под объект</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-04-MemoryManagement-GC-Intro.html">Введение в сборку мусора</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-06-MemoryManagement-GC-Mark-Phase.html">Фаза маркировки</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-08-MemoryManagement-GC-Planning-Phase.html">Фаза планирования</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-10-MemoryManagement-GC-Sweep-Collect.html">Фазы Sweep/Collect</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-12-MemoryMenegement-GC-Results.html">Выводы по менеджменту памяти и работе над производительностью</a> <em>(Только наговорен текст)</em></li>
+            </ol>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+-->
 <div class="book-container">
 <div class="article-container">
     <!--<p class="d-xs-block d-sm-none">XS</p>
@@ -681,62 +829,50 @@ h4 {
     <p class="d-none d-lg-block d-xl-none">LG</p>
     <p class="d-none d-xl-block">XL</p> -->
     <h2 id="clrium-6">Потоки и планирование потоков [идёт адаптация курса по многопоточке CLRium #6]</h2>
-<div class="paragraph-container">
-<div class="paragraph-left-side">01</div>
 <p>Что такое поток? Давайте дадим краткое определение. По своей сути поток это:</p>
-<div class="paragraph-right-side">01</div>
-</div>
 <ul>
 <li>Средство параллельного относительно других потоков исполнения кода;</li>
 <li>Имеющего общий доступ ко всем ресурсам процесса.</li>
 </ul>
 <div class="paragraph-container">
-<div class="paragraph-left-side">02</div>
+<div class="paragraph-left-side">01</div>
 <p>Очень часто часто слышишь такое мнение, что потоки в .NET — они какие-то абсолютно свои. И наши .NET потоки являются чем-то более облегчённым чем есть в Windows. Но на самом деле потоки в .NET являются самыми обычными потоками Windows (хоть Windows thread id и скрыто так, что сложно достать). И если Вас удивляет, почему я буду рассказывать не-.NET вещи в хабе .NET, скажу вам так: если нет понимания этого уровня, можно забыть о хорошем понимании того, как и почему именно так работает код: почему мы должны ставить volatile, использовать Interlocked и SpinWait. Дальше обычного <code>lock</code> дело не уйдёт. И очень даже зря. Поэтому давайте же посмотрим из чего они состоят и как они рождаются.</p>
-<div class="paragraph-right-side">02</div>
+<div class="paragraph-right-side">01</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">03</div>
+<div class="paragraph-left-side">02</div>
 <p>По сути поток — это средство эмуляции параллельного исполнения относительно других потоков. Почему эмуляция? Потому, что поток как бы странно и смело это ни звучало — это чисто программная вещь, которая идёт из операционной системы. А операционная система создаёт этот слой эмуляции для нас. Процессор при этом о потоках ничего не знает вообще. Задача процессора — просто исполнять код. Поэтому с точки зрения процессора есть только один поток: последовательное исполнение команд. А задача операционной системы при наличии на одном процессорном ядре нескольких потоков каким-либо образом подменять активный т.о. чтобы эмулировать несколько потоков, работающих параллельно. Если бы на каждом ядре было по одному потоку, эмуляции бы не было.</p>
-<div class="paragraph-right-side">03</div>
+<div class="paragraph-right-side">02</div>
 </div>
 <h2 id="section">Поток в физическом понимании</h2>
 <div class="paragraph-container">
-<div class="paragraph-left-side">04</div>
+<div class="paragraph-left-side">03</div>
 <p>&quot;Но как же так?&quot;, - скажите вы, - &quot;во многих магазинах и на различных сайтах я вижу запись &laquo;Intel Xeon 8 ядер 16 потоков&raquo;. Говоря по-правде это - либо скудность в терминологии либо - чисто маркетинговый ход. На самом же деле внутри одного большого процессора есть в данном случае 8 ядер и каждое ядро состоит из двух логических процессоров, которые это ядро эмулирует. Такое поведение доступно при наличии в процессоре технологии Hyper-Threading, когда каждое ядро эмулирует поведение двух процессоров (но не потоков). Делается это для повышения производительности, да. Но по большому счёту если нет понимания, на каких потоках идут расчёты, можно получить очень не приятный сценарий, когда с двух потоков, находящихся на одном физическом, но на двух - виртуальных ядрах, программа работает с одними и теми же данными и код выполняется со скоростью, ниже чем если бы расчёты шли на одном ядре. Именно поэтому раздача ядер потокам идёт +=2 в случае Hyper-Threading. Т.е. пропуская парные ядра.</p>
+<div class="paragraph-right-side">03</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">04</div>
+<p>В этом случае возникает блокировка совместного доступа: хоть и идёт эмуляция двух ядер, на самом-то деле оно одно. Одни и те же процессорные кэши, включая кэш записи. Поэтому в наихудшем сценарии эти потоки исполняются по очереди, а не параллельно.</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p>В этом случае возникает блокировка совместного доступа: хоть и идёт эмуляция двух ядер, на самом-то деле оно одно. Одни и те же процессорные кэши, включая кэш записи. Поэтому в наихудшем сценарии эти потоки исполняются по очереди, а не параллельно.</p>
+<p>Так, если процессор ничего не знает о потоках, как же достигается параллельное исполнение потоков на каждом из его ядер? Как было сказано, поток - средство операционной системы выполнять на одном процессоре несколько задач одновременно. Достигается параллелизм очень быстрым переключением между потоками в течение очень короткого промежутка времени. Последовательно запуская на выполнение код каждого из потоков и делая это достаточно часто, операционная система достигает цели: делает их исполнение псевдопараллельным, но параллельным с точки зрения восприятия человека. Второе обоснование существования потоков - это утверждение, что программа не так часто срывается в математические расчёты. Чаще всего она взаимодействует с окружающим её миром: различным оборудованием. Это и работа с жёстким диском и вывод на экран и работа с клавиатурой и мышью. Поэтому чтобы процессор не простаивал, пока оборудование сделает то, чего хочет от него программа, поток можно на это время установить в состояние блокировки: ожидания сигнала от операционной системы, чтобы оборудование сделало то, что от него просили. А в это время можно запланировать в работу другие потоки. Простейший пример этого - вызов метода <code>Console.ReadKey()</code>.</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p>Так, если процессор ничего не знает о потоках, как же достигается параллельное исполнение потоков на каждом из его ядер? Как было сказано, поток - средство операционной системы выполнять на одном процессоре несколько задач одновременно. Достигается параллелизм очень быстрым переключением между потоками в течение очень короткого промежутка времени. Последовательно запуская на выполнение код каждого из потоков и делая это достаточно часто, операционная система достигает цели: делает их исполнение псевдопараллельным, но параллельным с точки зрения восприятия человека. Второе обоснование существования потоков - это утверждение, что программа не так часто срывается в математические расчёты. Чаще всего она взаимодействует с окружающим её миром: различным оборудованием. Это и работа с жёстким диском и вывод на экран и работа с клавиатурой и мышью. Поэтому чтобы процессор не простаивал, пока оборудование сделает то, чего хочет от него программа, поток можно на это время установить в состояние блокировки: ожидания сигнала от операционной системы, чтобы оборудование сделало то, что от него просили. А в это время можно запланировать в работу другие потоки. Простейший пример этого - вызов метода <code>Console.ReadKey()</code>.</p>
+<p>Если заглянуть в диспетчер задач Windows 10, то можно заметить, что в данный момент в вашей системе существует около 1,5 тысячи потоков. И если учесть, что квант на десктопе равен 20 мс, а ядер, например, 4, то можно сделать поспешный вывод, что каждый поток получает 20 мс работы 1 раз в 7,5 сек&hellip; На самом деле, конечно же, нет. Эта картина является отличной иллюстрацией того, что большинство из них находится в блокировке: она все чего-то ждут. Кто-то - ввода пользователя, кто-то - изменения ключей реестра&hellip; В операционной системе существует очень много причин, чтобы что-либо ждать.</p>
 <div class="paragraph-right-side">06</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">07</div>
-<p>Если заглянуть в диспетчер задач Windows 10, то можно заметить, что в данный момент в вашей системе существует около 1,5 тысячи потоков. И если учесть, что квант на десктопе равен 20 мс, а ядер, например, 4, то можно сделать поспешный вывод, что каждый поток получает 20 мс работы 1 раз в 7,5 сек&hellip; На самом деле, конечно же, нет. Эта картина является отличной иллюстрацией того, что большинство из них находится в блокировке: она все чего-то ждут. Кто-то - ввода пользователя, кто-то - изменения ключей реестра&hellip; В операционной системе существует очень много причин, чтобы что-либо ждать.</p>
-<div class="paragraph-right-side">07</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">08</div>
 <p>Так что пока одни потоки в блокировке, другие - что-то делают.</p>
-<div class="paragraph-right-side">08</div>
-</div>
 <h2 id="section-1">Создание потоков</h2>
 <div class="paragraph-container">
-<div class="paragraph-left-side">09</div>
+<div class="paragraph-left-side">07</div>
 <p>Простейшая функция создания потоков в пользовательском режиме операционной системы называется <code>CreateThread</code>. Эта функция создаёт поток в текущем процессе. Вариантов параметризации <code>CreateThread</code> очень много и когда мы вызываем <code>new Thread()</code>, то из нашего .NET кода вызывается данная функция операционной системы.</p>
-<div class="paragraph-right-side">09</div>
+<div class="paragraph-right-side">07</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">10</div>
 <p>В эту функцию передаются следующие атрибуты:</p>
-<div class="paragraph-right-side">10</div>
-</div>
 <ol>
 <li><p><strong>Необязательная структура с атрибутами безопасности</strong>:</p>
 <ul>
@@ -757,72 +893,68 @@ h4 {
 </li>
 </ol>
 <div class="paragraph-container">
-<div class="paragraph-left-side">11</div>
+<div class="paragraph-left-side">08</div>
 <p>Из того, что мы <strong>не</strong> имеем в .NET явно - это структура безопасности с атрибутами безопасности: сейчас мы рассматривать их не будем. Скажу только, что они влияют на возможность изменения информации о потоке средствами операционной системы. Остальные параметры нам знакомы и мы, пожалуй, не будем на них останавлиаться.</p>
+<div class="paragraph-right-side">08</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">09</div>
+<p>Однако, помимо этой функции в Windows API существует ещё одна очень интересная функция: <code>CreateRemoteThread</code>, который создаёт поток в чужом процессе. Он часто используется для мониторинга состояния чужого процесса (например, программа Snoop). При помощи этой функции приложения .NET могут заливать свои потоки в чужие процессы, однако тут могут возникнуть проблемы. Первая и самая главная - это отсутствие в целевом потоке .NET runtime. Это значит, что ни одного метода фреймворка там не будет: только WinAPI и то, что вы написали сами. Однако, если там .NET есть, то возникает вторая проблема (которой не было раньше). Это - версия runtime. Необходимо: понять, что там запущено (для этого необходимо импортировать не-.NET методы runtime, которые написаны на C/C++ и разобраться, с чем мы имеем дело). На основании полученной информации подгрузить необходимые версии наших .NET библиотек и каким-то образом передать им управление. Аналогичный функционал, но для операционной системы Linux в готовом виде не существует, но аналогичного поведения всё равно можно добиться. Например, <a href="https://habr.com/ru/post/473740/">так</a>.</p>
+<div class="paragraph-right-side">09</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">10</div>
+<p>Я бы рекомендовал вам поиграться с задачкой такого рода: вжиться в код любого .NET процесса и вывести куда-либо сообщение об удаче внедрения (например, в файл лога).</p>
+<div class="paragraph-right-side">10</div>
+</div>
+<h2 id="section-2">Планирование потоков</h2>
+<div class="paragraph-container">
+<div class="paragraph-left-side">11</div>
+<p>Для того чтобы понимать, в каком порядке исполнять код различных потоков, необходима организация планирования этих потоков. Ведь система может иметь как одно ядро, так и несколько. Как иметь эмуляцию двух ядер на одном так и не иметь такой эмуляции. И на каждом из ядер: железных или же эмулированных необходимо исполнять как один поток, так и несколько. В конце концов система может работать в режиме виртуализации: в облаке, в виртуальной машине, песочнице в рамках другой операционной системы. Поэтому мы в обязательном порядке рассмотрим планирование потоков в рамках операционной системы: платформа .NET этими вопросами не занимается. Эта информация - настолько важная часть материала по многопоточке, что без его понимания многопоточка не встанет на своё место в нашей голове никоим образом.</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
-<p>Однако, помимо этой функции в Windows API существует ещё одна очень интересная функция: <code>CreateRemoteThread</code>, который создаёт поток в чужом процессе. Он часто используется для мониторинга состояния чужого процесса (например, программа Snoop). При помощи этой функции приложения .NET могут заливать свои потоки в чужие процессы, однако тут могут возникнуть проблемы. Первая и самая главная - это отсутствие в целевом потоке .NET runtime. Это значит, что ни одного метода фреймворка там не будет: только WinAPI и то, что вы написали сами. Однако, если там .NET есть, то возникает вторая проблема (которой не было раньше). Это - версия runtime. Необходимо: понять, что там запущено (для этого необходимо импортировать не-.NET методы runtime, которые написаны на C/C++ и разобраться, с чем мы имеем дело). На основании полученной информации подгрузить необходимые версии наших .NET библиотек и каким-то образом передать им управление. Аналогичный функционал, но для операционной системы Linux в готовом виде не существует, но аналогичного поведения всё равно можно добиться. Например, <a href="https://habr.com/ru/post/473740/">так</a>.</p>
-<div class="paragraph-right-side">12</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">13</div>
-<p>Я бы рекомендовал вам поиграться с задачкой такого рода: вжиться в код любого .NET процесса и вывести куда-либо сообщение об удаче внедрения (например, в файл лога).</p>
-<div class="paragraph-right-side">13</div>
-</div>
-<h2 id="section-2">Планирование потоков</h2>
-<div class="paragraph-container">
-<div class="paragraph-left-side">14</div>
-<p>Для того чтобы понимать, в каком порядке исполнять код различных потоков, необходима организация планирования этих потоков. Ведь система может иметь как одно ядро, так и несколько. Как иметь эмуляцию двух ядер на одном так и не иметь такой эмуляции. И на каждом из ядер: железных или же эмулированных необходимо исполнять как один поток, так и несколько. В конце концов система может работать в режиме виртуализации: в облаке, в виртуальной машине, песочнице в рамках другой операционной системы. Поэтому мы в обязательном порядке рассмотрим планирование потоков в рамках операционной системы: платформа .NET этими вопросами не занимается. Эта информация - настолько важная часть материала по многопоточке, что без его понимания многопоточка не встанет на своё место в нашей голове никоим образом.</p>
-<div class="paragraph-right-side">14</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">15</div>
 <p>Итак, начнём. Организация планирования в операционной системе Windows является гибридной. С одной стороны - моделируются условия вытесняющей многозадачности, когда операционная система сама решает, когда и на основе каких условия вытеснить потоки (поведение почти во всех приложениях). С другой стороны - кооперативной многозадачности, когда потоки сами решают, когда они всё сделали и можно переключаться на следующий (UMS планировщик, создаваемый пользовательским кодом вручную. Используется крайне редко). Режим вытесняющей многозадачности работает на основе приоритетов: планировщик решает, какой следующий поток будет исполняться именно на основе их приоритетов. А вытесняющей потому, что если возникает более приоритетный поток, он вытесняет тот, который сейчас исполнялся. Однако, забегая вперёд, можно сделать поспешный вывод, что во многих случаях это бы означало, что часть потоков из-за их низких приоритетов никогда не доберется до исполнения. Поэтому в операционной системе есть много механик, позволяющих потокам, которым необходимо время на исполнение его получить несмотря на свой более низкий по сравнению с остальными, приоритет.</p>
-<div class="paragraph-right-side">15</div>
+<div class="paragraph-right-side">12</div>
 </div>
 <h3 id="section-3">Уровни приоритета</h3>
 <div class="paragraph-container">
-<div class="paragraph-left-side">16</div>
+<div class="paragraph-left-side">13</div>
 <p><img src="https://habrastorage.org/webt/my/cd/zj/mycdzj-0dxto8-mlmt8h_zb50mu.jpeg" alt="Уровни приоритета" /></p>
-<div class="paragraph-right-side">16</div>
+<div class="paragraph-right-side">13</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">17</div>
 <p>Windows имеет 32 уровня приоритета (0-31):</p>
-<div class="paragraph-right-side">17</div>
-</div>
 <ul>
 <li>1 уровень (00 - 00) - это Zero Page Thread;</li>
 <li>15 уровней (01 - 15) - обычные динамические приоритеты;</li>
 <li>16 уровней (16 - 31) - реального времени.</li>
 </ul>
 <div class="paragraph-container">
-<div class="paragraph-left-side">18</div>
+<div class="paragraph-left-side">14</div>
 <p>Самый низкий приоритет имеет <code>Zero Page Thread</code>. Это - специальный поток операционной системы, который обнуляет страницы оперативной памяти, вычищая тем самым данные, которые там находились, но более не нужны, т.к. страница была освобождена. Необходимо это по одной простой причине: когда приложение освобождает память, оно может ненароком отдать кому-то чувствительные данные. Личные данные, пароли, что-то ещё. Поэтому как операционная система так и runtime языков программирования (а у нас - .NET CLR) обнуляют получаемые участки памяти. Если операционная система понимает, что заняться особо нечем: потоки либо стоят в блокировке в ожидании чего-либо либо нет потоков, которые исполняются, то она запускает самый низко приоритетный поток: поток обнуления памяти. Если она не доберется этим потоком до каких-либо участков, не страшно: их обнулят по требованию. Когда их запросят. Но если есть время, почему бы это не сделать заранее?</p>
-<div class="paragraph-right-side">18</div>
+<div class="paragraph-right-side">14</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">19</div>
+<div class="paragraph-left-side">15</div>
 <p>Продолжая говорить о том, что к нам не относится, стоит отметить приоритеты реального времени, которые когда-то давным-давно таковыми являлись, но быстро потеряли свой статус приоритетов реального времени и от этого статуса осталось лишь название. Другими словами, Real Time приоритеты на самом деле не являются таковыми. Они являются приоритетами с исключительно высоким значением приоритета. Т.е. если операционная система будет по какой-то причине повышать приоритет потока с приоритетом из динамической группы (об этом - позже, но, например, потому, что потоку освободили блокировку) и при этом значение до повышения было равно <code>15</code>, то повысить приоритет операционная система не сможет: следующее значение равно <code>16</code>, а оно - из диапазона реального времени. Туда повышать такими вот &laquo;твиками&raquo; нельзя.</p>
-<div class="paragraph-right-side">19</div>
+<div class="paragraph-right-side">15</div>
 </div>
 <h2 id="windows-api">Уровень приоритетов <strong>процессов</strong> с позиции Windows API</h2>
 <div class="paragraph-container">
-<div class="paragraph-left-side">20</div>
+<div class="paragraph-left-side">16</div>
 <p>Приоритеты - штука относительная. И чтобы нам всем было проще в них ориентироваться, были введены некие правила относительности расчетов: во-первых все потоки вообще (от всех приложений) равны для планировщика: планировщик не различает потоки это различных приложений или же одного и того же приложения. Далее, когда программист пишет свою программу, он задаёт приоритет для различных потоков, создавая тем самым модель многопоточности внутри своего приложения. Он прекрасно знает, почему там был выбран пониженный приоритет, а тут - обычный. Внутри приложения всё настроено. Далее, поскольку есть пользователь системы, он также может выстраивать приоритеты для приложений, которые запускаются на этой системе. Например, он может выбрать повышенный приоритет для какого-то расчетного сервиса, отдавая ему тем самым максимум ресурсов. Т.е. уровень приоритета можно задать и у процесса.</p>
-<div class="paragraph-right-side">20</div>
+<div class="paragraph-right-side">16</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">21</div>
+<div class="paragraph-left-side">17</div>
 <p>Однако, изменение уровня приоритета процесса не меняет <em>относительных приоритетов</em> внутри приложения: их значения сдвигаются, но не меняется внутренняя модель приоритетов: внутри по-прежнему будет поток с пониженным приоритетом и поток - с обычным. Так, как этого хотел разработчик приложения. Как же это работает?</p>
-<div class="paragraph-right-side">21</div>
+<div class="paragraph-right-side">17</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">22</div>
+<div class="paragraph-left-side">18</div>
 <p>Существует 6 <em>классов приоритетов</em> процессов. Класс приоритетов процессов - это то, относительно чего будут создаваться приоритеты потоков. Все эти классы приоритетов можно увидеть в &laquo;Диспетчере задач&raquo;, при изменении приоритета какого-либо процесса.</p>
-<div class="paragraph-right-side">22</div>
+<div class="paragraph-right-side">18</div>
 </div>
 <div class="row">
 <div class="offset-3 col-6">
@@ -870,25 +1002,25 @@ h4 {
 </div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">23</div>
+<div class="paragraph-left-side">19</div>
 <p>Другими словами класс приоритета - это то, относительно чего будут задаваться приоритеты потоков внутри приложения. Чтобы задать точку отсчёта, было введено понятие <em>базового приоритета</em>. Базовый приоритет - это то <strong>значение</strong>, чем будет являться приоритет потока с типом приоритета <strong>Normal</strong>:</p>
-<div class="paragraph-right-side">23</div>
+<div class="paragraph-right-side">19</div>
 </div>
 <ul>
 <li>Если процесс создаётся с <em>классом Normal</em> и внутри этого процесса создаётся поток с <em>приоритетом Normal</em>, то его <strong>реальный приоритет Normal будет равен 8</strong> (строка №4 в таблице);</li>
 <li>Если Вы создаёте процесс и у него <em>класс приоритета Above Normal</em>, то <em>базовый приоритет</em> будет равен 10. Это значит, что потоки внутри этого процесса будут создаваться с более повышенным приоритетом: <strong>Normal будет равен 10</strong>.</li>
 </ul>
 <div class="paragraph-container">
-<div class="paragraph-left-side">24</div>
+<div class="paragraph-left-side">20</div>
 <p>Для чего это необходимо? Вы как программисты знаете модель многопоточности, которая у вас присутствует.
 Потоков может быть много и вы решаете, что один поток должен быть фоновым, так как он производит вычисления и вам
 не столь важно, когда данные станут доступны: важно чтобы поток завершил вычисления (например поток обхода и анализа дерева). Поэтому, вы устанавливаете пониженный приоритет данного потока. Аналогично может сложится ситуация когда необходимо запустить поток с повышенным приоритетом.</p>
-<div class="paragraph-right-side">24</div>
+<div class="paragraph-right-side">20</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">25</div>
+<div class="paragraph-left-side">21</div>
 <p>Представим, что ваше приложение запускает пользователь и он решает, что ваше приложение потребляет слишком много процессорных ресурсов. Пользователь считает, что ваше приложение не столь важное в системе, как какие-нибудь другие приложения и понижает приоритет вашего приложения до Below Normal. Это означает, что он задаёт базовый приоритет 6 относительно которого будут рассчитываться приоритеты потоков внутри вашего приложения. Но в системе общий приоритет упадёт. Как при этом меняются приоритеты потоков внутри приложения?</p>
-<div class="paragraph-right-side">25</div>
+<div class="paragraph-right-side">21</div>
 </div>
 <div class="row">
 <div class="offset-3 col-6">
@@ -932,68 +1064,56 @@ h4 {
 </table>
 </div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">26</div>
 <p><em>Таблица 3</em></p>
-<div class="paragraph-right-side">26</div>
-</div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">27</div>
+<div class="paragraph-left-side">22</div>
 <p>Normal остаётся на уровне +0 относительно уровня базового приоритета процесса. Below normal - это (-1) относительно уровня базового. Т.е. в нашем примере с понижением уровня приоритета процесса до класса <code>Below Normal</code> приоритет потока &lsquo;Below Normal&rsquo; пересчитается и будет не <code>8 - 1 = 7</code> (каким он был при классе <code>Normal</code>), а  <code>6 - 1 = 5</code>.  Lowest (-2) станет равным <code>4</code>.</p>
-<div class="paragraph-right-side">27</div>
+<div class="paragraph-right-side">22</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">28</div>
+<div class="paragraph-left-side">23</div>
 <p><code>Idle</code> и <code>Time Critical</code> - это уровни насыщения (-15 и +15). Почему Normal - это <code>0</code> и относительно него всего два шага: -2, -1, +1 и +2? Легко провести параллель с обучением. Мы ходим в школу, получаем оценки наших знаний (5,4,3,2,1) и нам понятно, что это за оценки: 5 - молодец, 4 - хорошо, 3 - вообще не постарался, 2 - это не делал ни чего, а 1 - это то, что можно исправить потом на 4. Но если у нас вводится 10-ти бальная система оценок (или что вообще ужас - 100-бальная), то возникает неясность: что такое 9 баллов или 7? Как понять, что вам поставили 3 или 4?</p>
-<div class="paragraph-right-side">28</div>
+<div class="paragraph-right-side">23</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">29</div>
+<div class="paragraph-left-side">24</div>
 <p>Тоже самое и с приоритетами. У нас есть Normal. Дальше, относительно Normal у нас есть чуть повыше
 Normal (Normal above), чуть пониже Normal (Normal below). Также есть шаг на два вверх
 или на два вниз (Higest и Lowest). Нам, поверьте, нет никакой необходимости в более подробной градации. Единственное, очень редко, может раз в жизни, нам понадобится сказать: выше чем любой приоритет в системе. Тогда мы выставляем уровень <code>Time Critical</code>. Либо наоборот: это надо делать, когда во всей системе делать нечего. Тогда мы выставляем уровень <code>Idle</code>. Это значения - так называемые уровни насыщения.</p>
-<div class="paragraph-right-side">29</div>
+<div class="paragraph-right-side">24</div>
 </div>
 <h2 id="section-4">Как рассчитываются уровни приоритета?</h2>
 <div class="paragraph-container">
-<div class="paragraph-left-side">30</div>
+<div class="paragraph-left-side">25</div>
 <p><img src="https://habrastorage.org/webt/rj/g2/qw/rjg2qw_-o8amgolaaxvh-sfzx-g.jpeg" alt="Уровни приоритета" /></p>
-<div class="paragraph-right-side">30</div>
+<div class="paragraph-right-side">25</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">31</div>
+<div class="paragraph-left-side">26</div>
 <p>У нас бал класс приоритета процесса Normal (Таблица 3) и приоритет потоков Normal - это 8. Если процесс Above Normal то поток Normal получается равен 9. Если же процесс выставлен в Higest, то поток Normal получается равен 10.</p>
-<div class="paragraph-right-side">31</div>
+<div class="paragraph-right-side">26</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">32</div>
 <p>Поскольку для планировщика потоков Windows все потоки процессов равнозначны, то:</p>
-<div class="paragraph-right-side">32</div>
-</div>
 <ul>
 <li>Для процесса класса Normal и потока Above-Normal;</li>
 <li>Для процесса класса Higest и потока Normal.</li>
 </ul>
-<div class="paragraph-container">
-<div class="paragraph-left-side">33</div>
 <p>конечные приоритеты будут одинаковыми и равны 10.</p>
-<div class="paragraph-right-side">33</div>
-</div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">34</div>
+<div class="paragraph-left-side">27</div>
 <p>Если мы имеем два процесса: один с приоритетом Normal, а второй - с приоритетом Higest, но при этом первый имел поток Higest а второй Normal, то система их приоритеты будет рассматривать как одинаковые.</p>
-<div class="paragraph-right-side">34</div>
+<div class="paragraph-right-side">27</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">35</div>
+<div class="paragraph-left-side">28</div>
 <p>Как уже обсуждалось, группа приоритетов Real-Time на самом деле не является таковой, поскольку настоящий Real-Time - это гарантированная доставка сообщения за определённое время либо обработка его получения. Т.е., другими словами, если на конкретном ядре есть такой поток, других там быть не должно. Однако это ведь не так: система может решить, что низко приоритетный поток давно не работал и дать ему время, отключив real-time. Вернее его назвать классом приоритетов который работает над обычными приоритетами и куда обычные приоритеты не могут уйти, попав под ситуации, когда Windows временно повышает им приоритет.</p>
-<div class="paragraph-right-side">35</div>
+<div class="paragraph-right-side">28</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">36</div>
+<div class="paragraph-left-side">29</div>
 <p>Но так как поток повышенным приоритетом исполняется только один на группе ядер, то получается,
 что если у вас даже Real-Time потоки, не факт, что им будет выделено время.</p>
-<div class="paragraph-right-side">36</div>
+<div class="paragraph-right-side">29</div>
 </div>
 <div class="row">
 <div class="offset-2 col-8">
@@ -1078,62 +1198,50 @@ Normal (Normal above), чуть пониже Normal (Normal below). Также �
 </div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">37</div>
+<div class="paragraph-left-side">30</div>
 <p>Если перевести в графический вид, то можно заметить, что классы приоритетов пересекаются. Например, существует пересечение Above-Normal Normal Below-Normal (столбик с квадратиками):</p>
-<div class="paragraph-right-side">37</div>
+<div class="paragraph-right-side">30</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">38</div>
 <p><img src="https://habrastorage.org/webt/6j/8d/ly/6j8dlyzhce7vzb5pm4ycnfq0bnc.jpeg" alt="" /></p>
-<div class="paragraph-right-side">38</div>
-</div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">39</div>
+<div class="paragraph-left-side">31</div>
 <p>Это значит, что для этих трех классов приоритетов процессов существуют такие приоритеты потоков внутри этих классов, что реальный приоритет будет равен. При этом, когда вы задаёте приоритет процессу вы просто повышаете или понижаете все его внутренние приоритеты потоков на определённое значение (см. Таблица 3).</p>
-<div class="paragraph-right-side">39</div>
+<div class="paragraph-right-side">31</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">40</div>
+<div class="paragraph-left-side">32</div>
 <p>Поэтому, когда процессу выдаётся более высокий класс приоритета, это повышает приоритет потоков процесса относительно обычных – с классом Normal.</p>
-<div class="paragraph-right-side">40</div>
+<div class="paragraph-right-side">32</div>
 </div>
 <h2 id="section-5">Состояние потока</h2>
 <div class="paragraph-container">
-<div class="paragraph-left-side">41</div>
+<div class="paragraph-left-side">33</div>
 <p>Поток в терминологии планирования может находиться в нескольких состояниях, образуя конечный автомат, в рамках которого работает поток. Когда создаётся поток, он создаётся в статусе <em>Initialized</em>. Т.е. он проинициализирован и готов к работе. Далее, когда пользовательский код стартует поток, тот переводится в статус <em>Ready</em>. Т.е. готовности к исполнению. Другими словами, поток готов к тому, что его в любой момент начнут исполнять на каком-либо процессорном ядре. Спустя некоторое время планировщик просыпается чтобы выбрать следующий к исполнению на текущем процессорном ядре поток (для каждого ядра создается свой планировщик). Для этого он рукодоствуется рядом правил: некоторым потокам он временно повышает приоритет (поговорим об этом чуть позже), некоторые находятся в блокировке и поэтому не участвуют в планировании. В любом случае после всех манипуляций он начинает выбирать поток, на который будет переключено текущее процессорное ядро из списка готовых к исполнению. Т.е. тех, кто в своей машине состояний находится в состоянии <em>Ready</em>.</p>
-<div class="paragraph-right-side">41</div>
+<div class="paragraph-right-side">33</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">42</div>
+<div class="paragraph-left-side">34</div>
 <p>Когда планировщик выбрал поток, он снимает его из очереди потоков со статусом <em>Ready</em> и переводит его в состояние <em>Standby</em> - некоторое промежуточное состояние. После этого планировщик должен заменить активный поток на текущем ядре. Для этого он устанавливает состояние регистров процессора в то, каким оно было когда-то на момент прерывания планировщиком. Тем самым процессор переносится в то расчётное состояние, каким оно было на момент прерывания планирощиком и если при этом вернуться на ту инструкцию, с которой когда-то программа была прервана и тем самым мы запустим поток на исполнение. Но перед таем как окончательно запустить исполнение потока, планировщик изменяет его статус в состояние исполнения <strong>Running</strong>.</p>
-<div class="paragraph-right-side">42</div>
+<div class="paragraph-right-side">34</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">43</div>
+<div class="paragraph-left-side">35</div>
 <p>Каждому потоку даётся накоторый промежуток времени, в течении которого он может исполняться прежде чем его прервут чтобы отдать время другому. Этот промежуток называется <em>квантом</em>. Именно благодаря дроблению времени на кванты и благодаря тому, что все потоки исполняются друг за другом (но понемногу) и возникает иллюзия параллельности исполнения программ. Да, на различных ядрах код исполняется истинно параллельно. Но в рамках одного ядра - нет. Именно поэтому если ядер у процессора много, код на ни работает быстрее.</p>
-<div class="paragraph-right-side">43</div>
+<div class="paragraph-right-side">35</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">44</div>
+<div class="paragraph-left-side">36</div>
 <p>Когда же поток отрабатывает свой квант времени, планировщик его переводит в состояние <em>Ready</em> или <em>Waiting</em>.
 В состояние <em>Waiting</em> поток входит в том случае, если он входит блокировку (блокировки уровня ядра: mutex, semaphore, работа с дисковой системой ввода/вывода и т.п.). Когда поток находится в состоянии Waiting, процессор вообще не тратит время на данный поток т.к. он исчезает из планирования: в планировании участвуют только те потоки, которые к этому готовы. Т.е. находятся в состоянии <em>Ready</em>. После снятия блокировки поток переводится в состояние Ready и после того, как до него доходит очередь он начинает выполняться. Существует дополнительное состояние <em>Transition</em>, но мы его рассматривать не будем. И последнее состояние: <em>Terminated</em> - это когда жизнь потока завершена.</p>
-<div class="paragraph-right-side">44</div>
+<div class="paragraph-right-side">36</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">45</div>
+<div class="paragraph-left-side">37</div>
 <p>За каждым ядром операционная система закрепляет свой планировщик потоков (на котором &laquo;крутится&raquo; несколько потоков). Допустим у нас исполняется 50 потоков <strong>на одном ядре</strong>. Квант, выделяемый одному потоку около 20 мcек в лучшем случае. Это значит, что каждый поток получит время на исполнение примерно 1 раз в <code>50 * 20 = 1000 мсек</code>. <strong>Т.е. один раз в секунду на 20 мcек</strong>. Таким образом, если вы созадите большое количество процессов, в каждом из которых будет как минимум 1 активный поток, который не заблокирован ожиданием ввода или вывода, то вы тем самым не просто делите общее время между всеми участниками, но и оттягиваете следующий момент включения потока в работу.</p>
-<div class="paragraph-right-side">45</div>
+<div class="paragraph-right-side">37</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">46</div>
 <p>Двайте обобщим.</p>
-<div class="paragraph-right-side">46</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">47</div>
 <p>Состояния потоков:</p>
-<div class="paragraph-right-side">47</div>
-</div>
 <ul>
 <li>Initialized. Используется при создании потока</li>
 <li>Ready. Готов. Состояние готовности, ожидание выполнения
@@ -1171,96 +1279,52 @@ Normal (Normal above), чуть пониже Normal (Normal below). Также �
 </li>
 <li>Terminated. Завершён</li>
 </ul>
-<div class="paragraph-container">
-<div class="paragraph-left-side">48</div>
 <p><img src="./img/2.png" alt="Состояния потоков" /></p>
-<div class="paragraph-right-side">48</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">49</div>
 <p>Рисунок 2: Состояние потоков</p>
-<div class="paragraph-right-side">49</div>
-</div>
 <h2 id="section-6"><code>тут обработано</code></h2>
-<div class="paragraph-container">
-<div class="paragraph-left-side">50</div>
 <p><code>тут пока НЕ обработано</code></p>
-<div class="paragraph-right-side">50</div>
-</div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">51</div>
+<div class="paragraph-left-side">38</div>
 <p>На рисунке 2 изображено отношения потоков и процессора. Откуда видно, что потоки к процессору не имеют ни какого отношкния. Для планировщика потоков все они равноценны.</p>
-<div class="paragraph-right-side">51</div>
+<div class="paragraph-right-side">38</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">52</div>
+<div class="paragraph-left-side">39</div>
 <p>Как это всё работает? Допустим мы имеем три процесса 1, 2 и 4. Есть две группы ядер со своим планировщиком потоков. Есть очереди потоков по приоритетам. И когда поток планируется в работу, переходит в состояние Ready, это означает, что он встаёт в определённую очередь. Если это поток с приоритетом Normal, запущенный внутри приложения с Классом Normal будет иметь 8. Значит когда он исполнится то из Running он перейдёт в Ready и будет поставлен в очередь 8. Если есть потоки которые так-же находятся в состоянии Ready, но более высоких приоритетов, то планировщик в будет выполнять их в первую очередь и не будет доходить до вашего потока, пока все потоки с более высоким приоритетом не будут исполнены.</p>
-<div class="paragraph-right-side">52</div>
+<div class="paragraph-right-side">39</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">53</div>
 <p><img src="./img/3.png" alt="Взаимодействие процессора и потоков" /></p>
-<div class="paragraph-right-side">53</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">54</div>
 <p>Рисунок 2: Потоки и процессор</p>
-<div class="paragraph-right-side">54</div>
-</div>
 <h2 id="section-7">Кванты времени</h2>
 <div class="paragraph-container">
-<div class="paragraph-left-side">55</div>
+<div class="paragraph-left-side">40</div>
 <p>Квант - это промежуток времени в течение которого поток будет исполняться. Каждому потоку выделяется квант времени на исполнение. Потоки работают через и в течение определённого количество времени. Между потоками есть промежутки времени, во время которых планировщик потоков выполняет свою работу.</p>
-<div class="paragraph-right-side">55</div>
+<div class="paragraph-right-side">40</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">56</div>
+<div class="paragraph-left-side">41</div>
 <p>На однопроцессорной системе x86 работа ситемного таймера настроена на срабатывает каждые 10 млСек, тем самым возникает аппаратное прерывание процессора INT 08 и вызов функции пользователя. На этом прерывании установлен планировщик. На многопроцессорной системе таймер настроен на 15 млСек.</p>
-<div class="paragraph-right-side">56</div>
+<div class="paragraph-right-side">41</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">57</div>
 <p><img src="./img/4.png" alt="Такты системного таймера" /></p>
-<div class="paragraph-right-side">57</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">58</div>
 <p>Рисунок 3: Потоки и процессор</p>
-<div class="paragraph-right-side">58</div>
-</div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">59</div>
+<div class="paragraph-left-side">42</div>
 <p>Исходя из системного таймера возникает <strong>квантовая единица</strong> (рис. 4) равная 1/3 этого интервала. Далее когда меняется поток это значение называется <strong>Значение Перезапуска Кванта</strong>. Оно различно на разных операционных системах. На клиентских системах Windows оно равно 6. Это значит, что количество квантовых единиц, выделяемых потоку, равно 6. Должно пройти два такта ситемного таймера 20 мл.сек. на однопроцессорной системе и 30 мл.сек. на многопроцессорной системе (см. рис. 4) и произойдёт переход к другому потоку.</p>
-<div class="paragraph-right-side">59</div>
+<div class="paragraph-right-side">42</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">60</div>
 <p><img src="./img/5.png" alt="Квантовая единица" /></p>
-<div class="paragraph-right-side">60</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">61</div>
 <p>Рисунок 4: Квантовая единица</p>
-<div class="paragraph-right-side">61</div>
-</div>
 <ul>
 <li>Квантовая Цель = [Фактич. Квантовые Единицы] * [Тактовых Импульсов на квант времени]</li>
 </ul>
 <div class="paragraph-container">
-<div class="paragraph-left-side">62</div>
+<div class="paragraph-left-side">43</div>
 <p>Временная шкала системного таймера представлена на рисунке 5. Значение перезапуска кванта в клиентских системах Windows равно 6 в серверных системах Windows 36, то есть в шесть раз длиннее значит поток будет отрабатывать 120 мл.сек. После чего он перейдёт в состояние Ready и вернётся к исполнению не скоро. Поэтому на серверной системе необходимо оставлять только те приложения, которые там должны работать и больше ничего лишнего.</p>
-<div class="paragraph-right-side">62</div>
+<div class="paragraph-right-side">43</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">63</div>
 <p><img src="./img/6.png" alt="Временная шкала системного таймера" /></p>
-<div class="paragraph-right-side">63</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">64</div>
 <p>Рисунок 5: Временная шкала системного таймера</p>
-<div class="paragraph-right-side">64</div>
-</div>
 <ul>
 <li>Значение Перезапуска Кванта = [Фактич. Квантовые Единицы] * [Кол-во Квант. Единиц в Такте]
 <ul>
@@ -1270,26 +1334,18 @@ Normal (Normal above), чуть пониже Normal (Normal below). Также �
 </li>
 </ul>
 <div class="paragraph-container">
-<div class="paragraph-left-side">65</div>
+<div class="paragraph-left-side">44</div>
 <p>Предположим что один из потоков на уровне второй квантовой единицы встал в блокировку (рис. 6). Этот поток теряет
 квантовое время и оно отдаётся другому потоку. Другой поток начал свою работу. Но поскольку планировщик запускается только когда срабатывает системный таймер, то следующий поток отработает дольше. Следующий поток отработает положенное время. Получается так, что если вы работаете с блокировками, то ваше приложение будет выполняться малое количество времени. Во время работы потока могут возникнуть аппаратные прерывания (INT). Прерывания это отвлечение процессора от выполнения текущего потока для выполнения более важных задач (получение состояния внешних устройств и т.п.). Обработка прерывания занимает время потока, но вас это не должно беспокоить потому, что время затраченное на обработку прерывания не учитывается в планировании и соответственно ваш поток
 отработает дольше. Далее, когда поток, освобождённый от блокировки, просыпается, то он дорабатывает своё значение квантового перезапуска.</p>
-<div class="paragraph-right-side">65</div>
+<div class="paragraph-right-side">44</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">66</div>
 <p><img src="./img/7.png" alt="Работа потока" /></p>
-<div class="paragraph-right-side">66</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">67</div>
 <p>Рисунок 6: Работа потока</p>
-<div class="paragraph-right-side">67</div>
-</div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">68</div>
+<div class="paragraph-left-side">45</div>
 <p>Давайте определим количество квантовых циклов на квант. Согласно следующих шагов. Шаги нахождение квантовых циклов на квант:</p>
-<div class="paragraph-right-side">68</div>
+<div class="paragraph-right-side">45</div>
 </div>
 <ul>
 <li>Возьмём тактовую частоту процессора:
@@ -1330,15 +1386,11 @@ Normal (Normal above), чуть пониже Normal (Normal below). Также �
 </li>
 </ul>
 <div class="paragraph-container">
-<div class="paragraph-left-side">69</div>
+<div class="paragraph-left-side">46</div>
 <p>Относительно <b>квантовой единицы</b> рассчитывается цель. Эта переменная присутствует в системе, но её можно получить только под отладчиком уровня ядра. Рассчитанное нами значение практически совпадает со значением в системе ( 0x00A70550 ~= 0x00A70553). Итоговые данные для нашего случая представлены в  таблице 5. Она отображает какое количество тактов исполнится в нашем процессе, прежде чем он потеряет управление.</p>
-<div class="paragraph-right-side">69</div>
+<div class="paragraph-right-side">46</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">70</div>
 <p>Это важно с нескольких позиций.</p>
-<div class="paragraph-right-side">70</div>
-</div>
 <ol>
 <li>Если есть серверное приложение и у нас очень много потоков, и они не очень хорошо организованы, то одни потоки будут
 &laquo;страдать&raquo; из-за других, если они работают на одном ядре.</li>
@@ -1371,68 +1423,36 @@ Normal (Normal above), чуть пониже Normal (Normal below). Также �
 </div>
 </div>
 <h3 id="section-8">Управление величиной кванта</h3>
-<div class="paragraph-container">
-<div class="paragraph-left-side">71</div>
 <p>Заходим в свойства своего компьютера. Далее &laquo;Change Settings&raquo;</p>
-<div class="paragraph-right-side">71</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">72</div>
 <p><img src="./img/10_1.png" alt="Управление величиной кванта. Шаг 1" /></p>
-<div class="paragraph-right-side">72</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">73</div>
 <p>Переходим в Perfimance -&gt; Settings</p>
-<div class="paragraph-right-side">73</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">74</div>
 <p><img src="./img/10_2.png" alt="Управление величиной кванта. Шаг 2" /></p>
-<div class="paragraph-right-side">74</div>
-</div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">75</div>
+<div class="paragraph-left-side">47</div>
 <p>Переходим на вкладку Advanced. Programs - это короткие кванты (6). Почему для Desktop у нас выбрано 6? Потому-что, у нас необходима отзывчивость системы, так как за компьютером работае пользователь. Педположим в Chrome открыто 50 вкладок. Если у нас будет установлен квант равный 36 (сервер), то даже перемещение курсора &laquo;мыши&raquo; по экрану будет притормаживать из-за того что потоку GUI будет выделяться мало времени.</p>
-<div class="paragraph-right-side">75</div>
+<div class="paragraph-right-side">47</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">76</div>
 <p>Оптимизация под программы</p>
-<div class="paragraph-right-side">76</div>
-</div>
 <ul>
 <li>Использование коротких, переменных квантов</li>
 <li>Режим по-умолчанию для клиентских Windows, включая XBOX, Hololens</li>
 <li>Можно выбрать настройку, если серверная ОС установлена как настольная</li>
 </ul>
-<div class="paragraph-container">
-<div class="paragraph-left-side">77</div>
 <p>Оптимизация под фоновые службы</p>
-<div class="paragraph-right-side">77</div>
-</div>
 <ul>
 <li>Использование длинных, фиксированных квантов</li>
 <li>Режим по-умолчанию для серверных Windows</li>
 <li>Можно выбрать настройку, если настольная ОС установлена как серверная</li>
 <li>Поскольку эффект немедленный, можно выставить настройку перед началом расчётов, а после расчётов (например, утром) – вернуть настройки назад</li>
 </ul>
-<div class="paragraph-container">
-<div class="paragraph-left-side">78</div>
 <p><img src="./img/10_3.png" alt="Управление величиной кванта. Шаг 3" /></p>
-<div class="paragraph-right-side">78</div>
-</div>
 <h3 id="section-9">Переменные кванты</h3>
 <div class="paragraph-container">
-<div class="paragraph-left-side">79</div>
+<div class="paragraph-left-side">48</div>
 <p>Кванты времени бывают не только статичные но и переменные. Статичные кванты это когда в имеете 6 и 36 не зависимо от условий (каких условий?). Переменные кванты в зависимости от условий вам может быть выделено больше процессорного времени на квант. В это условия входит, например, приложение которое сейчас находится на переднем плане - оно работает дольше, чем все остальные. И, соответственно, быстрее. При копировании файлов, если перемещать курсор &laquo;мыши&raquo; над окном, то копирование идёт быстрее :) из-за того,  что такие потоки получают временно повышение приоритета.</p>
-<div class="paragraph-right-side">79</div>
+<div class="paragraph-right-side">48</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">80</div>
 <p>Если разрешено использование переменных квантов (клиентская ОС):</p>
-<div class="paragraph-right-side">80</div>
-</div>
 <ul>
 <li>в таблицу переменных квантов загружается PspForegroundQuantum, которая используется функцией PspComputeQuantum, загружается таблица PspVariableQuantums</li>
 <li>Алгоритм подбирает подходящий индекс кванта в зависимости от того, работает процесс на переднем плане или нет:
@@ -1443,15 +1463,11 @@ Normal (Normal above), чуть пониже Normal (Normal below). Также �
 <li>В паре с планировщиком потоков, это даёт повышение приоритета для этого процесса.</li>
 </ul>
 <div class="paragraph-container">
-<div class="paragraph-left-side">81</div>
+<div class="paragraph-left-side">49</div>
 <p>Запущено два калькулятора: правый - активный (на переднем плане), левый - фоновый.  Есть группы квантов: переменные и фиксированные. И в таблице 6 показаны индексы этих калькуляторов. Правый будет иметь индекс 12 или 18, левый - 6. На пользовательской Windows установлено по умолчанию переменное значение кванта. На сервере, по умолчанию, нет переменных квантов.</p>
-<div class="paragraph-right-side">81</div>
+<div class="paragraph-right-side">49</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">82</div>
 <p><img src="./img/11_1.png" alt="Рис" /></p>
-<div class="paragraph-right-side">82</div>
-</div>
 <div class="row">
 <div class="offset-3 col-6">
 <table>
@@ -1478,15 +1494,11 @@ Normal (Normal above), чуть пониже Normal (Normal below). Также �
 </div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">83</div>
+<div class="paragraph-left-side">50</div>
 <p>Настройка меняется в реестре. Можно поменять систему раздачи квантов по адресу <code>HKLM\SYSTEM\CurrentControlSet\PriorityControl</code>.</p>
-<div class="paragraph-right-side">83</div>
+<div class="paragraph-right-side">50</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">84</div>
 <p><img src="./img/12_1.png" alt="Реестр" /></p>
-<div class="paragraph-right-side">84</div>
-</div>
 <div class="row">
 <div class="offset-3 col-6">
 <table>
@@ -1507,31 +1519,19 @@ Normal (Normal above), чуть пониже Normal (Normal below). Также �
 </table>
 </div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">85</div>
 <p>Параметр побитово делится на три зоны.
 Короткие или длинные</p>
-<div class="paragraph-right-side">85</div>
-</div>
 <ul>
 <li>0 или 3 – короткие для клиенских, длинные для серверных</li>
 <li>1 – длинные кванты</li>
 <li>2 – короткие кванты</li>
 </ul>
-<div class="paragraph-container">
-<div class="paragraph-left-side">86</div>
 <p>Переменные или фиксированные</p>
-<div class="paragraph-right-side">86</div>
-</div>
 <ul>
 <li>0 или 3 – переменные для клиенских, фиксированные для серверных</li>
 <li>1 – переменные кванты</li>
 </ul>
-<div class="paragraph-container">
-<div class="paragraph-left-side">87</div>
 <p>Разнос приоритетов</p>
-<div class="paragraph-right-side">87</div>
-</div>
 <ul>
 <li>0 - 2 – определяет приоритетное разделение</li>
 </ul>

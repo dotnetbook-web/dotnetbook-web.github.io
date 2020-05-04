@@ -16,6 +16,37 @@
     margin-top: 60px;
 }
 
+.book-title-container {
+    width: 100%;
+    text-align: center;
+    margin: 73px 0 110px 0;
+}
+
+.book-title {
+    font-size: 57pt;
+    margin: 50px 0 70px 0;
+    user-select: none;
+}
+.book-part-title-block {
+    display: inline-block;
+}
+.book-part-title {
+    font-size: 21pt;
+    color: #656ab6;
+    margin: 0 7px;
+}
+
+.book-part-title:hover {
+    box-shadow: inset 0 -1px #007bff;
+    text-decoration: none;
+}
+
+.book-superheading-title {
+    font-size: 15pt;
+    margin: 0 7px;
+    color: #656ab6;
+}
+
 .article-container
 {
     width: 62%;
@@ -31,19 +62,21 @@ p, li {
     font-family: inherit;
 }
 
-ol, ul {
+ol, li {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+ol {
+    padding-left: 1.2rem;
+}
+
+ul  {
     padding-left: 35px;
-    margin-top: 1.1rem;
-    margin-bottom: 1.1rem;
 }
 
-ol li {
-    padding-left: 10px;	
-    font-family: inherit;
-}
-
-ul li {
-    padding-left: 12px;	
+ol li, ul li {
+    padding-left: 1rem;	
     font-family: inherit;
 }
 
@@ -84,7 +117,6 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
     border-left-width: 3px;
     padding-left: 25px;
     display: block;
-    background-color: aliceblue !important;
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -175,7 +207,6 @@ blockquote p {
 blockquote p code {
     font-family: consolas, monospace;
     font-size: 17px;
-    background-color: aliceblue;
     padding: 4px 6px;
 }
 
@@ -202,7 +233,6 @@ h1 {
     margin: 40px 0 20px 0;
     border-bottom-style: ridge;
     padding-bottom: 10px;
-    width: 151%;
 }
 
 h1 b {
@@ -336,18 +366,38 @@ h4 {
 .paragraph-container > .paragraph-left-side {
     left: -55px;
     width: 35px;
+    user-select: none;
 }
 
 .paragraph-container > .paragraph-right-side  {
     left: 100%;
     width: 35px;
     padding-left: 45px;
+    user-select: none;
 }
 
 .article-container
 {
     width: 65%;
 }
+
+.menu-title {
+    text-align: center;
+    margin: 35px 50px 35px 50px;
+    font-size: 24pt;
+    font-family: Charter;
+}
+
+.menu-container ol {
+    margin: 0;
+    padding: 0;
+}
+
+.menu-container ol li {
+    margin: 0;
+    padding: 0;
+}
+
 
 /* MEDIA */
 /* XL */
@@ -383,6 +433,27 @@ h4 {
 
 /* MD */
 @media (max-width: 991px) {
+    
+    .book-title-container {
+        margin: 73px 0 110px 0;
+    }
+
+    .book-title {
+        font-size: 50pt;
+        margin: 50px 0 70px 0;
+    }
+
+    .book-part-title {
+        font-size: 19pt;
+    }
+
+    .book-part-title:hover {
+        box-shadow: inset 0 -1px #007bff;
+    }
+
+    .book-superheading-title {
+        font-size: 15pt;
+    }
     .book-container {
         margin: 0 100px;
     }
@@ -437,13 +508,42 @@ h4 {
         font-size: 15pt;
     }
 
+    p code:not(.highlight), li code:not(.highlight) {
+        font-size: 11pt;
+    }
+
     p, li {
         line-height: 30px;
-    }    
+    }
+    
+    li {
+        margin: 0 0 10px 0;
+    }
 }
 
 /* Smartphone horizontal - SM */
 @media (max-width: 767px) {
+    .book-title-container {
+        margin: 73px 0 110px 0;
+    }
+
+    .book-title {
+        font-size: 40pt;
+        margin: 50px 0 70px 0;
+    }
+
+    .book-part-title {
+        font-size: 19pt;
+    }
+
+    .book-part-title:hover {
+        box-shadow: inset 0 -1px #007bff;
+    }
+
+    .book-superheading-title {
+        font-size: 17pt;
+    }
+
     .book-container {
         margin: 0 50px;
     }
@@ -475,6 +575,11 @@ h4 {
         font-size: 13pt;
     }
 
+    p code:not(.highlight), li code:not(.highlight) {
+        font-size: 10pt;
+        padding: 3px;
+    }
+   
     p, li {
         line-height: 28px;
     }    
@@ -488,18 +593,7 @@ h4 {
     }
 }
 
-/* Fonts 
-
-/*@font-face {*/
-/*    font-family: 'PF Regal';*/
-/*    src: url('../res/fonts/PFRegalTextPro-RegularA.eot');*/
-/*    src: local('../res/fonts/PFRegalTextPro-RegularA'),*/
-/*        url('../res/fonts/PFRegalTextPro-RegularA.woff2') format('woff2'),*/
-/*        url('../res/fonts/PFRegalTextPro-RegularA.woff') format('woff'),*/
-/*        url('../res/fonts/PFRegalTextPro-RegularA.ttf') format('truetype');*/
-/*    font-weight: 300;*/
-/*    font-style: normal;*/
-/*}*/
+/* Fonts */
 
 @font-face {
     font-family: 'PF Regal';
@@ -672,7 +766,61 @@ h4 {
     font-style: italic;
 }  
     </style>
+    
+<div class="book-title-container d-none d-md-block">
+    <div class="book-title">Knowledge Base</div>
+    <div class="book-part-title-block">pt.1 <a href="..//ru/Memory/01-00-MemoryManagement-Intro.html" class="book-part-title">Управление памятью</a></div>
+    <div class="book-part-title-block">pt.2 <a href="..//ru/Execution/02-00-ExecutionFlow-Intro.html" class="book-part-title">Поток исполнения команд</a></div>
+    <br><a href="#" class="book-superheading-title">Обоснование выбора</a>
+    / <a href="#" class="book-superheading-title">Упрощенное описание</a>
+    / <a href="#" class="book-superheading-title">Подробное описание</a>
+</div>
 
+<!--
+<div style="
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    padding: 0px 50px 110px 50px;">
+<div style="
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: white;
+    box-shadow: 0 0 45px rgba(0,0,0,0.2);">
+
+    <div class="container">
+    <div class="row menu-container">
+        <div class="col-6">
+            <p class="menu-title">Введение в управление памятью</p>
+	        <ol>
+                <li><a href="./Memory/01-00-MemoryManagement-Intro.html">Общие слова</a></li>
+                <li><a href="./Memory/01-02-MemoryManagement-Basics.html">Введение в управление памятью</a></li>
+                <li><a href="./Memory/01-04-MemoryManagement-ThreadStack.html">Стек потока</a></li>
+                <li><a href="./Memory/01-06-MemoryManagement-EntitiesLifetime.html">Время жизни сущности</a></li>
+                <li><a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html">RefTypes, ValueTypes, Boxing &amp; Unboxing</a></li>
+                <li><a href="./Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></li>
+                <li><a href="./Memory/01-12-MemoryManagement-Finalizer.html">Финализация</a></li>
+                <li><a href="./Memory/01-14-MemoryManagement-Results.html">Выводы</a></li>
+            </ol>
+        </div>
+        <div class="col-6">
+            <p class="menu-title">Подробности<br> реализации GC</p>
+            <ol>
+                <li><a href="./Memory/03-02-MemoryManagement-Allocation.html">Выделение памяти под объект</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-04-MemoryManagement-GC-Intro.html">Введение в сборку мусора</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-06-MemoryManagement-GC-Mark-Phase.html">Фаза маркировки</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-08-MemoryManagement-GC-Planning-Phase.html">Фаза планирования</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-10-MemoryManagement-GC-Sweep-Collect.html">Фазы Sweep/Collect</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-12-MemoryMenegement-GC-Results.html">Выводы по менеджменту памяти и работе над производительностью</a> <em>(Только наговорен текст)</em></li>
+            </ol>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+-->
 <div class="book-container">
 <div class="article-container">
     <!--<p class="d-xs-block d-sm-none">XS</p>
@@ -695,11 +843,7 @@ h4 {
 <p>Before we start talking about the structure of control blocks in the type system, let’s look at an object itself, i.e. an instance of any class. If we create an instance of any reference type in memory, whether it is a class, or a encapsulated structure, it will consist of three fields: <code>SyncBlockIndex</code> (which is in fact not only it), a pointer to a type descriptor and data. The data region can contain a lot of fields. That said, we however give the below examples as if they have only one field in data. So, this is how our visualization of this structure would look like:</p>
 <div class="paragraph-right-side">02</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">03</div>
 <p><strong>System.Object</strong></p>
-<div class="paragraph-right-side">03</div>
-</div>
 <pre><code>
   ----------------------------------------------
   |  SyncBlkIndx |   VMT_Ptr    |     Data     |
@@ -714,20 +858,20 @@ h4 {
   Sum size = 12 (x86) | 24 (x64)
 </code></pre>
 <div class="paragraph-container">
-<div class="paragraph-left-side">04</div>
+<div class="paragraph-left-side">03</div>
 <p>Thus, the size of type instances in fact depends on the platform an app will work on.</p>
-<div class="paragraph-right-side">04</div>
+<div class="paragraph-right-side">03</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">05</div>
+<div class="paragraph-left-side">04</div>
 <p>Next, let’s follow the <code>VMT_Ptr</code> and see what kind of data structure is at this address. This pointer is the most important for the whole type system as it is used for the inheritance, interface implementation, type casting and so on. This pointer is a reference to the .NET CLR type system, a kind of type ID used by CLR to cast types or to measure the size of memory allocated to an object. It is this pointer that allows GC to go through an object graph so swiftly and to determine which addresses are owned by the pointers to objects and which – by values. Also, with this pointer you can learn everything about an object and make the CLR handle it differently. That’s why we will study this pointer in detail.</p>
-<div class="paragraph-right-side">05</div>
+<div class="paragraph-right-side">04</div>
 </div>
 <h3 id="virtual-method-table-structure">Virtual Method Table structure</h3>
 <div class="paragraph-container">
-<div class="paragraph-left-side">06</div>
+<div class="paragraph-left-side">05</div>
 <p>The description of the table itself is available at <a href="https://github.com/dotnet/coreclr/blob/master/src/vm/methodtable.h">GitHub CoreCLR</a>. Leaving aside unnecessary details (and there are 4,381 lines there), <a href="https://github.com/dotnet/coreclr/blob/master/src/vm/methodtable.h#L4099-L4114">it looks this way</a>:</p>
-<div class="paragraph-right-side">06</div>
+<div class="paragraph-right-side">05</div>
 </div>
 <blockquote>
 <p>This is the version from CoreCLR. If we look at the structure of fields in .NET Framework, it will be different in the order of fields and the order of system information bits from <code>m_wFlags</code> and <code>m_wFlags2</code> bit fields.</p>
@@ -751,14 +895,14 @@ h4 {
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">07</div>
+<div class="paragraph-left-side">06</div>
 <p>Admit, this looks somewhat scary. However, it is scary not because we see here 6 fields only (where are the rest?), but because you need to skip 4,100 lines of code to get to these fields. Personally, I expected to see here something ready-made that you don’t need to calculate additionally. However, it is nowhere near as easy: since any type can contain a different number of methods and interfaces, the VMT can have a variable size. It means that to fill it you need to calculate where the rest of the fields are. However, let’s stay positive and try to benefit from what we already have: we still don’t know what is meant by other fields (except the last two), but the <code>m_BaseSize</code> field looks interesting. As a commentary suggests, this is the actual size of an instance of a type. We have just found <code>sizeof</code> for classes! It is time to try it in practice.</p>
-<div class="paragraph-right-side">07</div>
+<div class="paragraph-right-side">06</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">08</div>
+<div class="paragraph-left-side">07</div>
 <p>We can follow two ways to get a VMT address. The difficult one is to obtain an address of an object and hence the VMT:</p>
-<div class="paragraph-right-side">08</div>
+<div class="paragraph-right-side">07</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">class</span> Program
@@ -801,32 +945,28 @@ h4 {
 }
 </pre></div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">09</div>
 <p>Or, we can follow the simple way and use .NET FCL API:</p>
-<div class="paragraph-right-side">09</div>
-</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
     <span style="color:Blue;">var</span> vmt = <span style="color:Blue;">typeof</span>(<span style="color:Blue;">string</span>).TypeHandle.Value;
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">10</div>
+<div class="paragraph-left-side">08</div>
 <p>The second way is simpler (though works slower). However, knowing the first one is very important to understand the structure of a type instance. Using the second way provides the sense of confidence: we comply with documented approach of handling VMT by calling an API method, and we are incompliant by using a pointer. However, we shouldn't forget that storing a <code>VMT *</code> is generally a standard in practically every OOP language and .NET platform: the reference is always at the same place as it is the most frequently used field of a class. And this most frequently used field of a class should go first, so that addressing would take place without offsetting and, as a result, quicker. Thus, we make a conclusion that for classes the order of fields will not impact the speed. However in structures the most frequently used field should go first. Although this mostly won’t influence .NET applications as this platform was developed for other tasks in mind.</p>
-<div class="paragraph-right-side">10</div>
+<div class="paragraph-right-side">08</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">11</div>
+<div class="paragraph-left-side">09</div>
 <p>Let’s study the structure of types with respect to the size of their instances. We won’t learn them in theory (it is boring), instead we will try to get the benefits that we will be unable to get in a usual way.</p>
-<div class="paragraph-right-side">11</div>
+<div class="paragraph-right-side">09</div>
 </div>
 <blockquote>
 <p><strong>Why there is sizeof for a Value Type, but not for a Reference Type?</strong> Actually, this is an open question as no one stops you from calculating the size of a reference type. The only thing you can stumble on is the variable size of two reference types: <code>Array</code> and <code>String</code>. As well as <code>Generic</code> group, that fully depends on particular variants. That means we cannot do without the <code>sizeof(..)</code> operator as we need to work with particular instances. However, no one stops the CLR team from implementing the method like <code>static int System.Object.SizeOf(object obj)</code> form that would return us what we need in a simple way. Why haven’t Microsoft implemented this method? I guess they think the .NET is not the platform where a developer will worry much about particular bytes. If necessary, you can always add more memory modules to your mother board. Especially, since most data types we implement, don’t take such big volumes of memory.</p>
 </blockquote>
 <div class="paragraph-container">
-<div class="paragraph-left-side">12</div>
+<div class="paragraph-left-side">10</div>
 <p>However, let’s go back to our issue. So, to get the size of a class instance (with a fixed size), you just need to write the following code:</p>
-<div class="paragraph-right-side">12</div>
+<div class="paragraph-right-side">10</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">unsafe</span> <span style="color:Blue;">int</span> SizeOf(Type type)
@@ -853,9 +993,9 @@ Console.WriteLine(SizeOf(<span style="color:Blue;">typeof</span>(Sample)));
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">13</div>
+<div class="paragraph-left-side">11</div>
 <p>So, what have we done? Initially, we got the pointer to the VMT. Next, we read the size and get <code>12</code> that is the aggregate size of <code>SyncBlockIndex + VMT_Ptr + x</code> fields for a 32-bit platform. If we play with different types, we will get something like the following table for x86:</p>
-<div class="paragraph-right-side">13</div>
+<div class="paragraph-right-side">11</div>
 </div>
 <div class="row">
 <div class="offset-1 col-10">
@@ -943,9 +1083,9 @@ Console.WriteLine(SizeOf(<span style="color:Blue;">typeof</span>(Sample)));
 </div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">14</div>
+<div class="paragraph-left-side">12</div>
 <p>As you see, when the system stores data about the size of an instance, in fact it stores data for a reference version of this type (i.e. including the reference version of a value type). Let’s make some conclusions:</p>
-<div class="paragraph-right-side">14</div>
+<div class="paragraph-right-side">12</div>
 </div>
 <ol>
 <li>If you want to know how much memory a value type will take as a value, use <code>sizeof(TType)</code>.</li>
@@ -960,9 +1100,9 @@ Console.WriteLine(SizeOf(<span style="color:Blue;">typeof</span>(Sample)));
 </ol>
 <h3 id="system.string">System.String</h3>
 <div class="paragraph-container">
-<div class="paragraph-left-side">15</div>
+<div class="paragraph-left-side">13</div>
 <p>We will talk about strings in terms of practice separately: this relatively small class is worth a whole chapter. And in the chapter about the design of a VMT we will talk about the low-level design of strings. Strings are stored based on UTF16. It means that each character takes 2 bytes. Additionally each string ends with a null terminator — a special value that indicates the end of a string. An instance also stores the length of a string as a <code>Int32</code> number to avoid counting the length each time when necessary (we will talk about encoding separately). The diagram below represents the information about memory allocated for a string:</p>
-<div class="paragraph-right-side">15</div>
+<div class="paragraph-right-side">13</div>
 </div>
 <pre><code>  // For.NET Framework 3.5 and earlier
   ----------------------------------------------------------------------------------------------------
@@ -989,11 +1129,7 @@ Console.WriteLine(SizeOf(<span style="color:Blue;">typeof</span>(Sample)));
   Sum size = (8|16) + 4 + Count * 2 + 2) -&gt; round up based on the bytes alignment. (20 bytes in example)
   Count is the number of characters in a string, excluding a terminator character.
 </code></pre>
-<div class="paragraph-container">
-<div class="paragraph-left-side">16</div>
 <p>Let’s rewrite our method so it could calculate the size of strings:</p>
-<div class="paragraph-right-side">16</div>
-</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">unsafe</span> <span style="color:Blue;">int</span> SizeOf(<span style="color:Blue;">object</span> obj)
 {
@@ -1028,15 +1164,11 @@ Console.WriteLine(SizeOf(<span style="color:Blue;">typeof</span>(Sample)));
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">17</div>
+<div class="paragraph-left-side">14</div>
 <p>Where <code>SizeOf(type)</code> will call the previous implementation for fixed size reference types.</p>
-<div class="paragraph-right-side">17</div>
+<div class="paragraph-right-side">14</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">18</div>
 <p>Let’s check the code in practice.</p>
-<div class="paragraph-right-side">18</div>
-</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
     Action&lt;<span style="color:Blue;">string</span>&gt; stringWriter = (arg) =&gt;
     {
@@ -1062,25 +1194,21 @@ Length of `abcdef` <span style="color:Blue;">string</span>: 28
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">19</div>
+<div class="paragraph-left-side">15</div>
 <p>Calculations indicate that the size of a string increases not at a linear rate but incrementally, by every two characters. This happens because the size of each character is 2 bytes and the ultimate size of string should be aligned by bytes according to CPU architecture (x86 in this case). That is why a string is aligned by 2 bytes. The result of our work is excellent: we can calculate the cost of any string. The last thing we need to know is how to calculate the size of arrays in memory.</p>
-<div class="paragraph-right-side">19</div>
+<div class="paragraph-right-side">15</div>
 </div>
 <h3 id="arrays">Arrays</h3>
-<div class="paragraph-container">
-<div class="paragraph-left-side">20</div>
 <p>The structure of arrays is a little more complicated as it has several variants:</p>
-<div class="paragraph-right-side">20</div>
-</div>
 <ol>
 <li>They can store both value and reference types.</li>
 <li>They can be both single-dimensional and multi-dimensional.</li>
 <li>Each dimension can start with <code>0</code> as well as with any other number (which is, in my opinion, a very questionable option designed to eliminate the need to write <code>arr[i - startIndex]</code> at FCL level). This is done for a sort of compatibility with other languages. For example in Pascal array indexing can start with any number and not only from <code>0</code>. However, I think it is unnecessary.</li>
 </ol>
 <div class="paragraph-container">
-<div class="paragraph-left-side">21</div>
+<div class="paragraph-left-side">16</div>
 <p>It produces some confusion in the implementation of arrays and inability to predict the size of a resulting array exactly: it is not enough to multiply the number of elements by their sizes. However for the majority of cases that will be enough, of course. The size becomes important if we afraid of getting into LOH. But even here we have some variants: we can add some constant value (for example 100) to a size that we calculated in a quick way to understand whether we have passed the threshold of 85,000 or not. However, in terms of this chapter our task is different — to understand the structure of types. Let’s go to it:</p>
-<div class="paragraph-right-side">21</div>
+<div class="paragraph-right-side">16</div>
 </div>
 <pre><code>  // Header
   ----------------------------------------------------------------------------------------
@@ -1098,9 +1226,9 @@ Length of `abcdef` <span style="color:Blue;">string</span>: 28
   - Len_2..Len_N, Term: present only if the dimension of an array is more than 1 (regulated by bits in VMT-&gt;Flags)
 </code></pre>
 <div class="paragraph-container">
-<div class="paragraph-left-side">22</div>
+<div class="paragraph-left-side">17</div>
 <p>As we can see, the header of a type contains the information about array dimensions the number of which can be from 1 to many. In fact, their size is limited only by a null terminator, meaning that enumeration is over. The following example is fully available at <a href="./samples/GettingInstanceSize.linq">GettingInstanceSize</a>. Below, I will put only its most important part:</p>
-<div class="paragraph-right-side">22</div>
+<div class="paragraph-right-side">17</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">int</span> SizeOf()
@@ -1172,9 +1300,9 @@ Length of `abcdef` <span style="color:Blue;">string</span>: 28
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">23</div>
+<div class="paragraph-left-side">18</div>
 <p>This code takes into account all the variants of array types and can be used to calculate the size of an array:</p>
-<div class="paragraph-right-side">23</div>
+<div class="paragraph-right-side">18</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 Console.WriteLine($<span style="color:#A31515;">&quot;size of int[]{{1,2}}: {SizeOf(new int[2])}&quot;</span>);
@@ -1189,23 +1317,23 @@ size of <span style="color:Blue;">int</span>[2,3,4,5]{...}: 512
 </div>
 <h3 id="conclusions-to-a-section">Conclusions to a section</h3>
 <div class="paragraph-container">
-<div class="paragraph-left-side">24</div>
+<div class="paragraph-left-side">19</div>
 <p>At this point we have learned important things. Firstly, we divided reference types into three groups: fixed size, variable size and generic ones. We also learned the way to understand the structure of a final instance of any type (I’m not talking about the structure of a VMT now. For now, we have entirely understood just one field, a big achievement, by the way). It can be a fixed size reference type (everything is pretty simple there) or a reference type with an undefined size: an array or a string. I mean undefined because its size will be defined once this type is created. Generic types are quite simple: each particular generic type has its own VMT, generated for this type, indicating its particular size.</p>
-<div class="paragraph-right-side">24</div>
+<div class="paragraph-right-side">19</div>
 </div>
 <h2 id="design-of-virtual-method-table-vmt">Design of Virtual Method Table (VMT)</h2>
 <div class="paragraph-container">
-<div class="paragraph-left-side">25</div>
+<div class="paragraph-left-side">20</div>
 <p>Explaining how a Method Table works is mainly a academic exercise: stepping in that maze is like digging your own grave. On the one hand, this labyrinth contains something exciting and interesting, some data that reveal even more about what is going on. However, on the other hand we understand that Microsoft doesn’t guarantee they will keep the runtime without changes and, for example, will not move the method table one field forward. That’s why let’s make things clear:</p>
-<div class="paragraph-right-side">25</div>
+<div class="paragraph-right-side">20</div>
 </div>
 <blockquote>
 <p>the information presented in this section is given only for you to understand how a CLR-based application works and that manual interference with its work doesn’t guarantee anything. However, it is so interesting, that I cannot talk you out. On the contrary, I suggest playing with these data structures and maybe you will get one of the most memorable experiences in software development.</p>
 </blockquote>
 <div class="paragraph-container">
-<div class="paragraph-left-side">26</div>
+<div class="paragraph-left-side">21</div>
 <p>OK, I warned you. Now, let’s plunge into the mirror world. Because, until now stepping into the mirror world meant knowing the structure of objects, which we are supposed to now at least approximately. This knowledge is not a mirror-world itself, but the entrance into it. That’s why let’s get back to the structure of a <code>MethodTable</code>, <a href="https://github.com/dotnet/coreclr/blob/master/src/vm/methodtable.h#L4099-L4114">described in CoreCLR</a>:</p>
-<div class="paragraph-right-side">26</div>
+<div class="paragraph-right-side">21</div>
 </div>
 <div class="lang-cpp editor-colors"><div style="color:Black;background-color:White;"><pre>
    <span style="color:Green;">// Low WORD is component size for array and string types (HasComponentSize() returns true).</span>
@@ -1226,9 +1354,9 @@ size of <span style="color:Blue;">int</span>[2,3,4,5]{...}: 512
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">27</div>
+<div class="paragraph-left-side">22</div>
 <p>In particular, let’s turn to <code>m_wNumVirtuals</code> and <code>m_wNumInterfaces</code> fields. They define the answer to the question &quot;How many virtual methods and interfaces does a type have?&quot;. This structure doesn’t contain any information about usual methods, fields and properties (which unite methods). I mean this structure <strong>has nothing to do with reflection</strong>. In its sense and purpose this structure is made to provide functioning of method calls in the CLR (in any OOP actually, whether it is Java, C++, Ruby or something else, however the arrangement of fields will be different). Let’s examine some code:</p>
-<div class="paragraph-right-side">27</div>
+<div class="paragraph-right-side">22</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">class</span> Sample
@@ -1257,14 +1385,14 @@ size of <span style="color:Blue;">int</span>[2,3,4,5]{...}: 512
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">28</div>
+<div class="paragraph-left-side">23</div>
 <p>No matter how meaningless these classes seems to be, they are fit for a description in a VMT. And for that, we should understand what’s the difference between a base type and an inherited type in terms of <code>ChangeTo</code> and <code>GetValue</code> methods.</p>
-<div class="paragraph-right-side">28</div>
+<div class="paragraph-right-side">23</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">29</div>
+<div class="paragraph-left-side">24</div>
 <p>The <code>ChangeTo</code> method is present in both types and cannot be overridden. That means we can rewrite it in the following way and nothing will change:</p>
-<div class="paragraph-right-side">29</div>
+<div class="paragraph-right-side">24</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
  <span style="color:Blue;">public</span> <span style="color:Blue;">class</span> Sample
@@ -1294,17 +1422,17 @@ size of <span style="color:Blue;">int</span>[2,3,4,5]{...}: 512
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">30</div>
+<div class="paragraph-left-side">25</div>
 <p>This code will change only in terms of architecture. Trust me, when compiled both variants will work in the same way as <code>this</code> in instance methods is just the first method parameter, that is passed to us implicitly.</p>
-<div class="paragraph-right-side">30</div>
+<div class="paragraph-right-side">25</div>
 </div>
 <blockquote>
 <p>I should explain in advance why all considerations are based on examples with static methods: all methods are static in their essence,  including instance ones. Memory doesn’t contain compiled methods for every single instance of a class. This would need a huge amount of memory: it is much easier that a reference to an instance of a structure or a class is passed each time to a method that works with that structure or the class.</p>
 </blockquote>
 <div class="paragraph-container">
-<div class="paragraph-left-side">31</div>
+<div class="paragraph-left-side">26</div>
 <p>Things work different for the <code>GetValue</code> method. We cannot just override a method by overriding <em>static</em> <code>GetValue</code> in an inherited type: a new method will get only those regions of code, that deal with a variable as with <code>OverriddenSample</code>. If you work with a variable as with <code>Sample</code> base type variable, you can only call <code>GetValue</code> of a base type, as you don’t know the ultimate type of an object. To understand the type of a variable and which method is called, we can do the following:</p>
-<div class="paragraph-right-side">31</div>
+<div class="paragraph-right-side">26</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">void</span> Main()
@@ -1357,26 +1485,22 @@ size of <span style="color:Blue;">int</span>[2,3,4,5]{...}: 512
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">32</div>
+<div class="paragraph-left-side">27</div>
 <p>In this example we, in fact, build a VMT manually and call methods based on their position in this table. If you got the idea of this example, you in fact got the idea of how inheritance is built at the level of compiled code: methods are called based on their indexes in a VMT. Just when you create an instance of an inherited type, the places in its VMT, where a base type has virtual methods, will be filled by a compiler with pointers to overridden methods. To do this, the compiler copies pointers to methods which weren’t overridden from the base type. Thus, the only difference between our example and a real VMT is that when a compiler builds this table, it preemptively knows the right size and contents of that table. In our example, we will have to struggle a lot to build a table for types, that will make it larger by adding new methods. But we our goal is different, so we won’t deal with such a nonsense.</p>
-<div class="paragraph-right-side">32</div>
+<div class="paragraph-right-side">27</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">33</div>
+<div class="paragraph-left-side">28</div>
 <p>The second question is why there are interfaces in a <code>VMT</code> when it is all clear with methods. If we think logically, interfaces are not included in the structure of direct inheritance. They are something on the side, indicating that some types must implement a certain set of methods, i.e. must have a protocol for interaction. Although these interfaces are <em>on the side</em> of direct inheritance, you still can call methods. Note, that if you use a variable of an interface type, beyond this variable there may be any classes; and in some cases the only common base class of these classes may be <code>System.Object</code> only. That means that methods in a virtual method table that implement an interface can be located anywhere. So how do method calls work in this case?</p>
-<div class="paragraph-right-side">33</div>
+<div class="paragraph-right-side">28</div>
 </div>
 <h2 id="virtual-stub-dispatch-vsd-in-progress">Virtual Stub Dispatch (VSD) [In Progress]</h2>
 <div class="paragraph-container">
-<div class="paragraph-left-side">34</div>
+<div class="paragraph-left-side">29</div>
 <p>To address this issue, it is necessary to remember that we can implement an interface in two ways: we can choose either <code>implicit</code> or <code>explicit</code> implementation. Moreover, you can do it partially: some methods will be <code>implicit</code>, the other – <code>explicit</code>. In fact, this opportunity is the consequence of implementation and probably wasn’t initially planned: by implementing an interface you explicitly or implicitly show what’s inside that interface. Some class methods may not be included into an interface, some methods within an interface may not exist in a class (of course they exist in a class, but syntax shows that they don’t belong to that class architecturally): a class and an interface are parallel hierarchies of types in some sense. Also, an interface is a separate type. It means that every interface has its own VMT so that anybody could call the methods of an interface.</p>
-<div class="paragraph-right-side">34</div>
+<div class="paragraph-right-side">29</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">35</div>
 <p>Let’s look at the table to see how VMTs of different types could be like:</p>
-<div class="paragraph-right-side">35</div>
-</div>
 <div class="row">
 <div class="offset-3 col-6">
 <table>
@@ -1413,29 +1537,29 @@ size of <span style="color:Blue;">int</span>[2,3,4,5]{...}: 512
 </div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">36</div>
+<div class="paragraph-left-side">30</div>
 <p>The VMTs of all three types contain the necessary <code>GetValue</code> and <code>SetValue</code> methods. However, they are located at different indexes: their index cannot be the same globally as it would cause a collision between indexes of other interfaces of a class. Actually, every interface duplicated each time it’s implemented by a class. So, if we have 633 implementations of <code>IDisposable</code> in FCL/BCL classes,  we also have 633 duplicates of <code>IDisposable</code> interfaces to support the VMT to VMT translation across every class + a entry in each class with a reference to its interface implementation. We will call such interfaces <strong>private interfaces</strong>. That is each class has its own <strong>private interfaces</strong> that are &quot;system” and act as proxy types to non-virtual interfaces.</p>
-<div class="paragraph-right-side">36</div>
+<div class="paragraph-right-side">30</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">37</div>
+<div class="paragraph-left-side">31</div>
 <p>Thus, interfaces, just like classes, inherit virtual <em>interface</em> methods. However, this inheritance works not only when we inherit one interface from an other but also when a class implements an interface. When a class implements an interface, an additional interface is created that specifies which methods of a parent interface should be inherited from and referenced to in the target class. By calling a method through an interface identifier, you similarly call a method through the index from a VMT as it was in case of classes. However, for this interface implementation you use a slot ID to choose a slot from an <em>inherited</em> private interface, through which the original <code>IDisposable</code> interface is connected with our class that implements the interface.</p>
-<div class="paragraph-right-side">37</div>
+<div class="paragraph-right-side">31</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">38</div>
+<div class="paragraph-left-side">32</div>
 <p>The dispatch of virtual methods by stubs or <strong>Virtual Stub Dispatch (VSD)</strong> was developed in 2006 as a replacement for VMTs, specifically in interfaces. This approach simplifies generation of code and method calls as the initial implementation of interfaces with VMT would be very cumbersome and need a huge amount of time and working set to build all structures of all interfaces. The code of dispatching is in four files containing 6,400 lines, and we don’t intend to understand the whole thing. We will try to understand the process in this code in general terms.</p>
-<div class="paragraph-right-side">38</div>
+<div class="paragraph-right-side">32</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">39</div>
+<div class="paragraph-left-side">33</div>
 <p>The whole logic of VSD can be divided into two big sections: dispatch and the mechanism of stubs that caches the addresses of called methods based on a key pair — [typeID; slot No] — that identifies them.</p>
-<div class="paragraph-right-side">39</div>
+<div class="paragraph-right-side">33</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">40</div>
+<div class="paragraph-left-side">34</div>
 <p>To fully understand the design of VSD processes, let’s look at them at a very high level first, and then go into the depth. The dispatch mechanism postpones building of methods because of:</p>
-<div class="paragraph-right-side">40</div>
+<div class="paragraph-right-side">34</div>
 </div>
 <ul>
 <li>logical parallelism in the hierarchy of interface types,</li>
@@ -1447,15 +1571,15 @@ size of <span style="color:Blue;">int</span>[2,3,4,5]{...}: 512
 <li>a fully-fledged body of the method.</li>
 </ul>
 <div class="paragraph-container">
-<div class="paragraph-left-side">41</div>
+<div class="paragraph-left-side">35</div>
 <p>Let’s revise these structures in respect to their evolution and required the data structures.</p>
-<div class="paragraph-right-side">41</div>
+<div class="paragraph-right-side">35</div>
 </div>
 <h3 id="dispatchmap">DispatchMap</h3>
 <div class="paragraph-container">
-<div class="paragraph-left-side">42</div>
+<div class="paragraph-left-side">36</div>
 <p>DispatchMap is a dynamically built main data structure that on which the work of interfaces in the CLR is built. Its structure is the following:</p>
-<div class="paragraph-right-side">42</div>
+<div class="paragraph-right-side">36</div>
 </div>
 <pre><code>    DWORD: The number of types = N
     DWORD: Type 1
@@ -1477,14 +1601,14 @@ size of <span style="color:Blue;">int</span>[2,3,4,5]{...}: 512
     DWORD: Target slot MN
 </code></pre>
 <div class="paragraph-container">
-<div class="paragraph-left-side">43</div>
+<div class="paragraph-left-side">37</div>
 <p>Thus, initially, the VSD mechanism writes the number of interfaces implemented by certain types. Then, it writes for every interface the corresponding type, the quantity of slots implemented by that type (for navigation in a table), and then, the information about every slot, including corresponding target slot in a <em>private interface</em> that contains the method implementations of a current type.</p>
-<div class="paragraph-right-side">43</div>
+<div class="paragraph-right-side">37</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">44</div>
+<div class="paragraph-left-side">38</div>
 <p>For iterative navigation in this data structure there is the <code>EncodedMapIterator</code> class,  so this <code>DispatchMap</code> may be handled via <code>foreach</code> only. Moreover, the slot No’s. are returned as the delta between the non-virtual slot No. and the previously encoded virtual slot No. It means you can get the slot No. in the middle of a table only by looking through the whole structure from the beginning. This raises a lot of performance issues on method calls via interfaces — if we have an array of objects implementing an interface, we will have to look through the whole table of implementations to understand which method to call  or, essentially, to find the necessary one. Each iteration will result in <code>DispatchMapEntry</code> that will show where the target method is located: in this type or not, and if not, what slot No. must be returned to get the target method.</p>
-<div class="paragraph-right-side">44</div>
+<div class="paragraph-right-side">38</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Green;">// DispatchMapTypeID allows the relative addressing of methods. That means it indicates where the target method is located  </span>
@@ -1524,10 +1648,10 @@ size of <span style="color:Blue;">int</span>[2,3,4,5]{...}: 512
 </div>
 <h4 id="typeid-map">TypeID Map</h4>
 <div class="paragraph-container">
-<div class="paragraph-left-side">45</div>
+<div class="paragraph-left-side">39</div>
 <p>Any method in the interface-based addressing is coded by the &lt;TypeId; Slot No&gt; pair. TypeId is obviously the type identifier. This field indicates where this identifier comes from and how it relates to a non-virtual type.
 The <code>TypeIDMap</code> class stores a map of types as a representation of specific TypeID’s in <code>MethodTable</code>, and works visa versa.  This is solely for the performance. These HashMaps are built dynamically: once invoked, FatId or plain Id is returned in response to query for TypeID from PTR_MethodTable. You should just remember: FatId and Id are just two kinds of TypeId. To some extent, it is a &quot;pointer” to MethodTable as it uniquely identifies.</p>
-<div class="paragraph-right-side">45</div>
+<div class="paragraph-right-side">39</div>
 </div>
 <blockquote>
 <p><strong>TypeId is an identifier of MethodTable</strong>. It can have two variants: Id and FatId. It is a usual number in its essence.</p>
@@ -1548,26 +1672,22 @@ The <code>TypeIDMap</code> class stores a map of types as a representation of sp
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">46</div>
+<div class="paragraph-left-side">40</div>
 <p>However, JIT easily handles all these challenges by inserting method calls when possible into the interface dispatch call sites. If JIT understands that nothing else can be called, it just puts in the call of a particular method. This is a very strong capability of the JIT compiler implementing this wonderful optimization for us.</p>
-<div class="paragraph-right-side">46</div>
+<div class="paragraph-right-side">40</div>
 </div>
 <h3 id="conclusions">Conclusions</h3>
 <div class="paragraph-container">
-<div class="paragraph-left-side">47</div>
+<div class="paragraph-left-side">41</div>
 <p>The thing that became natural for C# developers and rooted in our minds so deeply that we don’t even understand how to split an application into classes and interfaces is sometimes implemented so intricately that we need weeks for source texts analyses to determine all the dependencies and logic of what is going on. Something that is so trivial in use and produces no doubts during implementation can actually hide these difficulties of implementation. This means the engineers that put these ideas in action approached these problems with a lot of intelligence, by analyzing each step carefully.</p>
-<div class="paragraph-right-side">47</div>
+<div class="paragraph-right-side">41</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">48</div>
+<div class="paragraph-left-side">42</div>
 <p>The description given here is actually quite short and superficial: it is very high-level. In comparison with any .NET book we have gone very deep into the description of VSD and VMT design, but the description is still very high-level. Indeed, the amount of code in the files describing these two structures takes about 20,000 lines. This doesn’t take into account some parts about Generics.</p>
-<div class="paragraph-right-side">48</div>
+<div class="paragraph-right-side">42</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">49</div>
 <p>However, this lets us make some conclusions:</p>
-<div class="paragraph-right-side">49</div>
-</div>
 <ul>
 <li>There is almost no difference between calling static and instance methods. This means we shouldn’t worry that the work with instance methods will somehow affect the performance. The performance of both methods is absolutely identical in equal conditions.</li>
 <li>Though virtual methods are called via a VMT, there is only one additional pointer dereference for each call, as indexes are known in advance. In most cases this doesn’t affect anything: the decrease in performance (if I can say like this) will be so insignificant that it can be neglected.</li>
@@ -1579,9 +1699,9 @@ The <code>TypeIDMap</code> class stores a map of types as a representation of sp
 <p>Question: if every class can implement an interface, why cannot we get a particular implementation of an interface from an object?</p>
 </blockquote>
 <div class="paragraph-container">
-<div class="paragraph-left-side">50</div>
+<div class="paragraph-left-side">43</div>
 <p>The answer is simple: this opportunity wasn’t covered in the CLR during the language design. However, the CLR doesn’t restrict this.  Moreover, this function will likely be added in future versions of C#, which are released quite often. Let’s have a look at the example.</p>
-<div class="paragraph-right-side">50</div>
+<div class="paragraph-right-side">43</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">void</span> Main()
@@ -1622,11 +1742,7 @@ The <code>TypeIDMap</code> class stores a map of types as a representation of sp
 }
 </pre></div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">51</div>
 <p>Here we call four different methods and the result will be the following:</p>
-<div class="paragraph-right-side">51</div>
-</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 Foo.IDisposable::Dispose
 Foo::Dispose()
@@ -1635,28 +1751,24 @@ Boo::Dispose()
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">52</div>
+<div class="paragraph-left-side">44</div>
 <p>Despite we have the <em>explicit</em> implementation of an interface in both classes, you cannot get the implementation of the <code>IDisposable</code> interface for <code>Foo</code> in the <code>Boo</code> class. Even if we write it the following way:</p>
-<div class="paragraph-right-side">52</div>
+<div class="paragraph-right-side">44</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 ((IDisposable)(Foo)boo).Dispose();
 </pre></div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">53</div>
 <p>We will get the same result:</p>
-<div class="paragraph-right-side">53</div>
-</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 Boo.IDisposable::Dispose
 </pre></div>
 </div>
 <h2 id="why-are-implicit-and-multiple-implementations-of-interfaces-bad">Why are implicit and multiple implementations of interfaces bad?</h2>
 <div class="paragraph-container">
-<div class="paragraph-left-side">54</div>
+<div class="paragraph-left-side">45</div>
 <p>We can demonstrate the following code as the example of &quot;interface inheritance” which is similar to the inheritance of classes.</p>
-<div class="paragraph-right-side">54</div>
+<div class="paragraph-right-side">45</div>
 </div>
 <div class="lang-vb editor-colors"><div style="color:Black;background-color:White;"><pre>
     <span style="color:Blue;">Class</span> Foo
@@ -1723,14 +1835,14 @@ Boo.IDisposable::Dispose
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">55</div>
+<div class="paragraph-left-side">46</div>
 <p>We can see that <code>Doo</code>, inherited from <code>Foo</code>, implicitly implement <code>IDisposable</code>, while overriding explicit implementation of <code>IDisposable.Dispose</code>, that leads to a call of overriding when calling via an interface, indicating the &quot;inheritance of interfaces” of <code>Foo</code> and <code>Doo</code> classes.</p>
-<div class="paragraph-right-side">55</div>
+<div class="paragraph-right-side">46</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">56</div>
+<div class="paragraph-left-side">47</div>
 <p>On the one hand it is not a problem: if C# + CLR allowed such tricks it would break the consistency in type structure. Just think, you’ve created a wonderful architecture and everything is cool. But somebody calls methods in the way you didn’t plan. This would be horrible. However a similar opportunity exists in C++ and nobody really complains. Why this can be added to C#? Because the functionality that is not less horrible <a href="https://github.com/dotnet/csharplang/issues/52">is already being discussed</a> and should look something like this:</p>
-<div class="paragraph-right-side">56</div>
+<div class="paragraph-right-side">47</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">interface</span> IA
@@ -1750,14 +1862,14 @@ Boo.IDisposable::Dispose
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">57</div>
+<div class="paragraph-left-side">48</div>
 <p>Why is it horrible? This actually brings a whole new class of opportunities. Now we don’t need to implement each time some interface methods that were implemented similarly everywhere. Sounds great. However, not. Because an interface is actually a protocol for interaction. Protocol means a set of rules, some limits. It shouldn’t allow implementations. Here we deal with the direct infringement of this principle and introduction of another one: multiple inheritance. In fact, I object to such refinements a lot, but&hellip; I think I got carried away.</p>
-<div class="paragraph-right-side">57</div>
+<div class="paragraph-right-side">48</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">58</div>
+<div class="paragraph-left-side">49</div>
 <p><a href="https://github.com/dotnet/coreclr/blob/master/src/vm/contractimpl.cpp#L295-L460">DispatchMap::CreateEncodedMapping</a></p>
-<div class="paragraph-right-side">58</div>
+<div class="paragraph-right-side">49</div>
 </div>
 
 </div>

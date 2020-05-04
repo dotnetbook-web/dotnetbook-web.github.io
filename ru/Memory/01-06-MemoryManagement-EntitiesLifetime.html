@@ -16,6 +16,37 @@
     margin-top: 60px;
 }
 
+.book-title-container {
+    width: 100%;
+    text-align: center;
+    margin: 73px 0 110px 0;
+}
+
+.book-title {
+    font-size: 57pt;
+    margin: 50px 0 70px 0;
+    user-select: none;
+}
+.book-part-title-block {
+    display: inline-block;
+}
+.book-part-title {
+    font-size: 21pt;
+    color: #656ab6;
+    margin: 0 7px;
+}
+
+.book-part-title:hover {
+    box-shadow: inset 0 -1px #007bff;
+    text-decoration: none;
+}
+
+.book-superheading-title {
+    font-size: 15pt;
+    margin: 0 7px;
+    color: #656ab6;
+}
+
 .article-container
 {
     width: 62%;
@@ -31,19 +62,21 @@ p, li {
     font-family: inherit;
 }
 
-ol, ul {
+ol, li {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+ol {
+    padding-left: 1.2rem;
+}
+
+ul  {
     padding-left: 35px;
-    margin-top: 1.1rem;
-    margin-bottom: 1.1rem;
 }
 
-ol li {
-    padding-left: 10px;	
-    font-family: inherit;
-}
-
-ul li {
-    padding-left: 12px;	
+ol li, ul li {
+    padding-left: 1rem;	
     font-family: inherit;
 }
 
@@ -84,7 +117,6 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
     border-left-width: 3px;
     padding-left: 25px;
     display: block;
-    background-color: aliceblue !important;
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -175,7 +207,6 @@ blockquote p {
 blockquote p code {
     font-family: consolas, monospace;
     font-size: 17px;
-    background-color: aliceblue;
     padding: 4px 6px;
 }
 
@@ -202,7 +233,6 @@ h1 {
     margin: 40px 0 20px 0;
     border-bottom-style: ridge;
     padding-bottom: 10px;
-    width: 151%;
 }
 
 h1 b {
@@ -336,18 +366,38 @@ h4 {
 .paragraph-container > .paragraph-left-side {
     left: -55px;
     width: 35px;
+    user-select: none;
 }
 
 .paragraph-container > .paragraph-right-side  {
     left: 100%;
     width: 35px;
     padding-left: 45px;
+    user-select: none;
 }
 
 .article-container
 {
     width: 65%;
 }
+
+.menu-title {
+    text-align: center;
+    margin: 35px 50px 35px 50px;
+    font-size: 24pt;
+    font-family: Charter;
+}
+
+.menu-container ol {
+    margin: 0;
+    padding: 0;
+}
+
+.menu-container ol li {
+    margin: 0;
+    padding: 0;
+}
+
 
 /* MEDIA */
 /* XL */
@@ -383,6 +433,27 @@ h4 {
 
 /* MD */
 @media (max-width: 991px) {
+    
+    .book-title-container {
+        margin: 73px 0 110px 0;
+    }
+
+    .book-title {
+        font-size: 50pt;
+        margin: 50px 0 70px 0;
+    }
+
+    .book-part-title {
+        font-size: 19pt;
+    }
+
+    .book-part-title:hover {
+        box-shadow: inset 0 -1px #007bff;
+    }
+
+    .book-superheading-title {
+        font-size: 15pt;
+    }
     .book-container {
         margin: 0 100px;
     }
@@ -437,13 +508,42 @@ h4 {
         font-size: 15pt;
     }
 
+    p code:not(.highlight), li code:not(.highlight) {
+        font-size: 11pt;
+    }
+
     p, li {
         line-height: 30px;
-    }    
+    }
+    
+    li {
+        margin: 0 0 10px 0;
+    }
 }
 
 /* Smartphone horizontal - SM */
 @media (max-width: 767px) {
+    .book-title-container {
+        margin: 73px 0 110px 0;
+    }
+
+    .book-title {
+        font-size: 40pt;
+        margin: 50px 0 70px 0;
+    }
+
+    .book-part-title {
+        font-size: 19pt;
+    }
+
+    .book-part-title:hover {
+        box-shadow: inset 0 -1px #007bff;
+    }
+
+    .book-superheading-title {
+        font-size: 17pt;
+    }
+
     .book-container {
         margin: 0 50px;
     }
@@ -475,6 +575,11 @@ h4 {
         font-size: 13pt;
     }
 
+    p code:not(.highlight), li code:not(.highlight) {
+        font-size: 10pt;
+        padding: 3px;
+    }
+   
     p, li {
         line-height: 28px;
     }    
@@ -488,18 +593,7 @@ h4 {
     }
 }
 
-/* Fonts 
-
-/*@font-face {*/
-/*    font-family: 'PF Regal';*/
-/*    src: url('../../res/fonts/PFRegalTextPro-RegularA.eot');*/
-/*    src: local('../../res/fonts/PFRegalTextPro-RegularA'),*/
-/*        url('../../res/fonts/PFRegalTextPro-RegularA.woff2') format('woff2'),*/
-/*        url('../../res/fonts/PFRegalTextPro-RegularA.woff') format('woff'),*/
-/*        url('../../res/fonts/PFRegalTextPro-RegularA.ttf') format('truetype');*/
-/*    font-weight: 300;*/
-/*    font-style: normal;*/
-/*}*/
+/* Fonts */
 
 @font-face {
     font-family: 'PF Regal';
@@ -672,7 +766,61 @@ h4 {
     font-style: italic;
 }  
     </style>
+    
+<div class="book-title-container d-none d-md-block">
+    <div class="book-title">Knowledge Base</div>
+    <div class="book-part-title-block">pt.1 <a href="../..//ru/Memory/01-00-MemoryManagement-Intro.html" class="book-part-title">Управление памятью</a></div>
+    <div class="book-part-title-block">pt.2 <a href="../..//ru/Execution/02-00-ExecutionFlow-Intro.html" class="book-part-title">Поток исполнения команд</a></div>
+    <br><a href="#" class="book-superheading-title">Обоснование выбора</a>
+    / <a href="#" class="book-superheading-title">Упрощенное описание</a>
+    / <a href="#" class="book-superheading-title">Подробное описание</a>
+</div>
 
+<!--
+<div style="
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    padding: 0px 50px 110px 50px;">
+<div style="
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: white;
+    box-shadow: 0 0 45px rgba(0,0,0,0.2);">
+
+    <div class="container">
+    <div class="row menu-container">
+        <div class="col-6">
+            <p class="menu-title">Введение в управление памятью</p>
+	        <ol>
+                <li><a href="./Memory/01-00-MemoryManagement-Intro.html">Общие слова</a></li>
+                <li><a href="./Memory/01-02-MemoryManagement-Basics.html">Введение в управление памятью</a></li>
+                <li><a href="./Memory/01-04-MemoryManagement-ThreadStack.html">Стек потока</a></li>
+                <li><a href="./Memory/01-06-MemoryManagement-EntitiesLifetime.html">Время жизни сущности</a></li>
+                <li><a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html">RefTypes, ValueTypes, Boxing &amp; Unboxing</a></li>
+                <li><a href="./Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></li>
+                <li><a href="./Memory/01-12-MemoryManagement-Finalizer.html">Финализация</a></li>
+                <li><a href="./Memory/01-14-MemoryManagement-Results.html">Выводы</a></li>
+            </ol>
+        </div>
+        <div class="col-6">
+            <p class="menu-title">Подробности<br> реализации GC</p>
+            <ol>
+                <li><a href="./Memory/03-02-MemoryManagement-Allocation.html">Выделение памяти под объект</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-04-MemoryManagement-GC-Intro.html">Введение в сборку мусора</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-06-MemoryManagement-GC-Mark-Phase.html">Фаза маркировки</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-08-MemoryManagement-GC-Planning-Phase.html">Фаза планирования</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-10-MemoryManagement-GC-Sweep-Collect.html">Фазы Sweep/Collect</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-12-MemoryMenegement-GC-Results.html">Выводы по менеджменту памяти и работе над производительностью</a> <em>(Только наговорен текст)</em></li>
+            </ol>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+-->
 <div class="book-container">
 <div class="article-container">
     <!--<p class="d-xs-block d-sm-none">XS</p>
@@ -705,11 +853,7 @@ h4 {
 <li>У ссылочных типов в отличии от значимых детерменированное начало жизни. Другими словами они порождаются тогда и только тогда, когда кто-либо запросил их создание;</li>
 <li>Однако, они имеют недетерменированный освобождение: мы не знаем, когда произойдет освобождение памяти из под них. Мы не можем вызвать GC для конкретного экземпляра даже для случая с Large Objects Heap, где эта операция могла бы быть вполне уместна;</li>
 </ul>
-<div class="paragraph-container">
-<div class="paragraph-left-side">04</div>
 <p>Эти два свойства дают нам немного пищи для размышлений:</p>
-<div class="paragraph-right-side">04</div>
-</div>
 <ul>
 <li>экземпляры классов уничтожаются в случайное время в неопределенно отдаленном будущем;</li>
 <li>их уничтожение обуславливается утерей ссылок на них;</li>
@@ -717,18 +861,18 @@ h4 {
 <li>однако, с другой стороны мы далеко не всегда в курсе, какое именно обнуление ссылки будет последним, что лишает нас свойства детерменированности в обнулении последней ссылки.</li>
 </ul>
 <div class="paragraph-container">
-<div class="paragraph-left-side">05</div>
+<div class="paragraph-left-side">04</div>
 <p>Еще одним очень важным свойством является наличие виртуального метода финализации объекта. Этот метод вызывается во время срабатывания сборщика мусора: т.е. в неопределенном будущем. И необходим данный метод для одного: корректного закрытия неуправляемых ресурсов, которыми владеет объект в тех и только тех случаях, когда что-то пошло не так (например, было выброшено исключение) и программа более не сможет самостоятено это сделать (код, который отвечает за освобождение данных ресурсов никогда более не вызовется вследствие срабатывания исключительной ситуации). И, поскольку время вызова данного метода ровно как и освобождение памяти из под объекта от нас не зависят, его вызов также не является детерменированным. Мало того, он является асинхронным, т.к. осуществяется в отдельном потоке во время исполнения приложения. Это важно помнить, т.к. если, например, ваше приложение имеет логику повторной попытки работы с ресурсом и если произошла какая-то ошибка (например, <code>ThreadAbortException</code>), в результате которой ресурсы &laquo;повисли&raquo; в очереди на финализацию, то это значит, что вы не сможете открыть этот ресурс (например, файл), пока не отработает очередь на финализацию, в которой этот ресурс будет освобождён.</p>
-<div class="paragraph-right-side">05</div>
+<div class="paragraph-right-side">04</div>
 </div>
 <blockquote>
 <p>Однако, там где есть неопределенность, программисту всегда хочется внести определенность и как результат, возник интерфейс <code>IDisposable</code>, речь о котором пойдет чуть позже, в следующей главе. Я сейчас могу сказать лишь одно: он реализуется если необходимо, чтобы внешний код мог самостоятельно отдать команду на освобождение ресурсов объекта. Т.е. детерменированно сообщить объекту, что он более не нужен.</p>
 </blockquote>
 <h3 id="section-3">В защиту текущего подхода</h3>
 <div class="paragraph-container">
-<div class="paragraph-left-side">06</div>
+<div class="paragraph-left-side">05</div>
 <p>Мы никогда не задумывались (а может только я?) над тем, что было бы, будь всё по-другому: если бы память освобождалась детерменированно. Текущий подход с автоматической памятью, когда мы не задумываемся, где выделять объекты и когда их освобождать нам не всегда нравится: ведь бывают случаи, когда готовых к освобождению объектов накапливается слишком много и их освобождение тормозит всё приложение. Однако, в защиту текущего подхода давайте немного отвлечемся на сценарии, о которых иногда начинаешь задумываться, мечтая сменить текущий набор алгоритмов:</p>
-<div class="paragraph-right-side">06</div>
+<div class="paragraph-right-side">05</div>
 </div>
 <ul>
 <li>если вместо того чтобы освобождать объекты по срабатыванию GC мы будем освобождать их с потерей последней ссылки, что произойдёт? Вот наш код присваивает некоторой переменной <code>null</code>. Тогда получается, что на каждом присвоении необходимо проверять, идёт ли присвоение <code>null</code> или какой-либо другой рабочей ссылки. Если да, то надо понять, последняя ли это была ссылка. Каждый раз считать входящие с кучи ссылки, перебирая все объекты SOH/LOH - дорого. Значит, надо чтобы каждый объект считал все входящие ссылки сам: инкрементируя и декрементируя счётчик на каждой операции. Это - дополнительное место + дополнительные действия. Плюс ко всему получается, что мы уже не можем сжимать кучу: после каждого присваивания это делать слишком дорого: подходит только метод <code>Sweep</code>. Как мы видим, уже на поверхности всплывает очень много проблем, не говоря уже о подробностях;</li>
@@ -736,15 +880,15 @@ h4 {
 <li>если вводить смешанный алгоритм: в целом чтобы работало как сейчас, но чтобы был оператор <code>delete</code>. Например, вы мне скажете, вам захочется освобождать массивы данных, которые были использованы под скачивание изображений ровно в определенный момент. Потому что если наше приложение качает изображения друг за другом и при этом они достаточно быстро становятся не нужны, то мы вхолостую выделяем кучу памяти, которая быстро копится и приводит к вызову GC. Это особенно актуально для мобильных приложений на Xamarin и элемента управления &laquo;виртуальный список&raquo;, где при быстром скролле изображений они в больших количествах грузятся, а потом становятся ненужными. Если удалять их сразу, то не будет ситуации с большим GC, который испортит анимацию прокрутки. Однако, тут возникнут сложности для GC. При ручном освобождении памяти, последняя в свою очередь станет фрагментирована и может перестать вмещать в себя те массивы данных, которые вы запросите под следующие изображения. Как следствие - всё равно произойдет GC. Если блоки памяти с ручным управлением располагать в LOH, то ручное освобождение хорошо &laquo;ляжет&raquo; на его алгоритмы. Однако, всё также будет приводить к фрагментации и дальнейшему срабатыванию полного GC. Единственно верное решение - использовать пул массивов и Span/Memory для доступа к поддиапазону индексов. Но тогда зачем вводить <code>delete</code>?</li>
 </ul>
 <div class="paragraph-container">
-<div class="paragraph-left-side">07</div>
+<div class="paragraph-left-side">06</div>
 <p>Тогда получается, что текущее решение - прекрасно и надо просто научиться им правильно пользоваться. Этим мы чуть позже и займемся.</p>
-<div class="paragraph-right-side">07</div>
+<div class="paragraph-right-side">06</div>
 </div>
 <h3 id="section-4">Предварительные выводы</h3>
 <div class="paragraph-container">
-<div class="paragraph-left-side">08</div>
+<div class="paragraph-left-side">07</div>
 <p>Из всего сказанного можно увидеть, что у любого объекта есть некоторое время его существования. Это может показаться тривиальной мыслью, которая лежит на поверхности, но не все так однозначно:</p>
-<div class="paragraph-right-side">08</div>
+<div class="paragraph-right-side">07</div>
 </div>
 <ul>
 <li>важно понимать, как, когда и при каких иных условиях <em>объект создается</em>. Ведь его создание занимает некоторое не всегда короткое время. И вы не можете заранее угадать, по какому алгоритму он будет создан: простым переносом указателя в случае наличия места в allocation context, вследтвие необходимости расширения или переноса allocation context, необходимости сжатия эфимерного сегмента или же необходимости создания нового эфимерного сегмента с его полным структурированием;</li>
@@ -753,24 +897,20 @@ h4 {
 <li>и освобождаться - быть подхваченным Garbage Collector'ом с дальнейшей возможностью вызова финализатора.</li>
 </ul>
 <div class="paragraph-container">
-<div class="paragraph-left-side">09</div>
+<div class="paragraph-left-side">08</div>
 <p>Каждый из этих этапов определяет производительность приложения и логичность его архитектуры. Рассмотрим каждый этап в отдельности.</p>
-<div class="paragraph-right-side">09</div>
+<div class="paragraph-right-side">08</div>
 </div>
 <h2 id="section-5">Создание объекта</h2>
-<div class="paragraph-container">
-<div class="paragraph-left-side">10</div>
 <p>Все начинается с операции запроса памяти к подсистеме управления памятью:</p>
-<div class="paragraph-right-side">10</div>
-</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">var</span> x = <span style="color:Blue;">new</span> A();
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">11</div>
+<div class="paragraph-left-side">09</div>
 <p>Эта казалось бы самая простая операция платформы .NET кроет в себе огромный пласт работы, который будет описан в отдельной главе.</p>
-<div class="paragraph-right-side">11</div>
+<div class="paragraph-right-side">09</div>
 </div>
 
 </div>

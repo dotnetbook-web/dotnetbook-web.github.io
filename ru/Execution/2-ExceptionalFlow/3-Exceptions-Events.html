@@ -16,6 +16,37 @@
     margin-top: 60px;
 }
 
+.book-title-container {
+    width: 100%;
+    text-align: center;
+    margin: 73px 0 110px 0;
+}
+
+.book-title {
+    font-size: 57pt;
+    margin: 50px 0 70px 0;
+    user-select: none;
+}
+.book-part-title-block {
+    display: inline-block;
+}
+.book-part-title {
+    font-size: 21pt;
+    color: #656ab6;
+    margin: 0 7px;
+}
+
+.book-part-title:hover {
+    box-shadow: inset 0 -1px #007bff;
+    text-decoration: none;
+}
+
+.book-superheading-title {
+    font-size: 15pt;
+    margin: 0 7px;
+    color: #656ab6;
+}
+
 .article-container
 {
     width: 62%;
@@ -31,19 +62,21 @@ p, li {
     font-family: inherit;
 }
 
-ol, ul {
+ol, li {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+ol {
+    padding-left: 1.2rem;
+}
+
+ul  {
     padding-left: 35px;
-    margin-top: 1.1rem;
-    margin-bottom: 1.1rem;
 }
 
-ol li {
-    padding-left: 10px;	
-    font-family: inherit;
-}
-
-ul li {
-    padding-left: 12px;	
+ol li, ul li {
+    padding-left: 1rem;	
     font-family: inherit;
 }
 
@@ -84,7 +117,6 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
     border-left-width: 3px;
     padding-left: 25px;
     display: block;
-    background-color: aliceblue !important;
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -175,7 +207,6 @@ blockquote p {
 blockquote p code {
     font-family: consolas, monospace;
     font-size: 17px;
-    background-color: aliceblue;
     padding: 4px 6px;
 }
 
@@ -202,7 +233,6 @@ h1 {
     margin: 40px 0 20px 0;
     border-bottom-style: ridge;
     padding-bottom: 10px;
-    width: 151%;
 }
 
 h1 b {
@@ -336,18 +366,38 @@ h4 {
 .paragraph-container > .paragraph-left-side {
     left: -55px;
     width: 35px;
+    user-select: none;
 }
 
 .paragraph-container > .paragraph-right-side  {
     left: 100%;
     width: 35px;
     padding-left: 45px;
+    user-select: none;
 }
 
 .article-container
 {
     width: 65%;
 }
+
+.menu-title {
+    text-align: center;
+    margin: 35px 50px 35px 50px;
+    font-size: 24pt;
+    font-family: Charter;
+}
+
+.menu-container ol {
+    margin: 0;
+    padding: 0;
+}
+
+.menu-container ol li {
+    margin: 0;
+    padding: 0;
+}
+
 
 /* MEDIA */
 /* XL */
@@ -383,6 +433,27 @@ h4 {
 
 /* MD */
 @media (max-width: 991px) {
+    
+    .book-title-container {
+        margin: 73px 0 110px 0;
+    }
+
+    .book-title {
+        font-size: 50pt;
+        margin: 50px 0 70px 0;
+    }
+
+    .book-part-title {
+        font-size: 19pt;
+    }
+
+    .book-part-title:hover {
+        box-shadow: inset 0 -1px #007bff;
+    }
+
+    .book-superheading-title {
+        font-size: 15pt;
+    }
     .book-container {
         margin: 0 100px;
     }
@@ -437,13 +508,42 @@ h4 {
         font-size: 15pt;
     }
 
+    p code:not(.highlight), li code:not(.highlight) {
+        font-size: 11pt;
+    }
+
     p, li {
         line-height: 30px;
-    }    
+    }
+    
+    li {
+        margin: 0 0 10px 0;
+    }
 }
 
 /* Smartphone horizontal - SM */
 @media (max-width: 767px) {
+    .book-title-container {
+        margin: 73px 0 110px 0;
+    }
+
+    .book-title {
+        font-size: 40pt;
+        margin: 50px 0 70px 0;
+    }
+
+    .book-part-title {
+        font-size: 19pt;
+    }
+
+    .book-part-title:hover {
+        box-shadow: inset 0 -1px #007bff;
+    }
+
+    .book-superheading-title {
+        font-size: 17pt;
+    }
+
     .book-container {
         margin: 0 50px;
     }
@@ -475,6 +575,11 @@ h4 {
         font-size: 13pt;
     }
 
+    p code:not(.highlight), li code:not(.highlight) {
+        font-size: 10pt;
+        padding: 3px;
+    }
+   
     p, li {
         line-height: 28px;
     }    
@@ -488,18 +593,7 @@ h4 {
     }
 }
 
-/* Fonts 
-
-/*@font-face {*/
-/*    font-family: 'PF Regal';*/
-/*    src: url('../../../res/fonts/PFRegalTextPro-RegularA.eot');*/
-/*    src: local('../../../res/fonts/PFRegalTextPro-RegularA'),*/
-/*        url('../../../res/fonts/PFRegalTextPro-RegularA.woff2') format('woff2'),*/
-/*        url('../../../res/fonts/PFRegalTextPro-RegularA.woff') format('woff'),*/
-/*        url('../../../res/fonts/PFRegalTextPro-RegularA.ttf') format('truetype');*/
-/*    font-weight: 300;*/
-/*    font-style: normal;*/
-/*}*/
+/* Fonts */
 
 @font-face {
     font-family: 'PF Regal';
@@ -672,7 +766,61 @@ h4 {
     font-style: italic;
 }  
     </style>
+    
+<div class="book-title-container d-none d-md-block">
+    <div class="book-title">Knowledge Base</div>
+    <div class="book-part-title-block">pt.1 <a href="../../..//ru/Memory/01-00-MemoryManagement-Intro.html" class="book-part-title">Управление памятью</a></div>
+    <div class="book-part-title-block">pt.2 <a href="../../..//ru/Execution/02-00-ExecutionFlow-Intro.html" class="book-part-title">Поток исполнения команд</a></div>
+    <br><a href="#" class="book-superheading-title">Обоснование выбора</a>
+    / <a href="#" class="book-superheading-title">Упрощенное описание</a>
+    / <a href="#" class="book-superheading-title">Подробное описание</a>
+</div>
 
+<!--
+<div style="
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    padding: 0px 50px 110px 50px;">
+<div style="
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: white;
+    box-shadow: 0 0 45px rgba(0,0,0,0.2);">
+
+    <div class="container">
+    <div class="row menu-container">
+        <div class="col-6">
+            <p class="menu-title">Введение в управление памятью</p>
+	        <ol>
+                <li><a href="./Memory/01-00-MemoryManagement-Intro.html">Общие слова</a></li>
+                <li><a href="./Memory/01-02-MemoryManagement-Basics.html">Введение в управление памятью</a></li>
+                <li><a href="./Memory/01-04-MemoryManagement-ThreadStack.html">Стек потока</a></li>
+                <li><a href="./Memory/01-06-MemoryManagement-EntitiesLifetime.html">Время жизни сущности</a></li>
+                <li><a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html">RefTypes, ValueTypes, Boxing &amp; Unboxing</a></li>
+                <li><a href="./Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></li>
+                <li><a href="./Memory/01-12-MemoryManagement-Finalizer.html">Финализация</a></li>
+                <li><a href="./Memory/01-14-MemoryManagement-Results.html">Выводы</a></li>
+            </ol>
+        </div>
+        <div class="col-6">
+            <p class="menu-title">Подробности<br> реализации GC</p>
+            <ol>
+                <li><a href="./Memory/03-02-MemoryManagement-Allocation.html">Выделение памяти под объект</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-04-MemoryManagement-GC-Intro.html">Введение в сборку мусора</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-06-MemoryManagement-GC-Mark-Phase.html">Фаза маркировки</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-08-MemoryManagement-GC-Planning-Phase.html">Фаза планирования</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-10-MemoryManagement-GC-Sweep-Collect.html">Фазы Sweep/Collect</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-12-MemoryMenegement-GC-Results.html">Выводы по менеджменту памяти и работе над производительностью</a> <em>(Только наговорен текст)</em></li>
+            </ol>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+-->
 <div class="book-container">
 <div class="article-container">
     <!--<p class="d-xs-block d-sm-none">XS</p>
@@ -739,11 +887,7 @@ h4 {
 <p>Это событие по своей сути носит чисто информационный характер и не может быть &laquo;обработано&raquo;. Его задача - уведомить вас, что в рамках данного домена произошло исключение, и оно после обработки события начнёт обрабатываться кодом приложения. Его исполнение несёт за собой пару особенностей, о которых необходимо помнить во время проектирования обработчика.</p>
 <div class="paragraph-right-side">08</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">09</div>
 <p>Но давайте для начала посмотрим на простой синтетический пример его обработки:</p>
-<div class="paragraph-right-side">09</div>
-</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">void</span> Main()
 {
@@ -761,14 +905,14 @@ h4 {
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">10</div>
+<div class="paragraph-left-side">09</div>
 <p>Чем примечателен данный код? Где бы некий код ни сгенерировал бы исключение первое что произойдёт - это его логирование в консоль. Т.е. даже если вы забудете или не сможете предусмотреть обработку некоторого типа исключения оно все равно появится в журнале событий, которое вы организуете. Второе - несколько странное условие выброса внутреннего исключения. Все дело в том, что внутри обработчика <code>FirstChanceException</code> вы не можете просто взять и бросить ещё одно исключение. Скорее даже так: внутри обработчика FirstChanceException вы <em>не имеете возможности</em> бросить хоть какое-либо исключение. Если вы так сделаете, возможны два варианта событий. При первом, если бы не было условия <code>if(++counter == 1)</code>, мы бы получили бесконечный выброс <code>FirstChanceException</code> для все новых и новых <code>ArgumentOutOfRangeException</code>. А что это значит? Это значит, что на определённом этапе мы бы получили <code>StackOverflowException</code>: <code>throw new Exception(&quot;Hello!&quot;)</code> вызывает CLR метод Throw, который вызывает <code>FirstChanceException</code>, который вызывает <code>Throw</code> уже для <code>ArgumentOutOfRangeException</code> и далее - по рекурсии. Второй вариант: мы защитились по глубине рекурсии при помощи условия по <code>counter</code>. Т.е. в данном случае мы бросаем исключение только один раз. Результат более чем неожиданный: мы получим исключительную ситуацию, которая фактически отрабатывает внутри инструкции <code>Throw</code>. А что подходит более всего для данного типа ошибки? Согласно ECMA-335 если инструкция была введена в исключительное положение, должно быть выброшено <code>ExecutionEngineException</code>! А эту исключительную ситуацию мы обработать никак не в состоянии. Она приводит к полному вылету из приложения. Какие же варианты безопасной обработки у нас есть?</p>
-<div class="paragraph-right-side">10</div>
+<div class="paragraph-right-side">09</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">11</div>
+<div class="paragraph-left-side">10</div>
 <p>Первое, что приходит в голову - это выставить <code>try-catch</code> блок на весь код обработчика <code>FirstChanceException</code>:</p>
-<div class="paragraph-right-side">11</div>
+<div class="paragraph-right-side">10</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">void</span> Main()
@@ -827,14 +971,14 @@ Success
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">12</div>
+<div class="paragraph-left-side">11</div>
 <p>Т.е. с одной стороны у нас есть код обработки события <code>FirstChanceException</code>, а с другой - дополнительный код обработки исключений в самом <code>FirstChanceException</code>. Однако методики логгирования обеих ситуаций должны отличаться. Если логирование обработки события может идти как угодно, то обработка ошибки логики обработки <code>FirstChanceException</code> должно идти без исключительных ситуаций в принципе. Второе, что вы наверняка заметили - это синхронизация между потоками. Тут может возникнуть вопрос: зачем она тут, если любое исключение рождено в каком-либо потоке, а значит <code>FirstChanceException</code> по идее должен быть потокобезопасным. Однако, все не так жизнерадостно. <code>FirstChanceException</code> у нас возникает у AppDomain. А это значит, что он возникает для любого потока, стартованного в определённом домене. Т.е. если у нас есть домен, внутри которого стартовано несколько потоков, то <code>FirstChanceException</code> могут идти в параллель. А это значит, что нам необходимо как-то защитить себя синхронизацией: например при помощи <code>lock</code>.</p>
-<div class="paragraph-right-side">12</div>
+<div class="paragraph-right-side">11</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">13</div>
+<div class="paragraph-left-side">12</div>
 <p>Второй способ - попробовать увести обработку в соседний поток, принадлежащий другому домену приложений. Однако тут стоит оговориться, что при такой реализации мы должны построить выделенный домен именно под эту задачу чтобы не получилось так, что этот домен могут положить другие потоки, которые являются рабочими:</p>
-<div class="paragraph-right-side">13</div>
+<div class="paragraph-right-side">12</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">static</span> <span style="color:Blue;">void</span>  Main()
@@ -918,20 +1062,20 @@ Success
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">14</div>
+<div class="paragraph-left-side">13</div>
 <p>В данном случае обработка <code>FirstChanceException</code> происходит максимально безопасно: в соседнем потоке, принадлежащем соседнему домену. Ошибки обработки сообщения при этом не могут обрушить рабочие потоки приложения. Плюс отдельно можно послушать UnhandledException домена логирования сообщений: фатальные ошибки при логировании не обрушат все приложение.</p>
-<div class="paragraph-right-side">14</div>
+<div class="paragraph-right-side">13</div>
 </div>
 <h3 id="appdomain.unhandledexception">AppDomain.UnhandledException</h3>
 <div class="paragraph-container">
-<div class="paragraph-left-side">15</div>
+<div class="paragraph-left-side">14</div>
 <p>Второе сообщение, которое мы можем перехватить и которое касается обработки исключительных ситуаций - это <code>AppDomain.UnhandledException</code>. Это сообщение - очень плохая новость для нас поскольку обозначает что не нашлось никого кто смог бы найти способ обработки возникшей ошибки в некотором потоке. Также, если произошла такая ситуация, все что мы можем сделать - это &laquo;разгрести&raquo; последствия такой ошибки. Т.е. каким-либо образом зачистить ресурсы, принадлежащие только этому потоку, если таковые создавались. Однако, ещё более лучшая ситуация - обрабатывать исключения, находясь в &laquo;корне&raquo; потоков не заваливая поток. Т.е. по сути ставить <code>try-catch</code>. Давайте попробуем рассмотреть целесообразность такого поведения.</p>
-<div class="paragraph-right-side">15</div>
+<div class="paragraph-right-side">14</div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">16</div>
+<div class="paragraph-left-side">15</div>
 <p>Пусть мы имеем библиотеку, которой необходимо создавать потоки и осуществлять какую-то логику в этих потоках. Мы, как пользователи этой библиотеки интересуемся только гарантией вызовов API а также получением сообщений об ошибках. Если библиотека будет рушить потоки не нотифицируя об этом, нам это мало чем может помочь. Мало того обрушение потока приведёт к сообщению <code>AppDomain.UnhandledException</code>, в котором нет информации о том, какой конкретно поток лёг на бок. Если же речь идёт о нашем коде, обрушивающийся поток нам тоже вряд-ли будет полезным. Во всяком случае необходимости в этом я не встречал. Наша задача - обработать ошибки правильно, отдать информацию об их возникновении в журнал ошибок и корректно завершить работу потока. Т.е. по сути, обернуть метод, с которого стартует поток в <code>try-catch</code>:</p>
-<div class="paragraph-right-side">16</div>
+<div class="paragraph-right-side">15</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
     ThreadPool.QueueUserWorkitem(_ =&gt; {
@@ -949,9 +1093,9 @@ Success
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">17</div>
+<div class="paragraph-left-side">16</div>
 <p>В такой схеме мы получим то, что надо: с одной стороны мы не обрушим поток. С другой - корректно очистим локальные ресурсы, если они были созданы. Ну и в довесок - организуем журналирование полученной ошибки. Но постойте, скажете вы. Как-то вы лихо соскочили с вопроса события <code>AppDomain.UnhandledException</code>. Неужели оно совсем не нужно? Нужно. Но только для того чтобы сообщить, что мы забыли обернуть какие-то потоки в <code>try-catch</code> со всей необходимой логикой. Именно со всей: с логированием и очисткой ресурсов. Иначе это будет совершенно не правильно: брать и гасить все исключения, как будто их и не было вовсе.</p>
-<div class="paragraph-right-side">17</div>
+<div class="paragraph-right-side">16</div>
 </div>
 
 </div>

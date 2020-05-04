@@ -16,6 +16,37 @@
     margin-top: 60px;
 }
 
+.book-title-container {
+    width: 100%;
+    text-align: center;
+    margin: 73px 0 110px 0;
+}
+
+.book-title {
+    font-size: 57pt;
+    margin: 50px 0 70px 0;
+    user-select: none;
+}
+.book-part-title-block {
+    display: inline-block;
+}
+.book-part-title {
+    font-size: 21pt;
+    color: #656ab6;
+    margin: 0 7px;
+}
+
+.book-part-title:hover {
+    box-shadow: inset 0 -1px #007bff;
+    text-decoration: none;
+}
+
+.book-superheading-title {
+    font-size: 15pt;
+    margin: 0 7px;
+    color: #656ab6;
+}
+
 .article-container
 {
     width: 62%;
@@ -31,19 +62,21 @@ p, li {
     font-family: inherit;
 }
 
-ol, ul {
+ol, li {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+ol {
+    padding-left: 1.2rem;
+}
+
+ul  {
     padding-left: 35px;
-    margin-top: 1.1rem;
-    margin-bottom: 1.1rem;
 }
 
-ol li {
-    padding-left: 10px;	
-    font-family: inherit;
-}
-
-ul li {
-    padding-left: 12px;	
+ol li, ul li {
+    padding-left: 1rem;	
     font-family: inherit;
 }
 
@@ -84,7 +117,6 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
     border-left-width: 3px;
     padding-left: 25px;
     display: block;
-    background-color: aliceblue !important;
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -175,7 +207,6 @@ blockquote p {
 blockquote p code {
     font-family: consolas, monospace;
     font-size: 17px;
-    background-color: aliceblue;
     padding: 4px 6px;
 }
 
@@ -202,7 +233,6 @@ h1 {
     margin: 40px 0 20px 0;
     border-bottom-style: ridge;
     padding-bottom: 10px;
-    width: 151%;
 }
 
 h1 b {
@@ -336,18 +366,38 @@ h4 {
 .paragraph-container > .paragraph-left-side {
     left: -55px;
     width: 35px;
+    user-select: none;
 }
 
 .paragraph-container > .paragraph-right-side  {
     left: 100%;
     width: 35px;
     padding-left: 45px;
+    user-select: none;
 }
 
 .article-container
 {
     width: 65%;
 }
+
+.menu-title {
+    text-align: center;
+    margin: 35px 50px 35px 50px;
+    font-size: 24pt;
+    font-family: Charter;
+}
+
+.menu-container ol {
+    margin: 0;
+    padding: 0;
+}
+
+.menu-container ol li {
+    margin: 0;
+    padding: 0;
+}
+
 
 /* MEDIA */
 /* XL */
@@ -383,6 +433,27 @@ h4 {
 
 /* MD */
 @media (max-width: 991px) {
+    
+    .book-title-container {
+        margin: 73px 0 110px 0;
+    }
+
+    .book-title {
+        font-size: 50pt;
+        margin: 50px 0 70px 0;
+    }
+
+    .book-part-title {
+        font-size: 19pt;
+    }
+
+    .book-part-title:hover {
+        box-shadow: inset 0 -1px #007bff;
+    }
+
+    .book-superheading-title {
+        font-size: 15pt;
+    }
     .book-container {
         margin: 0 100px;
     }
@@ -437,13 +508,42 @@ h4 {
         font-size: 15pt;
     }
 
+    p code:not(.highlight), li code:not(.highlight) {
+        font-size: 11pt;
+    }
+
     p, li {
         line-height: 30px;
-    }    
+    }
+    
+    li {
+        margin: 0 0 10px 0;
+    }
 }
 
 /* Smartphone horizontal - SM */
 @media (max-width: 767px) {
+    .book-title-container {
+        margin: 73px 0 110px 0;
+    }
+
+    .book-title {
+        font-size: 40pt;
+        margin: 50px 0 70px 0;
+    }
+
+    .book-part-title {
+        font-size: 19pt;
+    }
+
+    .book-part-title:hover {
+        box-shadow: inset 0 -1px #007bff;
+    }
+
+    .book-superheading-title {
+        font-size: 17pt;
+    }
+
     .book-container {
         margin: 0 50px;
     }
@@ -475,6 +575,11 @@ h4 {
         font-size: 13pt;
     }
 
+    p code:not(.highlight), li code:not(.highlight) {
+        font-size: 10pt;
+        padding: 3px;
+    }
+   
     p, li {
         line-height: 28px;
     }    
@@ -488,18 +593,7 @@ h4 {
     }
 }
 
-/* Fonts 
-
-/*@font-face {*/
-/*    font-family: 'PF Regal';*/
-/*    src: url('../../res/fonts/PFRegalTextPro-RegularA.eot');*/
-/*    src: local('../../res/fonts/PFRegalTextPro-RegularA'),*/
-/*        url('../../res/fonts/PFRegalTextPro-RegularA.woff2') format('woff2'),*/
-/*        url('../../res/fonts/PFRegalTextPro-RegularA.woff') format('woff'),*/
-/*        url('../../res/fonts/PFRegalTextPro-RegularA.ttf') format('truetype');*/
-/*    font-weight: 300;*/
-/*    font-style: normal;*/
-/*}*/
+/* Fonts */
 
 @font-face {
     font-family: 'PF Regal';
@@ -672,7 +766,61 @@ h4 {
     font-style: italic;
 }  
     </style>
+    
+<div class="book-title-container d-none d-md-block">
+    <div class="book-title">Knowledge Base</div>
+    <div class="book-part-title-block">pt.1 <a href="../..//ru/Memory/01-00-MemoryManagement-Intro.html" class="book-part-title">Управление памятью</a></div>
+    <div class="book-part-title-block">pt.2 <a href="../..//ru/Execution/02-00-ExecutionFlow-Intro.html" class="book-part-title">Поток исполнения команд</a></div>
+    <br><a href="#" class="book-superheading-title">Обоснование выбора</a>
+    / <a href="#" class="book-superheading-title">Упрощенное описание</a>
+    / <a href="#" class="book-superheading-title">Подробное описание</a>
+</div>
 
+<!--
+<div style="
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    padding: 0px 50px 110px 50px;">
+<div style="
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: white;
+    box-shadow: 0 0 45px rgba(0,0,0,0.2);">
+
+    <div class="container">
+    <div class="row menu-container">
+        <div class="col-6">
+            <p class="menu-title">Введение в управление памятью</p>
+	        <ol>
+                <li><a href="./Memory/01-00-MemoryManagement-Intro.html">Общие слова</a></li>
+                <li><a href="./Memory/01-02-MemoryManagement-Basics.html">Введение в управление памятью</a></li>
+                <li><a href="./Memory/01-04-MemoryManagement-ThreadStack.html">Стек потока</a></li>
+                <li><a href="./Memory/01-06-MemoryManagement-EntitiesLifetime.html">Время жизни сущности</a></li>
+                <li><a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html">RefTypes, ValueTypes, Boxing &amp; Unboxing</a></li>
+                <li><a href="./Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></li>
+                <li><a href="./Memory/01-12-MemoryManagement-Finalizer.html">Финализация</a></li>
+                <li><a href="./Memory/01-14-MemoryManagement-Results.html">Выводы</a></li>
+            </ol>
+        </div>
+        <div class="col-6">
+            <p class="menu-title">Подробности<br> реализации GC</p>
+            <ol>
+                <li><a href="./Memory/03-02-MemoryManagement-Allocation.html">Выделение памяти под объект</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-04-MemoryManagement-GC-Intro.html">Введение в сборку мусора</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-06-MemoryManagement-GC-Mark-Phase.html">Фаза маркировки</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-08-MemoryManagement-GC-Planning-Phase.html">Фаза планирования</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-10-MemoryManagement-GC-Sweep-Collect.html">Фазы Sweep/Collect</a> <em>(Только наговорен текст)</em></li>
+                <li><a href="./Memory/03-12-MemoryMenegement-GC-Results.html">Выводы по менеджменту памяти и работе над производительностью</a> <em>(Только наговорен текст)</em></li>
+            </ol>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+-->
 <div class="book-container">
 <div class="article-container">
     <!--<p class="d-xs-block d-sm-none">XS</p>
@@ -1023,42 +1171,30 @@ T GetFromCacheOrCalculate()
 <span style="color:Blue;">throw</span> <span style="color:Blue;">new</span> MissingModifierParserException(ParserError.MissingModifier);
 </pre></div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">22</div>
 <p>Using this approach we get some wonderful properties:</p>
-<div class="paragraph-right-side">22</div>
-</div>
 <ul>
 <li>on the one hand, we keep catching exceptions using a base (common) type;</li>
 <li>on the other hand, even catching exceptions with this base type we are still able to identify a specific situation;</li>
 <li>plus, we can catch exceptions via a specific type instead of a base type without using the flat structure of classes.</li>
 </ul>
-<div class="paragraph-container">
-<div class="paragraph-left-side">23</div>
 <p>I think it is very convenient.</p>
-<div class="paragraph-right-side">23</div>
-</div>
 <h3 id="based-on-belonging-to-a-specific-group-of-behavioral-situations">Based on belonging to a specific group of behavioral situations</h3>
 <div class="paragraph-container">
-<div class="paragraph-left-side">24</div>
+<div class="paragraph-left-side">22</div>
 <p>What conclusions can we make based on the previous reasoning? Let’s try to define them.</p>
+<div class="paragraph-right-side">22</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">23</div>
+<p>First of all, let’s decide what means a situation? Usually, we talk about classes and objects in terms of entities with some internal state and we can perform actions on these entities. Thus, the first type of behavioral situation includes actions on some entity. Next, if we look at an object graph from the outside we will see that it is logically represented as a combination of functional groups: the first group deals with caching, the second works with databases, the third performs mathematical calculations. Different layers can go through all these groups, e.g. layers of internal states logging, process logging, and method calls’ tracing. Layers can encompass several functional groups. For example, there can be a layer of a model, a layer of controllers and a presentation layer. These groups can be in one assembly or in different ones, but each group can create its own exceptional situations.</p>
+<div class="paragraph-right-side">23</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">24</div>
+<p>So, we can build a hierarchy for the types of exceptional situations based on the belonging of these types to one or another group or layer. Thus, we allow a catching code to easily navigate among these types in the hierarchy.</p>
 <div class="paragraph-right-side">24</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">25</div>
-<p>First of all, let’s decide what means a situation? Usually, we talk about classes and objects in terms of entities with some internal state and we can perform actions on these entities. Thus, the first type of behavioral situation includes actions on some entity. Next, if we look at an object graph from the outside we will see that it is logically represented as a combination of functional groups: the first group deals with caching, the second works with databases, the third performs mathematical calculations. Different layers can go through all these groups, e.g. layers of internal states logging, process logging, and method calls’ tracing. Layers can encompass several functional groups. For example, there can be a layer of a model, a layer of controllers and a presentation layer. These groups can be in one assembly or in different ones, but each group can create its own exceptional situations.</p>
-<div class="paragraph-right-side">25</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">26</div>
-<p>So, we can build a hierarchy for the types of exceptional situations based on the belonging of these types to one or another group or layer. Thus, we allow a catching code to easily navigate among these types in the hierarchy.</p>
-<div class="paragraph-right-side">26</div>
-</div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">27</div>
 <p>Let’s examine the following code:</p>
-<div class="paragraph-right-side">27</div>
-</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 
 <span style="color:Blue;">namespace</span> JetFinance
@@ -1090,15 +1226,11 @@ T GetFromCacheOrCalculate()
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">28</div>
+<div class="paragraph-left-side">25</div>
 <p>What’s it like? I think the namespace is a perfect way to naturally group the types of exceptions based on the behavioral situations: everything that belongs to particular groups should stay there, including exceptions. Moreover, when you get a particular exception, you will see the name of its type and also its namespace that will specify a group it belongs to. Do you remember the bad reuse of <code>InvalidDataException</code> which is actually defined in the <code>System.IO</code> namespace? The fact that it belongs to this namespace means this type of exception can be thrown from classes that are in the <code>System.IO</code> namespace or in a more nested one. But the actual exception was thrown from a completely different space, confusing a person that handles the issue. However, if you put the types of exceptions and the types that throw these exceptions in the same namespaces you keep the architecture of types consistent and make it easier for developers to understand the reasons for what happens.</p>
-<div class="paragraph-right-side">28</div>
+<div class="paragraph-right-side">25</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">29</div>
 <p>What is the second way for grouping on the level of code? Inheritance:</p>
-<div class="paragraph-right-side">29</div>
-</div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 
 <span style="color:Blue;">public</span> <span style="color:Blue;">abstract</span> <span style="color:Blue;">class</span> LoggerExceptionBase : Exception
@@ -1119,15 +1251,11 @@ T GetFromCacheOrCalculate()
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">30</div>
+<div class="paragraph-left-side">26</div>
 <p>Note that for usual application entities, they inherit both behavior and data and group types that belong to a <em>single group of entities</em>. However, for exceptions, they inherit and are grouped based on a <em>single group of situations</em>, because the essence of an exception is not an entity but a problem.</p>
-<div class="paragraph-right-side">30</div>
+<div class="paragraph-right-side">26</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">31</div>
 <p>Combining these two grouping methods we can make the following conclusions:</p>
-<div class="paragraph-right-side">31</div>
-</div>
 <ul>
 <li>there should be a base type of exceptions inside <code>Assembly</code> that will be thrown by this assembly. This type of exceptions should be in a root namespace of the assembly. This will be the first layer of grouping.</li>
 <li>further, there can be one or several namespaces inside an assembly. Each of them divides the assembly into functional zones, defining the groups of situations, that appear in this assembly. These may be zones of controllers, database entities, data processing algorithms, etc. For us, these namespaces mean grouping types based on their function. However, in terms of exceptions they are grouped based on problems within the same assembly;</li>
@@ -1178,15 +1306,11 @@ T GetFromCacheOrCalculate()
 </pre></div>
 </div>
 <div class="paragraph-container">
-<div class="paragraph-left-side">32</div>
+<div class="paragraph-left-side">27</div>
 <p>Here, the user code calls a library method that, as we know, can throw <code>XmlParserServiceException</code> in some situation. And, as we know, this exception refers to the inherited namespace <code>JetFinance.FinancialPipe.FinancialPipeExceptionBase</code>, which means that there may be some other exceptions — this time <code>XmlParserService</code> microservice creates only one exception but other exceptions may appear in future. As we have a convention for creating types of exceptions, we know what entity this new exception will be inherited from and put an encompassing <code>catch</code> in advance. That enables us to skip all things irrelevant to us.</p>
-<div class="paragraph-right-side">32</div>
+<div class="paragraph-right-side">27</div>
 </div>
-<div class="paragraph-container">
-<div class="paragraph-left-side">33</div>
 <p>How to build such a hierarchy of types?</p>
-<div class="paragraph-right-side">33</div>
-</div>
 <ul>
 <li>First of all, we should create a base class for a domain. Let’s call it a domain base class. In this case, a domain is a word that encompasses a number of assemblies, combining them based on some feature: logging, business-logic, UI. I mean functional zones of an application that are as large as possible.</li>
 <li>Next, we should introduce an additional base class for exceptions which must be caught: all the exceptions that will be caught using the <code>catch</code> keyword will be inherited from this base class;</li>
@@ -1198,9 +1322,9 @@ T GetFromCacheOrCalculate()
 </ul>
 <h3 id="based-on-the-source-of-an-error">Based on the source of an error</h3>
 <div class="paragraph-container">
-<div class="paragraph-left-side">34</div>
+<div class="paragraph-left-side">28</div>
 <p>The source of an error can be another basis to combine exceptions in a group. For example, if you design a class library, the following things can form groups of sources:</p>
-<div class="paragraph-right-side">34</div>
+<div class="paragraph-right-side">28</div>
 </div>
 <ul>
 <li>unsafe code call with an error. This situation can be dealt with by wrapping an exception or an error code in its own type of exception while saving returned data (for example the original error code) in a public property of the exception;</li>
