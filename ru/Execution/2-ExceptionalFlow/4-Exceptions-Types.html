@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>.NET Platform Architecture</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.NET Platform Architecture</title>
 </head>
 <body>
     <link rel="stylesheet" href="../../../res/bootstrap.css">
@@ -57,27 +57,28 @@ strong {
 }
 
 p, li {
-    margin: 0 0 25px;
-    line-height: 32px;
+    margin: 0 0 1em;
+    line-height: 1.5em;
     font-family: inherit;
 }
 
 ol, li {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 ol {
-    padding-left: 1.2rem;
+    padding-left: 1.21em;
 }
 
 ul  {
-    padding-left: 35px;
+    padding-left: 1em;
 }
 
 ol li, ul li {
-    padding-left: 1rem;	
+    padding-left: 0.5em;	
     font-family: inherit;
+    text-align: justify;
 }
 
 table {
@@ -108,6 +109,7 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 *[class*='lang-'] {
     padding: 0px 0px 25px 0px;
+    font-size: 0.75em;
 }
 
 
@@ -126,11 +128,11 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 }
 
 p code:not(.highlight), li code:not(.highlight) {
-    font-size: 16px;
+    font-size: 0.7em;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
-    padding: 4px;
+    padding: 3px;
     color: darkslateblue;
 }
 
@@ -148,11 +150,6 @@ p code.highlight, li code.highlight {
 
 .wide {
     width:150%;
-}
-
-*[class*='lang-'] span, *[class*='lang-'] pre, pre > code {
-    font-size: 13px;
-    line-height: 20px;
 }
 
 p a, li a {
@@ -179,9 +176,9 @@ p img {
 
 blockquote 
 {
-    background-color: lavenderblush;
-    padding-left: 20px;
-    border-left: 1px solid rgba(0,0,0,.08);
+    padding-left: 0.4em;
+    border-left: 0.5em solid rgba(0,0,0,.08);
+    font-style: italic;
 }
 
 blockquote.big-quote, 
@@ -199,8 +196,7 @@ blockquote.breadcrumbs, blockquote.breadcrumbs  p
 }
 
 blockquote p {
-    margin: 16px 0;
-    padding: 12px 12px 13px;
+    padding: 1em 1em 1em 0.6em;
     font-family: inherit;
 }
 
@@ -210,11 +206,14 @@ blockquote p code {
     padding: 4px 6px;
 }
 
+blockquote p em {
+    font-weight: 400;
+}
+
 blockquote.big-quote > p {
     margin: 40px 0 60px 0;
     font-family: Charter;
     font-size: 55px;
-    line-height: 60px;
     padding: 0;
     width: 150%;
 }
@@ -227,31 +226,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 40px;
-    font-family: PF Regal,Georgia,serif;
+    font-size: 2.2em;
+    font-family: Charter,Georgia,serif;
     font-weight: 300;
-    margin: 40px 0 20px 0;
-    border-bottom-style: ridge;
-    padding-bottom: 10px;
-}
-
-h1 b {
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-weight: 700;
-    font-size: 37px;
-    line-height: 42px;
+    margin: 1.8em 0 1.8em 0;
+    text-align: center;
 }
 
 h2 {
-    margin-top: 35px;
-    margin-bottom: 10px;
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-    border-bottom-color: grey;
-    border-bottom-style: solid;
-    padding-bottom: 5px;
+    margin-top: 2em;
+    margin-left: 1.2em;
+    font-family: Charter,Arial,Helvetica Neue,sans-serif;
+    font-size: 1.25em;
+    width: 70%;
 }
 
 h3 {
@@ -293,27 +280,23 @@ h4 {
     line-height: 24px;
     font-size: 13pt;
     margin: 0 0 13px 0;
-    font-family: Charter;
-}
-
-.side-regular-block {
-    border-radius: 5px;
-    background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
-    padding: 22px;
 }
 
 .side-regular-block p {
     top: 0;
 }
-/* Music side player */
 
+/* Music side player */
 .aside-side-container .music-player {
     width: 100%;
     height: 400px;
 }
 
-.aside-side-container.side-media-block h2 {
-    margin-top: -12px;
+/* media block after h1 */
+.aside-container h1 + .aside-side-container.side-media-block h2 {
+    margin: 7em 0 1em 0;
+    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
+    font-weight: 600;
 }
 
 .aside-side-container > li {
@@ -323,8 +306,8 @@ h4 {
 
 .aside-side-container > li ul, .aside-side-container > li ol {
     padding-left: 30px;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 .aside-side-container > li li {
     padding-left: 6px;
@@ -353,6 +336,12 @@ h4 {
     position: relative;
     top: 9px;
 }
+
+.paragraph-container p, .aside-container > p {
+    text-align: justify;
+    text-indent: 1.5em;
+}
+
 .paragraph-container > .paragraph-left-side, .paragraph-container > .paragraph-right-side  {
     font-family: JB Mono, consolas;
     display: block;
@@ -364,12 +353,14 @@ h4 {
     z-index: 1000;
 }
 .paragraph-container > .paragraph-left-side {
-    left: -55px;
+    display: none;
+    left: -2.1cm;
     width: 35px;
     user-select: none;
 }
 
 .paragraph-container > .paragraph-right-side  {
+    display: none;
     left: 100%;
     width: 35px;
     padding-left: 45px;
@@ -400,8 +391,8 @@ h4 {
 
 
 /* MEDIA */
-/* XL */
-@media (min-width: 1400px) {
+/* XXL */
+@media (min-width: 1801px) {
     .book-container
     {
         max-width: 1200px;
@@ -410,12 +401,21 @@ h4 {
     }
 }
 
+/* XL */
+@media (max-width: 1800px) {
+    .book-container
+    {
+        margin-left: 4cm;
+        margin-right: 4cm;
+    }
+}
+
 /* LG */
 @media (max-width: 1400px) {
     .book-container
     {
-        margin-left: 70px;
-        margin-right: 70px;
+        margin-left: 4cm;
+        margin-right: 4cm;
     }
 
     blockquote.big-quote > p {
@@ -425,14 +425,23 @@ h4 {
         margin: 0;
         padding: 4px 0 30px 0;
     }
+}
 
-    .paragraph-container .paragraph-left-side {
-        left: -40px;
-    }
+@media (max-width: 1100px) {
 }
 
 /* MD */
 @media (max-width: 991px) {
+    
+    h2 {
+        width:80%;
+    }
+
+    .book-container
+    {
+        margin-left: 3cm;
+        margin-right: 3cm;
+    }
     
     .book-title-container {
         margin: 73px 0 110px 0;
@@ -453,26 +462,21 @@ h4 {
 
     .book-superheading-title {
         font-size: 15pt;
-    }
-    .book-container {
-        margin: 0 100px;
-    }
+    }                                     
     .article-container {
         width: 100%;
-    }
-    .aside-container > .aside-side-container
-    {
-        position: relative;
-        top: auto;
-        left: auto;
-        width: auto;
-        height: auto;
-        margin: 0;
-        padding: 17px;
     }
 
     .aside-container p {
         top: 0;
+    }
+
+    .aside-container h1 + .aside-side-container.side-media-block h2 {
+        display: none;
+    }
+
+    .wide {
+        width: 100%;     
     }
 
     .side-regular-block {
@@ -490,6 +494,17 @@ h4 {
         margin-top: 20px;
         font-size: 13pt;
         border: none;
+    }
+
+    .aside-container > .aside-side-container
+    {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 17px;
     }
 
     blockquote.big-quote > p {
@@ -519,6 +534,12 @@ h4 {
     li {
         margin: 0 0 10px 0;
     }
+
+    .side-regular-block {
+        border-radius: 5px;
+        background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
+        padding: 22px;
+    }    
 }
 
 /* Smartphone horizontal - SM */
@@ -545,7 +566,7 @@ h4 {
     }
 
     .book-container {
-        margin: 0 50px;
+        margin: 0 2.5cm;
     }
     ul {
         margin-left: 30px;
@@ -553,14 +574,29 @@ h4 {
         padding-left: 25px;
     }
     .paragraph-container > .paragraph-left-side {
-        top: 15px;
+	display: block;
+        top: 14px;
+        font-size: 9pt;
     }
     .paragraph-container > .paragraph-right-side {
-        padding-left: 20px;
-        top: 15px;
+	display: block;
+        padding-left: 40px;
+        top: 14px;
+        font-size: 9pt;
     }
 }
 
+@media (max-width: 630px) {
+    .book-container {
+        margin: 0 1.5cm;
+    }
+    .paragraph-container > .paragraph-left-side {
+        left: -33px;
+    }
+    .paragraph-container > .paragraph-right-side {
+        padding-left: 24px;
+    }
+}
 /* Smartphone - XS */
 @media (max-width: 575px) {
     .book-container {
@@ -581,15 +617,14 @@ h4 {
     }
    
     p, li {
-        line-height: 28px;
+        line-height: 24px;
     }    
     .paragraph-container .paragraph-left-side {
-        display: none;
-        top: 14px;
-    }
+        display: none;        }
     .paragraph-container .paragraph-right-side {
-        padding-left: 10px;
+        padding-left: 21px;
         top: 14px;
+	font-size: 8pt;
     }
 }
 
@@ -830,32 +865,50 @@ h4 {
     <p class="d-none d-xl-block">XL</p> -->
     <h3 id="clr-exceptions">CLR Exceptions</h3>
 <blockquote>
-<p><a href="https://github.com/sidristij/dotnetbook/issues/51">Ссылка на обсуждение</a></p>
+<p >
+<a href="https://github.com/sidristij/dotnetbook/issues/51">Ссылка на обсуждение</a></p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p>Существует ряд исключительных ситуаций, которые скажем так&hellip; Несколько более исключительны, чем другие. Причем если попытаться их классифицировать, то, как и было сказано в самом начале главы, есть исключения родом из самого .NET приложения, а есть исключения родом из unsafe мира. Их в свою очередь можно разделить на две подкатегории: иcключительные ситуации ядра CLR (которое по своей сути - unsafe) и любой unsafe код внешних библиотек.</p>
+<p >
+Су&shy;щес&shy;тву&shy;ет ряд ис&shy;клю&shy;чи&shy;тель&shy;ных си&shy;ту&shy;а&shy;ций, ко&shy;то&shy;рые ска&shy;жем так&hellip; Нес&shy;коль&shy;ко бо&shy;лее ис&shy;клю&shy;чи&shy;тель&shy;ны, чем дру&shy;гие. При&shy;чем ес&shy;ли по&shy;пы&shy;тать&shy;ся их клас&shy;си&shy;фи&shy;ци&shy;ро&shy;вать, то, как и бы&shy;ло ска&shy;за&shy;но в са&shy;мом на&shy;ча&shy;ле гла&shy;вы, есть ис&shy;клю&shy;че&shy;ния ро&shy;дом из са&shy;мо&shy;го .NET при&shy;ло&shy;же&shy;ния, а есть ис&shy;клю&shy;че&shy;ния ро&shy;дом из unsafe ми&shy;ра. Их в свою оче&shy;редь мож&shy;но раз&shy;де&shy;лить на две под&shy;ка&shy;те&shy;го&shy;рии: иcклю&shy;чи&shy;тель&shy;ные си&shy;ту&shy;а&shy;ции яд&shy;ра CLR (ко&shy;то&shy;рое по сво&shy;ей су&shy;ти - unsafe) и лю&shy;бой unsafe код внеш&shy;них биб&shy;ли&shy;о&shy;тек.</p>
 <div class="paragraph-right-side">01</div>
 </div>
-<p>[todo]</p>
+<p >
+[todo]</p>
 <h4 id="threadabortexception">ThreadAbortException</h4>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p>Вообще, это может показаться не очевидным, но существует четыре типа Thread Abort.</p>
+<p >
+Во&shy;об&shy;ще, это мо&shy;жет по&shy;ка&shy;зать&shy;ся не оче&shy;вид&shy;ным, но су&shy;щес&shy;тву&shy;ет че&shy;ты&shy;ре ти&shy;па Thread Abort.</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <ul>
-<li>Грубый вариант ThreadAbort, который, отрабатывая, не может быть никак остановлен и который не запускает обработчиков исключительных ситуаций вообще включая секции <code>finally</code></li>
-<li>Вызов метода Thread.Abort() на текущем потоке</li>
-<li>Асинхронное исключение ThreadAbortException, вызванное из другого потока</li>
-<li>Если во время выгрузки AppDomain существуют потоки, в рамках которых запущены методы, скомпилированные для этого домена, будет произведён ThreadAbort тех потоков, в которых эти методы запущены</li>
+<li>
+<p >
+Гру&shy;бый ва&shy;ри&shy;ант ThreadAbort, ко&shy;то&shy;рый, от&shy;ра&shy;ба&shy;ты&shy;вая, не мо&shy;жет быть ни&shy;как ос&shy;та&shy;нов&shy;лен и ко&shy;то&shy;рый не за&shy;пус&shy;ка&shy;ет об&shy;ра&shy;бот&shy;чи&shy;ков ис&shy;клю&shy;чи&shy;тель&shy;ных си&shy;ту&shy;а&shy;ций во&shy;об&shy;ще вклю&shy;чая сек&shy;ции <code>finally</code></p>
+</li>
+<li>
+<p >
+Вы&shy;зов ме&shy;то&shy;да Thread.Abort() на те&shy;ку&shy;щем по&shy;то&shy;ке</p>
+</li>
+<li>
+<p >
+Асинх&shy;рон&shy;ное ис&shy;клю&shy;че&shy;ние ThreadAbortException, выз&shy;ван&shy;ное из дру&shy;го&shy;го по&shy;то&shy;ка</p>
+</li>
+<li>
+<p >
+Если во вре&shy;мя выг&shy;руз&shy;ки AppDomain су&shy;щес&shy;тву&shy;ют по&shy;то&shy;ки, в рам&shy;ках ко&shy;то&shy;рых за&shy;пу&shy;ще&shy;ны ме&shy;то&shy;ды, ском&shy;пи&shy;ли&shy;ро&shy;ван&shy;ные для это&shy;го до&shy;ме&shy;на, бу&shy;дет про&shy;из&shy;ведён ThreadAbort тех по&shy;то&shy;ков, в ко&shy;то&shy;рых эти ме&shy;то&shy;ды за&shy;пу&shy;ще&shy;ны</p>
+</li>
 </ul>
 <blockquote>
-<p>Стоит заметить, что ThreadAbortException довольно часто используется в <em>большом</em> .NET Framework, однако его не существует на CoreCLR, .NET Core или же под Windows 8 &laquo;Modern app profile&raquo;. Попробуем узнать, почему.</p>
+<p >
+Сто&shy;ит за&shy;ме&shy;тить, что ThreadAbortException до&shy;воль&shy;но час&shy;то ис&shy;поль&shy;зу&shy;ет&shy;ся в <em>большом</em> .NET Framework, од&shy;на&shy;ко его не су&shy;щес&shy;тву&shy;ет на CoreCLR, .NET Core или же под Windows 8 &laquo;Modern app profile&raquo;. Поп&shy;ро&shy;бу&shy;ем уз&shy;нать, по&shy;че&shy;му.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p>Итак, если мы имеем дело с не принципиальным типом обрыва потока, когда мы ещё можем с ним что-то сделать (т.е. второй, третий и четвёртый вариант), виртуальная машина при возникновении такого исключения начинает идти по всем обработчикам исключительных ситуаций и искать как обычно те, тип исключения которых является тем, что было выброшено либо более базовым. В нашем случае это три типа: <code>ThreadAbortException</code>, <code>Exception</code> и <code>object</code> (помним что Exception - это по своей сути - хранилище данных и тип исключения может быть любым. Даже <code>int</code>). Отрабатывая <em>все</em> подходящие <code>catch</code> блоки виртуальная машина пробрасыват <code>ThreadAbortException</code> дальше по цепочке обработки исключений попутно входя во все <code>finally</code> блоки. В целом, ситуации в двух примерах, описанных ниже абсолютно одинаковые:</p>
+<p >
+Итак, ес&shy;ли мы име&shy;ем де&shy;ло с не прин&shy;ци&shy;пи&shy;альным ти&shy;пом об&shy;ры&shy;ва по&shy;то&shy;ка, ког&shy;да мы ещё мо&shy;жем с ним что-то сде&shy;лать (т.е. вто&shy;рой, тре&shy;тий и четвёртый ва&shy;ри&shy;ант), вир&shy;ту&shy;альная ма&shy;ши&shy;на при воз&shy;ник&shy;но&shy;ве&shy;нии та&shy;ко&shy;го ис&shy;клю&shy;че&shy;ния на&shy;чи&shy;на&shy;ет ид&shy;ти по всем об&shy;ра&shy;бот&shy;чи&shy;кам ис&shy;клю&shy;чи&shy;тель&shy;ных си&shy;ту&shy;а&shy;ций и ис&shy;кать как обыч&shy;но те, тип ис&shy;клю&shy;че&shy;ния ко&shy;то&shy;рых яв&shy;ля&shy;ет&shy;ся тем, что бы&shy;ло выб&shy;ро&shy;ше&shy;но ли&shy;бо бо&shy;лее ба&shy;зо&shy;вым. В на&shy;шем слу&shy;чае это три ти&shy;па: <code>ThreadAbortException</code>, <code>Exception</code> и <code>object</code> (пом&shy;ним что Exception - это по сво&shy;ей су&shy;ти - хра&shy;ни&shy;ли&shy;ще дан&shy;ных и тип ис&shy;клю&shy;че&shy;ния мо&shy;жет быть лю&shy;бым. Да&shy;же <code>int</code>). Отра&shy;ба&shy;ты&shy;вая <em>все</em> под&shy;хо&shy;дя&shy;щие <code>catch</code> бло&shy;ки вир&shy;ту&shy;альная ма&shy;ши&shy;на проб&shy;ра&shy;сы&shy;ват <code>ThreadAbortException</code> даль&shy;ше по це&shy;поч&shy;ке об&shy;ра&shy;бот&shy;ки ис&shy;клю&shy;че&shy;ний по&shy;пут&shy;но вхо&shy;дя во все <code>finally</code> бло&shy;ки. В це&shy;лом, си&shy;ту&shy;а&shy;ции в двух при&shy;ме&shy;рах, опи&shy;сан&shy;ных ни&shy;же аб&shy;со&shy;лют&shy;но оди&shy;на&shy;ко&shy;вые:</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -892,7 +945,8 @@ thread.Abort();
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p>Конечно же, всегда возникнет ситуация, когда возникающий ThreadAbort может быть нами вполне ожидаем. Тогда может возникнуть понятное желание его всё-таки обработать. Как раз для таких случаев был разработан и открыт метод <code>Thread.ResetAbort()</code>, который делает именно то, что нам нужно: останавливает сквозной проброс исключения через всю цепочку обработчиков, делая его обработанным:</p>
+<p >
+Ко&shy;неч&shy;но же, всег&shy;да воз&shy;ник&shy;нет си&shy;ту&shy;а&shy;ция, ког&shy;да воз&shy;ни&shy;ка&shy;ю&shy;щий ThreadAbort мо&shy;жет быть на&shy;ми впол&shy;не ожи&shy;да&shy;ем. Тог&shy;да мо&shy;жет воз&shy;ник&shy;нуть по&shy;нят&shy;ное же&shy;ла&shy;ние его всё-та&shy;ки об&shy;ра&shy;бо&shy;тать. Как раз для та&shy;ких слу&shy;ча&shy;ев был раз&shy;ра&shy;бо&shy;тан и от&shy;к&shy;рыт ме&shy;тод <code>Thread.ResetAbort()</code>, ко&shy;то&shy;рый де&shy;ла&shy;ет имен&shy;но то, что нам нуж&shy;но: ос&shy;та&shy;нав&shy;ли&shy;ва&shy;ет сквоз&shy;ной проб&shy;рос ис&shy;клю&shy;че&shy;ния че&shy;рез всю це&shy;поч&shy;ку об&shy;ра&shy;бот&shy;чи&shy;ков, де&shy;лая его об&shy;ра&shy;бо&shy;тан&shy;ным:</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -930,22 +984,26 @@ Catched successfully
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p>Однако реально ли стоит этим пользоваться? И стоит ли обижаться на разработчиков CoreCLR что там этот код попросту выпилен? Представьте что вы - пользователь кода, который по вашему мнению &laquo;повис&raquo; и у вас возникло непреодолимое желание вызвать для него <code>ThreadAbortException</code>. Когда вы хотите оборвать жизнь потока все чего вы хотите - чтобы он действительно завершил свою работу. Мало того, редкий алгоритм просто обрывает поток и бросает его, уходя к своим делам. Обычно внешний алгоритм решает дождаться корректного завершения операций. Или же наоборот: может решить, что поток более уже ничего делать не будет, декрементирует некие внутренние счётчики и более не будет завязываться на то, что есть какая-то многопоточная обработка какого-либо кода. Тут, в общем, не скажешь, что хуже. Я даже так вам скажу: отработав много лет программистом я до сих пор не могу вам дать прекрасный способ его вызова и обработки. Сами посудите: вы бросаете <code>ThreadAbort</code> не <em>прямо сейчас</em> а в любом случае спустя некоторое время после осознания безвыходности ситуации. Т.е. вы можете как попасть по обработчику <code>ThreadAbortException</code>, так и промахнуться мимо него: &laquo;зависший код&raquo; мог оказаться вовсе не зависшим, а попросту долго работающим. И как раз в тот момент, когда вы хотели оборвать его жизнь, он мог вырваться из ожидания и корректно продолжить работу. Т.е. без лишней лирики выйти из блока <code>try-catch(ThreadAbortException) { Thread.ResetAbort(); }</code>. Что мы получим? Оборванный поток, который ни в чем не виноват. Шла уборщица, выдернула провод, сеть пропала. Метод ожидал таймаута, уборщица вернула провод, все заработало, но ваш контролирующий код не дождался и убил поток. Хорошо? Нет. Как-то можно защититься? Нет. Но вернёмся к навязчивой идее легализации <code>Thread.Abort()</code>: мы кинули кувалдой в поток и ожидаем что он с вероятностью 100% оборвётся, но этого может не произойти. Во-первых, становится не понятно как его оборвать в таком случае. Ведь тут все может быть намного сложнее: в повисшем потоке может быть такая логика, которая перехватывает <code>ThreadAbortException</code>, останавливает его при помощи <code>ResetAbort</code>, однако продолжает висеть из-за сломанной логики. Что тогда? Делать безусловный <code>thread.Interrupt()</code>? Попахивает попыткой обойти ошибку в логике программы грубыми методами. Плюс, я вам гарантирую что у вас поплывут утечки: <code>thread.Interrupt()</code> не будет заниматься вызовом <code>catch</code> и <code>finally</code>, а это значит что при всем опыте и сноровке очистить ресурсы вы не сможете: ваш поток просто исчезнет, а находясь в соседнем потоке вы можете не знать ссылок на все ресурсы, которые были заняты умирающим потоком. Также прошу заметить что в случае промаха <code>ThreadAbortException</code> мимо <code>catch(ThreadAbortException) { Thread.ResetAbort(); }</code> у вас точно также потекут ресурсы.</p>
+<p >
+Одна&shy;ко ре&shy;ально ли сто&shy;ит этим поль&shy;зо&shy;вать&shy;ся? И сто&shy;ит ли оби&shy;жать&shy;ся на раз&shy;ра&shy;бот&shy;чи&shy;ков CoreCLR что там этот код поп&shy;рос&shy;ту вы&shy;пи&shy;лен? Предс&shy;тавь&shy;те что вы - поль&shy;зо&shy;ва&shy;тель ко&shy;да, ко&shy;то&shy;рый по ва&shy;ше&shy;му мне&shy;нию &laquo;по&shy;вис&raquo; и у вас воз&shy;ник&shy;ло неп&shy;ре&shy;о&shy;до&shy;ли&shy;мое же&shy;ла&shy;ние выз&shy;вать для не&shy;го <code>ThreadAbortException</code>. Ког&shy;да вы хо&shy;ти&shy;те обор&shy;вать жизнь по&shy;то&shy;ка все че&shy;го вы хо&shy;ти&shy;те - что&shy;бы он дейс&shy;твит&shy;ельно за&shy;вер&shy;шил свою ра&shy;бо&shy;ту. Ма&shy;ло то&shy;го, ред&shy;кий ал&shy;го&shy;ритм прос&shy;то об&shy;ры&shy;ва&shy;ет по&shy;ток и бро&shy;са&shy;ет его, ухо&shy;дя к сво&shy;им де&shy;лам. Обыч&shy;но внеш&shy;ний ал&shy;го&shy;ритм ре&shy;ша&shy;ет дож&shy;дать&shy;ся кор&shy;рект&shy;но&shy;го за&shy;вер&shy;ше&shy;ния опе&shy;ра&shy;ций. Или же на&shy;о&shy;бо&shy;рот: мо&shy;жет ре&shy;шить, что по&shy;ток бо&shy;лее уже ни&shy;че&shy;го де&shy;лать не бу&shy;дет, дек&shy;ре&shy;мен&shy;ти&shy;ру&shy;ет не&shy;кие внут&shy;рен&shy;ние счётчи&shy;ки и бо&shy;лее не бу&shy;дет за&shy;вя&shy;зы&shy;вать&shy;ся на то, что есть ка&shy;кая-то мно&shy;го&shy;по&shy;точ&shy;ная об&shy;ра&shy;бот&shy;ка ка&shy;ко&shy;го-ли&shy;бо ко&shy;да. Тут, в об&shy;щем, не ска&shy;жешь, что ху&shy;же. Я да&shy;же так вам ска&shy;жу: от&shy;ра&shy;бо&shy;тав мно&shy;го лет прог&shy;рам&shy;мис&shy;том я до сих пор не мо&shy;гу вам дать прек&shy;рас&shy;ный спо&shy;соб его вы&shy;зо&shy;ва и об&shy;ра&shy;бот&shy;ки. Са&shy;ми по&shy;су&shy;ди&shy;те: вы бро&shy;са&shy;ете <code>ThreadAbort</code> не <em>прямо сейчас</em> а в лю&shy;бом слу&shy;чае спус&shy;тя не&shy;ко&shy;то&shy;рое вре&shy;мя пос&shy;ле осоз&shy;на&shy;ния без&shy;вы&shy;ход&shy;нос&shy;ти си&shy;ту&shy;а&shy;ции. Т.е. вы мо&shy;же&shy;те как по&shy;пасть по об&shy;ра&shy;бот&shy;чи&shy;ку <code>ThreadAbortException</code>, так и про&shy;мах&shy;нуть&shy;ся ми&shy;мо не&shy;го: &laquo;за&shy;вис&shy;ший код&raquo; мог ока&shy;зать&shy;ся вов&shy;се не за&shy;вис&shy;шим, а поп&shy;рос&shy;ту дол&shy;го ра&shy;бо&shy;та&shy;ю&shy;щим. И как раз в тот мо&shy;мент, ког&shy;да вы хо&shy;те&shy;ли обор&shy;вать его жизнь, он мог выр&shy;вать&shy;ся из ожи&shy;да&shy;ния и кор&shy;рек&shy;тно про&shy;дол&shy;жить ра&shy;бо&shy;ту. Т.е. без лиш&shy;ней ли&shy;ри&shy;ки вый&shy;ти из бло&shy;ка <code>try-catch(ThreadAbortException) { Thread.ResetAbort(); }</code>. Что мы по&shy;лу&shy;чим? Обор&shy;ван&shy;ный по&shy;ток, ко&shy;то&shy;рый ни в чем не ви&shy;но&shy;ват. Шла убор&shy;щи&shy;ца, вы&shy;дер&shy;ну&shy;ла про&shy;вод, сеть про&shy;па&shy;ла. Ме&shy;тод ожи&shy;дал тай&shy;ма&shy;ута, убор&shy;щи&shy;ца вер&shy;ну&shy;ла про&shy;вод, все за&shy;ра&shy;бо&shy;та&shy;ло, но ваш конт&shy;ро&shy;ли&shy;ру&shy;ю&shy;щий код не дож&shy;дал&shy;ся и убил по&shy;ток. Хо&shy;ро&shy;шо? Нет. Как-то мож&shy;но за&shy;щи&shy;тить&shy;ся? Нет. Но вернёмся к на&shy;вяз&shy;чи&shy;вой идее ле&shy;га&shy;ли&shy;за&shy;ции <code>Thread.Abort()</code>: мы ки&shy;ну&shy;ли ку&shy;вал&shy;дой в по&shy;ток и ожи&shy;да&shy;ем что он с ве&shy;ро&shy;ят&shy;ностью 100% оборвётся, но это&shy;го мо&shy;жет не про&shy;изой&shy;ти. Во-пер&shy;вых, ста&shy;но&shy;вит&shy;ся не по&shy;нят&shy;но как его обор&shy;вать в та&shy;ком слу&shy;чае. Ведь тут все мо&shy;жет быть нам&shy;но&shy;го слож&shy;нее: в по&shy;вис&shy;шем по&shy;то&shy;ке мо&shy;жет быть та&shy;кая ло&shy;ги&shy;ка, ко&shy;то&shy;рая пе&shy;рех&shy;ва&shy;ты&shy;ва&shy;ет <code>ThreadAbortException</code>, ос&shy;та&shy;нав&shy;ли&shy;ва&shy;ет его при по&shy;мо&shy;щи <code>ResetAbort</code>, од&shy;на&shy;ко про&shy;дол&shy;жа&shy;ет ви&shy;сеть из-за сло&shy;ман&shy;ной ло&shy;ги&shy;ки. Что тог&shy;да? Де&shy;лать бе&shy;зус&shy;лов&shy;ный <code>thread.Interrupt()</code>? По&shy;па&shy;хи&shy;ва&shy;ет по&shy;пыт&shy;кой обой&shy;ти ошиб&shy;ку в ло&shy;ги&shy;ке прог&shy;рам&shy;мы гру&shy;бы&shy;ми ме&shy;то&shy;да&shy;ми. Плюс, я вам га&shy;ран&shy;ти&shy;рую что у вас поп&shy;лы&shy;вут утеч&shy;ки: <code>thread.Interrupt()</code> не бу&shy;дет за&shy;ни&shy;мать&shy;ся вы&shy;зо&shy;вом <code>catch</code> и <code>finally</code>, а это зна&shy;чит что при всем опы&shy;те и сно&shy;ров&shy;ке очис&shy;тить ре&shy;сур&shy;сы вы не смо&shy;же&shy;те: ваш по&shy;ток прос&shy;то ис&shy;чез&shy;нет, а на&shy;хо&shy;дясь в со&shy;сед&shy;нем по&shy;то&shy;ке вы мо&shy;же&shy;те не знать ссы&shy;лок на все ре&shy;сур&shy;сы, ко&shy;то&shy;рые бы&shy;ли за&shy;ня&shy;ты уми&shy;ра&shy;ю&shy;щим по&shy;то&shy;ком. Так&shy;же про&shy;шу за&shy;ме&shy;тить что в слу&shy;чае про&shy;ма&shy;ха <code>ThreadAbortException</code> ми&shy;мо <code>catch(ThreadAbortException) { Thread.ResetAbort(); }</code> у вас точ&shy;но так&shy;же по&shy;те&shy;кут ре&shy;сур&shy;сы.</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p>После того что вы прочитали чуть выше я надеюсь, вы остались в некотором состоянии запутанности и желания перечитать абзац. И это будет совершенно правильная мысль: это будет доказательством того, что пользоваться <code>Thread.Abort()</code> попросту нельзя. Как и нельзя пользоваться <code>thread.Interrupt();</code>. Оба метода приводят к неконтролируемому поведению вашего приложения. По своей сути они нарушают принцип целостности: основной принцип .NET Framework.</p>
+<p >
+Пос&shy;ле то&shy;го что вы про&shy;чи&shy;та&shy;ли чуть вы&shy;ше я на&shy;де&shy;юсь, вы ос&shy;та&shy;лись в не&shy;ко&shy;то&shy;ром сос&shy;то&shy;я&shy;нии за&shy;пу&shy;тан&shy;нос&shy;ти и же&shy;ла&shy;ния пе&shy;ре&shy;чи&shy;тать аб&shy;зац. И это бу&shy;дет со&shy;вер&shy;шен&shy;но пра&shy;виль&shy;ная мысль: это бу&shy;дет до&shy;ка&shy;за&shy;т&shy;ельством то&shy;го, что поль&shy;зо&shy;вать&shy;ся <code>Thread.Abort()</code> поп&shy;рос&shy;ту нель&shy;зя. Как и нель&shy;зя поль&shy;зо&shy;вать&shy;ся <code>thread.Interrupt();</code>. Оба ме&shy;то&shy;да при&shy;во&shy;дят к не&shy;конт&shy;ро&shy;ли&shy;ру&shy;е&shy;мо&shy;му по&shy;ве&shy;де&shy;нию ва&shy;ше&shy;го при&shy;ло&shy;же&shy;ния. По сво&shy;ей су&shy;ти они на&shy;ру&shy;ша&shy;ют прин&shy;цип це&shy;лост&shy;нос&shy;ти: ос&shy;нов&shy;ной прин&shy;цип .NET Framework.</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p>Однако, чтобы понять для каких целей этот метод введён в эксплуатацию достаточно посмотреть исходные коды .NET Framework и найти места использования <code>Thread.ResetAbort()</code>. Ведь именно его наличие по сути легализует <code>thread.Abort()</code>.</p>
+<p >
+Одна&shy;ко, что&shy;бы по&shy;нять для ка&shy;ких це&shy;лей этот ме&shy;тод введён в экс&shy;п&shy;лу&shy;атацию дос&shy;та&shy;точ&shy;но пос&shy;мот&shy;реть ис&shy;ход&shy;ные ко&shy;ды .NET Framework и най&shy;ти мес&shy;та ис&shy;поль&shy;зо&shy;ва&shy;ния <code>Thread.ResetAbort()</code>. Ведь имен&shy;но его на&shy;ли&shy;чие по су&shy;ти ле&shy;га&shy;ли&shy;зу&shy;ет <code>thread.Abort()</code>.</p>
 <div class="paragraph-right-side">07</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p><strong>Класс ISAPIRuntime</strong> <a href="https://referencesource.microsoft.com/#System.Web/Hosting/ISAPIRuntime.cs,192">ISAPIRuntime.cs</a></p>
+<p >
+<strong>Класс ISAPIRuntime</strong> <a href="https://referencesource.microsoft.com/#System.Web/Hosting/ISAPIRuntime.cs,192">ISAPIRuntime.cs</a></p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -982,12 +1040,14 @@ Catched successfully
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
-<p>В данном примере происходит вызов некоторого внешнего кода и если тот был завершён не корректно: с <code>ThreadAbortException</code>, то при определённых условиях помечаем поток как более не прерываемый. Т.е. по сути обрабатываем <code>ThreadAbort</code>. Почему в данном конкретно случае мы обрываем <code>Thread.Abort</code>? Потому что в данном случае мы имеем дело с серверным кодом, а он в свою очередь вне зависимости от наших ошибок вернуть корректные коды ошибок вызывающей стороне. Обрыв потока привёл бы к тому что сервер не смог бы вернуть нужный код ошибки пользователю, а это совершенно не правильно. Также оставлен комментарий о <code>Thread.Abort()</code> во время <code>AppDomin.Unload()</code>, что является экстремальной ситуацией для ThreadAbort поскольку такой процесс не остановить и даже если вы сделаете <code>Thread.ResetAbort</code>. Это хоть и остановит сам Abortion, но не остановит выгрузку потока с доменом, в котором он находится: поток же не может исполнять инструкции кода, загруженного в домен, который отгружен.</p>
+<p >
+В дан&shy;ном при&shy;ме&shy;ре про&shy;ис&shy;хо&shy;дит вы&shy;зов не&shy;ко&shy;то&shy;ро&shy;го внеш&shy;не&shy;го ко&shy;да и ес&shy;ли тот был за&shy;вершён не кор&shy;рек&shy;тно: с <code>ThreadAbortException</code>, то при оп&shy;ре&shy;делённых ус&shy;ло&shy;ви&shy;ях по&shy;ме&shy;ча&shy;ем по&shy;ток как бо&shy;лее не пре&shy;ры&shy;ва&shy;е&shy;мый. Т.е. по су&shy;ти об&shy;ра&shy;ба&shy;ты&shy;ва&shy;ем <code>ThreadAbort</code>. По&shy;че&shy;му в дан&shy;ном конк&shy;рет&shy;но слу&shy;чае мы об&shy;ры&shy;ва&shy;ем <code>Thread.Abort</code>? По&shy;то&shy;му что в дан&shy;ном слу&shy;чае мы име&shy;ем де&shy;ло с сер&shy;вер&shy;ным ко&shy;дом, а он в свою оче&shy;редь вне за&shy;ви&shy;си&shy;мос&shy;ти от на&shy;ших оши&shy;бок вер&shy;нуть кор&shy;рек&shy;т&shy;ные ко&shy;ды оши&shy;бок вы&shy;зы&shy;ва&shy;ю&shy;щей сто&shy;ро&shy;не. Обрыв по&shy;то&shy;ка привёл бы к то&shy;му что сер&shy;вер не смог бы вер&shy;нуть нуж&shy;ный код ошиб&shy;ки поль&shy;зо&shy;ва&shy;те&shy;лю, а это со&shy;вер&shy;шен&shy;но не пра&shy;виль&shy;но. Так&shy;же ос&shy;тав&shy;лен ком&shy;мен&shy;та&shy;рий о <code>Thread.Abort()</code> во вре&shy;мя <code>AppDomin.Unload()</code>, что яв&shy;ля&shy;ет&shy;ся экст&shy;рема&shy;льной си&shy;ту&shy;а&shy;ци&shy;ей для ThreadAbort пос&shy;коль&shy;ку та&shy;кой про&shy;цесс не ос&shy;та&shy;но&shy;вить и да&shy;же ес&shy;ли вы сде&shy;ла&shy;ете <code>Thread.ResetAbort</code>. Это хоть и ос&shy;та&shy;но&shy;вит сам Abortion, но не ос&shy;та&shy;но&shy;вит выг&shy;руз&shy;ку по&shy;то&shy;ка с до&shy;ме&shy;ном, в ко&shy;то&shy;ром он на&shy;хо&shy;дит&shy;ся: по&shy;ток же не мо&shy;жет ис&shy;пол&shy;нять инстр&shy;укции ко&shy;да, заг&shy;ру&shy;жен&shy;но&shy;го в до&shy;мен, ко&shy;то&shy;рый от&shy;гру&shy;жен.</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
-<p><strong>Класс HttpContext</strong> <a href="https://referencesource.microsoft.com/#System.Web/HttpContext.cs,1864">HttpContext.cs</a></p>
+<p >
+<strong>Класс HttpContext</strong> <a href="https://referencesource.microsoft.com/#System.Web/HttpContext.cs,1864">HttpContext.cs</a></p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1021,12 +1081,14 @@ Catched successfully
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
-<p>Здесь приведён прекрасный пример перехода от неуправляемого асинхронного исключения <code>ThreadAbortException</code> к управляемому <code>HttpException</code> с логгированием ситуации в журнал счётчиков производительности.</p>
+<p >
+Здесь при&shy;ведён прек&shy;рас&shy;ный при&shy;мер пе&shy;ре&shy;хо&shy;да от не&shy;уп&shy;рав&shy;ля&shy;е&shy;мо&shy;го асинх&shy;рон&shy;но&shy;го ис&shy;клю&shy;че&shy;ния <code>ThreadAbortException</code> к уп&shy;рав&shy;ля&shy;е&shy;мо&shy;му <code>HttpException</code> с лог&shy;ги&shy;ро&shy;ва&shy;ни&shy;ем си&shy;ту&shy;а&shy;ции в жур&shy;нал счётчи&shy;ков про&shy;из&shy;во&shy;ди&shy;тель&shy;нос&shy;ти.</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
-<p><strong>Класс HttpApplication</strong> <a href="https://referencesource.microsoft.com/#System.Web/HttpApplication.cs,2270">HttpApplication.cs</a></p>
+<p >
+<strong>Класс HttpApplication</strong> <a href="https://referencesource.microsoft.com/#System.Web/HttpApplication.cs,2270">HttpApplication.cs</a></p>
 <div class="paragraph-right-side">12</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1080,17 +1142,20 @@ Catched successfully
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
-<p>Здесь описывается очень интересный случай: когда мы ждём не настоящий <code>ThreadAbort</code> (мне вот в некотором смысле жалко команду CLR и .NET Framework. Сколько не стандартных ситуаций им приходится обрабатывать, подумать страшно). Обработка ситуации идёт в два этапа: внутренним обработчиком мы ловим <code>ThreadAbortException</code> но при этом проверяем наш поток на флаг реальной прерываемости. Если поток не помечен как прерывающийся, то на самом деле это не настоящий ThreadAbortException. Такие ситуации мы должны обработать соответствующим образом: спокойно поймать исключение и обработать его. Если же мы получаем настоящий ThreadAbort, то он уйдёт во внешний <code>catch</code> поскольку <code>ThreadAbortException</code> должен войти во все подходящие обработчики. Если он удовлетворяет необходимым условиям, он также будет обработан путём очистки флага <code>ThreadState.AbortRequested</code> методом <code>Thread.ResetAbort()</code>.</p>
+<p >
+Здесь опи&shy;сы&shy;ва&shy;ет&shy;ся очень ин&shy;те&shy;рес&shy;ный слу&shy;чай: ког&shy;да мы ждём не нас&shy;то&shy;я&shy;щий <code>ThreadAbort</code> (мне вот в не&shy;ко&shy;то&shy;ром смыс&shy;ле жал&shy;ко ко&shy;ман&shy;ду CLR и .NET Framework. Сколь&shy;ко не стан&shy;дарт&shy;ных си&shy;ту&shy;а&shy;ций им при&shy;хо&shy;дит&shy;ся об&shy;ра&shy;ба&shy;ты&shy;вать, по&shy;ду&shy;мать страш&shy;но). Обра&shy;бот&shy;ка си&shy;ту&shy;а&shy;ции идёт в два эта&shy;па: внут&shy;рен&shy;ним об&shy;ра&shy;бот&shy;чи&shy;ком мы ло&shy;вим <code>ThreadAbortException</code> но при этом про&shy;ве&shy;ря&shy;ем наш по&shy;ток на флаг ре&shy;альной пре&shy;ры&shy;ва&shy;емос&shy;ти. Если по&shy;ток не по&shy;ме&shy;чен как пре&shy;ры&shy;ва&shy;ющий&shy;ся, то на са&shy;мом де&shy;ле это не нас&shy;то&shy;я&shy;щий ThreadAbortException. Та&shy;кие си&shy;ту&shy;а&shy;ции мы дол&shy;жны об&shy;ра&shy;бо&shy;тать со&shy;от&shy;вет&shy;с&shy;твующим об&shy;ра&shy;зом: спо&shy;кой&shy;но пой&shy;мать ис&shy;клю&shy;че&shy;ние и об&shy;ра&shy;бо&shy;тать его. Если же мы по&shy;лу&shy;ча&shy;ем нас&shy;то&shy;я&shy;щий ThreadAbort, то он уйдёт во внеш&shy;ний <code>catch</code> пос&shy;коль&shy;ку <code>ThreadAbortException</code> дол&shy;жен вой&shy;ти во все под&shy;хо&shy;дя&shy;щие об&shy;ра&shy;бот&shy;чи&shy;ки. Если он удов&shy;лет&shy;во&shy;ря&shy;ет не&shy;об&shy;хо&shy;ди&shy;мым ус&shy;ло&shy;ви&shy;ям, он так&shy;же бу&shy;дет об&shy;ра&shy;бо&shy;тан путём очис&shy;тки фла&shy;га <code>ThreadState.AbortRequested</code> ме&shy;то&shy;дом <code>Thread.ResetAbort()</code>.</p>
 <div class="paragraph-right-side">13</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
-<p>Если говорить про примеры самого вызова <code>Thread.Abort()</code>, то все примеры кода в .NET Framework написаны так, что могут быть переписаны без его использования. Для наглядности приведу только один:</p>
+<p >
+Если го&shy;во&shy;рить про при&shy;ме&shy;ры са&shy;мо&shy;го вы&shy;зо&shy;ва <code>Thread.Abort()</code>, то все при&shy;ме&shy;ры ко&shy;да в .NET Framework на&shy;пи&shy;са&shy;ны так, что мо&shy;гут быть пе&shy;ре&shy;пи&shy;са&shy;ны без его ис&shy;поль&shy;зо&shy;ва&shy;ния. Для наг&shy;ляд&shy;нос&shy;ти при&shy;ве&shy;ду толь&shy;ко один:</p>
 <div class="paragraph-right-side">14</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
-<p><strong>Класс QueuePathDialog</strong> <a href="https://referencesource.microsoft.com/#System.Messaging/System/Messaging/Design/QueuePathDialog.cs,364">QueuePathDialog.cs</a></p>
+<p >
+<strong>Класс QueuePathDialog</strong> <a href="https://referencesource.microsoft.com/#System.Messaging/System/Messaging/Design/QueuePathDialog.cs,364">QueuePathDialog.cs</a></p>
 <div class="paragraph-right-side">15</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1144,7 +1209,8 @@ Catched successfully
 <h5 id="theradabortexception-appdomain.unload">TheradAbortException во время AppDomain.Unload</h5>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
-<p>Попробуем отгрузить AppDomain во время исполнения кода, который в него загружен. Для этого искусственно создадим не вполне нормальную ситуацию, но достаточно интересную с точки зрения исполнения кода. В данном примере у нас два потока: один создан для того чтобы получить в нем ThreadAbortException, а другой - основной. В основном мы создаём новый домен, в котором запускаем новый поток. Задача этого потока - уйти в основной домен. Чтобы методы дочернего домена остались бы только в Stack Trace. После этого основной домен отгружает дочерний:</p>
+<p >
+Поп&shy;ро&shy;бу&shy;ем от&shy;гру&shy;зить AppDomain во вре&shy;мя ис&shy;пол&shy;не&shy;ния ко&shy;да, ко&shy;то&shy;рый в не&shy;го заг&shy;ру&shy;жен. Для это&shy;го ис&shy;кусст&shy;венно соз&shy;да&shy;дим не впол&shy;не нор&shy;маль&shy;ную си&shy;ту&shy;а&shy;цию, но дос&shy;та&shy;точ&shy;но ин&shy;те&shy;рес&shy;ную с точ&shy;ки зре&shy;ния ис&shy;пол&shy;не&shy;ния ко&shy;да. В дан&shy;ном при&shy;ме&shy;ре у нас два по&shy;то&shy;ка: один соз&shy;дан для то&shy;го что&shy;бы по&shy;лу&shy;чить в нем ThreadAbortException, а дру&shy;гой - ос&shy;нов&shy;ной. В ос&shy;нов&shy;ном мы соз&shy;даём но&shy;вый до&shy;мен, в ко&shy;то&shy;ром за&shy;пус&shy;ка&shy;ем но&shy;вый по&shy;ток. За&shy;да&shy;ча это&shy;го по&shy;то&shy;ка - уй&shy;ти в ос&shy;нов&shy;ной до&shy;мен. Что&shy;бы ме&shy;то&shy;ды до&shy;чер&shy;не&shy;го до&shy;ме&shy;на ос&shy;та&shy;лись бы толь&shy;ко в Stack Trace. Пос&shy;ле это&shy;го ос&shy;нов&shy;ной до&shy;мен от&shy;гру&shy;жа&shy;ет до&shy;чер&shy;ний:</p>
 <div class="paragraph-right-side">16</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1212,25 +1278,44 @@ Catched successfully
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
-<p>Происходит крайне интересная вещь. Код выгрузки домена помимо самой выгрузки ищет вызванные в этом домене методы, которые ещё не завершили работу в том числе в глубине стека вызова методов и вызывает <code>ThreadAbortException</code> в этих потоках. Это важно, хоть и не очевидно: если домен отгружен, нельзя осуществить возврат в метод, из которого был вызван метод основного домена, но который находится в выгружаемом. Т.е. другими словами AppDomain.Unload может выбрасывать потоки, исполняющие в данный момент код из других доменов. Прервать <code>Thread.Abort</code> в таком случае не получится: исполнять код выгруженного домена вы не сможете, а значит <code>Thread.Abort</code> завершит своё дело, даже если вы вызовите <code>Thread.ResetAbort</code>.</p>
+<p >
+Про&shy;ис&shy;хо&shy;дит край&shy;не ин&shy;те&shy;рес&shy;ная вещь. Код выг&shy;руз&shy;ки до&shy;ме&shy;на по&shy;ми&shy;мо са&shy;мой выг&shy;руз&shy;ки ищет выз&shy;ван&shy;ные в этом до&shy;ме&shy;не ме&shy;то&shy;ды, ко&shy;то&shy;рые ещё не за&shy;вер&shy;ши&shy;ли ра&shy;бо&shy;ту в том чис&shy;ле в глу&shy;би&shy;не сте&shy;ка вы&shy;зо&shy;ва ме&shy;то&shy;дов и вы&shy;зы&shy;ва&shy;ет <code>ThreadAbortException</code> в этих по&shy;то&shy;ках. Это важ&shy;но, хоть и не оче&shy;вид&shy;но: ес&shy;ли до&shy;мен от&shy;гру&shy;жен, нель&shy;зя осу&shy;щест&shy;вить возв&shy;рат в ме&shy;тод, из ко&shy;то&shy;ро&shy;го был выз&shy;ван ме&shy;тод ос&shy;нов&shy;но&shy;го до&shy;ме&shy;на, но ко&shy;то&shy;рый на&shy;хо&shy;дит&shy;ся в выг&shy;ру&shy;жа&shy;е&shy;мом. Т.е. дру&shy;ги&shy;ми сло&shy;ва&shy;ми AppDomain.Unload мо&shy;жет выб&shy;ра&shy;сы&shy;вать по&shy;то&shy;ки, ис&shy;пол&shy;ня&shy;ю&shy;щие в дан&shy;ный мо&shy;мент код из дру&shy;гих до&shy;ме&shy;нов. Прер&shy;вать <code>Thread.Abort</code> в та&shy;ком слу&shy;чае не по&shy;лу&shy;чит&shy;ся: ис&shy;пол&shy;нять код выг&shy;ру&shy;жен&shy;но&shy;го до&shy;ме&shy;на вы не смо&shy;же&shy;те, а зна&shy;чит <code>Thread.Abort</code> за&shy;вер&shy;шит своё де&shy;ло, да&shy;же ес&shy;ли вы вы&shy;зо&shy;ви&shy;те <code>Thread.ResetAbort</code>.</p>
 <div class="paragraph-right-side">17</div>
 </div>
 <h5 id="threadabortexception-1">Выводы по ThreadAbortException</h5>
 <ul>
-<li>Это - асинхронное исключение, а значит, оно может возникнуть в любой точке вашего кода (но, стоит отметить, что для этого надо постараться);</li>
-<li>Обычно код обрабатывает только те ошибки, которые ждёт: нет доступа к файлу, ошибка парсинга строки и прочие подобные. Наличие асинхронного (в плане возникновения в любом месте кода) исключения создаёт ситуацию, когда try-catch могут быть не обработаны: вы же не можете быть готовым к ThreadAbort в любом месте приложения. И получается, что это исключение в любом случае породит утечки;</li>
-<li>Обрыв потока может также происходить из-за выгрузки какого-либо домена. Если в Stack Trace потока существуют вызовы методов отгружаемого домена, поток получит ThreadAbortException без возможности <code>ResetAbort</code>;</li>
-<li>В общем случае не должно возникать ситуаций, когда вам нужно вызвать Thread.Abort(), поскольку результат практически всегда - не предсказуем.</li>
-<li>CoreCLR более не содержит ручной вызов <code>Thread.Abort()</code>: он просто удалён из класса. Но это не означает, что его нет возможности получить.</li>
+<li>
+<p >
+Это - асинх&shy;рон&shy;ное ис&shy;клю&shy;че&shy;ние, а зна&shy;чит, оно мо&shy;жет воз&shy;ник&shy;нуть в лю&shy;бой точ&shy;ке ва&shy;ше&shy;го ко&shy;да (но, сто&shy;ит от&shy;ме&shy;тить, что для это&shy;го на&shy;до пос&shy;та&shy;рать&shy;ся);</p>
+</li>
+<li>
+<p >
+Обыч&shy;но код об&shy;ра&shy;ба&shy;ты&shy;ва&shy;ет толь&shy;ко те ошиб&shy;ки, ко&shy;то&shy;рые ждёт: нет дос&shy;ту&shy;па к фай&shy;лу, ошиб&shy;ка пар&shy;син&shy;га стро&shy;ки и про&shy;чие по&shy;доб&shy;ные. На&shy;ли&shy;чие асинх&shy;рон&shy;но&shy;го (в пла&shy;не воз&shy;ник&shy;но&shy;ве&shy;ния в лю&shy;бом мес&shy;те ко&shy;да) ис&shy;клю&shy;че&shy;ния соз&shy;даёт си&shy;ту&shy;а&shy;цию, ког&shy;да try-catch мо&shy;гут быть не об&shy;ра&shy;бо&shy;та&shy;ны: вы же не мо&shy;же&shy;те быть го&shy;то&shy;вым к ThreadAbort в лю&shy;бом мес&shy;те при&shy;ло&shy;же&shy;ния. И по&shy;лу&shy;ча&shy;ет&shy;ся, что это ис&shy;клю&shy;че&shy;ние в лю&shy;бом слу&shy;чае по&shy;ро&shy;дит утеч&shy;ки;</p>
+</li>
+<li>
+<p >
+Обрыв по&shy;то&shy;ка мо&shy;жет так&shy;же про&shy;ис&shy;хо&shy;дить из-за выг&shy;руз&shy;ки ка&shy;ко&shy;го-ли&shy;бо до&shy;ме&shy;на. Если в Stack Trace по&shy;то&shy;ка су&shy;щес&shy;тву&shy;ют вы&shy;зо&shy;вы ме&shy;то&shy;дов от&shy;гру&shy;жа&shy;е&shy;мо&shy;го до&shy;ме&shy;на, по&shy;ток по&shy;лу&shy;чит ThreadAbortException без воз&shy;мож&shy;нос&shy;ти <code>ResetAbort</code>;</p>
+</li>
+<li>
+<p >
+В об&shy;щем слу&shy;чае не дол&shy;жно воз&shy;ни&shy;кать си&shy;ту&shy;а&shy;ций, ког&shy;да вам нуж&shy;но выз&shy;вать Thread.Abort(), пос&shy;коль&shy;ку ре&shy;зуль&shy;тат прак&shy;ти&shy;чес&shy;ки всег&shy;да - не предс&shy;ка&shy;зу&shy;ем.</p>
+</li>
+<li>
+<p >
+CoreCLR бо&shy;лее не со&shy;дер&shy;жит руч&shy;ной вы&shy;зов <code>Thread.Abort()</code>: он прос&shy;то удалён из клас&shy;са. Но это не оз&shy;на&shy;ча&shy;ет, что его нет воз&shy;мож&shy;нос&shy;ти по&shy;лу&shy;чить.</p>
+</li>
 </ul>
 <h4 id="executionengineexception">ExecutionEngineException</h4>
-<p>В комментарии к этому исключению стоит атрибут <code>Obsolete</code> с комментарием:</p>
+<p >
+В ком&shy;мен&shy;та&shy;рии к это&shy;му ис&shy;клю&shy;че&shy;нию сто&shy;ит ат&shy;ри&shy;бут <code>Obsolete</code> с ком&shy;мен&shy;та&shy;ри&shy;ем:</p>
 <blockquote>
-<p>This type previously indicated an unspecified fatal error in the runtime. The runtime no longer raises this exception so this type is obsolete</p>
+<p >
+This type previously indicated an unspecified fatal error in the runtime. The runtime no longer raises this exception so this type is obsolete</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
-<p>И вообще-то это - неправда. Возможно, автору комментария очень бы хотелось чтобы это когда-либо стало правдой, однако чтобы продемонстрировать что это не так, достаточно вернуться к примеру исключения в <code>FirstChanceException</code>:</p>
+<p >
+И во&shy;об&shy;ще-то это - неп&shy;рав&shy;да. Воз&shy;мож&shy;но, ав&shy;то&shy;ру ком&shy;мен&shy;та&shy;рия очень бы хо&shy;те&shy;лось что&shy;бы это ког&shy;да-ли&shy;бо ста&shy;ло прав&shy;дой, од&shy;на&shy;ко что&shy;бы про&shy;де&shy;монс&shy;тр&shy;ировать что это не так, дос&shy;та&shy;точ&shy;но вер&shy;нуть&shy;ся к при&shy;ме&shy;ру ис&shy;клю&shy;че&shy;ния в <code>FirstChanceException</code>:</p>
 <div class="paragraph-right-side">18</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1251,56 +1336,78 @@ Catched successfully
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
-<p>Результатом данного кода будет <code>ExecutionEngineException</code>, хотя ожидаемое мной поведение Unhandled Exception <code>ArgumentOutOfRangeException</code> из инструкции <code>throw new Exception(&quot;Hello!&quot;)</code>. Возможно это показалось страным разработчикам ядра и они посчитали что корректнее выбросить <code>ExecutionEngineException</code>.</p>
+<p >
+Ре&shy;зуль&shy;та&shy;том дан&shy;но&shy;го ко&shy;да бу&shy;дет <code>ExecutionEngineException</code>, хо&shy;тя ожи&shy;да&shy;е&shy;мое мной по&shy;ве&shy;де&shy;ние Unhandled Exception <code>ArgumentOutOfRangeException</code> из инстр&shy;укции <code>throw new Exception(&quot;Hello!&quot;)</code>. Воз&shy;мож&shy;но это по&shy;ка&shy;за&shy;лось стра&shy;ным раз&shy;ра&shy;бот&shy;чи&shy;кам яд&shy;ра и они пос&shy;чи&shy;та&shy;ли что кор&shy;рек&shy;т&shy;нее выб&shy;ро&shy;сить <code>ExecutionEngineException</code>.</p>
 <div class="paragraph-right-side">19</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
-<p>Второй вполне простой путь получить <code>ExecutionEngineException</code> - это не корректно настроить маршаллинг в мир unsafe. Если вы напутаете с размерами типов, передадите больше чем надо, чем испортите, например, стек потока, ждите <code>ExecutionEngineException</code>. И это будет логичный, правильный результат: ведь в данной ситуации CLR вошла в состояние, которое она нашла не консистентным. Не понятным, как его восстанавливать. И как результат, <code>ExecutionEngineException</code>.</p>
+<p >
+Вто&shy;рой впол&shy;не прос&shy;той путь по&shy;лу&shy;чить <code>ExecutionEngineException</code> - это не кор&shy;рек&shy;тно нас&shy;тро&shy;ить мар&shy;шал&shy;линг в мир unsafe. Если вы на&shy;пу&shy;та&shy;ете с раз&shy;ме&shy;ра&shy;ми ти&shy;пов, пе&shy;ре&shy;да&shy;ди&shy;те боль&shy;ше чем на&shy;до, чем ис&shy;пор&shy;ти&shy;те, нап&shy;ри&shy;мер, стек по&shy;то&shy;ка, жди&shy;те <code>ExecutionEngineException</code>. И это бу&shy;дет ло&shy;гич&shy;ный, пра&shy;виль&shy;ный ре&shy;зуль&shy;тат: ведь в дан&shy;ной си&shy;ту&shy;а&shy;ции CLR вош&shy;ла в сос&shy;то&shy;я&shy;ние, ко&shy;то&shy;рое она наш&shy;ла не кон&shy;сис&shy;тент&shy;ным. Не по&shy;нят&shy;ным, как его восс&shy;та&shy;нав&shy;ли&shy;вать. И как ре&shy;зуль&shy;тат, <code>ExecutionEngineException</code>.</p>
 <div class="paragraph-right-side">20</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
-<p>Отдельно стоит поговорить про диагностику <code>ExecutionEngineException</code>. Каковы могут быть причины его возникновения? Если исключение вдруг возникло в вашем коде, необходимо ответить на несколько вопросов:</p>
+<p >
+Отдел&shy;ьно сто&shy;ит по&shy;го&shy;во&shy;рить про ди&shy;аг&shy;нос&shy;ти&shy;ку <code>ExecutionEngineException</code>. Ка&shy;ко&shy;вы мо&shy;гут быть при&shy;чи&shy;ны его воз&shy;ник&shy;но&shy;ве&shy;ния? Если ис&shy;клю&shy;че&shy;ние вдруг воз&shy;ник&shy;ло в ва&shy;шем ко&shy;де, не&shy;об&shy;хо&shy;ди&shy;мо от&shy;ве&shy;тить на нес&shy;коль&shy;ко воп&shy;ро&shy;сов:</p>
 <div class="paragraph-right-side">21</div>
 </div>
 <ul>
-<li>Используются ли в вашем приложении unsafe библиотеки? Вами или же может сторонними библиотеками. Попробуйте для начала выяснить, где конкретно приложение получает данную ошибку. Если код уходит в unsafe мир и получает <code>ExecutionEngineException</code> там, тогда необходимо тщательно проверить сходимость сигнатур методов: в нашем коде и в импортируемом. Помните, что если импортируются модули, написанные на Delphi и прочих вариациях языка Pascal, то аргументы должны идти в обратном порядке (настройка производится в <code>DllImport</code>: <code>CallingConvention.StdCall</code>);</li>
-<li>Подписаны ли вы на FirstChanceException? Возможно, его код вызвал исключение. В таком случае просто оберните обработчик в <code>try-catch(Exception)</code> и обязательно сохраните в журнал ошибок происходящее;</li>
-<li>Может быть ваше приложение частично собрано под одну платформу, а частично - под другую. Попробуйте очистить кэш nuget пакетов, полностью пересобрать приложение с нуля: с очищенными вручную папками obj/bin</li>
-<li>Проблема иногда бывает в самом фреймворке. Например, в ранних версиях .NET Framework 4.0. В этом случае стоит протестировать отдельный участок кода, который вызывает ошибку - на более новой версии фреймворка;</li>
+<li>
+<p >
+Испол&shy;ьз&shy;ую&shy;тся ли в ва&shy;шем при&shy;ло&shy;же&shy;нии unsafe биб&shy;ли&shy;о&shy;те&shy;ки? Ва&shy;ми или же мо&shy;жет сто&shy;рон&shy;ни&shy;ми биб&shy;ли&shy;о&shy;те&shy;ка&shy;ми. Поп&shy;ро&shy;буй&shy;те для на&shy;ча&shy;ла вы&shy;яс&shy;нить, где конк&shy;рет&shy;но при&shy;ло&shy;же&shy;ние по&shy;лу&shy;ча&shy;ет дан&shy;ную ошиб&shy;ку. Если код ухо&shy;дит в unsafe мир и по&shy;лу&shy;ча&shy;ет <code>ExecutionEngineException</code> там, тог&shy;да не&shy;об&shy;хо&shy;ди&shy;мо тща&shy;тель&shy;но про&shy;ве&shy;рить схо&shy;ди&shy;мость сиг&shy;на&shy;тур ме&shy;то&shy;дов: в на&shy;шем ко&shy;де и в им&shy;пор&shy;ти&shy;ру&shy;е&shy;мом. Пом&shy;ни&shy;те, что ес&shy;ли им&shy;пор&shy;ти&shy;ру&shy;ют&shy;ся мо&shy;ду&shy;ли, на&shy;пи&shy;сан&shy;ные на Delphi и про&shy;чих ва&shy;ри&shy;а&shy;ци&shy;ях язы&shy;ка Pascal, то ар&shy;гу&shy;мен&shy;ты дол&shy;жны ид&shy;ти в об&shy;рат&shy;ном по&shy;ряд&shy;ке (наст&shy;рой&shy;ка про&shy;из&shy;во&shy;дит&shy;ся в <code>DllImport</code>: <code>CallingConvention.StdCall</code>);</p>
+</li>
+<li>
+<p >
+Под&shy;пи&shy;са&shy;ны ли вы на FirstChanceException? Воз&shy;мож&shy;но, его код выз&shy;вал ис&shy;клю&shy;че&shy;ние. В та&shy;ком слу&shy;чае прос&shy;то обер&shy;ни&shy;те об&shy;ра&shy;бот&shy;чик в <code>try-catch(Exception)</code> и обя&shy;за&shy;тель&shy;но сох&shy;ра&shy;ни&shy;те в жур&shy;нал оши&shy;бок про&shy;ис&shy;хо&shy;дя&shy;щее;</p>
+</li>
+<li>
+<p >
+Мо&shy;жет быть ва&shy;ше при&shy;ло&shy;же&shy;ние час&shy;тич&shy;но соб&shy;ра&shy;но под од&shy;ну плат&shy;фор&shy;му, а час&shy;тич&shy;но - под дру&shy;гую. Поп&shy;ро&shy;буй&shy;те очис&shy;тить кэш nuget па&shy;ке&shy;тов, пол&shy;ностью пе&shy;ре&shy;соб&shy;рать при&shy;ло&shy;же&shy;ние с ну&shy;ля: с очи&shy;щен&shy;ны&shy;ми вруч&shy;ную пап&shy;ка&shy;ми obj/bin</p>
+</li>
+<li>
+<p >
+Проб&shy;ле&shy;ма иног&shy;да бы&shy;ва&shy;ет в са&shy;мом фрейм&shy;вор&shy;ке. Нап&shy;ри&shy;мер, в ран&shy;них вер&shy;си&shy;ях .NET Framework 4.0. В этом слу&shy;чае сто&shy;ит про&shy;тес&shy;ти&shy;ро&shy;вать от&shy;дель&shy;ный учас&shy;ток ко&shy;да, ко&shy;то&shy;рый вы&shy;зы&shy;ва&shy;ет ошиб&shy;ку - на бо&shy;лее но&shy;вой вер&shy;сии фрейм&shy;вор&shy;ка;</p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
-<p>В целом бояться этого исключения не стоит: оно возникает достаточно редко чтобы позабыть о нем до следующей радостной с ним встречи.</p>
+<p >
+В це&shy;лом бо&shy;яться это&shy;го ис&shy;клю&shy;че&shy;ния не сто&shy;ит: оно воз&shy;ни&shy;ка&shy;ет дос&shy;та&shy;точ&shy;но ред&shy;ко что&shy;бы по&shy;за&shy;быть о нем до сле&shy;ду&shy;ю&shy;щей ра&shy;дост&shy;ной с ним встр&shy;ечи.</p>
 <div class="paragraph-right-side">22</div>
 </div>
 <h4 id="nullreferenceexception">NullReferenceException</h4>
 <blockquote>
-<p>TODO</p>
+<p >
+TODO</p>
 </blockquote>
 <h4 id="securityexception">SecurityException</h4>
 <blockquote>
-<p>TODO</p>
+<p >
+TODO</p>
 </blockquote>
 <h4 id="outofmemoryexception">OutOfMemoryException</h4>
 <blockquote>
-<p>TODO</p>
+<p >
+TODO</p>
 </blockquote>
 <h3 id="corrupted-state-exceptions">Corrupted State Exceptions</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
-<p>После становления платформы и её популяризации, после того как огромная масса программистов начала мигрировать с C/C++ и MFC (Microsoft Foundation Classes) на более приятные мозгу среды разработки: сюда помимо .NET Framework можно отнести в первую очередь Qt, Java и С++ Builder, нам был дан вектор на виртуализацию исполнения кода приложения от окружающей среды. Со временем, удачно свёрстанный архитектурно, .NET Framework начал занимать свою нишу. С годами, окрепнув и набирая массу, можно начинать рассуждать не с точки зрения приспособленца, а с точки зрения силы. И если раньше мы в большинстве случаев были вынуждены работать с феерическим пластом компонентов, написанных на COM/ATL/ActiveX (вы помните перетаскивание на формочки иконок COM/ActiveX компонент в Borland C++ Builder?), то теперь всем нам стало сильно легче жить. Ведь теперь соответствующие технологии <em>достаточно</em> редки чтобы волноваться и появилась возможность сделать их несколько не удобными чтобы от них начали отказываться полностью, переходя на современный и ладный .NET Framework. Старые технологии, которые не то что существовали 5-10 лет назад, а на самом деле существуют и здравствуют и ныне, кажется нам чем-то архаичным, забытым, &laquo;кривым&raquo; и допотопным. А потому можно сделать ещё один шаг к закрытию песочницы: сделать её ещё более непробиваемой, сделать её ещё более managed.</p>
+<p >
+Пос&shy;ле ста&shy;нов&shy;ле&shy;ния плат&shy;фор&shy;мы и её по&shy;пу&shy;ля&shy;ри&shy;за&shy;ции, пос&shy;ле то&shy;го как ог&shy;ром&shy;ная мас&shy;са прог&shy;рам&shy;мис&shy;тов на&shy;ча&shy;ла миг&shy;ри&shy;ро&shy;вать с C/C++ и MFC (Microsoft Foundation Classes) на бо&shy;лее при&shy;ят&shy;ные моз&shy;гу сре&shy;ды раз&shy;ра&shy;бот&shy;ки: сю&shy;да по&shy;ми&shy;мо .NET Framework мож&shy;но от&shy;нес&shy;ти в пер&shy;вую оче&shy;редь Qt, Java и С++ Builder, нам был дан век&shy;тор на вир&shy;ту&shy;а&shy;ли&shy;за&shy;цию ис&shy;пол&shy;не&shy;ния ко&shy;да при&shy;ло&shy;же&shy;ния от ок&shy;ру&shy;жа&shy;ю&shy;щей сре&shy;ды. Со вре&shy;ме&shy;нем, удач&shy;но свёрстан&shy;ный ар&shy;хи&shy;тек&shy;тур&shy;но, .NET Framework на&shy;чал за&shy;ни&shy;мать свою ни&shy;шу. С го&shy;да&shy;ми, ок&shy;реп&shy;нув и на&shy;би&shy;рая мас&shy;су, мож&shy;но на&shy;чи&shy;нать рас&shy;суж&shy;дать не с точ&shy;ки зре&shy;ния прис&shy;по&shy;соб&shy;лен&shy;ца, а с точ&shy;ки зре&shy;ния си&shy;лы. И ес&shy;ли рань&shy;ше мы в боль&shy;шинстве слу&shy;ча&shy;ев бы&shy;ли вы&shy;нуж&shy;де&shy;ны ра&shy;бо&shy;тать с фе&shy;е&shy;ри&shy;чес&shy;ким плас&shy;том ком&shy;по&shy;нен&shy;тов, на&shy;пи&shy;сан&shy;ных на COM/ATL/ActiveX (вы пом&shy;ни&shy;те пе&shy;ре&shy;тас&shy;ки&shy;ва&shy;ние на фор&shy;моч&shy;ки ико&shy;нок COM/ActiveX ком&shy;по&shy;нент в Borland C++ Builder?), то те&shy;перь всем нам ста&shy;ло силь&shy;но лег&shy;че жить. Ведь те&shy;перь со&shy;от&shy;вет&shy;с&shy;твующие тех&shy;но&shy;ло&shy;гии <em>достаточно</em> ред&shy;ки что&shy;бы вол&shy;но&shy;вать&shy;ся и по&shy;я&shy;ви&shy;лась воз&shy;мож&shy;ность сде&shy;лать их нес&shy;коль&shy;ко не удоб&shy;ны&shy;ми что&shy;бы от них на&shy;ча&shy;ли от&shy;ка&shy;зы&shy;вать&shy;ся пол&shy;ностью, пе&shy;ре&shy;хо&shy;дя на сов&shy;ре&shy;мен&shy;ный и лад&shy;ный .NET Framework. Ста&shy;рые тех&shy;но&shy;ло&shy;гии, ко&shy;то&shy;рые не то что су&shy;щест&shy;во&shy;ва&shy;ли 5-10 лет на&shy;зад, а на са&shy;мом де&shy;ле су&shy;щес&shy;тву&shy;ют и здра&shy;вст&shy;вуют и ны&shy;не, ка&shy;жет&shy;ся нам чем-то ар&shy;ха&shy;ич&shy;ным, за&shy;бы&shy;тым, &laquo;кри&shy;вым&raquo; и до&shy;по&shy;топ&shy;ным. А по&shy;то&shy;му мож&shy;но сде&shy;лать ещё один шаг к зак&shy;ры&shy;тию пе&shy;соч&shy;ни&shy;цы: сде&shy;лать её ещё бо&shy;лее неп&shy;ро&shy;би&shy;ва&shy;е&shy;мой, сде&shy;лать её ещё бо&shy;лее managed.</p>
 <div class="paragraph-right-side">23</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">24</div>
-<p>И один из этих шагов - введение понятия <code>Corrupted State Exceptions</code>, что по сути ставит ряд исключительных ситуаций вне закона. Давайте разберёмся, что это за исключительные ситуации, а саму историю ещё раз проследим на одной из них - <code>AccessViolationException</code>:</p>
+<p >
+И один из этих ша&shy;гов - вве&shy;де&shy;ние по&shy;ня&shy;тия <code>Corrupted State Exceptions</code>, что по су&shy;ти ста&shy;вит ряд ис&shy;клю&shy;чи&shy;тель&shy;ных си&shy;ту&shy;а&shy;ций вне за&shy;ко&shy;на. Да&shy;вай&shy;те раз&shy;берёмся, что это за ис&shy;клю&shy;чи&shy;тель&shy;ные си&shy;ту&shy;а&shy;ции, а са&shy;му ис&shy;то&shy;рию ещё раз прос&shy;ле&shy;дим на од&shy;ной из них - <code>AccessViolationException</code>:</p>
 <div class="paragraph-right-side">24</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
-<p><strong>Файл util.cpp</strong> <a href="https://github.com/dotnet/coreclr/blob/479b1e654cd5a13bb1ce47288cf78776b858bced/src/utilcode/util.cpp#L3163-L3197">util.cpp</a></p>
+<p >
+<strong>Файл util.cpp</strong> <a href="https://github.com/dotnet/coreclr/blob/479b1e654cd5a13bb1ce47288cf78776b858bced/src/utilcode/util.cpp#L3163-L3197">util.cpp</a></p>
 <div class="paragraph-right-side">25</div>
 </div>
 <div class="lang-cpp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1333,48 +1440,103 @@ BOOL IsProcessCorruptedStateException(DWORD dwExceptionCode, BOOL fCheckForSO <s
 }
 </pre></div>
 </div>
-<p>Рассмотрим описания наших исключительных ситуаций:</p>
+<p >
+Расс&shy;мот&shy;рим опи&shy;са&shy;ния на&shy;ших ис&shy;клю&shy;чи&shy;тель&shy;ных си&shy;ту&shy;а&shy;ций:</p>
 <div class="row">
 <div class="offset-0 col-12">
 <table>
 <thead>
 <tr>
-<th>Код ошибки</th>
-<th>Описание</th>
+<th>
+<p >
+Код ошиб&shy;ки</p>
+</th>
+<th>
+<p >
+Опи&shy;са&shy;ние</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>STATUS_ACCESS_VIOLATION</td>
-<td>Достаточно частая ошибка попытки работы с участком памяти, на который нет прав. Память с точки зрения процесса линейная, но работать можно далеко не со всем диапазоном: только с теми &laquo;островками&raquo;, которые были выделены операционной системой, а также с теми, на которые хватает прав (например, есть диапазоны, которыми владеет только операционная система или же можно только исполнять код но не читать как данные)</td>
+<td>
+<p >
+STATUS_ACCESS_VIOLATION</p>
+</td>
+<td>
+<p >
+Дос&shy;та&shy;точ&shy;но час&shy;тая ошиб&shy;ка по&shy;пыт&shy;ки ра&shy;бо&shy;ты с участ&shy;ком па&shy;мя&shy;ти, на ко&shy;то&shy;рый нет прав. Па&shy;мять с точ&shy;ки зре&shy;ния про&shy;цес&shy;са ли&shy;ней&shy;ная, но ра&shy;бо&shy;тать мож&shy;но да&shy;ле&shy;ко не со всем ди&shy;а&shy;па&shy;зо&shy;ном: толь&shy;ко с те&shy;ми &laquo;ос&shy;тров&shy;ка&shy;ми&raquo;, ко&shy;то&shy;рые бы&shy;ли вы&shy;де&shy;ле&shy;ны опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мой, а так&shy;же с те&shy;ми, на ко&shy;то&shy;рые хва&shy;та&shy;ет прав (нап&shy;ри&shy;мер, есть ди&shy;а&shy;па&shy;зо&shy;ны, ко&shy;то&shy;ры&shy;ми вла&shy;де&shy;ет толь&shy;ко опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;те&shy;ма или же мож&shy;но толь&shy;ко ис&shy;пол&shy;нять код но не чи&shy;тать как дан&shy;ные)</p>
+</td>
 </tr>
 <tr>
-<td>STATUS_STACK_OVERFLOW</td>
-<td>Эта ошибка известна всем: ошибка нехватки памяти в стеке потока под вызов очередного метода</td>
+<td>
+<p >
+STATUS_STACK_OVERFLOW</p>
+</td>
+<td>
+<p >
+Эта ошиб&shy;ка из&shy;вес&shy;тна всем: ошиб&shy;ка нех&shy;ват&shy;ки па&shy;мя&shy;ти в сте&shy;ке по&shy;то&shy;ка под вы&shy;зов оче&shy;ред&shy;но&shy;го ме&shy;то&shy;да</p>
+</td>
 </tr>
 <tr>
-<td>EXCEPTION_ILLEGAL_INSTRUCTION</td>
-<td>Очередной код, считанный процессором из тела метода не был распознан как инструкция</td>
+<td>
+<p >
+EXCEPTION_ILLEGAL_INSTRUCTION</p>
+</td>
+<td>
+<p >
+Оче&shy;ред&shy;ной код, счи&shy;тан&shy;ный про&shy;цес&shy;со&shy;ром из те&shy;ла ме&shy;то&shy;да не был рас&shy;поз&shy;нан как инстр&shy;укция</p>
+</td>
 </tr>
 <tr>
-<td>EXCEPTION_IN_PAGE_ERROR</td>
-<td>Поток предпринял попытку работы со страницей памяти, которой не существует</td>
+<td>
+<p >
+EXCEPTION_IN_PAGE_ERROR</p>
+</td>
+<td>
+<p >
+По&shy;ток предп&shy;ри&shy;нял по&shy;пыт&shy;ку ра&shy;бо&shy;ты со стра&shy;ни&shy;цей па&shy;мя&shy;ти, ко&shy;то&shy;рой не су&shy;щес&shy;тву&shy;ет</p>
+</td>
 </tr>
 <tr>
-<td>EXCEPTION_INVALID_DISPOSITION</td>
-<td>Механизм обработки исключений вернул не правильный обработчик. Такое исключение никогда не должно возникать в программах, написанных на высокоуровневых языках (например, С++)</td>
+<td>
+<p >
+EXCEPTION_INVALID_DISPOSITION</p>
+</td>
+<td>
+<p >
+Ме&shy;ха&shy;низм об&shy;ра&shy;бот&shy;ки ис&shy;клю&shy;че&shy;ний вер&shy;нул не пра&shy;виль&shy;ный об&shy;ра&shy;бот&shy;чик. Та&shy;кое ис&shy;клю&shy;че&shy;ние ни&shy;ког&shy;да не дол&shy;жно воз&shy;ни&shy;кать в прог&shy;рам&shy;мах, на&shy;пи&shy;сан&shy;ных на вы&shy;со&shy;ко&shy;уров&shy;не&shy;вых язы&shy;ках (нап&shy;ри&shy;мер, С++)</p>
+</td>
 </tr>
 <tr>
-<td>EXCEPTION_NONCONTINUABLE_EXCEPTION</td>
-<td>Поток сделал попытку продолжить исполнение программы после возникновения исключения, продолжить исполнение кода после которого не возможно. Тут имеется ввиду не блоки catch/fault/finally, а подобие фильтров исключений, которые позволяют исправить ошибку, которая привела к исключению и предпринять ещё одну попытку выполнить код, приведший к ошибке</td>
+<td>
+<p >
+EXCEPTION_NONCONTINUABLE_EXCEPTION</p>
+</td>
+<td>
+<p >
+По&shy;ток сде&shy;лал по&shy;пыт&shy;ку про&shy;дол&shy;жить ис&shy;пол&shy;не&shy;ние прог&shy;рам&shy;мы пос&shy;ле воз&shy;ник&shy;но&shy;ве&shy;ния ис&shy;клю&shy;че&shy;ния, про&shy;дол&shy;жить ис&shy;пол&shy;не&shy;ние ко&shy;да пос&shy;ле ко&shy;то&shy;ро&shy;го не воз&shy;мож&shy;но. Тут име&shy;ет&shy;ся вви&shy;ду не бло&shy;ки catch/fault/finally, а по&shy;до&shy;бие фильтров ис&shy;клю&shy;че&shy;ний, ко&shy;то&shy;рые поз&shy;во&shy;ля&shy;ют ис&shy;пра&shy;вить ошиб&shy;ку, ко&shy;то&shy;рая при&shy;ве&shy;ла к ис&shy;клю&shy;че&shy;нию и предп&shy;ри&shy;нять ещё од&shy;ну по&shy;пыт&shy;ку вы&shy;пол&shy;нить код, при&shy;вед&shy;ший к ошиб&shy;ке</p>
+</td>
 </tr>
 <tr>
-<td>EXCEPTION_PRIV_INSTRUCTION</td>
-<td>Попытка выполнить привилегированную инструкцию процессора</td>
+<td>
+<p >
+EXCEPTION_PRIV_INSTRUCTION</p>
+</td>
+<td>
+<p >
+По&shy;пыт&shy;ка вы&shy;пол&shy;нить при&shy;ви&shy;ле&shy;ги&shy;ро&shy;ван&shy;ную инстр&shy;укцию про&shy;цес&shy;со&shy;ра</p>
+</td>
 </tr>
 <tr>
-<td>STATUS_UNWIND_CONSOLIDATE</td>
-<td>Исключение, относящееся к размотке стека и не являющееся предметом наших обсуждений</td>
+<td>
+<p >
+STATUS_UNWIND_CONSOLIDATE</p>
+</td>
+<td>
+<p >
+Искл&shy;юч&shy;ение, от&shy;но&shy;ся&shy;ще&shy;еся к раз&shy;мот&shy;ке сте&shy;ка и не яв&shy;ля&shy;ю&shy;ще&shy;еся пред&shy;ме&shy;том на&shy;ших об&shy;суж&shy;де&shy;ний</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1382,22 +1544,31 @@ BOOL IsProcessCorruptedStateException(DWORD dwExceptionCode, BOOL fCheckForSO <s
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
-<p>Прошу заметить, что по своей сути только два из них достойны перехвата: это <code>STATUS_ACCESS_VIOLATION</code> и <code>STATUS_STACK_OVERFLOW</code>. Остальные ошибки исключительны даже для исключительных ситуаций. Они скорее относятся к классу фатальных ошибок и нами рассматриваться не могут. А потому, давайте остановимся на этих двух более подробно:</p>
+<p >
+Про&shy;шу за&shy;ме&shy;тить, что по сво&shy;ей су&shy;ти толь&shy;ко два из них дос&shy;той&shy;ны пе&shy;рех&shy;ва&shy;та: это <code>STATUS_ACCESS_VIOLATION</code> и <code>STATUS_STACK_OVERFLOW</code>. Остал&shy;ьные ошиб&shy;ки ис&shy;клю&shy;чи&shy;тель&shy;ны да&shy;же для ис&shy;клю&shy;чи&shy;тель&shy;ных си&shy;ту&shy;а&shy;ций. Они ско&shy;рее от&shy;но&shy;сят&shy;ся к клас&shy;су фа&shy;таль&shy;ных оши&shy;бок и на&shy;ми расс&shy;мат&shy;ри&shy;вать&shy;ся не мо&shy;гут. А по&shy;то&shy;му, да&shy;вай&shy;те ос&shy;та&shy;но&shy;вим&shy;ся на этих двух бо&shy;лее под&shy;роб&shy;но:</p>
 <div class="paragraph-right-side">26</div>
 </div>
 <h4 id="accessviolationexception">AccessViolationException</h4>
 <div class="paragraph-container">
 <div class="paragraph-left-side">27</div>
-<p>Получение этого исключения - одна из тех новостей, которые не хотелось бы никому получить. А когда получаешь, становится совсем не ясно что с этим делать. <code>AccessViolationException</code> - это исключение &laquo;промаха&raquo; мимо выделенного для приложения участка памяти и по своей сути выбрасывается при попытке чтения или записи в защищённую область памяти. Здесь под словом &laquo;защита&raquo; лучше понимать именно попытку работы с ещё не выделенным участком памяти или же уже освобождённым. Тут, заметьте не имеется ввиду процесс выделения и освобождения памяти сборщиком мусора. Тот просто размечает уже выделенную память под свои и ваши нужды. Память - она имеет в некоторой степени слоистую структуру. Когда после слоя управления памятью сборщиком мусора идёт слой управления выделением памяти библиотеками ядра CLR, а за ними - операционной системой - из пула доступных фрагментов линейного адресного пространства. Так вот когда приложение промахивается мимо своей памяти и пытается работать с невыделенным участком либо с участком, приложению не предназначенному, тогда и возникает это исключение. Когда оно возникает, вам доступно не так много вариантов для анализа:</p>
+<p >
+По&shy;лу&shy;че&shy;ние это&shy;го ис&shy;клю&shy;че&shy;ния - од&shy;на из тех но&shy;вос&shy;тей, ко&shy;то&shy;рые не хо&shy;те&shy;лось бы ни&shy;ко&shy;му по&shy;лу&shy;чить. А ког&shy;да по&shy;лу&shy;ча&shy;ешь, ста&shy;но&shy;вит&shy;ся сов&shy;сем не яс&shy;но что с этим де&shy;лать. <code>AccessViolationException</code> - это ис&shy;клю&shy;че&shy;ние &laquo;про&shy;ма&shy;ха&raquo; ми&shy;мо вы&shy;де&shy;лен&shy;но&shy;го для при&shy;ло&shy;же&shy;ния учас&shy;тка па&shy;мя&shy;ти и по сво&shy;ей су&shy;ти выб&shy;ра&shy;сы&shy;ва&shy;ет&shy;ся при по&shy;пыт&shy;ке чте&shy;ния или за&shy;пи&shy;си в за&shy;щищённую об&shy;ласть па&shy;мя&shy;ти. Здесь под сло&shy;вом &laquo;за&shy;щи&shy;та&raquo; луч&shy;ше по&shy;ни&shy;мать имен&shy;но по&shy;пыт&shy;ку ра&shy;бо&shy;ты с ещё не вы&shy;де&shy;лен&shy;ным участ&shy;ком па&shy;мя&shy;ти или же уже ос&shy;во&shy;бождённым. Тут, за&shy;меть&shy;те не име&shy;ет&shy;ся вви&shy;ду про&shy;цесс вы&shy;де&shy;ле&shy;ния и ос&shy;во&shy;бож&shy;де&shy;ния па&shy;мя&shy;ти сбор&shy;щи&shy;ком му&shy;со&shy;ра. Тот прос&shy;то раз&shy;ме&shy;ча&shy;ет уже вы&shy;де&shy;лен&shy;ную па&shy;мять под свои и ва&shy;ши нуж&shy;ды. Па&shy;мять - она име&shy;ет в не&shy;ко&shy;то&shy;рой сте&shy;пе&shy;ни сло&shy;ис&shy;тую струк&shy;ту&shy;ру. Ког&shy;да пос&shy;ле слоя уп&shy;рав&shy;ле&shy;ния па&shy;мятью сбор&shy;щи&shy;ком му&shy;со&shy;ра идёт слой уп&shy;рав&shy;ле&shy;ния вы&shy;де&shy;ле&shy;ни&shy;ем па&shy;мя&shy;ти биб&shy;ли&shy;о&shy;те&shy;ка&shy;ми яд&shy;ра CLR, а за ни&shy;ми - опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мой - из пу&shy;ла дос&shy;туп&shy;ных фраг&shy;мен&shy;тов ли&shy;ней&shy;но&shy;го ад&shy;рес&shy;но&shy;го прост&shy;ранства. Так вот ког&shy;да при&shy;ло&shy;же&shy;ние про&shy;ма&shy;хи&shy;ва&shy;ет&shy;ся ми&shy;мо сво&shy;ей па&shy;мя&shy;ти и пы&shy;та&shy;ет&shy;ся ра&shy;бо&shy;тать с не&shy;вы&shy;де&shy;лен&shy;ным участ&shy;ком ли&shy;бо с участ&shy;ком, при&shy;ло&shy;же&shy;нию не пред&shy;наз&shy;на&shy;чен&shy;но&shy;му, тог&shy;да и воз&shy;ни&shy;ка&shy;ет это ис&shy;клю&shy;че&shy;ние. Ког&shy;да оно воз&shy;ни&shy;ка&shy;ет, вам дос&shy;туп&shy;но не так мно&shy;го ва&shy;ри&shy;ан&shy;тов для ана&shy;ли&shy;за:</p>
 <div class="paragraph-right-side">27</div>
 </div>
 <ul>
-<li>Если StackTrace уходит в недра CLR, вам сильно не повезло: это скорее всего ошибка ядра. Однако этот случай почти никогда не срабатывает. Из вариантов обхода - либо действовать как-то иначе либо обновить версию ядра если возможно;</li>
-<li>Если же StackTrace уходит в unsafe код некоторой библиотеки, тут доступны такие варианты: либо вы напутали с настройкой маршаллинга либо же в unsafe библиотеке закралась серьёзная ошибка. Тщательно проверьте аргументы метода: возможно аргументы нативного метода имеют другую разрядность или же другой порядок или попросту размер. Проверьте что структуры передаются там где надо - по ссылке, а там, где надо - по значению</li>
+<li>
+<p >
+Если StackTrace ухо&shy;дит в нед&shy;ра CLR, вам силь&shy;но не по&shy;вез&shy;ло: это ско&shy;рее все&shy;го ошиб&shy;ка яд&shy;ра. Одна&shy;ко этот слу&shy;чай поч&shy;ти ни&shy;ког&shy;да не сра&shy;ба&shy;ты&shy;ва&shy;ет. Из ва&shy;ри&shy;ан&shy;тов об&shy;хо&shy;да - ли&shy;бо дейс&shy;твовать как-то ина&shy;че ли&shy;бо об&shy;но&shy;вить вер&shy;сию яд&shy;ра ес&shy;ли воз&shy;мож&shy;но;</p>
+</li>
+<li>
+<p >
+Если же StackTrace ухо&shy;дит в unsafe код не&shy;ко&shy;то&shy;рой биб&shy;ли&shy;о&shy;те&shy;ки, тут дос&shy;туп&shy;ны та&shy;кие ва&shy;ри&shy;ан&shy;ты: ли&shy;бо вы на&shy;пу&shy;та&shy;ли с наст&shy;рой&shy;кой мар&shy;шал&shy;лин&shy;га ли&shy;бо же в unsafe биб&shy;ли&shy;о&shy;те&shy;ке зак&shy;ра&shy;лась серьёзная ошиб&shy;ка. Тща&shy;тель&shy;но про&shy;верь&shy;те ар&shy;гу&shy;мен&shy;ты ме&shy;то&shy;да: воз&shy;мож&shy;но ар&shy;гу&shy;мен&shy;ты на&shy;тив&shy;но&shy;го ме&shy;то&shy;да име&shy;ют дру&shy;гую раз&shy;ряд&shy;ность или же дру&shy;гой по&shy;ря&shy;док или поп&shy;рос&shy;ту раз&shy;мер. Про&shy;верь&shy;те что струк&shy;ту&shy;ры пе&shy;ре&shy;да&shy;ют&shy;ся там где на&shy;до - по ссыл&shy;ке, а там, где на&shy;до - по зна&shy;че&shy;нию</p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
-<p>Чтобы перехватить такое исключение на данный момент необходимо показать JIT компилятору что это реально необходимо. В противном случае оно перехвачено никак не будет и вы получите упавшее приложение. Однако, конечно же, его стоит перехватывать только тогда, когда вы понимаете что вы сможете его правильно обработать: его наличие может свидетельствовать о произошедшей утечке памяти если она была выделена unsafe методом между точкой его вызова и точкой выброса <code>AccessViolationException</code> и тогда хоть приложение и не будет &laquo;завалено&raquo;, но его работа возможно станет не корректной: ведь перехватив поломку вызова метода вы наверняка попробуете вызвать этот метод ещё раз, в будущем. А в этом случае что может пойти не так не известно никому: вы не можете знать каким образом было нарушено состояние приложения в прошлый раз. Однако, если желание перехватить такое исключение у вас сохранилось, прошу посмотреть на таблицу возможности перехвата этого исключения в различных версиях .NET Framework:</p>
+<p >
+Что&shy;бы пе&shy;рех&shy;ва&shy;тить та&shy;кое ис&shy;клю&shy;че&shy;ние на дан&shy;ный мо&shy;мент не&shy;об&shy;хо&shy;ди&shy;мо по&shy;ка&shy;зать JIT ком&shy;пи&shy;ля&shy;то&shy;ру что это ре&shy;ально не&shy;об&shy;хо&shy;ди&shy;мо. В про&shy;тив&shy;ном слу&shy;чае оно пе&shy;рех&shy;ва&shy;че&shy;но ни&shy;как не бу&shy;дет и вы по&shy;лу&shy;чи&shy;те упав&shy;шее при&shy;ло&shy;же&shy;ние. Одна&shy;ко, ко&shy;неч&shy;но же, его сто&shy;ит пе&shy;рех&shy;ва&shy;ты&shy;вать толь&shy;ко тог&shy;да, ког&shy;да вы по&shy;ни&shy;ма&shy;ете что вы смо&shy;же&shy;те его пра&shy;виль&shy;но об&shy;ра&shy;бо&shy;тать: его на&shy;ли&shy;чие мо&shy;жет сви&shy;де&shy;тель&shy;ствовать о про&shy;и&shy;зо&shy;шед&shy;шей утеч&shy;ке па&shy;мя&shy;ти ес&shy;ли она бы&shy;ла вы&shy;де&shy;ле&shy;на unsafe ме&shy;то&shy;дом меж&shy;ду точ&shy;кой его вы&shy;зо&shy;ва и точ&shy;кой выб&shy;ро&shy;са <code>AccessViolationException</code> и тог&shy;да хоть при&shy;ло&shy;же&shy;ние и не бу&shy;дет &laquo;за&shy;ва&shy;ле&shy;но&raquo;, но его ра&shy;бо&shy;та воз&shy;мож&shy;но ста&shy;нет не кор&shy;рект&shy;ной: ведь пе&shy;рех&shy;ва&shy;тив по&shy;лом&shy;ку вы&shy;зо&shy;ва ме&shy;то&shy;да вы на&shy;вер&shy;ня&shy;ка поп&shy;ро&shy;бу&shy;ете выз&shy;вать этот ме&shy;тод ещё раз, в бу&shy;ду&shy;щем. А в этом слу&shy;чае что мо&shy;жет пой&shy;ти не так не из&shy;вес&shy;тно ни&shy;ко&shy;му: вы не мо&shy;же&shy;те знать ка&shy;ким об&shy;ра&shy;зом бы&shy;ло на&shy;ру&shy;ше&shy;но сос&shy;то&shy;я&shy;ние при&shy;ло&shy;же&shy;ния в прош&shy;лый раз. Одна&shy;ко, ес&shy;ли же&shy;ла&shy;ние пе&shy;рех&shy;ва&shy;тить та&shy;кое ис&shy;клю&shy;че&shy;ние у вас сох&shy;ра&shy;ни&shy;лось, про&shy;шу пос&shy;мот&shy;реть на таб&shy;ли&shy;цу воз&shy;мож&shy;нос&shy;ти пе&shy;рех&shy;ва&shy;та это&shy;го ис&shy;клю&shy;че&shy;ния в раз&shy;лич&shy;ных вер&shy;си&shy;ях .NET Framework:</p>
 <div class="paragraph-right-side">28</div>
 </div>
 <div class="row">
@@ -1405,26 +1576,56 @@ BOOL IsProcessCorruptedStateException(DWORD dwExceptionCode, BOOL fCheckForSO <s
 <table>
 <thead>
 <tr>
-<th>Версия .NET Framework</th>
-<th>AccessViolationExeception</th>
+<th>
+<p >
+Вер&shy;сия .NET Framework</p>
+</th>
+<th>
+<p >
+AccessViolationExeception</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1.0</td>
-<td>NullReferenceException</td>
+<td>
+<p >
+1.0</p>
+</td>
+<td>
+<p >
+NullReferenceException</p>
+</td>
 </tr>
 <tr>
-<td>2.0, 3.5</td>
-<td>AccessViolation перехватить можно</td>
+<td>
+<p >
+2.0, 3.5</p>
+</td>
+<td>
+<p >
+AccessViolation пе&shy;рех&shy;ва&shy;тить мож&shy;но</p>
+</td>
 </tr>
 <tr>
-<td>4.0+</td>
-<td>AccessViolation перехватить можно, но необходима настройка</td>
+<td>
+<p >
+4.0+</p>
+</td>
+<td>
+<p >
+AccessViolation пе&shy;рех&shy;ва&shy;тить мож&shy;но, но не&shy;об&shy;хо&shy;ди&shy;ма наст&shy;рой&shy;ка</p>
+</td>
 </tr>
 <tr>
-<td>.NET Core</td>
-<td>AccessViolation перехватить <em>нельзя</em></td>
+<td>
+<p >
+.NET Core</p>
+</td>
+<td>
+<p >
+AccessViolation пе&shy;рех&shy;ва&shy;тить <em>нельзя</em></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1432,32 +1633,54 @@ BOOL IsProcessCorruptedStateException(DWORD dwExceptionCode, BOOL fCheckForSO <s
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">29</div>
-<p>Т.е. другими словами, если вам попалоось очень старое приложение на .NET Framework 1.0, <del>покажите его мне</del> вы получите NRE, что будет в некоторой степени обманом: вы отдали указатель со значением больше нуля, а получили NullReferenceException. Однако, на мой взгляд, такое поведение обосновано: находясь в мире управляемого кода вам меньше всего должно хотеться изучать типы ошибок неуправляемого кода и NRE - что по сути и есть &laquo;плохой указатель на объект&raquo; в мире .NET - тут вполне подходит. Однако, мир был бы прекрасен если бы все так было просто. В реальных ситуациях пользователям решительно не хватало этого типа исключений и потому - достаточно скоро - его ввели в версии 2.0. Просуществовав несколько лет в перехватываемом варианте, исключение перестало быть перехватываемым, однако появилась специальная настройка, которая позволяет включить перехват. Такой порядок выбора в команде CLR в целом на каждом этапе выглядит достаточно обоснованным. Посудите сами:</p>
+<p >
+Т.е. дру&shy;ги&shy;ми сло&shy;ва&shy;ми, ес&shy;ли вам по&shy;па&shy;ло&shy;ось очень ста&shy;рое при&shy;ло&shy;же&shy;ние на .NET Framework 1.0, <del>покажите его мне</del> вы по&shy;лу&shy;чи&shy;те NRE, что бу&shy;дет в не&shy;ко&shy;то&shy;рой сте&shy;пе&shy;ни об&shy;ма&shy;ном: вы от&shy;да&shy;ли ука&shy;за&shy;тель со зна&shy;че&shy;ни&shy;ем боль&shy;ше ну&shy;ля, а по&shy;лу&shy;чи&shy;ли NullReferenceException. Одна&shy;ко, на мой взгляд, та&shy;кое по&shy;ве&shy;де&shy;ние обос&shy;но&shy;ва&shy;но: на&shy;хо&shy;дясь в ми&shy;ре уп&shy;рав&shy;ля&shy;е&shy;мо&shy;го ко&shy;да вам мень&shy;ше все&shy;го дол&shy;жно хо&shy;теть&shy;ся изу&shy;чать ти&shy;пы оши&shy;бок не&shy;уп&shy;рав&shy;ля&shy;е&shy;мо&shy;го ко&shy;да и NRE - что по су&shy;ти и есть &laquo;пло&shy;хой ука&shy;за&shy;тель на объ&shy;ект&raquo; в ми&shy;ре .NET - тут впол&shy;не под&shy;хо&shy;дит. Одна&shy;ко, мир был бы прек&shy;ра&shy;сен ес&shy;ли бы все так бы&shy;ло прос&shy;то. В ре&shy;альных си&shy;ту&shy;а&shy;ци&shy;ях поль&shy;зо&shy;ва&shy;те&shy;лям ре&shy;ши&shy;тель&shy;но не хва&shy;та&shy;ло это&shy;го ти&shy;па ис&shy;клю&shy;че&shy;ний и по&shy;то&shy;му - дос&shy;та&shy;точ&shy;но ско&shy;ро - его вве&shy;ли в вер&shy;сии 2.0. Про&shy;су&shy;щест&shy;во&shy;вав нес&shy;коль&shy;ко лет в пе&shy;рех&shy;ва&shy;ты&shy;ва&shy;е&shy;мом ва&shy;ри&shy;ан&shy;те, ис&shy;клю&shy;че&shy;ние пе&shy;рес&shy;та&shy;ло быть пе&shy;рех&shy;ва&shy;ты&shy;ва&shy;е&shy;мым, од&shy;на&shy;ко по&shy;я&shy;ви&shy;лась спе&shy;ци&shy;альная наст&shy;рой&shy;ка, ко&shy;то&shy;рая поз&shy;во&shy;ля&shy;ет вклю&shy;чить пе&shy;рех&shy;ват. Та&shy;кой по&shy;ря&shy;док вы&shy;бо&shy;ра в ко&shy;ман&shy;де CLR в це&shy;лом на каж&shy;дом эта&shy;пе выг&shy;ля&shy;дит дос&shy;та&shy;точ&shy;но обос&shy;но&shy;ван&shy;ным. По&shy;су&shy;ди&shy;те са&shy;ми:</p>
 <div class="paragraph-right-side">29</div>
 </div>
 <ul>
-<li><code>1.0</code> Ошибка промаха мимо выделенных участков памяти должна быть именно исключительной ситуацией потому как если приложение работает с каким-либо адресом, оно его откуда-то получило. В managed мире этим местом является оператор <code>new</code>. В unmanaged мире - в целом любой участок кода может выступать точкой для возникновения такой ошибки. И хотя с точки зрения философии смысл обоих исключений диаметрально противоположен (NRE - работа с не проинициализированным указателем, AVE - работа с некорректно проинициализированным указателем), с точки зрения идеологии .NET некорректно проинициализированных указателей быть не может. Оба случая можно свести к одному и придать философский смысл: не корректно заданный указатель. А потому давайте так и сделаем: в обоих случаях будем выбрасывать <code>NullReferenceException</code>.</li>
-<li><code>2.0</code> На ранних этапах существования .NET Framework оказалось что кода, который наследуется через COM библиотеки больше собственного: существует огромная кодовая база коммерческих компонент для взаимодействия с сетью, UI, БД и прочими подсистемами. А значит, вопрос получения именно <code>AccessViolationException</code> всё-таки стоит: неверная диагностика проблем может сделать процесс поимки проблемы более дорогим. В .NET Framework введено исключение <code>AccessViolationException</code>.</li>
-<li><code>4.0</code> .NET Framework укоренился, потеснив традиционную разработку на низкоуровневых языках программирования. Резко сокращено количество COM компонент: практически все основные задачи уже решаются в рамках самого фреймворка, а работа в unsafe кодом начинает считаться чем-то странным, неправильным. В этих условиях можно вернуться к идеологии, введённой в фреймворк с самого начала: .NET - он только для .NET. Unsafe код - это не норма, а вынужденное состояние, а потому идеологичность наличия перехвата <code>AccessViolationException</code> идёт вразрез с идеологией понятия фреймворк - как платформа (т.е. имитация полной песочницы со своими законами). Однако мы все ещё находимся в реалиях платформы, на которой работаем и во многих ситуациях перехватывать это исключение все ещё необходимо: вводим специальный режим перехвата: только если введена соответствующая конфигурация;</li>
-<li><code>.NET Core</code> Наконец, сбылась мечта команды CLR: .NET более не предполагает законности работы с unsafe кодом, а потому существование <code>AccessViolationException</code> теперь вне закона даже на уровне конфигурации. .NET вырос настолько, чтобы самостоятельно устанавливать правила. Теперь существование этого исключения в приложении приведёт его к гибели, а потому любой unsafe код (т.е. сам CLR) обязан быть безопасным с точки зрения этого исключения. Если оно появляется в unsafe библиотеке, с ней просто не будут работать, а значит, разработчики сторонних компонент на unsafe языках будут более аккуратными и обрабатывать его - у себя.</li>
+<li>
+<p >
+<code>1.0</code> Ошиб&shy;ка про&shy;ма&shy;ха ми&shy;мо вы&shy;де&shy;лен&shy;ных участ&shy;ков па&shy;мя&shy;ти дол&shy;жна быть имен&shy;но ис&shy;клю&shy;чи&shy;тель&shy;ной си&shy;ту&shy;а&shy;ци&shy;ей по&shy;то&shy;му как ес&shy;ли при&shy;ло&shy;же&shy;ние ра&shy;бо&shy;та&shy;ет с ка&shy;ким-ли&shy;бо ад&shy;ре&shy;сом, оно его от&shy;ку&shy;да-то по&shy;лу&shy;чи&shy;ло. В managed ми&shy;ре этим мес&shy;том яв&shy;ля&shy;ет&shy;ся опе&shy;ра&shy;тор <code>new</code>. В unmanaged ми&shy;ре - в це&shy;лом лю&shy;бой учас&shy;ток ко&shy;да мо&shy;жет выс&shy;ту&shy;пать точ&shy;кой для воз&shy;ник&shy;но&shy;ве&shy;ния та&shy;кой ошиб&shy;ки. И хо&shy;тя с точ&shy;ки зре&shy;ния фи&shy;ло&shy;со&shy;фии смысл обо&shy;их ис&shy;клю&shy;че&shy;ний ди&shy;амет&shy;раль&shy;но про&shy;ти&shy;во&shy;по&shy;ло&shy;жен (NRE - ра&shy;бо&shy;та с не про&shy;и&shy;ни&shy;ци&shy;а&shy;ли&shy;зи&shy;ро&shy;ван&shy;ным ука&shy;за&shy;те&shy;лем, AVE - ра&shy;бо&shy;та с не&shy;кор&shy;рек&shy;тно про&shy;и&shy;ни&shy;ци&shy;а&shy;ли&shy;зи&shy;ро&shy;ван&shy;ным ука&shy;за&shy;те&shy;лем), с точ&shy;ки зре&shy;ния иде&shy;о&shy;ло&shy;гии .NET не&shy;кор&shy;рек&shy;тно про&shy;и&shy;ни&shy;ци&shy;а&shy;ли&shy;зи&shy;ро&shy;ван&shy;ных ука&shy;за&shy;те&shy;лей быть не мо&shy;жет. Оба слу&shy;чая мож&shy;но свес&shy;ти к од&shy;но&shy;му и при&shy;дать фи&shy;ло&shy;софс&shy;кий смысл: не кор&shy;рек&shy;тно за&shy;дан&shy;ный ука&shy;за&shy;тель. А по&shy;то&shy;му да&shy;вай&shy;те так и сде&shy;ла&shy;ем: в обо&shy;их слу&shy;ча&shy;ях бу&shy;дем выб&shy;ра&shy;сы&shy;вать <code>NullReferenceException</code>.</p>
+</li>
+<li>
+<p >
+<code>2.0</code> На ран&shy;них эта&shy;пах су&shy;щест&shy;во&shy;ва&shy;ния .NET Framework ока&shy;за&shy;лось что ко&shy;да, ко&shy;то&shy;рый нас&shy;ле&shy;ду&shy;ет&shy;ся че&shy;рез COM биб&shy;ли&shy;о&shy;те&shy;ки боль&shy;ше собст&shy;ве&shy;нного: су&shy;щес&shy;тву&shy;ет ог&shy;ром&shy;ная ко&shy;до&shy;вая ба&shy;за ком&shy;мер&shy;чес&shy;ких ком&shy;по&shy;нент для вза&shy;и&shy;мо&shy;д&shy;ействия с сетью, UI, БД и про&shy;чи&shy;ми под&shy;сис&shy;те&shy;ма&shy;ми. А зна&shy;чит, воп&shy;рос по&shy;лу&shy;че&shy;ния имен&shy;но <code>AccessViolationException</code> всё-та&shy;ки сто&shy;ит: не&shy;вер&shy;ная ди&shy;аг&shy;нос&shy;ти&shy;ка проб&shy;лем мо&shy;жет сде&shy;лать про&shy;цесс по&shy;им&shy;ки проб&shy;ле&shy;мы бо&shy;лее до&shy;ро&shy;гим. В .NET Framework вве&shy;де&shy;но ис&shy;клю&shy;че&shy;ние <code>AccessViolationException</code>.</p>
+</li>
+<li>
+<p >
+<code>4.0</code> .NET Framework уко&shy;ре&shy;нил&shy;ся, по&shy;тес&shy;нив тра&shy;ди&shy;ци&shy;он&shy;ную раз&shy;ра&shy;бот&shy;ку на низ&shy;ко&shy;уров&shy;не&shy;вых язы&shy;ках прог&shy;рам&shy;ми&shy;ро&shy;ва&shy;ния. Рез&shy;ко сок&shy;ра&shy;ще&shy;но ко&shy;ли&shy;чес&shy;тво COM ком&shy;по&shy;нент: прак&shy;ти&shy;чес&shy;ки все ос&shy;нов&shy;ные за&shy;да&shy;чи уже ре&shy;ша&shy;ют&shy;ся в рам&shy;ках са&shy;мо&shy;го фрейм&shy;вор&shy;ка, а ра&shy;бо&shy;та в unsafe ко&shy;дом на&shy;чи&shy;на&shy;ет счи&shy;тать&shy;ся чем-то стран&shy;ным, неп&shy;ра&shy;виль&shy;ным. В этих ус&shy;ло&shy;ви&shy;ях мож&shy;но вер&shy;нуть&shy;ся к иде&shy;о&shy;ло&shy;гии, введённой в фрейм&shy;ворк с са&shy;мо&shy;го на&shy;ча&shy;ла: .NET - он толь&shy;ко для .NET. Unsafe код - это не нор&shy;ма, а вы&shy;нуж&shy;ден&shy;ное сос&shy;то&shy;я&shy;ние, а по&shy;то&shy;му иде&shy;о&shy;ло&shy;гич&shy;ность на&shy;ли&shy;чия пе&shy;рех&shy;ва&shy;та <code>AccessViolationException</code> идёт враз&shy;рез с иде&shy;о&shy;ло&shy;ги&shy;ей по&shy;ня&shy;тия фрейм&shy;ворк - как плат&shy;фор&shy;ма (т.е. ими&shy;та&shy;ция пол&shy;ной пе&shy;соч&shy;ни&shy;цы со сво&shy;ими за&shy;ко&shy;на&shy;ми). Одна&shy;ко мы все ещё на&shy;хо&shy;дим&shy;ся в ре&shy;а&shy;ли&shy;ях плат&shy;фор&shy;мы, на ко&shy;то&shy;рой ра&shy;бо&shy;та&shy;ем и во мно&shy;гих си&shy;ту&shy;а&shy;ци&shy;ях пе&shy;рех&shy;ва&shy;ты&shy;вать это ис&shy;клю&shy;че&shy;ние все ещё не&shy;об&shy;хо&shy;ди&shy;мо: вво&shy;дим спе&shy;ци&shy;альный ре&shy;жим пе&shy;рех&shy;ва&shy;та: толь&shy;ко ес&shy;ли вве&shy;де&shy;на со&shy;от&shy;вет&shy;с&shy;твующая кон&shy;фи&shy;гу&shy;ра&shy;ция;</p>
+</li>
+<li>
+<p >
+<code>.NET Core</code> На&shy;ко&shy;нец, сбы&shy;лась меч&shy;та ко&shy;ман&shy;ды CLR: .NET бо&shy;лее не пред&shy;по&shy;ла&shy;га&shy;ет за&shy;кон&shy;нос&shy;ти ра&shy;бо&shy;ты с unsafe ко&shy;дом, а по&shy;то&shy;му су&shy;щест&shy;во&shy;ва&shy;ние <code>AccessViolationException</code> те&shy;перь вне за&shy;ко&shy;на да&shy;же на уров&shy;не кон&shy;фи&shy;гу&shy;ра&shy;ции. .NET вы&shy;рос нас&shy;толь&shy;ко, что&shy;бы са&shy;мос&shy;то&shy;я&shy;тель&shy;но ус&shy;та&shy;нав&shy;ли&shy;вать пра&shy;ви&shy;ла. Те&shy;перь су&shy;щест&shy;во&shy;ва&shy;ние это&shy;го ис&shy;клю&shy;че&shy;ния в при&shy;ло&shy;же&shy;нии при&shy;ведёт его к ги&shy;бе&shy;ли, а по&shy;то&shy;му лю&shy;бой unsafe код (т.е. сам CLR) обя&shy;зан быть бе&shy;зо&shy;пас&shy;ным с точ&shy;ки зре&shy;ния это&shy;го ис&shy;клю&shy;че&shy;ния. Если оно по&shy;яв&shy;ля&shy;ет&shy;ся в unsafe биб&shy;ли&shy;о&shy;те&shy;ке, с ней прос&shy;то не бу&shy;дут ра&shy;бо&shy;тать, а зна&shy;чит, раз&shy;ра&shy;бот&shy;чи&shy;ки сто&shy;рон&shy;них ком&shy;по&shy;нент на unsafe язы&shy;ках бу&shy;дут бо&shy;лее ак&shy;ку&shy;рат&shy;ны&shy;ми и об&shy;ра&shy;ба&shy;ты&shy;вать его - у се&shy;бя.</p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">30</div>
-<p>Вот так, на примере одного исключения можно проследить историю становления .NET Framework как платформы: от неуверенного подчинения внешним правилам до самостоятельного установления правил самой платформой.</p>
+<p >
+Вот так, на при&shy;ме&shy;ре од&shy;но&shy;го ис&shy;клю&shy;че&shy;ния мож&shy;но прос&shy;ле&shy;дить ис&shy;то&shy;рию ста&shy;нов&shy;ле&shy;ния .NET Framework как плат&shy;фор&shy;мы: от не&shy;у&shy;ве&shy;рен&shy;но&shy;го под&shy;чи&shy;не&shy;ния внеш&shy;ним пра&shy;ви&shy;лам до са&shy;мос&shy;то&shy;я&shy;тель&shy;но&shy;го ус&shy;та&shy;нов&shy;ле&shy;ния пра&shy;вил са&shy;мой плат&shy;фор&shy;мой.</p>
 <div class="paragraph-right-side">30</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">31</div>
-<p>После всего сказанного осталось раскрыть последнюю тему: как включить обработку данного исключения в <code>4.0+</code>. Итак, чтобы включить обработку исключения данного типа в конкретном методе, необходимо:</p>
+<p >
+Пос&shy;ле все&shy;го ска&shy;зан&shy;но&shy;го ос&shy;та&shy;лось раск&shy;рыть пос&shy;лед&shy;нюю те&shy;му: как вклю&shy;чить об&shy;ра&shy;бот&shy;ку дан&shy;но&shy;го ис&shy;клю&shy;че&shy;ния в <code>4.0+</code>. Итак, что&shy;бы вклю&shy;чить об&shy;ра&shy;бот&shy;ку ис&shy;клю&shy;че&shy;ния дан&shy;но&shy;го ти&shy;па в конк&shy;рет&shy;ном ме&shy;то&shy;де, не&shy;об&shy;хо&shy;ди&shy;мо:</p>
 <div class="paragraph-right-side">31</div>
 </div>
 <ul>
-<li>Добавить в секцию <code>configuration/runtime</code> следующий код: <code>&lt;legacyCorruptedStateExceptionsPolicy enabled=&quot;true|false&quot;/&gt;</code></li>
-<li>Для каждого метода, где <em>необходимо</em> обработать <code>AccessViolationException</code>, надо добавить два атрибута: <code>HandleProcessCorruptedStateExceptions</code> и <code>SecurityCritical</code>. Эти атрибуты позволяют включить обработку Corrupted State Exceptions, для <em>конкретных</em> методов, а не для всех вообще. Эта схема очень правильная, поскольку вы должны быть точно уверены, что хотите их обрабатывать и знать, где: иногда более правильный вариант - просто завалить приложение на бок.</li>
+<li>
+<p >
+До&shy;ба&shy;вить в сек&shy;цию <code>configuration/runtime</code> сле&shy;ду&shy;ю&shy;щий код: <code>&lt;legacyCorruptedStateExceptionsPolicy enabled=&quot;true|false&quot;/&gt;</code></p>
+</li>
+<li>
+<p >
+Для каж&shy;до&shy;го ме&shy;то&shy;да, где <em>необходимо</em> об&shy;ра&shy;бо&shy;тать <code>AccessViolationException</code>, на&shy;до до&shy;ба&shy;вить два ат&shy;ри&shy;бу&shy;та: <code>HandleProcessCorruptedStateExceptions</code> и <code>SecurityCritical</code>. Эти ат&shy;ри&shy;бу&shy;ты поз&shy;во&shy;ля&shy;ют вклю&shy;чить об&shy;ра&shy;бот&shy;ку Corrupted State Exceptions, для <em>конкретных</em> ме&shy;то&shy;дов, а не для всех во&shy;об&shy;ще. Эта схе&shy;ма очень пра&shy;виль&shy;ная, пос&shy;коль&shy;ку вы дол&shy;жны быть точ&shy;но уве&shy;ре&shy;ны, что хо&shy;ти&shy;те их об&shy;ра&shy;ба&shy;ты&shy;вать и знать, где: иног&shy;да бо&shy;лее пра&shy;виль&shy;ный ва&shy;ри&shy;ант - прос&shy;то за&shy;ва&shy;лить при&shy;ло&shy;же&shy;ние на бок.</p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">32</div>
-<p>Для примера включения обработчика <code>CSE</code> и их примитивной обработки рассмотрим следующий код:</p>
+<p >
+Для при&shy;ме&shy;ра вклю&shy;че&shy;ния об&shy;ра&shy;бот&shy;чи&shy;ка <code>CSE</code> и их при&shy;ми&shy;тив&shy;ной об&shy;ра&shy;бот&shy;ки расс&shy;мот&shy;рим сле&shy;ду&shy;ю&shy;щий код:</p>
 <div class="paragraph-right-side">32</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1482,17 +1705,20 @@ BOOL IsProcessCorruptedStateException(DWORD dwExceptionCode, BOOL fCheckForSO <s
 <h4 id="stackoverflowexception">StackOverflowException</h4>
 <div class="paragraph-container">
 <div class="paragraph-left-side">33</div>
-<p>Последний тип исключений, о котором стоит поговорить - это ошибка переполнения стека. Она возникает тогда, когда, по сути, в массиве, выделенном под стек кончается память. Само строение стека мы подробно обсудили в соответствующей главе (<a href="./ThreadStack.html">Стек потока</a>), а здесь без сильного углубления остановимся на самой ошибке.</p>
+<p >
+Пос&shy;лед&shy;ний тип ис&shy;клю&shy;че&shy;ний, о ко&shy;то&shy;ром сто&shy;ит по&shy;го&shy;во&shy;рить - это ошиб&shy;ка пе&shy;ре&shy;пол&shy;не&shy;ния сте&shy;ка. Она воз&shy;ни&shy;ка&shy;ет тог&shy;да, ког&shy;да, по су&shy;ти, в мас&shy;си&shy;ве, вы&shy;де&shy;лен&shy;ном под стек кон&shy;ча&shy;ет&shy;ся па&shy;мять. Са&shy;мо стр&shy;о&shy;ение сте&shy;ка мы под&shy;роб&shy;но об&shy;су&shy;ди&shy;ли в со&shy;от&shy;вет&shy;с&shy;твующей гла&shy;ве (<a href="./ThreadStack.html">Стек потока</a>), а здесь без силь&shy;но&shy;го уг&shy;луб&shy;ле&shy;ния ос&shy;та&shy;но&shy;вим&shy;ся на са&shy;мой ошиб&shy;ке.</p>
 <div class="paragraph-right-side">33</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">34</div>
-<p>Итак, когда наступает нехватка памяти под стек потока (либо упёрлись в следующий занятый участок памяти и нет возможности выделить следующую страницу виртуальной памяти) или же поток упёрся в разрешённый диапазон памяти, происходит попытка доступа к адресному пространству, которое называется Guard page. По сути, этот диапазон - ловушка и не занимает никакой физической памяти. Вместо реального чтения или записи процессор вызывает специализированное прерывание, которое должно запросить у операционной системы новый участок памяти под рост стека потока. В случае достижения максимально-разрешенных значений операционная система вместо выделения нового участка генерирует исключительную ситуацию с кодом <code>STATUS_STACK_OVERFLOW</code>, которая будучи проброшенной через <code>Structured Exception Handling</code> механизм в .NET обрушивает текущий поток исполнения как более не корректный.</p>
+<p >
+Итак, ког&shy;да нас&shy;ту&shy;па&shy;ет нех&shy;ват&shy;ка па&shy;мя&shy;ти под стек по&shy;то&shy;ка (ли&shy;бо упёрлись в сле&shy;ду&shy;ю&shy;щий за&shy;ня&shy;тый учас&shy;ток па&shy;мя&shy;ти и нет воз&shy;мож&shy;нос&shy;ти вы&shy;де&shy;лить сле&shy;ду&shy;ю&shy;щую стра&shy;ни&shy;цу вир&shy;ту&shy;альной па&shy;мя&shy;ти) или же по&shy;ток упёрся в раз&shy;решённый ди&shy;а&shy;па&shy;зон па&shy;мя&shy;ти, про&shy;ис&shy;хо&shy;дит по&shy;пыт&shy;ка дос&shy;ту&shy;па к ад&shy;рес&shy;но&shy;му прост&shy;ранству, ко&shy;то&shy;рое на&shy;зы&shy;ва&shy;ет&shy;ся Guard page. По су&shy;ти, этот ди&shy;а&shy;па&shy;зон - ло&shy;вуш&shy;ка и не за&shy;ни&shy;ма&shy;ет ни&shy;ка&shy;кой фи&shy;зи&shy;чес&shy;кой па&shy;мя&shy;ти. Вмес&shy;то ре&shy;ал&shy;ьного чте&shy;ния или за&shy;пи&shy;си про&shy;цес&shy;сор вы&shy;зы&shy;ва&shy;ет спе&shy;ци&shy;а&shy;ли&shy;зи&shy;ро&shy;ван&shy;ное пре&shy;ры&shy;ва&shy;ние, ко&shy;то&shy;рое дол&shy;жно зап&shy;ро&shy;сить у опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы но&shy;вый учас&shy;ток па&shy;мя&shy;ти под рост сте&shy;ка по&shy;то&shy;ка. В слу&shy;чае дос&shy;ти&shy;же&shy;ния мак&shy;си&shy;маль&shy;но-раз&shy;ре&shy;шен&shy;ных зна&shy;че&shy;ний опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;те&shy;ма вмес&shy;то вы&shy;де&shy;ле&shy;ния но&shy;во&shy;го учас&shy;тка ге&shy;не&shy;ри&shy;ру&shy;ет ис&shy;клю&shy;чи&shy;тель&shy;ную си&shy;ту&shy;а&shy;цию с ко&shy;дом <code>STATUS_STACK_OVERFLOW</code>, ко&shy;то&shy;рая бу&shy;ду&shy;чи проб&shy;ро&shy;шен&shy;ной че&shy;рез <code>Structured Exception Handling</code> ме&shy;ха&shy;низм в .NET об&shy;ру&shy;ши&shy;ва&shy;ет те&shy;ку&shy;щий по&shy;ток ис&shy;пол&shy;не&shy;ния как бо&shy;лее не кор&shy;рект&shy;ный.</p>
 <div class="paragraph-right-side">34</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">35</div>
-<p>Прошу заметить что хоть данное исключение и является <code>Corrupted State Exception</code>, перехватить его при помощи <code>HandleProcessCorruptedStateExceptions</code> не представляется возможным. Т.е. следующий код не отработает:</p>
+<p >
+Про&shy;шу за&shy;ме&shy;тить что хоть дан&shy;ное ис&shy;клю&shy;че&shy;ние и яв&shy;ля&shy;ет&shy;ся <code>Corrupted State Exception</code>, пе&shy;рех&shy;ва&shy;тить его при по&shy;мо&shy;щи <code>HandleProcessCorruptedStateExceptions</code> не предс&shy;тав&shy;ля&shy;ет&shy;ся воз&shy;мож&shy;ным. Т.е. сле&shy;ду&shy;ю&shy;щий код не от&shy;ра&shy;бо&shy;та&shy;ет:</p>
 <div class="paragraph-right-side">35</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1524,7 +1750,8 @@ BOOL IsProcessCorruptedStateException(DWORD dwExceptionCode, BOOL fCheckForSO <s
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">36</div>
-<p>А не представляется возможным потому что переполнение стека может быть вызвано двумя путями: первый - это намеренный вызов рекурсивного метода, который не слишком аккуратен чтобы контролировать собственную глубину. Тут может возникнуть желание исправить ситуацию, перехватив выброс исключения. Однако, если подумать, мы тем самым легализуем данную ситуацию, позволяя ей случиться вновь, что выглядит скорее не дальновидным чем случаем проявления заботы. И вторая - случайность - получение StackOverflowException при вполне себе обычном вызове. Просто в данный момент глубина стека вызовов оказалась слишком критичной. В данном примере перехватывать исключение выглядит как что-то совсем дикое: приложение работало штатно, все шло хорошо, как вдруг легальный вызов метода при корректно работающих алгоритмах вызвал выброс исключения с дальнейшей развёрткой стека до ожидающего такого поведения участка кода. Хм&hellip; Ещё раз: мы ждём, что на следующем участке ничего не отработает потому что в стеке кончится память. Как по мне, это полный абсурд.</p>
+<p >
+А не предс&shy;тав&shy;ля&shy;ет&shy;ся воз&shy;мож&shy;ным по&shy;то&shy;му что пе&shy;ре&shy;пол&shy;не&shy;ние сте&shy;ка мо&shy;жет быть выз&shy;ва&shy;но дву&shy;мя пу&shy;тя&shy;ми: пер&shy;вый - это на&shy;ме&shy;рен&shy;ный вы&shy;зов ре&shy;кур&shy;сив&shy;но&shy;го ме&shy;то&shy;да, ко&shy;то&shy;рый не слиш&shy;ком ак&shy;ку&shy;ра&shy;тен что&shy;бы конт&shy;ро&shy;ли&shy;ро&shy;вать собст&shy;венную глу&shy;би&shy;ну. Тут мо&shy;жет воз&shy;ник&shy;нуть же&shy;ла&shy;ние ис&shy;пра&shy;вить си&shy;ту&shy;а&shy;цию, пе&shy;рех&shy;ва&shy;тив выб&shy;рос ис&shy;клю&shy;че&shy;ния. Одна&shy;ко, ес&shy;ли по&shy;ду&shy;мать, мы тем са&shy;мым ле&shy;га&shy;ли&shy;зу&shy;ем дан&shy;ную си&shy;ту&shy;а&shy;цию, поз&shy;во&shy;ляя ей слу&shy;чить&shy;ся вновь, что выг&shy;ля&shy;дит ско&shy;рее не даль&shy;но&shy;вид&shy;ным чем слу&shy;ча&shy;ем про&shy;яв&shy;ле&shy;ния за&shy;бо&shy;ты. И вто&shy;рая - слу&shy;чай&shy;ность - по&shy;лу&shy;че&shy;ние StackOverflowException при впол&shy;не се&shy;бе обыч&shy;ном вы&shy;зо&shy;ве. Прос&shy;то в дан&shy;ный мо&shy;мент глу&shy;би&shy;на сте&shy;ка вы&shy;зо&shy;вов ока&shy;за&shy;лась слиш&shy;ком кри&shy;тич&shy;ной. В дан&shy;ном при&shy;ме&shy;ре пе&shy;рех&shy;ва&shy;ты&shy;вать ис&shy;клю&shy;че&shy;ние выг&shy;ля&shy;дит как что-то сов&shy;сем ди&shy;кое: при&shy;ло&shy;же&shy;ние ра&shy;бо&shy;та&shy;ло штат&shy;но, все шло хо&shy;ро&shy;шо, как вдруг ле&shy;галь&shy;ный вы&shy;зов ме&shy;то&shy;да при кор&shy;рек&shy;тно ра&shy;бо&shy;та&shy;ю&shy;щих ал&shy;го&shy;рит&shy;мах выз&shy;вал выб&shy;рос ис&shy;клю&shy;че&shy;ния с даль&shy;ней&shy;шей развёрткой сте&shy;ка до ожи&shy;да&shy;ю&shy;ще&shy;го та&shy;ко&shy;го по&shy;ве&shy;де&shy;ния учас&shy;тка ко&shy;да. Хм&hellip; Ещё раз: мы ждём, что на сле&shy;ду&shy;ю&shy;щем учас&shy;тке ни&shy;че&shy;го не от&shy;ра&shy;бо&shy;та&shy;ет по&shy;то&shy;му что в сте&shy;ке кон&shy;чит&shy;ся па&shy;мять. Как по мне, это пол&shy;ный аб&shy;сурд.</p>
 <div class="paragraph-right-side">36</div>
 </div>
 

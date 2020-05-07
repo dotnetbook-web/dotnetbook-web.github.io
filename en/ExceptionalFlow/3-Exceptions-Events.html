@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>.NET Platform Architecture</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.NET Platform Architecture</title>
 </head>
 <body>
     <link rel="stylesheet" href="../../res/bootstrap.css">
@@ -57,27 +57,28 @@ strong {
 }
 
 p, li {
-    margin: 0 0 25px;
-    line-height: 32px;
+    margin: 0 0 1em;
+    line-height: 1.5em;
     font-family: inherit;
 }
 
 ol, li {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 ol {
-    padding-left: 1.2rem;
+    padding-left: 1.21em;
 }
 
 ul  {
-    padding-left: 35px;
+    padding-left: 1em;
 }
 
 ol li, ul li {
-    padding-left: 1rem;	
+    padding-left: 0.5em;	
     font-family: inherit;
+    text-align: justify;
 }
 
 table {
@@ -108,6 +109,7 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 *[class*='lang-'] {
     padding: 0px 0px 25px 0px;
+    font-size: 0.75em;
 }
 
 
@@ -126,11 +128,11 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 }
 
 p code:not(.highlight), li code:not(.highlight) {
-    font-size: 16px;
+    font-size: 0.7em;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
-    padding: 4px;
+    padding: 3px;
     color: darkslateblue;
 }
 
@@ -148,11 +150,6 @@ p code.highlight, li code.highlight {
 
 .wide {
     width:150%;
-}
-
-*[class*='lang-'] span, *[class*='lang-'] pre, pre > code {
-    font-size: 13px;
-    line-height: 20px;
 }
 
 p a, li a {
@@ -179,9 +176,9 @@ p img {
 
 blockquote 
 {
-    background-color: lavenderblush;
-    padding-left: 20px;
-    border-left: 1px solid rgba(0,0,0,.08);
+    padding-left: 0.4em;
+    border-left: 0.5em solid rgba(0,0,0,.08);
+    font-style: italic;
 }
 
 blockquote.big-quote, 
@@ -199,8 +196,7 @@ blockquote.breadcrumbs, blockquote.breadcrumbs  p
 }
 
 blockquote p {
-    margin: 16px 0;
-    padding: 12px 12px 13px;
+    padding: 1em 1em 1em 0.6em;
     font-family: inherit;
 }
 
@@ -210,11 +206,14 @@ blockquote p code {
     padding: 4px 6px;
 }
 
+blockquote p em {
+    font-weight: 400;
+}
+
 blockquote.big-quote > p {
     margin: 40px 0 60px 0;
     font-family: Charter;
     font-size: 55px;
-    line-height: 60px;
     padding: 0;
     width: 150%;
 }
@@ -227,31 +226,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 40px;
-    font-family: PF Regal,Georgia,serif;
+    font-size: 2.2em;
+    font-family: Charter,Georgia,serif;
     font-weight: 300;
-    margin: 40px 0 20px 0;
-    border-bottom-style: ridge;
-    padding-bottom: 10px;
-}
-
-h1 b {
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-weight: 700;
-    font-size: 37px;
-    line-height: 42px;
+    margin: 1.8em 0 1.8em 0;
+    text-align: center;
 }
 
 h2 {
-    margin-top: 35px;
-    margin-bottom: 10px;
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-    border-bottom-color: grey;
-    border-bottom-style: solid;
-    padding-bottom: 5px;
+    margin-top: 2em;
+    margin-left: 1.2em;
+    font-family: Charter,Arial,Helvetica Neue,sans-serif;
+    font-size: 1.25em;
+    width: 70%;
 }
 
 h3 {
@@ -293,27 +280,23 @@ h4 {
     line-height: 24px;
     font-size: 13pt;
     margin: 0 0 13px 0;
-    font-family: Charter;
-}
-
-.side-regular-block {
-    border-radius: 5px;
-    background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
-    padding: 22px;
 }
 
 .side-regular-block p {
     top: 0;
 }
-/* Music side player */
 
+/* Music side player */
 .aside-side-container .music-player {
     width: 100%;
     height: 400px;
 }
 
-.aside-side-container.side-media-block h2 {
-    margin-top: -12px;
+/* media block after h1 */
+.aside-container h1 + .aside-side-container.side-media-block h2 {
+    margin: 7em 0 1em 0;
+    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
+    font-weight: 600;
 }
 
 .aside-side-container > li {
@@ -323,8 +306,8 @@ h4 {
 
 .aside-side-container > li ul, .aside-side-container > li ol {
     padding-left: 30px;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 .aside-side-container > li li {
     padding-left: 6px;
@@ -353,6 +336,12 @@ h4 {
     position: relative;
     top: 9px;
 }
+
+.paragraph-container p, .aside-container > p {
+    text-align: justify;
+    text-indent: 1.5em;
+}
+
 .paragraph-container > .paragraph-left-side, .paragraph-container > .paragraph-right-side  {
     font-family: JB Mono, consolas;
     display: block;
@@ -364,12 +353,14 @@ h4 {
     z-index: 1000;
 }
 .paragraph-container > .paragraph-left-side {
-    left: -55px;
+    display: none;
+    left: -2.1cm;
     width: 35px;
     user-select: none;
 }
 
 .paragraph-container > .paragraph-right-side  {
+    display: none;
     left: 100%;
     width: 35px;
     padding-left: 45px;
@@ -400,8 +391,8 @@ h4 {
 
 
 /* MEDIA */
-/* XL */
-@media (min-width: 1400px) {
+/* XXL */
+@media (min-width: 1801px) {
     .book-container
     {
         max-width: 1200px;
@@ -410,12 +401,21 @@ h4 {
     }
 }
 
+/* XL */
+@media (max-width: 1800px) {
+    .book-container
+    {
+        margin-left: 4cm;
+        margin-right: 4cm;
+    }
+}
+
 /* LG */
 @media (max-width: 1400px) {
     .book-container
     {
-        margin-left: 70px;
-        margin-right: 70px;
+        margin-left: 4cm;
+        margin-right: 4cm;
     }
 
     blockquote.big-quote > p {
@@ -425,14 +425,23 @@ h4 {
         margin: 0;
         padding: 4px 0 30px 0;
     }
+}
 
-    .paragraph-container .paragraph-left-side {
-        left: -40px;
-    }
+@media (max-width: 1100px) {
 }
 
 /* MD */
 @media (max-width: 991px) {
+    
+    h2 {
+        width:80%;
+    }
+
+    .book-container
+    {
+        margin-left: 3cm;
+        margin-right: 3cm;
+    }
     
     .book-title-container {
         margin: 73px 0 110px 0;
@@ -453,26 +462,21 @@ h4 {
 
     .book-superheading-title {
         font-size: 15pt;
-    }
-    .book-container {
-        margin: 0 100px;
-    }
+    }                                     
     .article-container {
         width: 100%;
-    }
-    .aside-container > .aside-side-container
-    {
-        position: relative;
-        top: auto;
-        left: auto;
-        width: auto;
-        height: auto;
-        margin: 0;
-        padding: 17px;
     }
 
     .aside-container p {
         top: 0;
+    }
+
+    .aside-container h1 + .aside-side-container.side-media-block h2 {
+        display: none;
+    }
+
+    .wide {
+        width: 100%;     
     }
 
     .side-regular-block {
@@ -490,6 +494,17 @@ h4 {
         margin-top: 20px;
         font-size: 13pt;
         border: none;
+    }
+
+    .aside-container > .aside-side-container
+    {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 17px;
     }
 
     blockquote.big-quote > p {
@@ -519,6 +534,12 @@ h4 {
     li {
         margin: 0 0 10px 0;
     }
+
+    .side-regular-block {
+        border-radius: 5px;
+        background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
+        padding: 22px;
+    }    
 }
 
 /* Smartphone horizontal - SM */
@@ -545,7 +566,7 @@ h4 {
     }
 
     .book-container {
-        margin: 0 50px;
+        margin: 0 2.5cm;
     }
     ul {
         margin-left: 30px;
@@ -553,14 +574,29 @@ h4 {
         padding-left: 25px;
     }
     .paragraph-container > .paragraph-left-side {
-        top: 15px;
+	display: block;
+        top: 14px;
+        font-size: 9pt;
     }
     .paragraph-container > .paragraph-right-side {
-        padding-left: 20px;
-        top: 15px;
+	display: block;
+        padding-left: 40px;
+        top: 14px;
+        font-size: 9pt;
     }
 }
 
+@media (max-width: 630px) {
+    .book-container {
+        margin: 0 1.5cm;
+    }
+    .paragraph-container > .paragraph-left-side {
+        left: -33px;
+    }
+    .paragraph-container > .paragraph-right-side {
+        padding-left: 24px;
+    }
+}
 /* Smartphone - XS */
 @media (max-width: 575px) {
     .book-container {
@@ -581,15 +617,14 @@ h4 {
     }
    
     p, li {
-        line-height: 28px;
+        line-height: 24px;
     }    
     .paragraph-container .paragraph-left-side {
-        display: none;
-        top: 14px;
-    }
+        display: none;        }
     .paragraph-container .paragraph-right-side {
-        padding-left: 10px;
+        padding-left: 21px;
         top: 14px;
+	font-size: 8pt;
     }
 }
 
@@ -830,11 +865,13 @@ h4 {
     <p class="d-none d-xl-block">XL</p> -->
     <h2 id="events-that-indicate-exceptional-situations">Events that indicate exceptional situations</h2>
 <blockquote>
-<p><a href="https://github.com/sidristij/dotnetbook/issues/51">A link to the discussion</a></p>
+<p >
+<a href="https://github.com/sidristij/dotnetbook/issues/51">A link to the discussion</a></p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p>In general, we don’t always know about those exceptions that can happen in our programs because we almost always use somebody else’s code, something that is in other subsystems or libraries. Not only are different situations possible in your code or in the code of other libraries, but there are a lot of problems with running code in isolated domains. In this case, it would be useful to get information about the running isolated code  because the situation when third-party code catches all exceptions by addressing them with a <code>fault</code> block can be quite real:</p>
+<p >
+In general, we don’t always know about those exceptions that can happen in our programs because we almost always use somebody else’s code, something that is in other subsystems or libraries. Not only are different situations possible in your code or in the code of other libraries, but there are a lot of problems with running code in isolated domains. In this case, it would be useful to get information about the running isolated code  because the situation when third-party code catches all exceptions by addressing them with a <code>fault</code> block can be quite real:</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -847,52 +884,73 @@ h4 {
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p>In this case, the execution of code may seem safer as it actually is, but we won’t get any messages about problems. The second case is when an application suppresses an exception, even a legal one. As a result, the next exception in a random place will cause the application to break down because of a seemingly accidental error. In this case, we would prefer to know what happened prior to this error. What chain of events caused such an outcome? To make this knowledge possible you may choose to employ additional events that belong to exceptional situations: <code>AppDomain.FirstChanceException</code> and <code>AppDomain.UnhandledException</code>.</p>
+<p >
+In this case, the execution of code may seem safer as it actually is, but we won’t get any messages about problems. The second case is when an application suppresses an exception, even a legal one. As a result, the next exception in a random place will cause the application to break down because of a seemingly accidental error. In this case, we would prefer to know what happened prior to this error. What chain of events caused such an outcome? To make this knowledge possible you may choose to employ additional events that belong to exceptional situations: <code>AppDomain.FirstChanceException</code> and <code>AppDomain.UnhandledException</code>.</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p>In fact, when you <em>&laquo;throw an exception&raquo;</em>, you call an ordinary method of the <code>throw</code> subsystem. This method performs several internal operations:</p>
+<p >
+In fact, when you <em>&laquo;throw an exception&raquo;</em>, you call an ordinary method of the <code>throw</code> subsystem. This method performs several internal operations:</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <ul>
-<li>calls <code>AppDomain.FirstChanceException</code>;</li>
-<li>looks through the chain of handlers to find one with relevant filters;</li>
-<li>goes back to a necessary frame in stack and calls the handler;</li>
-<li>if the handler was not found, calls <code>AppDomain.UnhandledException</code> and terminates the thread where the exception was thrown.</li>
+<li>
+<p >
+calls <code>AppDomain.FirstChanceException</code>;</p>
+</li>
+<li>
+<p >
+looks through the chain of handlers to find one with relevant filters;</p>
+</li>
+<li>
+<p >
+goes back to a necessary frame in stack and calls the handler;</p>
+</li>
+<li>
+<p >
+if the handler was not found, calls <code>AppDomain.UnhandledException</code> and terminates the thread where the exception was thrown.</p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p>You may wonder if you can cancel the exception in uncontrolled code which runs in an isolated domain without terminating the thread where this exception was thrown. The answer is NO.</p>
+<p >
+You may wonder if you can cancel the exception in uncontrolled code which runs in an isolated domain without terminating the thread where this exception was thrown. The answer is NO.</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p>If an exception was not caught throughout the whole range of called methods it can’t be handled at all. Otherwise, there is a strange situation: if we use <code>AppDomain.FirstChanceException</code> to process (with some synthetic <code>catch</code>) an exception, which frame should the stack go back to? How should we set it up within the rules of <code>.NET</code> CLR? In no way. It’s impossible. The only thing we can do is to record this data for future research.</p>
+<p >
+If an exception was not caught throughout the whole range of called methods it can’t be handled at all. Otherwise, there is a strange situation: if we use <code>AppDomain.FirstChanceException</code> to process (with some synthetic <code>catch</code>) an exception, which frame should the stack go back to? How should we set it up within the rules of <code>.NET</code> CLR? In no way. It’s impossible. The only thing we can do is to record this data for future research.</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p>Another thing we should mention at &quot;the very beginning” is why <code>thread</code> and not <code>AppDomain</code> has these events. It is because exceptions logically appear in an execution thread. That means <code>thread</code> in fact. So, why does a domain have problems? The answer is simple: what are the situations <code>AppDomain.FirstChanceException</code> and <code>AppDomain.UnhandledException</code> used for? Above all, they are used to create sandboxes for plug-ins, i.e. situations where there is some <code>AppDomain</code> which is set for PartialTrust. All kinds of things can happen in this <code>AppDomain</code>: new threads can be created at any moment or those already existing in <code>ThreadPool</code> can be used. Thus, we, being outside this process (as we didn’t write this code), can’t subscribe to events of these internal threads — we just don’t know what threads were created there. But we definitely have the <code>AppDomain</code> which we have a link to and which creates a sandbox for us.</p>
+<p >
+Another thing we should mention at "the very beginning” is why <code>thread</code> and not <code>AppDomain</code> has these events. It is because exceptions logically appear in an execution thread. That means <code>thread</code> in fact. So, why does a domain have problems? The answer is simple: what are the situations <code>AppDomain.FirstChanceException</code> and <code>AppDomain.UnhandledException</code> used for? Above all, they are used to create sandboxes for plug-ins, i.e. situations where there is some <code>AppDomain</code> which is set for PartialTrust. All kinds of things can happen in this <code>AppDomain</code>: new threads can be created at any moment or those already existing in <code>ThreadPool</code> can be used. Thus, we, being outside this process (as we didn’t write this code), can’t subscribe to events of these internal threads — we just don’t know what threads were created there. But we definitely have the <code>AppDomain</code> which we have a link to and which creates a sandbox for us.</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p>So, in fact, we have two boundary states: something unexpected happened (<code>FirstChanceException</code>) and &laquo;things are bad&raquo;, the exception was unexpected and nobody handled it. That’s why further thread execution makes no sense and the <code>thread</code> will be unloaded.</p>
+<p >
+So, in fact, we have two boundary states: something unexpected happened (<code>FirstChanceException</code>) and &laquo;things are bad&raquo;, the exception was unexpected and nobody handled it. That’s why further thread execution makes no sense and the <code>thread</code> will be unloaded.</p>
 <div class="paragraph-right-side">07</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p>What can we get if we have these events and why is it bad if developers ignore them.</p>
+<p >
+What can we get if we have these events and why is it bad if developers ignore them.</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <h3 id="appdomain.firstchanceexception">AppDomain.FirstChanceException</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
-<p>This event is purely informational and can’t be handled. Its task is to notify us about an exception that happened within this domain and will be processed by the application code after processing the event. Its execution has several features we should be aware of when designing a handler.</p>
+<p >
+This event is purely informational and can’t be handled. Its task is to notify us about an exception that happened within this domain and will be processed by the application code after processing the event. Its execution has several features we should be aware of when designing a handler.</p>
 <div class="paragraph-right-side">09</div>
 </div>
-<p>However, let’s first look at a simple synthetic example of exception handling:</p>
+<p >
+However, let’s first look at a simple synthetic example of exception handling:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">void</span> Main()
 {
@@ -912,30 +970,36 @@ h4 {
 
 </pre></div>
 </div>
-<p>What is in this code?</p>
+<p >
+What is in this code?</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
-<p>Firstly, no matter where an exception is generated, it will be logged in a console first. I mean even if you forget or can’t implement the handling of some type of exception it will anyway appear in a log that you arrange.</p>
+<p >
+Firstly, no matter where an exception is generated, it will be logged in a console first. I mean even if you forget or can’t implement the handling of some type of exception it will anyway appear in a log that you arrange.</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
-<p>Secontly, we see a somewhat strange condition for throwing an internal exception. It is because you can’t just throw another exception inside a <code>FirstChanceException</code> handler. Or, it’s better to say you <em>don’t have an opportunity</em> to throw an exception inside <code>FirstChanceException</code>. If you do this, it may have two possible outcomes.</p>
+<p >
+Secontly, we see a somewhat strange condition for throwing an internal exception. It is because you can’t just throw another exception inside a <code>FirstChanceException</code> handler. Or, it’s better to say you <em>don’t have an opportunity</em> to throw an exception inside <code>FirstChanceException</code>. If you do this, it may have two possible outcomes.</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
-<p>First, if we didn’t have the <code>if(++counter == 1)</code> condition, we would get infinite <code>FirstChanceException</code> for all new <code>ArgumentOutOfRangeException</code>. What does it mean? It means that at some point we would get <code>StackOverflowException</code>: <code>throw new Exception(&quot;Hello!&quot;)</code> calls the <code>Throw</code> CLR method that calls <code>FirstChanceException</code> which calls <code>Throw</code> for <code>ArgumentOutOfRangeException</code> already and so on based on recursion. The second variant involves protecting ourselves in terms of recursion depth using <code>counter</code> condition. In this case, we throw an exception only once. The result is unexpected as we get an exceptional situation which in fact occurs inside a <code>throw</code> instruction.</p>
+<p >
+First, if we didn’t have the <code>if(++counter == 1)</code> condition, we would get infinite <code>FirstChanceException</code> for all new <code>ArgumentOutOfRangeException</code>. What does it mean? It means that at some point we would get <code>StackOverflowException</code>: <code>throw new Exception(&quot;Hello!&quot;)</code> calls the <code>Throw</code> CLR method that calls <code>FirstChanceException</code> which calls <code>Throw</code> for <code>ArgumentOutOfRangeException</code> already and so on based on recursion. The second variant involves protecting ourselves in terms of recursion depth using <code>counter</code> condition. In this case, we throw an exception only once. The result is unexpected as we get an exceptional situation which in fact occurs inside a <code>throw</code> instruction.</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
-<p>What does fit best for such an error type? ECMA-335 says that if an instruction came to an unexpected state, <code>ExecutionEngineException</code> should be thrown. This is an exception that we can’t handle. It leads to application termination. What variants of safe handling do we have?</p>
+<p >
+What does fit best for such an error type? ECMA-335 says that if an instruction came to an unexpected state, <code>ExecutionEngineException</code> should be thrown. This is an exception that we can’t handle. It leads to application termination. What variants of safe handling do we have?</p>
 <div class="paragraph-right-side">13</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
-<p>The first that comes to mind is to secure the whole <code>FirstChanceException</code> handler code by a <code>try-catch</code> block:</p>
+<p >
+The first that comes to mind is to secure the whole <code>FirstChanceException</code> handler code by a <code>try-catch</code> block:</p>
 <div class="paragraph-right-side">14</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -998,22 +1062,26 @@ Success
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
-<p>Thus, on the one hand, we have a code to handle a <code>FirstChanceException</code> event and on the other hand, we have an additional code to handle exceptions in <code>FirstChanceException</code> itself.</p>
+<p >
+Thus, on the one hand, we have a code to handle a <code>FirstChanceException</code> event and on the other hand, we have an additional code to handle exceptions in <code>FirstChanceException</code> itself.</p>
 <div class="paragraph-right-side">15</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
-<p>However, approaches to log both scenarios should be different. If event processing can be logged in any possible way, the handling of <code>FirstChanceException</code> logic error should be done without any exceptions. The second thing, which you probably noticed, is the synchronization among threads. You may ask why it should be here if any exception appears in some thread which means that <code>FirstChanceException</code> is thread-safe in theory.</p>
+<p >
+However, approaches to log both scenarios should be different. If event processing can be logged in any possible way, the handling of <code>FirstChanceException</code> logic error should be done without any exceptions. The second thing, which you probably noticed, is the synchronization among threads. You may ask why it should be here if any exception appears in some thread which means that <code>FirstChanceException</code> is thread-safe in theory.</p>
 <div class="paragraph-right-side">16</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
-<p>Don’t be so optimistic. <code>FirstChanceException</code> happens in <code>AppDomain</code>.  It means it impacts any thread started in a particular domain. Thus, if we have a domain with several running threads, then <code>FirstChanceException</code> can run in parallel. It means that we should protect our thread by synchronization, e.g. using <code>lock</code>.</p>
+<p >
+Don’t be so optimistic. <code>FirstChanceException</code> happens in <code>AppDomain</code>.  It means it impacts any thread started in a particular domain. Thus, if we have a domain with several running threads, then <code>FirstChanceException</code> can run in parallel. It means that we should protect our thread by synchronization, e.g. using <code>lock</code>.</p>
 <div class="paragraph-right-side">17</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
-<p>Another way is to transfer exception handling to an adjacent thread, belonging to another application domain. However, in this case we should build a domain, dedicated for this task so that other worker threads wouldn’t bring this domain down.</p>
+<p >
+Another way is to transfer exception handling to an adjacent thread, belonging to another application domain. However, in this case we should build a domain, dedicated for this task so that other worker threads wouldn’t bring this domain down.</p>
 <div class="paragraph-right-side">18</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1101,23 +1169,27 @@ Success
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
-<p>In this case, the handling of <code>FirstChanceException</code> is done safely in an adjacent thread that belongs to a neighboring domain. Thus, the errors of message handling can’t bring worker threads down. Additionally, we can listen to <code>UnhandledException</code> in message logging domain: fatal errors during logging won’t bring the whole application down.</p>
+<p >
+In this case, the handling of <code>FirstChanceException</code> is done safely in an adjacent thread that belongs to a neighboring domain. Thus, the errors of message handling can’t bring worker threads down. Additionally, we can listen to <code>UnhandledException</code> in message logging domain: fatal errors during logging won’t bring the whole application down.</p>
 <div class="paragraph-right-side">19</div>
 </div>
 <h3 id="appdomain.unhandledexception">AppDomain.UnhandledException</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
-<p>The second message which we can catch and which refers to exception handling is <code>AppDomain.UnhandledException</code>. This message is bad news for us as it means that nobody was able to handle an error in some thread. It also means, that the only thing we can do is to clean up the consequences of such an error,  i.e. the resources assigned to this thread if they were created. However, it’s better to handle exceptions within threads, without bringing a thread down,  that means to use <code>try-catch</code>. Let’s check the efficiency of this approach.</p>
+<p >
+The second message which we can catch and which refers to exception handling is <code>AppDomain.UnhandledException</code>. This message is bad news for us as it means that nobody was able to handle an error in some thread. It also means, that the only thing we can do is to clean up the consequences of such an error,  i.e. the resources assigned to this thread if they were created. However, it’s better to handle exceptions within threads, without bringing a thread down,  that means to use <code>try-catch</code>. Let’s check the efficiency of this approach.</p>
 <div class="paragraph-right-side">20</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
-<p>Assume that we have a library that should create threads and implement some logic in them. We, as users of this library, are interested only in guaranteed API calls and getting error messages.</p>
+<p >
+Assume that we have a library that should create threads and implement some logic in them. We, as users of this library, are interested only in guaranteed API calls and getting error messages.</p>
 <div class="paragraph-right-side">21</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
-<p>If the library brings down threads quietly, it won’t be of much use for us. Moreover, bringing down a thread will lead to an <code>AppDomain.UnhandledException</code> message which doesn’t indicates the affected thread. In case of our own code, this thread won’t be helpful either. Anyway, I haven’t seen situations where it could be necessary. Our task is to handle errors properly, log them, and terminate a thread correctly. In fact it means that we should wrap a method that starts a thread in <code>try-catch</code>:</p>
+<p >
+If the library brings down threads quietly, it won’t be of much use for us. Moreover, bringing down a thread will lead to an <code>AppDomain.UnhandledException</code> message which doesn’t indicates the affected thread. In case of our own code, this thread won’t be helpful either. Anyway, I haven’t seen situations where it could be necessary. Our task is to handle errors properly, log them, and terminate a thread correctly. In fact it means that we should wrap a method that starts a thread in <code>try-catch</code>:</p>
 <div class="paragraph-right-side">22</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1137,17 +1209,20 @@ Success
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
-<p>With this scheme we will meet our goal: on the one hand, we don’t bring a thread down, on the other hand, we clean up local resources correctly if they were created. Also, we log those errors that we get.</p>
+<p >
+With this scheme we will meet our goal: on the one hand, we don’t bring a thread down, on the other hand, we clean up local resources correctly if they were created. Also, we log those errors that we get.</p>
 <div class="paragraph-right-side">23</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">24</div>
-<p>&laquo;<em>Hold on</em>&raquo; - you might say - &laquo;<em>You left the topic of</em> <code>AppDomain.UnhandledException</code> <em>event too quickly. Is it really unnecessary?</em>&raquo;</p>
+<p >
+&laquo;<em>Hold on</em>&raquo; - you might say - &laquo;<em>You left the topic of</em> <code>AppDomain.UnhandledException</code> <em>event too quickly. Is it really unnecessary?</em>&raquo;</p>
 <div class="paragraph-right-side">24</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
-<p>Well, it is necessary. But we need it only to alert us if we forgot to wrap some threads in <code>try-catch</code> with all the necessary logic, including logging and resource cleanup. Otherwise, it would be completely wrong to address all exceptions as if they never occured.</p>
+<p >
+Well, it is necessary. But we need it only to alert us if we forgot to wrap some threads in <code>try-catch</code> with all the necessary logic, including logging and resource cleanup. Otherwise, it would be completely wrong to address all exceptions as if they never occured.</p>
 <div class="paragraph-right-side">25</div>
 </div>
 

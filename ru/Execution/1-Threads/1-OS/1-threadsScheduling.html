@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>.NET Platform Architecture</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.NET Platform Architecture</title>
 </head>
 <body>
     <link rel="stylesheet" href="../../../../res/bootstrap.css">
@@ -57,27 +57,28 @@ strong {
 }
 
 p, li {
-    margin: 0 0 25px;
-    line-height: 32px;
+    margin: 0 0 1em;
+    line-height: 1.5em;
     font-family: inherit;
 }
 
 ol, li {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 ol {
-    padding-left: 1.2rem;
+    padding-left: 1.21em;
 }
 
 ul  {
-    padding-left: 35px;
+    padding-left: 1em;
 }
 
 ol li, ul li {
-    padding-left: 1rem;	
+    padding-left: 0.5em;	
     font-family: inherit;
+    text-align: justify;
 }
 
 table {
@@ -108,6 +109,7 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 *[class*='lang-'] {
     padding: 0px 0px 25px 0px;
+    font-size: 0.75em;
 }
 
 
@@ -126,11 +128,11 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 }
 
 p code:not(.highlight), li code:not(.highlight) {
-    font-size: 16px;
+    font-size: 0.7em;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
-    padding: 4px;
+    padding: 3px;
     color: darkslateblue;
 }
 
@@ -148,11 +150,6 @@ p code.highlight, li code.highlight {
 
 .wide {
     width:150%;
-}
-
-*[class*='lang-'] span, *[class*='lang-'] pre, pre > code {
-    font-size: 13px;
-    line-height: 20px;
 }
 
 p a, li a {
@@ -179,9 +176,9 @@ p img {
 
 blockquote 
 {
-    background-color: lavenderblush;
-    padding-left: 20px;
-    border-left: 1px solid rgba(0,0,0,.08);
+    padding-left: 0.4em;
+    border-left: 0.5em solid rgba(0,0,0,.08);
+    font-style: italic;
 }
 
 blockquote.big-quote, 
@@ -199,8 +196,7 @@ blockquote.breadcrumbs, blockquote.breadcrumbs  p
 }
 
 blockquote p {
-    margin: 16px 0;
-    padding: 12px 12px 13px;
+    padding: 1em 1em 1em 0.6em;
     font-family: inherit;
 }
 
@@ -210,11 +206,14 @@ blockquote p code {
     padding: 4px 6px;
 }
 
+blockquote p em {
+    font-weight: 400;
+}
+
 blockquote.big-quote > p {
     margin: 40px 0 60px 0;
     font-family: Charter;
     font-size: 55px;
-    line-height: 60px;
     padding: 0;
     width: 150%;
 }
@@ -227,31 +226,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 40px;
-    font-family: PF Regal,Georgia,serif;
+    font-size: 2.2em;
+    font-family: Charter,Georgia,serif;
     font-weight: 300;
-    margin: 40px 0 20px 0;
-    border-bottom-style: ridge;
-    padding-bottom: 10px;
-}
-
-h1 b {
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-weight: 700;
-    font-size: 37px;
-    line-height: 42px;
+    margin: 1.8em 0 1.8em 0;
+    text-align: center;
 }
 
 h2 {
-    margin-top: 35px;
-    margin-bottom: 10px;
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-    border-bottom-color: grey;
-    border-bottom-style: solid;
-    padding-bottom: 5px;
+    margin-top: 2em;
+    margin-left: 1.2em;
+    font-family: Charter,Arial,Helvetica Neue,sans-serif;
+    font-size: 1.25em;
+    width: 70%;
 }
 
 h3 {
@@ -293,27 +280,23 @@ h4 {
     line-height: 24px;
     font-size: 13pt;
     margin: 0 0 13px 0;
-    font-family: Charter;
-}
-
-.side-regular-block {
-    border-radius: 5px;
-    background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
-    padding: 22px;
 }
 
 .side-regular-block p {
     top: 0;
 }
-/* Music side player */
 
+/* Music side player */
 .aside-side-container .music-player {
     width: 100%;
     height: 400px;
 }
 
-.aside-side-container.side-media-block h2 {
-    margin-top: -12px;
+/* media block after h1 */
+.aside-container h1 + .aside-side-container.side-media-block h2 {
+    margin: 7em 0 1em 0;
+    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
+    font-weight: 600;
 }
 
 .aside-side-container > li {
@@ -323,8 +306,8 @@ h4 {
 
 .aside-side-container > li ul, .aside-side-container > li ol {
     padding-left: 30px;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 .aside-side-container > li li {
     padding-left: 6px;
@@ -353,6 +336,12 @@ h4 {
     position: relative;
     top: 9px;
 }
+
+.paragraph-container p, .aside-container > p {
+    text-align: justify;
+    text-indent: 1.5em;
+}
+
 .paragraph-container > .paragraph-left-side, .paragraph-container > .paragraph-right-side  {
     font-family: JB Mono, consolas;
     display: block;
@@ -364,12 +353,14 @@ h4 {
     z-index: 1000;
 }
 .paragraph-container > .paragraph-left-side {
-    left: -55px;
+    display: none;
+    left: -2.1cm;
     width: 35px;
     user-select: none;
 }
 
 .paragraph-container > .paragraph-right-side  {
+    display: none;
     left: 100%;
     width: 35px;
     padding-left: 45px;
@@ -400,8 +391,8 @@ h4 {
 
 
 /* MEDIA */
-/* XL */
-@media (min-width: 1400px) {
+/* XXL */
+@media (min-width: 1801px) {
     .book-container
     {
         max-width: 1200px;
@@ -410,12 +401,21 @@ h4 {
     }
 }
 
+/* XL */
+@media (max-width: 1800px) {
+    .book-container
+    {
+        margin-left: 4cm;
+        margin-right: 4cm;
+    }
+}
+
 /* LG */
 @media (max-width: 1400px) {
     .book-container
     {
-        margin-left: 70px;
-        margin-right: 70px;
+        margin-left: 4cm;
+        margin-right: 4cm;
     }
 
     blockquote.big-quote > p {
@@ -425,14 +425,23 @@ h4 {
         margin: 0;
         padding: 4px 0 30px 0;
     }
+}
 
-    .paragraph-container .paragraph-left-side {
-        left: -40px;
-    }
+@media (max-width: 1100px) {
 }
 
 /* MD */
 @media (max-width: 991px) {
+    
+    h2 {
+        width:80%;
+    }
+
+    .book-container
+    {
+        margin-left: 3cm;
+        margin-right: 3cm;
+    }
     
     .book-title-container {
         margin: 73px 0 110px 0;
@@ -453,26 +462,21 @@ h4 {
 
     .book-superheading-title {
         font-size: 15pt;
-    }
-    .book-container {
-        margin: 0 100px;
-    }
+    }                                     
     .article-container {
         width: 100%;
-    }
-    .aside-container > .aside-side-container
-    {
-        position: relative;
-        top: auto;
-        left: auto;
-        width: auto;
-        height: auto;
-        margin: 0;
-        padding: 17px;
     }
 
     .aside-container p {
         top: 0;
+    }
+
+    .aside-container h1 + .aside-side-container.side-media-block h2 {
+        display: none;
+    }
+
+    .wide {
+        width: 100%;     
     }
 
     .side-regular-block {
@@ -490,6 +494,17 @@ h4 {
         margin-top: 20px;
         font-size: 13pt;
         border: none;
+    }
+
+    .aside-container > .aside-side-container
+    {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 17px;
     }
 
     blockquote.big-quote > p {
@@ -519,6 +534,12 @@ h4 {
     li {
         margin: 0 0 10px 0;
     }
+
+    .side-regular-block {
+        border-radius: 5px;
+        background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
+        padding: 22px;
+    }    
 }
 
 /* Smartphone horizontal - SM */
@@ -545,7 +566,7 @@ h4 {
     }
 
     .book-container {
-        margin: 0 50px;
+        margin: 0 2.5cm;
     }
     ul {
         margin-left: 30px;
@@ -553,14 +574,29 @@ h4 {
         padding-left: 25px;
     }
     .paragraph-container > .paragraph-left-side {
-        top: 15px;
+	display: block;
+        top: 14px;
+        font-size: 9pt;
     }
     .paragraph-container > .paragraph-right-side {
-        padding-left: 20px;
-        top: 15px;
+	display: block;
+        padding-left: 40px;
+        top: 14px;
+        font-size: 9pt;
     }
 }
 
+@media (max-width: 630px) {
+    .book-container {
+        margin: 0 1.5cm;
+    }
+    .paragraph-container > .paragraph-left-side {
+        left: -33px;
+    }
+    .paragraph-container > .paragraph-right-side {
+        padding-left: 24px;
+    }
+}
 /* Smartphone - XS */
 @media (max-width: 575px) {
     .book-container {
@@ -581,15 +617,14 @@ h4 {
     }
    
     p, li {
-        line-height: 28px;
+        line-height: 24px;
     }    
     .paragraph-container .paragraph-left-side {
-        display: none;
-        top: 14px;
-    }
+        display: none;        }
     .paragraph-container .paragraph-right-side {
-        padding-left: 10px;
+        padding-left: 21px;
         top: 14px;
+	font-size: 8pt;
     }
 }
 
@@ -829,131 +864,183 @@ h4 {
     <p class="d-none d-lg-block d-xl-none">LG</p>
     <p class="d-none d-xl-block">XL</p> -->
     <h2 id="clrium-6">Потоки и планирование потоков [идёт адаптация курса по многопоточке CLRium #6]</h2>
-<p>Что такое поток? Давайте дадим краткое определение. По своей сути поток это:</p>
+<p >
+Что та&shy;кое по&shy;ток? Да&shy;вай&shy;те да&shy;дим крат&shy;кое оп&shy;ре&shy;де&shy;ле&shy;ние. По сво&shy;ей су&shy;ти по&shy;ток это:</p>
 <ul>
-<li>Средство параллельного относительно других потоков исполнения кода;</li>
-<li>Имеющего общий доступ ко всем ресурсам процесса.</li>
+<li>
+<p >
+Сред&shy;ство па&shy;рал&shy;лель&shy;но&shy;го от&shy;но&shy;си&shy;тель&shy;но дру&shy;гих по&shy;то&shy;ков ис&shy;пол&shy;не&shy;ния ко&shy;да;</p>
+</li>
+<li>
+<p >
+Име&shy;ю&shy;ще&shy;го об&shy;щий дос&shy;туп ко всем ре&shy;сур&shy;сам про&shy;цес&shy;са.</p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p>Очень часто часто слышишь такое мнение, что потоки в .NET — они какие-то абсолютно свои. И наши .NET потоки являются чем-то более облегчённым чем есть в Windows. Но на самом деле потоки в .NET являются самыми обычными потоками Windows (хоть Windows thread id и скрыто так, что сложно достать). И если Вас удивляет, почему я буду рассказывать не-.NET вещи в хабе .NET, скажу вам так: если нет понимания этого уровня, можно забыть о хорошем понимании того, как и почему именно так работает код: почему мы должны ставить volatile, использовать Interlocked и SpinWait. Дальше обычного <code>lock</code> дело не уйдёт. И очень даже зря. Поэтому давайте же посмотрим из чего они состоят и как они рождаются.</p>
+<p >
+Очень час&shy;то час&shy;то слы&shy;шишь та&shy;кое мне&shy;ние, что по&shy;то&shy;ки в .NET — они ка&shy;кие-то аб&shy;со&shy;лют&shy;но свои. И на&shy;ши .NET по&shy;то&shy;ки яв&shy;ля&shy;ют&shy;ся чем-то бо&shy;лее об&shy;легчённым чем есть в Windows. Но на са&shy;мом де&shy;ле по&shy;то&shy;ки в .NET яв&shy;ля&shy;ют&shy;ся са&shy;мы&shy;ми обыч&shy;ны&shy;ми по&shy;то&shy;ка&shy;ми Windows (хоть Windows thread id и скры&shy;то так, что слож&shy;но дос&shy;тать). И ес&shy;ли Вас удив&shy;ля&shy;ет, по&shy;че&shy;му я бу&shy;ду расс&shy;ка&shy;зы&shy;вать не-.NET ве&shy;щи в ха&shy;бе .NET, ска&shy;жу вам так: ес&shy;ли нет по&shy;ни&shy;ма&shy;ния это&shy;го уров&shy;ня, мож&shy;но за&shy;быть о хо&shy;ро&shy;шем по&shy;ни&shy;ма&shy;нии то&shy;го, как и по&shy;че&shy;му имен&shy;но так ра&shy;бо&shy;та&shy;ет код: по&shy;че&shy;му мы дол&shy;жны ста&shy;вить volatile, ис&shy;поль&shy;зо&shy;вать Interlocked и SpinWait. Даль&shy;ше обыч&shy;но&shy;го <code>lock</code> де&shy;ло не уйдёт. И очень да&shy;же зря. По&shy;э&shy;то&shy;му да&shy;вай&shy;те же пос&shy;мот&shy;рим из че&shy;го они сос&shy;то&shy;ят и как они рож&shy;да&shy;ют&shy;ся.</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p>По сути поток — это средство эмуляции параллельного исполнения относительно других потоков. Почему эмуляция? Потому, что поток как бы странно и смело это ни звучало — это чисто программная вещь, которая идёт из операционной системы. А операционная система создаёт этот слой эмуляции для нас. Процессор при этом о потоках ничего не знает вообще. Задача процессора — просто исполнять код. Поэтому с точки зрения процессора есть только один поток: последовательное исполнение команд. А задача операционной системы при наличии на одном процессорном ядре нескольких потоков каким-либо образом подменять активный т.о. чтобы эмулировать несколько потоков, работающих параллельно. Если бы на каждом ядре было по одному потоку, эмуляции бы не было.</p>
+<p >
+По су&shy;ти по&shy;ток — это сред&shy;ство эму&shy;ля&shy;ции па&shy;рал&shy;лель&shy;но&shy;го ис&shy;пол&shy;не&shy;ния от&shy;но&shy;си&shy;тель&shy;но дру&shy;гих по&shy;то&shy;ков. По&shy;че&shy;му эму&shy;ля&shy;ция? По&shy;то&shy;му, что по&shy;ток как бы стран&shy;но и сме&shy;ло это ни зву&shy;ча&shy;ло — это чис&shy;то прог&shy;рам&shy;м&shy;ная вещь, ко&shy;то&shy;рая идёт из опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы. А опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;те&shy;ма соз&shy;даёт этот слой эму&shy;ля&shy;ции для нас. Про&shy;цес&shy;сор при этом о по&shy;то&shy;ках ни&shy;че&shy;го не зна&shy;ет во&shy;об&shy;ще. За&shy;да&shy;ча про&shy;цес&shy;со&shy;ра — прос&shy;то ис&shy;пол&shy;нять код. По&shy;э&shy;то&shy;му с точ&shy;ки зре&shy;ния про&shy;цес&shy;со&shy;ра есть толь&shy;ко один по&shy;ток: пос&shy;ле&shy;до&shy;ва&shy;тель&shy;ное ис&shy;пол&shy;не&shy;ние ко&shy;манд. А за&shy;да&shy;ча опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы при на&shy;ли&shy;чии на од&shy;ном про&shy;цес&shy;сор&shy;ном яд&shy;ре нес&shy;коль&shy;ких по&shy;то&shy;ков ка&shy;ким-ли&shy;бо об&shy;ра&shy;зом под&shy;ме&shy;нять ак&shy;тив&shy;ный т.о. что&shy;бы эму&shy;ли&shy;ро&shy;вать нес&shy;коль&shy;ко по&shy;то&shy;ков, ра&shy;бо&shy;та&shy;ю&shy;щих па&shy;рал&shy;лель&shy;но. Если бы на каж&shy;дом яд&shy;ре бы&shy;ло по од&shy;но&shy;му по&shy;то&shy;ку, эму&shy;ля&shy;ции бы не бы&shy;ло.</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <h2 id="section">Поток в физическом понимании</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p>&quot;Но как же так?&quot;, - скажите вы, - &quot;во многих магазинах и на различных сайтах я вижу запись &laquo;Intel Xeon 8 ядер 16 потоков&raquo;. Говоря по-правде это - либо скудность в терминологии либо - чисто маркетинговый ход. На самом же деле внутри одного большого процессора есть в данном случае 8 ядер и каждое ядро состоит из двух логических процессоров, которые это ядро эмулирует. Такое поведение доступно при наличии в процессоре технологии Hyper-Threading, когда каждое ядро эмулирует поведение двух процессоров (но не потоков). Делается это для повышения производительности, да. Но по большому счёту если нет понимания, на каких потоках идут расчёты, можно получить очень не приятный сценарий, когда с двух потоков, находящихся на одном физическом, но на двух - виртуальных ядрах, программа работает с одними и теми же данными и код выполняется со скоростью, ниже чем если бы расчёты шли на одном ядре. Именно поэтому раздача ядер потокам идёт +=2 в случае Hyper-Threading. Т.е. пропуская парные ядра.</p>
+<p >
+"Но как же так?", - ска&shy;жи&shy;те вы, - "во мно&shy;гих ма&shy;га&shy;зи&shy;нах и на раз&shy;лич&shy;ных сай&shy;тах я ви&shy;жу за&shy;пись &laquo;Intel Xeon 8 ядер 16 по&shy;то&shy;ков&raquo;. Го&shy;во&shy;ря по-прав&shy;де это - ли&shy;бо скуд&shy;ность в тер&shy;ми&shy;но&shy;ло&shy;гии ли&shy;бо - чис&shy;то мар&shy;ке&shy;тин&shy;го&shy;вый ход. На са&shy;мом же де&shy;ле внут&shy;ри од&shy;но&shy;го боль&shy;шо&shy;го про&shy;цес&shy;со&shy;ра есть в дан&shy;ном слу&shy;чае 8 ядер и каж&shy;дое яд&shy;ро сос&shy;то&shy;ит из двух ло&shy;ги&shy;чес&shy;ких про&shy;цес&shy;со&shy;ров, ко&shy;то&shy;рые это яд&shy;ро эму&shy;ли&shy;ру&shy;ет. Та&shy;кое по&shy;ве&shy;де&shy;ние дос&shy;туп&shy;но при на&shy;ли&shy;чии в про&shy;цес&shy;со&shy;ре тех&shy;но&shy;ло&shy;гии Hyper-Threading, ког&shy;да каж&shy;дое яд&shy;ро эму&shy;ли&shy;ру&shy;ет по&shy;ве&shy;де&shy;ние двух про&shy;цес&shy;со&shy;ров (но не по&shy;то&shy;ков). Де&shy;ла&shy;ет&shy;ся это для по&shy;вы&shy;ше&shy;ния про&shy;из&shy;во&shy;ди&shy;тель&shy;нос&shy;ти, да. Но по боль&shy;шо&shy;му счёту ес&shy;ли нет по&shy;ни&shy;ма&shy;ния, на ка&shy;ких по&shy;то&shy;ках идут расчёты, мож&shy;но по&shy;лу&shy;чить очень не при&shy;ят&shy;ный сце&shy;на&shy;рий, ког&shy;да с двух по&shy;то&shy;ков, на&shy;хо&shy;дя&shy;щих&shy;ся на од&shy;ном фи&shy;зи&shy;чес&shy;ком, но на двух - вир&shy;ту&shy;альных яд&shy;рах, прог&shy;рам&shy;ма ра&shy;бо&shy;та&shy;ет с од&shy;ни&shy;ми и те&shy;ми же дан&shy;ны&shy;ми и код вы&shy;пол&shy;ня&shy;ет&shy;ся со ско&shy;ростью, ни&shy;же чем ес&shy;ли бы расчёты шли на од&shy;ном яд&shy;ре. Имен&shy;но по&shy;э&shy;то&shy;му раз&shy;да&shy;ча ядер по&shy;то&shy;кам идёт +=2 в слу&shy;чае Hyper-Threading. Т.е. про&shy;пус&shy;кая пар&shy;ные яд&shy;ра.</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p>В этом случае возникает блокировка совместного доступа: хоть и идёт эмуляция двух ядер, на самом-то деле оно одно. Одни и те же процессорные кэши, включая кэш записи. Поэтому в наихудшем сценарии эти потоки исполняются по очереди, а не параллельно.</p>
+<p >
+В этом слу&shy;чае воз&shy;ни&shy;ка&shy;ет бло&shy;ки&shy;ров&shy;ка сов&shy;мест&shy;но&shy;го дос&shy;ту&shy;па: хоть и идёт эму&shy;ля&shy;ция двух ядер, на са&shy;мом-то де&shy;ле оно од&shy;но. Одни и те же про&shy;цес&shy;сор&shy;ные кэ&shy;ши, вклю&shy;чая кэш за&shy;пи&shy;си. По&shy;э&shy;то&shy;му в на&shy;ихуд&shy;шем сце&shy;на&shy;рии эти по&shy;то&shy;ки ис&shy;пол&shy;ня&shy;ют&shy;ся по оче&shy;ре&shy;ди, а не па&shy;рал&shy;лель&shy;но.</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p>Так, если процессор ничего не знает о потоках, как же достигается параллельное исполнение потоков на каждом из его ядер? Как было сказано, поток - средство операционной системы выполнять на одном процессоре несколько задач одновременно. Достигается параллелизм очень быстрым переключением между потоками в течение очень короткого промежутка времени. Последовательно запуская на выполнение код каждого из потоков и делая это достаточно часто, операционная система достигает цели: делает их исполнение псевдопараллельным, но параллельным с точки зрения восприятия человека. Второе обоснование существования потоков - это утверждение, что программа не так часто срывается в математические расчёты. Чаще всего она взаимодействует с окружающим её миром: различным оборудованием. Это и работа с жёстким диском и вывод на экран и работа с клавиатурой и мышью. Поэтому чтобы процессор не простаивал, пока оборудование сделает то, чего хочет от него программа, поток можно на это время установить в состояние блокировки: ожидания сигнала от операционной системы, чтобы оборудование сделало то, что от него просили. А в это время можно запланировать в работу другие потоки. Простейший пример этого - вызов метода <code>Console.ReadKey()</code>.</p>
+<p >
+Так, ес&shy;ли про&shy;цес&shy;сор ни&shy;че&shy;го не зна&shy;ет о по&shy;то&shy;ках, как же дос&shy;ти&shy;га&shy;ет&shy;ся па&shy;рал&shy;лель&shy;ное ис&shy;пол&shy;не&shy;ние по&shy;то&shy;ков на каж&shy;дом из его ядер? Как бы&shy;ло ска&shy;за&shy;но, по&shy;ток - сред&shy;ство опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы вы&shy;пол&shy;нять на од&shy;ном про&shy;цес&shy;со&shy;ре нес&shy;коль&shy;ко за&shy;дач од&shy;нов&shy;ре&shy;мен&shy;но. Дос&shy;ти&shy;га&shy;ет&shy;ся па&shy;рал&shy;ле&shy;лизм очень быст&shy;рым пе&shy;рек&shy;лю&shy;че&shy;ни&shy;ем меж&shy;ду по&shy;то&shy;ка&shy;ми в те&shy;че&shy;ние очень ко&shy;рот&shy;ко&shy;го про&shy;ме&shy;жут&shy;ка вре&shy;ме&shy;ни. Пос&shy;ле&shy;до&shy;ва&shy;тель&shy;но за&shy;пус&shy;кая на вы&shy;пол&shy;не&shy;ние код каж&shy;до&shy;го из по&shy;то&shy;ков и де&shy;лая это дос&shy;та&shy;точ&shy;но час&shy;то, опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;те&shy;ма дос&shy;ти&shy;га&shy;ет це&shy;ли: де&shy;ла&shy;ет их ис&shy;пол&shy;не&shy;ние псев&shy;до&shy;па&shy;рал&shy;лель&shy;ным, но па&shy;рал&shy;лель&shy;ным с точ&shy;ки зре&shy;ния вос&shy;при&shy;я&shy;тия че&shy;ло&shy;ве&shy;ка. Вто&shy;рое обос&shy;но&shy;ва&shy;ние су&shy;щест&shy;во&shy;ва&shy;ния по&shy;то&shy;ков - это ут&shy;верж&shy;де&shy;ние, что прог&shy;рам&shy;ма не так час&shy;то сры&shy;ва&shy;ет&shy;ся в ма&shy;те&shy;ма&shy;ти&shy;чес&shy;кие расчёты. Ча&shy;ще все&shy;го она вза&shy;и&shy;мо&shy;дей&shy;ствует с ок&shy;ру&shy;жа&shy;ю&shy;щим её ми&shy;ром: раз&shy;лич&shy;ным обо&shy;ру&shy;до&shy;ва&shy;ни&shy;ем. Это и ра&shy;бо&shy;та с жёстким дис&shy;ком и вы&shy;вод на эк&shy;ран и ра&shy;бо&shy;та с кла&shy;ви&shy;а&shy;ту&shy;рой и мышью. По&shy;э&shy;то&shy;му что&shy;бы про&shy;цес&shy;сор не прос&shy;та&shy;и&shy;вал, по&shy;ка обо&shy;ру&shy;до&shy;ва&shy;ние сде&shy;ла&shy;ет то, че&shy;го хо&shy;чет от не&shy;го прог&shy;рам&shy;ма, по&shy;ток мож&shy;но на это вре&shy;мя ус&shy;та&shy;но&shy;вить в сос&shy;то&shy;я&shy;ние бло&shy;ки&shy;ров&shy;ки: ожи&shy;да&shy;ния сиг&shy;на&shy;ла от опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы, что&shy;бы обо&shy;ру&shy;до&shy;ва&shy;ние сде&shy;ла&shy;ло то, что от не&shy;го про&shy;си&shy;ли. А в это вре&shy;мя мож&shy;но зап&shy;ла&shy;ни&shy;ро&shy;вать в ра&shy;бо&shy;ту дру&shy;гие по&shy;то&shy;ки. Прос&shy;тей&shy;ший при&shy;мер это&shy;го - вы&shy;зов ме&shy;то&shy;да <code>Console.ReadKey()</code>.</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p>Если заглянуть в диспетчер задач Windows 10, то можно заметить, что в данный момент в вашей системе существует около 1,5 тысячи потоков. И если учесть, что квант на десктопе равен 20 мс, а ядер, например, 4, то можно сделать поспешный вывод, что каждый поток получает 20 мс работы 1 раз в 7,5 сек&hellip; На самом деле, конечно же, нет. Эта картина является отличной иллюстрацией того, что большинство из них находится в блокировке: она все чего-то ждут. Кто-то - ввода пользователя, кто-то - изменения ключей реестра&hellip; В операционной системе существует очень много причин, чтобы что-либо ждать.</p>
+<p >
+Если заг&shy;ля&shy;нуть в дис&shy;пет&shy;чер за&shy;дач Windows 10, то мож&shy;но за&shy;ме&shy;тить, что в дан&shy;ный мо&shy;мент в ва&shy;шей сис&shy;те&shy;ме су&shy;щес&shy;тву&shy;ет око&shy;ло 1,5 ты&shy;ся&shy;чи по&shy;то&shy;ков. И ес&shy;ли учесть, что квант на деск&shy;то&shy;пе ра&shy;вен 20 мс, а ядер, нап&shy;ри&shy;мер, 4, то мож&shy;но сде&shy;лать пос&shy;пеш&shy;ный вы&shy;вод, что каж&shy;дый по&shy;ток по&shy;лу&shy;ча&shy;ет 20 мс ра&shy;бо&shy;ты 1 раз в 7,5 сек&hellip; На са&shy;мом де&shy;ле, ко&shy;неч&shy;но же, нет. Эта кар&shy;ти&shy;на яв&shy;ля&shy;ет&shy;ся от&shy;лич&shy;ной ил&shy;люст&shy;ра&shy;ци&shy;ей то&shy;го, что боль&shy;шинство из них на&shy;хо&shy;дит&shy;ся в бло&shy;ки&shy;ров&shy;ке: она все че&shy;го-то ждут. Кто-то - вво&shy;да поль&shy;зо&shy;ва&shy;те&shy;ля, кто-то - из&shy;ме&shy;не&shy;ния клю&shy;чей ре&shy;ес&shy;тра&hellip; В опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;ме су&shy;щес&shy;тву&shy;ет очень мно&shy;го при&shy;чин, что&shy;бы что-ли&shy;бо ждать.</p>
 <div class="paragraph-right-side">06</div>
 </div>
-<p>Так что пока одни потоки в блокировке, другие - что-то делают.</p>
+<p >
+Так что по&shy;ка од&shy;ни по&shy;то&shy;ки в бло&shy;ки&shy;ров&shy;ке, дру&shy;гие - что-то де&shy;ла&shy;ют.</p>
 <h2 id="section-1">Создание потоков</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p>Простейшая функция создания потоков в пользовательском режиме операционной системы называется <code>CreateThread</code>. Эта функция создаёт поток в текущем процессе. Вариантов параметризации <code>CreateThread</code> очень много и когда мы вызываем <code>new Thread()</code>, то из нашего .NET кода вызывается данная функция операционной системы.</p>
+<p >
+Прос&shy;тей&shy;шая фун&shy;к&shy;ция соз&shy;да&shy;ния по&shy;то&shy;ков в поль&shy;зо&shy;ва&shy;т&shy;ельском ре&shy;жи&shy;ме опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы на&shy;зы&shy;ва&shy;ет&shy;ся <code>CreateThread</code>. Эта фун&shy;к&shy;ция соз&shy;даёт по&shy;ток в те&shy;ку&shy;щем про&shy;цес&shy;се. Ва&shy;ри&shy;ан&shy;тов па&shy;ра&shy;мет&shy;ри&shy;за&shy;ции <code>CreateThread</code> очень мно&shy;го и ког&shy;да мы вы&shy;зы&shy;ва&shy;ем <code>new Thread()</code>, то из на&shy;ше&shy;го .NET ко&shy;да вы&shy;зы&shy;ва&shy;ет&shy;ся дан&shy;ная фун&shy;к&shy;ция опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы.</p>
 <div class="paragraph-right-side">07</div>
 </div>
-<p>В эту функцию передаются следующие атрибуты:</p>
+<p >
+В эту фун&shy;к&shy;цию пе&shy;ре&shy;да&shy;ют&shy;ся сле&shy;ду&shy;ю&shy;щие ат&shy;ри&shy;бу&shy;ты:</p>
 <ol>
-<li><p><strong>Необязательная структура с атрибутами безопасности</strong>:</p>
+<li>
+<p >
+<strong>Необязательная структура с атрибутами безопасности</strong>:</p>
 <ul>
-<li>Дескриптор безопасности (SECURITY_ATTRIBUTES) + признак наследуемости дескриптора.</li>
+<li>
+<p >
+Деск&shy;рип&shy;тор бе&shy;зо&shy;пас&shy;нос&shy;ти (SECURITY_ATTRIBUTES) + приз&shy;нак нас&shy;ле&shy;ду&shy;емос&shy;ти деск&shy;рип&shy;то&shy;ра.</p>
+</li>
 </ul>
 <blockquote>
-<p>В .NET его нет, но можно создать поток через вызов функции операционной системы;</p>
+<p >
+В .NET его нет, но мож&shy;но соз&shy;дать по&shy;ток че&shy;рез вы&shy;зов фун&shy;к&shy;ции опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы;</p>
 </blockquote>
 </li>
-<li><p><strong>Необязательный размер стека</strong>:</p>
+<li>
+<p >
+<strong>Необязательный размер стека</strong>:</p>
 <ul>
-<li>Начальный размер стека, в байтах (система округляет это значение до размера страницы памяти)</li>
+<li>
+<p >
+На&shy;чаль&shy;ный раз&shy;мер сте&shy;ка, в бай&shy;тах (сис&shy;те&shy;ма ок&shy;руг&shy;ля&shy;ет это зна&shy;че&shy;ние до раз&shy;ме&shy;ра стра&shy;ни&shy;цы па&shy;мя&shy;ти)</p>
+</li>
 </ul>
 </li>
-<li><p>Указатель на функцию - точка входа нового потоками</p>
+<li>
+<p >
+Ука&shy;за&shy;тель на фун&shy;к&shy;цию - точ&shy;ка вхо&shy;да но&shy;во&shy;го по&shy;то&shy;ка&shy;ми</p>
 </li>
-<li><p>Необязательный аргумент для передачи данных функции потока.</p>
+<li>
+<p >
+Не&shy;о&shy;бя&shy;за&shy;тель&shy;ный ар&shy;гу&shy;мент для пе&shy;ре&shy;да&shy;чи дан&shy;ных фун&shy;к&shy;ции по&shy;то&shy;ка.</p>
 </li>
 </ol>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p>Из того, что мы <strong>не</strong> имеем в .NET явно - это структура безопасности с атрибутами безопасности: сейчас мы рассматривать их не будем. Скажу только, что они влияют на возможность изменения информации о потоке средствами операционной системы. Остальные параметры нам знакомы и мы, пожалуй, не будем на них останавлиаться.</p>
+<p >
+Из то&shy;го, что мы <strong>не</strong> име&shy;ем в .NET яв&shy;но - это струк&shy;ту&shy;ра бе&shy;зо&shy;пас&shy;нос&shy;ти с ат&shy;ри&shy;бу&shy;та&shy;ми бе&shy;зо&shy;пас&shy;нос&shy;ти: сей&shy;час мы расс&shy;мат&shy;ри&shy;вать их не бу&shy;дем. Ска&shy;жу толь&shy;ко, что они влияют на воз&shy;мож&shy;ность из&shy;ме&shy;не&shy;ния ин&shy;фор&shy;ма&shy;ции о по&shy;то&shy;ке сред&shy;ства&shy;ми опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы. Остал&shy;ьные па&shy;ра&shy;мет&shy;ры нам зна&shy;ко&shy;мы и мы, по&shy;жа&shy;луй, не бу&shy;дем на них ос&shy;та&shy;нав&shy;ли&shy;аться.</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
-<p>Однако, помимо этой функции в Windows API существует ещё одна очень интересная функция: <code>CreateRemoteThread</code>, который создаёт поток в чужом процессе. Он часто используется для мониторинга состояния чужого процесса (например, программа Snoop). При помощи этой функции приложения .NET могут заливать свои потоки в чужие процессы, однако тут могут возникнуть проблемы. Первая и самая главная - это отсутствие в целевом потоке .NET runtime. Это значит, что ни одного метода фреймворка там не будет: только WinAPI и то, что вы написали сами. Однако, если там .NET есть, то возникает вторая проблема (которой не было раньше). Это - версия runtime. Необходимо: понять, что там запущено (для этого необходимо импортировать не-.NET методы runtime, которые написаны на C/C++ и разобраться, с чем мы имеем дело). На основании полученной информации подгрузить необходимые версии наших .NET библиотек и каким-то образом передать им управление. Аналогичный функционал, но для операционной системы Linux в готовом виде не существует, но аналогичного поведения всё равно можно добиться. Например, <a href="https://habr.com/ru/post/473740/">так</a>.</p>
+<p >
+Одна&shy;ко, по&shy;ми&shy;мо этой фун&shy;к&shy;ции в Windows API су&shy;щес&shy;тву&shy;ет ещё од&shy;на очень ин&shy;те&shy;рес&shy;ная фун&shy;к&shy;ция: <code>CreateRemoteThread</code>, ко&shy;то&shy;рый соз&shy;даёт по&shy;ток в чу&shy;жом про&shy;цес&shy;се. Он час&shy;то ис&shy;поль&shy;зу&shy;ет&shy;ся для мо&shy;ни&shy;то&shy;рин&shy;га сос&shy;то&shy;я&shy;ния чу&shy;жо&shy;го про&shy;цес&shy;са (нап&shy;ри&shy;мер, прог&shy;рам&shy;ма Snoop). При по&shy;мо&shy;щи этой фун&shy;к&shy;ции при&shy;ло&shy;же&shy;ния .NET мо&shy;гут за&shy;ли&shy;вать свои по&shy;то&shy;ки в чу&shy;жие про&shy;цес&shy;сы, од&shy;на&shy;ко тут мо&shy;гут воз&shy;ник&shy;нуть проб&shy;ле&shy;мы. Пер&shy;вая и са&shy;мая глав&shy;ная - это от&shy;с&shy;утствие в це&shy;ле&shy;вом по&shy;то&shy;ке .NET runtime. Это зна&shy;чит, что ни од&shy;но&shy;го ме&shy;то&shy;да фрейм&shy;вор&shy;ка там не бу&shy;дет: толь&shy;ко WinAPI и то, что вы на&shy;пи&shy;са&shy;ли са&shy;ми. Одна&shy;ко, ес&shy;ли там .NET есть, то воз&shy;ни&shy;ка&shy;ет вто&shy;рая проб&shy;ле&shy;ма (ко&shy;то&shy;рой не бы&shy;ло рань&shy;ше). Это - вер&shy;сия runtime. Не&shy;об&shy;хо&shy;ди&shy;мо: по&shy;нять, что там за&shy;пу&shy;ще&shy;но (для это&shy;го не&shy;об&shy;хо&shy;ди&shy;мо им&shy;пор&shy;ти&shy;ро&shy;вать не-.NET ме&shy;то&shy;ды runtime, ко&shy;то&shy;рые на&shy;пи&shy;са&shy;ны на C/C++ и ра&shy;зоб&shy;рать&shy;ся, с чем мы име&shy;ем де&shy;ло). На ос&shy;но&shy;ва&shy;нии по&shy;лу&shy;чен&shy;ной ин&shy;фор&shy;ма&shy;ции подг&shy;ру&shy;зить не&shy;об&shy;хо&shy;ди&shy;мые вер&shy;сии на&shy;ших .NET биб&shy;ли&shy;о&shy;тек и ка&shy;ким-то об&shy;ра&shy;зом пе&shy;ре&shy;дать им уп&shy;рав&shy;ле&shy;ние. Ана&shy;ло&shy;гич&shy;ный фун&shy;кци&shy;о&shy;нал, но для опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы Linux в го&shy;то&shy;вом ви&shy;де не су&shy;щес&shy;тву&shy;ет, но ана&shy;ло&shy;гич&shy;но&shy;го по&shy;ве&shy;де&shy;ния всё рав&shy;но мож&shy;но до&shy;бить&shy;ся. Нап&shy;ри&shy;мер, <a href="https://habr.com/ru/post/473740/">так</a>.</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
-<p>Я бы рекомендовал вам поиграться с задачкой такого рода: вжиться в код любого .NET процесса и вывести куда-либо сообщение об удаче внедрения (например, в файл лога).</p>
+<p >
+Я бы ре&shy;ко&shy;мен&shy;до&shy;вал вам по&shy;иг&shy;рать&shy;ся с за&shy;дач&shy;кой та&shy;ко&shy;го ро&shy;да: вжить&shy;ся в код лю&shy;бо&shy;го .NET про&shy;цес&shy;са и вы&shy;вес&shy;ти ку&shy;да-ли&shy;бо со&shy;об&shy;ще&shy;ние об уда&shy;че внед&shy;ре&shy;ния (нап&shy;ри&shy;мер, в файл ло&shy;га).</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <h2 id="section-2">Планирование потоков</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
-<p>Для того чтобы понимать, в каком порядке исполнять код различных потоков, необходима организация планирования этих потоков. Ведь система может иметь как одно ядро, так и несколько. Как иметь эмуляцию двух ядер на одном так и не иметь такой эмуляции. И на каждом из ядер: железных или же эмулированных необходимо исполнять как один поток, так и несколько. В конце концов система может работать в режиме виртуализации: в облаке, в виртуальной машине, песочнице в рамках другой операционной системы. Поэтому мы в обязательном порядке рассмотрим планирование потоков в рамках операционной системы: платформа .NET этими вопросами не занимается. Эта информация - настолько важная часть материала по многопоточке, что без его понимания многопоточка не встанет на своё место в нашей голове никоим образом.</p>
+<p >
+Для то&shy;го что&shy;бы по&shy;ни&shy;мать, в ка&shy;ком по&shy;ряд&shy;ке ис&shy;пол&shy;нять код раз&shy;лич&shy;ных по&shy;то&shy;ков, не&shy;об&shy;хо&shy;ди&shy;ма ор&shy;га&shy;ни&shy;за&shy;ция пла&shy;ни&shy;ро&shy;ва&shy;ния этих по&shy;то&shy;ков. Ведь сис&shy;те&shy;ма мо&shy;жет иметь как од&shy;но яд&shy;ро, так и нес&shy;коль&shy;ко. Как иметь эму&shy;ля&shy;цию двух ядер на од&shy;ном так и не иметь та&shy;кой эму&shy;ля&shy;ции. И на каж&shy;дом из ядер: же&shy;лез&shy;ных или же эму&shy;ли&shy;ро&shy;ван&shy;ных не&shy;об&shy;хо&shy;ди&shy;мо ис&shy;пол&shy;нять как один по&shy;ток, так и нес&shy;коль&shy;ко. В кон&shy;це кон&shy;цов сис&shy;те&shy;ма мо&shy;жет ра&shy;бо&shy;тать в ре&shy;жи&shy;ме вир&shy;ту&shy;а&shy;ли&shy;за&shy;ции: в об&shy;ла&shy;ке, в вир&shy;ту&shy;альной ма&shy;ши&shy;не, пе&shy;соч&shy;ни&shy;це в рам&shy;ках дру&shy;гой опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы. По&shy;э&shy;то&shy;му мы в обя&shy;за&shy;тель&shy;ном по&shy;ряд&shy;ке расс&shy;мот&shy;рим пла&shy;ни&shy;ро&shy;ва&shy;ние по&shy;то&shy;ков в рам&shy;ках опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы: плат&shy;фор&shy;ма .NET эти&shy;ми воп&shy;ро&shy;са&shy;ми не за&shy;ни&shy;ма&shy;ет&shy;ся. Эта ин&shy;фор&shy;ма&shy;ция - нас&shy;толь&shy;ко важ&shy;ная часть ма&shy;те&shy;ри&shy;ала по мно&shy;го&shy;по&shy;точ&shy;ке, что без его по&shy;ни&shy;ма&shy;ния мно&shy;го&shy;по&shy;точ&shy;ка не вста&shy;нет на своё мес&shy;то в на&shy;шей го&shy;ло&shy;ве ни&shy;ко&shy;им об&shy;ра&shy;зом.</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
-<p>Итак, начнём. Организация планирования в операционной системе Windows является гибридной. С одной стороны - моделируются условия вытесняющей многозадачности, когда операционная система сама решает, когда и на основе каких условия вытеснить потоки (поведение почти во всех приложениях). С другой стороны - кооперативной многозадачности, когда потоки сами решают, когда они всё сделали и можно переключаться на следующий (UMS планировщик, создаваемый пользовательским кодом вручную. Используется крайне редко). Режим вытесняющей многозадачности работает на основе приоритетов: планировщик решает, какой следующий поток будет исполняться именно на основе их приоритетов. А вытесняющей потому, что если возникает более приоритетный поток, он вытесняет тот, который сейчас исполнялся. Однако, забегая вперёд, можно сделать поспешный вывод, что во многих случаях это бы означало, что часть потоков из-за их низких приоритетов никогда не доберется до исполнения. Поэтому в операционной системе есть много механик, позволяющих потокам, которым необходимо время на исполнение его получить несмотря на свой более низкий по сравнению с остальными, приоритет.</p>
+<p >
+Итак, начнём. Орга&shy;ни&shy;за&shy;ция пла&shy;ни&shy;ро&shy;ва&shy;ния в опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;ме Windows яв&shy;ля&shy;ет&shy;ся гиб&shy;рид&shy;ной. С од&shy;ной сто&shy;ро&shy;ны - мо&shy;де&shy;ли&shy;ру&shy;ют&shy;ся ус&shy;ло&shy;вия вы&shy;тес&shy;ня&shy;ю&shy;щей мно&shy;го&shy;за&shy;дач&shy;нос&shy;ти, ког&shy;да опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;те&shy;ма са&shy;ма ре&shy;ша&shy;ет, ког&shy;да и на ос&shy;но&shy;ве ка&shy;ких ус&shy;ло&shy;вия вы&shy;тес&shy;нить по&shy;то&shy;ки (по&shy;ве&shy;де&shy;ние поч&shy;ти во всех при&shy;ло&shy;же&shy;ни&shy;ях). С дру&shy;гой сто&shy;ро&shy;ны - ко&shy;о&shy;пе&shy;ра&shy;тив&shy;ной мно&shy;го&shy;за&shy;дач&shy;нос&shy;ти, ког&shy;да по&shy;то&shy;ки са&shy;ми ре&shy;ша&shy;ют, ког&shy;да они всё сде&shy;ла&shy;ли и мож&shy;но пе&shy;рек&shy;лю&shy;чать&shy;ся на сле&shy;ду&shy;ю&shy;щий (UMS пла&shy;ни&shy;ров&shy;щик, соз&shy;да&shy;ва&shy;е&shy;мый поль&shy;зо&shy;ва&shy;т&shy;ельским ко&shy;дом вруч&shy;ную. Испол&shy;ьз&shy;уе&shy;тся край&shy;не ред&shy;ко). Ре&shy;жим вы&shy;тес&shy;ня&shy;ю&shy;щей мно&shy;го&shy;за&shy;дач&shy;нос&shy;ти ра&shy;бо&shy;та&shy;ет на ос&shy;но&shy;ве при&shy;о&shy;ри&shy;те&shy;тов: пла&shy;ни&shy;ров&shy;щик ре&shy;ша&shy;ет, ка&shy;кой сле&shy;ду&shy;ю&shy;щий по&shy;ток бу&shy;дет ис&shy;пол&shy;нять&shy;ся имен&shy;но на ос&shy;но&shy;ве их при&shy;о&shy;ри&shy;те&shy;тов. А вы&shy;тес&shy;ня&shy;ю&shy;щей по&shy;то&shy;му, что ес&shy;ли воз&shy;ни&shy;ка&shy;ет бо&shy;лее при&shy;о&shy;ри&shy;тет&shy;ный по&shy;ток, он вы&shy;тес&shy;ня&shy;ет тот, ко&shy;то&shy;рый сей&shy;час ис&shy;пол&shy;нял&shy;ся. Одна&shy;ко, за&shy;бе&shy;гая вперёд, мож&shy;но сде&shy;лать пос&shy;пеш&shy;ный вы&shy;вод, что во мно&shy;гих слу&shy;ча&shy;ях это бы оз&shy;на&shy;ча&shy;ло, что часть по&shy;то&shy;ков из-за их низ&shy;ких при&shy;о&shy;ри&shy;те&shy;тов ни&shy;ког&shy;да не до&shy;бе&shy;рет&shy;ся до ис&shy;пол&shy;не&shy;ния. По&shy;э&shy;то&shy;му в опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;ме есть мно&shy;го ме&shy;ха&shy;ник, поз&shy;во&shy;ля&shy;ю&shy;щих по&shy;то&shy;кам, ко&shy;то&shy;рым не&shy;об&shy;хо&shy;ди&shy;мо вре&shy;мя на ис&shy;пол&shy;не&shy;ние его по&shy;лу&shy;чить нес&shy;мот&shy;ря на свой бо&shy;лее низ&shy;кий по срав&shy;не&shy;нию с ос&shy;таль&shy;ны&shy;ми, при&shy;о&shy;ри&shy;тет.</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <h3 id="section-3">Уровни приоритета</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
-<p><img src="https://habrastorage.org/webt/my/cd/zj/mycdzj-0dxto8-mlmt8h_zb50mu.jpeg" alt="Уровни приоритета" /></p>
+<p >
+<img src="https://habrastorage.org/webt/my/cd/zj/mycdzj-0dxto8-mlmt8h_zb50mu.jpeg" alt="Уровни приоритета" /></p>
 <div class="paragraph-right-side">13</div>
 </div>
-<p>Windows имеет 32 уровня приоритета (0-31):</p>
+<p >
+Windows име&shy;ет 32 уров&shy;ня при&shy;о&shy;ри&shy;те&shy;та (0-31):</p>
 <ul>
-<li>1 уровень (00 - 00) - это Zero Page Thread;</li>
-<li>15 уровней (01 - 15) - обычные динамические приоритеты;</li>
-<li>16 уровней (16 - 31) - реального времени.</li>
+<li>
+<p >
+1 уро&shy;вень (00 - 00) - это Zero Page Thread;</p>
+</li>
+<li>
+<p >
+15 уров&shy;ней (01 - 15) - обыч&shy;ные ди&shy;на&shy;ми&shy;чес&shy;кие при&shy;о&shy;ри&shy;те&shy;ты;</p>
+</li>
+<li>
+<p >
+16 уров&shy;ней (16 - 31) - ре&shy;ал&shy;ьного вре&shy;ме&shy;ни.</p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
-<p>Самый низкий приоритет имеет <code>Zero Page Thread</code>. Это - специальный поток операционной системы, который обнуляет страницы оперативной памяти, вычищая тем самым данные, которые там находились, но более не нужны, т.к. страница была освобождена. Необходимо это по одной простой причине: когда приложение освобождает память, оно может ненароком отдать кому-то чувствительные данные. Личные данные, пароли, что-то ещё. Поэтому как операционная система так и runtime языков программирования (а у нас - .NET CLR) обнуляют получаемые участки памяти. Если операционная система понимает, что заняться особо нечем: потоки либо стоят в блокировке в ожидании чего-либо либо нет потоков, которые исполняются, то она запускает самый низко приоритетный поток: поток обнуления памяти. Если она не доберется этим потоком до каких-либо участков, не страшно: их обнулят по требованию. Когда их запросят. Но если есть время, почему бы это не сделать заранее?</p>
+<p >
+Са&shy;мый низ&shy;кий при&shy;о&shy;ри&shy;тет име&shy;ет <code>Zero Page Thread</code>. Это - спе&shy;ци&shy;альный по&shy;ток опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы, ко&shy;то&shy;рый об&shy;ну&shy;ля&shy;ет стра&shy;ни&shy;цы опе&shy;ра&shy;тив&shy;ной па&shy;мя&shy;ти, вы&shy;чи&shy;щая тем са&shy;мым дан&shy;ные, ко&shy;то&shy;рые там на&shy;хо&shy;ди&shy;лись, но бо&shy;лее не нуж&shy;ны, т.к. стра&shy;ни&shy;ца бы&shy;ла ос&shy;во&shy;бож&shy;де&shy;на. Не&shy;об&shy;хо&shy;ди&shy;мо это по од&shy;ной прос&shy;той при&shy;чи&shy;не: ког&shy;да при&shy;ло&shy;же&shy;ние ос&shy;во&shy;бож&shy;да&shy;ет па&shy;мять, оно мо&shy;жет не&shy;на&shy;ро&shy;ком от&shy;дать ко&shy;му-то чувс&shy;твит&shy;ельные дан&shy;ные. Лич&shy;ные дан&shy;ные, па&shy;ро&shy;ли, что-то ещё. По&shy;э&shy;то&shy;му как опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;те&shy;ма так и runtime язы&shy;ков прог&shy;рам&shy;ми&shy;ро&shy;ва&shy;ния (а у нас - .NET CLR) об&shy;ну&shy;ля&shy;ют по&shy;лу&shy;ча&shy;е&shy;мые учас&shy;тки па&shy;мя&shy;ти. Если опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;те&shy;ма по&shy;ни&shy;ма&shy;ет, что за&shy;нять&shy;ся осо&shy;бо не&shy;чем: по&shy;то&shy;ки ли&shy;бо сто&shy;ят в бло&shy;ки&shy;ров&shy;ке в ожи&shy;да&shy;нии че&shy;го-ли&shy;бо ли&shy;бо нет по&shy;то&shy;ков, ко&shy;то&shy;рые ис&shy;пол&shy;ня&shy;ют&shy;ся, то она за&shy;пус&shy;ка&shy;ет са&shy;мый низ&shy;ко при&shy;о&shy;ри&shy;тет&shy;ный по&shy;ток: по&shy;ток об&shy;ну&shy;ле&shy;ния па&shy;мя&shy;ти. Если она не до&shy;бе&shy;рет&shy;ся этим по&shy;то&shy;ком до ка&shy;ких-ли&shy;бо участ&shy;ков, не страш&shy;но: их об&shy;ну&shy;лят по тре&shy;бо&shy;ва&shy;нию. Ког&shy;да их зап&shy;ро&shy;сят. Но ес&shy;ли есть вре&shy;мя, по&shy;че&shy;му бы это не сде&shy;лать за&shy;ра&shy;нее?</p>
 <div class="paragraph-right-side">14</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
-<p>Продолжая говорить о том, что к нам не относится, стоит отметить приоритеты реального времени, которые когда-то давным-давно таковыми являлись, но быстро потеряли свой статус приоритетов реального времени и от этого статуса осталось лишь название. Другими словами, Real Time приоритеты на самом деле не являются таковыми. Они являются приоритетами с исключительно высоким значением приоритета. Т.е. если операционная система будет по какой-то причине повышать приоритет потока с приоритетом из динамической группы (об этом - позже, но, например, потому, что потоку освободили блокировку) и при этом значение до повышения было равно <code>15</code>, то повысить приоритет операционная система не сможет: следующее значение равно <code>16</code>, а оно - из диапазона реального времени. Туда повышать такими вот &laquo;твиками&raquo; нельзя.</p>
+<p >
+Про&shy;дол&shy;жая го&shy;во&shy;рить о том, что к нам не от&shy;но&shy;сит&shy;ся, сто&shy;ит от&shy;ме&shy;тить при&shy;о&shy;ри&shy;те&shy;ты ре&shy;ал&shy;ьного вре&shy;ме&shy;ни, ко&shy;то&shy;рые ког&shy;да-то дав&shy;ным-дав&shy;но та&shy;ко&shy;вы&shy;ми яв&shy;ля&shy;лись, но быс&shy;тро по&shy;те&shy;ря&shy;ли свой ста&shy;тус при&shy;о&shy;ри&shy;те&shy;тов ре&shy;ал&shy;ьного вре&shy;ме&shy;ни и от это&shy;го ста&shy;ту&shy;са ос&shy;та&shy;лось лишь наз&shy;ва&shy;ние. Дру&shy;ги&shy;ми сло&shy;ва&shy;ми, Real Time при&shy;о&shy;ри&shy;те&shy;ты на са&shy;мом де&shy;ле не яв&shy;ля&shy;ют&shy;ся та&shy;ко&shy;вы&shy;ми. Они яв&shy;ля&shy;ют&shy;ся при&shy;о&shy;ри&shy;те&shy;та&shy;ми с ис&shy;клю&shy;чи&shy;тель&shy;но вы&shy;со&shy;ким зна&shy;че&shy;ни&shy;ем при&shy;о&shy;ри&shy;те&shy;та. Т.е. ес&shy;ли опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;те&shy;ма бу&shy;дет по ка&shy;кой-то при&shy;чи&shy;не по&shy;вы&shy;шать при&shy;о&shy;ри&shy;тет по&shy;то&shy;ка с при&shy;о&shy;ри&shy;те&shy;том из ди&shy;на&shy;ми&shy;чес&shy;кой груп&shy;пы (об этом - поз&shy;же, но, нап&shy;ри&shy;мер, по&shy;то&shy;му, что по&shy;то&shy;ку ос&shy;во&shy;бо&shy;ди&shy;ли бло&shy;ки&shy;ров&shy;ку) и при этом зна&shy;че&shy;ние до по&shy;вы&shy;ше&shy;ния бы&shy;ло рав&shy;но <code>15</code>, то по&shy;вы&shy;сить при&shy;о&shy;ри&shy;тет опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;те&shy;ма не смо&shy;жет: сле&shy;ду&shy;ю&shy;щее зна&shy;че&shy;ние рав&shy;но <code>16</code>, а оно - из ди&shy;а&shy;па&shy;зо&shy;на ре&shy;ал&shy;ьного вре&shy;ме&shy;ни. Ту&shy;да по&shy;вы&shy;шать та&shy;ки&shy;ми вот &laquo;тви&shy;ка&shy;ми&raquo; нель&shy;зя.</p>
 <div class="paragraph-right-side">15</div>
 </div>
 <h2 id="windows-api">Уровень приоритетов <strong>процессов</strong> с позиции Windows API</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
-<p>Приоритеты - штука относительная. И чтобы нам всем было проще в них ориентироваться, были введены некие правила относительности расчетов: во-первых все потоки вообще (от всех приложений) равны для планировщика: планировщик не различает потоки это различных приложений или же одного и того же приложения. Далее, когда программист пишет свою программу, он задаёт приоритет для различных потоков, создавая тем самым модель многопоточности внутри своего приложения. Он прекрасно знает, почему там был выбран пониженный приоритет, а тут - обычный. Внутри приложения всё настроено. Далее, поскольку есть пользователь системы, он также может выстраивать приоритеты для приложений, которые запускаются на этой системе. Например, он может выбрать повышенный приоритет для какого-то расчетного сервиса, отдавая ему тем самым максимум ресурсов. Т.е. уровень приоритета можно задать и у процесса.</p>
+<p >
+При&shy;о&shy;ри&shy;те&shy;ты - шту&shy;ка от&shy;но&shy;си&shy;тель&shy;ная. И что&shy;бы нам всем бы&shy;ло про&shy;ще в них ори&shy;ен&shy;ти&shy;ро&shy;вать&shy;ся, бы&shy;ли вве&shy;де&shy;ны не&shy;кие пра&shy;ви&shy;ла от&shy;но&shy;си&shy;тель&shy;нос&shy;ти рас&shy;че&shy;тов: во-пер&shy;вых все по&shy;то&shy;ки во&shy;об&shy;ще (от всех при&shy;ло&shy;же&shy;ний) рав&shy;ны для пла&shy;ни&shy;ров&shy;щи&shy;ка: пла&shy;ни&shy;ров&shy;щик не раз&shy;ли&shy;ча&shy;ет по&shy;то&shy;ки это раз&shy;лич&shy;ных при&shy;ло&shy;же&shy;ний или же од&shy;но&shy;го и то&shy;го же при&shy;ло&shy;же&shy;ния. Да&shy;лее, ког&shy;да прог&shy;рам&shy;мист пи&shy;шет свою прог&shy;рам&shy;му, он за&shy;даёт при&shy;о&shy;ри&shy;тет для раз&shy;лич&shy;ных по&shy;то&shy;ков, соз&shy;да&shy;вая тем са&shy;мым мо&shy;дель мно&shy;го&shy;по&shy;точ&shy;нос&shy;ти внут&shy;ри сво&shy;его при&shy;ло&shy;же&shy;ния. Он прек&shy;рас&shy;но зна&shy;ет, по&shy;че&shy;му там был выб&shy;ран по&shy;ни&shy;жен&shy;ный при&shy;о&shy;ри&shy;тет, а тут - обыч&shy;ный. Внут&shy;ри при&shy;ло&shy;же&shy;ния всё нас&shy;тро&shy;ено. Да&shy;лее, пос&shy;коль&shy;ку есть поль&shy;зо&shy;ва&shy;тель сис&shy;те&shy;мы, он так&shy;же мо&shy;жет выс&shy;тра&shy;и&shy;вать при&shy;о&shy;ри&shy;те&shy;ты для при&shy;ло&shy;же&shy;ний, ко&shy;то&shy;рые за&shy;пус&shy;ка&shy;ют&shy;ся на этой сис&shy;те&shy;ме. Нап&shy;ри&shy;мер, он мо&shy;жет выб&shy;рать по&shy;вы&shy;шен&shy;ный при&shy;о&shy;ри&shy;тет для ка&shy;ко&shy;го-то рас&shy;чет&shy;но&shy;го сер&shy;ви&shy;са, от&shy;да&shy;вая ему тем са&shy;мым мак&shy;си&shy;мум ре&shy;сур&shy;сов. Т.е. уро&shy;вень при&shy;о&shy;ри&shy;те&shy;та мож&shy;но за&shy;дать и у про&shy;цес&shy;са.</p>
 <div class="paragraph-right-side">16</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
-<p>Однако, изменение уровня приоритета процесса не меняет <em>относительных приоритетов</em> внутри приложения: их значения сдвигаются, но не меняется внутренняя модель приоритетов: внутри по-прежнему будет поток с пониженным приоритетом и поток - с обычным. Так, как этого хотел разработчик приложения. Как же это работает?</p>
+<p >
+Одна&shy;ко, из&shy;ме&shy;не&shy;ние уров&shy;ня при&shy;о&shy;ри&shy;те&shy;та про&shy;цес&shy;са не ме&shy;ня&shy;ет <em>относительных приоритетов</em> внут&shy;ри при&shy;ло&shy;же&shy;ния: их зна&shy;че&shy;ния сдви&shy;га&shy;ют&shy;ся, но не ме&shy;ня&shy;ет&shy;ся внут&shy;рен&shy;няя мо&shy;дель при&shy;о&shy;ри&shy;те&shy;тов: внут&shy;ри по-преж&shy;не&shy;му бу&shy;дет по&shy;ток с по&shy;ни&shy;жен&shy;ным при&shy;о&shy;ри&shy;те&shy;том и по&shy;ток - с обыч&shy;ным. Так, как это&shy;го хо&shy;тел раз&shy;ра&shy;бот&shy;чик при&shy;ло&shy;же&shy;ния. Как же это ра&shy;бо&shy;та&shy;ет?</p>
 <div class="paragraph-right-side">17</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
-<p>Существует 6 <em>классов приоритетов</em> процессов. Класс приоритетов процессов - это то, относительно чего будут создаваться приоритеты потоков. Все эти классы приоритетов можно увидеть в &laquo;Диспетчере задач&raquo;, при изменении приоритета какого-либо процесса.</p>
+<p >
+Су&shy;щес&shy;тву&shy;ет 6 <em>классов приоритетов</em> про&shy;цес&shy;сов. Класс при&shy;о&shy;ри&shy;те&shy;тов про&shy;цес&shy;сов - это то, от&shy;но&shy;си&shy;тель&shy;но че&shy;го бу&shy;дут соз&shy;да&shy;вать&shy;ся при&shy;о&shy;ри&shy;те&shy;ты по&shy;то&shy;ков. Все эти клас&shy;сы при&shy;о&shy;ри&shy;те&shy;тов мож&shy;но уви&shy;деть в &laquo;Дис&shy;пет&shy;че&shy;ре за&shy;дач&raquo;, при из&shy;ме&shy;не&shy;нии при&shy;о&shy;ри&shy;те&shy;та ка&shy;ко&shy;го-ли&shy;бо про&shy;цес&shy;са.</p>
 <div class="paragraph-right-side">18</div>
 </div>
 <div class="row">
@@ -961,41 +1048,104 @@ h4 {
 <table>
 <thead>
 <tr>
-<th>Название</th>
-<th>Класс</th>
-<th>Базовый приоритет</th>
+<th>
+<p >
+Наз&shy;ва&shy;ние</p>
+</th>
+<th>
+<p >
+Класс</p>
+</th>
+<th>
+<p >
+Ба&shy;зо&shy;вый при&shy;о&shy;ри&shy;тет</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1. Real Time</td>
-<td>4</td>
-<td>24</td>
+<td>
+<p >
+1. Real Time</p>
+</td>
+<td>
+<p >
+4</p>
+</td>
+<td>
+<p >
+24</p>
+</td>
 </tr>
 <tr>
-<td>2. High</td>
-<td>3</td>
-<td>13</td>
+<td>
+<p >
+2. High</p>
+</td>
+<td>
+<p >
+3</p>
+</td>
+<td>
+<p >
+13</p>
+</td>
 </tr>
 <tr>
-<td>3. Above Normal</td>
-<td>6</td>
-<td>10</td>
+<td>
+<p >
+3. Above Normal</p>
+</td>
+<td>
+<p >
+6</p>
+</td>
+<td>
+<p >
+10</p>
+</td>
 </tr>
 <tr>
-<td>4. Normal</td>
-<td>2</td>
-<td>8</td>
+<td>
+<p >
+4. Normal</p>
+</td>
+<td>
+<p >
+2</p>
+</td>
+<td>
+<p >
+8</p>
+</td>
 </tr>
 <tr>
-<td>5. Below Normal</td>
-<td>5</td>
-<td>6</td>
+<td>
+<p >
+5. Below Normal</p>
+</td>
+<td>
+<p >
+5</p>
+</td>
+<td>
+<p >
+6</p>
+</td>
 </tr>
 <tr>
-<td>6. Idle</td>
-<td>1</td>
-<td>4</td>
+<td>
+<p >
+6. Idle</p>
+</td>
+<td>
+<p >
+1</p>
+</td>
+<td>
+<p >
+4</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1003,23 +1153,32 @@ h4 {
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
-<p>Другими словами класс приоритета - это то, относительно чего будут задаваться приоритеты потоков внутри приложения. Чтобы задать точку отсчёта, было введено понятие <em>базового приоритета</em>. Базовый приоритет - это то <strong>значение</strong>, чем будет являться приоритет потока с типом приоритета <strong>Normal</strong>:</p>
+<p >
+Дру&shy;ги&shy;ми сло&shy;ва&shy;ми класс при&shy;о&shy;ри&shy;те&shy;та - это то, от&shy;но&shy;си&shy;тель&shy;но че&shy;го бу&shy;дут за&shy;да&shy;вать&shy;ся при&shy;о&shy;ри&shy;те&shy;ты по&shy;то&shy;ков внут&shy;ри при&shy;ло&shy;же&shy;ния. Что&shy;бы за&shy;дать точ&shy;ку отсчёта, бы&shy;ло вве&shy;де&shy;но по&shy;ня&shy;тие <em>базового приоритета</em>. Ба&shy;зо&shy;вый при&shy;о&shy;ри&shy;тет - это то <strong>значение</strong>, чем бу&shy;дет яв&shy;лять&shy;ся при&shy;о&shy;ри&shy;тет по&shy;то&shy;ка с ти&shy;пом при&shy;о&shy;ри&shy;те&shy;та <strong>Normal</strong>:</p>
 <div class="paragraph-right-side">19</div>
 </div>
 <ul>
-<li>Если процесс создаётся с <em>классом Normal</em> и внутри этого процесса создаётся поток с <em>приоритетом Normal</em>, то его <strong>реальный приоритет Normal будет равен 8</strong> (строка №4 в таблице);</li>
-<li>Если Вы создаёте процесс и у него <em>класс приоритета Above Normal</em>, то <em>базовый приоритет</em> будет равен 10. Это значит, что потоки внутри этого процесса будут создаваться с более повышенным приоритетом: <strong>Normal будет равен 10</strong>.</li>
+<li>
+<p >
+Если про&shy;цесс соз&shy;даётся с <em>классом Normal</em> и внут&shy;ри это&shy;го про&shy;цес&shy;са соз&shy;даётся по&shy;ток с <em>приоритетом Normal</em>, то его <strong>реальный приоритет Normal будет равен 8</strong> (стро&shy;ка №4 в таб&shy;ли&shy;це);</p>
+</li>
+<li>
+<p >
+Если Вы соз&shy;даёте про&shy;цесс и у не&shy;го <em>класс приоритета Above Normal</em>, то <em>базовый приоритет</em> бу&shy;дет ра&shy;вен 10. Это зна&shy;чит, что по&shy;то&shy;ки внут&shy;ри это&shy;го про&shy;цес&shy;са бу&shy;дут соз&shy;да&shy;вать&shy;ся с бо&shy;лее по&shy;вы&shy;шен&shy;ным при&shy;о&shy;ри&shy;те&shy;том: <strong>Normal будет равен 10</strong>.</p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
-<p>Для чего это необходимо? Вы как программисты знаете модель многопоточности, которая у вас присутствует.
-Потоков может быть много и вы решаете, что один поток должен быть фоновым, так как он производит вычисления и вам
-не столь важно, когда данные станут доступны: важно чтобы поток завершил вычисления (например поток обхода и анализа дерева). Поэтому, вы устанавливаете пониженный приоритет данного потока. Аналогично может сложится ситуация когда необходимо запустить поток с повышенным приоритетом.</p>
+<p >
+Для че&shy;го это не&shy;об&shy;хо&shy;ди&shy;мо? Вы как прог&shy;рам&shy;мис&shy;ты зна&shy;ете мо&shy;дель мно&shy;го&shy;по&shy;точ&shy;нос&shy;ти, ко&shy;то&shy;рая у вас при&shy;сут&shy;ствует.
+По&shy;то&shy;ков мо&shy;жет быть мно&shy;го и вы ре&shy;ша&shy;ете, что один по&shy;ток дол&shy;жен быть фо&shy;но&shy;вым, так как он про&shy;из&shy;во&shy;дит вы&shy;чис&shy;ле&shy;ния и вам
+не столь важ&shy;но, ког&shy;да дан&shy;ные ста&shy;нут дос&shy;туп&shy;ны: важ&shy;но что&shy;бы по&shy;ток за&shy;вер&shy;шил вы&shy;чис&shy;ле&shy;ния (нап&shy;ри&shy;мер по&shy;ток об&shy;хо&shy;да и ана&shy;ли&shy;за де&shy;ре&shy;ва). По&shy;э&shy;то&shy;му, вы ус&shy;та&shy;нав&shy;ли&shy;ва&shy;ете по&shy;ни&shy;жен&shy;ный при&shy;о&shy;ри&shy;тет дан&shy;но&shy;го по&shy;то&shy;ка. Ана&shy;ло&shy;гич&shy;но мо&shy;жет сло&shy;жит&shy;ся си&shy;ту&shy;а&shy;ция ког&shy;да не&shy;об&shy;хо&shy;ди&shy;мо за&shy;пус&shy;тить по&shy;ток с по&shy;вы&shy;шен&shy;ным при&shy;о&shy;ри&shy;те&shy;том.</p>
 <div class="paragraph-right-side">20</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
-<p>Представим, что ваше приложение запускает пользователь и он решает, что ваше приложение потребляет слишком много процессорных ресурсов. Пользователь считает, что ваше приложение не столь важное в системе, как какие-нибудь другие приложения и понижает приоритет вашего приложения до Below Normal. Это означает, что он задаёт базовый приоритет 6 относительно которого будут рассчитываться приоритеты потоков внутри вашего приложения. Но в системе общий приоритет упадёт. Как при этом меняются приоритеты потоков внутри приложения?</p>
+<p >
+Предс&shy;та&shy;вим, что ва&shy;ше при&shy;ло&shy;же&shy;ние за&shy;пус&shy;ка&shy;ет поль&shy;зо&shy;ва&shy;тель и он ре&shy;ша&shy;ет, что ва&shy;ше при&shy;ло&shy;же&shy;ние пот&shy;реб&shy;ля&shy;ет слиш&shy;ком мно&shy;го про&shy;цес&shy;сор&shy;ных ре&shy;сур&shy;сов. Поль&shy;зо&shy;ва&shy;тель счи&shy;та&shy;ет, что ва&shy;ше при&shy;ло&shy;же&shy;ние не столь важ&shy;ное в сис&shy;те&shy;ме, как ка&shy;кие-ни&shy;будь дру&shy;гие при&shy;ло&shy;же&shy;ния и по&shy;ни&shy;жа&shy;ет при&shy;о&shy;ри&shy;тет ва&shy;ше&shy;го при&shy;ло&shy;же&shy;ния до Below Normal. Это оз&shy;на&shy;ча&shy;ет, что он за&shy;даёт ба&shy;зо&shy;вый при&shy;о&shy;ри&shy;тет 6 от&shy;но&shy;си&shy;тель&shy;но ко&shy;то&shy;ро&shy;го бу&shy;дут расс&shy;чи&shy;ты&shy;вать&shy;ся при&shy;о&shy;ри&shy;те&shy;ты по&shy;то&shy;ков внут&shy;ри ва&shy;ше&shy;го при&shy;ло&shy;же&shy;ния. Но в сис&shy;те&shy;ме об&shy;щий при&shy;о&shy;ри&shy;тет упадёт. Как при этом ме&shy;ня&shy;ют&shy;ся при&shy;о&shy;ри&shy;те&shy;ты по&shy;то&shy;ков внут&shy;ри при&shy;ло&shy;же&shy;ния?</p>
 <div class="paragraph-right-side">21</div>
 </div>
 <div class="row">
@@ -1027,92 +1186,157 @@ h4 {
 <table>
 <thead>
 <tr>
-<th></th>
-<th>Уровни насыщения</th>
+<th>
+<p >
+</p>
+</th>
+<th>
+<p >
+Уров&shy;ни на&shy;сы&shy;ще&shy;ния</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1. Time Critical</td>
-<td>(+15)</td>
+<td>
+<p >
+1. Time Critical</p>
+</td>
+<td>
+<p >
+(+15)</p>
+</td>
 </tr>
 <tr>
-<td>2. Higest</td>
-<td>(+2)</td>
+<td>
+<p >
+2. Higest</p>
+</td>
+<td>
+<p >
+(+2)</p>
+</td>
 </tr>
 <tr>
-<td>3. Above normal</td>
-<td>(+1)</td>
+<td>
+<p >
+3. Above normal</p>
+</td>
+<td>
+<p >
+(+1)</p>
+</td>
 </tr>
 <tr>
-<td>4. Normal</td>
-<td>(+0)</td>
+<td>
+<p >
+4. Normal</p>
+</td>
+<td>
+<p >
+(+0)</p>
+</td>
 </tr>
 <tr>
-<td>5. Below normal</td>
-<td>(-1)</td>
+<td>
+<p >
+5. Below normal</p>
+</td>
+<td>
+<p >
+(-1)</p>
+</td>
 </tr>
 <tr>
-<td>6. Lowest</td>
-<td>(-2)</td>
+<td>
+<p >
+6. Lowest</p>
+</td>
+<td>
+<p >
+(-2)</p>
+</td>
 </tr>
 <tr>
-<td>7. Idle</td>
-<td>(-15)</td>
+<td>
+<p >
+7. Idle</p>
+</td>
+<td>
+<p >
+(-15)</p>
+</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<p><em>Таблица 3</em></p>
+<p >
+<em>Таблица 3</em></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
-<p>Normal остаётся на уровне +0 относительно уровня базового приоритета процесса. Below normal - это (-1) относительно уровня базового. Т.е. в нашем примере с понижением уровня приоритета процесса до класса <code>Below Normal</code> приоритет потока &lsquo;Below Normal&rsquo; пересчитается и будет не <code>8 - 1 = 7</code> (каким он был при классе <code>Normal</code>), а  <code>6 - 1 = 5</code>.  Lowest (-2) станет равным <code>4</code>.</p>
+<p >
+Normal ос&shy;таётся на уров&shy;не +0 от&shy;но&shy;си&shy;тель&shy;но уров&shy;ня ба&shy;зо&shy;во&shy;го при&shy;о&shy;ри&shy;те&shy;та про&shy;цес&shy;са. Below normal - это (-1) от&shy;но&shy;си&shy;тель&shy;но уров&shy;ня ба&shy;зо&shy;во&shy;го. Т.е. в на&shy;шем при&shy;ме&shy;ре с по&shy;ни&shy;же&shy;ни&shy;ем уров&shy;ня при&shy;о&shy;ри&shy;те&shy;та про&shy;цес&shy;са до клас&shy;са <code>Below Normal</code> при&shy;о&shy;ри&shy;тет по&shy;то&shy;ка &lsquo;Below Normal&rsquo; пе&shy;рес&shy;чи&shy;та&shy;ет&shy;ся и бу&shy;дет не <code>8 - 1 = 7</code> (ка&shy;ким он был при клас&shy;се <code>Normal</code>), а  <code>6 - 1 = 5</code>.  Lowest (-2) ста&shy;нет рав&shy;ным <code>4</code>.</p>
 <div class="paragraph-right-side">22</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
-<p><code>Idle</code> и <code>Time Critical</code> - это уровни насыщения (-15 и +15). Почему Normal - это <code>0</code> и относительно него всего два шага: -2, -1, +1 и +2? Легко провести параллель с обучением. Мы ходим в школу, получаем оценки наших знаний (5,4,3,2,1) и нам понятно, что это за оценки: 5 - молодец, 4 - хорошо, 3 - вообще не постарался, 2 - это не делал ни чего, а 1 - это то, что можно исправить потом на 4. Но если у нас вводится 10-ти бальная система оценок (или что вообще ужас - 100-бальная), то возникает неясность: что такое 9 баллов или 7? Как понять, что вам поставили 3 или 4?</p>
+<p >
+<code>Idle</code> и <code>Time Critical</code> - это уров&shy;ни на&shy;сы&shy;ще&shy;ния (-15 и +15). По&shy;че&shy;му Normal - это <code>0</code> и от&shy;но&shy;си&shy;тель&shy;но не&shy;го все&shy;го два ша&shy;га: -2, -1, +1 и +2? Лег&shy;ко про&shy;вес&shy;ти па&shy;рал&shy;лель с обу&shy;че&shy;ни&shy;ем. Мы хо&shy;дим в шко&shy;лу, по&shy;лу&shy;ча&shy;ем оцен&shy;ки на&shy;ших зна&shy;ний (5,4,3,2,1) и нам по&shy;нят&shy;но, что это за оцен&shy;ки: 5 - мо&shy;ло&shy;дец, 4 - хо&shy;ро&shy;шо, 3 - во&shy;об&shy;ще не пос&shy;та&shy;рал&shy;ся, 2 - это не де&shy;лал ни че&shy;го, а 1 - это то, что мож&shy;но ис&shy;пра&shy;вить по&shy;том на 4. Но ес&shy;ли у нас вво&shy;дит&shy;ся 10-ти баль&shy;ная сис&shy;те&shy;ма оце&shy;нок (или что во&shy;об&shy;ще ужас - 100-баль&shy;ная), то воз&shy;ни&shy;ка&shy;ет не&shy;яс&shy;ность: что та&shy;кое 9 бал&shy;лов или 7? Как по&shy;нять, что вам пос&shy;та&shy;ви&shy;ли 3 или 4?</p>
 <div class="paragraph-right-side">23</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">24</div>
-<p>Тоже самое и с приоритетами. У нас есть Normal. Дальше, относительно Normal у нас есть чуть повыше
-Normal (Normal above), чуть пониже Normal (Normal below). Также есть шаг на два вверх
-или на два вниз (Higest и Lowest). Нам, поверьте, нет никакой необходимости в более подробной градации. Единственное, очень редко, может раз в жизни, нам понадобится сказать: выше чем любой приоритет в системе. Тогда мы выставляем уровень <code>Time Critical</code>. Либо наоборот: это надо делать, когда во всей системе делать нечего. Тогда мы выставляем уровень <code>Idle</code>. Это значения - так называемые уровни насыщения.</p>
+<p >
+То&shy;же са&shy;мое и с при&shy;о&shy;ри&shy;те&shy;та&shy;ми. У нас есть Normal. Даль&shy;ше, от&shy;но&shy;си&shy;тель&shy;но Normal у нас есть чуть по&shy;вы&shy;ше
+Normal (Normal above), чуть по&shy;ни&shy;же Normal (Normal below). Так&shy;же есть шаг на два вверх
+или на два вниз (Higest и Lowest). Нам, по&shy;верь&shy;те, нет ни&shy;ка&shy;кой не&shy;об&shy;хо&shy;ди&shy;мос&shy;ти в бо&shy;лее под&shy;роб&shy;ной гра&shy;да&shy;ции. Един&shy;ствен&shy;ное, очень ред&shy;ко, мо&shy;жет раз в жиз&shy;ни, нам по&shy;на&shy;до&shy;бит&shy;ся ска&shy;зать: вы&shy;ше чем лю&shy;бой при&shy;о&shy;ри&shy;тет в сис&shy;те&shy;ме. Тог&shy;да мы выс&shy;тав&shy;ля&shy;ем уро&shy;вень <code>Time Critical</code>. Ли&shy;бо на&shy;о&shy;бо&shy;рот: это на&shy;до де&shy;лать, ког&shy;да во всей сис&shy;те&shy;ме де&shy;лать не&shy;че&shy;го. Тог&shy;да мы выс&shy;тав&shy;ля&shy;ем уро&shy;вень <code>Idle</code>. Это зна&shy;че&shy;ния - так на&shy;зы&shy;ва&shy;е&shy;мые уров&shy;ни на&shy;сы&shy;ще&shy;ния.</p>
 <div class="paragraph-right-side">24</div>
 </div>
 <h2 id="section-4">Как рассчитываются уровни приоритета?</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
-<p><img src="https://habrastorage.org/webt/rj/g2/qw/rjg2qw_-o8amgolaaxvh-sfzx-g.jpeg" alt="Уровни приоритета" /></p>
+<p >
+<img src="https://habrastorage.org/webt/rj/g2/qw/rjg2qw_-o8amgolaaxvh-sfzx-g.jpeg" alt="Уровни приоритета" /></p>
 <div class="paragraph-right-side">25</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
-<p>У нас бал класс приоритета процесса Normal (Таблица 3) и приоритет потоков Normal - это 8. Если процесс Above Normal то поток Normal получается равен 9. Если же процесс выставлен в Higest, то поток Normal получается равен 10.</p>
+<p >
+У нас бал класс при&shy;о&shy;ри&shy;те&shy;та про&shy;цес&shy;са Normal (Таб&shy;ли&shy;ца 3) и при&shy;о&shy;ри&shy;тет по&shy;то&shy;ков Normal - это 8. Если про&shy;цесс Above Normal то по&shy;ток Normal по&shy;лу&shy;ча&shy;ет&shy;ся ра&shy;вен 9. Если же про&shy;цесс выс&shy;тав&shy;лен в Higest, то по&shy;ток Normal по&shy;лу&shy;ча&shy;ет&shy;ся ра&shy;вен 10.</p>
 <div class="paragraph-right-side">26</div>
 </div>
-<p>Поскольку для планировщика потоков Windows все потоки процессов равнозначны, то:</p>
+<p >
+Пос&shy;коль&shy;ку для пла&shy;ни&shy;ров&shy;щи&shy;ка по&shy;то&shy;ков Windows все по&shy;то&shy;ки про&shy;цес&shy;сов рав&shy;ноз&shy;нач&shy;ны, то:</p>
 <ul>
-<li>Для процесса класса Normal и потока Above-Normal;</li>
-<li>Для процесса класса Higest и потока Normal.</li>
+<li>
+<p >
+Для про&shy;цес&shy;са клас&shy;са Normal и по&shy;то&shy;ка Above-Normal;</p>
+</li>
+<li>
+<p >
+Для про&shy;цес&shy;са клас&shy;са Higest и по&shy;то&shy;ка Normal.</p>
+</li>
 </ul>
-<p>конечные приоритеты будут одинаковыми и равны 10.</p>
+<p >
+ко&shy;неч&shy;ные при&shy;о&shy;ри&shy;те&shy;ты бу&shy;дут оди&shy;на&shy;ко&shy;вы&shy;ми и рав&shy;ны 10.</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">27</div>
-<p>Если мы имеем два процесса: один с приоритетом Normal, а второй - с приоритетом Higest, но при этом первый имел поток Higest а второй Normal, то система их приоритеты будет рассматривать как одинаковые.</p>
+<p >
+Если мы име&shy;ем два про&shy;цес&shy;са: один с при&shy;о&shy;ри&shy;те&shy;том Normal, а вто&shy;рой - с при&shy;о&shy;ри&shy;те&shy;том Higest, но при этом пер&shy;вый имел по&shy;ток Higest а вто&shy;рой Normal, то сис&shy;те&shy;ма их при&shy;о&shy;ри&shy;те&shy;ты бу&shy;дет расс&shy;мат&shy;ри&shy;вать как оди&shy;на&shy;ко&shy;вые.</p>
 <div class="paragraph-right-side">27</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
-<p>Как уже обсуждалось, группа приоритетов Real-Time на самом деле не является таковой, поскольку настоящий Real-Time - это гарантированная доставка сообщения за определённое время либо обработка его получения. Т.е., другими словами, если на конкретном ядре есть такой поток, других там быть не должно. Однако это ведь не так: система может решить, что низко приоритетный поток давно не работал и дать ему время, отключив real-time. Вернее его назвать классом приоритетов который работает над обычными приоритетами и куда обычные приоритеты не могут уйти, попав под ситуации, когда Windows временно повышает им приоритет.</p>
+<p >
+Как уже об&shy;суж&shy;да&shy;лось, груп&shy;па при&shy;о&shy;ри&shy;те&shy;тов Real-Time на са&shy;мом де&shy;ле не яв&shy;ля&shy;ет&shy;ся та&shy;ко&shy;вой, пос&shy;коль&shy;ку нас&shy;то&shy;я&shy;щий Real-Time - это га&shy;ран&shy;ти&shy;ро&shy;ван&shy;ная дос&shy;тав&shy;ка со&shy;об&shy;ще&shy;ния за оп&shy;ре&shy;делённое вре&shy;мя ли&shy;бо об&shy;ра&shy;бот&shy;ка его по&shy;лу&shy;че&shy;ния. Т.е., дру&shy;ги&shy;ми сло&shy;ва&shy;ми, ес&shy;ли на конк&shy;рет&shy;ном яд&shy;ре есть та&shy;кой по&shy;ток, дру&shy;гих там быть не дол&shy;жно. Одна&shy;ко это ведь не так: сис&shy;те&shy;ма мо&shy;жет ре&shy;шить, что низ&shy;ко при&shy;о&shy;ри&shy;тет&shy;ный по&shy;ток дав&shy;но не ра&shy;бо&shy;тал и дать ему вре&shy;мя, от&shy;клю&shy;чив real-time. Вер&shy;нее его наз&shy;вать клас&shy;сом при&shy;о&shy;ри&shy;те&shy;тов ко&shy;то&shy;рый ра&shy;бо&shy;та&shy;ет над обыч&shy;ны&shy;ми при&shy;о&shy;ри&shy;те&shy;та&shy;ми и ку&shy;да обыч&shy;ные при&shy;о&shy;ри&shy;те&shy;ты не мо&shy;гут уй&shy;ти, по&shy;пав под си&shy;ту&shy;а&shy;ции, ког&shy;да Windows вре&shy;мен&shy;но по&shy;вы&shy;ша&shy;ет им при&shy;о&shy;ри&shy;тет.</p>
 <div class="paragraph-right-side">28</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">29</div>
-<p>Но так как поток повышенным приоритетом исполняется только один на группе ядер, то получается,
-что если у вас даже Real-Time потоки, не факт, что им будет выделено время.</p>
+<p >
+Но так как по&shy;ток по&shy;вы&shy;шен&shy;ным при&shy;о&shy;ри&shy;те&shy;том ис&shy;пол&shy;ня&shy;ет&shy;ся толь&shy;ко один на груп&shy;пе ядер, то по&shy;лу&shy;ча&shy;ет&shy;ся,
+что ес&shy;ли у вас да&shy;же Real-Time по&shy;то&shy;ки, не факт, что им бу&shy;дет вы&shy;де&shy;ле&shy;но вре&shy;мя.</p>
 <div class="paragraph-right-side">29</div>
 </div>
 <div class="row">
@@ -1120,78 +1344,246 @@ Normal (Normal above), чуть пониже Normal (Normal below). Также �
 <table>
 <thead>
 <tr>
-<th>Класс приоритета / относительный приоритет</th>
-<th>Real-Time</th>
-<th>High</th>
-<th>Above-Normal</th>
-<th>Normal</th>
-<th>Below-Normal</th>
-<th>Idle</th>
+<th>
+<p >
+Класс при&shy;о&shy;ри&shy;те&shy;та / от&shy;но&shy;си&shy;тель&shy;ный при&shy;о&shy;ри&shy;тет</p>
+</th>
+<th>
+<p >
+Real-Time</p>
+</th>
+<th>
+<p >
+High</p>
+</th>
+<th>
+<p >
+Above-Normal</p>
+</th>
+<th>
+<p >
+Normal</p>
+</th>
+<th>
+<p >
+Below-Normal</p>
+</th>
+<th>
+<p >
+Idle</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Time Critical (+насыщение)</td>
-<td>31</td>
-<td>15</td>
-<td>15</td>
-<td>15</td>
-<td>15</td>
-<td>15</td>
+<td>
+<p >
+Time Critical (+на&shy;сы&shy;ще&shy;ние)</p>
+</td>
+<td>
+<p >
+31</p>
+</td>
+<td>
+<p >
+15</p>
+</td>
+<td>
+<p >
+15</p>
+</td>
+<td>
+<p >
+15</p>
+</td>
+<td>
+<p >
+15</p>
+</td>
+<td>
+<p >
+15</p>
+</td>
 </tr>
 <tr>
-<td>Highest (+2)</td>
-<td>26</td>
-<td>15</td>
-<td>12</td>
-<td>10</td>
-<td>8</td>
-<td>6</td>
+<td>
+<p >
+Highest (+2)</p>
+</td>
+<td>
+<p >
+26</p>
+</td>
+<td>
+<p >
+15</p>
+</td>
+<td>
+<p >
+12</p>
+</td>
+<td>
+<p >
+10</p>
+</td>
+<td>
+<p >
+8</p>
+</td>
+<td>
+<p >
+6</p>
+</td>
 </tr>
 <tr>
-<td>Above Normal (+1)</td>
-<td>25</td>
-<td>14</td>
-<td>11</td>
-<td>9</td>
-<td>7</td>
-<td>5</td>
+<td>
+<p >
+Above Normal (+1)</p>
+</td>
+<td>
+<p >
+25</p>
+</td>
+<td>
+<p >
+14</p>
+</td>
+<td>
+<p >
+11</p>
+</td>
+<td>
+<p >
+9</p>
+</td>
+<td>
+<p >
+7</p>
+</td>
+<td>
+<p >
+5</p>
+</td>
 </tr>
 <tr>
-<td>Normal (0)</td>
-<td>24</td>
-<td>13</td>
-<td>10</td>
-<td>8</td>
-<td>6</td>
-<td>4</td>
+<td>
+<p >
+Normal (0)</p>
+</td>
+<td>
+<p >
+24</p>
+</td>
+<td>
+<p >
+13</p>
+</td>
+<td>
+<p >
+10</p>
+</td>
+<td>
+<p >
+8</p>
+</td>
+<td>
+<p >
+6</p>
+</td>
+<td>
+<p >
+4</p>
+</td>
 </tr>
 <tr>
-<td>Below Normal (-1)</td>
-<td>23</td>
-<td>12</td>
-<td>9</td>
-<td>7</td>
-<td>5</td>
-<td>3</td>
+<td>
+<p >
+Below Normal (-1)</p>
+</td>
+<td>
+<p >
+23</p>
+</td>
+<td>
+<p >
+12</p>
+</td>
+<td>
+<p >
+9</p>
+</td>
+<td>
+<p >
+7</p>
+</td>
+<td>
+<p >
+5</p>
+</td>
+<td>
+<p >
+3</p>
+</td>
 </tr>
 <tr>
-<td>Lowest (-2)</td>
-<td>22</td>
-<td>11</td>
-<td>8</td>
-<td>6</td>
-<td>4</td>
-<td>2</td>
+<td>
+<p >
+Lowest (-2)</p>
+</td>
+<td>
+<p >
+22</p>
+</td>
+<td>
+<p >
+11</p>
+</td>
+<td>
+<p >
+8</p>
+</td>
+<td>
+<p >
+6</p>
+</td>
+<td>
+<p >
+4</p>
+</td>
+<td>
+<p >
+2</p>
+</td>
 </tr>
 <tr>
-<td>Idle (-насыщение)</td>
-<td>16</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
+<td>
+<p >
+Idle (-на&shy;сы&shy;ще&shy;ние)</p>
+</td>
+<td>
+<p >
+16</p>
+</td>
+<td>
+<p >
+1</p>
+</td>
+<td>
+<p >
+1</p>
+</td>
+<td>
+<p >
+1</p>
+</td>
+<td>
+<p >
+1</p>
+</td>
+<td>
+<p >
+1</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1199,295 +1591,530 @@ Normal (Normal above), чуть пониже Normal (Normal below). Также �
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">30</div>
-<p>Если перевести в графический вид, то можно заметить, что классы приоритетов пересекаются. Например, существует пересечение Above-Normal Normal Below-Normal (столбик с квадратиками):</p>
+<p >
+Если пе&shy;ре&shy;вес&shy;ти в гра&shy;фи&shy;чес&shy;кий вид, то мож&shy;но за&shy;ме&shy;тить, что клас&shy;сы при&shy;о&shy;ри&shy;те&shy;тов пе&shy;ре&shy;се&shy;ка&shy;ют&shy;ся. Нап&shy;ри&shy;мер, су&shy;щес&shy;тву&shy;ет пе&shy;ре&shy;се&shy;че&shy;ние Above-Normal Normal Below-Normal (стол&shy;бик с квад&shy;ра&shy;ти&shy;ка&shy;ми):</p>
 <div class="paragraph-right-side">30</div>
 </div>
-<p><img src="https://habrastorage.org/webt/6j/8d/ly/6j8dlyzhce7vzb5pm4ycnfq0bnc.jpeg" alt="" /></p>
+<p >
+<img src="https://habrastorage.org/webt/6j/8d/ly/6j8dlyzhce7vzb5pm4ycnfq0bnc.jpeg" alt="" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">31</div>
-<p>Это значит, что для этих трех классов приоритетов процессов существуют такие приоритеты потоков внутри этих классов, что реальный приоритет будет равен. При этом, когда вы задаёте приоритет процессу вы просто повышаете или понижаете все его внутренние приоритеты потоков на определённое значение (см. Таблица 3).</p>
+<p >
+Это зна&shy;чит, что для этих трех клас&shy;сов при&shy;о&shy;ри&shy;те&shy;тов про&shy;цес&shy;сов су&shy;щес&shy;тву&shy;ют та&shy;кие при&shy;о&shy;ри&shy;те&shy;ты по&shy;то&shy;ков внут&shy;ри этих клас&shy;сов, что ре&shy;альный при&shy;о&shy;ри&shy;тет бу&shy;дет ра&shy;вен. При этом, ког&shy;да вы за&shy;даёте при&shy;о&shy;ри&shy;тет про&shy;цес&shy;су вы прос&shy;то по&shy;вы&shy;ша&shy;ете или по&shy;ни&shy;жа&shy;ете все его внут&shy;рен&shy;ние при&shy;о&shy;ри&shy;те&shy;ты по&shy;то&shy;ков на оп&shy;ре&shy;делённое зна&shy;че&shy;ние (см. Таб&shy;ли&shy;ца 3).</p>
 <div class="paragraph-right-side">31</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">32</div>
-<p>Поэтому, когда процессу выдаётся более высокий класс приоритета, это повышает приоритет потоков процесса относительно обычных – с классом Normal.</p>
+<p >
+По&shy;э&shy;то&shy;му, ког&shy;да про&shy;цес&shy;су вы&shy;даётся бо&shy;лее вы&shy;со&shy;кий класс при&shy;о&shy;ри&shy;те&shy;та, это по&shy;вы&shy;ша&shy;ет при&shy;о&shy;ри&shy;тет по&shy;то&shy;ков про&shy;цес&shy;са от&shy;но&shy;си&shy;тель&shy;но обыч&shy;ных – с клас&shy;сом Normal.</p>
 <div class="paragraph-right-side">32</div>
 </div>
 <h2 id="section-5">Состояние потока</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">33</div>
-<p>Поток в терминологии планирования может находиться в нескольких состояниях, образуя конечный автомат, в рамках которого работает поток. Когда создаётся поток, он создаётся в статусе <em>Initialized</em>. Т.е. он проинициализирован и готов к работе. Далее, когда пользовательский код стартует поток, тот переводится в статус <em>Ready</em>. Т.е. готовности к исполнению. Другими словами, поток готов к тому, что его в любой момент начнут исполнять на каком-либо процессорном ядре. Спустя некоторое время планировщик просыпается чтобы выбрать следующий к исполнению на текущем процессорном ядре поток (для каждого ядра создается свой планировщик). Для этого он рукодоствуется рядом правил: некоторым потокам он временно повышает приоритет (поговорим об этом чуть позже), некоторые находятся в блокировке и поэтому не участвуют в планировании. В любом случае после всех манипуляций он начинает выбирать поток, на который будет переключено текущее процессорное ядро из списка готовых к исполнению. Т.е. тех, кто в своей машине состояний находится в состоянии <em>Ready</em>.</p>
+<p >
+По&shy;ток в тер&shy;ми&shy;но&shy;ло&shy;гии пла&shy;ни&shy;ро&shy;ва&shy;ния мо&shy;жет на&shy;хо&shy;дить&shy;ся в нес&shy;коль&shy;ких сос&shy;то&shy;я&shy;ни&shy;ях, об&shy;ра&shy;зуя ко&shy;неч&shy;ный ав&shy;то&shy;мат, в рам&shy;ках ко&shy;то&shy;ро&shy;го ра&shy;бо&shy;та&shy;ет по&shy;ток. Ког&shy;да соз&shy;даётся по&shy;ток, он соз&shy;даётся в ста&shy;ту&shy;се <em>Initialized</em>. Т.е. он про&shy;и&shy;ни&shy;ци&shy;а&shy;ли&shy;зи&shy;ро&shy;ван и го&shy;тов к ра&shy;бо&shy;те. Да&shy;лее, ког&shy;да поль&shy;зо&shy;ва&shy;т&shy;ельский код стар&shy;ту&shy;ет по&shy;ток, тот пе&shy;ре&shy;во&shy;дит&shy;ся в ста&shy;тус <em>Ready</em>. Т.е. го&shy;тов&shy;нос&shy;ти к ис&shy;пол&shy;не&shy;нию. Дру&shy;ги&shy;ми сло&shy;ва&shy;ми, по&shy;ток го&shy;тов к то&shy;му, что его в лю&shy;бой мо&shy;мент нач&shy;нут ис&shy;пол&shy;нять на ка&shy;ком-ли&shy;бо про&shy;цес&shy;сор&shy;ном яд&shy;ре. Спус&shy;тя не&shy;ко&shy;то&shy;рое вре&shy;мя пла&shy;ни&shy;ров&shy;щик про&shy;сы&shy;па&shy;ет&shy;ся что&shy;бы выб&shy;рать сле&shy;ду&shy;ю&shy;щий к ис&shy;пол&shy;не&shy;нию на те&shy;ку&shy;щем про&shy;цес&shy;сор&shy;ном яд&shy;ре по&shy;ток (для каж&shy;до&shy;го яд&shy;ра соз&shy;да&shy;ет&shy;ся свой пла&shy;ни&shy;ров&shy;щик). Для это&shy;го он ру&shy;ко&shy;дос&shy;тву&shy;ет&shy;ся ря&shy;дом пра&shy;вил: не&shy;ко&shy;то&shy;рым по&shy;то&shy;кам он вре&shy;мен&shy;но по&shy;вы&shy;ша&shy;ет при&shy;о&shy;ри&shy;тет (по&shy;го&shy;во&shy;рим об этом чуть поз&shy;же), не&shy;ко&shy;то&shy;рые на&shy;хо&shy;дят&shy;ся в бло&shy;ки&shy;ров&shy;ке и по&shy;э&shy;то&shy;му не учас&shy;тву&shy;ют в пла&shy;ни&shy;ро&shy;ва&shy;нии. В лю&shy;бом слу&shy;чае пос&shy;ле всех ма&shy;ни&shy;пу&shy;ля&shy;ций он на&shy;чи&shy;на&shy;ет вы&shy;би&shy;рать по&shy;ток, на ко&shy;то&shy;рый бу&shy;дет пе&shy;рек&shy;лю&shy;че&shy;но те&shy;ку&shy;щее про&shy;цес&shy;сор&shy;ное яд&shy;ро из спис&shy;ка го&shy;то&shy;вых к ис&shy;пол&shy;не&shy;нию. Т.е. тех, кто в сво&shy;ей ма&shy;ши&shy;не сос&shy;то&shy;я&shy;ний на&shy;хо&shy;дит&shy;ся в сос&shy;то&shy;я&shy;нии <em>Ready</em>.</p>
 <div class="paragraph-right-side">33</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">34</div>
-<p>Когда планировщик выбрал поток, он снимает его из очереди потоков со статусом <em>Ready</em> и переводит его в состояние <em>Standby</em> - некоторое промежуточное состояние. После этого планировщик должен заменить активный поток на текущем ядре. Для этого он устанавливает состояние регистров процессора в то, каким оно было когда-то на момент прерывания планировщиком. Тем самым процессор переносится в то расчётное состояние, каким оно было на момент прерывания планирощиком и если при этом вернуться на ту инструкцию, с которой когда-то программа была прервана и тем самым мы запустим поток на исполнение. Но перед таем как окончательно запустить исполнение потока, планировщик изменяет его статус в состояние исполнения <strong>Running</strong>.</p>
+<p >
+Ког&shy;да пла&shy;ни&shy;ров&shy;щик выб&shy;рал по&shy;ток, он сни&shy;ма&shy;ет его из оче&shy;ре&shy;ди по&shy;то&shy;ков со ста&shy;ту&shy;сом <em>Ready</em> и пе&shy;ре&shy;во&shy;дит его в сос&shy;то&shy;я&shy;ние <em>Standby</em> - не&shy;ко&shy;то&shy;рое про&shy;ме&shy;жу&shy;точ&shy;ное сос&shy;то&shy;я&shy;ние. Пос&shy;ле это&shy;го пла&shy;ни&shy;ров&shy;щик дол&shy;жен за&shy;ме&shy;нить ак&shy;тив&shy;ный по&shy;ток на те&shy;ку&shy;щем яд&shy;ре. Для это&shy;го он ус&shy;та&shy;нав&shy;ли&shy;ва&shy;ет сос&shy;то&shy;я&shy;ние ре&shy;гист&shy;ров про&shy;цес&shy;со&shy;ра в то, ка&shy;ким оно бы&shy;ло ког&shy;да-то на мо&shy;мент пре&shy;ры&shy;ва&shy;ния пла&shy;ни&shy;ров&shy;щи&shy;ком. Тем са&shy;мым про&shy;цес&shy;сор пе&shy;ре&shy;но&shy;сит&shy;ся в то расчётное сос&shy;то&shy;я&shy;ние, ка&shy;ким оно бы&shy;ло на мо&shy;мент пре&shy;ры&shy;ва&shy;ния пла&shy;ни&shy;ро&shy;щи&shy;ком и ес&shy;ли при этом вер&shy;нуть&shy;ся на ту инстр&shy;укцию, с ко&shy;то&shy;рой ког&shy;да-то прог&shy;рам&shy;ма бы&shy;ла прер&shy;ва&shy;на и тем са&shy;мым мы за&shy;пус&shy;тим по&shy;ток на ис&shy;пол&shy;не&shy;ние. Но пе&shy;ред та&shy;ем как окон&shy;ча&shy;тель&shy;но за&shy;пус&shy;тить ис&shy;пол&shy;не&shy;ние по&shy;то&shy;ка, пла&shy;ни&shy;ров&shy;щик из&shy;ме&shy;ня&shy;ет его ста&shy;тус в сос&shy;то&shy;я&shy;ние ис&shy;пол&shy;не&shy;ния <strong>Running</strong>.</p>
 <div class="paragraph-right-side">34</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">35</div>
-<p>Каждому потоку даётся накоторый промежуток времени, в течении которого он может исполняться прежде чем его прервут чтобы отдать время другому. Этот промежуток называется <em>квантом</em>. Именно благодаря дроблению времени на кванты и благодаря тому, что все потоки исполняются друг за другом (но понемногу) и возникает иллюзия параллельности исполнения программ. Да, на различных ядрах код исполняется истинно параллельно. Но в рамках одного ядра - нет. Именно поэтому если ядер у процессора много, код на ни работает быстрее.</p>
+<p >
+Каж&shy;до&shy;му по&shy;то&shy;ку даётся на&shy;ко&shy;то&shy;рый про&shy;ме&shy;жу&shy;ток вре&shy;ме&shy;ни, в те&shy;че&shy;нии ко&shy;то&shy;ро&shy;го он мо&shy;жет ис&shy;пол&shy;нять&shy;ся преж&shy;де чем его прер&shy;вут что&shy;бы от&shy;дать вре&shy;мя дру&shy;го&shy;му. Этот про&shy;ме&shy;жу&shy;ток на&shy;зы&shy;ва&shy;ет&shy;ся <em>квантом</em>. Имен&shy;но бла&shy;го&shy;да&shy;ря дроб&shy;ле&shy;нию вре&shy;ме&shy;ни на кван&shy;ты и бла&shy;го&shy;да&shy;ря то&shy;му, что все по&shy;то&shy;ки ис&shy;пол&shy;ня&shy;ют&shy;ся друг за дру&shy;гом (но по&shy;нем&shy;но&shy;гу) и воз&shy;ни&shy;ка&shy;ет ил&shy;лю&shy;зия па&shy;рал&shy;лель&shy;нос&shy;ти ис&shy;пол&shy;не&shy;ния прог&shy;рамм. Да, на раз&shy;лич&shy;ных яд&shy;рах код ис&shy;пол&shy;ня&shy;ет&shy;ся ис&shy;тин&shy;но па&shy;рал&shy;лель&shy;но. Но в рам&shy;ках од&shy;но&shy;го яд&shy;ра - нет. Имен&shy;но по&shy;э&shy;то&shy;му ес&shy;ли ядер у про&shy;цес&shy;со&shy;ра мно&shy;го, код на ни ра&shy;бо&shy;та&shy;ет быс&shy;т&shy;рее.</p>
 <div class="paragraph-right-side">35</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">36</div>
-<p>Когда же поток отрабатывает свой квант времени, планировщик его переводит в состояние <em>Ready</em> или <em>Waiting</em>.
-В состояние <em>Waiting</em> поток входит в том случае, если он входит блокировку (блокировки уровня ядра: mutex, semaphore, работа с дисковой системой ввода/вывода и т.п.). Когда поток находится в состоянии Waiting, процессор вообще не тратит время на данный поток т.к. он исчезает из планирования: в планировании участвуют только те потоки, которые к этому готовы. Т.е. находятся в состоянии <em>Ready</em>. После снятия блокировки поток переводится в состояние Ready и после того, как до него доходит очередь он начинает выполняться. Существует дополнительное состояние <em>Transition</em>, но мы его рассматривать не будем. И последнее состояние: <em>Terminated</em> - это когда жизнь потока завершена.</p>
+<p >
+Ког&shy;да же по&shy;ток от&shy;ра&shy;ба&shy;ты&shy;ва&shy;ет свой квант вре&shy;ме&shy;ни, пла&shy;ни&shy;ров&shy;щик его пе&shy;ре&shy;во&shy;дит в сос&shy;то&shy;я&shy;ние <em>Ready</em> или <em>Waiting</em>.
+В сос&shy;то&shy;я&shy;ние <em>Waiting</em> по&shy;ток вхо&shy;дит в том слу&shy;чае, ес&shy;ли он вхо&shy;дит бло&shy;ки&shy;ров&shy;ку (бло&shy;ки&shy;ров&shy;ки уров&shy;ня яд&shy;ра: mutex, semaphore, ра&shy;бо&shy;та с дис&shy;ко&shy;вой сис&shy;те&shy;мой вво&shy;да/вы&shy;во&shy;да и т.п.). Ког&shy;да по&shy;ток на&shy;хо&shy;дит&shy;ся в сос&shy;то&shy;я&shy;нии Waiting, про&shy;цес&shy;сор во&shy;об&shy;ще не тра&shy;тит вре&shy;мя на дан&shy;ный по&shy;ток т.к. он ис&shy;че&shy;за&shy;ет из пла&shy;ни&shy;ро&shy;ва&shy;ния: в пла&shy;ни&shy;ро&shy;ва&shy;нии учас&shy;тву&shy;ют толь&shy;ко те по&shy;то&shy;ки, ко&shy;то&shy;рые к это&shy;му го&shy;то&shy;вы. Т.е. на&shy;хо&shy;дят&shy;ся в сос&shy;то&shy;я&shy;нии <em>Ready</em>. Пос&shy;ле сня&shy;тия бло&shy;ки&shy;ров&shy;ки по&shy;ток пе&shy;ре&shy;во&shy;дит&shy;ся в сос&shy;то&shy;я&shy;ние Ready и пос&shy;ле то&shy;го, как до не&shy;го до&shy;хо&shy;дит оче&shy;редь он на&shy;чи&shy;на&shy;ет вы&shy;пол&shy;нять&shy;ся. Су&shy;щес&shy;тву&shy;ет до&shy;пол&shy;ни&shy;тель&shy;ное сос&shy;то&shy;я&shy;ние <em>Transition</em>, но мы его расс&shy;мат&shy;ри&shy;вать не бу&shy;дем. И пос&shy;лед&shy;нее сос&shy;то&shy;я&shy;ние: <em>Terminated</em> - это ког&shy;да жизнь по&shy;то&shy;ка за&shy;вер&shy;ше&shy;на.</p>
 <div class="paragraph-right-side">36</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">37</div>
-<p>За каждым ядром операционная система закрепляет свой планировщик потоков (на котором &laquo;крутится&raquo; несколько потоков). Допустим у нас исполняется 50 потоков <strong>на одном ядре</strong>. Квант, выделяемый одному потоку около 20 мcек в лучшем случае. Это значит, что каждый поток получит время на исполнение примерно 1 раз в <code>50 * 20 = 1000 мсек</code>. <strong>Т.е. один раз в секунду на 20 мcек</strong>. Таким образом, если вы созадите большое количество процессов, в каждом из которых будет как минимум 1 активный поток, который не заблокирован ожиданием ввода или вывода, то вы тем самым не просто делите общее время между всеми участниками, но и оттягиваете следующий момент включения потока в работу.</p>
+<p >
+За каж&shy;дым яд&shy;ром опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;те&shy;ма зак&shy;реп&shy;ля&shy;ет свой пла&shy;ни&shy;ров&shy;щик по&shy;то&shy;ков (на ко&shy;то&shy;ром &laquo;кру&shy;тит&shy;ся&raquo; нес&shy;коль&shy;ко по&shy;то&shy;ков). До&shy;пус&shy;тим у нас ис&shy;пол&shy;ня&shy;ет&shy;ся 50 по&shy;то&shy;ков <strong>на одном ядре</strong>. Квант, вы&shy;де&shy;ля&shy;е&shy;мый од&shy;но&shy;му по&shy;то&shy;ку око&shy;ло 20 мcек в луч&shy;шем слу&shy;чае. Это зна&shy;чит, что каж&shy;дый по&shy;ток по&shy;лу&shy;чит вре&shy;мя на ис&shy;пол&shy;не&shy;ние при&shy;мер&shy;но 1 раз в <code>50 * 20 = 1000 мсек</code>. <strong>Т.е. один раз в секунду на 20 мcек</strong>. Та&shy;ким об&shy;ра&shy;зом, ес&shy;ли вы со&shy;за&shy;ди&shy;те боль&shy;шое ко&shy;ли&shy;чес&shy;тво про&shy;цес&shy;сов, в каж&shy;дом из ко&shy;то&shy;рых бу&shy;дет как ми&shy;ни&shy;мум 1 ак&shy;тив&shy;ный по&shy;ток, ко&shy;то&shy;рый не заб&shy;ло&shy;ки&shy;ро&shy;ван ожи&shy;да&shy;ни&shy;ем вво&shy;да или вы&shy;во&shy;да, то вы тем са&shy;мым не прос&shy;то де&shy;ли&shy;те об&shy;щее вре&shy;мя меж&shy;ду все&shy;ми участ&shy;ни&shy;ка&shy;ми, но и от&shy;тя&shy;ги&shy;ва&shy;ете сле&shy;ду&shy;ю&shy;щий мо&shy;мент вклю&shy;че&shy;ния по&shy;то&shy;ка в ра&shy;бо&shy;ту.</p>
 <div class="paragraph-right-side">37</div>
 </div>
-<p>Двайте обобщим.</p>
-<p>Состояния потоков:</p>
+<p >
+Двай&shy;те обоб&shy;щим.</p>
+<p >
+Сос&shy;то&shy;я&shy;ния по&shy;то&shy;ков:</p>
 <ul>
-<li>Initialized. Используется при создании потока</li>
-<li>Ready. Готов. Состояние готовности, ожидание выполнения
+<li>
+<p >
+Initialized. Испол&shy;ьз&shy;уе&shy;тся при соз&shy;да&shy;нии по&shy;то&shy;ка</p>
+</li>
+<li>
+<p >
+Ready. Го&shy;тов. Сос&shy;то&shy;я&shy;ние го&shy;тов&shy;нос&shy;ти, ожи&shy;да&shy;ние вы&shy;пол&shy;не&shy;ния</p>
 <ul>
-<li>При поиске следующего потока планировщик рассматривает только это состояние</li>
+<li>
+<p >
+При по&shy;ис&shy;ке сле&shy;ду&shy;ю&shy;ще&shy;го по&shy;то&shy;ка пла&shy;ни&shy;ров&shy;щик расс&shy;мат&shy;ри&shy;ва&shy;ет толь&shy;ко это сос&shy;то&shy;я&shy;ние</p>
+</li>
 </ul>
 </li>
-<li>Deferred Ready. Готовность с отложенным выполнением.
+<li>
+<p >
+Deferred Ready. Го&shy;тов&shy;ность с от&shy;ло&shy;жен&shy;ным вы&shy;пол&shy;не&shy;ни&shy;ем.</p>
 <ul>
-<li>Поток выбран на исполнение на выбранном процессоре, но ещё не запущен.</li>
-<li>Для минимизации блокировки БД планирования</li>
+<li>
+<p >
+По&shy;ток выб&shy;ран на ис&shy;пол&shy;не&shy;ние на выб&shy;ран&shy;ном про&shy;цес&shy;со&shy;ре, но ещё не за&shy;пу&shy;щен.</p>
+</li>
+<li>
+<p >
+Для ми&shy;ни&shy;ми&shy;за&shy;ции бло&shy;ки&shy;ров&shy;ки БД пла&shy;ни&shy;ро&shy;ва&shy;ния</p>
+</li>
 </ul>
 </li>
-<li>Standby. В повышенной готовности.
+<li>
+<p >
+Standby. В по&shy;вы&shy;шен&shy;ной го&shy;тов&shy;нос&shy;ти.</p>
 <ul>
-<li>Был выбран следующим для исполнения на конкретном процессоре</li>
-<li>Всё ещё может быть вытеснен более приоритетным потоком</li>
+<li>
+<p >
+Был выб&shy;ран сле&shy;ду&shy;ю&shy;щим для ис&shy;пол&shy;не&shy;ния на конк&shy;рет&shy;ном про&shy;цес&shy;со&shy;ре</p>
+</li>
+<li>
+<p >
+Всё ещё мо&shy;жет быть вы&shy;тес&shy;нен бо&shy;лее при&shy;о&shy;ри&shy;тет&shy;ным по&shy;то&shy;ком</p>
+</li>
 </ul>
 </li>
-<li>Running. Выполнение
+<li>
+<p >
+Running. Вы&shy;пол&shy;не&shy;ние</p>
 <ul>
-<li>Исполняется до истечения кванта времени</li>
+<li>
+<p >
+Испол&shy;ня&shy;ет&shy;ся до ис&shy;те&shy;че&shy;ния кван&shy;та вре&shy;ме&shy;ни</p>
+</li>
 </ul>
 </li>
-<li>Waiting
+<li>
+<p >
+Waiting</p>
 <ul>
-<li>Ожидание объекта синхронизации</li>
-<li>ОС ждёт чего-либо от имени потока</li>
+<li>
+<p >
+Ожи&shy;да&shy;ние объ&shy;ек&shy;та синх&shy;ро&shy;ни&shy;за&shy;ции</p>
+</li>
+<li>
+<p >
+ОС ждёт че&shy;го-ли&shy;бо от име&shy;ни по&shy;то&shy;ка</p>
+</li>
 </ul>
 </li>
-<li>Transition
+<li>
+<p >
+Transition</p>
 <ul>
-<li>Если готов к выполнению, но стек ядра выгружен из памяти</li>
+<li>
+<p >
+Если го&shy;тов к вы&shy;пол&shy;не&shy;нию, но стек яд&shy;ра выг&shy;ру&shy;жен из па&shy;мя&shy;ти</p>
+</li>
 </ul>
 </li>
-<li>Terminated. Завершён</li>
+<li>
+<p >
+Terminated. За&shy;вершён</p>
+</li>
 </ul>
-<p><img src="./img/2.png" alt="Состояния потоков" /></p>
-<p>Рисунок 2: Состояние потоков</p>
+<p >
+<img src="./img/2.png" alt="Состояния потоков" /></p>
+<p >
+Ри&shy;су&shy;нок 2: Сос&shy;то&shy;я&shy;ние по&shy;то&shy;ков</p>
 <h2 id="section-6"><code>тут обработано</code></h2>
-<p><code>тут пока НЕ обработано</code></p>
+<p >
+<code>тут пока НЕ обработано</code></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">38</div>
-<p>На рисунке 2 изображено отношения потоков и процессора. Откуда видно, что потоки к процессору не имеют ни какого отношкния. Для планировщика потоков все они равноценны.</p>
+<p >
+На ри&shy;сун&shy;ке 2 изоб&shy;ра&shy;же&shy;но от&shy;но&shy;ше&shy;ния по&shy;то&shy;ков и про&shy;цес&shy;со&shy;ра. Отку&shy;да вид&shy;но, что по&shy;то&shy;ки к про&shy;цес&shy;со&shy;ру не име&shy;ют ни ка&shy;ко&shy;го от&shy;нош&shy;к&shy;ния. Для пла&shy;ни&shy;ров&shy;щи&shy;ка по&shy;то&shy;ков все они рав&shy;но&shy;цен&shy;ны.</p>
 <div class="paragraph-right-side">38</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">39</div>
-<p>Как это всё работает? Допустим мы имеем три процесса 1, 2 и 4. Есть две группы ядер со своим планировщиком потоков. Есть очереди потоков по приоритетам. И когда поток планируется в работу, переходит в состояние Ready, это означает, что он встаёт в определённую очередь. Если это поток с приоритетом Normal, запущенный внутри приложения с Классом Normal будет иметь 8. Значит когда он исполнится то из Running он перейдёт в Ready и будет поставлен в очередь 8. Если есть потоки которые так-же находятся в состоянии Ready, но более высоких приоритетов, то планировщик в будет выполнять их в первую очередь и не будет доходить до вашего потока, пока все потоки с более высоким приоритетом не будут исполнены.</p>
+<p >
+Как это всё ра&shy;бо&shy;та&shy;ет? До&shy;пус&shy;тим мы име&shy;ем три про&shy;цес&shy;са 1, 2 и 4. Есть две груп&shy;пы ядер со сво&shy;им пла&shy;ни&shy;ров&shy;щи&shy;ком по&shy;то&shy;ков. Есть оче&shy;ре&shy;ди по&shy;то&shy;ков по при&shy;о&shy;ри&shy;те&shy;там. И ког&shy;да по&shy;ток пла&shy;ни&shy;ру&shy;ет&shy;ся в ра&shy;бо&shy;ту, пе&shy;ре&shy;хо&shy;дит в сос&shy;то&shy;я&shy;ние Ready, это оз&shy;на&shy;ча&shy;ет, что он встаёт в оп&shy;ре&shy;делённую оче&shy;редь. Если это по&shy;ток с при&shy;о&shy;ри&shy;те&shy;том Normal, за&shy;пу&shy;щен&shy;ный внут&shy;ри при&shy;ло&shy;же&shy;ния с Клас&shy;сом Normal бу&shy;дет иметь 8. Зна&shy;чит ког&shy;да он ис&shy;пол&shy;нит&shy;ся то из Running он пе&shy;рейдёт в Ready и бу&shy;дет пос&shy;тав&shy;лен в оче&shy;редь 8. Если есть по&shy;то&shy;ки ко&shy;то&shy;рые так-же на&shy;хо&shy;дят&shy;ся в сос&shy;то&shy;я&shy;нии Ready, но бо&shy;лее вы&shy;со&shy;ких при&shy;о&shy;ри&shy;те&shy;тов, то пла&shy;ни&shy;ров&shy;щик в бу&shy;дет вы&shy;пол&shy;нять их в пер&shy;вую оче&shy;редь и не бу&shy;дет до&shy;хо&shy;дить до ва&shy;ше&shy;го по&shy;то&shy;ка, по&shy;ка все по&shy;то&shy;ки с бо&shy;лее вы&shy;со&shy;ким при&shy;о&shy;ри&shy;те&shy;том не бу&shy;дут ис&shy;пол&shy;не&shy;ны.</p>
 <div class="paragraph-right-side">39</div>
 </div>
-<p><img src="./img/3.png" alt="Взаимодействие процессора и потоков" /></p>
-<p>Рисунок 2: Потоки и процессор</p>
+<p >
+<img src="./img/3.png" alt="Взаимодействие процессора и потоков" /></p>
+<p >
+Ри&shy;су&shy;нок 2: По&shy;то&shy;ки и про&shy;цес&shy;сор</p>
 <h2 id="section-7">Кванты времени</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">40</div>
-<p>Квант - это промежуток времени в течение которого поток будет исполняться. Каждому потоку выделяется квант времени на исполнение. Потоки работают через и в течение определённого количество времени. Между потоками есть промежутки времени, во время которых планировщик потоков выполняет свою работу.</p>
+<p >
+Квант - это про&shy;ме&shy;жу&shy;ток вре&shy;ме&shy;ни в те&shy;че&shy;ние ко&shy;то&shy;ро&shy;го по&shy;ток бу&shy;дет ис&shy;пол&shy;нять&shy;ся. Каж&shy;до&shy;му по&shy;то&shy;ку вы&shy;де&shy;ля&shy;ет&shy;ся квант вре&shy;ме&shy;ни на ис&shy;пол&shy;не&shy;ние. По&shy;то&shy;ки ра&shy;бо&shy;та&shy;ют че&shy;рез и в те&shy;че&shy;ние оп&shy;ре&shy;делённо&shy;го ко&shy;ли&shy;чес&shy;тво вре&shy;ме&shy;ни. Меж&shy;ду по&shy;то&shy;ка&shy;ми есть про&shy;ме&shy;жут&shy;ки вре&shy;ме&shy;ни, во вре&shy;мя ко&shy;то&shy;рых пла&shy;ни&shy;ров&shy;щик по&shy;то&shy;ков вы&shy;пол&shy;ня&shy;ет свою ра&shy;бо&shy;ту.</p>
 <div class="paragraph-right-side">40</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">41</div>
-<p>На однопроцессорной системе x86 работа ситемного таймера настроена на срабатывает каждые 10 млСек, тем самым возникает аппаратное прерывание процессора INT 08 и вызов функции пользователя. На этом прерывании установлен планировщик. На многопроцессорной системе таймер настроен на 15 млСек.</p>
+<p >
+На од&shy;ноп&shy;ро&shy;цес&shy;сор&shy;ной сис&shy;те&shy;ме x86 ра&shy;бо&shy;та си&shy;тем&shy;но&shy;го тай&shy;ме&shy;ра нас&shy;тро&shy;ена на сра&shy;ба&shy;ты&shy;ва&shy;ет каж&shy;дые 10 млСек, тем са&shy;мым воз&shy;ни&shy;ка&shy;ет ап&shy;па&shy;рат&shy;ное пре&shy;ры&shy;ва&shy;ние про&shy;цес&shy;со&shy;ра INT 08 и вы&shy;зов фун&shy;к&shy;ции поль&shy;зо&shy;ва&shy;те&shy;ля. На этом пре&shy;ры&shy;ва&shy;нии ус&shy;та&shy;нов&shy;лен пла&shy;ни&shy;ров&shy;щик. На мно&shy;гоп&shy;ро&shy;цес&shy;сор&shy;ной сис&shy;те&shy;ме тай&shy;мер нас&shy;тро&shy;ен на 15 млСек.</p>
 <div class="paragraph-right-side">41</div>
 </div>
-<p><img src="./img/4.png" alt="Такты системного таймера" /></p>
-<p>Рисунок 3: Потоки и процессор</p>
+<p >
+<img src="./img/4.png" alt="Такты системного таймера" /></p>
+<p >
+Ри&shy;су&shy;нок 3: По&shy;то&shy;ки и про&shy;цес&shy;сор</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">42</div>
-<p>Исходя из системного таймера возникает <strong>квантовая единица</strong> (рис. 4) равная 1/3 этого интервала. Далее когда меняется поток это значение называется <strong>Значение Перезапуска Кванта</strong>. Оно различно на разных операционных системах. На клиентских системах Windows оно равно 6. Это значит, что количество квантовых единиц, выделяемых потоку, равно 6. Должно пройти два такта ситемного таймера 20 мл.сек. на однопроцессорной системе и 30 мл.сек. на многопроцессорной системе (см. рис. 4) и произойдёт переход к другому потоку.</p>
+<p >
+Исхо&shy;дя из сис&shy;тем&shy;но&shy;го тай&shy;ме&shy;ра воз&shy;ни&shy;ка&shy;ет <strong>квантовая единица</strong> (рис. 4) рав&shy;ная 1/3 это&shy;го ин&shy;тер&shy;ва&shy;ла. Да&shy;лее ког&shy;да ме&shy;ня&shy;ет&shy;ся по&shy;ток это зна&shy;че&shy;ние на&shy;зы&shy;ва&shy;ет&shy;ся <strong>Значение Перезапуска Кванта</strong>. Оно раз&shy;лич&shy;но на раз&shy;ных опе&shy;ра&shy;ци&shy;он&shy;ных сис&shy;те&shy;мах. На кли&shy;е&shy;нтских сис&shy;те&shy;мах Windows оно рав&shy;но 6. Это зна&shy;чит, что ко&shy;ли&shy;чес&shy;тво кван&shy;то&shy;вых еди&shy;ниц, вы&shy;де&shy;ля&shy;е&shy;мых по&shy;то&shy;ку, рав&shy;но 6. Дол&shy;жно прой&shy;ти два так&shy;та си&shy;тем&shy;но&shy;го тай&shy;ме&shy;ра 20 мл.сек. на од&shy;ноп&shy;ро&shy;цес&shy;сор&shy;ной сис&shy;те&shy;ме и 30 мл.сек. на мно&shy;гоп&shy;ро&shy;цес&shy;сор&shy;ной сис&shy;те&shy;ме (см. рис. 4) и про&shy;и&shy;зойдёт пе&shy;ре&shy;ход к дру&shy;го&shy;му по&shy;то&shy;ку.</p>
 <div class="paragraph-right-side">42</div>
 </div>
-<p><img src="./img/5.png" alt="Квантовая единица" /></p>
-<p>Рисунок 4: Квантовая единица</p>
+<p >
+<img src="./img/5.png" alt="Квантовая единица" /></p>
+<p >
+Ри&shy;су&shy;нок 4: Кван&shy;то&shy;вая еди&shy;ни&shy;ца</p>
 <ul>
-<li>Квантовая Цель = [Фактич. Квантовые Единицы] * [Тактовых Импульсов на квант времени]</li>
+<li>
+<p >
+Кван&shy;то&shy;вая Цель = [Фак&shy;тич. Кван&shy;то&shy;вые Еди&shy;ни&shy;цы] * [Так&shy;то&shy;вых Импул&shy;ьсов на квант вре&shy;ме&shy;ни]</p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">43</div>
-<p>Временная шкала системного таймера представлена на рисунке 5. Значение перезапуска кванта в клиентских системах Windows равно 6 в серверных системах Windows 36, то есть в шесть раз длиннее значит поток будет отрабатывать 120 мл.сек. После чего он перейдёт в состояние Ready и вернётся к исполнению не скоро. Поэтому на серверной системе необходимо оставлять только те приложения, которые там должны работать и больше ничего лишнего.</p>
+<p >
+Вре&shy;мен&shy;ная шка&shy;ла сис&shy;тем&shy;но&shy;го тай&shy;ме&shy;ра предс&shy;тав&shy;ле&shy;на на ри&shy;сун&shy;ке 5. Зна&shy;че&shy;ние пе&shy;ре&shy;за&shy;пус&shy;ка кван&shy;та в кли&shy;е&shy;нтских сис&shy;те&shy;мах Windows рав&shy;но 6 в сер&shy;вер&shy;ных сис&shy;те&shy;мах Windows 36, то есть в шесть раз длин&shy;нее зна&shy;чит по&shy;ток бу&shy;дет от&shy;ра&shy;ба&shy;ты&shy;вать 120 мл.сек. Пос&shy;ле че&shy;го он пе&shy;рейдёт в сос&shy;то&shy;я&shy;ние Ready и вернётся к ис&shy;пол&shy;не&shy;нию не ско&shy;ро. По&shy;э&shy;то&shy;му на сер&shy;вер&shy;ной сис&shy;те&shy;ме не&shy;об&shy;хо&shy;ди&shy;мо ос&shy;тав&shy;лять толь&shy;ко те при&shy;ло&shy;же&shy;ния, ко&shy;то&shy;рые там дол&shy;жны ра&shy;бо&shy;тать и боль&shy;ше ни&shy;че&shy;го лиш&shy;не&shy;го.</p>
 <div class="paragraph-right-side">43</div>
 </div>
-<p><img src="./img/6.png" alt="Временная шкала системного таймера" /></p>
-<p>Рисунок 5: Временная шкала системного таймера</p>
+<p >
+<img src="./img/6.png" alt="Временная шкала системного таймера" /></p>
+<p >
+Ри&shy;су&shy;нок 5: Вре&shy;мен&shy;ная шка&shy;ла сис&shy;тем&shy;но&shy;го тай&shy;ме&shy;ра</p>
 <ul>
-<li>Значение Перезапуска Кванта = [Фактич. Квантовые Единицы] * [Кол-во Квант. Единиц в Такте]
+<li>
+<p >
+Зна&shy;че&shy;ние Пе&shy;ре&shy;за&shy;пус&shy;ка Кван&shy;та = [Фак&shy;тич. Кван&shy;то&shy;вые Еди&shy;ни&shy;цы] * [Кол-во Квант. Еди&shy;ниц в Так&shy;те]</p>
 <ul>
-<li>= 6 (2 * 3 ) в клиентских системах Windows</li>
-<li>= 36 (12 * 3) в серверных системах Windows</li>
+<li>
+<p >
+= 6 (2 * 3 ) в кли&shy;е&shy;нтских сис&shy;те&shy;мах Windows</p>
+</li>
+<li>
+<p >
+= 36 (12 * 3) в сер&shy;вер&shy;ных сис&shy;те&shy;мах Windows</p>
+</li>
 </ul>
 </li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">44</div>
-<p>Предположим что один из потоков на уровне второй квантовой единицы встал в блокировку (рис. 6). Этот поток теряет
-квантовое время и оно отдаётся другому потоку. Другой поток начал свою работу. Но поскольку планировщик запускается только когда срабатывает системный таймер, то следующий поток отработает дольше. Следующий поток отработает положенное время. Получается так, что если вы работаете с блокировками, то ваше приложение будет выполняться малое количество времени. Во время работы потока могут возникнуть аппаратные прерывания (INT). Прерывания это отвлечение процессора от выполнения текущего потока для выполнения более важных задач (получение состояния внешних устройств и т.п.). Обработка прерывания занимает время потока, но вас это не должно беспокоить потому, что время затраченное на обработку прерывания не учитывается в планировании и соответственно ваш поток
-отработает дольше. Далее, когда поток, освобождённый от блокировки, просыпается, то он дорабатывает своё значение квантового перезапуска.</p>
+<p >
+Пред&shy;по&shy;ло&shy;жим что один из по&shy;то&shy;ков на уров&shy;не вто&shy;рой кван&shy;то&shy;вой еди&shy;ни&shy;цы встал в бло&shy;ки&shy;ров&shy;ку (рис. 6). Этот по&shy;ток те&shy;ря&shy;ет
+кван&shy;то&shy;вое вре&shy;мя и оно от&shy;даётся дру&shy;го&shy;му по&shy;то&shy;ку. Дру&shy;гой по&shy;ток на&shy;чал свою ра&shy;бо&shy;ту. Но пос&shy;коль&shy;ку пла&shy;ни&shy;ров&shy;щик за&shy;пус&shy;ка&shy;ет&shy;ся толь&shy;ко ког&shy;да сра&shy;ба&shy;ты&shy;ва&shy;ет сис&shy;тем&shy;ный тай&shy;мер, то сле&shy;ду&shy;ю&shy;щий по&shy;ток от&shy;ра&shy;бо&shy;та&shy;ет доль&shy;ше. Сле&shy;ду&shy;ю&shy;щий по&shy;ток от&shy;ра&shy;бо&shy;та&shy;ет по&shy;ло&shy;жен&shy;ное вре&shy;мя. По&shy;лу&shy;ча&shy;ет&shy;ся так, что ес&shy;ли вы ра&shy;бо&shy;та&shy;ете с бло&shy;ки&shy;ров&shy;ка&shy;ми, то ва&shy;ше при&shy;ло&shy;же&shy;ние бу&shy;дет вы&shy;пол&shy;нять&shy;ся ма&shy;лое ко&shy;ли&shy;чес&shy;тво вре&shy;ме&shy;ни. Во вре&shy;мя ра&shy;бо&shy;ты по&shy;то&shy;ка мо&shy;гут воз&shy;ник&shy;нуть ап&shy;па&shy;рат&shy;ные пре&shy;ры&shy;ва&shy;ния (INT). Пре&shy;ры&shy;ва&shy;ния это от&shy;вле&shy;че&shy;ние про&shy;цес&shy;со&shy;ра от вы&shy;пол&shy;не&shy;ния те&shy;ку&shy;ще&shy;го по&shy;то&shy;ка для вы&shy;пол&shy;не&shy;ния бо&shy;лее важ&shy;ных за&shy;дач (по&shy;лу&shy;че&shy;ние сос&shy;то&shy;я&shy;ния внеш&shy;них ус&shy;т&shy;ройств и т.п.). Обра&shy;бот&shy;ка пре&shy;ры&shy;ва&shy;ния за&shy;ни&shy;ма&shy;ет вре&shy;мя по&shy;то&shy;ка, но вас это не дол&shy;жно бес&shy;по&shy;ко&shy;ить по&shy;то&shy;му, что вре&shy;мя зат&shy;ра&shy;чен&shy;ное на об&shy;ра&shy;бот&shy;ку пре&shy;ры&shy;ва&shy;ния не учи&shy;ты&shy;ва&shy;ет&shy;ся в пла&shy;ни&shy;ро&shy;ва&shy;нии и со&shy;от&shy;ветст&shy;венно ваш по&shy;ток
+от&shy;ра&shy;бо&shy;та&shy;ет доль&shy;ше. Да&shy;лее, ког&shy;да по&shy;ток, ос&shy;во&shy;бождённый от бло&shy;ки&shy;ров&shy;ки, про&shy;сы&shy;па&shy;ет&shy;ся, то он до&shy;ра&shy;ба&shy;ты&shy;ва&shy;ет своё зна&shy;че&shy;ние кван&shy;то&shy;во&shy;го пе&shy;ре&shy;за&shy;пус&shy;ка.</p>
 <div class="paragraph-right-side">44</div>
 </div>
-<p><img src="./img/7.png" alt="Работа потока" /></p>
-<p>Рисунок 6: Работа потока</p>
+<p >
+<img src="./img/7.png" alt="Работа потока" /></p>
+<p >
+Ри&shy;су&shy;нок 6: Ра&shy;бо&shy;та по&shy;то&shy;ка</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">45</div>
-<p>Давайте определим количество квантовых циклов на квант. Согласно следующих шагов. Шаги нахождение квантовых циклов на квант:</p>
+<p >
+Да&shy;вай&shy;те оп&shy;ре&shy;де&shy;лим ко&shy;ли&shy;чес&shy;тво кван&shy;то&shy;вых цик&shy;лов на квант. Сог&shy;лас&shy;но сле&shy;ду&shy;ю&shy;щих ша&shy;гов. Ша&shy;ги на&shy;хож&shy;де&shy;ние кван&shy;то&shy;вых цик&shy;лов на квант:</p>
 <div class="paragraph-right-side">45</div>
 </div>
 <ul>
-<li>Возьмём тактовую частоту процессора:
+<li>
+<p >
+Возьмём так&shy;то&shy;вую час&shy;то&shy;ту про&shy;цес&shy;со&shy;ра:</p>
 <ul>
-<li>Выполним команду поцессора <b>сpuid</b>, которая выдаст точное значение частоты нашего процессора в ГГц : GenuineIntel 2601 fffffff00000000 …</li>
+<li>
+<p >
+Вы&shy;пол&shy;ним ко&shy;ман&shy;ду по&shy;цес&shy;со&shy;ра <b>сpuid</b>, ко&shy;то&shy;рая вы&shy;даст точ&shy;ное зна&shy;че&shy;ние час&shy;то&shy;ты на&shy;ше&shy;го про&shy;цес&shy;со&shy;ра в ГГц : GenuineIntel 2601 fffffff00000000 …</p>
+</li>
 </ul>
 </li>
-<li>Переведём её в герцы:
+<li>
+<p >
+Пе&shy;ре&shy;ведём её в гер&shy;цы:</p>
 <ul>
-<li>var freq = 2601 * 1,000,000,000 = 2 601 000 000 тактов/сек</li>
+<li>
+<p >
+var freq = 2601 * 1,000,000,000 = 2 601 000 000 так&shy;тов/сек</p>
+</li>
 </ul>
 </li>
-<li>При помощи утилиты <b>clockres</b> от Sysinternals получаем значение интервала таймера в системе (как часто срабатывает таймер):
+<li>
+<p >
+При по&shy;мо&shy;щи ути&shy;ли&shy;ты <b>clockres</b> от Sysinternals по&shy;лу&shy;ча&shy;ем зна&shy;че&shy;ние ин&shy;тер&shy;ва&shy;ла тай&shy;ме&shy;ра в сис&shy;те&shy;ме (как час&shy;то сра&shy;ба&shy;ты&shy;ва&shy;ет тай&shy;мер):</p>
 <ul>
-<li>15,625 мсек - то есть у нас многопроцессорная система ( 10 мсек - однопроцессорная )</li>
+<li>
+<p >
+15,625 мсек - то есть у нас мно&shy;гоп&shy;ро&shy;цес&shy;сор&shy;ная сис&shy;те&shy;ма ( 10 мсек - од&shy;ноп&shy;ро&shy;цес&shy;сор&shy;ная )</p>
+</li>
 </ul>
 </li>
-<li>Преобразуем его в секунды:
+<li>
+<p >
+Пре&shy;об&shy;ра&shy;зу&shy;ем его в се&shy;кун&shy;ды:</p>
 <ul>
-<li>15,625 мсек / 1000 = 0,015625 сек</li>
+<li>
+<p >
+15,625 мсек / 1000 = 0,015625 сек</p>
+</li>
 </ul>
 </li>
-<li>Умножим на кол-во циклов в секунду и получим число тактов на интервал таймера (от &laquo;тика&raquo; до &laquo;тика&raquo; системного таймера):
+<li>
+<p >
+Умно&shy;жим на кол-во цик&shy;лов в се&shy;кун&shy;ду и по&shy;лу&shy;чим чис&shy;ло так&shy;тов на ин&shy;тер&shy;вал тай&shy;ме&shy;ра (от &laquo;ти&shy;ка&raquo; до &laquo;ти&shy;ка&raquo; сис&shy;тем&shy;но&shy;го тай&shy;ме&shy;ра):</p>
 <ul>
-<li>2,601,000,000 тактов/сек  * 0,015625 сек = 32 837 625 тактов</li>
+<li>
+<p >
+2,601,000,000 так&shy;тов/сек  * 0,015625 сек = 32 837 625 так&shy;тов</p>
+</li>
 </ul>
 </li>
-<li>Получим число тактов на квантовую единицу (квантовая единица это 1/3 системного таймера):
+<li>
+<p >
+По&shy;лу&shy;чим чис&shy;ло так&shy;тов на кван&shy;то&shy;вую еди&shy;ни&shy;цу (кван&shy;то&shy;вая еди&shy;ни&shy;ца это 1/3 сис&shy;тем&shy;но&shy;го тай&shy;ме&shy;ра):</p>
 <ul>
-<li>32,837,625 / 3 = 10,945,875 тактов или 0x00A70553</li>
+<li>
+<p >
+32,837,625 / 3 = 10,945,875 так&shy;тов или 0x00A70553</p>
+</li>
 </ul>
 </li>
-<li>Если вывести дамп переменной KiCyclesPerClockQuantum, получится схожее значение:
+<li>
+<p >
+Если вы&shy;вес&shy;ти дамп пе&shy;ре&shy;мен&shy;ной KiCyclesPerClockQuantum, по&shy;лу&shy;чит&shy;ся схо&shy;жее зна&shy;че&shy;ние:</p>
 <ul>
-<li>lkd&gt; dd nt!KiCyclesPerClockQuantum L1</li>
-<li>8149755c 00a70550</li>
+<li>
+<p >
+lkd> dd nt!KiCyclesPerClockQuantum L1</p>
+</li>
+<li>
+<p >
+8149755c 00a70550</p>
+</li>
 </ul>
 </li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">46</div>
-<p>Относительно <b>квантовой единицы</b> рассчитывается цель. Эта переменная присутствует в системе, но её можно получить только под отладчиком уровня ядра. Рассчитанное нами значение практически совпадает со значением в системе ( 0x00A70550 ~= 0x00A70553). Итоговые данные для нашего случая представлены в  таблице 5. Она отображает какое количество тактов исполнится в нашем процессе, прежде чем он потеряет управление.</p>
+<p >
+Отно&shy;си&shy;тель&shy;но <b>кван&shy;то&shy;вой еди&shy;ни&shy;цы</b> расс&shy;чи&shy;ты&shy;ва&shy;ет&shy;ся цель. Эта пе&shy;ре&shy;мен&shy;ная при&shy;сут&shy;ствует в сис&shy;те&shy;ме, но её мож&shy;но по&shy;лу&shy;чить толь&shy;ко под от&shy;лад&shy;чи&shy;ком уров&shy;ня яд&shy;ра. Расс&shy;чи&shy;тан&shy;ное на&shy;ми зна&shy;че&shy;ние прак&shy;ти&shy;чес&shy;ки сов&shy;па&shy;да&shy;ет со зна&shy;че&shy;ни&shy;ем в сис&shy;те&shy;ме ( 0x00A70550 ~= 0x00A70553). Ито&shy;го&shy;вые дан&shy;ные для на&shy;ше&shy;го слу&shy;чая предс&shy;тав&shy;ле&shy;ны в  таб&shy;ли&shy;це 5. Она отоб&shy;ра&shy;жа&shy;ет ка&shy;кое ко&shy;ли&shy;чес&shy;тво так&shy;тов ис&shy;пол&shy;нит&shy;ся в на&shy;шем про&shy;цес&shy;се, преж&shy;де чем он по&shy;те&shy;ря&shy;ет уп&shy;рав&shy;ле&shy;ние.</p>
 <div class="paragraph-right-side">46</div>
 </div>
-<p>Это важно с нескольких позиций.</p>
+<p >
+Это важ&shy;но с нес&shy;коль&shy;ких по&shy;зи&shy;ций.</p>
 <ol>
-<li>Если есть серверное приложение и у нас очень много потоков, и они не очень хорошо организованы, то одни потоки будут
-&laquo;страдать&raquo; из-за других, если они работают на одном ядре.</li>
-<li>Можно попытаться присвоить потоки каким-то ядрам и тем самым обеспечить им более долгую работу.</li>
-<li>Передача процессорного времени другим потокам в случае блокировки</li>
+<li>
+<p >
+Если есть сер&shy;вер&shy;ное при&shy;ло&shy;же&shy;ние и у нас очень мно&shy;го по&shy;то&shy;ков, и они не очень хо&shy;ро&shy;шо ор&shy;га&shy;ни&shy;зо&shy;ва&shy;ны, то од&shy;ни по&shy;то&shy;ки бу&shy;дут
+&laquo;стра&shy;дать&raquo; из-за дру&shy;гих, ес&shy;ли они ра&shy;бо&shy;та&shy;ют на од&shy;ном яд&shy;ре.</p>
+</li>
+<li>
+<p >
+Мож&shy;но по&shy;пы&shy;тать&shy;ся прис&shy;во&shy;ить по&shy;то&shy;ки ка&shy;ким-то яд&shy;рам и тем са&shy;мым обес&shy;пе&shy;чить им бо&shy;лее дол&shy;гую ра&shy;бо&shy;ту.</p>
+</li>
+<li>
+<p >
+Пе&shy;ре&shy;да&shy;ча про&shy;цес&shy;сор&shy;но&shy;го вре&shy;ме&shy;ни дру&shy;гим по&shy;то&shy;кам в слу&shy;чае бло&shy;ки&shy;ров&shy;ки</p>
+</li>
 </ol>
 <div class="row">
 <div class="offset-3 col-6">
 <table>
 <thead>
 <tr>
-<th>Система</th>
-<th>Знач. Перезапуска Кванта</th>
-<th>Квантовая Цель (тактов)</th>
+<th>
+<p >
+Сис&shy;те&shy;ма</p>
+</th>
+<th>
+<p >
+Знач. Пе&shy;ре&shy;за&shy;пус&shy;ка Кван&shy;та</p>
+</th>
+<th>
+<p >
+Кван&shy;то&shy;вая Цель (так&shy;тов)</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Клиентская</td>
-<td>6</td>
-<td>65 675 250</td>
+<td>
+<p >
+Кли&shy;е&shy;нтская</p>
+</td>
+<td>
+<p >
+6</p>
+</td>
+<td>
+<p >
+65 675 250</p>
+</td>
 </tr>
 <tr>
-<td>Серверная</td>
-<td>36</td>
-<td>394 051 500</td>
+<td>
+<p >
+Сер&shy;вер&shy;ная</p>
+</td>
+<td>
+<p >
+36</p>
+</td>
+<td>
+<p >
+394 051 500</p>
+</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <h3 id="section-8">Управление величиной кванта</h3>
-<p>Заходим в свойства своего компьютера. Далее &laquo;Change Settings&raquo;</p>
-<p><img src="./img/10_1.png" alt="Управление величиной кванта. Шаг 1" /></p>
-<p>Переходим в Perfimance -&gt; Settings</p>
-<p><img src="./img/10_2.png" alt="Управление величиной кванта. Шаг 2" /></p>
+<p >
+За&shy;хо&shy;дим в свой&shy;ства сво&shy;его ком&shy;пьютера. Да&shy;лее &laquo;Change Settings&raquo;</p>
+<p >
+<img src="./img/10_1.png" alt="Управление величиной кванта. Шаг 1" /></p>
+<p >
+Пе&shy;ре&shy;хо&shy;дим в Perfimance -> Settings</p>
+<p >
+<img src="./img/10_2.png" alt="Управление величиной кванта. Шаг 2" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">47</div>
-<p>Переходим на вкладку Advanced. Programs - это короткие кванты (6). Почему для Desktop у нас выбрано 6? Потому-что, у нас необходима отзывчивость системы, так как за компьютером работае пользователь. Педположим в Chrome открыто 50 вкладок. Если у нас будет установлен квант равный 36 (сервер), то даже перемещение курсора &laquo;мыши&raquo; по экрану будет притормаживать из-за того что потоку GUI будет выделяться мало времени.</p>
+<p >
+Пе&shy;ре&shy;хо&shy;дим на вклад&shy;ку Advanced. Programs - это ко&shy;рот&shy;кие кван&shy;ты (6). По&shy;че&shy;му для Desktop у нас выб&shy;ра&shy;но 6? По&shy;то&shy;му-что, у нас не&shy;об&shy;хо&shy;ди&shy;ма от&shy;зыв&shy;чи&shy;вость сис&shy;те&shy;мы, так как за ком&shy;пьютером ра&shy;бо&shy;тае поль&shy;зо&shy;ва&shy;тель. Пед&shy;по&shy;ло&shy;жим в Chrome от&shy;кры&shy;то 50 вкла&shy;док. Если у нас бу&shy;дет ус&shy;та&shy;нов&shy;лен квант рав&shy;ный 36 (сер&shy;вер), то да&shy;же пе&shy;ре&shy;ме&shy;ще&shy;ние кур&shy;со&shy;ра &laquo;мы&shy;ши&raquo; по эк&shy;ра&shy;ну бу&shy;дет при&shy;тор&shy;ма&shy;жи&shy;вать из-за то&shy;го что по&shy;то&shy;ку GUI бу&shy;дет вы&shy;де&shy;лять&shy;ся ма&shy;ло вре&shy;ме&shy;ни.</p>
 <div class="paragraph-right-side">47</div>
 </div>
-<p>Оптимизация под программы</p>
+<p >
+Опти&shy;ми&shy;за&shy;ция под прог&shy;рам&shy;мы</p>
 <ul>
-<li>Использование коротких, переменных квантов</li>
-<li>Режим по-умолчанию для клиентских Windows, включая XBOX, Hololens</li>
-<li>Можно выбрать настройку, если серверная ОС установлена как настольная</li>
+<li>
+<p >
+Испол&shy;ьз&shy;ов&shy;ание ко&shy;рот&shy;ких, пе&shy;ре&shy;мен&shy;ных кван&shy;тов</p>
+</li>
+<li>
+<p >
+Ре&shy;жим по-умол&shy;ча&shy;нию для кли&shy;е&shy;нтских Windows, вклю&shy;чая XBOX, Hololens</p>
+</li>
+<li>
+<p >
+Мож&shy;но выб&shy;рать наст&shy;рой&shy;ку, ес&shy;ли сер&shy;вер&shy;ная ОС ус&shy;та&shy;нов&shy;ле&shy;на как нас&shy;толь&shy;ная</p>
+</li>
 </ul>
-<p>Оптимизация под фоновые службы</p>
+<p >
+Опти&shy;ми&shy;за&shy;ция под фо&shy;но&shy;вые служ&shy;бы</p>
 <ul>
-<li>Использование длинных, фиксированных квантов</li>
-<li>Режим по-умолчанию для серверных Windows</li>
-<li>Можно выбрать настройку, если настольная ОС установлена как серверная</li>
-<li>Поскольку эффект немедленный, можно выставить настройку перед началом расчётов, а после расчётов (например, утром) – вернуть настройки назад</li>
+<li>
+<p >
+Испол&shy;ьз&shy;ов&shy;ание длин&shy;ных, фик&shy;си&shy;ро&shy;ван&shy;ных кван&shy;тов</p>
+</li>
+<li>
+<p >
+Ре&shy;жим по-умол&shy;ча&shy;нию для сер&shy;вер&shy;ных Windows</p>
+</li>
+<li>
+<p >
+Мож&shy;но выб&shy;рать наст&shy;рой&shy;ку, ес&shy;ли нас&shy;толь&shy;ная ОС ус&shy;та&shy;нов&shy;ле&shy;на как сер&shy;вер&shy;ная</p>
+</li>
+<li>
+<p >
+Пос&shy;коль&shy;ку эф&shy;фект не&shy;мед&shy;лен&shy;ный, мож&shy;но выс&shy;та&shy;вить наст&shy;рой&shy;ку пе&shy;ред на&shy;ча&shy;лом расчётов, а пос&shy;ле расчётов (нап&shy;ри&shy;мер, ут&shy;ром) – вер&shy;нуть наст&shy;рой&shy;ки на&shy;зад</p>
+</li>
 </ul>
-<p><img src="./img/10_3.png" alt="Управление величиной кванта. Шаг 3" /></p>
+<p >
+<img src="./img/10_3.png" alt="Управление величиной кванта. Шаг 3" /></p>
 <h3 id="section-9">Переменные кванты</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">48</div>
-<p>Кванты времени бывают не только статичные но и переменные. Статичные кванты это когда в имеете 6 и 36 не зависимо от условий (каких условий?). Переменные кванты в зависимости от условий вам может быть выделено больше процессорного времени на квант. В это условия входит, например, приложение которое сейчас находится на переднем плане - оно работает дольше, чем все остальные. И, соответственно, быстрее. При копировании файлов, если перемещать курсор &laquo;мыши&raquo; над окном, то копирование идёт быстрее :) из-за того,  что такие потоки получают временно повышение приоритета.</p>
+<p >
+Кван&shy;ты вре&shy;ме&shy;ни бы&shy;ва&shy;ют не толь&shy;ко ста&shy;тич&shy;ные но и пе&shy;ре&shy;мен&shy;ные. Ста&shy;тич&shy;ные кван&shy;ты это ког&shy;да в име&shy;ете 6 и 36 не за&shy;ви&shy;си&shy;мо от ус&shy;ло&shy;вий (ка&shy;ких ус&shy;ло&shy;вий?). Пе&shy;ре&shy;мен&shy;ные кван&shy;ты в за&shy;ви&shy;си&shy;мос&shy;ти от ус&shy;ло&shy;вий вам мо&shy;жет быть вы&shy;де&shy;ле&shy;но боль&shy;ше про&shy;цес&shy;сор&shy;но&shy;го вре&shy;ме&shy;ни на квант. В это ус&shy;ло&shy;вия вхо&shy;дит, нап&shy;ри&shy;мер, при&shy;ло&shy;же&shy;ние ко&shy;то&shy;рое сей&shy;час на&shy;хо&shy;дит&shy;ся на пе&shy;ред&shy;нем пла&shy;не - оно ра&shy;бо&shy;та&shy;ет доль&shy;ше, чем все ос&shy;таль&shy;ные. И, со&shy;от&shy;ветст&shy;венно, быс&shy;т&shy;рее. При ко&shy;пи&shy;ро&shy;ва&shy;нии фай&shy;лов, ес&shy;ли пе&shy;ре&shy;ме&shy;щать кур&shy;сор &laquo;мы&shy;ши&raquo; над ок&shy;ном, то ко&shy;пи&shy;ро&shy;ва&shy;ние идёт быс&shy;т&shy;рее :) из-за то&shy;го,  что та&shy;кие по&shy;то&shy;ки по&shy;лу&shy;ча&shy;ют вре&shy;мен&shy;но по&shy;вы&shy;ше&shy;ние при&shy;о&shy;ри&shy;те&shy;та.</p>
 <div class="paragraph-right-side">48</div>
 </div>
-<p>Если разрешено использование переменных квантов (клиентская ОС):</p>
+<p >
+Если раз&shy;ре&shy;ше&shy;но ис&shy;поль&shy;зо&shy;ва&shy;ние пе&shy;ре&shy;мен&shy;ных кван&shy;тов (кли&shy;е&shy;нтская ОС):</p>
 <ul>
-<li>в таблицу переменных квантов загружается PspForegroundQuantum, которая используется функцией PspComputeQuantum, загружается таблица PspVariableQuantums</li>
-<li>Алгоритм подбирает подходящий индекс кванта в зависимости от того, работает процесс на переднем плане или нет:
+<li>
+<p >
+в таб&shy;ли&shy;цу пе&shy;ре&shy;мен&shy;ных кван&shy;тов заг&shy;ру&shy;жа&shy;ет&shy;ся PspForegroundQuantum, ко&shy;то&shy;рая ис&shy;поль&shy;зу&shy;ет&shy;ся фун&shy;кци&shy;ей PspComputeQuantum, заг&shy;ру&shy;жа&shy;ет&shy;ся таб&shy;ли&shy;ца PspVariableQuantums</p>
+</li>
+<li>
+<p >
+Алго&shy;ритм под&shy;би&shy;ра&shy;ет под&shy;хо&shy;дя&shy;щий ин&shy;декс кван&shy;та в за&shy;ви&shy;си&shy;мос&shy;ти от то&shy;го, ра&shy;бо&shy;та&shy;ет про&shy;цесс на пе&shy;ред&shy;нем пла&shy;не или нет:</p>
 <ul>
-<li>есть ли в нём поток, владеющий окном переднего плана или нет?</li>
+<li>
+<p >
+есть ли в нём по&shy;ток, вла&shy;де&shy;ю&shy;щий ок&shy;ном пе&shy;ред&shy;не&shy;го пла&shy;на или нет?</p>
+</li>
 </ul>
 </li>
-<li>В паре с планировщиком потоков, это даёт повышение приоритета для этого процесса.</li>
+<li>
+<p >
+В па&shy;ре с пла&shy;ни&shy;ров&shy;щи&shy;ком по&shy;то&shy;ков, это даёт по&shy;вы&shy;ше&shy;ние при&shy;о&shy;ри&shy;те&shy;та для это&shy;го про&shy;цес&shy;са.</p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">49</div>
-<p>Запущено два калькулятора: правый - активный (на переднем плане), левый - фоновый.  Есть группы квантов: переменные и фиксированные. И в таблице 6 показаны индексы этих калькуляторов. Правый будет иметь индекс 12 или 18, левый - 6. На пользовательской Windows установлено по умолчанию переменное значение кванта. На сервере, по умолчанию, нет переменных квантов.</p>
+<p >
+За&shy;пу&shy;ще&shy;но два каль&shy;ку&shy;ля&shy;то&shy;ра: пра&shy;вый - ак&shy;тив&shy;ный (на пе&shy;ред&shy;нем пла&shy;не), ле&shy;вый - фо&shy;но&shy;вый.  Есть груп&shy;пы кван&shy;тов: пе&shy;ре&shy;мен&shy;ные и фик&shy;си&shy;ро&shy;ван&shy;ные. И в таб&shy;ли&shy;це 6 по&shy;ка&shy;за&shy;ны ин&shy;дек&shy;сы этих каль&shy;ку&shy;ля&shy;то&shy;ров. Пра&shy;вый бу&shy;дет иметь ин&shy;декс 12 или 18, ле&shy;вый - 6. На поль&shy;зо&shy;ва&shy;т&shy;ельской Windows ус&shy;та&shy;нов&shy;ле&shy;но по умол&shy;ча&shy;нию пе&shy;ре&shy;мен&shy;ное зна&shy;че&shy;ние кван&shy;та. На сер&shy;ве&shy;ре, по умол&shy;ча&shy;нию, нет пе&shy;ре&shy;мен&shy;ных кван&shy;тов.</p>
 <div class="paragraph-right-side">49</div>
 </div>
-<p><img src="./img/11_1.png" alt="Рис" /></p>
+<p >
+<img src="./img/11_1.png" alt="Рис" /></p>
 <div class="row">
 <div class="offset-3 col-6">
 <table>
 <thead>
 <tr>
-<th>Значение</th>
-<th>Индекс короткого кванта</th>
-<th>Индекс длинного кванта</th>
+<th>
+<p >
+Зна&shy;че&shy;ние</p>
+</th>
+<th>
+<p >
+Индекс ко&shy;рот&shy;ко&shy;го кван&shy;та</p>
+</th>
+<th>
+<p >
+Индекс длин&shy;но&shy;го кван&shy;та</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Переменное</td>
-<td>6      12      18</td>
-<td>12     24     36</td>
+<td>
+<p >
+Пе&shy;ре&shy;мен&shy;ное</p>
+</td>
+<td>
+<p >
+6      12      18</p>
+</td>
+<td>
+<p >
+12     24     36</p>
+</td>
 </tr>
 <tr>
-<td>Фиксированное</td>
-<td>18      18      18</td>
-<td>36     36     36</td>
+<td>
+<p >
+Фик&shy;си&shy;ро&shy;ван&shy;ное</p>
+</td>
+<td>
+<p >
+18      18      18</p>
+</td>
+<td>
+<p >
+36     36     36</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1495,55 +2122,108 @@ Normal (Normal above), чуть пониже Normal (Normal below). Также �
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">50</div>
-<p>Настройка меняется в реестре. Можно поменять систему раздачи квантов по адресу <code>HKLM\SYSTEM\CurrentControlSet\PriorityControl</code>.</p>
+<p >
+Наст&shy;рой&shy;ка ме&shy;ня&shy;ет&shy;ся в ре&shy;ес&shy;тре. Мож&shy;но по&shy;ме&shy;нять сис&shy;те&shy;му раз&shy;да&shy;чи кван&shy;тов по ад&shy;ре&shy;су <code>HKLM\SYSTEM\CurrentControlSet\PriorityControl</code>.</p>
 <div class="paragraph-right-side">50</div>
 </div>
-<p><img src="./img/12_1.png" alt="Реестр" /></p>
+<p >
+<img src="./img/12_1.png" alt="Реестр" /></p>
 <div class="row">
 <div class="offset-3 col-6">
 <table>
 <thead>
 <tr>
-<th>4</th>
-<th>3 | 2</th>
-<th>1 | 0</th>
+<th>
+<p >
+4</p>
+</th>
+<th>
+<p >
+3 | 2</p>
+</th>
+<th>
+<p >
+1 | 0</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>короткие или длинные</td>
-<td>Переменные/фиксированные</td>
-<td>Разнос приоритетов</td>
+<td>
+<p >
+ко&shy;рот&shy;кие или длин&shy;ные</p>
+</td>
+<td>
+<p >
+Пе&shy;ре&shy;мен&shy;ные/фик&shy;си&shy;ро&shy;ван&shy;ные</p>
+</td>
+<td>
+<p >
+Раз&shy;нос при&shy;о&shy;ри&shy;те&shy;тов</p>
+</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<p>Параметр побитово делится на три зоны.
-Короткие или длинные</p>
+<p >
+Па&shy;ра&shy;метр по&shy;би&shy;то&shy;во де&shy;лит&shy;ся на три зо&shy;ны.
+Ко&shy;рот&shy;кие или длин&shy;ные</p>
 <ul>
-<li>0 или 3 – короткие для клиенских, длинные для серверных</li>
-<li>1 – длинные кванты</li>
-<li>2 – короткие кванты</li>
+<li>
+<p >
+0 или 3 – ко&shy;рот&shy;кие для кли&shy;ен&shy;с&shy;ких, длин&shy;ные для сер&shy;вер&shy;ных</p>
+</li>
+<li>
+<p >
+1 – длин&shy;ные кван&shy;ты</p>
+</li>
+<li>
+<p >
+2 – ко&shy;рот&shy;кие кван&shy;ты</p>
+</li>
 </ul>
-<p>Переменные или фиксированные</p>
+<p >
+Пе&shy;ре&shy;мен&shy;ные или фик&shy;си&shy;ро&shy;ван&shy;ные</p>
 <ul>
-<li>0 или 3 – переменные для клиенских, фиксированные для серверных</li>
-<li>1 – переменные кванты</li>
+<li>
+<p >
+0 или 3 – пе&shy;ре&shy;мен&shy;ные для кли&shy;ен&shy;с&shy;ких, фик&shy;си&shy;ро&shy;ван&shy;ные для сер&shy;вер&shy;ных</p>
+</li>
+<li>
+<p >
+1 – пе&shy;ре&shy;мен&shy;ные кван&shy;ты</p>
+</li>
 </ul>
-<p>Разнос приоритетов</p>
+<p >
+Раз&shy;нос при&shy;о&shy;ри&shy;те&shy;тов</p>
 <ul>
-<li>0 - 2 – определяет приоритетное разделение</li>
+<li>
+<p >
+0 - 2 – оп&shy;ре&shy;де&shy;ля&shy;ет при&shy;о&shy;ри&shy;тет&shy;ное раз&shy;де&shy;ле&shy;ние</p>
+</li>
 </ul>
 <h1 id="section-10">Выводы</h1>
 <ol>
-<li>Когда поток входит в блокировку, он перестаёт учавствовать в планировании.</li>
-<li>На однопроцессорной системе планировщик всегда забирает поток сверху, поэтому он и называется во первых, с приоритетами,
-во вторых он вытесняющий. Если появляется поток с более высоким приоритетом, то планировщик вытесняет исполняемый поток
-и переключается на поток с большим приоритетом.</li>
-<li>Важно знать, что есть кванты. Квант - это достаточно длинная по времени процедура. И независимо от того,
-прерывается ли ваш поток, время, которое выделено потоку, он отработает</li>
-<li>Если поток переходит в блокировку, то часть времени переходит другому потоку</li>
+<li>
+<p >
+Ког&shy;да по&shy;ток вхо&shy;дит в бло&shy;ки&shy;ров&shy;ку, он пе&shy;рес&shy;таёт учавс&shy;твовать в пла&shy;ни&shy;ро&shy;ва&shy;нии.</p>
+</li>
+<li>
+<p >
+На од&shy;ноп&shy;ро&shy;цес&shy;сор&shy;ной сис&shy;те&shy;ме пла&shy;ни&shy;ров&shy;щик всег&shy;да за&shy;би&shy;ра&shy;ет по&shy;ток свер&shy;ху, по&shy;э&shy;то&shy;му он и на&shy;зы&shy;ва&shy;ет&shy;ся во пер&shy;вых, с при&shy;о&shy;ри&shy;те&shy;та&shy;ми,
+во вто&shy;рых он вы&shy;тес&shy;ня&shy;ю&shy;щий. Если по&shy;яв&shy;ля&shy;ет&shy;ся по&shy;ток с бо&shy;лее вы&shy;со&shy;ким при&shy;о&shy;ри&shy;те&shy;том, то пла&shy;ни&shy;ров&shy;щик вы&shy;тес&shy;ня&shy;ет ис&shy;пол&shy;ня&shy;е&shy;мый по&shy;ток
+и пе&shy;рек&shy;лю&shy;ча&shy;ет&shy;ся на по&shy;ток с боль&shy;шим при&shy;о&shy;ри&shy;те&shy;том.</p>
+</li>
+<li>
+<p >
+Важ&shy;но знать, что есть кван&shy;ты. Квант - это дос&shy;та&shy;точ&shy;но длин&shy;ная по вре&shy;ме&shy;ни про&shy;це&shy;ду&shy;ра. И не&shy;за&shy;ви&shy;си&shy;мо от то&shy;го,
+пре&shy;ры&shy;ва&shy;ет&shy;ся ли ваш по&shy;ток, вре&shy;мя, ко&shy;то&shy;рое вы&shy;де&shy;ле&shy;но по&shy;то&shy;ку, он от&shy;ра&shy;бо&shy;та&shy;ет</p>
+</li>
+<li>
+<p >
+Если по&shy;ток пе&shy;ре&shy;хо&shy;дит в бло&shy;ки&shy;ров&shy;ку, то часть вре&shy;ме&shy;ни пе&shy;ре&shy;хо&shy;дит дру&shy;го&shy;му по&shy;то&shy;ку</p>
+</li>
 </ol>
 
 </div>

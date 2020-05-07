@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>.NET Platform Architecture</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.NET Platform Architecture</title>
 </head>
 <body>
     <link rel="stylesheet" href="../../res/bootstrap.css">
@@ -57,27 +57,28 @@ strong {
 }
 
 p, li {
-    margin: 0 0 25px;
-    line-height: 32px;
+    margin: 0 0 1em;
+    line-height: 1.5em;
     font-family: inherit;
 }
 
 ol, li {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 ol {
-    padding-left: 1.2rem;
+    padding-left: 1.21em;
 }
 
 ul  {
-    padding-left: 35px;
+    padding-left: 1em;
 }
 
 ol li, ul li {
-    padding-left: 1rem;	
+    padding-left: 0.5em;	
     font-family: inherit;
+    text-align: justify;
 }
 
 table {
@@ -108,6 +109,7 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 *[class*='lang-'] {
     padding: 0px 0px 25px 0px;
+    font-size: 0.75em;
 }
 
 
@@ -126,11 +128,11 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 }
 
 p code:not(.highlight), li code:not(.highlight) {
-    font-size: 16px;
+    font-size: 0.7em;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
-    padding: 4px;
+    padding: 3px;
     color: darkslateblue;
 }
 
@@ -148,11 +150,6 @@ p code.highlight, li code.highlight {
 
 .wide {
     width:150%;
-}
-
-*[class*='lang-'] span, *[class*='lang-'] pre, pre > code {
-    font-size: 13px;
-    line-height: 20px;
 }
 
 p a, li a {
@@ -179,9 +176,9 @@ p img {
 
 blockquote 
 {
-    background-color: lavenderblush;
-    padding-left: 20px;
-    border-left: 1px solid rgba(0,0,0,.08);
+    padding-left: 0.4em;
+    border-left: 0.5em solid rgba(0,0,0,.08);
+    font-style: italic;
 }
 
 blockquote.big-quote, 
@@ -199,8 +196,7 @@ blockquote.breadcrumbs, blockquote.breadcrumbs  p
 }
 
 blockquote p {
-    margin: 16px 0;
-    padding: 12px 12px 13px;
+    padding: 1em 1em 1em 0.6em;
     font-family: inherit;
 }
 
@@ -210,11 +206,14 @@ blockquote p code {
     padding: 4px 6px;
 }
 
+blockquote p em {
+    font-weight: 400;
+}
+
 blockquote.big-quote > p {
     margin: 40px 0 60px 0;
     font-family: Charter;
     font-size: 55px;
-    line-height: 60px;
     padding: 0;
     width: 150%;
 }
@@ -227,31 +226,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 40px;
-    font-family: PF Regal,Georgia,serif;
+    font-size: 2.2em;
+    font-family: Charter,Georgia,serif;
     font-weight: 300;
-    margin: 40px 0 20px 0;
-    border-bottom-style: ridge;
-    padding-bottom: 10px;
-}
-
-h1 b {
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-weight: 700;
-    font-size: 37px;
-    line-height: 42px;
+    margin: 1.8em 0 1.8em 0;
+    text-align: center;
 }
 
 h2 {
-    margin-top: 35px;
-    margin-bottom: 10px;
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-    border-bottom-color: grey;
-    border-bottom-style: solid;
-    padding-bottom: 5px;
+    margin-top: 2em;
+    margin-left: 1.2em;
+    font-family: Charter,Arial,Helvetica Neue,sans-serif;
+    font-size: 1.25em;
+    width: 70%;
 }
 
 h3 {
@@ -293,27 +280,23 @@ h4 {
     line-height: 24px;
     font-size: 13pt;
     margin: 0 0 13px 0;
-    font-family: Charter;
-}
-
-.side-regular-block {
-    border-radius: 5px;
-    background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
-    padding: 22px;
 }
 
 .side-regular-block p {
     top: 0;
 }
-/* Music side player */
 
+/* Music side player */
 .aside-side-container .music-player {
     width: 100%;
     height: 400px;
 }
 
-.aside-side-container.side-media-block h2 {
-    margin-top: -12px;
+/* media block after h1 */
+.aside-container h1 + .aside-side-container.side-media-block h2 {
+    margin: 7em 0 1em 0;
+    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
+    font-weight: 600;
 }
 
 .aside-side-container > li {
@@ -323,8 +306,8 @@ h4 {
 
 .aside-side-container > li ul, .aside-side-container > li ol {
     padding-left: 30px;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 .aside-side-container > li li {
     padding-left: 6px;
@@ -353,6 +336,12 @@ h4 {
     position: relative;
     top: 9px;
 }
+
+.paragraph-container p, .aside-container > p {
+    text-align: justify;
+    text-indent: 1.5em;
+}
+
 .paragraph-container > .paragraph-left-side, .paragraph-container > .paragraph-right-side  {
     font-family: JB Mono, consolas;
     display: block;
@@ -364,12 +353,14 @@ h4 {
     z-index: 1000;
 }
 .paragraph-container > .paragraph-left-side {
-    left: -55px;
+    display: none;
+    left: -2.1cm;
     width: 35px;
     user-select: none;
 }
 
 .paragraph-container > .paragraph-right-side  {
+    display: none;
     left: 100%;
     width: 35px;
     padding-left: 45px;
@@ -400,8 +391,8 @@ h4 {
 
 
 /* MEDIA */
-/* XL */
-@media (min-width: 1400px) {
+/* XXL */
+@media (min-width: 1801px) {
     .book-container
     {
         max-width: 1200px;
@@ -410,12 +401,21 @@ h4 {
     }
 }
 
+/* XL */
+@media (max-width: 1800px) {
+    .book-container
+    {
+        margin-left: 4cm;
+        margin-right: 4cm;
+    }
+}
+
 /* LG */
 @media (max-width: 1400px) {
     .book-container
     {
-        margin-left: 70px;
-        margin-right: 70px;
+        margin-left: 4cm;
+        margin-right: 4cm;
     }
 
     blockquote.big-quote > p {
@@ -425,14 +425,23 @@ h4 {
         margin: 0;
         padding: 4px 0 30px 0;
     }
+}
 
-    .paragraph-container .paragraph-left-side {
-        left: -40px;
-    }
+@media (max-width: 1100px) {
 }
 
 /* MD */
 @media (max-width: 991px) {
+    
+    h2 {
+        width:80%;
+    }
+
+    .book-container
+    {
+        margin-left: 3cm;
+        margin-right: 3cm;
+    }
     
     .book-title-container {
         margin: 73px 0 110px 0;
@@ -453,26 +462,21 @@ h4 {
 
     .book-superheading-title {
         font-size: 15pt;
-    }
-    .book-container {
-        margin: 0 100px;
-    }
+    }                                     
     .article-container {
         width: 100%;
-    }
-    .aside-container > .aside-side-container
-    {
-        position: relative;
-        top: auto;
-        left: auto;
-        width: auto;
-        height: auto;
-        margin: 0;
-        padding: 17px;
     }
 
     .aside-container p {
         top: 0;
+    }
+
+    .aside-container h1 + .aside-side-container.side-media-block h2 {
+        display: none;
+    }
+
+    .wide {
+        width: 100%;     
     }
 
     .side-regular-block {
@@ -490,6 +494,17 @@ h4 {
         margin-top: 20px;
         font-size: 13pt;
         border: none;
+    }
+
+    .aside-container > .aside-side-container
+    {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 17px;
     }
 
     blockquote.big-quote > p {
@@ -519,6 +534,12 @@ h4 {
     li {
         margin: 0 0 10px 0;
     }
+
+    .side-regular-block {
+        border-radius: 5px;
+        background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
+        padding: 22px;
+    }    
 }
 
 /* Smartphone horizontal - SM */
@@ -545,7 +566,7 @@ h4 {
     }
 
     .book-container {
-        margin: 0 50px;
+        margin: 0 2.5cm;
     }
     ul {
         margin-left: 30px;
@@ -553,14 +574,29 @@ h4 {
         padding-left: 25px;
     }
     .paragraph-container > .paragraph-left-side {
-        top: 15px;
+	display: block;
+        top: 14px;
+        font-size: 9pt;
     }
     .paragraph-container > .paragraph-right-side {
-        padding-left: 20px;
-        top: 15px;
+	display: block;
+        padding-left: 40px;
+        top: 14px;
+        font-size: 9pt;
     }
 }
 
+@media (max-width: 630px) {
+    .book-container {
+        margin: 0 1.5cm;
+    }
+    .paragraph-container > .paragraph-left-side {
+        left: -33px;
+    }
+    .paragraph-container > .paragraph-right-side {
+        padding-left: 24px;
+    }
+}
 /* Smartphone - XS */
 @media (max-width: 575px) {
     .book-container {
@@ -581,15 +617,14 @@ h4 {
     }
    
     p, li {
-        line-height: 28px;
+        line-height: 24px;
     }    
     .paragraph-container .paragraph-left-side {
-        display: none;
-        top: 14px;
-    }
+        display: none;        }
     .paragraph-container .paragraph-right-side {
-        padding-left: 10px;
+        padding-left: 21px;
         top: 14px;
+	font-size: 8pt;
     }
 }
 
@@ -829,21 +864,25 @@ h4 {
     <p class="d-none d-lg-block d-xl-none">LG</p>
     <p class="d-none d-xl-block">XL</p> -->
     <blockquote class="breadcrumbs">
-<p> <a href="../readme.html">Содержание</a> / <a href="./01-00-MemoryManagement-Intro.html">Основы управления памятью</a></p>
+<p >
+ <a href="../readme.html">Содержание</a> / <a href="./01-00-MemoryManagement-Intro.html">Основы управления памятью</a></p>
 </blockquote>
 <h1 id="section">Структура объектов в памяти</h1>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p>До сего момента, говоря про разницу между значимыми и ссылочными типами, мы затрагивали эту тему с высоты конечного разработчика. Т.е. мы никогда не смотрели на то, как они в реальности устроены и какие приемы реализованы в них на уровне CLR. Мы смотрели, фактически, на конечный результат и рассуждали с точки зрения изучения черного ящика. Однако, чтобы понимать суть вещей глубже и чтобы отбросить в сторону последние оставшиеся мысли о какой-либо магии, происходящей внутри CLR, стоит заглянуть в самые ее потроха и изучить те алгоритмы, которые систему типов регулируют.</p>
+<p >
+До се&shy;го мо&shy;мен&shy;та, го&shy;во&shy;ря про раз&shy;ни&shy;цу меж&shy;ду зна&shy;чи&shy;мы&shy;ми и ссы&shy;лоч&shy;ны&shy;ми ти&shy;па&shy;ми, мы зат&shy;ра&shy;ги&shy;ва&shy;ли эту те&shy;му с вы&shy;со&shy;ты ко&shy;неч&shy;но&shy;го раз&shy;ра&shy;бот&shy;чи&shy;ка. Т.е. мы ни&shy;ког&shy;да не смот&shy;ре&shy;ли на то, как они в ре&shy;аль&shy;ности ус&shy;тро&shy;ены и ка&shy;кие при&shy;емы ре&shy;а&shy;ли&shy;зо&shy;ва&shy;ны в них на уров&shy;не CLR. Мы смот&shy;ре&shy;ли, фак&shy;ти&shy;чес&shy;ки, на ко&shy;неч&shy;ный ре&shy;зуль&shy;тат и рас&shy;суж&shy;да&shy;ли с точ&shy;ки зре&shy;ния изу&shy;че&shy;ния чер&shy;но&shy;го ящи&shy;ка. Одна&shy;ко, что&shy;бы по&shy;ни&shy;мать суть ве&shy;щей глуб&shy;же и что&shy;бы от&shy;бро&shy;сить в сто&shy;ро&shy;ну пос&shy;лед&shy;ние ос&shy;тав&shy;ши&shy;еся мыс&shy;ли о ка&shy;кой-ли&shy;бо ма&shy;гии, про&shy;ис&shy;хо&shy;дя&shy;щей внут&shy;ри CLR, сто&shy;ит заг&shy;ля&shy;нуть в са&shy;мые ее пот&shy;ро&shy;ха и изу&shy;чить те ал&shy;го&shy;рит&shy;мы, ко&shy;то&shy;рые сис&shy;те&shy;му ти&shy;пов ре&shy;гу&shy;ли&shy;ру&shy;ют.</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <h2 id="section-1">Внутренняя структура экземпляров типов</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p>Перед тем как начинать рассуждение о строении управляющих блоков системы типов давайте посмотрим на сам объект, на экземпляр любого класса. Если мы создадим в памяти экземпляр любого ссылочного типа, будь то класс или же упакованная структура, то состоять он будет всего из трёх полей: SyncBlockIndex (который на самом деле не только он), указатель на описатель типа и данные. Область данных может содержать очень много полей, но, не умаляя общности, ниже в примере полагаем, что в данных содержится одно поле. Так, если представить эту структуру графически, то мы получим следующее:</p>
+<p >
+Пе&shy;ред тем как на&shy;чи&shy;нать рас&shy;суж&shy;де&shy;ние о стр&shy;о&shy;ении уп&shy;рав&shy;ля&shy;ю&shy;щих бло&shy;ков сис&shy;те&shy;мы ти&shy;пов да&shy;вай&shy;те пос&shy;мот&shy;рим на сам объ&shy;ект, на эк&shy;земп&shy;ляр лю&shy;бо&shy;го клас&shy;са. Если мы соз&shy;да&shy;дим в па&shy;мя&shy;ти эк&shy;земп&shy;ляр лю&shy;бо&shy;го ссы&shy;лоч&shy;но&shy;го ти&shy;па, будь то класс или же упа&shy;ко&shy;ван&shy;ная струк&shy;ту&shy;ра, то сос&shy;то&shy;ять он бу&shy;дет все&shy;го из трёх по&shy;лей: SyncBlockIndex (ко&shy;то&shy;рый на са&shy;мом де&shy;ле не толь&shy;ко он), ука&shy;за&shy;тель на опи&shy;са&shy;тель ти&shy;па и дан&shy;ные. Область дан&shy;ных мо&shy;жет со&shy;дер&shy;жать очень мно&shy;го по&shy;лей, но, не ума&shy;ляя об&shy;щнос&shy;ти, ни&shy;же в при&shy;ме&shy;ре по&shy;ла&shy;га&shy;ем, что в дан&shy;ных со&shy;дер&shy;жит&shy;ся од&shy;но по&shy;ле. Так, ес&shy;ли предс&shy;та&shy;вить эту струк&shy;ту&shy;ру гра&shy;фи&shy;чес&shy;ки, то мы по&shy;лу&shy;чим сле&shy;ду&shy;ю&shy;щее:</p>
 <div class="paragraph-right-side">02</div>
 </div>
-<p><strong>System.Object</strong></p>
+<p >
+<strong>System.Object</strong></p>
 <pre><code>  ----------------------------------------------
   |  SyncBlkIndx |   VMT_Ptr    |     Data     |
   ----------------------------------------------
@@ -858,22 +897,26 @@ h4 {
 </code></pre>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p>Т.е. фактически размер экземпляра типа зависит от конечной платформы, на которой будет работать приложение.</p>
+<p >
+Т.е. фак&shy;ти&shy;чес&shy;ки раз&shy;мер эк&shy;земп&shy;ля&shy;ра ти&shy;па за&shy;ви&shy;сит от ко&shy;неч&shy;ной плат&shy;фор&shy;мы, на ко&shy;то&shy;рой бу&shy;дет ра&shy;бо&shy;тать при&shy;ло&shy;же&shy;ние.</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p>Далее давайте проследуем по указателю <code>VMT_Ptr</code> и посмотрим, какая структура данных лежит по этому адресу. Для всей системы типов этот указатель является самым главным: именно через него работает и наследование, и реализация интерфейсов, и приведение типов, и много чего ещё. Этот указатель - отсылка в систему типов .NET CLR, паспорт объекта, по которому CLR осуществляет приведение типов, понимает объем памяти, занимаемый объектом, именно при помощи него GC так лихо обходит объект, определяя, по каким адресам лежат указатели на объекты, а по каким - просто числа. Именно через него можно узнать вообще все об объекте и заставить CLR отрабатывать его по-другому. А потому именно им и займёмся.</p>
+<p >
+Да&shy;лее да&shy;вай&shy;те прос&shy;ле&shy;ду&shy;ем по ука&shy;за&shy;те&shy;лю <code>VMT_Ptr</code> и пос&shy;мот&shy;рим, ка&shy;кая струк&shy;ту&shy;ра дан&shy;ных ле&shy;жит по это&shy;му ад&shy;ре&shy;су. Для всей сис&shy;те&shy;мы ти&shy;пов этот ука&shy;за&shy;тель яв&shy;ля&shy;ет&shy;ся са&shy;мым глав&shy;ным: имен&shy;но че&shy;рез не&shy;го ра&shy;бо&shy;та&shy;ет и нас&shy;ле&shy;до&shy;ва&shy;ние, и ре&shy;а&shy;ли&shy;за&shy;ция ин&shy;тер&shy;фей&shy;сов, и при&shy;ве&shy;де&shy;ние ти&shy;пов, и мно&shy;го че&shy;го ещё. Этот ука&shy;за&shy;тель - от&shy;сыл&shy;ка в сис&shy;те&shy;му ти&shy;пов .NET CLR, пас&shy;порт объ&shy;ек&shy;та, по ко&shy;то&shy;ро&shy;му CLR осу&shy;щес&shy;твляет при&shy;ве&shy;де&shy;ние ти&shy;пов, по&shy;ни&shy;ма&shy;ет объ&shy;ем па&shy;мя&shy;ти, за&shy;ни&shy;ма&shy;е&shy;мый объ&shy;ек&shy;том, имен&shy;но при по&shy;мо&shy;щи не&shy;го GC так ли&shy;хо об&shy;хо&shy;дит объ&shy;ект, оп&shy;ре&shy;де&shy;ляя, по ка&shy;ким ад&shy;ре&shy;сам ле&shy;жат ука&shy;за&shy;те&shy;ли на объ&shy;ек&shy;ты, а по ка&shy;ким - прос&shy;то чис&shy;ла. Имен&shy;но че&shy;рез не&shy;го мож&shy;но уз&shy;нать во&shy;об&shy;ще все об объ&shy;ек&shy;те и зас&shy;та&shy;вить CLR от&shy;ра&shy;ба&shy;ты&shy;вать его по-дру&shy;го&shy;му. А по&shy;то&shy;му имен&shy;но им и займёмся.</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <h3 id="virtual-methods-table">Структура Virtual Methods Table</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p>Описание самой таблицы доступно по адресу в <a href="https://github.com/dotnet/coreclr/blob/master/src/vm/methodtable.h">GitHub CoreCLR</a>, и если отбросить все лишнее (а там 4381 строка), <a href="https://github.com/dotnet/coreclr/blob/master/src/vm/methodtable.h#L4099-L4114">выглядит она следующим образом</a>:</p>
+<p >
+Опи&shy;са&shy;ние са&shy;мой таб&shy;ли&shy;цы дос&shy;туп&shy;но по ад&shy;ре&shy;су в <a href="https://github.com/dotnet/coreclr/blob/master/src/vm/methodtable.h">GitHub CoreCLR</a>, и ес&shy;ли от&shy;бро&shy;сить все лиш&shy;нее (а там 4381 стро&shy;ка), <a href="https://github.com/dotnet/coreclr/blob/master/src/vm/methodtable.h#L4099-L4114">выглядит она следующим образом</a>:</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <blockquote>
-<p>Это версия из CoreCLR. Если смотреть на структуру полей в .NET Framework, то она будет отличаться расположением полей и расположением отдельных битов системной информации из двух битовых полей <code>m_wFlags</code> и <code>m_wFlags2</code>.</p>
+<p >
+Это вер&shy;сия из CoreCLR. Если смот&shy;реть на струк&shy;ту&shy;ру по&shy;лей в .NET Framework, то она бу&shy;дет от&shy;ли&shy;чать&shy;ся рас&shy;по&shy;ло&shy;же&shy;ни&shy;ем по&shy;лей и рас&shy;по&shy;ло&shy;же&shy;ни&shy;ем от&shy;дель&shy;ных би&shy;тов сис&shy;тем&shy;ной ин&shy;фор&shy;ма&shy;ции из двух би&shy;то&shy;вых по&shy;лей <code>m_wFlags</code> и <code>m_wFlags2</code>.</p>
 </blockquote>
 <div class="lang-cpp editor-colors"><div style="color:Black;background-color:White;"><pre>
     <span style="color:Green;">// Low WORD is component size for array and string types (HasComponentSize() returns true).</span>
@@ -895,12 +938,14 @@ h4 {
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p>Согласитесь, выглядит несколько пугающе. Причём пугающе выглядит не то, что тут всего 6 полей (а где все остальные?), а то, что для достижения этих полей, необходимо пропустить 4,100 строк логики. Я лично ожидал тут увидеть что-то готовое, чего не надо дополнительно вычислять. Однако, тут все совсем не так просто: поскольку методов и интерфейсов в любом типе может быть различное количество, то и сама таблица VMT получается переменного размера. А это в свою очередь означает, что для достижения её наполнения надо вычислять, где находятся все её оставшиеся поля. Но давайте не будем унывать и попытаемся сразу получить выгоду из того, что мы уже имеем: мы, пока что, понятия не имеем, что имеется ввиду под другими полями (разве что два последних), зато поле <code>m_BaseSize</code> выглядит заманчиво. Как подсказывает нам комментарий, это - фактический размер для экземпляра типа. Мы только что нашли <code>sizeof</code> для классов! Попробуем в бою?</p>
+<p >
+Сог&shy;ла&shy;си&shy;тесь, выг&shy;ля&shy;дит нес&shy;коль&shy;ко пу&shy;га&shy;юще. Причём пу&shy;га&shy;юще выг&shy;ля&shy;дит не то, что тут все&shy;го 6 по&shy;лей (а где все ос&shy;таль&shy;ные?), а то, что для дос&shy;ти&shy;же&shy;ния этих по&shy;лей, не&shy;об&shy;хо&shy;ди&shy;мо про&shy;пус&shy;тить 4,100 строк ло&shy;ги&shy;ки. Я лич&shy;но ожи&shy;дал тут уви&shy;деть что-то го&shy;то&shy;вое, че&shy;го не на&shy;до до&shy;пол&shy;ни&shy;тель&shy;но вы&shy;чис&shy;лять. Одна&shy;ко, тут все сов&shy;сем не так прос&shy;то: пос&shy;коль&shy;ку ме&shy;то&shy;дов и ин&shy;тер&shy;фей&shy;сов в лю&shy;бом ти&shy;пе мо&shy;жет быть раз&shy;лич&shy;ное ко&shy;ли&shy;чес&shy;тво, то и са&shy;ма таб&shy;ли&shy;ца VMT по&shy;лу&shy;ча&shy;ет&shy;ся пе&shy;ре&shy;мен&shy;но&shy;го раз&shy;ме&shy;ра. А это в свою оче&shy;редь оз&shy;на&shy;ча&shy;ет, что для дос&shy;ти&shy;же&shy;ния её на&shy;пол&shy;не&shy;ния на&shy;до вы&shy;чис&shy;лять, где на&shy;хо&shy;дят&shy;ся все её ос&shy;тав&shy;ши&shy;еся по&shy;ля. Но да&shy;вай&shy;те не бу&shy;дем уны&shy;вать и по&shy;пы&shy;та&shy;ем&shy;ся сра&shy;зу по&shy;лу&shy;чить вы&shy;го&shy;ду из то&shy;го, что мы уже име&shy;ем: мы, по&shy;ка что, по&shy;ня&shy;тия не име&shy;ем, что име&shy;ет&shy;ся вви&shy;ду под дру&shy;ги&shy;ми по&shy;ля&shy;ми (раз&shy;ве что два пос&shy;лед&shy;них), за&shy;то по&shy;ле <code>m_BaseSize</code> выг&shy;ля&shy;дит за&shy;ман&shy;чи&shy;во. Как подс&shy;ка&shy;зы&shy;ва&shy;ет нам ком&shy;мен&shy;та&shy;рий, это - фак&shy;ти&shy;чес&shy;кий раз&shy;мер для эк&shy;земп&shy;ля&shy;ра ти&shy;па. Мы толь&shy;ко что наш&shy;ли <code>sizeof</code> для клас&shy;сов! Поп&shy;ро&shy;бу&shy;ем в бою?</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p>Итак, чтобы получить адрес VMT мы можем пойти двумя путями: либо сложным, получив адрес объекта, а значит и VMT:</p>
+<p >
+Итак, что&shy;бы по&shy;лу&shy;чить ад&shy;рес VMT мы мо&shy;жем пой&shy;ти дву&shy;мя пу&shy;тя&shy;ми: ли&shy;бо слож&shy;ным, по&shy;лу&shy;чив ад&shy;рес объ&shy;ек&shy;та, а зна&shy;чит и VMT:</p>
 <div class="paragraph-right-side">07</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -944,28 +989,33 @@ h4 {
 }
 </pre></div>
 </div>
-<p>Либо простым, используя .NET FCL API:</p>
+<p >
+Ли&shy;бо прос&shy;тым, ис&shy;поль&shy;зуя .NET FCL API:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
     <span style="color:Blue;">var</span> vmt = <span style="color:Blue;">typeof</span>(<span style="color:Blue;">string</span>).TypeHandle.Value;
 </pre></div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p>Второй путь, конечно же, проще (хоть и дольше работает). Однако знание первого очень важно с точки зрения понимания структуры экземпляра типа. Использование второго способа добавляет чувство уверенности: если мы вызываем метод API, то вроде как пользуемся задокументированным способом работы с VMT, а если достаём через указатели, то нет. Однако не стоит забывать, что хранение <code>VMT *</code> - стандартно для практически любого ООП языка и для .NET платформы в целом: эта ссылка всегда находится на одном и том же месте, как самое часто используемое поле класса. А самое часто используемое поле класса должно идти первым, чтобы адресация была без смещения и, как результат, была быстрей. Отсюда делаем вывод, что в случае классов положение полей на скорость влиять не будет, а вот у структур - самое часто используемое поле можно поставить первым. Хотя, конечно же, для абсолютного большинства .NET приложений это не даст вообще никакого эффекта: не для таких задач создавалась эта платформа.</p>
+<p >
+Вто&shy;рой путь, ко&shy;неч&shy;но же, про&shy;ще (хоть и доль&shy;ше ра&shy;бо&shy;та&shy;ет). Одна&shy;ко зна&shy;ние пер&shy;во&shy;го очень важ&shy;но с точ&shy;ки зре&shy;ния по&shy;ни&shy;ма&shy;ния струк&shy;ту&shy;ры эк&shy;земп&shy;ля&shy;ра ти&shy;па. Испол&shy;ьз&shy;ов&shy;ание вто&shy;ро&shy;го спо&shy;со&shy;ба до&shy;бав&shy;ля&shy;ет чувство уве&shy;рен&shy;нос&shy;ти: ес&shy;ли мы вы&shy;зы&shy;ва&shy;ем ме&shy;тод API, то вро&shy;де как поль&shy;зу&shy;ем&shy;ся за&shy;до&shy;ку&shy;мен&shy;ти&shy;ро&shy;ван&shy;ным спо&shy;со&shy;бом ра&shy;бо&shy;ты с VMT, а ес&shy;ли дос&shy;таём че&shy;рез ука&shy;за&shy;те&shy;ли, то нет. Одна&shy;ко не сто&shy;ит за&shy;бы&shy;вать, что хра&shy;не&shy;ние <code>VMT *</code> - стан&shy;дар&shy;тно для прак&shy;ти&shy;чес&shy;ки лю&shy;бо&shy;го ООП язы&shy;ка и для .NET плат&shy;фор&shy;мы в це&shy;лом: эта ссыл&shy;ка всег&shy;да на&shy;хо&shy;дит&shy;ся на од&shy;ном и том же мес&shy;те, как са&shy;мое час&shy;то ис&shy;поль&shy;зу&shy;е&shy;мое по&shy;ле клас&shy;са. А са&shy;мое час&shy;то ис&shy;поль&shy;зу&shy;е&shy;мое по&shy;ле клас&shy;са дол&shy;жно ид&shy;ти пер&shy;вым, что&shy;бы ад&shy;ре&shy;са&shy;ция бы&shy;ла без сме&shy;ще&shy;ния и, как ре&shy;зуль&shy;тат, бы&shy;ла быст&shy;рей. Отсю&shy;да де&shy;ла&shy;ем вы&shy;вод, что в слу&shy;чае клас&shy;сов по&shy;ло&shy;же&shy;ние по&shy;лей на ско&shy;рость вли&shy;ять не бу&shy;дет, а вот у струк&shy;тур - са&shy;мое час&shy;то ис&shy;поль&shy;зу&shy;е&shy;мое по&shy;ле мож&shy;но пос&shy;та&shy;вить пер&shy;вым. Хо&shy;тя, ко&shy;неч&shy;но же, для аб&shy;со&shy;лют&shy;но&shy;го боль&shy;шинства .NET при&shy;ло&shy;же&shy;ний это не даст во&shy;об&shy;ще ни&shy;ка&shy;ко&shy;го эф&shy;фек&shy;та: не для та&shy;ких за&shy;дач соз&shy;да&shy;ва&shy;лась эта плат&shy;фор&shy;ма.</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
-<p>Давайте изучим вопрос структуры типов с точки зрения размера их экземпляра. Нам же надо не просто абстрактно изучать их (это просто-напросто скучно), но дополнительно попробуем извлечь из этого такую выгоду, какую не извлечь обычным способом.</p>
+<p >
+Да&shy;вай&shy;те изу&shy;чим воп&shy;рос струк&shy;ту&shy;ры ти&shy;пов с точ&shy;ки зре&shy;ния раз&shy;ме&shy;ра их эк&shy;земп&shy;ля&shy;ра. Нам же на&shy;до не прос&shy;то абст&shy;рактно изу&shy;чать их (это прос&shy;то-нап&shy;рос&shy;то скуч&shy;но), но до&shy;пол&shy;ни&shy;тель&shy;но поп&shy;ро&shy;бу&shy;ем из&shy;в&shy;лечь из это&shy;го та&shy;кую вы&shy;го&shy;ду, ка&shy;кую не из&shy;в&shy;лечь обыч&shy;ным спо&shy;со&shy;бом.</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <blockquote>
 <h5 id="sizeof-value-type-reference-type">Почему sizeof есть для Value Type, но нет для Reference Type?</h5>
-<p>На самом деле вопрос, открытый т.к. никто не мешает рассчитать размер ссылочного типа. Единственное обо что можно споткнуться - это не фиксированный размер двух ссылочных типов: <code>Array</code> и <code>String</code>. А также <code>Generic</code> группы, которая зависит целиком и полностью от конкретных вариантов. Т.е. оператором <code>sizeof(..)</code> мы обойтись не смогли бы: необходимо работать с конкретными экземплярами. Однако никто не мешает команде CLR сделать метод вида <code>static int System.Object.SizeOf(object obj)</code>, который бы легко и просто возвращал бы нам то, что надо. Так почему же Microsoft не реализовала этот метод? Есть мысль, что платформа .NET в их понимании опять же - не та платформа, где разработчик будет сильно переживать за конкретные байты. В случае чего можно просто доставить планок в материнскую плату. Тем более что большинство типов данных, которые мы реализуем, не занимают такие большие объёмы.</p>
+<p >
+На са&shy;мом де&shy;ле воп&shy;рос, от&shy;кры&shy;тый т.к. ник&shy;то не ме&shy;ша&shy;ет расс&shy;чи&shy;тать раз&shy;мер ссы&shy;лоч&shy;но&shy;го ти&shy;па. Един&shy;ствен&shy;ное обо что мож&shy;но спотк&shy;нуть&shy;ся - это не фик&shy;си&shy;ро&shy;ван&shy;ный раз&shy;мер двух ссы&shy;лоч&shy;ных ти&shy;пов: <code>Array</code> и <code>String</code>. А так&shy;же <code>Generic</code> груп&shy;пы, ко&shy;то&shy;рая за&shy;ви&shy;сит це&shy;ли&shy;ком и пол&shy;ностью от конк&shy;рет&shy;ных ва&shy;ри&shy;ан&shy;тов. Т.е. опе&shy;ра&shy;то&shy;ром <code>sizeof(..)</code> мы обой&shy;тись не смог&shy;ли бы: не&shy;об&shy;хо&shy;ди&shy;мо ра&shy;бо&shy;тать с конк&shy;рет&shy;ны&shy;ми эк&shy;земп&shy;ля&shy;ра&shy;ми. Одна&shy;ко ник&shy;то не ме&shy;ша&shy;ет ко&shy;ман&shy;де CLR сде&shy;лать ме&shy;тод ви&shy;да <code>static int System.Object.SizeOf(object obj)</code>, ко&shy;то&shy;рый бы лег&shy;ко и прос&shy;то возв&shy;ра&shy;щал бы нам то, что на&shy;до. Так по&shy;че&shy;му же Microsoft не ре&shy;а&shy;ли&shy;зо&shy;ва&shy;ла этот ме&shy;тод? Есть мысль, что плат&shy;фор&shy;ма .NET в их по&shy;ни&shy;ма&shy;нии опять же - не та плат&shy;фор&shy;ма, где раз&shy;ра&shy;бот&shy;чик бу&shy;дет силь&shy;но пе&shy;ре&shy;жи&shy;вать за конк&shy;рет&shy;ные бай&shy;ты. В слу&shy;чае че&shy;го мож&shy;но прос&shy;то дос&shy;та&shy;вить пла&shy;нок в ма&shy;те&shy;рин&shy;с&shy;кую пла&shy;ту. Тем бо&shy;лее что боль&shy;шинство ти&shy;пов дан&shy;ных, ко&shy;то&shy;рые мы ре&shy;а&shy;ли&shy;зу&shy;ем, не за&shy;ни&shy;ма&shy;ют та&shy;кие боль&shy;шие объёмы.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
-<p>Но не будем отвлекаться. Итак, чтобы получить размер экземпляра класса, чей размер фиксирован, достаточно написать следующий код:</p>
+<p >
+Но не бу&shy;дем от&shy;вле&shy;кать&shy;ся. Итак, что&shy;бы по&shy;лу&shy;чить раз&shy;мер эк&shy;земп&shy;ля&shy;ра клас&shy;са, чей раз&shy;мер фик&shy;си&shy;ро&shy;ван, дос&shy;та&shy;точ&shy;но на&shy;пи&shy;сать сле&shy;ду&shy;ю&shy;щий код:</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -994,7 +1044,8 @@ Console.WriteLine(SizeOf(<span style="color:Blue;">typeof</span>(Sample)));
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
-<p>Итак, что мы только что сделали? Первым шагом мы получили указатель на таблицу виртуальных методов. После чего мы считываем размер и получаем <code>12</code> - это сумма размеров полей <code>SyncBlockIndex + VMT_Ptr + поле x</code> для 32-разрядной платформы. Если мы поиграемся с разными типами, то получим примерно следующую таблицу для x86:</p>
+<p >
+Итак, что мы толь&shy;ко что сде&shy;ла&shy;ли? Пер&shy;вым ша&shy;гом мы по&shy;лу&shy;чи&shy;ли ука&shy;за&shy;тель на таб&shy;ли&shy;цу вир&shy;ту&shy;альных ме&shy;то&shy;дов. Пос&shy;ле че&shy;го мы счи&shy;ты&shy;ва&shy;ем раз&shy;мер и по&shy;лу&shy;ча&shy;ем <code>12</code> - это сум&shy;ма раз&shy;ме&shy;ров по&shy;лей <code>SyncBlockIndex + VMT_Ptr + поле x</code> для 32-раз&shy;ряд&shy;ной плат&shy;фор&shy;мы. Если мы по&shy;иг&shy;ра&shy;ем&shy;ся с раз&shy;ны&shy;ми ти&shy;па&shy;ми, то по&shy;лу&shy;чим при&shy;мер&shy;но сле&shy;ду&shy;ю&shy;щую таб&shy;ли&shy;цу для x86:</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="row">
@@ -1002,81 +1053,216 @@ Console.WriteLine(SizeOf(<span style="color:Blue;">typeof</span>(Sample)));
 <table>
 <thead>
 <tr>
-<th>Тип или его определение</th>
-<th>Размер</th>
-<th>Комментарий</th>
+<th>
+<p >
+Тип или его оп&shy;ре&shy;де&shy;ле&shy;ние</p>
+</th>
+<th>
+<p >
+Раз&shy;мер</p>
+</th>
+<th>
+<p >
+Ком&shy;мен&shy;та&shy;рий</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Object</td>
-<td>12</td>
-<td>SyncBlk + VMT + пустое поле</td>
+<td>
+<p >
+Object</p>
+</td>
+<td>
+<p >
+12</p>
+</td>
+<td>
+<p >
+SyncBlk + VMT + пус&shy;тое по&shy;ле</p>
+</td>
 </tr>
 <tr>
-<td>Int16</td>
-<td>12</td>
-<td>Boxed Int16: SyncBlk + VMT + данные (выровнено по 4 байта)</td>
+<td>
+<p >
+Int16</p>
+</td>
+<td>
+<p >
+12</p>
+</td>
+<td>
+<p >
+Boxed Int16: SyncBlk + VMT + дан&shy;ные (вы&shy;ров&shy;не&shy;но по 4 бай&shy;та)</p>
+</td>
 </tr>
 <tr>
-<td>Int32</td>
-<td>12</td>
-<td>Boxed Int32: SyncBlk + VMT + данные</td>
+<td>
+<p >
+Int32</p>
+</td>
+<td>
+<p >
+12</p>
+</td>
+<td>
+<p >
+Boxed Int32: SyncBlk + VMT + дан&shy;ные</p>
+</td>
 </tr>
 <tr>
-<td>Int64</td>
-<td>16</td>
-<td>Boxed Int64: SyncBlk + VMT + данные</td>
+<td>
+<p >
+Int64</p>
+</td>
+<td>
+<p >
+16</p>
+</td>
+<td>
+<p >
+Boxed Int64: SyncBlk + VMT + дан&shy;ные</p>
+</td>
 </tr>
 <tr>
-<td>Char</td>
-<td>12</td>
-<td>Boxed Char: SyncBlk + VMT + данные (выровнено по 4 байта)</td>
+<td>
+<p >
+Char</p>
+</td>
+<td>
+<p >
+12</p>
+</td>
+<td>
+<p >
+Boxed Char: SyncBlk + VMT + дан&shy;ные (вы&shy;ров&shy;не&shy;но по 4 бай&shy;та)</p>
+</td>
 </tr>
 <tr>
-<td>Double</td>
-<td>16</td>
-<td>Boxed Double: SyncBlk + VMT + данные</td>
+<td>
+<p >
+Double</p>
+</td>
+<td>
+<p >
+16</p>
+</td>
+<td>
+<p >
+Boxed Double: SyncBlk + VMT + дан&shy;ные</p>
+</td>
 </tr>
 <tr>
-<td>IEnumerable</td>
-<td>0</td>
-<td>Интерфейс не имеет размера: надо брать obj.GetType()</td>
+<td>
+<p >
+IEnumerable</p>
+</td>
+<td>
+<p >
+0</p>
+</td>
+<td>
+<p >
+Интер&shy;фейс не име&shy;ет раз&shy;ме&shy;ра: на&shy;до брать obj.GetType()</p>
+</td>
 </tr>
 <tr>
-<td>List&lt;T&gt;</td>
-<td>24</td>
-<td>Не важно сколько элементов в List<T>, занимать он будет одинаково т.к. хранит данные он в array, который не учитывается</td>
+<td>
+<p >
+List<T></p>
+</td>
+<td>
+<p >
+24</p>
+</td>
+<td>
+<p >
+Не важ&shy;но сколь&shy;ко эле&shy;мен&shy;тов в List<T>, за&shy;ни&shy;мать он бу&shy;дет оди&shy;на&shy;ко&shy;во т.к. хра&shy;нит дан&shy;ные он в array, ко&shy;то&shy;рый не учи&shy;ты&shy;ва&shy;ет&shy;ся</p>
+</td>
 </tr>
 <tr>
-<td>GenericSample&lt;int&gt;</td>
-<td>12</td>
-<td>Как видите, generics прекрасно считаются. Размер не поменялся, т.к. данные находятся на том же месте, что и у boxed int. Итог: SyncBlk + VMT + данные</td>
+<td>
+<p >
+GenericSample<int></p>
+</td>
+<td>
+<p >
+12</p>
+</td>
+<td>
+<p >
+Как ви&shy;ди&shy;те, generics прек&shy;рас&shy;но счи&shy;та&shy;ют&shy;ся. Раз&shy;мер не по&shy;ме&shy;нял&shy;ся, т.к. дан&shy;ные на&shy;хо&shy;дят&shy;ся на том же мес&shy;те, что и у boxed int. Итог: SyncBlk + VMT + дан&shy;ные</p>
+</td>
 </tr>
 <tr>
-<td>GenericSample&lt;Int64&gt;</td>
-<td>16</td>
-<td>Аналогично</td>
+<td>
+<p >
+GenericSample<Int64></p>
+</td>
+<td>
+<p >
+16</p>
+</td>
+<td>
+<p >
+Ана&shy;ло&shy;гич&shy;но</p>
+</td>
 </tr>
 <tr>
-<td>GenericSample&lt;IEnumerable&gt;</td>
-<td>12</td>
-<td>Аналогично</td>
+<td>
+<p >
+GenericSample<IEnumerable></p>
+</td>
+<td>
+<p >
+12</p>
+</td>
+<td>
+<p >
+Ана&shy;ло&shy;гич&shy;но</p>
+</td>
 </tr>
 <tr>
-<td>GenericSample&lt;DateTime&gt;</td>
-<td>16</td>
-<td>Аналогично</td>
+<td>
+<p >
+GenericSample<DateTime></p>
+</td>
+<td>
+<p >
+16</p>
+</td>
+<td>
+<p >
+Ана&shy;ло&shy;гич&shy;но</p>
+</td>
 </tr>
 <tr>
-<td>string</td>
-<td>14</td>
-<td>Это значение будет возвращено для любой строки, т.к. реальный размер должен считаться динамически. Однако он подходит для размера под пустую строку. Прошу заметить, что размер не выровнен по разрядности: по сути, это поле использоваться не должно</td>
+<td>
+<p >
+string</p>
+</td>
+<td>
+<p >
+14</p>
+</td>
+<td>
+<p >
+Это зна&shy;че&shy;ние бу&shy;дет возв&shy;ра&shy;ще&shy;но для лю&shy;бой стро&shy;ки, т.к. ре&shy;альный раз&shy;мер дол&shy;жен счи&shy;тать&shy;ся ди&shy;на&shy;ми&shy;чес&shy;ки. Одна&shy;ко он под&shy;хо&shy;дит для раз&shy;ме&shy;ра под пус&shy;тую стро&shy;ку. Про&shy;шу за&shy;ме&shy;тить, что раз&shy;мер не вы&shy;ров&shy;нен по раз&shy;ряд&shy;нос&shy;ти: по су&shy;ти, это по&shy;ле ис&shy;поль&shy;зо&shy;вать&shy;ся не дол&shy;жно</p>
+</td>
 </tr>
 <tr>
-<td>int[]{1}</td>
-<td>24554</td>
-<td>Для массивов в данном месте лежат совсем другие данные, также их размер не является фиксированным, потому его необходимо считать отдельно</td>
+<td>
+<p >
+int[]{1}</p>
+</td>
+<td>
+<p >
+24554</p>
+</td>
+<td>
+<p >
+Для мас&shy;си&shy;вов в дан&shy;ном мес&shy;те ле&shy;жат сов&shy;сем дру&shy;гие дан&shy;ные, так&shy;же их раз&shy;мер не яв&shy;ля&shy;ет&shy;ся фик&shy;си&shy;ро&shy;ван&shy;ным, по&shy;то&shy;му его не&shy;об&shy;хо&shy;ди&shy;мо счи&shy;тать от&shy;дель&shy;но</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1084,24 +1270,43 @@ Console.WriteLine(SizeOf(<span style="color:Blue;">typeof</span>(Sample)));
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
-<p>Как видите, когда система хранит данные о размере экземпляра типа, то она фактически хранит данные для ссылочного вида этого типа (т.е. в том числе для ссылочного варианта значимого). Давайте сделаем некоторые выводы:</p>
+<p >
+Как ви&shy;ди&shy;те, ког&shy;да сис&shy;те&shy;ма хра&shy;нит дан&shy;ные о раз&shy;ме&shy;ре эк&shy;земп&shy;ля&shy;ра ти&shy;па, то она фак&shy;ти&shy;чес&shy;ки хра&shy;нит дан&shy;ные для ссы&shy;лоч&shy;но&shy;го ви&shy;да это&shy;го ти&shy;па (т.е. в том чис&shy;ле для ссы&shy;лоч&shy;но&shy;го ва&shy;ри&shy;ан&shy;та зна&shy;чи&shy;мо&shy;го). Да&shy;вай&shy;те сде&shy;ла&shy;ем не&shy;ко&shy;то&shy;рые вы&shy;во&shy;ды:</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <ol>
-<li>Если вы хотите знать, сколько займёт значимый тип как значение, используйте <code>sizeof(TType)</code></li>
-<li>Если вы хотите рассчитать, чего вам будет стоить боксинг, то вы можете округлить <code>sizeof(TType)</code> в большую сторону до размера слова процессора (4 или 8 байт) и прибавить ещё 2 слова (<code>2 * sizeof(IntPtr)</code>). Или же взять это значение из <code>VMT</code> типа.</li>
-<li>Расчёт выделенного объем памяти в куче представлен для следующих типов:
+<li>
+<p >
+Если вы хо&shy;ти&shy;те знать, сколь&shy;ко займёт зна&shy;чи&shy;мый тип как зна&shy;че&shy;ние, ис&shy;поль&shy;зуй&shy;те <code>sizeof(TType)</code></p>
+</li>
+<li>
+<p >
+Если вы хо&shy;ти&shy;те расс&shy;чи&shy;тать, че&shy;го вам бу&shy;дет сто&shy;ить бок&shy;синг, то вы мо&shy;же&shy;те ок&shy;руг&shy;лить <code>sizeof(TType)</code> в боль&shy;шую сто&shy;ро&shy;ну до раз&shy;ме&shy;ра сло&shy;ва про&shy;цес&shy;со&shy;ра (4 или 8 байт) и при&shy;ба&shy;вить ещё 2 сло&shy;ва (<code>2 * sizeof(IntPtr)</code>). Или же взять это зна&shy;че&shy;ние из <code>VMT</code> ти&shy;па.</p>
+</li>
+<li>
+<p >
+Расчёт вы&shy;де&shy;лен&shy;но&shy;го объ&shy;ем па&shy;мя&shy;ти в ку&shy;че предс&shy;тав&shy;лен для сле&shy;ду&shy;ю&shy;щих ти&shy;пов:</p>
 <ol>
-<li>Обычный ссылочный тип фиксированного размера: мы можем забрать размер экземпляра из <code>VMT</code>;</li>
-<li>Cтрока, необходимо вручную считать её размер (это вообще редко когда может понадобиться, но, согласитесь, интересно)</li>
-<li>Массив, то его размер также рассчитывается отдельно: на основании размера его элементов и их количества. Эта задачка может оказаться куда более полезной: ведь именно массивы первые в очереди на попадание в <code>LOH</code></li>
+<li>
+<p >
+Обыч&shy;ный ссы&shy;лоч&shy;ный тип фик&shy;си&shy;ро&shy;ван&shy;но&shy;го раз&shy;ме&shy;ра: мы мо&shy;жем заб&shy;рать раз&shy;мер эк&shy;земп&shy;ля&shy;ра из <code>VMT</code>;</p>
+</li>
+<li>
+<p >
+Cтро&shy;ка, не&shy;об&shy;хо&shy;ди&shy;мо вруч&shy;ную счи&shy;тать её раз&shy;мер (это во&shy;об&shy;ще ред&shy;ко ког&shy;да мо&shy;жет по&shy;на&shy;до&shy;бить&shy;ся, но, сог&shy;ла&shy;си&shy;тесь, ин&shy;те&shy;рес&shy;но)</p>
+</li>
+<li>
+<p >
+Мас&shy;сив, то его раз&shy;мер так&shy;же расс&shy;чи&shy;ты&shy;ва&shy;ет&shy;ся от&shy;дель&shy;но: на ос&shy;но&shy;ва&shy;нии раз&shy;ме&shy;ра его эле&shy;мен&shy;тов и их ко&shy;ли&shy;чес&shy;тва. Эта за&shy;дач&shy;ка мо&shy;жет ока&shy;зать&shy;ся ку&shy;да бо&shy;лее по&shy;лез&shy;ной: ведь имен&shy;но мас&shy;си&shy;вы пер&shy;вые в оче&shy;ре&shy;ди на по&shy;па&shy;да&shy;ние в <code>LOH</code></p>
+</li>
 </ol>
 </li>
 </ol>
 <h3 id="system.string">System.String</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
-<p>Про строки в вопросах практики мы поговорим отдельно: этому, относительно небольшому, классу можно выделить целую главу. А в рамках главы про строение VMT мы поговорим про строение строк на низком уровне. Для хранения строк применяется стандарт UTF16. Это значит, что каждый символ занимает 2 байта. Дополнительно в конце каждой строки хранится null-терминатор – значение, которое идентифицирует окончание строки. Также в экземпляре хранится длина строки в виде <code>Int32</code> числа - чтобы не считать длину каждый раз, когда она понадобится (про кодировки мы поговорим отдельно). На схеме ниже представлена информация о занимаемой памяти строкой:</p>
+<p >
+Про стро&shy;ки в воп&shy;ро&shy;сах прак&shy;ти&shy;ки мы по&shy;го&shy;во&shy;рим от&shy;дель&shy;но: это&shy;му, от&shy;но&shy;си&shy;тель&shy;но не&shy;боль&shy;шо&shy;му, клас&shy;су мож&shy;но вы&shy;де&shy;лить це&shy;лую гла&shy;ву. А в рам&shy;ках гла&shy;вы про стр&shy;о&shy;ение VMT мы по&shy;го&shy;во&shy;рим про стр&shy;о&shy;ение строк на низ&shy;ком уров&shy;не. Для хра&shy;не&shy;ния строк при&shy;ме&shy;ня&shy;ет&shy;ся стан&shy;дарт UTF16. Это зна&shy;чит, что каж&shy;дый сим&shy;вол за&shy;ни&shy;ма&shy;ет 2 бай&shy;та. До&shy;пол&shy;ни&shy;тель&shy;но в кон&shy;це каж&shy;дой стро&shy;ки хра&shy;нит&shy;ся null-тер&shy;ми&shy;на&shy;тор – зна&shy;че&shy;ние, ко&shy;то&shy;рое иден&shy;ти&shy;фи&shy;ци&shy;ру&shy;ет окон&shy;ча&shy;ние стро&shy;ки. Так&shy;же в эк&shy;земп&shy;ля&shy;ре хра&shy;нит&shy;ся дли&shy;на стро&shy;ки в ви&shy;де <code>Int32</code> чис&shy;ла - что&shy;бы не счи&shy;тать дли&shy;ну каж&shy;дый раз, ког&shy;да она по&shy;на&shy;до&shy;бит&shy;ся (про ко&shy;ди&shy;ров&shy;ки мы по&shy;го&shy;во&shy;рим от&shy;дель&shy;но). На схе&shy;ме ни&shy;же предс&shy;тав&shy;ле&shy;на ин&shy;фор&shy;ма&shy;ция о за&shy;ни&shy;ма&shy;е&shy;мой па&shy;мя&shy;ти стро&shy;кой:</p>
 <div class="paragraph-right-side">13</div>
 </div>
 <pre><code>  // Для .NET Framework 3.5 и младше
@@ -1129,7 +1334,8 @@ Console.WriteLine(SizeOf(<span style="color:Blue;">typeof</span>(Sample)));
   Sum size = (8|16) + 4 + Count * 2 + 2) -&gt; округлить в большую сторону по разрядности. (20 байт в примере)
   Count – количество символов в строке, не считая терминальный
 </code></pre>
-<p>Перепишем наш метод, чтобы научить его считать размер строк:</p>
+<p >
+Пе&shy;ре&shy;пи&shy;шем наш ме&shy;тод, что&shy;бы на&shy;у&shy;чить его счи&shy;тать раз&shy;мер строк:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">unsafe</span> <span style="color:Blue;">int</span> SizeOf(<span style="color:Blue;">object</span> obj)
 {
@@ -1165,10 +1371,12 @@ Console.WriteLine(SizeOf(<span style="color:Blue;">typeof</span>(Sample)));
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
-<p>Где <code>SizeOf(type)</code> будет вызывать старую реализацию - для фиксированных по длине ссылочных типов.</p>
+<p >
+Где <code>SizeOf(type)</code> бу&shy;дет вы&shy;зы&shy;вать ста&shy;рую ре&shy;а&shy;ли&shy;за&shy;цию - для фик&shy;си&shy;ро&shy;ван&shy;ных по дли&shy;не ссы&shy;лоч&shy;ных ти&shy;пов.</p>
 <div class="paragraph-right-side">14</div>
 </div>
-<p>Давайте проверим код на практике:</p>
+<p >
+Да&shy;вай&shy;те про&shy;ве&shy;рим код на прак&shy;ти&shy;ке:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
     Action&lt;<span style="color:Blue;">string</span>&gt; stringWriter = (arg) =&gt;
     {
@@ -1195,23 +1403,35 @@ Length of `abcdef` <span style="color:Blue;">string</span>: 28
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
-<p>Расчёты показывают, что размер строки увеличивается не линейно, а ступенчато на каждые два символа. Это происходит потому, что размер каждого символа - 2 байта, а конечный размер должен без остатка делиться на разрядность процессора (в примере x86), почему происходит соответствующее выравнивание размера строки на 2 байта. Результат нашей работы прекрасен: мы можем посчитать, во что нам обошлась та или иная строка. Последним этапом нам осталось узнать, как рассчитать размер массивов в памяти.</p>
+<p >
+Расчёты по&shy;ка&shy;зы&shy;ва&shy;ют, что раз&shy;мер стро&shy;ки уве&shy;ли&shy;чи&shy;ва&shy;ет&shy;ся не ли&shy;ней&shy;но, а сту&shy;пен&shy;ча&shy;то на каж&shy;дые два сим&shy;во&shy;ла. Это про&shy;ис&shy;хо&shy;дит по&shy;то&shy;му, что раз&shy;мер каж&shy;до&shy;го сим&shy;во&shy;ла - 2 бай&shy;та, а ко&shy;неч&shy;ный раз&shy;мер дол&shy;жен без ос&shy;тат&shy;ка де&shy;лить&shy;ся на раз&shy;ряд&shy;ность про&shy;цес&shy;со&shy;ра (в при&shy;ме&shy;ре x86), по&shy;че&shy;му про&shy;ис&shy;хо&shy;дит со&shy;от&shy;вет&shy;с&shy;твующее вы&shy;рав&shy;ни&shy;ва&shy;ние раз&shy;ме&shy;ра стро&shy;ки на 2 бай&shy;та. Ре&shy;зуль&shy;тат на&shy;шей ра&shy;бо&shy;ты прек&shy;ра&shy;сен: мы мо&shy;жем пос&shy;чи&shy;тать, во что нам обош&shy;лась та или иная стро&shy;ка. Пос&shy;лед&shy;ним эта&shy;пом нам ос&shy;та&shy;лось уз&shy;нать, как расс&shy;чи&shy;тать раз&shy;мер мас&shy;си&shy;вов в па&shy;мя&shy;ти.</p>
 <div class="paragraph-right-side">15</div>
 </div>
 <h3 id="section-2">Массивы</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
-<p>Строение массивов несколько сложнее: ведь у массивов могут быть варианты их строения:</p>
+<p >
+Стр&shy;о&shy;ение мас&shy;си&shy;вов нес&shy;коль&shy;ко слож&shy;нее: ведь у мас&shy;си&shy;вов мо&shy;гут быть ва&shy;ри&shy;ан&shy;ты их стр&shy;о&shy;ения:</p>
 <div class="paragraph-right-side">16</div>
 </div>
 <ol>
-<li>Они могут хранить значимые типы, а могут хранить ссылочные</li>
-<li>Массивы могут быть как одномерными, так и многомерными</li>
-<li>Каждое измерение (мера) может начинаться как с <code>0</code>, так и с любого другого числа (это, на мой взгляд, очень спорная возможность, избавляющая программиста от необходимости в написании <code>arr[i - startIndex]</code> на уровне FCL). Сделано это, вроде как, для совместимости с другими языками, к примеру, в Pascal индексация массива может начинаться не с <code>0</code>, а с любого числа, однако мне кажется, что это лишнее.</li>
+<li>
+<p >
+Они мо&shy;гут хра&shy;нить зна&shy;чи&shy;мые ти&shy;пы, а мо&shy;гут хра&shy;нить ссы&shy;лоч&shy;ные</p>
+</li>
+<li>
+<p >
+Мас&shy;си&shy;вы мо&shy;гут быть как од&shy;но&shy;мер&shy;ны&shy;ми, так и мно&shy;го&shy;мер&shy;ны&shy;ми</p>
+</li>
+<li>
+<p >
+Каж&shy;дое из&shy;ме&shy;ре&shy;ние (ме&shy;ра) мо&shy;жет на&shy;чи&shy;нать&shy;ся как с <code>0</code>, так и с лю&shy;бо&shy;го дру&shy;го&shy;го чис&shy;ла (это, на мой взгляд, очень спор&shy;ная воз&shy;мож&shy;ность, из&shy;бав&shy;ля&shy;ю&shy;щая прог&shy;рам&shy;мис&shy;та от не&shy;об&shy;хо&shy;ди&shy;мос&shy;ти в на&shy;пи&shy;са&shy;нии <code>arr[i - startIndex]</code> на уров&shy;не FCL). Сде&shy;ла&shy;но это, вро&shy;де как, для сов&shy;мес&shy;ти&shy;мос&shy;ти с дру&shy;ги&shy;ми язы&shy;ка&shy;ми, к при&shy;ме&shy;ру, в Pascal ин&shy;дек&shy;са&shy;ция мас&shy;си&shy;ва мо&shy;жет на&shy;чи&shy;нать&shy;ся не с <code>0</code>, а с лю&shy;бо&shy;го чис&shy;ла, од&shy;на&shy;ко мне ка&shy;жет&shy;ся, что это лиш&shy;нее.</p>
+</li>
 </ol>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
-<p>Отсюда возникает некоторая путаность в реализации массивов и невозможность точно предсказать размер конечного массива: мало перемножить количество элементов на их размер. Хотя, конечно, для большинства случаев этого будет достаточно. Важным размер становится, когда мы боимся попасть в LOH. Однако у нас и тут возникают варианты: мы можем просто накинуть к размеру, подсчитанному &laquo;на коленке&raquo;, какую-то константу сверху (например, 100), чтобы понять, перешагнули мы границу в 85000 или нет. Однако, в рамках данного раздела задача несколько другая: понять структуру типов. На неё и посмотрим:</p>
+<p >
+Отсю&shy;да воз&shy;ни&shy;ка&shy;ет не&shy;ко&shy;то&shy;рая пу&shy;та&shy;ность в ре&shy;а&shy;ли&shy;за&shy;ции мас&shy;си&shy;вов и не&shy;воз&shy;мож&shy;ность точ&shy;но предс&shy;ка&shy;зать раз&shy;мер ко&shy;неч&shy;но&shy;го мас&shy;си&shy;ва: ма&shy;ло пе&shy;рем&shy;но&shy;жить ко&shy;ли&shy;чес&shy;тво эле&shy;мен&shy;тов на их раз&shy;мер. Хо&shy;тя, ко&shy;неч&shy;но, для боль&shy;шинства слу&shy;ча&shy;ев это&shy;го бу&shy;дет дос&shy;та&shy;точ&shy;но. Важ&shy;ным раз&shy;мер ста&shy;но&shy;вит&shy;ся, ког&shy;да мы бо&shy;им&shy;ся по&shy;пасть в LOH. Одна&shy;ко у нас и тут воз&shy;ни&shy;ка&shy;ют ва&shy;ри&shy;ан&shy;ты: мы мо&shy;жем прос&shy;то на&shy;ки&shy;нуть к раз&shy;ме&shy;ру, подс&shy;чи&shy;тан&shy;но&shy;му &laquo;на ко&shy;лен&shy;ке&raquo;, ка&shy;кую-то конс&shy;тан&shy;ту свер&shy;ху (нап&shy;ри&shy;мер, 100), что&shy;бы по&shy;нять, пе&shy;ре&shy;шаг&shy;ну&shy;ли мы гра&shy;ни&shy;цу в 85000 или нет. Одна&shy;ко, в рам&shy;ках дан&shy;но&shy;го раз&shy;де&shy;ла за&shy;да&shy;ча нес&shy;коль&shy;ко дру&shy;гая: по&shy;нять струк&shy;ту&shy;ру ти&shy;пов. На неё и пос&shy;мот&shy;рим:</p>
 <div class="paragraph-right-side">17</div>
 </div>
 <pre><code>  // Заголовок
@@ -1231,7 +1451,8 @@ Length of `abcdef` <span style="color:Blue;">string</span>: 28
 </code></pre>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
-<p>Как мы видим, заголовок типа хранит данные об измерениях массива: их число может быть как 1, так и достаточно большим: фактически их размер ограничивается только null-терминатором, означающим, что перечисление закончено. Данный пример доступен полностью в файле <a href="./samples/GettingInstanceSize.linq">GettingInstanceSize</a>, а ниже я приведу только его самую важную часть:</p>
+<p >
+Как мы ви&shy;дим, за&shy;го&shy;ло&shy;вок ти&shy;па хра&shy;нит дан&shy;ные об из&shy;ме&shy;ре&shy;ни&shy;ях мас&shy;си&shy;ва: их чис&shy;ло мо&shy;жет быть как 1, так и дос&shy;та&shy;точ&shy;но боль&shy;шим: фак&shy;ти&shy;чес&shy;ки их раз&shy;мер ог&shy;ра&shy;ни&shy;чи&shy;ва&shy;ет&shy;ся толь&shy;ко null-тер&shy;ми&shy;на&shy;то&shy;ром, оз&shy;на&shy;ча&shy;ю&shy;щим, что пе&shy;ре&shy;чис&shy;ле&shy;ние за&shy;кон&shy;че&shy;но. Дан&shy;ный при&shy;мер дос&shy;ту&shy;пен пол&shy;ностью в фай&shy;ле <a href="./samples/GettingInstanceSize.linq">GettingInstanceSize</a>, а ни&shy;же я при&shy;ве&shy;ду толь&shy;ко его са&shy;мую важ&shy;ную часть:</p>
 <div class="paragraph-right-side">18</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1305,7 +1526,8 @@ Length of `abcdef` <span style="color:Blue;">string</span>: 28
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
-<p>Этот код учитывает все вариации типов массивов, и может быть использован для расчёта его размера:</p>
+<p >
+Этот код учи&shy;ты&shy;ва&shy;ет все ва&shy;ри&shy;а&shy;ции ти&shy;пов мас&shy;си&shy;вов, и мо&shy;жет быть ис&shy;поль&shy;зо&shy;ван для расчёта его раз&shy;ме&shy;ра:</p>
 <div class="paragraph-right-side">19</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1322,21 +1544,25 @@ size of <span style="color:Blue;">int</span>[2,3,4,5]{...}: 512
 <h3 id="section-3">Выводы к разделу</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
-<p>На данном этапе мы научились нескольким достаточно важным вещам. Первое - мы разделили для себя ссылочные типы на три группы: ссылочные типы фиксированного размера, generic типы и ссылочные типы переменного размера. Также мы научились понимать структуру конечного экземпляра любого типа (про структуру VMT я пока молчу. Мы там поняли целиком пока что только одно поле: а это тоже большое достижение). Будь то ссылочный тип фиксированного размера (там все предельно просто) или неопределённого размера: массив или строка. Неопределённого потому, что его размер будет определён при создании. С generic типами на самом деле все просто: для каждого конкретного generic типа создаётся своя VMT, в которой будет проставлен конкретный размер.</p>
+<p >
+На дан&shy;ном эта&shy;пе мы на&shy;у&shy;чи&shy;лись нес&shy;коль&shy;ким дос&shy;та&shy;точ&shy;но важ&shy;ным ве&shy;щам. Пер&shy;вое - мы раз&shy;де&shy;ли&shy;ли для се&shy;бя ссы&shy;лоч&shy;ные ти&shy;пы на три груп&shy;пы: ссы&shy;лоч&shy;ные ти&shy;пы фик&shy;си&shy;ро&shy;ван&shy;но&shy;го раз&shy;ме&shy;ра, generic ти&shy;пы и ссы&shy;лоч&shy;ные ти&shy;пы пе&shy;ре&shy;мен&shy;но&shy;го раз&shy;ме&shy;ра. Так&shy;же мы на&shy;у&shy;чи&shy;лись по&shy;ни&shy;мать струк&shy;ту&shy;ру ко&shy;неч&shy;но&shy;го эк&shy;земп&shy;ля&shy;ра лю&shy;бо&shy;го ти&shy;па (про струк&shy;ту&shy;ру VMT я по&shy;ка мол&shy;чу. Мы там по&shy;ня&shy;ли це&shy;ли&shy;ком по&shy;ка что толь&shy;ко од&shy;но по&shy;ле: а это то&shy;же боль&shy;шое дос&shy;ти&shy;же&shy;ние). Будь то ссы&shy;лоч&shy;ный тип фик&shy;си&shy;ро&shy;ван&shy;но&shy;го раз&shy;ме&shy;ра (там все пре&shy;дель&shy;но прос&shy;то) или не&shy;оп&shy;ре&shy;делённо&shy;го раз&shy;ме&shy;ра: мас&shy;сив или стро&shy;ка. Не&shy;оп&shy;ре&shy;делённо&shy;го по&shy;то&shy;му, что его раз&shy;мер бу&shy;дет оп&shy;ре&shy;делён при соз&shy;да&shy;нии. С generic ти&shy;па&shy;ми на са&shy;мом де&shy;ле все прос&shy;то: для каж&shy;до&shy;го конк&shy;рет&shy;но&shy;го generic ти&shy;па соз&shy;даётся своя VMT, в ко&shy;то&shy;рой бу&shy;дет прос&shy;тав&shy;лен конк&shy;рет&shy;ный раз&shy;мер.</p>
 <div class="paragraph-right-side">20</div>
 </div>
 <h2 id="virtual-methods-table-vmt">Таблица методов в Virtual Methods Table (VMT)</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
-<p>Объяснение работы Methods Table, по большей части носит академический характер: ведь в такие дебри лезть - это как самому себе могилу рыть. С одной стороны, такие закрома таят что-то будоражащее и интересное, хранят некие данные, которые ещё больше раскрывают понимание о происходящем. Однако, с другой стороны, все мы понимаем, что Microsoft не будет нам давать никаких гарантий, что они оставят свой рантайм без изменений и, например, вдруг не передвинут таблицу методов на одно поле вперёд. Поэтому, оговорюсь сразу:</p>
+<p >
+Об&shy;ъя&shy;снение ра&shy;бо&shy;ты Methods Table, по боль&shy;шей час&shy;ти но&shy;сит ака&shy;де&shy;ми&shy;чес&shy;кий ха&shy;рак&shy;тер: ведь в та&shy;кие деб&shy;ри лезть - это как са&shy;мо&shy;му се&shy;бе мо&shy;ги&shy;лу рыть. С од&shy;ной сто&shy;ро&shy;ны, та&shy;кие зак&shy;ро&shy;ма та&shy;ят что-то бу&shy;до&shy;ра&shy;жа&shy;щее и ин&shy;те&shy;рес&shy;ное, хра&shy;нят не&shy;кие дан&shy;ные, ко&shy;то&shy;рые ещё боль&shy;ше раск&shy;ры&shy;ва&shy;ют по&shy;ни&shy;ма&shy;ние о про&shy;ис&shy;хо&shy;дя&shy;щем. Одна&shy;ко, с дру&shy;гой сто&shy;ро&shy;ны, все мы по&shy;ни&shy;ма&shy;ем, что Microsoft не бу&shy;дет нам да&shy;вать ни&shy;ка&shy;ких га&shy;ран&shy;тий, что они ос&shy;та&shy;вят свой ран&shy;тайм без из&shy;ме&shy;не&shy;ний и, нап&shy;ри&shy;мер, вдруг не пе&shy;ред&shy;ви&shy;нут таб&shy;ли&shy;цу ме&shy;то&shy;дов на од&shy;но по&shy;ле вперёд. По&shy;э&shy;то&shy;му, ого&shy;во&shy;рюсь сра&shy;зу:</p>
 <div class="paragraph-right-side">21</div>
 </div>
 <blockquote>
-<p>Информация, представленная в данном разделе, дана вам исключительно для того, чтобы вы понимали, как работает приложение, основанное на CLR, и ручное вмешательство в её работу не даёт никаких гарантий. Однако, это настолько интересно, что я не могу вас отговорить. Наоборот, мой совет - поиграйтесь с этими структурами данных и, возможно, вы получите один из самых запоминающихся опытов в разработке ПО.</p>
+<p >
+Инфор&shy;ма&shy;ция, предс&shy;тав&shy;лен&shy;ная в дан&shy;ном раз&shy;де&shy;ле, да&shy;на вам ис&shy;клю&shy;чи&shy;тель&shy;но для то&shy;го, что&shy;бы вы по&shy;ни&shy;ма&shy;ли, как ра&shy;бо&shy;та&shy;ет при&shy;ло&shy;же&shy;ние, ос&shy;но&shy;ван&shy;ное на CLR, и руч&shy;ное вме&shy;ша&shy;тельство в её ра&shy;бо&shy;ту не даёт ни&shy;ка&shy;ких га&shy;ран&shy;тий. Одна&shy;ко, это нас&shy;толь&shy;ко ин&shy;те&shy;рес&shy;но, что я не мо&shy;гу вас от&shy;го&shy;во&shy;рить. На&shy;о&shy;бо&shy;рот, мой со&shy;вет - по&shy;иг&shy;рай&shy;тесь с эти&shy;ми струк&shy;ту&shy;ра&shy;ми дан&shy;ных и, воз&shy;мож&shy;но, вы по&shy;лу&shy;чи&shy;те один из са&shy;мых за&shy;по&shy;ми&shy;на&shy;ющих&shy;ся опы&shy;тов в раз&shy;ра&shy;бот&shy;ке ПО.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
-<p>Ну, все: предупредил. Теперь давайте окунёмся в мир как говорится зазеркалья. Ведь до сих пор всё зазеркалье сводилось к знаниям структуры объектов: а её по идее мы и так должны знать хотя бы примерно. И по своей сути эти знания зазеркальем не являются, а являются скорее входом в зазеркалье. А потому вернёмся к структуре <code>MethodTable</code>, <a href="https://github.com/dotnet/coreclr/blob/master/src/vm/methodtable.h#L4099-L4114">описанной в CoreCLR</a>:</p>
+<p >
+Ну, все: пре&shy;дуп&shy;ре&shy;дил. Те&shy;перь да&shy;вай&shy;те окунёмся в мир как го&shy;во&shy;рит&shy;ся за&shy;зер&shy;калья. Ведь до сих пор всё за&shy;зер&shy;калье сво&shy;ди&shy;лось к зна&shy;ни&shy;ям струк&shy;ту&shy;ры объ&shy;ек&shy;тов: а её по идее мы и так дол&shy;жны знать хо&shy;тя бы при&shy;мер&shy;но. И по сво&shy;ей су&shy;ти эти зна&shy;ния за&shy;зер&shy;кал&shy;ьем не яв&shy;ля&shy;ют&shy;ся, а яв&shy;ля&shy;ют&shy;ся ско&shy;рее вхо&shy;дом в за&shy;зер&shy;калье. А по&shy;то&shy;му вернёмся к струк&shy;ту&shy;ре <code>MethodTable</code>, <a href="https://github.com/dotnet/coreclr/blob/master/src/vm/methodtable.h#L4099-L4114">описанной в CoreCLR</a>:</p>
 <div class="paragraph-right-side">22</div>
 </div>
 <div class="lang-cpp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1359,7 +1585,8 @@ size of <span style="color:Blue;">int</span>[2,3,4,5]{...}: 512
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
-<p>А именно к полям <code>m_wNumVirtuals</code> и <code>m_wNumInterfaces</code>. Эти два поля определяют ответ на вопрос &quot;сколько виртуальных методов и интерфейсов существует у типа?&quot;. В этой структуре нет никакой информации об обычных методах, полях, свойствах (которые объединяют методы). Т.е. эта структура <strong>никак не связана с рефлексией</strong>. По своей сути и назначению эта структура создана для работы вызова методов в CLR (и на самом деле в любом ООП: будь то Java, C++, Ruby или же что-то ещё. Просто расположение полей будет несколько другим). Давайте рассмотрим код:</p>
+<p >
+А имен&shy;но к по&shy;лям <code>m_wNumVirtuals</code> и <code>m_wNumInterfaces</code>. Эти два по&shy;ля оп&shy;ре&shy;де&shy;ля&shy;ют от&shy;вет на воп&shy;рос "сколь&shy;ко вир&shy;ту&shy;альных ме&shy;то&shy;дов и ин&shy;тер&shy;фей&shy;сов су&shy;щес&shy;тву&shy;ет у ти&shy;па?". В этой струк&shy;ту&shy;ре нет ни&shy;ка&shy;кой ин&shy;фор&shy;ма&shy;ции об обыч&shy;ных ме&shy;то&shy;дах, по&shy;лях, свой&shy;с&shy;твах (ко&shy;то&shy;рые объ&shy;е&shy;ди&shy;ня&shy;ют ме&shy;то&shy;ды). Т.е. эта струк&shy;ту&shy;ра <strong>никак не связана с рефлексией</strong>. По сво&shy;ей су&shy;ти и наз&shy;на&shy;че&shy;нию эта струк&shy;ту&shy;ра соз&shy;да&shy;на для ра&shy;бо&shy;ты вы&shy;зо&shy;ва ме&shy;то&shy;дов в CLR (и на са&shy;мом де&shy;ле в лю&shy;бом ООП: будь то Java, C++, Ruby или же что-то ещё. Прос&shy;то рас&shy;по&shy;ло&shy;же&shy;ние по&shy;лей бу&shy;дет нес&shy;коль&shy;ко дру&shy;гим). Да&shy;вай&shy;те расс&shy;мот&shy;рим код:</p>
 <div class="paragraph-right-side">23</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1390,12 +1617,14 @@ size of <span style="color:Blue;">int</span>[2,3,4,5]{...}: 512
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">24</div>
-<p>Какими бы бессмысленными не казались эти классы, они нам вполне сгодятся для описания их VMT. А для этого мы должны понять, чем отличаются базовый тип и унаследованный в вопросе методов <code>ChangeTo</code> и <code>GetValue</code>.</p>
+<p >
+Ка&shy;ки&shy;ми бы бесс&shy;мыс&shy;лен&shy;ны&shy;ми не ка&shy;за&shy;лись эти клас&shy;сы, они нам впол&shy;не сго&shy;дят&shy;ся для опи&shy;са&shy;ния их VMT. А для это&shy;го мы дол&shy;жны по&shy;нять, чем от&shy;ли&shy;ча&shy;ют&shy;ся ба&shy;зо&shy;вый тип и унас&shy;ле&shy;до&shy;ван&shy;ный в воп&shy;ро&shy;се ме&shy;то&shy;дов <code>ChangeTo</code> и <code>GetValue</code>.</p>
 <div class="paragraph-right-side">24</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
-<p>Метод <code>ChangeTo</code> присутствует в обоих типах: при этом его нельзя переопределять. Это значит, что он может быть переписан так, и ничего не поменяется:</p>
+<p >
+Ме&shy;тод <code>ChangeTo</code> при&shy;сут&shy;ствует в обо&shy;их ти&shy;пах: при этом его нель&shy;зя пе&shy;ре&shy;оп&shy;ре&shy;де&shy;лять. Это зна&shy;чит, что он мо&shy;жет быть пе&shy;ре&shy;пи&shy;сан так, и ни&shy;че&shy;го не по&shy;ме&shy;ня&shy;ет&shy;ся:</p>
 <div class="paragraph-right-side">25</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1427,15 +1656,18 @@ size of <span style="color:Blue;">int</span>[2,3,4,5]{...}: 512
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
-<p>И при этом кроме архитектурного смысла ничего не изменится: поверьте, при компиляции оба варианта будут работать одинаково, т.к. у экземплярных методов <code>this</code> - это всего лишь первый параметр метода, который передаётся нам неявно.</p>
+<p >
+И при этом кро&shy;ме ар&shy;хи&shy;тек&shy;тур&shy;но&shy;го смыс&shy;ла ни&shy;че&shy;го не из&shy;ме&shy;нит&shy;ся: по&shy;верь&shy;те, при ком&shy;пи&shy;ля&shy;ции оба ва&shy;ри&shy;ан&shy;та бу&shy;дут ра&shy;бо&shy;тать оди&shy;на&shy;ко&shy;во, т.к. у эк&shy;земп&shy;ляр&shy;ных ме&shy;то&shy;дов <code>this</code> - это все&shy;го лишь пер&shy;вый па&shy;ра&shy;метр ме&shy;то&shy;да, ко&shy;то&shy;рый пе&shy;ре&shy;даётся нам не&shy;яв&shy;но.</p>
 <div class="paragraph-right-side">26</div>
 </div>
 <blockquote>
-<p>Заранее поясню, почему все объяснения вокруг наследования строятся вокруг примеров на статических методах: по сути, все методы - статические. И экземплярные и нет. В памяти нет поэкземплярно скомпилированных методов для каждого экземпляра класса. Это занимало бы огромное количество памяти: проще одному и тому же методу каждый раз передавать ссылку на экземпляр той структуры или класса, с которыми он работает.</p>
+<p >
+За&shy;ра&shy;нее по&shy;яс&shy;ню, по&shy;че&shy;му все объ&shy;яс&shy;не&shy;ния вок&shy;руг нас&shy;ле&shy;до&shy;ва&shy;ния стр&shy;оя&shy;тся вок&shy;руг при&shy;ме&shy;ров на ста&shy;ти&shy;чес&shy;ких ме&shy;то&shy;дах: по су&shy;ти, все ме&shy;то&shy;ды - ста&shy;ти&shy;чес&shy;кие. И эк&shy;земп&shy;ляр&shy;ные и нет. В па&shy;мя&shy;ти нет по&shy;эк&shy;земп&shy;ляр&shy;но ском&shy;пи&shy;ли&shy;ро&shy;ван&shy;ных ме&shy;то&shy;дов для каж&shy;до&shy;го эк&shy;земп&shy;ля&shy;ра клас&shy;са. Это за&shy;ни&shy;ма&shy;ло бы ог&shy;ром&shy;ное ко&shy;ли&shy;чес&shy;тво па&shy;мя&shy;ти: про&shy;ще од&shy;но&shy;му и то&shy;му же ме&shy;то&shy;ду каж&shy;дый раз пе&shy;ре&shy;да&shy;вать ссыл&shy;ку на эк&shy;земп&shy;ляр той струк&shy;ту&shy;ры или клас&shy;са, с ко&shy;то&shy;ры&shy;ми он ра&shy;бо&shy;та&shy;ет.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">27</div>
-<p>Для метода <code>GetValue</code> все обстоит совершенно по-другому. Мы не можем просто взять и переопределить метод переопределением <em>статического</em> <code>GetValue</code> в унаследованном типе: новый метод получит только те участки кода, которые работают с переменной как с <code>OverridedSample</code>, а если с переменной работать как с переменной базового типа <code>Sample</code>, вызвать сможете только <code>GetValue</code> базового типа, поскольку вы понятия не имеете, какого типа на самом деле объект. Для того чтобы понимать, какого типа является переменная и, как результат, какой конкретно метод вызывается, мы можем поступить следующим образом:</p>
+<p >
+Для ме&shy;то&shy;да <code>GetValue</code> все об&shy;сто&shy;ит со&shy;вер&shy;шен&shy;но по-дру&shy;го&shy;му. Мы не мо&shy;жем прос&shy;то взять и пе&shy;ре&shy;оп&shy;ре&shy;де&shy;лить ме&shy;тод пе&shy;ре&shy;оп&shy;ре&shy;де&shy;ле&shy;ни&shy;ем <em>статического</em> <code>GetValue</code> в унас&shy;ле&shy;до&shy;ван&shy;ном ти&shy;пе: но&shy;вый ме&shy;тод по&shy;лу&shy;чит толь&shy;ко те учас&shy;тки ко&shy;да, ко&shy;то&shy;рые ра&shy;бо&shy;та&shy;ют с пе&shy;ре&shy;мен&shy;ной как с <code>OverridedSample</code>, а ес&shy;ли с пе&shy;ре&shy;мен&shy;ной ра&shy;бо&shy;тать как с пе&shy;ре&shy;мен&shy;ной ба&shy;зо&shy;во&shy;го ти&shy;па <code>Sample</code>, выз&shy;вать смо&shy;же&shy;те толь&shy;ко <code>GetValue</code> ба&shy;зо&shy;во&shy;го ти&shy;па, пос&shy;коль&shy;ку вы по&shy;ня&shy;тия не име&shy;ете, ка&shy;ко&shy;го ти&shy;па на са&shy;мом де&shy;ле объ&shy;ект. Для то&shy;го что&shy;бы по&shy;ни&shy;мать, ка&shy;ко&shy;го ти&shy;па яв&shy;ля&shy;ет&shy;ся пе&shy;ре&shy;мен&shy;ная и, как ре&shy;зуль&shy;тат, ка&shy;кой конк&shy;рет&shy;но ме&shy;тод вы&shy;зы&shy;ва&shy;ет&shy;ся, мы мо&shy;жем пос&shy;ту&shy;пить сле&shy;ду&shy;ю&shy;щим об&shy;ра&shy;зом:</p>
 <div class="paragraph-right-side">27</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1490,51 +1722,100 @@ size of <span style="color:Blue;">int</span>[2,3,4,5]{...}: 512
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
-<p>В этом примере мы фактически строим таблицу виртуальных методов вручную, а вызовы делаем по позиции метода в этой таблице. Если вы поняли суть примера, то вы фактически поняли, как строится наследование на уровне скомпилированного кода: методы вызываются по своему индексу в таблице виртуальных методов. Просто когда вы создаёте экземпляр некоторого унаследованного типа, то в его VMT по местам, где у базового типа находятся виртуальные методы, компилятор расположит указатели на переопределённые методы, скопировав из базового типа указатели на методы, которые не переопределялись. Таким образом, отличие нашего примера от реальной VMT заключается только в том, что когда компилятор строит эту таблицу, он заранее знает, с чем имеет дело и создаёт таблицу правильного размера и наполнения сразу же: в нашем примере чтобы построить таблицу для типов, которые будут делать таблицу более крупной за счёт добавления новых методов, придётся изрядно попотеть. Но наша задача заключается в другом, а потому такими извращениями мы заниматься не станем.</p>
+<p >
+В этом при&shy;ме&shy;ре мы фак&shy;ти&shy;чес&shy;ки стр&shy;оим таб&shy;ли&shy;цу вир&shy;ту&shy;альных ме&shy;то&shy;дов вруч&shy;ную, а вы&shy;зо&shy;вы де&shy;ла&shy;ем по по&shy;зи&shy;ции ме&shy;то&shy;да в этой таб&shy;ли&shy;це. Если вы по&shy;ня&shy;ли суть при&shy;ме&shy;ра, то вы фак&shy;ти&shy;чес&shy;ки по&shy;ня&shy;ли, как стр&shy;ои&shy;тся нас&shy;ле&shy;до&shy;ва&shy;ние на уров&shy;не ском&shy;пи&shy;ли&shy;ро&shy;ван&shy;но&shy;го ко&shy;да: ме&shy;то&shy;ды вы&shy;зы&shy;ва&shy;ют&shy;ся по сво&shy;ему ин&shy;дек&shy;су в таб&shy;ли&shy;це вир&shy;ту&shy;альных ме&shy;то&shy;дов. Прос&shy;то ког&shy;да вы соз&shy;даёте эк&shy;земп&shy;ляр не&shy;ко&shy;то&shy;ро&shy;го унас&shy;ле&shy;до&shy;ван&shy;но&shy;го ти&shy;па, то в его VMT по мес&shy;там, где у ба&shy;зо&shy;во&shy;го ти&shy;па на&shy;хо&shy;дят&shy;ся вир&shy;ту&shy;альные ме&shy;то&shy;ды, ком&shy;пи&shy;ля&shy;тор рас&shy;по&shy;ло&shy;жит ука&shy;за&shy;те&shy;ли на пе&shy;ре&shy;оп&shy;ре&shy;делённые ме&shy;то&shy;ды, ско&shy;пи&shy;ро&shy;вав из ба&shy;зо&shy;во&shy;го ти&shy;па ука&shy;за&shy;те&shy;ли на ме&shy;то&shy;ды, ко&shy;то&shy;рые не пе&shy;ре&shy;оп&shy;ре&shy;де&shy;ля&shy;лись. Та&shy;ким об&shy;ра&shy;зом, от&shy;ли&shy;чие на&shy;ше&shy;го при&shy;ме&shy;ра от ре&shy;альной VMT зак&shy;лю&shy;ча&shy;ет&shy;ся толь&shy;ко в том, что ког&shy;да ком&shy;пи&shy;ля&shy;тор стр&shy;оит эту таб&shy;ли&shy;цу, он за&shy;ра&shy;нее зна&shy;ет, с чем име&shy;ет де&shy;ло и соз&shy;даёт таб&shy;ли&shy;цу пра&shy;виль&shy;но&shy;го раз&shy;ме&shy;ра и на&shy;пол&shy;не&shy;ния сра&shy;зу же: в на&shy;шем при&shy;ме&shy;ре что&shy;бы пос&shy;тро&shy;ить таб&shy;ли&shy;цу для ти&shy;пов, ко&shy;то&shy;рые бу&shy;дут де&shy;лать таб&shy;ли&shy;цу бо&shy;лее круп&shy;ной за счёт до&shy;бав&shy;ле&shy;ния но&shy;вых ме&shy;то&shy;дов, придётся из&shy;ряд&shy;но по&shy;по&shy;теть. Но на&shy;ша за&shy;да&shy;ча зак&shy;лю&shy;ча&shy;ет&shy;ся в дру&shy;гом, а по&shy;то&shy;му та&shy;ки&shy;ми из&shy;вра&shy;ще&shy;ни&shy;ями мы за&shy;ни&shy;мать&shy;ся не ста&shy;нем.</p>
 <div class="paragraph-right-side">28</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">29</div>
-<p>Второй вопрос, который возникает сразу после ответа на первый: если с методами теперь все ясно, то зачем тогда в <code>VMT</code> находятся интерфейсы? Интерфейсы, если размышлять логически, не входят в структуру прямого наследования. Они находятся как бы сбоку, указывая, что те или иные типы обязаны реализовывать некоторый набор методов. Иметь, по сути, некоторый протокол взаимодействия. Однако, хоть интерфейсы и находятся <em>сбоку</em> от прямого наследования, вызывать методы все равно можно. Причём, заметьте: если вы используете переменную интерфейсного типа, то за ней могут скрываться какие угодно классы, базовый тип у которых может быть разве что <code>System.Object</code>. Т.е. методы в таблице виртуальных методов, которые реализуют интерфейс, могут находиться совершенно по разным местам. Как же вызов методов работает в этом случае?</p>
+<p >
+Вто&shy;рой воп&shy;рос, ко&shy;то&shy;рый воз&shy;ни&shy;ка&shy;ет сра&shy;зу пос&shy;ле от&shy;ве&shy;та на пер&shy;вый: ес&shy;ли с ме&shy;то&shy;да&shy;ми те&shy;перь все яс&shy;но, то за&shy;чем тог&shy;да в <code>VMT</code> на&shy;хо&shy;дят&shy;ся ин&shy;тер&shy;фей&shy;сы? Интер&shy;фей&shy;сы, ес&shy;ли раз&shy;мыш&shy;лять ло&shy;ги&shy;чес&shy;ки, не вхо&shy;дят в струк&shy;ту&shy;ру пря&shy;мо&shy;го нас&shy;ле&shy;до&shy;ва&shy;ния. Они на&shy;хо&shy;дят&shy;ся как бы сбо&shy;ку, ука&shy;зы&shy;вая, что те или иные ти&shy;пы обя&shy;за&shy;ны ре&shy;а&shy;ли&shy;зо&shy;вы&shy;вать не&shy;ко&shy;то&shy;рый на&shy;бор ме&shy;то&shy;дов. Иметь, по су&shy;ти, не&shy;ко&shy;то&shy;рый про&shy;то&shy;кол вза&shy;и&shy;мо&shy;д&shy;ействия. Одна&shy;ко, хоть ин&shy;тер&shy;фей&shy;сы и на&shy;хо&shy;дят&shy;ся <em>сбоку</em> от пря&shy;мо&shy;го нас&shy;ле&shy;до&shy;ва&shy;ния, вы&shy;зы&shy;вать ме&shy;то&shy;ды все рав&shy;но мож&shy;но. Причём, за&shy;меть&shy;те: ес&shy;ли вы ис&shy;поль&shy;зу&shy;ете пе&shy;ре&shy;мен&shy;ную ин&shy;тер&shy;фейс&shy;но&shy;го ти&shy;па, то за ней мо&shy;гут скры&shy;вать&shy;ся ка&shy;кие угод&shy;но клас&shy;сы, ба&shy;зо&shy;вый тип у ко&shy;то&shy;рых мо&shy;жет быть раз&shy;ве что <code>System.Object</code>. Т.е. ме&shy;то&shy;ды в таб&shy;ли&shy;це вир&shy;ту&shy;альных ме&shy;то&shy;дов, ко&shy;то&shy;рые ре&shy;а&shy;ли&shy;зу&shy;ют ин&shy;тер&shy;фейс, мо&shy;гут на&shy;хо&shy;дить&shy;ся со&shy;вер&shy;шен&shy;но по раз&shy;ным мес&shy;там. Как же вы&shy;зов ме&shy;то&shy;дов ра&shy;бо&shy;та&shy;ет в этом слу&shy;чае?</p>
 <div class="paragraph-right-side">29</div>
 </div>
 <h2 id="virtual-stub-dispatch-vsd-in-progress">Virtual Stub Dispatch (VSD) [In Progress]</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">30</div>
-<p>Чтобы разобраться в этом вопросе, необходимо дополнительно вспомнить, что реализовать интерфейс можно двумя путями: сделать можно либо <code>implicit</code> реализацию, либо <code>explicit</code>. Причём сделать это можно частично: часть методов сделать <code>implicit</code>, а часть - <code>explicit</code>. Эта возможность на самом деле - следствие реализации и возможно даже не является заранее продуманной: реализуя интерфейс, вы показываете явно или неявно, что в него входит. Часть методов класса может не входить в интерфейс, а методы, существующие в интерфейсе, могут не существовать в классе (они, конечно, существуют в классе, но синтаксис показывает, что архитектурно частью класса они не являются): класс и интерфейс - это в некотором, смысле - параллельные иерархии типов. Также, в плюс к этому, интерфейс - это отдельный тип, а значит, у каждого интерфейса есть собственная таблица виртуальных методов: чтобы каждый смог вызывать методы интерфейса.</p>
+<p >
+Что&shy;бы ра&shy;зоб&shy;рать&shy;ся в этом воп&shy;ро&shy;се, не&shy;об&shy;хо&shy;ди&shy;мо до&shy;пол&shy;ни&shy;тель&shy;но вспом&shy;нить, что ре&shy;а&shy;ли&shy;зо&shy;вать ин&shy;тер&shy;фейс мож&shy;но дву&shy;мя пу&shy;тя&shy;ми: сде&shy;лать мож&shy;но ли&shy;бо <code>implicit</code> ре&shy;а&shy;ли&shy;за&shy;цию, ли&shy;бо <code>explicit</code>. Причём сде&shy;лать это мож&shy;но час&shy;тич&shy;но: часть ме&shy;то&shy;дов сде&shy;лать <code>implicit</code>, а часть - <code>explicit</code>. Эта воз&shy;мож&shy;ность на са&shy;мом де&shy;ле - след&shy;с&shy;твие ре&shy;а&shy;ли&shy;за&shy;ции и воз&shy;мож&shy;но да&shy;же не яв&shy;ля&shy;ет&shy;ся за&shy;ра&shy;нее про&shy;ду&shy;ман&shy;ной: ре&shy;а&shy;ли&shy;зуя ин&shy;тер&shy;фейс, вы по&shy;ка&shy;зы&shy;ва&shy;ете яв&shy;но или не&shy;яв&shy;но, что в не&shy;го вхо&shy;дит. Часть ме&shy;то&shy;дов клас&shy;са мо&shy;жет не вхо&shy;дить в ин&shy;тер&shy;фейс, а ме&shy;то&shy;ды, су&shy;щес&shy;тву&shy;ю&shy;щие в ин&shy;тер&shy;фей&shy;се, мо&shy;гут не су&shy;щест&shy;во&shy;вать в клас&shy;се (они, ко&shy;неч&shy;но, су&shy;щес&shy;тву&shy;ют в клас&shy;се, но син&shy;так&shy;сис по&shy;ка&shy;зы&shy;ва&shy;ет, что ар&shy;хи&shy;тек&shy;тур&shy;но частью клас&shy;са они не яв&shy;ля&shy;ют&shy;ся): класс и ин&shy;тер&shy;фейс - это в не&shy;ко&shy;то&shy;ром, смыс&shy;ле - па&shy;рал&shy;лель&shy;ные иера&shy;рхии ти&shy;пов. Так&shy;же, в плюс к это&shy;му, ин&shy;тер&shy;фейс - это от&shy;дель&shy;ный тип, а зна&shy;чит, у каж&shy;до&shy;го ин&shy;тер&shy;фей&shy;са есть собст&shy;венная таб&shy;ли&shy;ца вир&shy;ту&shy;альных ме&shy;то&shy;дов: что&shy;бы каж&shy;дый смог вы&shy;зы&shy;вать ме&shy;то&shy;ды ин&shy;тер&shy;фей&shy;са.</p>
 <div class="paragraph-right-side">30</div>
 </div>
-<p>Давайте взглянем на таблицу: как бы могли выглядеть VMT различных типов:</p>
+<p >
+Да&shy;вай&shy;те взгл&shy;янем на таб&shy;ли&shy;цу: как бы мог&shy;ли выг&shy;ля&shy;деть VMT раз&shy;лич&shy;ных ти&shy;пов:</p>
 <div class="row">
 <div class="offset-3 col-6">
 <table>
 <thead>
 <tr>
-<th>interface IFoo</th>
-<th>class A : IFoo</th>
-<th>class B : IFoo</th>
+<th>
+<p >
+interface IFoo</p>
+</th>
+<th>
+<p >
+class A : IFoo</p>
+</th>
+<th>
+<p >
+class B : IFoo</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>-&gt; GetValue()</td>
-<td>SampleMethod()</td>
-<td>RunProcess()</td>
+<td>
+<p >
+-> GetValue()</p>
+</td>
+<td>
+<p >
+SampleMethod()</p>
+</td>
+<td>
+<p >
+RunProcess()</p>
+</td>
 </tr>
 <tr>
-<td>-&gt; SetValue()</td>
-<td>Go()</td>
-<td>-&gt; GetValue()</td>
+<td>
+<p >
+-> SetValue()</p>
+</td>
+<td>
+<p >
+Go()</p>
+</td>
+<td>
+<p >
+-> GetValue()</p>
+</td>
 </tr>
 <tr>
-<td></td>
-<td>-&gt; GetValue()</td>
-<td>-&gt; SetValue()</td>
+<td>
+<p >
+</p>
+</td>
+<td>
+<p >
+-> GetValue()</p>
+</td>
+<td>
+<p >
+-> SetValue()</p>
+</td>
 </tr>
 <tr>
-<td></td>
-<td>-&gt; SetValue()</td>
-<td>LookToMoon()</td>
+<td>
+<p >
+</p>
+</td>
+<td>
+<p >
+-> SetValue()</p>
+</td>
+<td>
+<p >
+LookToMoon()</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1542,38 +1823,45 @@ size of <span style="color:Blue;">int</span>[2,3,4,5]{...}: 512
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">31</div>
-<p>VMT всех трёх типов содержат необходимые методы <code>GetValue</code> и <code>SetValue</code>, однако они находятся по разным индексам: они не могут везде быть по одним и тем же индексам, поскольку была бы конкуренция за индексы с другими интерфейсами класса. На самом деле для каждого интерфейса создаётся интерфейс - дубль - для каждой его реализации в каждом классе. Имеем 633 реализации <code>IDisposable</code> в классах FCL/BCL? Значит имеем 633 дополнительных <code>IDisposable</code> интерфейса чтобы поддержать VMT to VMT трансляцию для каждого из классов + запись в каждом классе с ссылкой на его реализацию интерфейсом. Назовём такие интерфейсы <strong>частными интерфейсами</strong>. Т.е. каждый класс имеет свои собственные, <strong>частные интерфейсы</strong>, которые являются &laquo;системными&raquo; и являются прокси типами до реального интерфейса.</p>
+<p >
+VMT всех трёх ти&shy;пов со&shy;дер&shy;жат не&shy;об&shy;хо&shy;ди&shy;мые ме&shy;то&shy;ды <code>GetValue</code> и <code>SetValue</code>, од&shy;на&shy;ко они на&shy;хо&shy;дят&shy;ся по раз&shy;ным ин&shy;дек&shy;сам: они не мо&shy;гут вез&shy;де быть по од&shy;ним и тем же ин&shy;дек&shy;сам, пос&shy;коль&shy;ку бы&shy;ла бы кон&shy;ку&shy;рен&shy;ция за ин&shy;дек&shy;сы с дру&shy;ги&shy;ми ин&shy;тер&shy;фей&shy;са&shy;ми клас&shy;са. На са&shy;мом де&shy;ле для каж&shy;до&shy;го ин&shy;тер&shy;фей&shy;са соз&shy;даётся ин&shy;тер&shy;фейс - дубль - для каж&shy;дой его ре&shy;а&shy;ли&shy;за&shy;ции в каж&shy;дом клас&shy;се. Име&shy;ем 633 ре&shy;а&shy;ли&shy;за&shy;ции <code>IDisposable</code> в клас&shy;сах FCL/BCL? Зна&shy;чит име&shy;ем 633 до&shy;пол&shy;ни&shy;тель&shy;ных <code>IDisposable</code> ин&shy;тер&shy;фей&shy;са что&shy;бы под&shy;дер&shy;жать VMT to VMT транс&shy;ля&shy;цию для каж&shy;до&shy;го из клас&shy;сов + за&shy;пись в каж&shy;дом клас&shy;се с ссыл&shy;кой на его ре&shy;а&shy;ли&shy;за&shy;цию ин&shy;тер&shy;фей&shy;сом. На&shy;зовём та&shy;кие ин&shy;тер&shy;фей&shy;сы <strong>частными интерфейсами</strong>. Т.е. каж&shy;дый класс име&shy;ет свои собст&shy;венные, <strong>частные интерфейсы</strong>, ко&shy;то&shy;рые яв&shy;ля&shy;ют&shy;ся &laquo;сис&shy;тем&shy;ны&shy;ми&raquo; и яв&shy;ля&shy;ют&shy;ся прок&shy;си ти&shy;па&shy;ми до ре&shy;ал&shy;ьного ин&shy;тер&shy;фей&shy;са.</p>
 <div class="paragraph-right-side">31</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">32</div>
-<p>Таким образом, получается следующее: у интерфейсов также как и у классов есть наследование виртуальных <em>интерфейсных</em> методов, однако наследование это работает не только при наследовании одного интерфейса от другого, но и при реализации интерфейса классом. Когда класс реализует некий интерфейс, то создаётся дополнительный интерфейс, уточняющий какие методы интерфейса-родителя на какие методы конечного класса должны отображаться. Вызывая метод по интерфейсной переменной, вы точно также вызываете метод по индексу из массива VMT, как это делалось в случае с классами, однако для данной реализации интерфейса вы по индексу выберите слот из <em>унаследованного</em>, невидимого интерфейса, связывающего оригинальный интерфейс <code>IDisposable</code> с нашим классом, интерфейс реализующим.</p>
+<p >
+Та&shy;ким об&shy;ра&shy;зом, по&shy;лу&shy;ча&shy;ет&shy;ся сле&shy;ду&shy;ю&shy;щее: у ин&shy;тер&shy;фей&shy;сов так&shy;же как и у клас&shy;сов есть нас&shy;ле&shy;до&shy;ва&shy;ние вир&shy;ту&shy;альных <em>интерфейсных</em> ме&shy;то&shy;дов, од&shy;на&shy;ко нас&shy;ле&shy;до&shy;ва&shy;ние это ра&shy;бо&shy;та&shy;ет не толь&shy;ко при нас&shy;ле&shy;до&shy;ва&shy;нии од&shy;но&shy;го ин&shy;тер&shy;фей&shy;са от дру&shy;го&shy;го, но и при ре&shy;а&shy;ли&shy;за&shy;ции ин&shy;тер&shy;фей&shy;са клас&shy;сом. Ког&shy;да класс ре&shy;а&shy;ли&shy;зу&shy;ет не&shy;кий ин&shy;тер&shy;фейс, то соз&shy;даётся до&shy;пол&shy;ни&shy;тель&shy;ный ин&shy;тер&shy;фейс, уточ&shy;ня&shy;ю&shy;щий ка&shy;кие ме&shy;то&shy;ды ин&shy;тер&shy;фей&shy;са-ро&shy;ди&shy;те&shy;ля на ка&shy;кие ме&shy;то&shy;ды ко&shy;неч&shy;но&shy;го клас&shy;са дол&shy;жны отоб&shy;ра&shy;жать&shy;ся. Вы&shy;зы&shy;вая ме&shy;тод по ин&shy;тер&shy;фейс&shy;ной пе&shy;ре&shy;мен&shy;ной, вы точ&shy;но так&shy;же вы&shy;зы&shy;ва&shy;ете ме&shy;тод по ин&shy;дек&shy;су из мас&shy;си&shy;ва VMT, как это де&shy;ла&shy;лось в слу&shy;чае с клас&shy;са&shy;ми, од&shy;на&shy;ко для дан&shy;ной ре&shy;а&shy;ли&shy;за&shy;ции ин&shy;тер&shy;фей&shy;са вы по ин&shy;дек&shy;су вы&shy;бе&shy;ри&shy;те слот из <em>унаследованного</em>, не&shy;ви&shy;ди&shy;мо&shy;го ин&shy;тер&shy;фей&shy;са, свя&shy;зы&shy;ва&shy;ю&shy;ще&shy;го ори&shy;ги&shy;наль&shy;ный ин&shy;тер&shy;фейс <code>IDisposable</code> с на&shy;шим клас&shy;сом, ин&shy;тер&shy;фейс ре&shy;а&shy;ли&shy;зу&shy;ю&shy;щим.</p>
 <div class="paragraph-right-side">32</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">33</div>
-<p>Диспетчеризация виртуальных методов через заглушки или <strong>Virtual Stub Dispatch (VSD)</strong> была разработана ещё в 2006 году как замена таблицам виртуальных методов в интерфейсах. Основная идея этого подхода состоит в упрощении кодогенерации и последующего упрощения вызова методов, т.к. первичная реализация интерфейсов на VMT была бы очень громоздкой и требовала бы большого количества работы и времени для построения всех структур всех интерфейсов. Сам код диспетчеризации находится, по сути, в четырёх файлах общим весом примерно в 6400 строк, и мы не строим целей понять его весь. Мы попытаемся в общих словах понять суть происходящих процессов в этом коде.</p>
+<p >
+Дис&shy;пет&shy;че&shy;ри&shy;за&shy;ция вир&shy;ту&shy;альных ме&shy;то&shy;дов че&shy;рез заг&shy;луш&shy;ки или <strong>Virtual Stub Dispatch (VSD)</strong> бы&shy;ла раз&shy;ра&shy;бо&shy;та&shy;на ещё в 2006 го&shy;ду как за&shy;ме&shy;на таб&shy;ли&shy;цам вир&shy;ту&shy;альных ме&shy;то&shy;дов в ин&shy;тер&shy;фей&shy;сах. Основ&shy;ная идея это&shy;го под&shy;хо&shy;да сос&shy;то&shy;ит в уп&shy;ро&shy;ще&shy;нии ко&shy;до&shy;ге&shy;не&shy;ра&shy;ции и пос&shy;ле&shy;ду&shy;ю&shy;ще&shy;го уп&shy;ро&shy;ще&shy;ния вы&shy;зо&shy;ва ме&shy;то&shy;дов, т.к. пер&shy;вич&shy;ная ре&shy;а&shy;ли&shy;за&shy;ция ин&shy;тер&shy;фей&shy;сов на VMT бы&shy;ла бы очень гро&shy;мозд&shy;кой и тре&shy;бо&shy;ва&shy;ла бы боль&shy;шо&shy;го ко&shy;ли&shy;чес&shy;тва ра&shy;бо&shy;ты и вре&shy;ме&shy;ни для пос&shy;тро&shy;е&shy;ния всех струк&shy;тур всех ин&shy;тер&shy;фей&shy;сов. Сам код дис&shy;пет&shy;че&shy;ри&shy;за&shy;ции на&shy;хо&shy;дит&shy;ся, по су&shy;ти, в че&shy;тырёх фай&shy;лах об&shy;щим ве&shy;сом при&shy;мер&shy;но в 6400 строк, и мы не стр&shy;оим це&shy;лей по&shy;нять его весь. Мы по&shy;пы&shy;та&shy;ем&shy;ся в об&shy;щих сло&shy;вах по&shy;нять суть про&shy;ис&shy;хо&shy;дя&shy;щих про&shy;цес&shy;сов в этом ко&shy;де.</p>
 <div class="paragraph-right-side">33</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">34</div>
-<p>Всю логику VSD диспетчеризации можно разбить на два больших раздела: диспетчеризация и механизм заглушек (stubs), обеспечивающих кэширование адресов вызываемых методов по паре значений [тип; номер слота], которые их идентифицируют.</p>
+<p >
+Всю ло&shy;ги&shy;ку VSD дис&shy;пет&shy;че&shy;ри&shy;за&shy;ции мож&shy;но раз&shy;бить на два боль&shy;ших раз&shy;де&shy;ла: дис&shy;пет&shy;че&shy;ри&shy;за&shy;ция и ме&shy;ха&shy;низм заг&shy;лу&shy;шек (stubs), обес&shy;пе&shy;чи&shy;ва&shy;ю&shy;щих кэ&shy;ши&shy;ро&shy;ва&shy;ние ад&shy;ре&shy;сов вы&shy;зы&shy;ва&shy;е&shy;мых ме&shy;то&shy;дов по па&shy;ре зна&shy;че&shy;ний [тип; но&shy;мер сло&shy;та], ко&shy;то&shy;рые их иден&shy;ти&shy;фи&shy;ци&shy;ру&shy;ют.</p>
 <div class="paragraph-right-side">34</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">35</div>
-<p>Для полного понимания протекающих при построении VSD процессов, давайте рассмотрим для начала их на очень высоком уровне, а затем - спустимся в самую глубь. Если говорить про механику диспетчеризации, то та откладывает их создание на потом, в силу логической параллельности иерархии интерфейсных типов, в силу того, что их в конечном счёте станет очень много, и в силу того, что большую часть из них JIT никогда создавать не будет, т.к. наличие типов во Framework ещё не означает, что их экземпляры будут созданы. Использование же традиционной VMT для <em>частных интерфейсов</em> создало бы ситуацию, при которой JIT пришлось бы создавать VMT для каждого <em>частного интерфейса</em> с самого начала. Т.е. создание каждого типа замедлилось бы как минимум в два раза. Основным классом, обеспечивающим диспетчеризацию, является класс <code>DispatchMap</code>, который внутри себя инкапсулирует таблицу типов интерфейсов, каждая из которых состоит из таблицы методов, входящих в эти интерфейсы. Каждый метод может быть, в зависимости от стадии своего жизненного цикла, в четырёх состояниях: состояние заглушки типа &laquo;метод ещё не был ни разу вызван, его надо скомпилировать и подложить новую заглушку на место старой&raquo;, состояние заглушки типа &laquo;метод должен быть каждый раз найден динамически, т.к. не может быть определён однозначно&raquo;, состояние заглушки типа &laquo;метод доступен по однозначному адресу, а потому вызывается без какого либо поиска&raquo;, или же полноценное тело метода.</p>
+<p >
+Для пол&shy;но&shy;го по&shy;ни&shy;ма&shy;ния про&shy;те&shy;ка&shy;ю&shy;щих при пос&shy;тро&shy;е&shy;нии VSD про&shy;цес&shy;сов, да&shy;вай&shy;те расс&shy;мот&shy;рим для на&shy;ча&shy;ла их на очень вы&shy;со&shy;ком уров&shy;не, а за&shy;тем - спус&shy;тим&shy;ся в са&shy;мую глубь. Если го&shy;во&shy;рить про ме&shy;ха&shy;ни&shy;ку дис&shy;пет&shy;че&shy;ри&shy;за&shy;ции, то та от&shy;кла&shy;ды&shy;ва&shy;ет их соз&shy;да&shy;ние на по&shy;том, в си&shy;лу ло&shy;ги&shy;чес&shy;кой па&shy;рал&shy;лель&shy;нос&shy;ти иера&shy;рхии ин&shy;тер&shy;фейс&shy;ных ти&shy;пов, в си&shy;лу то&shy;го, что их в ко&shy;неч&shy;ном счёте ста&shy;нет очень мно&shy;го, и в си&shy;лу то&shy;го, что боль&shy;шую часть из них JIT ни&shy;ког&shy;да соз&shy;да&shy;вать не бу&shy;дет, т.к. на&shy;ли&shy;чие ти&shy;пов во Framework ещё не оз&shy;на&shy;ча&shy;ет, что их эк&shy;земп&shy;ля&shy;ры бу&shy;дут соз&shy;да&shy;ны. Испол&shy;ьз&shy;ов&shy;ание же тра&shy;ди&shy;ци&shy;он&shy;ной VMT для <em>частных интерфейсов</em> соз&shy;да&shy;ло бы си&shy;ту&shy;а&shy;цию, при ко&shy;то&shy;рой JIT приш&shy;лось бы соз&shy;да&shy;вать VMT для каж&shy;до&shy;го <em>частного интерфейса</em> с са&shy;мо&shy;го на&shy;ча&shy;ла. Т.е. соз&shy;да&shy;ние каж&shy;до&shy;го ти&shy;па за&shy;мед&shy;ли&shy;лось бы как ми&shy;ни&shy;мум в два ра&shy;за. Основ&shy;ным клас&shy;сом, обес&shy;пе&shy;чи&shy;ва&shy;ю&shy;щим дис&shy;пет&shy;че&shy;ри&shy;за&shy;цию, яв&shy;ля&shy;ет&shy;ся класс <code>DispatchMap</code>, ко&shy;то&shy;рый внут&shy;ри се&shy;бя ин&shy;кап&shy;су&shy;ли&shy;ру&shy;ет таб&shy;ли&shy;цу ти&shy;пов ин&shy;тер&shy;фей&shy;сов, каж&shy;дая из ко&shy;то&shy;рых сос&shy;то&shy;ит из таб&shy;ли&shy;цы ме&shy;то&shy;дов, вхо&shy;дя&shy;щих в эти ин&shy;тер&shy;фей&shy;сы. Каж&shy;дый ме&shy;тод мо&shy;жет быть, в за&shy;ви&shy;си&shy;мос&shy;ти от ста&shy;дии сво&shy;его жиз&shy;нен&shy;но&shy;го цик&shy;ла, в че&shy;тырёх сос&shy;то&shy;я&shy;ни&shy;ях: сос&shy;то&shy;я&shy;ние заг&shy;луш&shy;ки ти&shy;па &laquo;ме&shy;тод ещё не был ни ра&shy;зу выз&shy;ван, его на&shy;до ском&shy;пи&shy;ли&shy;ро&shy;вать и под&shy;ло&shy;жить но&shy;вую заг&shy;луш&shy;ку на мес&shy;то ста&shy;рой&raquo;, сос&shy;то&shy;я&shy;ние заг&shy;луш&shy;ки ти&shy;па &laquo;ме&shy;тод дол&shy;жен быть каж&shy;дый раз най&shy;ден ди&shy;на&shy;ми&shy;чес&shy;ки, т.к. не мо&shy;жет быть оп&shy;ре&shy;делён од&shy;ноз&shy;нач&shy;но&raquo;, сос&shy;то&shy;я&shy;ние заг&shy;луш&shy;ки ти&shy;па &laquo;ме&shy;тод дос&shy;ту&shy;пен по од&shy;ноз&shy;нач&shy;но&shy;му ад&shy;ре&shy;су, а по&shy;то&shy;му вы&shy;зы&shy;ва&shy;ет&shy;ся без ка&shy;ко&shy;го ли&shy;бо по&shy;ис&shy;ка&raquo;, или же пол&shy;но&shy;цен&shy;ное те&shy;ло ме&shy;то&shy;да.</p>
 <div class="paragraph-right-side">35</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">36</div>
-<p>Рассмотрим строение этих структур с точки зрения их генерирования и структур данных, необходимых для этого.</p>
+<p >
+Расс&shy;мот&shy;рим стр&shy;о&shy;ение этих струк&shy;тур с точ&shy;ки зре&shy;ния их ге&shy;не&shy;ри&shy;ро&shy;ва&shy;ния и струк&shy;тур дан&shy;ных, не&shy;об&shy;хо&shy;ди&shy;мых для это&shy;го.</p>
 <div class="paragraph-right-side">36</div>
 </div>
 <h3 id="dispatchmap">DispatchMap</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">37</div>
-<p>DispatchMap – это динамически строящаяся структура данных, являющаяся по своей сути основной структурой данных, на которую опирается работа интерфейсов в CLR. Структура её выглядит следующим образом:</p>
+<p >
+DispatchMap – это ди&shy;на&shy;ми&shy;чес&shy;ки стр&shy;о&shy;ящ&shy;аяся струк&shy;ту&shy;ра дан&shy;ных, яв&shy;ля&shy;ю&shy;ща&shy;яся по сво&shy;ей су&shy;ти ос&shy;нов&shy;ной струк&shy;ту&shy;рой дан&shy;ных, на ко&shy;то&shy;рую опи&shy;ра&shy;ет&shy;ся ра&shy;бо&shy;та ин&shy;тер&shy;фей&shy;сов в CLR. Струк&shy;ту&shy;ра её выг&shy;ля&shy;дит сле&shy;ду&shy;ю&shy;щим об&shy;ра&shy;зом:</p>
 <div class="paragraph-right-side">37</div>
 </div>
 <pre><code>    DWORD: Количество типов =
@@ -1597,12 +1885,14 @@ size of <span style="color:Blue;">int</span>[2,3,4,5]{...}: 512
 </code></pre>
 <div class="paragraph-container">
 <div class="paragraph-left-side">38</div>
-<p>Т.е. сначала записывается общее количество интерфейсов, реализуемых некоторыми типами. После чего для каждого интерфейса записывается его тип, количество реализуемых этим типом слотов (для навигации по таблице), а также для каждого слота - информация по этому слоту, а также целевой слот в <em>частном интерфейсе</em>, который содержит реализации методов для текущего типа.</p>
+<p >
+Т.е. сна&shy;ча&shy;ла за&shy;пи&shy;сы&shy;ва&shy;ет&shy;ся об&shy;щее ко&shy;ли&shy;чес&shy;тво ин&shy;тер&shy;фей&shy;сов, ре&shy;а&shy;ли&shy;зу&shy;е&shy;мых не&shy;ко&shy;то&shy;ры&shy;ми ти&shy;па&shy;ми. Пос&shy;ле че&shy;го для каж&shy;до&shy;го ин&shy;тер&shy;фей&shy;са за&shy;пи&shy;сы&shy;ва&shy;ет&shy;ся его тип, ко&shy;ли&shy;чес&shy;тво ре&shy;а&shy;ли&shy;зу&shy;е&shy;мых этим ти&shy;пом сло&shy;тов (для на&shy;ви&shy;га&shy;ции по таб&shy;ли&shy;це), а так&shy;же для каж&shy;до&shy;го сло&shy;та - ин&shy;фор&shy;ма&shy;ция по это&shy;му сло&shy;ту, а так&shy;же це&shy;ле&shy;вой слот в <em>частном интерфейсе</em>, ко&shy;то&shy;рый со&shy;дер&shy;жит ре&shy;а&shy;ли&shy;за&shy;ции ме&shy;то&shy;дов для те&shy;ку&shy;ще&shy;го ти&shy;па.</p>
 <div class="paragraph-right-side">38</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">39</div>
-<p>Для навигации по этой структуре данных предусмотрен класс <code>EncodedMapIterator</code>, который является итератором. Т.е. никакой другой доступ, кроме как <code>foreach</code>, к <code>DispatchMap</code> не предусмотрен. Мало того номера слотов получены как разница реального номера слота и ранее закодированного номера слота. Т.е. получить номер слота в середине таблицы можно, только просмотрев всю структуру с самого начала. Это вызывает множество вопросов касательно производительности работы вызова методов через интерфейсы: ведь если у нас массив объектов, реализующих некий интерфейс, то чтобы понять, какой метод необходимо вызвать, надо просмотреть всю таблицу реализаций. Т.е. по своей сути - найти нужный. Результатом на каждом шаге итерирования будет структура <code>DispatchMapEntry</code>, которая покажет, где находится целевой метод: в текущем типе или нет, и какой слот необходимо взять у типа, чтобы получить нужный метод.</p>
+<p >
+Для на&shy;ви&shy;га&shy;ции по этой струк&shy;ту&shy;ре дан&shy;ных пре&shy;дус&shy;мот&shy;рен класс <code>EncodedMapIterator</code>, ко&shy;то&shy;рый яв&shy;ля&shy;ет&shy;ся ите&shy;ра&shy;то&shy;ром. Т.е. ни&shy;ка&shy;кой дру&shy;гой дос&shy;туп, кро&shy;ме как <code>foreach</code>, к <code>DispatchMap</code> не пре&shy;дус&shy;мот&shy;рен. Ма&shy;ло то&shy;го но&shy;ме&shy;ра сло&shy;тов по&shy;лу&shy;че&shy;ны как раз&shy;ни&shy;ца ре&shy;ал&shy;ьного но&shy;ме&shy;ра сло&shy;та и ра&shy;нее за&shy;ко&shy;ди&shy;ро&shy;ван&shy;но&shy;го но&shy;ме&shy;ра сло&shy;та. Т.е. по&shy;лу&shy;чить но&shy;мер сло&shy;та в се&shy;ре&shy;ди&shy;не таб&shy;ли&shy;цы мож&shy;но, толь&shy;ко прос&shy;мот&shy;рев всю струк&shy;ту&shy;ру с са&shy;мо&shy;го на&shy;ча&shy;ла. Это вы&shy;зы&shy;ва&shy;ет мно&shy;жес&shy;тво воп&shy;ро&shy;сов ка&shy;са&shy;тель&shy;но про&shy;из&shy;во&shy;ди&shy;тель&shy;нос&shy;ти ра&shy;бо&shy;ты вы&shy;зо&shy;ва ме&shy;то&shy;дов че&shy;рез ин&shy;тер&shy;фей&shy;сы: ведь ес&shy;ли у нас мас&shy;сив объ&shy;ек&shy;тов, ре&shy;а&shy;ли&shy;зу&shy;ю&shy;щих не&shy;кий ин&shy;тер&shy;фейс, то что&shy;бы по&shy;нять, ка&shy;кой ме&shy;тод не&shy;об&shy;хо&shy;ди&shy;мо выз&shy;вать, на&shy;до прос&shy;мот&shy;реть всю таб&shy;ли&shy;цу ре&shy;а&shy;ли&shy;за&shy;ций. Т.е. по сво&shy;ей су&shy;ти - най&shy;ти нуж&shy;ный. Ре&shy;зуль&shy;та&shy;том на каж&shy;дом ша&shy;ге ите&shy;ри&shy;ро&shy;ва&shy;ния бу&shy;дет струк&shy;ту&shy;ра <code>DispatchMapEntry</code>, ко&shy;то&shy;рая по&shy;ка&shy;жет, где на&shy;хо&shy;дит&shy;ся це&shy;ле&shy;вой ме&shy;тод: в те&shy;ку&shy;щем ти&shy;пе или нет, и ка&shy;кой слот не&shy;об&shy;хо&shy;ди&shy;мо взять у ти&shy;па, что&shy;бы по&shy;лу&shy;чить нуж&shy;ный ме&shy;тод.</p>
 <div class="paragraph-right-side">39</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1644,12 +1934,14 @@ size of <span style="color:Blue;">int</span>[2,3,4,5]{...}: 512
 <h4 id="typeid-map">TypeID Map</h4>
 <div class="paragraph-container">
 <div class="paragraph-left-side">40</div>
-<p>Любой метод в адресации по интерфейсам кодируется парой &lt;TypeId;SlotNumber&gt;. TypeId - это, как следует из названия, идентификатор типа. Данное поле отвечает на вопросы: откуда берётся этот идентификатор, и каким образом его отразить на реальный тип.
-Класс <code>TypeIDMap</code> хранит карту типов как отражение некоторого TypeId на <code>MethodTable</code> конкретного типа, а также - дополнительно - в обратную сторону. Сделано это исключительно из соображений производительности. Построение этих хэш таблиц происходит динамически: по запросу TypeId относительно PTR_MethodTable возвращается либо FatId, либо просто Id. Это надо в некотором смысле просто помнить: FatId и Id - это просто два вида TypeId. И в некотором смысле это &laquo;указатель&raquo; на MethodTable, т.к. однозначно его идентифицирует.</p>
+<p >
+Лю&shy;бой ме&shy;тод в ад&shy;ре&shy;са&shy;ции по ин&shy;тер&shy;фей&shy;сам ко&shy;ди&shy;ру&shy;ет&shy;ся па&shy;рой <TypeId;SlotNumber>. TypeId - это, как сле&shy;ду&shy;ет из наз&shy;ва&shy;ния, иден&shy;ти&shy;фи&shy;ка&shy;тор ти&shy;па. Дан&shy;ное по&shy;ле от&shy;ве&shy;ча&shy;ет на воп&shy;ро&shy;сы: от&shy;ку&shy;да берётся этот иден&shy;ти&shy;фи&shy;ка&shy;тор, и ка&shy;ким об&shy;ра&shy;зом его от&shy;ра&shy;зить на ре&shy;альный тип.
+Класс <code>TypeIDMap</code> хра&shy;нит кар&shy;ту ти&shy;пов как от&shy;ра&shy;же&shy;ние не&shy;ко&shy;то&shy;ро&shy;го TypeId на <code>MethodTable</code> конк&shy;рет&shy;но&shy;го ти&shy;па, а так&shy;же - до&shy;пол&shy;ни&shy;тель&shy;но - в об&shy;рат&shy;ную сто&shy;ро&shy;ну. Сде&shy;ла&shy;но это ис&shy;клю&shy;чи&shy;тель&shy;но из со&shy;об&shy;ра&shy;же&shy;ний про&shy;из&shy;во&shy;ди&shy;тель&shy;нос&shy;ти. Пос&shy;тро&shy;е&shy;ние этих хэш таб&shy;лиц про&shy;ис&shy;хо&shy;дит ди&shy;на&shy;ми&shy;чес&shy;ки: по зап&shy;ро&shy;су TypeId от&shy;но&shy;си&shy;тель&shy;но PTR_MethodTable возв&shy;ра&shy;ща&shy;ет&shy;ся ли&shy;бо FatId, ли&shy;бо прос&shy;то Id. Это на&shy;до в не&shy;ко&shy;то&shy;ром смыс&shy;ле прос&shy;то пом&shy;нить: FatId и Id - это прос&shy;то два ви&shy;да TypeId. И в не&shy;ко&shy;то&shy;ром смыс&shy;ле это &laquo;ука&shy;за&shy;тель&raquo; на MethodTable, т.к. од&shy;ноз&shy;нач&shy;но его иден&shy;ти&shy;фи&shy;ци&shy;ру&shy;ет.</p>
 <div class="paragraph-right-side">40</div>
 </div>
 <blockquote>
-<p><strong>TypeId - это идентификатор MethodTable</strong>. Он может быть двух видов: Id и FatId и по своей сути является обычным числом.</p>
+<p >
+<strong>TypeId - это идентификатор MethodTable</strong>. Он мо&shy;жет быть двух ви&shy;дов: Id и FatId и по сво&shy;ей су&shy;ти яв&shy;ля&shy;ет&shy;ся обыч&shy;ным чис&shy;лом.</p>
 </blockquote>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">class</span> TypeIDMap
@@ -1668,34 +1960,52 @@ size of <span style="color:Blue;">int</span>[2,3,4,5]{...}: 512
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">41</div>
-<p>Однако со всеми этими трудностями JIT справляется достаточно легко, вписывая вызовы конкретных методов в места их вызова по интерфейсу, когда это возможно. Если JIT понял, что ничего другого вызвано быть не может, он просто поставит вызов конкретного метода. Это - очень и очень сильная особенность JIT компилятора, который делает для нас эту прекрасную оптимизацию.</p>
+<p >
+Одна&shy;ко со все&shy;ми эти&shy;ми труд&shy;нос&shy;тя&shy;ми JIT справ&shy;ля&shy;ет&shy;ся дос&shy;та&shy;точ&shy;но лег&shy;ко, впи&shy;сы&shy;вая вы&shy;зо&shy;вы конк&shy;рет&shy;ных ме&shy;то&shy;дов в мес&shy;та их вы&shy;зо&shy;ва по ин&shy;тер&shy;фей&shy;су, ког&shy;да это воз&shy;мож&shy;но. Если JIT по&shy;нял, что ни&shy;че&shy;го дру&shy;го&shy;го выз&shy;ва&shy;но быть не мо&shy;жет, он прос&shy;то пос&shy;та&shy;вит вы&shy;зов конк&shy;рет&shy;но&shy;го ме&shy;то&shy;да. Это - очень и очень силь&shy;ная осо&shy;бен&shy;ность JIT ком&shy;пи&shy;ля&shy;то&shy;ра, ко&shy;то&shy;рый де&shy;ла&shy;ет для нас эту прек&shy;рас&shy;ную оп&shy;ти&shy;ми&shy;за&shy;цию.</p>
 <div class="paragraph-right-side">41</div>
 </div>
 <h3 id="section-4">Выводы</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">42</div>
-<p>То, что для нас, как для программистов, на языке C# стало обыденностью и вросло корнями в наше сознание настолько, что мы даже не задумываясь понимаем, как делить приложение на классы и интерфейсы, порой реализовано так сложно для понимания, что требуются недели анализа исходных текстов для определения всех зависимостей и логики происходящего. То, что для нас настолько обыденно в использовании, что не вызывает тени сомнения в простоте реализации, на самом деле может скрывать эти сложности реализации. Это говорит нам о том, что инженеры, воплотившие данные идеи, подходили к решению проблем с большим умом, тщательно анализируя каждый шаг.</p>
+<p >
+То, что для нас, как для прог&shy;рам&shy;мис&shy;тов, на язы&shy;ке C# ста&shy;ло обы&shy;ден&shy;ностью и врос&shy;ло кор&shy;ня&shy;ми в на&shy;ше соз&shy;на&shy;ние нас&shy;толь&shy;ко, что мы да&shy;же не за&shy;ду&shy;мы&shy;ва&shy;ясь по&shy;ни&shy;ма&shy;ем, как де&shy;лить при&shy;ло&shy;же&shy;ние на клас&shy;сы и ин&shy;тер&shy;фей&shy;сы, по&shy;рой ре&shy;а&shy;ли&shy;зо&shy;ва&shy;но так слож&shy;но для по&shy;ни&shy;ма&shy;ния, что тре&shy;бу&shy;ют&shy;ся не&shy;де&shy;ли ана&shy;ли&shy;за ис&shy;ход&shy;ных текс&shy;тов для оп&shy;ре&shy;де&shy;ле&shy;ния всех за&shy;ви&shy;си&shy;мос&shy;тей и ло&shy;ги&shy;ки про&shy;ис&shy;хо&shy;дя&shy;ще&shy;го. То, что для нас нас&shy;толь&shy;ко обы&shy;ден&shy;но в ис&shy;поль&shy;зо&shy;ва&shy;нии, что не вы&shy;зы&shy;ва&shy;ет те&shy;ни сом&shy;не&shy;ния в прос&shy;то&shy;те ре&shy;а&shy;ли&shy;за&shy;ции, на са&shy;мом де&shy;ле мо&shy;жет скры&shy;вать эти слож&shy;нос&shy;ти ре&shy;а&shy;ли&shy;за&shy;ции. Это го&shy;во&shy;рит нам о том, что ин&shy;же&shy;не&shy;ры, воп&shy;ло&shy;тив&shy;шие дан&shy;ные идеи, под&shy;хо&shy;ди&shy;ли к ре&shy;ше&shy;нию проб&shy;лем с боль&shy;шим умом, тща&shy;тель&shy;но ана&shy;ли&shy;зи&shy;руя каж&shy;дый шаг.</p>
 <div class="paragraph-right-side">42</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">43</div>
-<p>То описание, которое здесь дано, на самом деле очень поверхностное и короткое: оно очень высокоуровневое. Даже не смотря на то, что относительно любой книги по .NET мы погрузились очень глубоко, данное описание построения VSD и VMT является очень и очень высокоуровневым. Ведь код файлов, описывающих эти две структуры данных, занимает в сумме около 20,000 строк кода. Это ещё не учитывая некоторые части, отвечающие за Generics.</p>
+<p >
+То опи&shy;са&shy;ние, ко&shy;то&shy;рое здесь да&shy;но, на са&shy;мом де&shy;ле очень по&shy;верх&shy;нос&shy;т&shy;ное и ко&shy;рот&shy;кое: оно очень вы&shy;со&shy;ко&shy;уров&shy;не&shy;вое. Да&shy;же не смот&shy;ря на то, что от&shy;но&shy;си&shy;тель&shy;но лю&shy;бой кни&shy;ги по .NET мы пог&shy;ру&shy;зи&shy;лись очень глу&shy;бо&shy;ко, дан&shy;ное опи&shy;са&shy;ние пос&shy;тро&shy;е&shy;ния VSD и VMT яв&shy;ля&shy;ет&shy;ся очень и очень вы&shy;со&shy;ко&shy;уров&shy;не&shy;вым. Ведь код фай&shy;лов, опи&shy;сы&shy;ва&shy;ю&shy;щих эти две струк&shy;ту&shy;ры дан&shy;ных, за&shy;ни&shy;ма&shy;ет в сум&shy;ме око&shy;ло 20,000 строк ко&shy;да. Это ещё не учи&shy;ты&shy;вая не&shy;ко&shy;то&shy;рые час&shy;ти, от&shy;ве&shy;ча&shy;ю&shy;щие за Generics.</p>
 <div class="paragraph-right-side">43</div>
 </div>
-<p>Однако, это позволяет нам сделать несколько выводов:</p>
+<p >
+Одна&shy;ко, это поз&shy;во&shy;ля&shy;ет нам сде&shy;лать нес&shy;коль&shy;ко вы&shy;во&shy;дов:</p>
 <ul>
-<li>Вызов статичных методов и экземплярных практически ничем не отличаются. А это значит, что нам не надо беспокоиться о том, что работа с экземплярными методами как-то повлияет на производительность. Производительность обоих методов абсолютно идентична при одинаковых условиях</li>
-<li>Вызов виртуальных методов хоть и идёт через таблицу VMT, но из-за того, что индексы заранее известны, на каждый вызов дополнительно приходится лишь единственное разыменование указателя. Почти во всех случаях это ни на что не повлияет: проседание производительности (если вообще можно так выразиться) будет настолько маленьким, что им в принципе можно пренебречь</li>
-<li>Если говорить об интерфейсах, то тут стоит помнить о диспетчеризации и понимать, что работа через интерфейсы сильно усложняет реализацию подсистемы типов на низком уровне, приводя к <em><strong>возможным</strong></em> проседаниям в производительности, когда слишком часто, при вызове методов, отсутствует определённость в том, какой метод и какого класса вызывать у интерфейсной переменной. Однако, &laquo;интеллект&raquo; JIT компилятора позволяет в очень многих случаях не проводить вызовы через диспетчеризацию, а напрямую вызывать метод, интерфейс реализующего</li>
-<li>Если вспомнить об обобщениях, то тут возникает ещё один слой абстракции, который вносит сложность в поиск необходимых для вызова методов у типов, реализующих generic интерфейсы.</li>
+<li>
+<p >
+Вы&shy;зов ста&shy;тич&shy;ных ме&shy;то&shy;дов и эк&shy;земп&shy;ляр&shy;ных прак&shy;ти&shy;чес&shy;ки ни&shy;чем не от&shy;ли&shy;ча&shy;ют&shy;ся. А это зна&shy;чит, что нам не на&shy;до бес&shy;по&shy;ко&shy;иться о том, что ра&shy;бо&shy;та с эк&shy;земп&shy;ляр&shy;ны&shy;ми ме&shy;то&shy;да&shy;ми как-то пов&shy;лияет на про&shy;из&shy;во&shy;ди&shy;тель&shy;ность. Про&shy;из&shy;во&shy;ди&shy;тель&shy;ность обо&shy;их ме&shy;то&shy;дов аб&shy;со&shy;лют&shy;но иден&shy;тич&shy;на при оди&shy;на&shy;ко&shy;вых ус&shy;ло&shy;ви&shy;ях</p>
+</li>
+<li>
+<p >
+Вы&shy;зов вир&shy;ту&shy;альных ме&shy;то&shy;дов хоть и идёт че&shy;рез таб&shy;ли&shy;цу VMT, но из-за то&shy;го, что ин&shy;дек&shy;сы за&shy;ра&shy;нее из&shy;вес&shy;тны, на каж&shy;дый вы&shy;зов до&shy;пол&shy;ни&shy;тель&shy;но при&shy;хо&shy;дит&shy;ся лишь единст&shy;венное ра&shy;зы&shy;ме&shy;но&shy;ва&shy;ние ука&shy;за&shy;те&shy;ля. Поч&shy;ти во всех слу&shy;ча&shy;ях это ни на что не пов&shy;лияет: про&shy;се&shy;да&shy;ние про&shy;из&shy;во&shy;ди&shy;тель&shy;нос&shy;ти (ес&shy;ли во&shy;об&shy;ще мож&shy;но так вы&shy;ра&shy;зить&shy;ся) бу&shy;дет нас&shy;толь&shy;ко ма&shy;лень&shy;ким, что им в прин&shy;ци&shy;пе мож&shy;но пре&shy;неб&shy;речь</p>
+</li>
+<li>
+<p >
+Если го&shy;во&shy;рить об ин&shy;тер&shy;фей&shy;сах, то тут сто&shy;ит пом&shy;нить о дис&shy;пет&shy;че&shy;ри&shy;за&shy;ции и по&shy;ни&shy;мать, что ра&shy;бо&shy;та че&shy;рез ин&shy;тер&shy;фей&shy;сы силь&shy;но ус&shy;лож&shy;ня&shy;ет ре&shy;а&shy;ли&shy;за&shy;цию под&shy;сис&shy;те&shy;мы ти&shy;пов на низ&shy;ком уров&shy;не, при&shy;во&shy;дя к <em><strong>возможным</strong></em> про&shy;се&shy;да&shy;ни&shy;ям в про&shy;из&shy;во&shy;ди&shy;тель&shy;нос&shy;ти, ког&shy;да слиш&shy;ком час&shy;то, при вы&shy;зо&shy;ве ме&shy;то&shy;дов, от&shy;сут&shy;ствует оп&shy;ре&shy;делённость в том, ка&shy;кой ме&shy;тод и ка&shy;ко&shy;го клас&shy;са вы&shy;зы&shy;вать у ин&shy;тер&shy;фейс&shy;ной пе&shy;ре&shy;мен&shy;ной. Одна&shy;ко, &laquo;ин&shy;тел&shy;лект&raquo; JIT ком&shy;пи&shy;ля&shy;то&shy;ра поз&shy;во&shy;ля&shy;ет в очень мно&shy;гих слу&shy;ча&shy;ях не про&shy;во&shy;дить вы&shy;зо&shy;вы че&shy;рез дис&shy;пет&shy;че&shy;ри&shy;за&shy;цию, а нап&shy;ря&shy;мую вы&shy;зы&shy;вать ме&shy;тод, ин&shy;тер&shy;фейс ре&shy;а&shy;ли&shy;зу&shy;ю&shy;ще&shy;го</p>
+</li>
+<li>
+<p >
+Если вспом&shy;нить об обоб&shy;ще&shy;ни&shy;ях, то тут воз&shy;ни&shy;ка&shy;ет ещё один слой абстр&shy;акции, ко&shy;то&shy;рый вно&shy;сит слож&shy;ность в по&shy;иск не&shy;об&shy;хо&shy;ди&shy;мых для вы&shy;зо&shy;ва ме&shy;то&shy;дов у ти&shy;пов, ре&shy;а&shy;ли&shy;зу&shy;ю&shy;щих generic ин&shy;тер&shy;фей&shy;сы.</p>
+</li>
 </ul>
 <h2 id="section-5">Раздел вопросов по теме</h2>
 <blockquote>
-<p>Вопрос: почему если каждый класс может реализовать интерфейс, то нельзя вытащить конкретную реализацию интерфейса у объекта?</p>
+<p >
+Воп&shy;рос: по&shy;че&shy;му ес&shy;ли каж&shy;дый класс мо&shy;жет ре&shy;а&shy;ли&shy;зо&shy;вать ин&shy;тер&shy;фейс, то нель&shy;зя вы&shy;та&shy;щить конк&shy;рет&shy;ную ре&shy;а&shy;ли&shy;за&shy;цию ин&shy;тер&shy;фей&shy;са у объ&shy;ек&shy;та?</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">44</div>
-<p>Ответ прост: это непокрытая возможность CLR при проектировании языка, CLR этот вопрос никак не ограничивает. Мало того, это с высокой долей вероятности будет добавлено в ближайших версиях C#, благо они выходят достаточно быстро. Рассмотрим пример:</p>
+<p >
+Ответ прост: это не&shy;пок&shy;ры&shy;тая воз&shy;мож&shy;ность CLR при про&shy;ек&shy;ти&shy;ро&shy;ва&shy;нии язы&shy;ка, CLR этот воп&shy;рос ни&shy;как не ог&shy;ра&shy;ни&shy;чи&shy;ва&shy;ет. Ма&shy;ло то&shy;го, это с вы&shy;со&shy;кой до&shy;лей ве&shy;ро&shy;ят&shy;нос&shy;ти бу&shy;дет до&shy;бав&shy;ле&shy;но в бли&shy;жай&shy;ших вер&shy;си&shy;ях C#, бла&shy;го они вы&shy;хо&shy;дят дос&shy;та&shy;точ&shy;но быс&shy;тро. Расс&shy;мот&shy;рим при&shy;мер:</p>
 <div class="paragraph-right-side">44</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1737,7 +2047,8 @@ size of <span style="color:Blue;">int</span>[2,3,4,5]{...}: 512
 }
 </pre></div>
 </div>
-<p>Здесь мы вызываем четыре различных метода и результат их вызова будет таким:</p>
+<p >
+Здесь мы вы&shy;зы&shy;ва&shy;ем че&shy;ты&shy;ре раз&shy;лич&shy;ных ме&shy;то&shy;да и ре&shy;зуль&shy;тат их вы&shy;зо&shy;ва бу&shy;дет та&shy;ким:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 Foo.IDisposable::Dispose
 Foo::Dispose()
@@ -1747,14 +2058,16 @@ Boo::Dispose()
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">45</div>
-<p>Причём, несмотря на то, что мы имеем <em>explicit</em> реализацию интерфейса в обоих классах, в классе <code>Boo</code> <em>explicit</em> реализацию интерфейса <code>IDisposable</code> для <code>Foo</code> получить не получится. Даже если мы напишем так:</p>
+<p >
+Причём, нес&shy;мот&shy;ря на то, что мы име&shy;ем <em>explicit</em> ре&shy;а&shy;ли&shy;за&shy;цию ин&shy;тер&shy;фей&shy;са в обо&shy;их клас&shy;сах, в клас&shy;се <code>Boo</code> <em>explicit</em> ре&shy;а&shy;ли&shy;за&shy;цию ин&shy;тер&shy;фей&shy;са <code>IDisposable</code> для <code>Foo</code> по&shy;лу&shy;чить не по&shy;лу&shy;чит&shy;ся. Да&shy;же ес&shy;ли мы на&shy;пи&shy;шем так:</p>
 <div class="paragraph-right-side">45</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 ((IDisposable)(Foo)boo).Dispose();
 </pre></div>
 </div>
-<p>Все равно мы получим на экране все то же результат:</p>
+<p >
+Все рав&shy;но мы по&shy;лу&shy;чим на эк&shy;ра&shy;не все то же ре&shy;зуль&shy;тат:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 Boo.IDisposable::Dispose
 </pre></div>
@@ -1762,7 +2075,8 @@ Boo.IDisposable::Dispose
 <h2 id="section-6">Что плохого в неявных и множественных реализациях интерфейсов?</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">46</div>
-<p>В качестве примера &laquo;наследования интерфейсов&raquo;, что аналогично наследованию классов, можно привести следующий код:</p>
+<p >
+В ка&shy;чес&shy;тве при&shy;ме&shy;ра &laquo;нас&shy;ле&shy;до&shy;ва&shy;ния ин&shy;тер&shy;фей&shy;сов&raquo;, что ана&shy;ло&shy;гич&shy;но нас&shy;ле&shy;до&shy;ва&shy;нию клас&shy;сов, мож&shy;но при&shy;вес&shy;ти сле&shy;ду&shy;ю&shy;щий код:</p>
 <div class="paragraph-right-side">46</div>
 </div>
 <div class="lang-vb editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1831,12 +2145,14 @@ Boo.IDisposable::Dispose
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">47</div>
-<p>В нем видно, что <code>Doo</code>, наследуясь от <code>Foo</code>, неявно реализует <code>IDisposable</code>, но при этом переопределяет явную реализацию <code>IDisposable.Dispose</code>, что приведёт к вызову переопределения при вызове по интерфейсу, тем самым показывая &laquo;наследование интерфейсов&raquo; классов <code>Foo</code> и <code>Doo</code>.</p>
+<p >
+В нем вид&shy;но, что <code>Doo</code>, нас&shy;ле&shy;ду&shy;ясь от <code>Foo</code>, не&shy;яв&shy;но ре&shy;а&shy;ли&shy;зу&shy;ет <code>IDisposable</code>, но при этом пе&shy;ре&shy;оп&shy;ре&shy;де&shy;ля&shy;ет яв&shy;ную ре&shy;а&shy;ли&shy;за&shy;цию <code>IDisposable.Dispose</code>, что при&shy;ведёт к вы&shy;зо&shy;ву пе&shy;ре&shy;оп&shy;ре&shy;де&shy;ле&shy;ния при вы&shy;зо&shy;ве по ин&shy;тер&shy;фей&shy;су, тем са&shy;мым по&shy;ка&shy;зы&shy;вая &laquo;нас&shy;ле&shy;до&shy;ва&shy;ние ин&shy;тер&shy;фей&shy;сов&raquo; клас&shy;сов <code>Foo</code> и <code>Doo</code>.</p>
 <div class="paragraph-right-side">47</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">48</div>
-<p>С одной стороны, это вообще не проблема: если бы C# + CLR позволяли такие шалости, мы бы, в некотором, смысле получили нарушение консистентности в строении типов. Сами подумайте: вы сделали крутую архитектуру, все хорошо. Но кто-то почему-то вызывает методы не так, как вы задумали. Это было бы ужасно. С другой стороны, в C++ похожая возможность существует, и там не сильно жалуются на это. Почему я говорю, что это может быть добавлено в C#? Потому что не менее ужасный функционал <a href="https://github.com/dotnet/csharplang/issues/52">уже обсуждается</a> и выглядеть он должен примерно так:</p>
+<p >
+С од&shy;ной сто&shy;ро&shy;ны, это во&shy;об&shy;ще не проб&shy;ле&shy;ма: ес&shy;ли бы C# + CLR поз&shy;во&shy;ля&shy;ли та&shy;кие ша&shy;лос&shy;ти, мы бы, в не&shy;ко&shy;то&shy;ром, смыс&shy;ле по&shy;лу&shy;чи&shy;ли на&shy;ру&shy;ше&shy;ние кон&shy;сис&shy;тент&shy;нос&shy;ти в стр&shy;о&shy;ении ти&shy;пов. Са&shy;ми по&shy;ду&shy;май&shy;те: вы сде&shy;ла&shy;ли кру&shy;тую ар&shy;хи&shy;тек&shy;ту&shy;ру, все хо&shy;ро&shy;шо. Но кто-то по&shy;че&shy;му-то вы&shy;зы&shy;ва&shy;ет ме&shy;то&shy;ды не так, как вы за&shy;ду&shy;ма&shy;ли. Это бы&shy;ло бы ужас&shy;но. С дру&shy;гой сто&shy;ро&shy;ны, в C++ по&shy;хо&shy;жая воз&shy;мож&shy;ность су&shy;щес&shy;тву&shy;ет, и там не силь&shy;но жа&shy;лу&shy;ют&shy;ся на это. По&shy;че&shy;му я го&shy;во&shy;рю, что это мо&shy;жет быть до&shy;бав&shy;ле&shy;но в C#? По&shy;то&shy;му что не ме&shy;нее ужас&shy;ный фун&shy;кци&shy;о&shy;нал <a href="https://github.com/dotnet/csharplang/issues/52">уже обсуждается</a> и выг&shy;ля&shy;деть он дол&shy;жен при&shy;мер&shy;но так:</p>
 <div class="paragraph-right-side">48</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1858,16 +2174,19 @@ Boo.IDisposable::Dispose
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">49</div>
-<p>Почему это ужасно? Ведь на самом деле это порождает целый класс возможностей. Теперь нам не нужно будет каждый раз реализовывать какие-то методы интерфейсов, которые везде реализовывались одинаково. Звучит прекрасно. Но только звучит. Ведь интерфейс - это протокол взаимодействия. Протокол - это набор правил, рамки. В нем нельзя допускать существование реализаций. Здесь же идёт прямое нарушение этого принципа и введение ещё одного: множественного наследования. Я, честно, сильно против таких доработок, но&hellip; Я что-то ушёл в сторону.</p>
+<p >
+По&shy;че&shy;му это ужас&shy;но? Ведь на са&shy;мом де&shy;ле это по&shy;рож&shy;да&shy;ет це&shy;лый класс воз&shy;мож&shy;нос&shy;тей. Те&shy;перь нам не нуж&shy;но бу&shy;дет каж&shy;дый раз ре&shy;а&shy;ли&shy;зо&shy;вы&shy;вать ка&shy;кие-то ме&shy;то&shy;ды ин&shy;тер&shy;фей&shy;сов, ко&shy;то&shy;рые вез&shy;де ре&shy;а&shy;ли&shy;зо&shy;вы&shy;ва&shy;лись оди&shy;на&shy;ко&shy;во. Зву&shy;чит прек&shy;рас&shy;но. Но толь&shy;ко зву&shy;чит. Ведь ин&shy;тер&shy;фейс - это про&shy;то&shy;кол вза&shy;и&shy;мо&shy;д&shy;ействия. Про&shy;то&shy;кол - это на&shy;бор пра&shy;вил, рам&shy;ки. В нем нель&shy;зя до&shy;пус&shy;кать су&shy;щест&shy;во&shy;ва&shy;ние ре&shy;а&shy;ли&shy;за&shy;ций. Здесь же идёт пря&shy;мое на&shy;ру&shy;ше&shy;ние это&shy;го прин&shy;ци&shy;па и вве&shy;де&shy;ние ещё од&shy;но&shy;го: мно&shy;жест&shy;вен&shy;но&shy;го нас&shy;ле&shy;до&shy;ва&shy;ния. Я, чес&shy;тно, силь&shy;но про&shy;тив та&shy;ких до&shy;ра&shy;бо&shy;ток, но&hellip; Я что-то ушёл в сто&shy;ро&shy;ну.</p>
 <div class="paragraph-right-side">49</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">50</div>
-<p><a href="https://github.com/dotnet/coreclr/blob/master/src/vm/contractimpl.cpp#L295-L460">DispatchMap::CreateEncodedMapping</a></p>
+<p >
+<a href="https://github.com/dotnet/coreclr/blob/master/src/vm/contractimpl.cpp#L295-L460">DispatchMap::CreateEncodedMapping</a></p>
 <div class="paragraph-right-side">50</div>
 </div>
 <blockquote>
-<p>Далее: <a href="./3-MemorySpan.html">Memory&lt;T&gt; и Span&lt;T&gt;</a></p>
+<p >
+Да&shy;лее: <a href="./3-MemorySpan.html">Memory&lt;T&gt; и Span&lt;T&gt;</a></p>
 </blockquote>
 
 </div>

@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>.NET Platform Architecture</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.NET Platform Architecture</title>
 </head>
 <body>
     <link rel="stylesheet" href="../../../res/bootstrap.css">
@@ -57,27 +57,28 @@ strong {
 }
 
 p, li {
-    margin: 0 0 25px;
-    line-height: 32px;
+    margin: 0 0 1em;
+    line-height: 1.5em;
     font-family: inherit;
 }
 
 ol, li {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 ol {
-    padding-left: 1.2rem;
+    padding-left: 1.21em;
 }
 
 ul  {
-    padding-left: 35px;
+    padding-left: 1em;
 }
 
 ol li, ul li {
-    padding-left: 1rem;	
+    padding-left: 0.5em;	
     font-family: inherit;
+    text-align: justify;
 }
 
 table {
@@ -108,6 +109,7 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 *[class*='lang-'] {
     padding: 0px 0px 25px 0px;
+    font-size: 0.75em;
 }
 
 
@@ -126,11 +128,11 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 }
 
 p code:not(.highlight), li code:not(.highlight) {
-    font-size: 16px;
+    font-size: 0.7em;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
-    padding: 4px;
+    padding: 3px;
     color: darkslateblue;
 }
 
@@ -148,11 +150,6 @@ p code.highlight, li code.highlight {
 
 .wide {
     width:150%;
-}
-
-*[class*='lang-'] span, *[class*='lang-'] pre, pre > code {
-    font-size: 13px;
-    line-height: 20px;
 }
 
 p a, li a {
@@ -179,9 +176,9 @@ p img {
 
 blockquote 
 {
-    background-color: lavenderblush;
-    padding-left: 20px;
-    border-left: 1px solid rgba(0,0,0,.08);
+    padding-left: 0.4em;
+    border-left: 0.5em solid rgba(0,0,0,.08);
+    font-style: italic;
 }
 
 blockquote.big-quote, 
@@ -199,8 +196,7 @@ blockquote.breadcrumbs, blockquote.breadcrumbs  p
 }
 
 blockquote p {
-    margin: 16px 0;
-    padding: 12px 12px 13px;
+    padding: 1em 1em 1em 0.6em;
     font-family: inherit;
 }
 
@@ -210,11 +206,14 @@ blockquote p code {
     padding: 4px 6px;
 }
 
+blockquote p em {
+    font-weight: 400;
+}
+
 blockquote.big-quote > p {
     margin: 40px 0 60px 0;
     font-family: Charter;
     font-size: 55px;
-    line-height: 60px;
     padding: 0;
     width: 150%;
 }
@@ -227,31 +226,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 40px;
-    font-family: PF Regal,Georgia,serif;
+    font-size: 2.2em;
+    font-family: Charter,Georgia,serif;
     font-weight: 300;
-    margin: 40px 0 20px 0;
-    border-bottom-style: ridge;
-    padding-bottom: 10px;
-}
-
-h1 b {
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-weight: 700;
-    font-size: 37px;
-    line-height: 42px;
+    margin: 1.8em 0 1.8em 0;
+    text-align: center;
 }
 
 h2 {
-    margin-top: 35px;
-    margin-bottom: 10px;
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-    border-bottom-color: grey;
-    border-bottom-style: solid;
-    padding-bottom: 5px;
+    margin-top: 2em;
+    margin-left: 1.2em;
+    font-family: Charter,Arial,Helvetica Neue,sans-serif;
+    font-size: 1.25em;
+    width: 70%;
 }
 
 h3 {
@@ -293,27 +280,23 @@ h4 {
     line-height: 24px;
     font-size: 13pt;
     margin: 0 0 13px 0;
-    font-family: Charter;
-}
-
-.side-regular-block {
-    border-radius: 5px;
-    background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
-    padding: 22px;
 }
 
 .side-regular-block p {
     top: 0;
 }
-/* Music side player */
 
+/* Music side player */
 .aside-side-container .music-player {
     width: 100%;
     height: 400px;
 }
 
-.aside-side-container.side-media-block h2 {
-    margin-top: -12px;
+/* media block after h1 */
+.aside-container h1 + .aside-side-container.side-media-block h2 {
+    margin: 7em 0 1em 0;
+    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
+    font-weight: 600;
 }
 
 .aside-side-container > li {
@@ -323,8 +306,8 @@ h4 {
 
 .aside-side-container > li ul, .aside-side-container > li ol {
     padding-left: 30px;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 .aside-side-container > li li {
     padding-left: 6px;
@@ -353,6 +336,12 @@ h4 {
     position: relative;
     top: 9px;
 }
+
+.paragraph-container p, .aside-container > p {
+    text-align: justify;
+    text-indent: 1.5em;
+}
+
 .paragraph-container > .paragraph-left-side, .paragraph-container > .paragraph-right-side  {
     font-family: JB Mono, consolas;
     display: block;
@@ -364,12 +353,14 @@ h4 {
     z-index: 1000;
 }
 .paragraph-container > .paragraph-left-side {
-    left: -55px;
+    display: none;
+    left: -2.1cm;
     width: 35px;
     user-select: none;
 }
 
 .paragraph-container > .paragraph-right-side  {
+    display: none;
     left: 100%;
     width: 35px;
     padding-left: 45px;
@@ -400,8 +391,8 @@ h4 {
 
 
 /* MEDIA */
-/* XL */
-@media (min-width: 1400px) {
+/* XXL */
+@media (min-width: 1801px) {
     .book-container
     {
         max-width: 1200px;
@@ -410,12 +401,21 @@ h4 {
     }
 }
 
+/* XL */
+@media (max-width: 1800px) {
+    .book-container
+    {
+        margin-left: 4cm;
+        margin-right: 4cm;
+    }
+}
+
 /* LG */
 @media (max-width: 1400px) {
     .book-container
     {
-        margin-left: 70px;
-        margin-right: 70px;
+        margin-left: 4cm;
+        margin-right: 4cm;
     }
 
     blockquote.big-quote > p {
@@ -425,14 +425,23 @@ h4 {
         margin: 0;
         padding: 4px 0 30px 0;
     }
+}
 
-    .paragraph-container .paragraph-left-side {
-        left: -40px;
-    }
+@media (max-width: 1100px) {
 }
 
 /* MD */
 @media (max-width: 991px) {
+    
+    h2 {
+        width:80%;
+    }
+
+    .book-container
+    {
+        margin-left: 3cm;
+        margin-right: 3cm;
+    }
     
     .book-title-container {
         margin: 73px 0 110px 0;
@@ -453,26 +462,21 @@ h4 {
 
     .book-superheading-title {
         font-size: 15pt;
-    }
-    .book-container {
-        margin: 0 100px;
-    }
+    }                                     
     .article-container {
         width: 100%;
-    }
-    .aside-container > .aside-side-container
-    {
-        position: relative;
-        top: auto;
-        left: auto;
-        width: auto;
-        height: auto;
-        margin: 0;
-        padding: 17px;
     }
 
     .aside-container p {
         top: 0;
+    }
+
+    .aside-container h1 + .aside-side-container.side-media-block h2 {
+        display: none;
+    }
+
+    .wide {
+        width: 100%;     
     }
 
     .side-regular-block {
@@ -490,6 +494,17 @@ h4 {
         margin-top: 20px;
         font-size: 13pt;
         border: none;
+    }
+
+    .aside-container > .aside-side-container
+    {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 17px;
     }
 
     blockquote.big-quote > p {
@@ -519,6 +534,12 @@ h4 {
     li {
         margin: 0 0 10px 0;
     }
+
+    .side-regular-block {
+        border-radius: 5px;
+        background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
+        padding: 22px;
+    }    
 }
 
 /* Smartphone horizontal - SM */
@@ -545,7 +566,7 @@ h4 {
     }
 
     .book-container {
-        margin: 0 50px;
+        margin: 0 2.5cm;
     }
     ul {
         margin-left: 30px;
@@ -553,14 +574,29 @@ h4 {
         padding-left: 25px;
     }
     .paragraph-container > .paragraph-left-side {
-        top: 15px;
+	display: block;
+        top: 14px;
+        font-size: 9pt;
     }
     .paragraph-container > .paragraph-right-side {
-        padding-left: 20px;
-        top: 15px;
+	display: block;
+        padding-left: 40px;
+        top: 14px;
+        font-size: 9pt;
     }
 }
 
+@media (max-width: 630px) {
+    .book-container {
+        margin: 0 1.5cm;
+    }
+    .paragraph-container > .paragraph-left-side {
+        left: -33px;
+    }
+    .paragraph-container > .paragraph-right-side {
+        padding-left: 24px;
+    }
+}
 /* Smartphone - XS */
 @media (max-width: 575px) {
     .book-container {
@@ -581,15 +617,14 @@ h4 {
     }
    
     p, li {
-        line-height: 28px;
+        line-height: 24px;
     }    
     .paragraph-container .paragraph-left-side {
-        display: none;
-        top: 14px;
-    }
+        display: none;        }
     .paragraph-container .paragraph-right-side {
-        padding-left: 10px;
+        padding-left: 21px;
         top: 14px;
+	font-size: 8pt;
     }
 }
 
@@ -831,12 +866,14 @@ h4 {
     <h2 id="section">Архитектура изоляции</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p>Как я уже говорил, нам нет никакой необходимости делать изоляцию по памяти: т.к. контроль над исполнением кода (путём его самостоятельной компиляции) даёт домену все возможности для контроля всего приложения. Но как это достигается? Домен - это некий изолирующий контейнер. Потому, если мы имеем дело с загружаемыми библиотеками, было бы логично если бы эти библиотеки загружались бы не в общее для всех место, а в эту песочницу.</p>
+<p >
+Как я уже го&shy;во&shy;рил, нам нет ни&shy;ка&shy;кой не&shy;об&shy;хо&shy;ди&shy;мос&shy;ти де&shy;лать изо&shy;ля&shy;цию по па&shy;мя&shy;ти: т.к. конт&shy;роль над ис&shy;пол&shy;не&shy;ни&shy;ем ко&shy;да (путём его са&shy;мос&shy;то&shy;я&shy;тель&shy;ной ком&shy;пи&shy;ля&shy;ции) даёт до&shy;ме&shy;ну все воз&shy;мож&shy;нос&shy;ти для конт&shy;ро&shy;ля все&shy;го при&shy;ло&shy;же&shy;ния. Но как это дос&shy;ти&shy;га&shy;ет&shy;ся? До&shy;мен - это не&shy;кий изо&shy;ли&shy;ру&shy;ю&shy;щий кон&shy;тей&shy;нер. По&shy;то&shy;му, ес&shy;ли мы име&shy;ем де&shy;ло с заг&shy;ру&shy;жа&shy;е&shy;мы&shy;ми биб&shy;ли&shy;о&shy;те&shy;ка&shy;ми, бы&shy;ло бы ло&shy;гич&shy;но ес&shy;ли бы эти биб&shy;ли&shy;о&shy;те&shy;ки заг&shy;ру&shy;жа&shy;лись бы не в об&shy;щее для всех мес&shy;то, а в эту пе&shy;соч&shy;ни&shy;цу.</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p>Давайте рассмотрим пример с загрузкой экземпляра типа в два домена. Тогда при таком раскладе мы имеем один и тот же тип:</p>
+<p >
+Да&shy;вай&shy;те расс&shy;мот&shy;рим при&shy;мер с заг&shy;руз&shy;кой эк&shy;земп&shy;ля&shy;ра ти&shy;па в два до&shy;ме&shy;на. Тог&shy;да при та&shy;ком раск&shy;ла&shy;де мы име&shy;ем один и тот же тип:</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -848,7 +885,8 @@ h4 {
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p>Который мы загрузим в оба домена, при этом мы получим дважды скомпилированный код. Что это будет означать? Что у экземпляров этих типов адрес таблицы виртуальных методов совпадать не будет:</p>
+<p >
+Ко&shy;то&shy;рый мы заг&shy;ру&shy;зим в оба до&shy;ме&shy;на, при этом мы по&shy;лу&shy;чим дваж&shy;ды ском&shy;пи&shy;ли&shy;ро&shy;ван&shy;ный код. Что это бу&shy;дет оз&shy;на&shy;чать? Что у эк&shy;земп&shy;ля&shy;ров этих ти&shy;пов ад&shy;рес таб&shy;ли&shy;цы вир&shy;ту&shy;альных ме&shy;то&shy;дов сов&shy;па&shy;дать не бу&shy;дет:</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -867,7 +905,8 @@ Console.WriteLine(handle1 == handle2);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p>Это значит что если мы получим каким-либо образом из второго домена ссылку на объект и в первом домене попробуем привести к типу <code>SomeHandle</code>, то ничего не получится: типы не совпадут. Ведь из-за того что таблицы виртуальных методов разные, то и типы будут считаться разными и не совместимыми. Получается, что загрузив код в разные домены вместо загрузки в некое междоменное пространство <code>CLR</code> строит первый барьер защиты. Второй барьер защиты: нам необходимо организовать взаимодействие между доменами: быть полностью изолированными - так себе возможности и хочется иметь не полную изоляцию, а контролируемое взаимодействие. Интереснее получать данные из плагина для неких расчётов или действий и получать результаты работы - назад. Это можно организовать при помощи системных (организованных JITом)прокси-методов, которые будут переносить данные между двумя несовместимыми типами (а по сут - одним и тем же типом, загруженным в разные домены). Посмотрим на пример такого вызова с использованием псевдокода:</p>
+<p >
+Это зна&shy;чит что ес&shy;ли мы по&shy;лу&shy;чим ка&shy;ким-ли&shy;бо об&shy;ра&shy;зом из вто&shy;ро&shy;го до&shy;ме&shy;на ссыл&shy;ку на объ&shy;ект и в пер&shy;вом до&shy;ме&shy;не поп&shy;ро&shy;бу&shy;ем при&shy;вес&shy;ти к ти&shy;пу <code>SomeHandle</code>, то ни&shy;че&shy;го не по&shy;лу&shy;чит&shy;ся: ти&shy;пы не сов&shy;па&shy;дут. Ведь из-за то&shy;го что таб&shy;ли&shy;цы вир&shy;ту&shy;альных ме&shy;то&shy;дов раз&shy;ные, то и ти&shy;пы бу&shy;дут счи&shy;тать&shy;ся раз&shy;ны&shy;ми и не сов&shy;мес&shy;ти&shy;мы&shy;ми. По&shy;лу&shy;ча&shy;ет&shy;ся, что заг&shy;ру&shy;зив код в раз&shy;ные до&shy;ме&shy;ны вмес&shy;то заг&shy;руз&shy;ки в не&shy;кое меж&shy;до&shy;мен&shy;ное прост&shy;ранство <code>CLR</code> стр&shy;оит пер&shy;вый бар&shy;ьер за&shy;щи&shy;ты. Вто&shy;рой бар&shy;ьер за&shy;щи&shy;ты: нам не&shy;об&shy;хо&shy;ди&shy;мо ор&shy;га&shy;ни&shy;зо&shy;вать вза&shy;и&shy;мо&shy;д&shy;ействие меж&shy;ду до&shy;ме&shy;на&shy;ми: быть пол&shy;ностью изо&shy;ли&shy;ро&shy;ван&shy;ны&shy;ми - так се&shy;бе воз&shy;мож&shy;нос&shy;ти и хо&shy;чет&shy;ся иметь не пол&shy;ную изо&shy;ля&shy;цию, а конт&shy;ро&shy;ли&shy;ру&shy;е&shy;мое вза&shy;и&shy;мо&shy;д&shy;ействие. Инте&shy;рес&shy;нее по&shy;лу&shy;чать дан&shy;ные из пла&shy;ги&shy;на для не&shy;ких расчётов или действий и по&shy;лу&shy;чать ре&shy;зуль&shy;та&shy;ты ра&shy;бо&shy;ты - на&shy;зад. Это мож&shy;но ор&shy;га&shy;ни&shy;зо&shy;вать при по&shy;мо&shy;щи сис&shy;тем&shy;ных (ор&shy;га&shy;ни&shy;зо&shy;ван&shy;ных JITом)прок&shy;си-ме&shy;то&shy;дов, ко&shy;то&shy;рые бу&shy;дут пе&shy;ре&shy;но&shy;сить дан&shy;ные меж&shy;ду дву&shy;мя не&shy;сов&shy;мес&shy;ти&shy;мы&shy;ми ти&shy;па&shy;ми (а по сут - од&shy;ним и тем же ти&shy;пом, заг&shy;ру&shy;жен&shy;ным в раз&shy;ные до&shy;ме&shy;ны). Пос&shy;мот&shy;рим на при&shy;мер та&shy;ко&shy;го вы&shy;зо&shy;ва с ис&shy;поль&shy;зо&shy;ва&shy;ни&shy;ем псев&shy;до&shy;ко&shy;да:</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <pre><code>TODO: изображение, поясняющее процесс взаимодействия между доменами
@@ -915,39 +954,65 @@ Console.WriteLine(handle1 == handle2);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p>Хорошо: теперь мы знаем обо всех вызовах, которые происходят в системе. Однако, это накладывает огромные расходы: нам ведь каждый раз необходимо понимать, что мы вызываем метод именно в другом домене, а не в текущем. А таких вызовов будет большинство: междоменного взаимодействия очень мало. Значит, чтобы такие расходы ложились бы только на необходимо ввести некий специальный тип, при наследовании от которого CLR поймёт, что он будет участвовать в междоменном взаимодействии и создаст прокси-методы только для него. Тип этот - <code>MarshalByRefObject</code> и это решение также создаст ещё один барьер безопастности: вы не можете вызывать методы, скомпилированные для других доменов напрямую: только для <code>MarshalByRefObject</code> типов.</p>
+<p >
+Хо&shy;ро&shy;шо: те&shy;перь мы зна&shy;ем обо всех вы&shy;зо&shy;вах, ко&shy;то&shy;рые про&shy;ис&shy;хо&shy;дят в сис&shy;те&shy;ме. Одна&shy;ко, это нак&shy;ла&shy;ды&shy;ва&shy;ет ог&shy;ром&shy;ные рас&shy;хо&shy;ды: нам ведь каж&shy;дый раз не&shy;об&shy;хо&shy;ди&shy;мо по&shy;ни&shy;мать, что мы вы&shy;зы&shy;ва&shy;ем ме&shy;тод имен&shy;но в дру&shy;гом до&shy;ме&shy;не, а не в те&shy;ку&shy;щем. А та&shy;ких вы&shy;зо&shy;вов бу&shy;дет боль&shy;шинство: меж&shy;до&shy;мен&shy;но&shy;го вза&shy;и&shy;мо&shy;д&shy;ействия очень ма&shy;ло. Зна&shy;чит, что&shy;бы та&shy;кие рас&shy;хо&shy;ды ло&shy;жи&shy;лись бы толь&shy;ко на не&shy;об&shy;хо&shy;ди&shy;мо ввес&shy;ти не&shy;кий спе&shy;ци&shy;альный тип, при нас&shy;ле&shy;до&shy;ва&shy;нии от ко&shy;то&shy;ро&shy;го CLR поймёт, что он бу&shy;дет участ&shy;во&shy;вать в меж&shy;до&shy;мен&shy;ном вза&shy;и&shy;мо&shy;д&shy;ействии и соз&shy;даст прок&shy;си-ме&shy;то&shy;ды толь&shy;ко для не&shy;го. Тип этот - <code>MarshalByRefObject</code> и это ре&shy;ше&shy;ние так&shy;же соз&shy;даст ещё один бар&shy;ьер бе&shy;зо&shy;паст&shy;нос&shy;ти: вы не мо&shy;же&shy;те вы&shy;зы&shy;вать ме&shy;то&shy;ды, ском&shy;пи&shy;ли&shy;ро&shy;ван&shy;ные для дру&shy;гих до&shy;ме&shy;нов нап&shy;ря&shy;мую: толь&shy;ко для <code>MarshalByRefObject</code> ти&shy;пов.</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p>Что мы имеем на данный момент? Во-первых, если наш код загружен в два и более доменов, то скомпилирован он будет соответствующее число раз, а значит с точки зрения типов один и тот же тип, скомпилированных для нескольких доменов - это несколько разных типов. Далее, вводятся проверки для вызовов методов из одного домена в другой. Можно назвать это словом &laquo;таможня&raquo;. При пересечении границы всё, что проходит через такую вот таможню должно досматриваться: этим действием контролируется, что все ограничения соблюдены. Ну и чтобы CLR понимала, какие типы могут участвовать во взаимодействии между доменами проходить границу могут не все типы, а только те, которые унаследовали <code>MarshalByRefObject</code>. Достаточно ли этого? Наверное, нет: мы отдаём в метод, скомпилированный для другого домена некую ссылку на свой объект, тот его принимает, но в другом домене работать с таким доменом нет никакой возможности: его система типов отлична и приведение типов работать не будет. Как тогда организовать взаимодействие?</p>
+<p >
+Что мы име&shy;ем на дан&shy;ный мо&shy;мент? Во-пер&shy;вых, ес&shy;ли наш код заг&shy;ру&shy;жен в два и бо&shy;лее до&shy;ме&shy;нов, то ском&shy;пи&shy;ли&shy;ро&shy;ван он бу&shy;дет со&shy;от&shy;вет&shy;с&shy;твующее чис&shy;ло раз, а зна&shy;чит с точ&shy;ки зре&shy;ния ти&shy;пов один и тот же тип, ском&shy;пи&shy;ли&shy;ро&shy;ван&shy;ных для нес&shy;коль&shy;ких до&shy;ме&shy;нов - это нес&shy;коль&shy;ко раз&shy;ных ти&shy;пов. Да&shy;лее, вво&shy;дят&shy;ся про&shy;вер&shy;ки для вы&shy;зо&shy;вов ме&shy;то&shy;дов из од&shy;но&shy;го до&shy;ме&shy;на в дру&shy;гой. Мож&shy;но наз&shy;вать это сло&shy;вом &laquo;та&shy;мож&shy;ня&raquo;. При пе&shy;ре&shy;се&shy;че&shy;нии гра&shy;ни&shy;цы всё, что про&shy;хо&shy;дит че&shy;рез та&shy;кую вот та&shy;мож&shy;ню дол&shy;жно дос&shy;мат&shy;ри&shy;вать&shy;ся: этим дей&shy;ствием конт&shy;ро&shy;ли&shy;ру&shy;ет&shy;ся, что все ог&shy;ра&shy;ни&shy;че&shy;ния соб&shy;лю&shy;де&shy;ны. Ну и что&shy;бы CLR по&shy;ни&shy;ма&shy;ла, ка&shy;кие ти&shy;пы мо&shy;гут участ&shy;во&shy;вать во вза&shy;и&shy;мо&shy;д&shy;ействии меж&shy;ду до&shy;ме&shy;на&shy;ми про&shy;хо&shy;дить гра&shy;ни&shy;цу мо&shy;гут не все ти&shy;пы, а толь&shy;ко те, ко&shy;то&shy;рые унас&shy;ле&shy;до&shy;ва&shy;ли <code>MarshalByRefObject</code>. Дос&shy;та&shy;точ&shy;но ли это&shy;го? На&shy;вер&shy;ное, нет: мы от&shy;даём в ме&shy;тод, ском&shy;пи&shy;ли&shy;ро&shy;ван&shy;ный для дру&shy;го&shy;го до&shy;ме&shy;на не&shy;кую ссыл&shy;ку на свой объ&shy;ект, тот его при&shy;ни&shy;ма&shy;ет, но в дру&shy;гом до&shy;ме&shy;не ра&shy;бо&shy;тать с та&shy;ким до&shy;ме&shy;ном нет ни&shy;ка&shy;кой воз&shy;мож&shy;нос&shy;ти: его сис&shy;те&shy;ма ти&shy;пов от&shy;лич&shy;на и при&shy;ве&shy;де&shy;ние ти&shy;пов ра&shy;бо&shy;тать не бу&shy;дет. Как тог&shy;да ор&shy;га&shy;ни&shy;зо&shy;вать вза&shy;и&shy;мо&shy;д&shy;ействие?</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p>Решения для такой проблематики два. Перовое решение - необходимо сделать так, чтобы передаваемые данные полностью бы отражали содержание объекта, но при этом не были бы самим объектом - раз. И при этом были бы достаточно простыми чтобы не представлять опасности - два. Такими данными яввяются сериализованные данные:</p>
+<p >
+Ре&shy;ше&shy;ния для та&shy;кой проб&shy;ле&shy;ма&shy;ти&shy;ки два. Пе&shy;ро&shy;вое ре&shy;ше&shy;ние - не&shy;об&shy;хо&shy;ди&shy;мо сде&shy;лать так, что&shy;бы пе&shy;ре&shy;да&shy;ва&shy;е&shy;мые дан&shy;ные пол&shy;ностью бы от&shy;ра&shy;жа&shy;ли со&shy;дер&shy;жа&shy;ние объ&shy;ек&shy;та, но при этом не бы&shy;ли бы са&shy;мим объ&shy;ек&shy;том - раз. И при этом бы&shy;ли бы дос&shy;та&shy;точ&shy;но прос&shy;ты&shy;ми что&shy;бы не предс&shy;тав&shy;лять опас&shy;нос&shy;ти - два. Та&shy;ки&shy;ми дан&shy;ны&shy;ми яв&shy;вя&shy;ют&shy;ся се&shy;ри&shy;а&shy;ли&shy;зо&shy;ван&shy;ные дан&shy;ные:</p>
 <div class="paragraph-right-side">07</div>
 </div>
 <ul>
-<li>При сериализации CLR превращает данные в некий формат. Т.е. мы не можем передать ссылку на объект, обладающий <em>повышенными</em> привилегиями в код, обладающий более низкими привилегиями;</li>
-<li>При десериализации мы можем сформировать объекты только из того что было передано через сериализованный объект. Ничего опасного мы оттуда получить не сможем именно благодаря процессу сериализации.</li>
+<li>
+<p >
+При се&shy;ри&shy;а&shy;ли&shy;за&shy;ции CLR прев&shy;ра&shy;ща&shy;ет дан&shy;ные в не&shy;кий фор&shy;мат. Т.е. мы не мо&shy;жем пе&shy;ре&shy;дать ссыл&shy;ку на объ&shy;ект, об&shy;ла&shy;да&shy;ю&shy;щий <em>повышенными</em> при&shy;ви&shy;ле&shy;ги&shy;ями в код, об&shy;ла&shy;да&shy;ю&shy;щий бо&shy;лее низ&shy;ки&shy;ми при&shy;ви&shy;ле&shy;ги&shy;ями;</p>
+</li>
+<li>
+<p >
+При де&shy;се&shy;ри&shy;а&shy;ли&shy;за&shy;ции мы мо&shy;жем сфор&shy;ми&shy;ро&shy;вать объ&shy;ек&shy;ты толь&shy;ко из то&shy;го что бы&shy;ло пе&shy;ре&shy;да&shy;но че&shy;рез се&shy;ри&shy;а&shy;ли&shy;зо&shy;ван&shy;ный объ&shy;ект. Ни&shy;че&shy;го опас&shy;но&shy;го мы от&shy;ту&shy;да по&shy;лу&shy;чить не смо&shy;жем имен&shy;но бла&shy;го&shy;да&shy;ря про&shy;цес&shy;су се&shy;ри&shy;а&shy;ли&shy;за&shy;ции.</p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p>Второе решение - организовать средство повышенного доверия к передаваемым между доменами данным. Такого доверия, что можно не волнуясь отдавать без всякой сериализации и десериализации ссылки на объекты в соседний домен и не волноваться, что это как-то повлияет на безопасность. Чтобы решить эту задачу, был разработан FullTrust, который может быть применён к отдельным сборкам домена.</p>
+<p >
+Вто&shy;рое ре&shy;ше&shy;ние - ор&shy;га&shy;ни&shy;зо&shy;вать сред&shy;ство по&shy;вы&shy;шен&shy;но&shy;го до&shy;ве&shy;рия к пе&shy;ре&shy;да&shy;ва&shy;е&shy;мым меж&shy;ду до&shy;ме&shy;на&shy;ми дан&shy;ным. Та&shy;ко&shy;го до&shy;ве&shy;рия, что мож&shy;но не вол&shy;ну&shy;ясь от&shy;да&shy;вать без вся&shy;кой се&shy;ри&shy;а&shy;ли&shy;за&shy;ции и де&shy;се&shy;ри&shy;а&shy;ли&shy;за&shy;ции ссыл&shy;ки на объ&shy;ек&shy;ты в со&shy;сед&shy;ний до&shy;мен и не вол&shy;но&shy;вать&shy;ся, что это как-то пов&shy;лияет на бе&shy;зо&shy;пас&shy;ность. Что&shy;бы ре&shy;шить эту за&shy;да&shy;чу, был раз&shy;ра&shy;бо&shy;тан FullTrust, ко&shy;то&shy;рый мо&shy;жет быть при&shy;менён к от&shy;дель&shy;ным сбор&shy;кам до&shy;ме&shy;на.</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
-<p>Касательно Shared AppDomains мы поговорим немного позже: слово за слово мне придётся написать о многих вопросах. А потому эта тема поставлена на временную паузу. Сейчас же попробуем обосновать, создали ли мы идеальную песочницу:</p>
+<p >
+Ка&shy;са&shy;тель&shy;но Shared AppDomains мы по&shy;го&shy;во&shy;рим нем&shy;но&shy;го поз&shy;же: сло&shy;во за сло&shy;во мне придётся на&shy;пи&shy;сать о мно&shy;гих воп&shy;ро&shy;сах. А по&shy;то&shy;му эта те&shy;ма пос&shy;тав&shy;ле&shy;на на вре&shy;мен&shy;ную па&shy;узу. Сей&shy;час же поп&shy;ро&shy;бу&shy;ем обос&shy;но&shy;вать, соз&shy;да&shy;ли ли мы иде&shy;альную пе&shy;соч&shy;ни&shy;цу:</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <ul>
-<li>Итак, для начала мы рассмотрели понятие домена как места, создающего изоляцию в вопросах исполнения кода. Внешние библиотеки загружаются отдельно в каждый их доменов и нет возможности кода одного домена работать с кодом другого нарямую, т.к. указатели на таблицы виртуальных методов (VMT) будут разными;</li>
-<li>Из-за этого возникает в некоторой степени изоляция по памяти: код <code>домена 1</code> не сможет работать с объектами, созданными в рамках <code>домена 2</code> по ранее указанной причине;</li>
-<li>Чтобы это обеспечить, между точкой вызова метода и его реальным вызовом встаёт прокси функция, которая проверяет параметры метода и возвращаемое значение на корректность, осуществляет маршиллинг и передачу данных через Remoting;</li>
-<li>Домены могут быть отгружены: вместе со всеми сборками, динамически скомпилированным кодом, а также всеми объектами, которые были созданы в рамках этого домена. Эта возможность - следствие изолированности домена друг от друга;</li>
-<li>Каждая подсистема домена может быть индивидуально разрешена или запрещена для исполнения кода в зависимости от настроек домена, выданных ему при старте приложения. Этот функционал расширяем и может быть дополнен настройками безопасности для ваших библиотек, которые будут использованы в этих доменах;</li>
+<li>
+<p >
+Итак, для на&shy;ча&shy;ла мы расс&shy;мот&shy;ре&shy;ли по&shy;ня&shy;тие до&shy;ме&shy;на как мес&shy;та, соз&shy;да&shy;ю&shy;ще&shy;го изо&shy;ля&shy;цию в воп&shy;ро&shy;сах ис&shy;пол&shy;не&shy;ния ко&shy;да. Внеш&shy;ние биб&shy;ли&shy;о&shy;те&shy;ки заг&shy;ру&shy;жа&shy;ют&shy;ся от&shy;дель&shy;но в каж&shy;дый их до&shy;ме&shy;нов и нет воз&shy;мож&shy;нос&shy;ти ко&shy;да од&shy;но&shy;го до&shy;ме&shy;на ра&shy;бо&shy;тать с ко&shy;дом дру&shy;го&shy;го на&shy;ря&shy;мую, т.к. ука&shy;за&shy;те&shy;ли на таб&shy;ли&shy;цы вир&shy;ту&shy;альных ме&shy;то&shy;дов (VMT) бу&shy;дут раз&shy;ны&shy;ми;</p>
+</li>
+<li>
+<p >
+Из-за это&shy;го воз&shy;ни&shy;ка&shy;ет в не&shy;ко&shy;то&shy;рой сте&shy;пе&shy;ни изо&shy;ля&shy;ция по па&shy;мя&shy;ти: код <code>домена 1</code> не смо&shy;жет ра&shy;бо&shy;тать с объ&shy;ек&shy;та&shy;ми, соз&shy;дан&shy;ны&shy;ми в рам&shy;ках <code>домена 2</code> по ра&shy;нее ука&shy;зан&shy;ной при&shy;чи&shy;не;</p>
+</li>
+<li>
+<p >
+Что&shy;бы это обес&shy;пе&shy;чить, меж&shy;ду точ&shy;кой вы&shy;зо&shy;ва ме&shy;то&shy;да и его ре&shy;альным вы&shy;зо&shy;вом встаёт прок&shy;си фун&shy;к&shy;ция, ко&shy;то&shy;рая про&shy;ве&shy;ря&shy;ет па&shy;ра&shy;мет&shy;ры ме&shy;то&shy;да и возв&shy;ра&shy;ща&shy;е&shy;мое зна&shy;че&shy;ние на кор&shy;рект&shy;ность, осу&shy;щес&shy;твляет мар&shy;шил&shy;линг и пе&shy;ре&shy;да&shy;чу дан&shy;ных че&shy;рез Remoting;</p>
+</li>
+<li>
+<p >
+До&shy;ме&shy;ны мо&shy;гут быть от&shy;гру&shy;же&shy;ны: вмес&shy;те со все&shy;ми сбор&shy;ка&shy;ми, ди&shy;на&shy;ми&shy;чес&shy;ки ском&shy;пи&shy;ли&shy;ро&shy;ван&shy;ным ко&shy;дом, а так&shy;же все&shy;ми объ&shy;ек&shy;та&shy;ми, ко&shy;то&shy;рые бы&shy;ли соз&shy;да&shy;ны в рам&shy;ках это&shy;го до&shy;ме&shy;на. Эта воз&shy;мож&shy;ность - след&shy;с&shy;твие изо&shy;ли&shy;ро&shy;ван&shy;нос&shy;ти до&shy;ме&shy;на друг от дру&shy;га;</p>
+</li>
+<li>
+<p >
+Каж&shy;дая под&shy;сис&shy;те&shy;ма до&shy;ме&shy;на мо&shy;жет быть ин&shy;ди&shy;ви&shy;ду&shy;ально раз&shy;ре&shy;ше&shy;на или зап&shy;ре&shy;ще&shy;на для ис&shy;пол&shy;не&shy;ния ко&shy;да в за&shy;ви&shy;си&shy;мос&shy;ти от нас&shy;тро&shy;ек до&shy;ме&shy;на, вы&shy;дан&shy;ных ему при стар&shy;те при&shy;ло&shy;же&shy;ния. Этот фун&shy;кци&shy;о&shy;нал рас&shy;ши&shy;ря&shy;ем и мо&shy;жет быть до&shy;пол&shy;нен наст&shy;рой&shy;ка&shy;ми бе&shy;зо&shy;пас&shy;нос&shy;ти для ва&shy;ших биб&shy;ли&shy;о&shy;тек, ко&shy;то&shy;рые бу&shy;дут ис&shy;поль&shy;зо&shy;ва&shy;ны в этих до&shy;ме&shy;нах;</p>
+</li>
 </ul>
 
 </div>

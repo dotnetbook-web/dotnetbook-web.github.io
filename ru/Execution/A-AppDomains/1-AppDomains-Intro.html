@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>.NET Platform Architecture</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.NET Platform Architecture</title>
 </head>
 <body>
     <link rel="stylesheet" href="../../../res/bootstrap.css">
@@ -57,27 +57,28 @@ strong {
 }
 
 p, li {
-    margin: 0 0 25px;
-    line-height: 32px;
+    margin: 0 0 1em;
+    line-height: 1.5em;
     font-family: inherit;
 }
 
 ol, li {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 ol {
-    padding-left: 1.2rem;
+    padding-left: 1.21em;
 }
 
 ul  {
-    padding-left: 35px;
+    padding-left: 1em;
 }
 
 ol li, ul li {
-    padding-left: 1rem;	
+    padding-left: 0.5em;	
     font-family: inherit;
+    text-align: justify;
 }
 
 table {
@@ -108,6 +109,7 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 *[class*='lang-'] {
     padding: 0px 0px 25px 0px;
+    font-size: 0.75em;
 }
 
 
@@ -126,11 +128,11 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 }
 
 p code:not(.highlight), li code:not(.highlight) {
-    font-size: 16px;
+    font-size: 0.7em;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
-    padding: 4px;
+    padding: 3px;
     color: darkslateblue;
 }
 
@@ -148,11 +150,6 @@ p code.highlight, li code.highlight {
 
 .wide {
     width:150%;
-}
-
-*[class*='lang-'] span, *[class*='lang-'] pre, pre > code {
-    font-size: 13px;
-    line-height: 20px;
 }
 
 p a, li a {
@@ -179,9 +176,9 @@ p img {
 
 blockquote 
 {
-    background-color: lavenderblush;
-    padding-left: 20px;
-    border-left: 1px solid rgba(0,0,0,.08);
+    padding-left: 0.4em;
+    border-left: 0.5em solid rgba(0,0,0,.08);
+    font-style: italic;
 }
 
 blockquote.big-quote, 
@@ -199,8 +196,7 @@ blockquote.breadcrumbs, blockquote.breadcrumbs  p
 }
 
 blockquote p {
-    margin: 16px 0;
-    padding: 12px 12px 13px;
+    padding: 1em 1em 1em 0.6em;
     font-family: inherit;
 }
 
@@ -210,11 +206,14 @@ blockquote p code {
     padding: 4px 6px;
 }
 
+blockquote p em {
+    font-weight: 400;
+}
+
 blockquote.big-quote > p {
     margin: 40px 0 60px 0;
     font-family: Charter;
     font-size: 55px;
-    line-height: 60px;
     padding: 0;
     width: 150%;
 }
@@ -227,31 +226,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 40px;
-    font-family: PF Regal,Georgia,serif;
+    font-size: 2.2em;
+    font-family: Charter,Georgia,serif;
     font-weight: 300;
-    margin: 40px 0 20px 0;
-    border-bottom-style: ridge;
-    padding-bottom: 10px;
-}
-
-h1 b {
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-weight: 700;
-    font-size: 37px;
-    line-height: 42px;
+    margin: 1.8em 0 1.8em 0;
+    text-align: center;
 }
 
 h2 {
-    margin-top: 35px;
-    margin-bottom: 10px;
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-    border-bottom-color: grey;
-    border-bottom-style: solid;
-    padding-bottom: 5px;
+    margin-top: 2em;
+    margin-left: 1.2em;
+    font-family: Charter,Arial,Helvetica Neue,sans-serif;
+    font-size: 1.25em;
+    width: 70%;
 }
 
 h3 {
@@ -293,27 +280,23 @@ h4 {
     line-height: 24px;
     font-size: 13pt;
     margin: 0 0 13px 0;
-    font-family: Charter;
-}
-
-.side-regular-block {
-    border-radius: 5px;
-    background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
-    padding: 22px;
 }
 
 .side-regular-block p {
     top: 0;
 }
-/* Music side player */
 
+/* Music side player */
 .aside-side-container .music-player {
     width: 100%;
     height: 400px;
 }
 
-.aside-side-container.side-media-block h2 {
-    margin-top: -12px;
+/* media block after h1 */
+.aside-container h1 + .aside-side-container.side-media-block h2 {
+    margin: 7em 0 1em 0;
+    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
+    font-weight: 600;
 }
 
 .aside-side-container > li {
@@ -323,8 +306,8 @@ h4 {
 
 .aside-side-container > li ul, .aside-side-container > li ol {
     padding-left: 30px;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 .aside-side-container > li li {
     padding-left: 6px;
@@ -353,6 +336,12 @@ h4 {
     position: relative;
     top: 9px;
 }
+
+.paragraph-container p, .aside-container > p {
+    text-align: justify;
+    text-indent: 1.5em;
+}
+
 .paragraph-container > .paragraph-left-side, .paragraph-container > .paragraph-right-side  {
     font-family: JB Mono, consolas;
     display: block;
@@ -364,12 +353,14 @@ h4 {
     z-index: 1000;
 }
 .paragraph-container > .paragraph-left-side {
-    left: -55px;
+    display: none;
+    left: -2.1cm;
     width: 35px;
     user-select: none;
 }
 
 .paragraph-container > .paragraph-right-side  {
+    display: none;
     left: 100%;
     width: 35px;
     padding-left: 45px;
@@ -400,8 +391,8 @@ h4 {
 
 
 /* MEDIA */
-/* XL */
-@media (min-width: 1400px) {
+/* XXL */
+@media (min-width: 1801px) {
     .book-container
     {
         max-width: 1200px;
@@ -410,12 +401,21 @@ h4 {
     }
 }
 
+/* XL */
+@media (max-width: 1800px) {
+    .book-container
+    {
+        margin-left: 4cm;
+        margin-right: 4cm;
+    }
+}
+
 /* LG */
 @media (max-width: 1400px) {
     .book-container
     {
-        margin-left: 70px;
-        margin-right: 70px;
+        margin-left: 4cm;
+        margin-right: 4cm;
     }
 
     blockquote.big-quote > p {
@@ -425,14 +425,23 @@ h4 {
         margin: 0;
         padding: 4px 0 30px 0;
     }
+}
 
-    .paragraph-container .paragraph-left-side {
-        left: -40px;
-    }
+@media (max-width: 1100px) {
 }
 
 /* MD */
 @media (max-width: 991px) {
+    
+    h2 {
+        width:80%;
+    }
+
+    .book-container
+    {
+        margin-left: 3cm;
+        margin-right: 3cm;
+    }
     
     .book-title-container {
         margin: 73px 0 110px 0;
@@ -453,26 +462,21 @@ h4 {
 
     .book-superheading-title {
         font-size: 15pt;
-    }
-    .book-container {
-        margin: 0 100px;
-    }
+    }                                     
     .article-container {
         width: 100%;
-    }
-    .aside-container > .aside-side-container
-    {
-        position: relative;
-        top: auto;
-        left: auto;
-        width: auto;
-        height: auto;
-        margin: 0;
-        padding: 17px;
     }
 
     .aside-container p {
         top: 0;
+    }
+
+    .aside-container h1 + .aside-side-container.side-media-block h2 {
+        display: none;
+    }
+
+    .wide {
+        width: 100%;     
     }
 
     .side-regular-block {
@@ -490,6 +494,17 @@ h4 {
         margin-top: 20px;
         font-size: 13pt;
         border: none;
+    }
+
+    .aside-container > .aside-side-container
+    {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 17px;
     }
 
     blockquote.big-quote > p {
@@ -519,6 +534,12 @@ h4 {
     li {
         margin: 0 0 10px 0;
     }
+
+    .side-regular-block {
+        border-radius: 5px;
+        background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
+        padding: 22px;
+    }    
 }
 
 /* Smartphone horizontal - SM */
@@ -545,7 +566,7 @@ h4 {
     }
 
     .book-container {
-        margin: 0 50px;
+        margin: 0 2.5cm;
     }
     ul {
         margin-left: 30px;
@@ -553,14 +574,29 @@ h4 {
         padding-left: 25px;
     }
     .paragraph-container > .paragraph-left-side {
-        top: 15px;
+	display: block;
+        top: 14px;
+        font-size: 9pt;
     }
     .paragraph-container > .paragraph-right-side {
-        padding-left: 20px;
-        top: 15px;
+	display: block;
+        padding-left: 40px;
+        top: 14px;
+        font-size: 9pt;
     }
 }
 
+@media (max-width: 630px) {
+    .book-container {
+        margin: 0 1.5cm;
+    }
+    .paragraph-container > .paragraph-left-side {
+        left: -33px;
+    }
+    .paragraph-container > .paragraph-right-side {
+        padding-left: 24px;
+    }
+}
 /* Smartphone - XS */
 @media (max-width: 575px) {
     .book-container {
@@ -581,15 +617,14 @@ h4 {
     }
    
     p, li {
-        line-height: 28px;
+        line-height: 24px;
     }    
     .paragraph-container .paragraph-left-side {
-        display: none;
-        top: 14px;
-    }
+        display: none;        }
     .paragraph-container .paragraph-right-side {
-        padding-left: 10px;
+        padding-left: 21px;
         top: 14px;
+	font-size: 8pt;
     }
 }
 
@@ -831,66 +866,102 @@ h4 {
     <h1 id="section">Домены приложений</h1>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p>Самое время пришло поговорить про домены приложений (AppDomains). Причем если вы скажете, что эта тема достаточно элементарна и понятна чтобы позволить себе пропустить данную главу, то в её защиту скажу что тема эта кажется такой простой по одной причине: её зачем-то обходят стороной, тогда как если вглядеться поглубже, выяснится что она очень интересна и многогранна.</p>
+<p >
+Са&shy;мое вре&shy;мя приш&shy;ло по&shy;го&shy;во&shy;рить про до&shy;ме&shy;ны при&shy;ло&shy;же&shy;ний (AppDomains). При&shy;чем ес&shy;ли вы ска&shy;же&shy;те, что эта те&shy;ма дос&shy;та&shy;точ&shy;но эле&shy;мен&shy;тар&shy;на и по&shy;нят&shy;на что&shy;бы поз&shy;во&shy;лить се&shy;бе про&shy;пус&shy;тить дан&shy;ную гла&shy;ву, то в её за&shy;щи&shy;ту ска&shy;жу что те&shy;ма эта ка&shy;жет&shy;ся та&shy;кой прос&shy;той по од&shy;ной при&shy;чи&shy;не: её за&shy;чем-то об&shy;хо&shy;дят сто&shy;ро&shy;ной, тог&shy;да как ес&shy;ли вгля&shy;деть&shy;ся пог&shy;луб&shy;же, вы&shy;яс&shy;нит&shy;ся что она очень ин&shy;те&shy;рес&shy;на и мно&shy;гог&shy;ран&shy;на.</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p>Начнем мы наше изучение с несколько философского вопроса: зачем вообще вводили домены приложений? Чтобы ответить на этот вопрос необходимо немного окунуться в историю: когда балом правил С++ и технология COM, а программисты только прощупывали почву чтобы изобрести что-то наподобие нашей любимой платформы. Работа приложений в те времена по большей части была построена следующим образом: если некоторое программа позволяет расширять собственный функционал, то оно должно выставить некоторые стандартизированные методы наружу: это либо банальный экспорт методов, либо экспорт объектно-ориентированного API через COM. Однако, поскольку мы в любом случае имеем дело с общей для обоих участников процесса памятью (память линейна для процесса, процессы изолированы друг от друга), то и программа и код, её расширяющий имеют общий доступ к памяти друг друга. Как следствие этого - между ними изоляции нет абсолютно никакой. А потому, правильным образом подшаманив с указателями можно легко и просто прочитать память хоста, находясь в плагине.</p>
+<p >
+Нач&shy;нем мы на&shy;ше изу&shy;че&shy;ние с нес&shy;коль&shy;ко фи&shy;ло&shy;софс&shy;ко&shy;го воп&shy;ро&shy;са: за&shy;чем во&shy;об&shy;ще вво&shy;ди&shy;ли до&shy;ме&shy;ны при&shy;ло&shy;же&shy;ний? Что&shy;бы от&shy;ве&shy;тить на этот воп&shy;рос не&shy;об&shy;хо&shy;ди&shy;мо нем&shy;но&shy;го оку&shy;нуть&shy;ся в ис&shy;то&shy;рию: ког&shy;да ба&shy;лом пра&shy;вил С++ и тех&shy;но&shy;ло&shy;гия COM, а прог&shy;рам&shy;мис&shy;ты толь&shy;ко про&shy;щу&shy;пы&shy;ва&shy;ли поч&shy;ву что&shy;бы изоб&shy;рес&shy;ти что-то на&shy;по&shy;до&shy;бие на&shy;шей лю&shy;би&shy;мой плат&shy;фор&shy;мы. Ра&shy;бо&shy;та при&shy;ло&shy;же&shy;ний в те вре&shy;ме&shy;на по боль&shy;шей час&shy;ти бы&shy;ла пос&shy;тро&shy;ена сле&shy;ду&shy;ю&shy;щим об&shy;ра&shy;зом: ес&shy;ли не&shy;ко&shy;то&shy;рое прог&shy;рам&shy;ма поз&shy;во&shy;ля&shy;ет рас&shy;ши&shy;рять собст&shy;венный фун&shy;кци&shy;о&shy;нал, то оно дол&shy;жно выс&shy;та&shy;вить не&shy;ко&shy;то&shy;рые стан&shy;дар&shy;ти&shy;зи&shy;ро&shy;ван&shy;ные ме&shy;то&shy;ды на&shy;ру&shy;жу: это ли&shy;бо ба&shy;наль&shy;ный эк&shy;с&shy;порт ме&shy;то&shy;дов, ли&shy;бо эк&shy;с&shy;порт объ&shy;ек&shy;тно-ори&shy;ен&shy;ти&shy;ро&shy;ван&shy;но&shy;го API че&shy;рез COM. Одна&shy;ко, пос&shy;коль&shy;ку мы в лю&shy;бом слу&shy;чае име&shy;ем де&shy;ло с об&shy;щей для обо&shy;их участ&shy;ни&shy;ков про&shy;цес&shy;са па&shy;мятью (па&shy;мять ли&shy;ней&shy;на для про&shy;цес&shy;са, про&shy;цес&shy;сы изо&shy;ли&shy;ро&shy;ва&shy;ны друг от дру&shy;га), то и прог&shy;рам&shy;ма и код, её рас&shy;ши&shy;ря&shy;ю&shy;щий име&shy;ют об&shy;щий дос&shy;туп к па&shy;мя&shy;ти друг дру&shy;га. Как след&shy;с&shy;твие это&shy;го - меж&shy;ду ни&shy;ми изо&shy;ля&shy;ции нет аб&shy;со&shy;лют&shy;но ни&shy;ка&shy;кой. А по&shy;то&shy;му, пра&shy;виль&shy;ным об&shy;ра&shy;зом под&shy;ша&shy;ма&shy;нив с ука&shy;за&shy;те&shy;ля&shy;ми мож&shy;но лег&shy;ко и прос&shy;то про&shy;чи&shy;тать па&shy;мять хос&shy;та, на&shy;хо&shy;дясь в пла&shy;ги&shy;не.</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p>Это вызывает множество проблем с безопасностью: если само приложение можно сделать безопасным с точки зрения проникновения, то расширив его функционал сторонним кодом такая уверенность сходит на нет: теперь вы живете с мыслью, что пользователь в поисках взломанной версии дорогого плагина отправится скачивать его со стороннего ресурса и скачает некий вылеченный от жадности плагин к вашему приложению чтобы запустить его. Конечно же, бесплатный сыр бывает только в мышеловке: установив его и запустив приложение такой пользователь ничего не заметит, но внедрённый авторами сайта, с которого скачан плагин, код начнёт изучать ваш компьютер в поисках наживы. Или просто заснёт до лучших времён, когда такая нажива на вашем компьютере появится.</p>
+<p >
+Это вы&shy;зы&shy;ва&shy;ет мно&shy;жес&shy;тво проб&shy;лем с бе&shy;зо&shy;пас&shy;ностью: ес&shy;ли са&shy;мо при&shy;ло&shy;же&shy;ние мож&shy;но сде&shy;лать бе&shy;зо&shy;пас&shy;ным с точ&shy;ки зре&shy;ния про&shy;ник&shy;но&shy;ве&shy;ния, то рас&shy;ши&shy;рив его фун&shy;кци&shy;о&shy;нал сто&shy;рон&shy;ним ко&shy;дом та&shy;кая уве&shy;рен&shy;ность схо&shy;дит на нет: те&shy;перь вы жи&shy;ве&shy;те с мыслью, что поль&shy;зо&shy;ва&shy;тель в по&shy;ис&shy;ках взло&shy;ман&shy;ной вер&shy;сии до&shy;ро&shy;го&shy;го пла&shy;ги&shy;на от&shy;пра&shy;вит&shy;ся ска&shy;чи&shy;вать его со сто&shy;рон&shy;не&shy;го ре&shy;сур&shy;са и ска&shy;ча&shy;ет не&shy;кий вы&shy;ле&shy;чен&shy;ный от жад&shy;нос&shy;ти пла&shy;гин к ва&shy;ше&shy;му при&shy;ло&shy;же&shy;нию что&shy;бы за&shy;пус&shy;тить его. Ко&shy;неч&shy;но же, бесп&shy;лат&shy;ный сыр бы&shy;ва&shy;ет толь&shy;ко в мы&shy;ше&shy;лов&shy;ке: ус&shy;та&shy;но&shy;вив его и за&shy;пус&shy;тив при&shy;ло&shy;же&shy;ние та&shy;кой поль&shy;зо&shy;ва&shy;тель ни&shy;че&shy;го не за&shy;ме&shy;тит, но внедрённый ав&shy;то&shy;ра&shy;ми сай&shy;та, с ко&shy;то&shy;ро&shy;го ска&shy;чан пла&shy;гин, код начнёт изу&shy;чать ваш компьютер в по&shy;ис&shy;ках на&shy;жи&shy;вы. Или прос&shy;то заснёт до луч&shy;ших времён, ког&shy;да та&shy;кая на&shy;жи&shy;ва на ва&shy;шем ком&shy;пьютере по&shy;явит&shy;ся.</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p>Одним из решений подобной проблемы может стать запуск плагинов в отдельных процессах: это будет идеальной изоляцией памяти хоста от его расширений на уровне железа: процессы изолируются операционной системой в паре с процессором. Однако, это накладывает определённые ограничения: скорость заметно снижается на всех этапах взаимодействия. Ведь при вызове методов API вы должны:</p>
+<p >
+Одним из ре&shy;ше&shy;ний по&shy;доб&shy;ной проб&shy;ле&shy;мы мо&shy;жет стать за&shy;пуск пла&shy;ги&shy;нов в от&shy;дель&shy;ных про&shy;цес&shy;сах: это бу&shy;дет иде&shy;альной изо&shy;ля&shy;ци&shy;ей па&shy;мя&shy;ти хос&shy;та от его рас&shy;ши&shy;ре&shy;ний на уров&shy;не же&shy;ле&shy;за: про&shy;цес&shy;сы изо&shy;ли&shy;ру&shy;ют&shy;ся опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мой в па&shy;ре с про&shy;цес&shy;со&shy;ром. Одна&shy;ко, это нак&shy;ла&shy;ды&shy;ва&shy;ет оп&shy;ре&shy;делённые ог&shy;ра&shy;ни&shy;че&shy;ния: ско&shy;рость за&shy;мет&shy;но сни&shy;жа&shy;ет&shy;ся на всех эта&shy;пах вза&shy;и&shy;мо&shy;д&shy;ействия. Ведь при вы&shy;зо&shy;ве ме&shy;то&shy;дов API вы дол&shy;жны:</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <ul>
-<li>Сериализовать данные (параметры метода)</li>
-<li>Осуществить передачу до получателя через кросспроцессный механизм:
+<li>
+<p >
+Се&shy;ри&shy;а&shy;ли&shy;зо&shy;вать дан&shy;ные (па&shy;ра&shy;мет&shy;ры ме&shy;то&shy;да)</p>
+</li>
+<li>
+<p >
+Осу&shy;щест&shy;вить пе&shy;ре&shy;да&shy;чу до по&shy;лу&shy;ча&shy;те&shy;ля че&shy;рез крос&shy;спро&shy;цесс&shy;ный ме&shy;ха&shy;низм:</p>
 <ul>
-<li>Например, через сокет</li>
-<li>Или Shared Memory</li>
+<li>
+<p >
+Нап&shy;ри&shy;мер, че&shy;рез со&shy;кет</p>
+</li>
+<li>
+<p >
+Или Shared Memory</p>
+</li>
 </ul>
 </li>
-<li>На другом конце - десериализовать</li>
-<li>Вызвать метод</li>
-<li>Сериализовать ответ</li>
-<li>прокачать его через кросспроцессный механизм</li>
-<li>вернуть тому, кто запросил вызов метода</li>
+<li>
+<p >
+На дру&shy;гом кон&shy;це - де&shy;се&shy;ри&shy;а&shy;ли&shy;зо&shy;вать</p>
+</li>
+<li>
+<p >
+Выз&shy;вать ме&shy;тод</p>
+</li>
+<li>
+<p >
+Се&shy;ри&shy;а&shy;ли&shy;зо&shy;вать от&shy;вет</p>
+</li>
+<li>
+<p >
+про&shy;ка&shy;чать его че&shy;рез крос&shy;спро&shy;цесс&shy;ный ме&shy;ха&shy;низм</p>
+</li>
+<li>
+<p >
+вер&shy;нуть то&shy;му, кто зап&shy;ро&shy;сил вы&shy;зов ме&shy;то&shy;да</p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p>Т.е. нам необходимо выполнить <strong>очень</strong> много действий. Однако плата хоть и велика, результат будет прекрасен: при вызове метода гарантируется полная изоляция между хостом и плагинами по памяти. Плюс ко всему поскольку протокол контролируете именно вы, вы контролируете все возможности по переполнению буферов, которые зачастую используются при взломах.</p>
+<p >
+Т.е. нам не&shy;об&shy;хо&shy;ди&shy;мо вы&shy;пол&shy;нить <strong>очень</strong> мно&shy;го действий. Одна&shy;ко пла&shy;та хоть и ве&shy;ли&shy;ка, ре&shy;зуль&shy;тат бу&shy;дет прек&shy;ра&shy;сен: при вы&shy;зо&shy;ве ме&shy;то&shy;да га&shy;ран&shy;ти&shy;ру&shy;ет&shy;ся пол&shy;ная изо&shy;ля&shy;ция меж&shy;ду хос&shy;том и пла&shy;ги&shy;на&shy;ми по па&shy;мя&shy;ти. Плюс ко все&shy;му пос&shy;коль&shy;ку про&shy;то&shy;кол конт&shy;ро&shy;ли&shy;ру&shy;ете имен&shy;но вы, вы конт&shy;ро&shy;ли&shy;ру&shy;ете все воз&shy;мож&shy;нос&shy;ти по пе&shy;ре&shy;пол&shy;не&shy;нию бу&shy;фе&shy;ров, ко&shy;то&shy;рые за&shy;час&shy;тую ис&shy;поль&shy;зу&shy;ют&shy;ся при взло&shy;мах.</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p>Теория звучит великолепно, если бы не одно &laquo;но&raquo;: необходимы дополнительные средства автоматизации кодогенерации библиотеки для клиента и хоста по некоторому файлу с описанием интерфейса API. Иначе велик риск человеческого фактора при ручной реализации такой обёртки. Таких средств на горизонте не наблюдалось по одной простой причине: пока мы боремся за изоляцию памяти никто не мешает процессу плагина что-либо записать на жёсткий диск (например, модифицировав некий исполняемый файл, внедрив в него вредоносные инструкции) или же обратиться по сети к какому-либо сайту. Другими словами, создав изоляцию по памяти, мы поставили дверь, вокруг которой нет ни одной стены. Согласитесь, тут мы очень похожи на кошку, которая спряталась за шторой одной только головой. Что делать в такой ситуации? Оборачивать весь WinAPI своими обёртками? Это возможно: чтобы получить доступ к WinAPI вы импортируете dll библиотеки и можете переопределить точки входа в методы, заменив их на свои и возвращать ошибки, когда плагин начнёт работать с файлами, с которыми работать не должен. Звучит практично, безопасно, элегантно. Если бы не одно но: код плагина имеет доступ к собственной памяти, а его программист - умеет пользоваться отладчиком и легко сможет понять, где ему необходимо искать таблицу расположения реальных адресов методов WinAPI.</p>
+<p >
+Те&shy;о&shy;рия зву&shy;чит ве&shy;ли&shy;ко&shy;леп&shy;но, ес&shy;ли бы не од&shy;но &laquo;но&raquo;: не&shy;об&shy;хо&shy;ди&shy;мы до&shy;пол&shy;ни&shy;тель&shy;ные сред&shy;ства ав&shy;то&shy;ма&shy;ти&shy;за&shy;ции ко&shy;до&shy;ге&shy;не&shy;ра&shy;ции биб&shy;ли&shy;о&shy;те&shy;ки для кли&shy;ен&shy;та и хос&shy;та по не&shy;ко&shy;то&shy;ро&shy;му фай&shy;лу с опи&shy;са&shy;ни&shy;ем ин&shy;тер&shy;фей&shy;са API. Ина&shy;че ве&shy;лик риск че&shy;ло&shy;ве&shy;чес&shy;ко&shy;го фак&shy;то&shy;ра при руч&shy;ной ре&shy;а&shy;ли&shy;за&shy;ции та&shy;кой обёртки. Та&shy;ких средств на го&shy;ри&shy;зон&shy;те не наб&shy;лю&shy;да&shy;лось по од&shy;ной прос&shy;той при&shy;чи&shy;не: по&shy;ка мы бо&shy;рем&shy;ся за изо&shy;ля&shy;цию па&shy;мя&shy;ти ник&shy;то не ме&shy;ша&shy;ет про&shy;цес&shy;су пла&shy;ги&shy;на что-ли&shy;бо за&shy;пи&shy;сать на жёсткий диск (нап&shy;ри&shy;мер, мо&shy;ди&shy;фи&shy;ци&shy;ро&shy;вав не&shy;кий ис&shy;пол&shy;ня&shy;е&shy;мый файл, внед&shy;рив в не&shy;го вре&shy;до&shy;нос&shy;ные инстр&shy;укции) или же об&shy;ра&shy;тить&shy;ся по се&shy;ти к ка&shy;ко&shy;му-ли&shy;бо сай&shy;ту. Дру&shy;ги&shy;ми сло&shy;ва&shy;ми, соз&shy;дав изо&shy;ля&shy;цию по па&shy;мя&shy;ти, мы пос&shy;та&shy;ви&shy;ли дверь, вок&shy;руг ко&shy;то&shy;рой нет ни од&shy;ной сте&shy;ны. Сог&shy;ла&shy;си&shy;тесь, тут мы очень по&shy;хо&shy;жи на кош&shy;ку, ко&shy;то&shy;рая спря&shy;та&shy;лась за што&shy;рой од&shy;ной толь&shy;ко го&shy;ло&shy;вой. Что де&shy;лать в та&shy;кой си&shy;ту&shy;а&shy;ции? Обо&shy;ра&shy;чи&shy;вать весь WinAPI сво&shy;ими обёртка&shy;ми? Это воз&shy;мож&shy;но: что&shy;бы по&shy;лу&shy;чить дос&shy;туп к WinAPI вы им&shy;пор&shy;ти&shy;ру&shy;ете dll биб&shy;ли&shy;о&shy;те&shy;ки и мо&shy;же&shy;те пе&shy;ре&shy;оп&shy;ре&shy;де&shy;лить точ&shy;ки вхо&shy;да в ме&shy;то&shy;ды, за&shy;ме&shy;нив их на свои и возв&shy;ра&shy;щать ошиб&shy;ки, ког&shy;да пла&shy;гин начнёт ра&shy;бо&shy;тать с фай&shy;ла&shy;ми, с ко&shy;то&shy;ры&shy;ми ра&shy;бо&shy;тать не дол&shy;жен. Зву&shy;чит прак&shy;тич&shy;но, бе&shy;зо&shy;пас&shy;но, эле&shy;ган&shy;тно. Если бы не од&shy;но но: код пла&shy;ги&shy;на име&shy;ет дос&shy;туп к собст&shy;венной па&shy;мя&shy;ти, а его прог&shy;рам&shy;мист - уме&shy;ет поль&shy;зо&shy;вать&shy;ся от&shy;лад&shy;чи&shy;ком и лег&shy;ко смо&shy;жет по&shy;нять, где ему не&shy;об&shy;хо&shy;ди&shy;мо ис&shy;кать таб&shy;ли&shy;цу рас&shy;по&shy;ло&shy;же&shy;ния ре&shy;альных ад&shy;ре&shy;сов ме&shy;то&shy;дов WinAPI.</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p>Всё это звучит как безнадёга. Однако, в данном разговоре не хватает понимания: что конкретно мы защищаем и от чего (а главное, почему?) мы защищаемся. Защитить мы пытаемся наши данные, которые могут содержать некие пароли, средства доступа к нашим финансам, личным фотоархивам и прочей конфиденциальной информации. Скрывать всегда есть что, однако скрываем мы всегда данные. От чего мы их скрываем? От неких действий. Если нет действий, значит, данные находятся в безопасности. Значит, если обзавестись средством контроля над тем, что делает (какой исполняет код) наш плагин, значит, мы получим средство обеспечения безопасности наших данных не прибегая к созданию сложной системы взаимодействия между процессами. А как достичь полного контроля? Мы же не станем анализировать реальный скомпилированный код: средств обмана анализаторов и прочих антивирусов предостаточно. Идеально - это когда мы сами осуществляем компиляцию приложения - раз. И два - когда исходный для компиляции язык не может содержать подводных камней, позволяющих компилятор обмануть. Этими задачами занимается JIT: он просто не даст скомпилировать что-либо опасное. Второе - необходимо иметь уровни доверия: ведь в конце концов само приложение <em>может</em> иметь средства сборки опасного кода. Запрещать опасные участки необходимо плагинам и прочим средствам расширения: им-то мы не доверяем. И тут мы вплотную подошли к теме нашего разговора: JIT и домены приложений.</p>
+<p >
+Всё это зву&shy;чит как без&shy;надёга. Одна&shy;ко, в дан&shy;ном раз&shy;го&shy;во&shy;ре не хва&shy;та&shy;ет по&shy;ни&shy;ма&shy;ния: что конк&shy;рет&shy;но мы за&shy;щи&shy;ща&shy;ем и от че&shy;го (а глав&shy;ное, по&shy;че&shy;му?) мы за&shy;щи&shy;ща&shy;ем&shy;ся. За&shy;щи&shy;тить мы пы&shy;та&shy;ем&shy;ся на&shy;ши дан&shy;ные, ко&shy;то&shy;рые мо&shy;гут со&shy;дер&shy;жать не&shy;кие па&shy;ро&shy;ли, сред&shy;ства дос&shy;ту&shy;па к на&shy;шим фи&shy;нан&shy;сам, лич&shy;ным фо&shy;то&shy;ар&shy;хи&shy;вам и про&shy;чей кон&shy;фи&shy;ден&shy;ци&shy;альной ин&shy;фор&shy;ма&shy;ции. Скры&shy;вать всег&shy;да есть что, од&shy;на&shy;ко скры&shy;ва&shy;ем мы всег&shy;да дан&shy;ные. От че&shy;го мы их скры&shy;ва&shy;ем? От не&shy;ких действий. Если нет действий, зна&shy;чит, дан&shy;ные на&shy;хо&shy;дят&shy;ся в бе&shy;зо&shy;пас&shy;нос&shy;ти. Зна&shy;чит, ес&shy;ли об&shy;за&shy;вес&shy;тись сред&shy;с&shy;твом конт&shy;ро&shy;ля над тем, что де&shy;ла&shy;ет (ка&shy;кой ис&shy;пол&shy;ня&shy;ет код) наш пла&shy;гин, зна&shy;чит, мы по&shy;лу&shy;чим сред&shy;ство обес&shy;пе&shy;че&shy;ния бе&shy;зо&shy;пас&shy;нос&shy;ти на&shy;ших дан&shy;ных не при&shy;бе&shy;гая к соз&shy;да&shy;нию слож&shy;ной сис&shy;те&shy;мы вза&shy;и&shy;мо&shy;д&shy;ействия меж&shy;ду про&shy;цес&shy;са&shy;ми. А как дос&shy;тичь пол&shy;но&shy;го конт&shy;ро&shy;ля? Мы же не ста&shy;нем ана&shy;ли&shy;зи&shy;ро&shy;вать ре&shy;альный ском&shy;пи&shy;ли&shy;ро&shy;ван&shy;ный код: средств об&shy;ма&shy;на ана&shy;ли&shy;за&shy;то&shy;ров и про&shy;чих ан&shy;ти&shy;ви&shy;ру&shy;сов пре&shy;дос&shy;та&shy;точ&shy;но. Иде&shy;ально - это ког&shy;да мы са&shy;ми осу&shy;щес&shy;твляем ком&shy;пи&shy;ля&shy;цию при&shy;ло&shy;же&shy;ния - раз. И два - ког&shy;да ис&shy;ход&shy;ный для ком&shy;пи&shy;ля&shy;ции язык не мо&shy;жет со&shy;дер&shy;жать под&shy;вод&shy;ных кам&shy;ней, поз&shy;во&shy;ля&shy;ю&shy;щих ком&shy;пи&shy;ля&shy;тор об&shy;ма&shy;нуть. Эти&shy;ми за&shy;да&shy;ча&shy;ми за&shy;ни&shy;ма&shy;ет&shy;ся JIT: он прос&shy;то не даст ском&shy;пи&shy;ли&shy;ро&shy;вать что-ли&shy;бо опас&shy;ное. Вто&shy;рое - не&shy;об&shy;хо&shy;ди&shy;мо иметь уров&shy;ни до&shy;ве&shy;рия: ведь в кон&shy;це кон&shy;цов са&shy;мо при&shy;ло&shy;же&shy;ние <em>может</em> иметь сред&shy;ства сбор&shy;ки опас&shy;но&shy;го ко&shy;да. Зап&shy;ре&shy;щать опас&shy;ные учас&shy;тки не&shy;об&shy;хо&shy;ди&shy;мо пла&shy;ги&shy;нам и про&shy;чим сред&shy;с&shy;твам рас&shy;ши&shy;ре&shy;ния: им-то мы не до&shy;ве&shy;ря&shy;ем. И тут мы вплот&shy;ную по&shy;дош&shy;ли к те&shy;ме на&shy;ше&shy;го раз&shy;го&shy;во&shy;ра: JIT и до&shy;ме&shy;ны при&shy;ло&shy;же&shy;ний.</p>
 <div class="paragraph-right-side">07</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p>Поскольку наш код и код, которому мы по каким-то причинам не доверяем порождается единым компилятором (JIT), который собирает приложение относительно MSIL, то компилятор этот может быть настроен таким образом, чтобы не собирать код, который будет признан опасным. Имея единственный компилятор мы получаем средство тотального контроля над кодом, который исполняется процессором. Осталось получить абстракцию, в рамках которой будут существовать некие жёсткие правила: это и есть домены приложений.</p>
+<p >
+Пос&shy;коль&shy;ку наш код и код, ко&shy;то&shy;ро&shy;му мы по ка&shy;ким-то при&shy;чи&shy;нам не до&shy;ве&shy;ря&shy;ем по&shy;рож&shy;да&shy;ет&shy;ся еди&shy;ным ком&shy;пи&shy;ля&shy;то&shy;ром (JIT), ко&shy;то&shy;рый со&shy;би&shy;ра&shy;ет при&shy;ло&shy;же&shy;ние от&shy;но&shy;си&shy;тель&shy;но MSIL, то ком&shy;пи&shy;ля&shy;тор этот мо&shy;жет быть нас&shy;тро&shy;ен та&shy;ким об&shy;ра&shy;зом, что&shy;бы не со&shy;би&shy;рать код, ко&shy;то&shy;рый бу&shy;дет приз&shy;нан опас&shy;ным. Имея единст&shy;венный ком&shy;пи&shy;ля&shy;тор мы по&shy;лу&shy;ча&shy;ем сред&shy;ство то&shy;таль&shy;но&shy;го конт&shy;ро&shy;ля над ко&shy;дом, ко&shy;то&shy;рый ис&shy;пол&shy;ня&shy;ет&shy;ся про&shy;цес&shy;со&shy;ром. Оста&shy;лось по&shy;лу&shy;чить абстр&shy;акцию, в рам&shy;ках ко&shy;то&shy;рой бу&shy;дут су&shy;щест&shy;во&shy;вать не&shy;кие жёсткие пра&shy;ви&shy;ла: это и есть до&shy;ме&shy;ны при&shy;ло&shy;же&shy;ний.</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
-<p>Если попытаться обобщить, то домен приложения - это изолированная область исполнения кода. Вы можете настроить любые правила исполнения: от доступа к рефлексии до доступа к жёсткому диску. И поскольку все базовые методы доступа к этим ресурсам находятся во владении BCL и CLR, то сторонний код, загруженный в хорошо настроенную среду не сможет выбраться из такой песочницы.</p>
+<p >
+Если по&shy;пы&shy;тать&shy;ся обоб&shy;щить, то до&shy;мен при&shy;ло&shy;же&shy;ния - это изо&shy;ли&shy;ро&shy;ван&shy;ная об&shy;ласть ис&shy;пол&shy;не&shy;ния ко&shy;да. Вы мо&shy;же&shy;те нас&shy;тро&shy;ить лю&shy;бые пра&shy;ви&shy;ла ис&shy;пол&shy;не&shy;ния: от дос&shy;ту&shy;па к реф&shy;лек&shy;сии до дос&shy;ту&shy;па к жёстко&shy;му дис&shy;ку. И пос&shy;коль&shy;ку все ба&shy;зо&shy;вые ме&shy;то&shy;ды дос&shy;ту&shy;па к этим ре&shy;сур&shy;сам на&shy;хо&shy;дят&shy;ся во вла&shy;де&shy;нии BCL и CLR, то сто&shy;рон&shy;ний код, заг&shy;ру&shy;жен&shy;ный в хо&shy;ро&shy;шо нас&shy;тро&shy;ен&shy;ную сре&shy;ду не смо&shy;жет выб&shy;рать&shy;ся из та&shy;кой пе&shy;соч&shy;ни&shy;цы.</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
-<p>Если рассматривать домены в вопросе архитектуры системы, то в понимании иерархии компонентов может сложиться не совсем верная картина мира: что базовым элементом системы типов является сам тип, далее - находятся пространства имён, модули и сборки, которые их объединяют. И венцом иерархии является домен приложения. А на самом деле всё совсем не так. Видимая иерархия является переплетением различных слоёв фреймворка .NET: если типы и пространства имён образуют систему типов и кода (мысленно расположим их по центру), то модули (слева) - средство их объединения в единую группу <strong>в вопросе хранения</strong>. Они не оказывают никакого влияния с точки зрения смыслового объединения. Сборка при этом - также средство хранения и объединяет модули в единый файл. Домен же занимает совершенно обособленную позицию: справа. Ведь это ни средство хранения ни средство логического разделения: это средство исполнения кода, в него загруженного.</p>
+<p >
+Если расс&shy;мат&shy;ри&shy;вать до&shy;ме&shy;ны в воп&shy;ро&shy;се ар&shy;хи&shy;тек&shy;ту&shy;ры сис&shy;те&shy;мы, то в по&shy;ни&shy;ма&shy;нии иера&shy;рхии ком&shy;по&shy;нен&shy;тов мо&shy;жет сло&shy;жить&shy;ся не сов&shy;сем вер&shy;ная кар&shy;ти&shy;на ми&shy;ра: что ба&shy;зо&shy;вым эле&shy;мен&shy;том сис&shy;те&shy;мы ти&shy;пов яв&shy;ля&shy;ет&shy;ся сам тип, да&shy;лее - на&shy;хо&shy;дят&shy;ся прост&shy;ранства имён, мо&shy;ду&shy;ли и сбор&shy;ки, ко&shy;то&shy;рые их объ&shy;е&shy;ди&shy;ня&shy;ют. И вен&shy;цом иера&shy;рхии яв&shy;ля&shy;ет&shy;ся до&shy;мен при&shy;ло&shy;же&shy;ния. А на са&shy;мом де&shy;ле всё сов&shy;сем не так. Ви&shy;ди&shy;мая иера&shy;рхия яв&shy;ля&shy;ет&shy;ся пе&shy;реп&shy;ле&shy;те&shy;ни&shy;ем раз&shy;лич&shy;ных слоёв фрейм&shy;вор&shy;ка .NET: ес&shy;ли ти&shy;пы и прост&shy;ранства имён об&shy;ра&shy;зу&shy;ют сис&shy;те&shy;му ти&shy;пов и ко&shy;да (мыс&shy;лен&shy;но рас&shy;по&shy;ло&shy;жим их по цен&shy;тру), то мо&shy;ду&shy;ли (сле&shy;ва) - сред&shy;ство их объ&shy;е&shy;ди&shy;не&shy;ния в еди&shy;ную груп&shy;пу <strong>в вопросе хранения</strong>. Они не ока&shy;зы&shy;ва&shy;ют ни&shy;ка&shy;ко&shy;го вли&shy;я&shy;ния с точ&shy;ки зре&shy;ния смыс&shy;ло&shy;во&shy;го объ&shy;е&shy;ди&shy;не&shy;ния. Сбор&shy;ка при этом - так&shy;же сред&shy;ство хра&shy;не&shy;ния и объ&shy;е&shy;ди&shy;ня&shy;ет мо&shy;ду&shy;ли в еди&shy;ный файл. До&shy;мен же за&shy;ни&shy;ма&shy;ет со&shy;вер&shy;шен&shy;но обо&shy;соб&shy;лен&shy;ную по&shy;зи&shy;цию: спра&shy;ва. Ведь это ни сред&shy;ство хра&shy;не&shy;ния ни сред&shy;ство ло&shy;ги&shy;чес&shy;ко&shy;го раз&shy;де&shy;ле&shy;ния: это сред&shy;ство ис&shy;пол&shy;не&shy;ния ко&shy;да, в не&shy;го заг&shy;ру&shy;жен&shy;но&shy;го.</p>
 <div class="paragraph-right-side">10</div>
 </div>
 

@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>.NET Platform Architecture</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.NET Platform Architecture</title>
 </head>
 <body>
     <link rel="stylesheet" href="../../res/bootstrap.css">
@@ -57,27 +57,28 @@ strong {
 }
 
 p, li {
-    margin: 0 0 25px;
-    line-height: 32px;
+    margin: 0 0 1em;
+    line-height: 1.5em;
     font-family: inherit;
 }
 
 ol, li {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 ol {
-    padding-left: 1.2rem;
+    padding-left: 1.21em;
 }
 
 ul  {
-    padding-left: 35px;
+    padding-left: 1em;
 }
 
 ol li, ul li {
-    padding-left: 1rem;	
+    padding-left: 0.5em;	
     font-family: inherit;
+    text-align: justify;
 }
 
 table {
@@ -108,6 +109,7 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 *[class*='lang-'] {
     padding: 0px 0px 25px 0px;
+    font-size: 0.75em;
 }
 
 
@@ -126,11 +128,11 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 }
 
 p code:not(.highlight), li code:not(.highlight) {
-    font-size: 16px;
+    font-size: 0.7em;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
-    padding: 4px;
+    padding: 3px;
     color: darkslateblue;
 }
 
@@ -148,11 +150,6 @@ p code.highlight, li code.highlight {
 
 .wide {
     width:150%;
-}
-
-*[class*='lang-'] span, *[class*='lang-'] pre, pre > code {
-    font-size: 13px;
-    line-height: 20px;
 }
 
 p a, li a {
@@ -179,9 +176,9 @@ p img {
 
 blockquote 
 {
-    background-color: lavenderblush;
-    padding-left: 20px;
-    border-left: 1px solid rgba(0,0,0,.08);
+    padding-left: 0.4em;
+    border-left: 0.5em solid rgba(0,0,0,.08);
+    font-style: italic;
 }
 
 blockquote.big-quote, 
@@ -199,8 +196,7 @@ blockquote.breadcrumbs, blockquote.breadcrumbs  p
 }
 
 blockquote p {
-    margin: 16px 0;
-    padding: 12px 12px 13px;
+    padding: 1em 1em 1em 0.6em;
     font-family: inherit;
 }
 
@@ -210,11 +206,14 @@ blockquote p code {
     padding: 4px 6px;
 }
 
+blockquote p em {
+    font-weight: 400;
+}
+
 blockquote.big-quote > p {
     margin: 40px 0 60px 0;
     font-family: Charter;
     font-size: 55px;
-    line-height: 60px;
     padding: 0;
     width: 150%;
 }
@@ -227,31 +226,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 40px;
-    font-family: PF Regal,Georgia,serif;
+    font-size: 2.2em;
+    font-family: Charter,Georgia,serif;
     font-weight: 300;
-    margin: 40px 0 20px 0;
-    border-bottom-style: ridge;
-    padding-bottom: 10px;
-}
-
-h1 b {
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-weight: 700;
-    font-size: 37px;
-    line-height: 42px;
+    margin: 1.8em 0 1.8em 0;
+    text-align: center;
 }
 
 h2 {
-    margin-top: 35px;
-    margin-bottom: 10px;
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-    border-bottom-color: grey;
-    border-bottom-style: solid;
-    padding-bottom: 5px;
+    margin-top: 2em;
+    margin-left: 1.2em;
+    font-family: Charter,Arial,Helvetica Neue,sans-serif;
+    font-size: 1.25em;
+    width: 70%;
 }
 
 h3 {
@@ -293,27 +280,23 @@ h4 {
     line-height: 24px;
     font-size: 13pt;
     margin: 0 0 13px 0;
-    font-family: Charter;
-}
-
-.side-regular-block {
-    border-radius: 5px;
-    background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
-    padding: 22px;
 }
 
 .side-regular-block p {
     top: 0;
 }
-/* Music side player */
 
+/* Music side player */
 .aside-side-container .music-player {
     width: 100%;
     height: 400px;
 }
 
-.aside-side-container.side-media-block h2 {
-    margin-top: -12px;
+/* media block after h1 */
+.aside-container h1 + .aside-side-container.side-media-block h2 {
+    margin: 7em 0 1em 0;
+    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
+    font-weight: 600;
 }
 
 .aside-side-container > li {
@@ -323,8 +306,8 @@ h4 {
 
 .aside-side-container > li ul, .aside-side-container > li ol {
     padding-left: 30px;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 .aside-side-container > li li {
     padding-left: 6px;
@@ -353,6 +336,12 @@ h4 {
     position: relative;
     top: 9px;
 }
+
+.paragraph-container p, .aside-container > p {
+    text-align: justify;
+    text-indent: 1.5em;
+}
+
 .paragraph-container > .paragraph-left-side, .paragraph-container > .paragraph-right-side  {
     font-family: JB Mono, consolas;
     display: block;
@@ -364,12 +353,14 @@ h4 {
     z-index: 1000;
 }
 .paragraph-container > .paragraph-left-side {
-    left: -55px;
+    display: none;
+    left: -2.1cm;
     width: 35px;
     user-select: none;
 }
 
 .paragraph-container > .paragraph-right-side  {
+    display: none;
     left: 100%;
     width: 35px;
     padding-left: 45px;
@@ -400,8 +391,8 @@ h4 {
 
 
 /* MEDIA */
-/* XL */
-@media (min-width: 1400px) {
+/* XXL */
+@media (min-width: 1801px) {
     .book-container
     {
         max-width: 1200px;
@@ -410,12 +401,21 @@ h4 {
     }
 }
 
+/* XL */
+@media (max-width: 1800px) {
+    .book-container
+    {
+        margin-left: 4cm;
+        margin-right: 4cm;
+    }
+}
+
 /* LG */
 @media (max-width: 1400px) {
     .book-container
     {
-        margin-left: 70px;
-        margin-right: 70px;
+        margin-left: 4cm;
+        margin-right: 4cm;
     }
 
     blockquote.big-quote > p {
@@ -425,14 +425,23 @@ h4 {
         margin: 0;
         padding: 4px 0 30px 0;
     }
+}
 
-    .paragraph-container .paragraph-left-side {
-        left: -40px;
-    }
+@media (max-width: 1100px) {
 }
 
 /* MD */
 @media (max-width: 991px) {
+    
+    h2 {
+        width:80%;
+    }
+
+    .book-container
+    {
+        margin-left: 3cm;
+        margin-right: 3cm;
+    }
     
     .book-title-container {
         margin: 73px 0 110px 0;
@@ -453,26 +462,21 @@ h4 {
 
     .book-superheading-title {
         font-size: 15pt;
-    }
-    .book-container {
-        margin: 0 100px;
-    }
+    }                                     
     .article-container {
         width: 100%;
-    }
-    .aside-container > .aside-side-container
-    {
-        position: relative;
-        top: auto;
-        left: auto;
-        width: auto;
-        height: auto;
-        margin: 0;
-        padding: 17px;
     }
 
     .aside-container p {
         top: 0;
+    }
+
+    .aside-container h1 + .aside-side-container.side-media-block h2 {
+        display: none;
+    }
+
+    .wide {
+        width: 100%;     
     }
 
     .side-regular-block {
@@ -490,6 +494,17 @@ h4 {
         margin-top: 20px;
         font-size: 13pt;
         border: none;
+    }
+
+    .aside-container > .aside-side-container
+    {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 17px;
     }
 
     blockquote.big-quote > p {
@@ -519,6 +534,12 @@ h4 {
     li {
         margin: 0 0 10px 0;
     }
+
+    .side-regular-block {
+        border-radius: 5px;
+        background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
+        padding: 22px;
+    }    
 }
 
 /* Smartphone horizontal - SM */
@@ -545,7 +566,7 @@ h4 {
     }
 
     .book-container {
-        margin: 0 50px;
+        margin: 0 2.5cm;
     }
     ul {
         margin-left: 30px;
@@ -553,14 +574,29 @@ h4 {
         padding-left: 25px;
     }
     .paragraph-container > .paragraph-left-side {
-        top: 15px;
+	display: block;
+        top: 14px;
+        font-size: 9pt;
     }
     .paragraph-container > .paragraph-right-side {
-        padding-left: 20px;
-        top: 15px;
+	display: block;
+        padding-left: 40px;
+        top: 14px;
+        font-size: 9pt;
     }
 }
 
+@media (max-width: 630px) {
+    .book-container {
+        margin: 0 1.5cm;
+    }
+    .paragraph-container > .paragraph-left-side {
+        left: -33px;
+    }
+    .paragraph-container > .paragraph-right-side {
+        padding-left: 24px;
+    }
+}
 /* Smartphone - XS */
 @media (max-width: 575px) {
     .book-container {
@@ -581,15 +617,14 @@ h4 {
     }
    
     p, li {
-        line-height: 28px;
+        line-height: 24px;
     }    
     .paragraph-container .paragraph-left-side {
-        display: none;
-        top: 14px;
-    }
+        display: none;        }
     .paragraph-container .paragraph-right-side {
-        padding-left: 10px;
+        padding-left: 21px;
         top: 14px;
+	font-size: 8pt;
     }
 }
 
@@ -829,16 +864,19 @@ h4 {
     <p class="d-none d-lg-block d-xl-none">LG</p>
     <p class="d-none d-xl-block">XL</p> -->
     <blockquote class="breadcrumbs">
-<p> <a href="../readme.html">Содержание</a> / <a href="./01-00-MemoryManagement-Intro.html">Основы управления памятью</a></p>
+<p >
+ <a href="../readme.html">Содержание</a> / <a href="./01-00-MemoryManagement-Intro.html">Основы управления памятью</a></p>
 </blockquote>
 <h1 id="section">Стек потока</h1>
 <h2 id="x86">Базовая структура, платформа x86</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p>Существует область памяти, про которую редко заходит разговор. Однако эта область является, возможно, основной в работе приложения. Самой часто используемой, достаточно ограниченной с моментальным выделением и освобождением памяти. Область эта называется &laquo;стек потока&raquo;. Причём поскольку указатель на него кодируется по своей сути регистрами процессора, которые входят в контекст потока, то в рамках исполнения любого потока стек потока свой. Зачем он необходим?</p>
+<p >
+Су&shy;щес&shy;тву&shy;ет об&shy;ласть па&shy;мя&shy;ти, про ко&shy;то&shy;рую ред&shy;ко за&shy;хо&shy;дит раз&shy;го&shy;вор. Одна&shy;ко эта об&shy;ласть яв&shy;ля&shy;ет&shy;ся, воз&shy;мож&shy;но, ос&shy;нов&shy;ной в ра&shy;бо&shy;те при&shy;ло&shy;же&shy;ния. Са&shy;мой час&shy;то ис&shy;поль&shy;зу&shy;е&shy;мой, дос&shy;та&shy;точ&shy;но ог&shy;ра&shy;ни&shy;чен&shy;ной с мо&shy;мен&shy;таль&shy;ным вы&shy;де&shy;ле&shy;ни&shy;ем и ос&shy;во&shy;бож&shy;де&shy;ни&shy;ем па&shy;мя&shy;ти. Область эта на&shy;зы&shy;ва&shy;ет&shy;ся &laquo;стек по&shy;то&shy;ка&raquo;. Причём пос&shy;коль&shy;ку ука&shy;за&shy;тель на не&shy;го ко&shy;ди&shy;ру&shy;ет&shy;ся по сво&shy;ей су&shy;ти ре&shy;гист&shy;ра&shy;ми про&shy;цес&shy;со&shy;ра, ко&shy;то&shy;рые вхо&shy;дят в кон&shy;текст по&shy;то&shy;ка, то в рам&shy;ках ис&shy;пол&shy;не&shy;ния лю&shy;бо&shy;го по&shy;то&shy;ка стек по&shy;то&shy;ка свой. За&shy;чем он не&shy;об&shy;хо&shy;дим?</p>
 <div class="paragraph-right-side">01</div>
 </div>
-<p>Итак, разберём элементарный пример кода:</p>
+<p >
+Итак, раз&shy;берём эле&shy;мен&shy;тар&shy;ный при&shy;мер ко&shy;да:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">void</span> Method1()
 {
@@ -853,34 +891,61 @@ h4 {
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p>В данном коде не происходит ничего примечательного, однако не будем его пропускать, а наоборот: посмотрим на него максимально внимательно. Когда любой <code>Method1</code> вызывает любой <code>Method2</code>, то абсолютно любой такой вызов (и не только в .NET, но и в других платформах) осуществляет следующие операции:</p>
+<p >
+В дан&shy;ном ко&shy;де не про&shy;ис&shy;хо&shy;дит ни&shy;че&shy;го при&shy;ме&shy;ча&shy;тель&shy;но&shy;го, од&shy;на&shy;ко не бу&shy;дем его про&shy;пус&shy;кать, а на&shy;о&shy;бо&shy;рот: пос&shy;мот&shy;рим на не&shy;го мак&shy;си&shy;маль&shy;но вни&shy;ма&shy;тель&shy;но. Ког&shy;да лю&shy;бой <code>Method1</code> вы&shy;зы&shy;ва&shy;ет лю&shy;бой <code>Method2</code>, то аб&shy;со&shy;лют&shy;но лю&shy;бой та&shy;кой вы&shy;зов (и не толь&shy;ко в .NET, но и в дру&shy;гих плат&shy;фор&shy;мах) осу&shy;щес&shy;твляет сле&shy;ду&shy;ю&shy;щие опе&shy;ра&shy;ции:</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <ol>
-<li>Первое, что делает код, скомпилированный JIT'ом: он сохраняет параметры метода в стек (начиная с третьего). При этом первые два передаются через регистры. Тут важно помнить, что первым параметром экземплярных методов передаётся указатель на тот объект, с которым работает метод. Т.е. указатель <code>this</code>. Так что в этих (почти всех) случаях для регистров остаётся всего один параметр, а для всех остальных - стек;</li>
-<li>Далее компилятор ставит инструкцию вызова метода <code>call</code>, которая помещает в стек адрес возврата из метода: адрес следующей за <code>call</code> инструкцией. Таким образом любой метод знает, куда ему необходимо вернуться, чтобы вызывающий код смог продолжить работу;</li>
-<li>После того как все параметры переданы, а метод вызван, нам надо как-то понять, как стек восстановить в случае выхода из метода, если мы не хотим заботиться о подсчёте занимаемых нами в стеке байтов. Для этого мы сохраняем значение регистра EBP, который всегда хранит указатель на начало текущего кадра стека (т.е. участка, где хранится информация для конкретного вызванного метода). Сохраняя при каждом вызове значение этого регистра, мы тем самым фактически создаём односвязный список стековых кадров. Но прошу заметить, что по факту они идут чётко друг за другом, без каких-либо пробелов. Однако для упрощения освобождения памяти из-под кадра и для отладки приложения (отладчик использует эти указатели, чтобы отобразить Stack Trace) строится односвязный список;</li>
-<li>Последнее, что надо сделать при вызове метода, - выделить участок памяти под локальные переменные. Поскольку компилятор заранее знает, сколько её понадобится, то делает он это сразу, сдвигая указатель на вершину стека (SP/ESP/RSP) на необходимое количество байт;</li>
-<li>И наконец, на пятом этапе выполняется код метода, полезные операции;</li>
-<li>Когда происходит выход из метода, то вершина стека восстанавливается из EBP - места, где хранится начало текущего стекового кадра;</li>
-<li>Далее, последним этапом осуществляется выход из метода через инструкцию <code>ret</code>. Она забирает со стека адрес возврата, заботливо оставленный ранее инструкцией <code>call</code> и делает <code>jmp</code> по этому адресу.</li>
+<li>
+<p >
+Пер&shy;вое, что де&shy;ла&shy;ет код, ском&shy;пи&shy;ли&shy;ро&shy;ван&shy;ный JIT'ом: он сох&shy;ра&shy;ня&shy;ет па&shy;ра&shy;мет&shy;ры ме&shy;то&shy;да в стек (на&shy;чи&shy;ная с трет&shy;ьего). При этом пер&shy;вые два пе&shy;ре&shy;да&shy;ют&shy;ся че&shy;рез ре&shy;гис&shy;тры. Тут важ&shy;но пом&shy;нить, что пер&shy;вым па&shy;ра&shy;мет&shy;ром эк&shy;земп&shy;ляр&shy;ных ме&shy;то&shy;дов пе&shy;ре&shy;даётся ука&shy;за&shy;тель на тот объ&shy;ект, с ко&shy;то&shy;рым ра&shy;бо&shy;та&shy;ет ме&shy;тод. Т.е. ука&shy;за&shy;тель <code>this</code>. Так что в этих (поч&shy;ти всех) слу&shy;ча&shy;ях для ре&shy;гист&shy;ров ос&shy;таётся все&shy;го один па&shy;ра&shy;метр, а для всех ос&shy;таль&shy;ных - стек;</p>
+</li>
+<li>
+<p >
+Да&shy;лее ком&shy;пи&shy;ля&shy;тор ста&shy;вит инстр&shy;укцию вы&shy;зо&shy;ва ме&shy;то&shy;да <code>call</code>, ко&shy;то&shy;рая по&shy;ме&shy;ща&shy;ет в стек ад&shy;рес возв&shy;ра&shy;та из ме&shy;то&shy;да: ад&shy;рес сле&shy;ду&shy;ю&shy;щей за <code>call</code> инстр&shy;ук&shy;цией. Та&shy;ким об&shy;ра&shy;зом лю&shy;бой ме&shy;тод зна&shy;ет, ку&shy;да ему не&shy;об&shy;хо&shy;ди&shy;мо вер&shy;нуть&shy;ся, что&shy;бы вы&shy;зы&shy;ва&shy;ю&shy;щий код смог про&shy;дол&shy;жить ра&shy;бо&shy;ту;</p>
+</li>
+<li>
+<p >
+Пос&shy;ле то&shy;го как все па&shy;ра&shy;мет&shy;ры пе&shy;ре&shy;да&shy;ны, а ме&shy;тод выз&shy;ван, нам на&shy;до как-то по&shy;нять, как стек восс&shy;та&shy;но&shy;вить в слу&shy;чае вы&shy;хо&shy;да из ме&shy;то&shy;да, ес&shy;ли мы не хо&shy;тим за&shy;бо&shy;тить&shy;ся о подсчёте за&shy;ни&shy;ма&shy;е&shy;мых на&shy;ми в сте&shy;ке бай&shy;тов. Для это&shy;го мы сох&shy;ра&shy;ня&shy;ем зна&shy;че&shy;ние ре&shy;гис&shy;тра EBP, ко&shy;то&shy;рый всег&shy;да хра&shy;нит ука&shy;за&shy;тель на на&shy;ча&shy;ло те&shy;ку&shy;ще&shy;го кад&shy;ра сте&shy;ка (т.е. учас&shy;тка, где хра&shy;нит&shy;ся ин&shy;фор&shy;ма&shy;ция для конк&shy;рет&shy;но&shy;го выз&shy;ван&shy;но&shy;го ме&shy;то&shy;да). Сох&shy;ра&shy;няя при каж&shy;дом вы&shy;зо&shy;ве зна&shy;че&shy;ние это&shy;го ре&shy;гис&shy;тра, мы тем са&shy;мым фак&shy;ти&shy;чес&shy;ки соз&shy;даём од&shy;нос&shy;вяз&shy;ный спи&shy;сок сте&shy;ко&shy;вых кад&shy;ров. Но про&shy;шу за&shy;ме&shy;тить, что по фак&shy;ту они идут чётко друг за дру&shy;гом, без ка&shy;ких-ли&shy;бо про&shy;бе&shy;лов. Одна&shy;ко для уп&shy;ро&shy;ще&shy;ния ос&shy;во&shy;бож&shy;де&shy;ния па&shy;мя&shy;ти из-под кад&shy;ра и для от&shy;лад&shy;ки при&shy;ло&shy;же&shy;ния (от&shy;лад&shy;чик ис&shy;поль&shy;зу&shy;ет эти ука&shy;за&shy;те&shy;ли, что&shy;бы отоб&shy;ра&shy;зить Stack Trace) стр&shy;ои&shy;тся од&shy;нос&shy;вяз&shy;ный спи&shy;сок;</p>
+</li>
+<li>
+<p >
+Пос&shy;лед&shy;нее, что на&shy;до сде&shy;лать при вы&shy;зо&shy;ве ме&shy;то&shy;да, - вы&shy;де&shy;лить учас&shy;ток па&shy;мя&shy;ти под ло&shy;каль&shy;ные пе&shy;ре&shy;мен&shy;ные. Пос&shy;коль&shy;ку ком&shy;пи&shy;ля&shy;тор за&shy;ра&shy;нее зна&shy;ет, сколь&shy;ко её по&shy;на&shy;до&shy;бит&shy;ся, то де&shy;ла&shy;ет он это сра&shy;зу, сдви&shy;гая ука&shy;за&shy;тель на вер&shy;ши&shy;ну сте&shy;ка (SP/ESP/RSP) на не&shy;об&shy;хо&shy;ди&shy;мое ко&shy;ли&shy;чес&shy;тво байт;</p>
+</li>
+<li>
+<p >
+И на&shy;ко&shy;нец, на пя&shy;том эта&shy;пе вы&shy;пол&shy;ня&shy;ет&shy;ся код ме&shy;то&shy;да, по&shy;лез&shy;ные опе&shy;ра&shy;ции;</p>
+</li>
+<li>
+<p >
+Ког&shy;да про&shy;ис&shy;хо&shy;дит вы&shy;ход из ме&shy;то&shy;да, то вер&shy;ши&shy;на сте&shy;ка восс&shy;та&shy;нав&shy;ли&shy;ва&shy;ет&shy;ся из EBP - мес&shy;та, где хра&shy;нит&shy;ся на&shy;ча&shy;ло те&shy;ку&shy;ще&shy;го сте&shy;ко&shy;во&shy;го кад&shy;ра;</p>
+</li>
+<li>
+<p >
+Да&shy;лее, пос&shy;лед&shy;ним эта&shy;пом осу&shy;щес&shy;тв&shy;ляется вы&shy;ход из ме&shy;то&shy;да че&shy;рез инстр&shy;укцию <code>ret</code>. Она за&shy;би&shy;ра&shy;ет со сте&shy;ка ад&shy;рес возв&shy;ра&shy;та, за&shy;бот&shy;ли&shy;во ос&shy;тав&shy;лен&shy;ный ра&shy;нее инстр&shy;ук&shy;цией <code>call</code> и де&shy;ла&shy;ет <code>jmp</code> по это&shy;му ад&shy;ре&shy;су.</p>
+</li>
 </ol>
-<p>Те же самые процессы можно посмотреть на изображении:</p>
-<p><img src="./imgs/ThreadStack/AnyMethodCall.png" alt="" /></p>
+<p >
+Те же са&shy;мые про&shy;цес&shy;сы мож&shy;но пос&shy;мот&shy;реть на изоб&shy;ра&shy;же&shy;нии:</p>
+<p >
+<img src="./imgs/ThreadStack/AnyMethodCall.png" alt="" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p>Также замечу, что стек &laquo;растёт&raquo;, начиная со старших адресов и заканчивая младшими, т.е. в обратную сторону.</p>
+<p >
+Так&shy;же за&shy;ме&shy;чу, что стек &laquo;растёт&raquo;, на&shy;чи&shy;ная со стар&shy;ших ад&shy;ре&shy;сов и за&shy;кан&shy;чи&shy;вая млад&shy;ши&shy;ми, т.е. в об&shy;рат&shy;ную сто&shy;ро&shy;ну.</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p>Глядя на все это, невольно приходишь к выводу, что если не большинство, то минимум половина всех операций, которыми занимается процессор - это обслуживание структуры программы, а не её полезной нагрузки. Т.е. обслуживание вызовов методов, проверки типов на возможность привести один к другому, компиляцию Generic вариаций, поиск методов в таблицах интерфейсов&hellip; Особенно если мы вспомним, что большинство современного кода написано с подходом работы через интерфейсы, разбивку на множество пусть маленьких, но выполняющих каждый - своё - методов… А работа при этом часто идёт с базовыми типами и приведением типов то к интерфейсу, то к наследнику. При всех таких входящих условиях вывод о расточительности инфраструктурного кода вполне может назреть. Единственное, что я могу вам на это все сказать: компиляторы, в том числе и JIT, обладают множеством техник, позволяющим им делать более продуктивный код. Где можно - вместо вызова метода вставляется его тело целиком, а где возможно вместо поиска метода в VSD интерфейса осуществляется его прямой вызов. Что самое грустное, инфраструктурную нагрузку очень сложно замерить: надо чтобы JITter либо какой-либо компилятор вставлял бы какие-то метрики до и после мест работы инфраструктурного кода. Т.е. до вызова метода, а внутри метода - после инициализации кадра стека. До выхода из метода, после выхода из метода. До компиляции, после компиляции. И так далее. Однако, давайте не будем о грустном, а поговорим лучше о том, что мы можем с вами сделать с полученной информацией.</p>
+<p >
+Гля&shy;дя на все это, не&shy;воль&shy;но при&shy;хо&shy;дишь к вы&shy;во&shy;ду, что ес&shy;ли не боль&shy;шинство, то ми&shy;ни&shy;мум по&shy;ло&shy;ви&shy;на всех опе&shy;ра&shy;ций, ко&shy;то&shy;ры&shy;ми за&shy;ни&shy;ма&shy;ет&shy;ся про&shy;цес&shy;сор - это об&shy;слу&shy;жи&shy;ва&shy;ние струк&shy;ту&shy;ры прог&shy;рам&shy;мы, а не её по&shy;лез&shy;ной наг&shy;руз&shy;ки. Т.е. об&shy;слу&shy;жи&shy;ва&shy;ние вы&shy;зо&shy;вов ме&shy;то&shy;дов, про&shy;вер&shy;ки ти&shy;пов на воз&shy;мож&shy;ность при&shy;вес&shy;ти один к дру&shy;го&shy;му, ком&shy;пи&shy;ля&shy;цию Generic ва&shy;ри&shy;а&shy;ций, по&shy;иск ме&shy;то&shy;дов в таб&shy;ли&shy;цах ин&shy;тер&shy;фей&shy;сов&hellip; Осо&shy;бен&shy;но ес&shy;ли мы вспом&shy;ним, что боль&shy;шинство сов&shy;ре&shy;мен&shy;но&shy;го ко&shy;да на&shy;пи&shy;са&shy;но с под&shy;хо&shy;дом ра&shy;бо&shy;ты че&shy;рез ин&shy;тер&shy;фей&shy;сы, раз&shy;бив&shy;ку на мно&shy;жес&shy;тво пусть ма&shy;лень&shy;ких, но вы&shy;пол&shy;ня&shy;ю&shy;щих каж&shy;дый - своё - ме&shy;то&shy;дов… А ра&shy;бо&shy;та при этом час&shy;то идёт с ба&shy;зо&shy;вы&shy;ми ти&shy;па&shy;ми и при&shy;ве&shy;де&shy;ни&shy;ем ти&shy;пов то к ин&shy;тер&shy;фей&shy;су, то к нас&shy;лед&shy;ни&shy;ку. При всех та&shy;ких вхо&shy;дя&shy;щих ус&shy;ло&shy;ви&shy;ях вы&shy;вод о рас&shy;то&shy;чи&shy;тель&shy;нос&shy;ти ин&shy;ф&shy;раст&shy;рук&shy;тур&shy;но&shy;го ко&shy;да впол&shy;не мо&shy;жет наз&shy;реть. Един&shy;ствен&shy;ное, что я мо&shy;гу вам на это все ска&shy;зать: ком&shy;пи&shy;ля&shy;то&shy;ры, в том чис&shy;ле и JIT, об&shy;ла&shy;да&shy;ют мно&shy;жест&shy;вом тех&shy;ник, поз&shy;во&shy;ля&shy;ю&shy;щим им де&shy;лать бо&shy;лее про&shy;дук&shy;тив&shy;ный код. Где мож&shy;но - вмес&shy;то вы&shy;зо&shy;ва ме&shy;то&shy;да встав&shy;ля&shy;ет&shy;ся его те&shy;ло це&shy;ли&shy;ком, а где воз&shy;мож&shy;но вмес&shy;то по&shy;ис&shy;ка ме&shy;то&shy;да в VSD ин&shy;тер&shy;фей&shy;са осу&shy;щес&shy;тв&shy;ляется его пря&shy;мой вы&shy;зов. Что са&shy;мое грус&shy;т&shy;ное, ин&shy;ф&shy;раст&shy;рук&shy;тур&shy;ную наг&shy;руз&shy;ку очень слож&shy;но за&shy;ме&shy;рить: на&shy;до что&shy;бы JITter ли&shy;бо ка&shy;кой-ли&shy;бо ком&shy;пи&shy;ля&shy;тор встав&shy;лял бы ка&shy;кие-то мет&shy;ри&shy;ки до и пос&shy;ле мест ра&shy;бо&shy;ты ин&shy;ф&shy;раст&shy;рук&shy;тур&shy;но&shy;го ко&shy;да. Т.е. до вы&shy;зо&shy;ва ме&shy;то&shy;да, а внут&shy;ри ме&shy;то&shy;да - пос&shy;ле ини&shy;ци&shy;а&shy;ли&shy;за&shy;ции кад&shy;ра сте&shy;ка. До вы&shy;хо&shy;да из ме&shy;то&shy;да, пос&shy;ле вы&shy;хо&shy;да из ме&shy;то&shy;да. До ком&shy;пи&shy;ля&shy;ции, пос&shy;ле ком&shy;пи&shy;ля&shy;ции. И так да&shy;лее. Одна&shy;ко, да&shy;вай&shy;те не бу&shy;дем о груст&shy;ном, а по&shy;го&shy;во&shy;рим луч&shy;ше о том, что мы мо&shy;жем с ва&shy;ми сде&shy;лать с по&shy;лу&shy;чен&shy;ной ин&shy;фор&shy;ма&shy;ци&shy;ей.</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <h2 id="x86-1">Немного про исключения на платформе x86</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p>Если мы посмотрим внутрь кода методов, то мы заметим ещё одну структуру, работающую со стеком потока. Посудите сами:</p>
+<p >
+Если мы пос&shy;мот&shy;рим внутрь ко&shy;да ме&shy;то&shy;дов, то мы за&shy;ме&shy;тим ещё од&shy;ну струк&shy;ту&shy;ру, ра&shy;бо&shy;та&shy;ю&shy;щую со сте&shy;ком по&shy;то&shy;ка. По&shy;су&shy;ди&shy;те са&shy;ми:</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -912,25 +977,45 @@ h4 {
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p>Если исключение возникнет в любом из методов, вызванных из <code>Method3</code>, то управление будет возвращено в блок <code>catch</code> метода <code>Method3</code>. При этом если исключение обработано не будет, то его обработка начнётся в методе <code>Method1</code>. Однако если ничего не случится, то <code>Method3</code> завершит свою работу, управление перейдёт в метод <code>Method2</code>, где также может возникнуть исключение. Однако по естественным причинам обработано оно будет не в <code>Method3</code>, а в <code>Method1</code>. Вопрос такого удобного автоматизма заключается в том, что структуры данных, образующие цепочки обработчиков исключений, также находятся в стековом кадре метода, где они объявлены. Про сами исключения мы поговорим отдельно, а здесь скажу только, что модель исключений в .NET Framework CLR и в Core CLR отличается. CoreCLR вынуждена быть разной на разных платформах, а потому модель исключений там другая и представляется в зависимости от платформы через прослойку PAL (Platform Adaption Layer) различными имплементациями. Большому .NET Framework CLR это не нужно: он живёт в экосистеме платформы Windows, в которой есть уже много лет общеизвестный механизм обработки исключений, который называется SEH (Structured Exception Handling). Этот механизм используется практически всеми языками программирования (при конечной компиляции), потому что обеспечивает сквозную обработку исключений между модулями, написанными на различных языках программирования. Работает это примерно так:</p>
+<p >
+Если ис&shy;клю&shy;че&shy;ние воз&shy;ник&shy;нет в лю&shy;бом из ме&shy;то&shy;дов, выз&shy;ван&shy;ных из <code>Method3</code>, то уп&shy;рав&shy;ле&shy;ние бу&shy;дет возв&shy;ра&shy;ще&shy;но в блок <code>catch</code> ме&shy;то&shy;да <code>Method3</code>. При этом ес&shy;ли ис&shy;клю&shy;че&shy;ние об&shy;ра&shy;бо&shy;та&shy;но не бу&shy;дет, то его об&shy;ра&shy;бот&shy;ка начнётся в ме&shy;то&shy;де <code>Method1</code>. Одна&shy;ко ес&shy;ли ни&shy;че&shy;го не слу&shy;чит&shy;ся, то <code>Method3</code> за&shy;вер&shy;шит свою ра&shy;бо&shy;ту, уп&shy;рав&shy;ле&shy;ние пе&shy;рейдёт в ме&shy;тод <code>Method2</code>, где так&shy;же мо&shy;жет воз&shy;ник&shy;нуть ис&shy;клю&shy;че&shy;ние. Одна&shy;ко по ес&shy;тест&shy;вен&shy;ным при&shy;чи&shy;нам об&shy;ра&shy;бо&shy;та&shy;но оно бу&shy;дет не в <code>Method3</code>, а в <code>Method1</code>. Воп&shy;рос та&shy;ко&shy;го удоб&shy;но&shy;го ав&shy;то&shy;ма&shy;тиз&shy;ма зак&shy;лю&shy;ча&shy;ет&shy;ся в том, что струк&shy;ту&shy;ры дан&shy;ных, об&shy;ра&shy;зу&shy;ю&shy;щие це&shy;поч&shy;ки об&shy;ра&shy;бот&shy;чи&shy;ков ис&shy;клю&shy;че&shy;ний, так&shy;же на&shy;хо&shy;дят&shy;ся в сте&shy;ко&shy;вом кад&shy;ре ме&shy;то&shy;да, где они объ&shy;яв&shy;ле&shy;ны. Про са&shy;ми ис&shy;клю&shy;че&shy;ния мы по&shy;го&shy;во&shy;рим от&shy;дель&shy;но, а здесь ска&shy;жу толь&shy;ко, что мо&shy;дель ис&shy;клю&shy;че&shy;ний в .NET Framework CLR и в Core CLR от&shy;ли&shy;ча&shy;ет&shy;ся. CoreCLR вы&shy;нуж&shy;де&shy;на быть раз&shy;ной на раз&shy;ных плат&shy;фор&shy;мах, а по&shy;то&shy;му мо&shy;дель ис&shy;клю&shy;че&shy;ний там дру&shy;гая и предс&shy;тав&shy;ля&shy;ет&shy;ся в за&shy;ви&shy;си&shy;мос&shy;ти от плат&shy;фор&shy;мы че&shy;рез прос&shy;лой&shy;ку PAL (Platform Adaption Layer) раз&shy;лич&shy;ны&shy;ми им&shy;пле&shy;мен&shy;та&shy;ци&shy;ями. Боль&shy;шо&shy;му .NET Framework CLR это не нуж&shy;но: он живёт в эко&shy;сис&shy;те&shy;ме плат&shy;фор&shy;мы Windows, в ко&shy;то&shy;рой есть уже мно&shy;го лет об&shy;ще&shy;из&shy;вест&shy;ный ме&shy;ха&shy;низм об&shy;ра&shy;бот&shy;ки ис&shy;клю&shy;че&shy;ний, ко&shy;то&shy;рый на&shy;зы&shy;ва&shy;ет&shy;ся SEH (Structured Exception Handling). Этот ме&shy;ха&shy;низм ис&shy;поль&shy;зу&shy;ет&shy;ся прак&shy;ти&shy;чес&shy;ки все&shy;ми язы&shy;ка&shy;ми прог&shy;рам&shy;ми&shy;ро&shy;ва&shy;ния (при ко&shy;неч&shy;ной ком&shy;пи&shy;ля&shy;ции), по&shy;то&shy;му что обес&shy;пе&shy;чи&shy;ва&shy;ет сквоз&shy;ную об&shy;ра&shy;бот&shy;ку ис&shy;клю&shy;че&shy;ний меж&shy;ду мо&shy;ду&shy;ля&shy;ми, на&shy;пи&shy;сан&shy;ны&shy;ми на раз&shy;лич&shy;ных язы&shy;ках прог&shy;рам&shy;ми&shy;ро&shy;ва&shy;ния. Ра&shy;бо&shy;та&shy;ет это при&shy;мер&shy;но так:</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <ol>
-<li>При вхождении в блок try на стек кладётся структура, которая первым полем указывает на предыдущий блок обработки исключений (например, вызывающий метод, у которого также есть try-catch), тип блока, код исключения и адрес обработчика;</li>
-<li>В TEB потока (Thread Environment Block, по сути - контекст потока) меняется адрес текущей вершины цепочки обработчиков исключений на тот, что мы создали. Таким образом, мы добавили в цепочку наш блок.</li>
-<li>Когда try закончился, производится обратная операция: в TEB записывается старая вершина, снимая таким образом наш обработчик из цепочки;</li>
-<li>Если возникает исключение, то из TEB забирается вершина и по очереди по цепочке вызываются обработчики, которые проверяют, подходит ли исключение конкретно им. Если да, выполняется блок обработки (например, catch).</li>
-<li>В TEB восстанавливается тот адрес структуры SEH, который находится в стеке ДО метода, обработавшего исключение.</li>
+<li>
+<p >
+При вхож&shy;де&shy;нии в блок try на стек кладётся струк&shy;ту&shy;ра, ко&shy;то&shy;рая пер&shy;вым по&shy;лем ука&shy;зы&shy;ва&shy;ет на пре&shy;ды&shy;ду&shy;щий блок об&shy;ра&shy;бот&shy;ки ис&shy;клю&shy;че&shy;ний (нап&shy;ри&shy;мер, вы&shy;зы&shy;ва&shy;ю&shy;щий ме&shy;тод, у ко&shy;то&shy;ро&shy;го так&shy;же есть try-catch), тип бло&shy;ка, код ис&shy;клю&shy;че&shy;ния и ад&shy;рес об&shy;ра&shy;бот&shy;чи&shy;ка;</p>
+</li>
+<li>
+<p >
+В TEB по&shy;то&shy;ка (Thread Environment Block, по су&shy;ти - кон&shy;текст по&shy;то&shy;ка) ме&shy;ня&shy;ет&shy;ся ад&shy;рес те&shy;ку&shy;щей вер&shy;ши&shy;ны це&shy;поч&shy;ки об&shy;ра&shy;бот&shy;чи&shy;ков ис&shy;клю&shy;че&shy;ний на тот, что мы соз&shy;да&shy;ли. Та&shy;ким об&shy;ра&shy;зом, мы до&shy;ба&shy;ви&shy;ли в це&shy;поч&shy;ку наш блок.</p>
+</li>
+<li>
+<p >
+Ког&shy;да try за&shy;кон&shy;чил&shy;ся, про&shy;из&shy;во&shy;дит&shy;ся об&shy;рат&shy;ная опе&shy;ра&shy;ция: в TEB за&shy;пи&shy;сы&shy;ва&shy;ет&shy;ся ста&shy;рая вер&shy;ши&shy;на, сни&shy;мая та&shy;ким об&shy;ра&shy;зом наш об&shy;ра&shy;бот&shy;чик из це&shy;поч&shy;ки;</p>
+</li>
+<li>
+<p >
+Если воз&shy;ни&shy;ка&shy;ет ис&shy;клю&shy;че&shy;ние, то из TEB за&shy;би&shy;ра&shy;ет&shy;ся вер&shy;ши&shy;на и по оче&shy;ре&shy;ди по це&shy;поч&shy;ке вы&shy;зы&shy;ва&shy;ют&shy;ся об&shy;ра&shy;бот&shy;чи&shy;ки, ко&shy;то&shy;рые про&shy;ве&shy;ря&shy;ют, под&shy;хо&shy;дит ли ис&shy;клю&shy;че&shy;ние конк&shy;рет&shy;но им. Если да, вы&shy;пол&shy;ня&shy;ет&shy;ся блок об&shy;ра&shy;бот&shy;ки (нап&shy;ри&shy;мер, catch).</p>
+</li>
+<li>
+<p >
+В TEB восс&shy;та&shy;нав&shy;ли&shy;ва&shy;ет&shy;ся тот ад&shy;рес струк&shy;ту&shy;ры SEH, ко&shy;то&shy;рый на&shy;хо&shy;дит&shy;ся в сте&shy;ке ДО ме&shy;то&shy;да, об&shy;ра&shy;бо&shy;тав&shy;ше&shy;го ис&shy;клю&shy;че&shy;ние.</p>
+</li>
 </ol>
-<p>Как видите, совсем не сложно. Однако вся эта информация также находится в стеке.</p>
+<p >
+Как ви&shy;ди&shy;те, сов&shy;сем не слож&shy;но. Одна&shy;ко вся эта ин&shy;фор&shy;ма&shy;ция так&shy;же на&shy;хо&shy;дит&shy;ся в сте&shy;ке.</p>
 <h2 id="x64-amd64-in-progress">Базовые сведения про платформы x64, AMD64 [In Progress]</h2>
-<p>TODO</p>
+<p >
+TODO</p>
 <h2 id="x64-amd64-in-progress-1">Исключения на платформах x64, AMD64 [In Progress]</h2>
-<p>TODO</p>
+<p >
+TODO</p>
 <h2 id="section-1">Совсем немного про несовершенство стека потока</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p>Давайте немного подумаем о вопросе безопасности и возможных проблемах, которые чисто теоретически могут возникнуть. Для этого давайте ещё раз глянем на структуру стека потока, которая по своей сути - обычный массив. Диапазон памяти, в котором строятся фреймы, организован так, что он растёт с конца в начало. Т.е. более поздние фреймы располагаются по более ранним адресам. Так же, как уже было сказано, фреймы связаны односвязным списком. Это сделано потому, что размер фрейма не является фиксированным и должен быть &laquo;считан&raquo; любым отладчиком. Процессор при этом не разграничивает фреймы между собой: любой метод по своему желанию может считать всю область памяти целиком. А если учесть при этом, что мы находимся в виртуальной памяти, которая поделена на участки, являющиеся реально выделенной памятью, то можно при помощи специальной функции WinAPI по любому адресу со стека получить диапазон выделенной памяти, в которой этот адрес находится. Ну а разобрать односвязный список - дело техники:</p>
+<p >
+Да&shy;вай&shy;те нем&shy;но&shy;го по&shy;ду&shy;ма&shy;ем о воп&shy;ро&shy;се бе&shy;зо&shy;пас&shy;нос&shy;ти и воз&shy;мож&shy;ных проб&shy;ле&shy;мах, ко&shy;то&shy;рые чис&shy;то те&shy;о&shy;ре&shy;ти&shy;чес&shy;ки мо&shy;гут воз&shy;ник&shy;нуть. Для это&shy;го да&shy;вай&shy;те ещё раз гля&shy;нем на струк&shy;ту&shy;ру сте&shy;ка по&shy;то&shy;ка, ко&shy;то&shy;рая по сво&shy;ей су&shy;ти - обыч&shy;ный мас&shy;сив. Ди&shy;а&shy;па&shy;зон па&shy;мя&shy;ти, в ко&shy;то&shy;ром стр&shy;оя&shy;тся фрей&shy;мы, ор&shy;га&shy;ни&shy;зо&shy;ван так, что он растёт с кон&shy;ца в на&shy;ча&shy;ло. Т.е. бо&shy;лее поз&shy;д&shy;ние фрей&shy;мы рас&shy;по&shy;ла&shy;га&shy;ют&shy;ся по бо&shy;лее ран&shy;ним ад&shy;ре&shy;сам. Так же, как уже бы&shy;ло ска&shy;за&shy;но, фрей&shy;мы свя&shy;за&shy;ны од&shy;нос&shy;вяз&shy;ным спис&shy;ком. Это сде&shy;ла&shy;но по&shy;то&shy;му, что раз&shy;мер фрей&shy;ма не яв&shy;ля&shy;ет&shy;ся фик&shy;си&shy;ро&shy;ван&shy;ным и дол&shy;жен быть &laquo;счи&shy;тан&raquo; лю&shy;бым от&shy;лад&shy;чи&shy;ком. Про&shy;цес&shy;сор при этом не разг&shy;ра&shy;ни&shy;чи&shy;ва&shy;ет фрей&shy;мы меж&shy;ду со&shy;бой: лю&shy;бой ме&shy;тод по сво&shy;ему же&shy;ла&shy;нию мо&shy;жет счи&shy;тать всю об&shy;ласть па&shy;мя&shy;ти це&shy;ли&shy;ком. А ес&shy;ли учесть при этом, что мы на&shy;хо&shy;дим&shy;ся в вир&shy;ту&shy;альной па&shy;мя&shy;ти, ко&shy;то&shy;рая по&shy;де&shy;ле&shy;на на учас&shy;тки, яв&shy;ля&shy;ю&shy;щи&shy;еся ре&shy;ально вы&shy;де&shy;лен&shy;ной па&shy;мятью, то мож&shy;но при по&shy;мо&shy;щи спе&shy;ци&shy;альной фун&shy;к&shy;ции WinAPI по лю&shy;бо&shy;му ад&shy;ре&shy;су со сте&shy;ка по&shy;лу&shy;чить ди&shy;а&shy;па&shy;зон вы&shy;де&shy;лен&shy;ной па&shy;мя&shy;ти, в ко&shy;то&shy;рой этот ад&shy;рес на&shy;хо&shy;дит&shy;ся. Ну а ра&shy;зоб&shy;рать од&shy;нос&shy;вяз&shy;ный спи&shy;сок - де&shy;ло тех&shy;ни&shy;ки:</p>
 <div class="paragraph-right-side">07</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -944,13 +1029,15 @@ h4 {
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p>Это даёт нам возможность получить и модифицировать все данные, которые находятся в качестве локальных переменных у методов, которые нас вызвали. Если приложение никак не настраивает песочницу, в рамках которой вызываются сторонние библиотеки, расширяющие функционал приложения, то сторонняя библиотека сможет утащить данные, даже если тот API, который вы ей отдаёте, этого не предполагает. Методика эта может показаться вам надуманной, однако в мире C/C++, где нет такой прекрасной вещи как AppDomain с настроенными правами атака по стеку - это самое типичное, что только можно встретить из взлома приложений. Мало того, можно через рефлексию посмотреть на тип, который нам необходим, повторить его структуру у себя, и, пройдя по ссылке со стека на объект, заменить адрес VMT на наш, перенаправив таким образом всю работу с конкретным экземпляром к нам. SEH, кстати говоря, также вовсю используется для взлома приложений. Через него вы также можете, меняя адрес обработчика исключения, заставлять ОС выполнить вредоносный код. Но вывод из всего этого очень простой: всегда настраивайте песочницу, когда хотите работать с библиотеками, расширяющими функционал вашего приложения. Я, конечно же, имею ввиду всяческие плагины, аддоны и прочие расширения.</p>
+<p >
+Это даёт нам воз&shy;мож&shy;ность по&shy;лу&shy;чить и мо&shy;ди&shy;фи&shy;ци&shy;ро&shy;вать все дан&shy;ные, ко&shy;то&shy;рые на&shy;хо&shy;дят&shy;ся в ка&shy;чес&shy;тве ло&shy;каль&shy;ных пе&shy;ре&shy;мен&shy;ных у ме&shy;то&shy;дов, ко&shy;то&shy;рые нас выз&shy;ва&shy;ли. Если при&shy;ло&shy;же&shy;ние ни&shy;как не нас&shy;тра&shy;и&shy;ва&shy;ет пе&shy;соч&shy;ни&shy;цу, в рам&shy;ках ко&shy;то&shy;рой вы&shy;зы&shy;ва&shy;ют&shy;ся сто&shy;рон&shy;ние биб&shy;ли&shy;о&shy;те&shy;ки, рас&shy;ши&shy;ря&shy;ю&shy;щие фун&shy;кци&shy;о&shy;нал при&shy;ло&shy;же&shy;ния, то сто&shy;рон&shy;няя биб&shy;ли&shy;о&shy;те&shy;ка смо&shy;жет ута&shy;щить дан&shy;ные, да&shy;же ес&shy;ли тот API, ко&shy;то&shy;рый вы ей от&shy;даёте, это&shy;го не пред&shy;по&shy;ла&shy;га&shy;ет. Ме&shy;то&shy;ди&shy;ка эта мо&shy;жет по&shy;ка&shy;зать&shy;ся вам на&shy;ду&shy;ман&shy;ной, од&shy;на&shy;ко в ми&shy;ре C/C++, где нет та&shy;кой прек&shy;рас&shy;ной ве&shy;щи как AppDomain с нас&shy;тро&shy;ен&shy;ны&shy;ми пра&shy;ва&shy;ми ата&shy;ка по сте&shy;ку - это са&shy;мое ти&shy;пич&shy;ное, что толь&shy;ко мож&shy;но встр&shy;етить из взло&shy;ма при&shy;ло&shy;же&shy;ний. Ма&shy;ло то&shy;го, мож&shy;но че&shy;рез реф&shy;лек&shy;сию пос&shy;мот&shy;реть на тип, ко&shy;то&shy;рый нам не&shy;об&shy;хо&shy;дим, пов&shy;то&shy;рить его струк&shy;ту&shy;ру у се&shy;бя, и, прой&shy;дя по ссыл&shy;ке со сте&shy;ка на объ&shy;ект, за&shy;ме&shy;нить ад&shy;рес VMT на наш, пе&shy;ре&shy;нап&shy;ра&shy;вив та&shy;ким об&shy;ра&shy;зом всю ра&shy;бо&shy;ту с конк&shy;рет&shy;ным эк&shy;земп&shy;ля&shy;ром к нам. SEH, кста&shy;ти го&shy;во&shy;ря, так&shy;же вов&shy;сю ис&shy;поль&shy;зу&shy;ет&shy;ся для взло&shy;ма при&shy;ло&shy;же&shy;ний. Че&shy;рез не&shy;го вы так&shy;же мо&shy;же&shy;те, ме&shy;няя ад&shy;рес об&shy;ра&shy;бот&shy;чи&shy;ка ис&shy;клю&shy;че&shy;ния, зас&shy;тав&shy;лять ОС вы&shy;пол&shy;нить вре&shy;до&shy;нос&shy;ный код. Но вы&shy;вод из все&shy;го это&shy;го очень прос&shy;той: всег&shy;да нас&shy;тра&shy;ивай&shy;те пе&shy;соч&shy;ни&shy;цу, ког&shy;да хо&shy;ти&shy;те ра&shy;бо&shy;тать с биб&shy;ли&shy;о&shy;те&shy;ка&shy;ми, рас&shy;ши&shy;ря&shy;ю&shy;щи&shy;ми фун&shy;кци&shy;о&shy;нал ва&shy;ше&shy;го при&shy;ло&shy;же&shy;ния. Я, ко&shy;неч&shy;но же, имею вви&shy;ду вся&shy;чес&shy;кие пла&shy;ги&shy;ны, ад&shy;до&shy;ны и про&shy;чие рас&shy;ши&shy;ре&shy;ния.</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <h2 id="section-2">Большой пример: клонирование потока на платформе х86</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
-<p>Чтобы запомнить все, что мы прочитали до мельчайших подробностей, надо зайти к вопросу освещения какой-либо темы с нескольких сторон. Казалось бы, какой пример можно построить для стека потока? Вызвать метод из другого? Магия&hellip; Конечно же, нет: это мы делаем ежедневно по много раз. Вместо этого мы склонируем поток исполнения. Т.е. сделаем так, чтобы после вызова определённого метода у нас вместо одного потока оказалось бы два: наш и новый, но продолжающий выполнять код с точки вызова метода клонирования так, как будто он сам туда дошёл. А выглядеть это будет так:</p>
+<p >
+Что&shy;бы за&shy;пом&shy;нить все, что мы про&shy;чи&shy;та&shy;ли до мель&shy;чай&shy;ших под&shy;роб&shy;нос&shy;тей, на&shy;до зай&shy;ти к воп&shy;ро&shy;су ос&shy;ве&shy;ще&shy;ния ка&shy;кой-ли&shy;бо те&shy;мы с нес&shy;коль&shy;ких сто&shy;рон. Ка&shy;за&shy;лось бы, ка&shy;кой при&shy;мер мож&shy;но пос&shy;тро&shy;ить для сте&shy;ка по&shy;то&shy;ка? Выз&shy;вать ме&shy;тод из дру&shy;го&shy;го? Ма&shy;гия&hellip; Ко&shy;неч&shy;но же, нет: это мы де&shy;ла&shy;ем ежед&shy;нев&shy;но по мно&shy;го раз. Вмес&shy;то это&shy;го мы скло&shy;ни&shy;ру&shy;ем по&shy;ток ис&shy;пол&shy;не&shy;ния. Т.е. сде&shy;ла&shy;ем так, что&shy;бы пос&shy;ле вы&shy;зо&shy;ва оп&shy;ре&shy;делённо&shy;го ме&shy;то&shy;да у нас вмес&shy;то од&shy;но&shy;го по&shy;то&shy;ка ока&shy;за&shy;лось бы два: наш и но&shy;вый, но про&shy;дол&shy;жа&shy;ю&shy;щий вы&shy;пол&shy;нять код с точ&shy;ки вы&shy;зо&shy;ва ме&shy;то&shy;да кло&shy;ни&shy;ро&shy;ва&shy;ния так, как буд&shy;то он сам ту&shy;да дошёл. А выг&shy;ля&shy;деть это бу&shy;дет так:</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -990,23 +1077,38 @@ h4 {
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
-<p>Согласитесь, концепт интересный. Конечно же, тут можно много спорить про целесообразность таких действий, но задача этого примера - поставить жирную точку в понимании работы этой структуры данных. Как же сделать клонирование? Для ответа на данный вопрос надо ответить на другой вопрос: что вообще определяет поток? А поток определяют следующие структуры и области данных:</p>
+<p >
+Сог&shy;ла&shy;си&shy;тесь, кон&shy;цепт ин&shy;те&shy;рес&shy;ный. Ко&shy;неч&shy;но же, тут мож&shy;но мно&shy;го спо&shy;рить про це&shy;ле&shy;со&shy;об&shy;раз&shy;ность та&shy;ких действий, но за&shy;да&shy;ча это&shy;го при&shy;ме&shy;ра - пос&shy;та&shy;вить жир&shy;ную точ&shy;ку в по&shy;ни&shy;ма&shy;нии ра&shy;бо&shy;ты этой струк&shy;ту&shy;ры дан&shy;ных. Как же сде&shy;лать кло&shy;ни&shy;ро&shy;ва&shy;ние? Для от&shy;ве&shy;та на дан&shy;ный воп&shy;рос на&shy;до от&shy;ве&shy;тить на дру&shy;гой воп&shy;рос: что во&shy;об&shy;ще оп&shy;ре&shy;де&shy;ля&shy;ет по&shy;ток? А по&shy;ток оп&shy;ре&shy;де&shy;ля&shy;ют сле&shy;ду&shy;ю&shy;щие струк&shy;ту&shy;ры и об&shy;лас&shy;ти дан&shy;ных:</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <ol>
-<li>Набор регистров процессора. Все регистры определяют состояние потока исполнения инструкций: от адреса текущей инструкции исполнения до адресов стека потока и данных, которыми он оперирует;</li>
-<li><a href="https://en.wikipedia.org/wiki/Win32_Thread_Information_Block">Thread Environment Block</a> или TIB/TEB, который хранит системную информацию по потоку, включая адреса обработчиков исключений;</li>
-<li>Стек потока, адрес которого определяется регистрами SS:ESP;</li>
-<li>Платформенный контекст потока, который содержит локальные для потока данные (ссылка идёт из TIB)</li>
+<li>
+<p >
+На&shy;бор ре&shy;гист&shy;ров про&shy;цес&shy;со&shy;ра. Все ре&shy;гис&shy;тры оп&shy;ре&shy;де&shy;ля&shy;ют сос&shy;то&shy;я&shy;ние по&shy;то&shy;ка ис&shy;пол&shy;не&shy;ния инстр&shy;укций: от ад&shy;ре&shy;са те&shy;ку&shy;щей инстр&shy;укции ис&shy;пол&shy;не&shy;ния до ад&shy;ре&shy;сов сте&shy;ка по&shy;то&shy;ка и дан&shy;ных, ко&shy;то&shy;ры&shy;ми он опе&shy;ри&shy;ру&shy;ет;</p>
+</li>
+<li>
+<p >
+<a href="https://en.wikipedia.org/wiki/Win32_Thread_Information_Block">Thread Environment Block</a> или TIB/TEB, ко&shy;то&shy;рый хра&shy;нит сис&shy;тем&shy;ную ин&shy;фор&shy;ма&shy;цию по по&shy;то&shy;ку, вклю&shy;чая ад&shy;ре&shy;са об&shy;ра&shy;бот&shy;чи&shy;ков ис&shy;клю&shy;че&shy;ний;</p>
+</li>
+<li>
+<p >
+Стек по&shy;то&shy;ка, ад&shy;рес ко&shy;то&shy;ро&shy;го оп&shy;ре&shy;де&shy;ля&shy;ет&shy;ся ре&shy;гист&shy;ра&shy;ми SS:ESP;</p>
+</li>
+<li>
+<p >
+Плат&shy;фор&shy;мен&shy;ный кон&shy;текст по&shy;то&shy;ка, ко&shy;то&shy;рый со&shy;дер&shy;жит ло&shy;каль&shy;ные для по&shy;то&shy;ка дан&shy;ные (ссыл&shy;ка идёт из TIB)</p>
+</li>
 </ol>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
-<p>Ну и наверняка что-то ещё, о чем мы можем не знать. Да и знать нам всего для примера нет никакой надобности: в промышленное использование данный код не пойдёт, а скорее будет служить нам отличным примером, который поможет разобраться в теме. А потому он не будет учитывать всего, а только самое основное. А для того чтобы он заработал в базовом виде, нам понадобится скопировать в новый поток набор регистров (исправив SS:ESP, т.к. стек будет новым), а также подредактировать сам стек, чтобы он содержал ровно то что нам надо.</p>
+<p >
+Ну и на&shy;вер&shy;ня&shy;ка что-то ещё, о чем мы мо&shy;жем не знать. Да и знать нам все&shy;го для при&shy;ме&shy;ра нет ни&shy;ка&shy;кой на&shy;доб&shy;нос&shy;ти: в про&shy;мыш&shy;лен&shy;ное ис&shy;поль&shy;зо&shy;ва&shy;ние дан&shy;ный код не пойдёт, а ско&shy;рее бу&shy;дет слу&shy;жить нам от&shy;лич&shy;ным при&shy;ме&shy;ром, ко&shy;то&shy;рый по&shy;мо&shy;жет ра&shy;зоб&shy;рать&shy;ся в те&shy;ме. А по&shy;то&shy;му он не бу&shy;дет учи&shy;ты&shy;вать все&shy;го, а толь&shy;ко са&shy;мое ос&shy;нов&shy;ное. А для то&shy;го что&shy;бы он за&shy;ра&shy;бо&shy;тал в ба&shy;зо&shy;вом ви&shy;де, нам по&shy;на&shy;до&shy;бит&shy;ся ско&shy;пи&shy;ро&shy;вать в но&shy;вый по&shy;ток на&shy;бор ре&shy;гист&shy;ров (ис&shy;пра&shy;вив SS:ESP, т.к. стек бу&shy;дет но&shy;вым), а так&shy;же под&shy;ре&shy;дак&shy;ти&shy;ро&shy;вать сам стек, что&shy;бы он со&shy;дер&shy;жал ров&shy;но то что нам на&shy;до.</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
-<p>Итак. Если стек потока определяет, по сути, какие методы были вызваны и какими данными они оперируют, то получается что по идее, меняя эти структуры, можно поменять как локальные переменные методов, так и вырезать из стека вызов какого-то метода, поменять метод на другой или же добавить в любое место цепочки свой. Хорошо, с этим определились. Теперь давайте посмотрим на некий псевдокод:</p>
+<p >
+Итак. Если стек по&shy;то&shy;ка оп&shy;ре&shy;де&shy;ля&shy;ет, по су&shy;ти, ка&shy;кие ме&shy;то&shy;ды бы&shy;ли выз&shy;ва&shy;ны и ка&shy;ки&shy;ми дан&shy;ны&shy;ми они опе&shy;ри&shy;ру&shy;ют, то по&shy;лу&shy;ча&shy;ет&shy;ся что по идее, ме&shy;няя эти струк&shy;ту&shy;ры, мож&shy;но по&shy;ме&shy;нять как ло&shy;каль&shy;ные пе&shy;ре&shy;мен&shy;ные ме&shy;то&shy;дов, так и вы&shy;ре&shy;зать из сте&shy;ка вы&shy;зов ка&shy;ко&shy;го-то ме&shy;то&shy;да, по&shy;ме&shy;нять ме&shy;тод на дру&shy;гой или же до&shy;ба&shy;вить в лю&shy;бое мес&shy;то це&shy;поч&shy;ки свой. Хо&shy;ро&shy;шо, с этим оп&shy;ре&shy;де&shy;ли&shy;лись. Те&shy;перь да&shy;вай&shy;те пос&shy;мот&shy;рим на не&shy;кий псев&shy;до&shy;код:</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1018,7 +1120,8 @@ h4 {
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
-<p>Когда вызовется MakeFork(), что мы ожидаем с точки зрения стек трейсов? Что в родительском потоке все останется без изменений, а дочерний будет взят из пула потоков (для скорости), в нем будет сымитирован вызов метода <code>MakeFork</code> вместе с его локальными переменными, а код продолжит выполнение не с начала метода, а с точки, следующей после вызова <code>CloneThread</code>. Т.е. стек трейс в наших фантазиях будет выглядеть примерно так:</p>
+<p >
+Ког&shy;да вы&shy;зо&shy;вет&shy;ся MakeFork(), что мы ожи&shy;да&shy;ем с точ&shy;ки зре&shy;ния стек трей&shy;сов? Что в ро&shy;ди&shy;т&shy;ельском по&shy;то&shy;ке все ос&shy;та&shy;нет&shy;ся без из&shy;ме&shy;не&shy;ний, а до&shy;чер&shy;ний бу&shy;дет взят из пу&shy;ла по&shy;то&shy;ков (для ско&shy;рос&shy;ти), в нем бу&shy;дет сы&shy;ми&shy;ти&shy;ро&shy;ван вы&shy;зов ме&shy;то&shy;да <code>MakeFork</code> вмес&shy;те с его ло&shy;каль&shy;ны&shy;ми пе&shy;ре&shy;мен&shy;ны&shy;ми, а код про&shy;дол&shy;жит вы&shy;пол&shy;не&shy;ние не с на&shy;ча&shy;ла ме&shy;то&shy;да, а с точ&shy;ки, сле&shy;ду&shy;ю&shy;щей пос&shy;ле вы&shy;зо&shy;ва <code>CloneThread</code>. Т.е. стек трейс в на&shy;ших фан&shy;та&shy;зи&shy;ях бу&shy;дет выг&shy;ля&shy;деть при&shy;мер&shy;но так:</p>
 <div class="paragraph-right-side">13</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1031,53 +1134,68 @@ ThreadPool -&gt; MakeFork
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
-<p>Что у нас есть изначально? Есть наш поток. Также есть возможность создать новый поток либо запланировать задачу в пул потоков, выполнив там свой код. Также мы понимаем, что информация по вложенным вызовам хранится в стеке вызовов и что при желании мы можем ею манипулировать (например, используя C++/CLI). Причём, если следовать соглашениям и вписать в верхушку стека адрес возврата для инструкции ret, значение регистра EBP и выделить место под локальные (если необходимо), то можно имитировать вызов метода. Ручную запись в стек потока возможно сделать из C#, однако нам понадобятся регистры и их очень аккуратное использование, а потому без ухода в C++ нам не обойтись. Тут к нам на помощь впервые в жизни (лично у меня) приходит CLI/C++, который позволяет писать смешанный код: часть инструкций - на .NET, часть - на C++, а иногда даже уходить на уровень ассемблера. Именно то, что нам надо.</p>
+<p >
+Что у нас есть из&shy;на&shy;чаль&shy;но? Есть наш по&shy;ток. Так&shy;же есть воз&shy;мож&shy;ность соз&shy;дать но&shy;вый по&shy;ток ли&shy;бо зап&shy;ла&shy;ни&shy;ро&shy;вать за&shy;да&shy;чу в пул по&shy;то&shy;ков, вы&shy;пол&shy;нив там свой код. Так&shy;же мы по&shy;ни&shy;ма&shy;ем, что ин&shy;фор&shy;ма&shy;ция по вло&shy;жен&shy;ным вы&shy;зо&shy;вам хра&shy;нит&shy;ся в сте&shy;ке вы&shy;зо&shy;вов и что при же&shy;ла&shy;нии мы мо&shy;жем ею ма&shy;ни&shy;пу&shy;ли&shy;ро&shy;вать (нап&shy;ри&shy;мер, ис&shy;поль&shy;зуя C++/CLI). Причём, ес&shy;ли сле&shy;до&shy;вать сог&shy;ла&shy;ше&shy;ни&shy;ям и впи&shy;сать в вер&shy;хуш&shy;ку сте&shy;ка ад&shy;рес возв&shy;ра&shy;та для инстр&shy;укции ret, зна&shy;че&shy;ние ре&shy;гис&shy;тра EBP и вы&shy;де&shy;лить мес&shy;то под ло&shy;каль&shy;ные (ес&shy;ли не&shy;об&shy;хо&shy;ди&shy;мо), то мож&shy;но ими&shy;ти&shy;ро&shy;вать вы&shy;зов ме&shy;то&shy;да. Руч&shy;ную за&shy;пись в стек по&shy;то&shy;ка воз&shy;мож&shy;но сде&shy;лать из C#, од&shy;на&shy;ко нам по&shy;на&shy;до&shy;бят&shy;ся ре&shy;гис&shy;тры и их очень ак&shy;ку&shy;рат&shy;ное ис&shy;поль&shy;зо&shy;ва&shy;ние, а по&shy;то&shy;му без ухо&shy;да в C++ нам не обой&shy;тись. Тут к нам на по&shy;мощь впер&shy;вые в жиз&shy;ни (лич&shy;но у ме&shy;ня) при&shy;хо&shy;дит CLI/C++, ко&shy;то&shy;рый поз&shy;во&shy;ля&shy;ет пи&shy;сать сме&shy;шан&shy;ный код: часть инстр&shy;укций - на .NET, часть - на C++, а иног&shy;да да&shy;же ухо&shy;дить на уро&shy;вень ас&shy;семб&shy;ле&shy;ра. Имен&shy;но то, что нам на&shy;до.</p>
 <div class="paragraph-right-side">14</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
-<p>Итак, как будет выглядеть стек потока, когда наш код вызовет MakeFork, который вызовет CloneThread, который уйдёт в unmanaged мир CLI/C++ и вызовет метод клонирование (саму реализацию) - там? Давайте посмотрим на схему (ещё раз напомню, что стек растёт от старших адресов к младшим. Справа налево):</p>
+<p >
+Итак, как бу&shy;дет выг&shy;ля&shy;деть стек по&shy;то&shy;ка, ког&shy;да наш код вы&shy;зо&shy;вет MakeFork, ко&shy;то&shy;рый вы&shy;зо&shy;вет CloneThread, ко&shy;то&shy;рый уйдёт в unmanaged мир CLI/C++ и вы&shy;зо&shy;вет ме&shy;тод кло&shy;ни&shy;ро&shy;ва&shy;ние (са&shy;му ре&shy;а&shy;ли&shy;за&shy;цию) - там? Да&shy;вай&shy;те пос&shy;мот&shy;рим на схе&shy;му (ещё раз на&shy;пом&shy;ню, что стек растёт от стар&shy;ших ад&shy;ре&shy;сов к млад&shy;шим. Спра&shy;ва на&shy;ле&shy;во):</p>
 <div class="paragraph-right-side">15</div>
 </div>
-<p><img src="./imgs/ThreadStack/step1.png" alt="" /></p>
+<p >
+<img src="./imgs/ThreadStack/step1.png" alt="" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
-<p>Ну а для того чтобы не тащить всю простыню со схемы на схему, упростим, отбросив то, что нам не нужно:</p>
+<p >
+Ну а для то&shy;го что&shy;бы не та&shy;щить всю прос&shy;ты&shy;ню со схе&shy;мы на схе&shy;му, уп&shy;рос&shy;тим, от&shy;бро&shy;сив то, что нам не нуж&shy;но:</p>
 <div class="paragraph-right-side">16</div>
 </div>
-<p><img src="./imgs/ThreadStack/step2.png" alt="" /></p>
+<p >
+<img src="./imgs/ThreadStack/step2.png" alt="" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
-<p>Когда мы создадим поток либо возьмём готовый из пула потоков, в нашей схеме появляется ещё один стек, пока ещё ничем не проинициализированный:</p>
+<p >
+Ког&shy;да мы соз&shy;да&shy;дим по&shy;ток ли&shy;бо возьмём го&shy;то&shy;вый из пу&shy;ла по&shy;то&shy;ков, в на&shy;шей схе&shy;ме по&shy;яв&shy;ля&shy;ет&shy;ся ещё один стек, по&shy;ка ещё ни&shy;чем не про&shy;и&shy;ни&shy;ци&shy;а&shy;ли&shy;зи&shy;ро&shy;ван&shy;ный:</p>
 <div class="paragraph-right-side">17</div>
 </div>
-<p><img src="./imgs/ThreadStack/step3.png" alt="" /></p>
+<p >
+<img src="./imgs/ThreadStack/step3.png" alt="" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
-<p>Теперь наша задача - сымитировать запуск метода <code>Fork.CloneThread()</code> в новом потоке. Для этого мы должны в конец его стека потока дописать серию кадров: как будто из делегата, переданного ThreadPool'у был вызван <code>Fork.CloneThread()</code>, из которого через враппер C++ кода managed обёрткой был вызван CLI/C++ метод. Для этого мы просто скопируем необходимый участок стека в массив (замечу, что со склонированного участка на старый &laquo;смотрят&raquo; копии регистров EBP, обеспечивающих построение цепочки кадров):</p>
+<p >
+Те&shy;перь на&shy;ша за&shy;да&shy;ча - сы&shy;ми&shy;ти&shy;ро&shy;вать за&shy;пуск ме&shy;то&shy;да <code>Fork.CloneThread()</code> в но&shy;вом по&shy;то&shy;ке. Для это&shy;го мы дол&shy;жны в ко&shy;нец его сте&shy;ка по&shy;то&shy;ка до&shy;пи&shy;сать се&shy;рию кад&shy;ров: как буд&shy;то из де&shy;ле&shy;га&shy;та, пе&shy;ре&shy;дан&shy;но&shy;го ThreadPool'у был выз&shy;ван <code>Fork.CloneThread()</code>, из ко&shy;то&shy;ро&shy;го че&shy;рез врап&shy;пер C++ ко&shy;да managed обёрткой был выз&shy;ван CLI/C++ ме&shy;тод. Для это&shy;го мы прос&shy;то ско&shy;пи&shy;ру&shy;ем не&shy;об&shy;хо&shy;ди&shy;мый учас&shy;ток сте&shy;ка в мас&shy;сив (за&shy;ме&shy;чу, что со скло&shy;ни&shy;ро&shy;ван&shy;но&shy;го учас&shy;тка на ста&shy;рый &laquo;смот&shy;рят&raquo; ко&shy;пии ре&shy;гист&shy;ров EBP, обес&shy;пе&shy;чи&shy;ва&shy;ю&shy;щих пос&shy;тро&shy;е&shy;ние це&shy;поч&shy;ки кад&shy;ров):</p>
 <div class="paragraph-right-side">18</div>
 </div>
-<p><img src="./imgs/ThreadStack/step4.png" alt="" /></p>
+<p >
+<img src="./imgs/ThreadStack/step4.png" alt="" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
-<p>Далее чтобы обеспечить целостность стека после операции копирования склонированного на предыдущем шаге участка, мы заранее рассчитываем, по каким адресам будут находиться поля <code>EBP</code> на новом месте, и сразу же исправляем их, прямо на копии:</p>
+<p >
+Да&shy;лее что&shy;бы обес&shy;пе&shy;чить це&shy;лост&shy;ность сте&shy;ка пос&shy;ле опе&shy;ра&shy;ции ко&shy;пи&shy;ро&shy;ва&shy;ния скло&shy;ни&shy;ро&shy;ван&shy;но&shy;го на пре&shy;ды&shy;ду&shy;щем ша&shy;ге учас&shy;тка, мы за&shy;ра&shy;нее расс&shy;чи&shy;ты&shy;ва&shy;ем, по ка&shy;ким ад&shy;ре&shy;сам бу&shy;дут на&shy;хо&shy;дить&shy;ся по&shy;ля <code>EBP</code> на но&shy;вом мес&shy;те, и сра&shy;зу же ис&shy;прав&shy;ля&shy;ем их, пря&shy;мо на ко&shy;пии:</p>
 <div class="paragraph-right-side">19</div>
 </div>
-<p><img src="./imgs/ThreadStack/step5.png" alt="" /></p>
+<p >
+<img src="./imgs/ThreadStack/step5.png" alt="" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
-<p>Последним шагом, очень аккуратно, задействуя минимальное количество регистров, копируем наш массив в конец стека дочернего потока, после чего сдвигаем регистры ESP и EBP на новые места. С точки зрения стека мы сымитировали вызов всех этих методов:</p>
+<p >
+Пос&shy;лед&shy;ним ша&shy;гом, очень ак&shy;ку&shy;рат&shy;но, за&shy;д&shy;ействуя ми&shy;ни&shy;маль&shy;ное ко&shy;ли&shy;чес&shy;тво ре&shy;гист&shy;ров, ко&shy;пи&shy;ру&shy;ем наш мас&shy;сив в ко&shy;нец сте&shy;ка до&shy;чер&shy;не&shy;го по&shy;то&shy;ка, пос&shy;ле че&shy;го сдви&shy;га&shy;ем ре&shy;гис&shy;тры ESP и EBP на но&shy;вые мес&shy;та. С точ&shy;ки зре&shy;ния сте&shy;ка мы сы&shy;ми&shy;ти&shy;ро&shy;ва&shy;ли вы&shy;зов всех этих ме&shy;то&shy;дов:</p>
 <div class="paragraph-right-side">20</div>
 </div>
-<p><img src="./imgs/ThreadStack/step6.png" alt="" /></p>
+<p >
+<img src="./imgs/ThreadStack/step6.png" alt="" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
-<p>Но пока не с точки зрения кода. С точки зрения кода нам надо попасть в те методы, которые только что создали. Самое простое - просто сымитировать выход из метода: восстановить <code>ESP</code> до <code>EBP</code>, в <code>EBP</code> положить то, на что он указывает и вызвать инструкцию <code>ret</code>, инициировав выход из якобы вызванного C++ метода клонирования потока, что приведёт к возврату в реальный wrapper CLI/C++ вызова, который вернёт управление в <code>MakeFork()</code>, но в дочернем потоке. Техника сработала.</p>
+<p >
+Но по&shy;ка не с точ&shy;ки зре&shy;ния ко&shy;да. С точ&shy;ки зре&shy;ния ко&shy;да нам на&shy;до по&shy;пасть в те ме&shy;то&shy;ды, ко&shy;то&shy;рые толь&shy;ко что соз&shy;да&shy;ли. Са&shy;мое прос&shy;тое - прос&shy;то сы&shy;ми&shy;ти&shy;ро&shy;вать вы&shy;ход из ме&shy;то&shy;да: восс&shy;та&shy;но&shy;вить <code>ESP</code> до <code>EBP</code>, в <code>EBP</code> по&shy;ло&shy;жить то, на что он ука&shy;зы&shy;ва&shy;ет и выз&shy;вать инстр&shy;укцию <code>ret</code>, ини&shy;ци&shy;и&shy;ро&shy;вав вы&shy;ход из яко&shy;бы выз&shy;ван&shy;но&shy;го C++ ме&shy;то&shy;да кло&shy;ни&shy;ро&shy;ва&shy;ния по&shy;то&shy;ка, что при&shy;ведёт к возв&shy;ра&shy;ту в ре&shy;альный wrapper CLI/C++ вы&shy;зо&shy;ва, ко&shy;то&shy;рый вернёт уп&shy;рав&shy;ле&shy;ние в <code>MakeFork()</code>, но в до&shy;чер&shy;нем по&shy;то&shy;ке. Тех&shy;ни&shy;ка сра&shy;бо&shy;та&shy;ла.</p>
 <div class="paragraph-right-side">21</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
-<p>Теперь давайте взглянем на код. Первое что мы сделаем - это возможность для CLI/C++ кода создать .NET поток. Для этого мы его должны создать в .NET:</p>
+<p >
+Те&shy;перь да&shy;вай&shy;те взгл&shy;янем на код. Пер&shy;вое что мы сде&shy;ла&shy;ем - это воз&shy;мож&shy;ность для CLI/C++ ко&shy;да соз&shy;дать .NET по&shy;ток. Для это&shy;го мы его дол&shy;жны соз&shy;дать в .NET:</p>
 <div class="paragraph-right-side">22</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1090,7 +1208,8 @@ ThreadPool -&gt; MakeFork
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
-<p>На типы параметров пока не обращайте внимания. Они нужны для передачи информации о том, какой участок стека необходимо у себя рисовать из родительского потока в дочерний. Метод создания потока оборачивает в делегат вызов unmanaged метода, передаёт данные и ставит делегат в очередь на обработку пулом потоков.</p>
+<p >
+На ти&shy;пы па&shy;ра&shy;мет&shy;ров по&shy;ка не об&shy;ра&shy;щай&shy;те вни&shy;ма&shy;ния. Они нуж&shy;ны для пе&shy;ре&shy;да&shy;чи ин&shy;фор&shy;ма&shy;ции о том, ка&shy;кой учас&shy;ток сте&shy;ка не&shy;об&shy;хо&shy;ди&shy;мо у се&shy;бя ри&shy;со&shy;вать из ро&shy;ди&shy;тел&shy;ьского по&shy;то&shy;ка в до&shy;чер&shy;ний. Ме&shy;тод соз&shy;да&shy;ния по&shy;то&shy;ка обо&shy;ра&shy;чи&shy;ва&shy;ет в де&shy;ле&shy;гат вы&shy;зов unmanaged ме&shy;то&shy;да, пе&shy;ре&shy;даёт дан&shy;ные и ста&shy;вит де&shy;ле&shy;гат в оче&shy;редь на об&shy;ра&shy;бот&shy;ку пу&shy;лом по&shy;то&shy;ков.</p>
 <div class="paragraph-right-side">23</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1112,7 +1231,8 @@ ThreadPool -&gt; MakeFork
 }
 </pre></div>
 </div>
-<p>И, наконец, сам метод клонирования (вернее, его .NET часть):</p>
+<p >
+И, на&shy;ко&shy;нец, сам ме&shy;тод кло&shy;ни&shy;ро&shy;ва&shy;ния (вер&shy;нее, его .NET часть):</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 [MethodImpl(MethodImplOptions::NoInlining | MethodImplOptions::NoOptimization | MethodImplOptions::PreserveSig)]
 <span style="color:Blue;">static</span> <span style="color:Blue;">bool</span> CloneThread()
@@ -1138,7 +1258,8 @@ ThreadPool -&gt; MakeFork
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">24</div>
-<p>Чтобы понимать, где в цепочке кадров стека находится данный метод, мы сохраняем себе адрес стековой переменной (*). Использовать этот адрес мы будем в методе клонирования, речь о котором пойдёт чуть ниже. Также, чтобы вы понимали, о чем идёт речь, приведу код структуры, необходимой для хранения информации о копии стека:</p>
+<p >
+Что&shy;бы по&shy;ни&shy;мать, где в це&shy;поч&shy;ке кад&shy;ров сте&shy;ка на&shy;хо&shy;дит&shy;ся дан&shy;ный ме&shy;тод, мы сох&shy;ра&shy;ня&shy;ем се&shy;бе ад&shy;рес сте&shy;ко&shy;вой пе&shy;ре&shy;мен&shy;ной (*). Испол&shy;ьз&shy;овать этот ад&shy;рес мы бу&shy;дем в ме&shy;то&shy;де кло&shy;ни&shy;ро&shy;ва&shy;ния, речь о ко&shy;то&shy;ром пойдёт чуть ни&shy;же. Так&shy;же, что&shy;бы вы по&shy;ни&shy;ма&shy;ли, о чем идёт речь, при&shy;ве&shy;ду код струк&shy;ту&shy;ры, не&shy;об&shy;хо&shy;ди&shy;мой для хра&shy;не&shy;ния ин&shy;фор&shy;ма&shy;ции о ко&shy;пии сте&shy;ка:</p>
 <div class="paragraph-right-side">24</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1167,13 +1288,15 @@ ThreadPool -&gt; MakeFork
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
-<p>Работа же самого алгоритма разделена на две части: в родительском потоке мы подготавливаем данные для того, чтобы в дочернем потоке отрисовать нужные кадры стека. Вторым же этапом восстанавливаются данные в дочернем потоке, накладываясь на свой собственный стек потока исполнения, имитируя, таким образом, вызовы методов, которые в реальности вызваны не были.</p>
+<p >
+Ра&shy;бо&shy;та же са&shy;мо&shy;го ал&shy;го&shy;рит&shy;ма раз&shy;де&shy;ле&shy;на на две час&shy;ти: в ро&shy;ди&shy;т&shy;ельском по&shy;то&shy;ке мы под&shy;го&shy;тав&shy;ли&shy;ва&shy;ем дан&shy;ные для то&shy;го, что&shy;бы в до&shy;чер&shy;нем по&shy;то&shy;ке от&shy;ри&shy;со&shy;вать нуж&shy;ные кад&shy;ры сте&shy;ка. Вто&shy;рым же эта&shy;пом восс&shy;та&shy;нав&shy;ли&shy;ва&shy;ют&shy;ся дан&shy;ные в до&shy;чер&shy;нем по&shy;то&shy;ке, нак&shy;ла&shy;ды&shy;ва&shy;ясь на свой собст&shy;венный стек по&shy;то&shy;ка ис&shy;пол&shy;не&shy;ния, ими&shy;ти&shy;руя, та&shy;ким об&shy;ра&shy;зом, вы&shy;зо&shy;вы ме&shy;то&shy;дов, ко&shy;то&shy;рые в ре&shy;аль&shy;ности выз&shy;ва&shy;ны не бы&shy;ли.</p>
 <div class="paragraph-right-side">25</div>
 </div>
 <h3 id="section-3">Метод подготовки к копированию</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
-<p>Описание кода я буду делать блоками. Т.е. единый код будет разбит на части, и каждая из частей будет отдельно прокомментирована. Итак, приступим. Когда внешний код вызывает <code>Fork.CloneThread()</code>, то через внутреннюю обёртку над неуправляемым кодом и через ряд дополнительных методов, если код работает под отладкой (так называемые debugger assistants). Именно поэтому мы в .NET части запомнили адрес переменной в стеке: для C++ метода этот адрес является своеобразной меткой: теперь мы точно знаем, какой участок стека мы можем спокойно копировать.</p>
+<p >
+Опи&shy;са&shy;ние ко&shy;да я бу&shy;ду де&shy;лать бло&shy;ка&shy;ми. Т.е. еди&shy;ный код бу&shy;дет раз&shy;бит на час&shy;ти, и каж&shy;дая из час&shy;тей бу&shy;дет от&shy;дель&shy;но про&shy;ком&shy;мен&shy;ти&shy;ро&shy;ва&shy;на. Итак, прис&shy;ту&shy;пим. Ког&shy;да внеш&shy;ний код вы&shy;зы&shy;ва&shy;ет <code>Fork.CloneThread()</code>, то че&shy;рез внут&shy;рен&shy;нюю обёртку над не&shy;уп&shy;рав&shy;ля&shy;е&shy;мым ко&shy;дом и че&shy;рез ряд до&shy;пол&shy;ни&shy;тель&shy;ных ме&shy;то&shy;дов, ес&shy;ли код ра&shy;бо&shy;та&shy;ет под от&shy;лад&shy;кой (так на&shy;зы&shy;ва&shy;е&shy;мые debugger assistants). Имен&shy;но по&shy;э&shy;то&shy;му мы в .NET час&shy;ти за&shy;пом&shy;ни&shy;ли ад&shy;рес пе&shy;ре&shy;мен&shy;ной в сте&shy;ке: для C++ ме&shy;то&shy;да этот ад&shy;рес яв&shy;ля&shy;ет&shy;ся сво&shy;еоб&shy;разной мет&shy;кой: те&shy;перь мы точ&shy;но зна&shy;ем, ка&shy;кой учас&shy;ток сте&shy;ка мы мо&shy;жем спо&shy;кой&shy;но ко&shy;пи&shy;ро&shy;вать.</p>
 <div class="paragraph-right-side">26</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1185,7 +1308,8 @@ ThreadPool -&gt; MakeFork
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">27</div>
-<p>Первым делом, до того как произойдёт хоть какая-то операция, чтобы не получить запорченные регистры, мы их копируем локально. Также дополнительно необходимо сохранить адрес кода, куда будет сделан <code>goto</code>, когда в дочернем потоке стек будет сымитирован, и необходимо будет произвести процеруду выхода из <code>CloneThread</code> из дочернего потока. В качестве &laquo;точки выхода&raquo; мы выбираем <code>JmpPointOnMethodsChainCallEmulation</code> и не просто так: после операции сохранения этого адреса &laquo;на будущее&raquo; мы дополнительно закладываем в стек число 0.</p>
+<p >
+Пер&shy;вым де&shy;лом, до то&shy;го как про&shy;и&shy;зойдёт хоть ка&shy;кая-то опе&shy;ра&shy;ция, что&shy;бы не по&shy;лу&shy;чить за&shy;пор&shy;чен&shy;ные ре&shy;гис&shy;тры, мы их ко&shy;пи&shy;ру&shy;ем ло&shy;каль&shy;но. Так&shy;же до&shy;пол&shy;ни&shy;тель&shy;но не&shy;об&shy;хо&shy;ди&shy;мо сох&shy;ра&shy;нить ад&shy;рес ко&shy;да, ку&shy;да бу&shy;дет сде&shy;лан <code>goto</code>, ког&shy;да в до&shy;чер&shy;нем по&shy;то&shy;ке стек бу&shy;дет сы&shy;ми&shy;ти&shy;ро&shy;ван, и не&shy;об&shy;хо&shy;ди&shy;мо бу&shy;дет про&shy;из&shy;вес&shy;ти про&shy;це&shy;ру&shy;ду вы&shy;хо&shy;да из <code>CloneThread</code> из до&shy;чер&shy;не&shy;го по&shy;то&shy;ка. В ка&shy;чес&shy;тве &laquo;точ&shy;ки вы&shy;хо&shy;да&raquo; мы вы&shy;би&shy;ра&shy;ем <code>JmpPointOnMethodsChainCallEmulation</code> и не прос&shy;то так: пос&shy;ле опе&shy;ра&shy;ции сох&shy;ра&shy;не&shy;ния это&shy;го ад&shy;ре&shy;са &laquo;на бу&shy;ду&shy;щее&raquo; мы до&shy;пол&shy;ни&shy;тель&shy;но зак&shy;ла&shy;ды&shy;ва&shy;ем в стек чис&shy;ло 0.</p>
 <div class="paragraph-right-side">27</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1212,7 +1336,8 @@ ThreadPool -&gt; MakeFork
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
-<p>После чего, после <code>JmpPointOnMethodsChainCallEmulation</code> мы достаём это число из стека и проверяем: там лежит <code>0</code>? Если да, мы находимся в том же самом потоке: а значит у нас ещё много дел, и мы переходим на <code>NonClonned</code>. Если же там не <code>0</code>, а по факту <code>1</code>, это значит, что дочерний поток закончил &laquo;дорисовку&raquo; стека потока до необходимого состояния, положил на стек число <code>1</code> и сделал goto в эту точку (замечу, что goto он делает из другого метода). А это значит, что настало время для выхода из <code>CloneThread</code> в дочернем потоке, вызов которого был сымитирован.</p>
+<p >
+Пос&shy;ле че&shy;го, пос&shy;ле <code>JmpPointOnMethodsChainCallEmulation</code> мы дос&shy;таём это чис&shy;ло из сте&shy;ка и про&shy;ве&shy;ря&shy;ем: там ле&shy;жит <code>0</code>? Если да, мы на&shy;хо&shy;дим&shy;ся в том же са&shy;мом по&shy;то&shy;ке: а зна&shy;чит у нас ещё мно&shy;го дел, и мы пе&shy;ре&shy;хо&shy;дим на <code>NonClonned</code>. Если же там не <code>0</code>, а по фак&shy;ту <code>1</code>, это зна&shy;чит, что до&shy;чер&shy;ний по&shy;ток за&shy;кон&shy;чил &laquo;до&shy;ри&shy;сов&shy;ку&raquo; сте&shy;ка по&shy;то&shy;ка до не&shy;об&shy;хо&shy;ди&shy;мо&shy;го сос&shy;то&shy;я&shy;ния, по&shy;ло&shy;жил на стек чис&shy;ло <code>1</code> и сде&shy;лал goto в эту точ&shy;ку (за&shy;ме&shy;чу, что goto он де&shy;ла&shy;ет из дру&shy;го&shy;го ме&shy;то&shy;да). А это зна&shy;чит, что нас&shy;та&shy;ло вре&shy;мя для вы&shy;хо&shy;да из <code>CloneThread</code> в до&shy;чер&shy;нем по&shy;то&shy;ке, вы&shy;зов ко&shy;то&shy;ро&shy;го был сы&shy;ми&shy;ти&shy;ро&shy;ван.</p>
 <div class="paragraph-right-side">28</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1233,7 +1358,8 @@ NonClonned:
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">29</div>
-<p>Хорошо, мы убедились, что мы все ещё мы, а значит надо подготовить данные для дочернего потока. Чтобы более не спускаться на уровень ассемблера, работать мы будем со структурой ранее сохранённых регистров. Достанем из неё значение регистра EBP: он по сути является полем &laquo;Next&raquo; в односвязном списке кардов стека. Перейдя по адресу, который там содержится, мы очутимся в кадре метода, который нас вызвал. Если и там возьмём первое поле и перейдём по тому адресу, то окажемся в ещё более раннем кадре. Так мы сможем дойти до managed части <code>CloneThread</code>: ведь мы сохранили адрес переменной в её стековом кадре, а значит, прекрасно знаем, где остановиться. Этой задачей и занимается цикл, приведённый ниже.</p>
+<p >
+Хо&shy;ро&shy;шо, мы убе&shy;ди&shy;лись, что мы все ещё мы, а зна&shy;чит на&shy;до под&shy;го&shy;то&shy;вить дан&shy;ные для до&shy;чер&shy;не&shy;го по&shy;то&shy;ка. Что&shy;бы бо&shy;лее не спус&shy;кать&shy;ся на уро&shy;вень ас&shy;семб&shy;ле&shy;ра, ра&shy;бо&shy;тать мы бу&shy;дем со струк&shy;ту&shy;рой ра&shy;нее сох&shy;ранённых ре&shy;гист&shy;ров. Дос&shy;та&shy;нем из неё зна&shy;че&shy;ние ре&shy;гис&shy;тра EBP: он по су&shy;ти яв&shy;ля&shy;ет&shy;ся по&shy;лем &laquo;Next&raquo; в од&shy;нос&shy;вяз&shy;ном спис&shy;ке кар&shy;дов сте&shy;ка. Пе&shy;рей&shy;дя по ад&shy;ре&shy;су, ко&shy;то&shy;рый там со&shy;дер&shy;жит&shy;ся, мы очу&shy;тим&shy;ся в кад&shy;ре ме&shy;то&shy;да, ко&shy;то&shy;рый нас выз&shy;вал. Если и там возьмём пер&shy;вое по&shy;ле и пе&shy;рейдём по то&shy;му ад&shy;ре&shy;су, то ока&shy;жем&shy;ся в ещё бо&shy;лее ран&shy;нем кад&shy;ре. Так мы смо&shy;жем дой&shy;ти до managed час&shy;ти <code>CloneThread</code>: ведь мы сох&shy;ра&shy;ни&shy;ли ад&shy;рес пе&shy;ре&shy;мен&shy;ной в её сте&shy;ко&shy;вом кад&shy;ре, а зна&shy;чит, прек&shy;рас&shy;но зна&shy;ем, где ос&shy;та&shy;но&shy;вить&shy;ся. Этой за&shy;да&shy;чей и за&shy;ни&shy;ма&shy;ет&shy;ся цикл, при&shy;ведённый ни&shy;же.</p>
 <div class="paragraph-right-side">29</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1252,7 +1378,8 @@ NonClonned:
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">30</div>
-<p>Получив адрес начала кадра managed метода <code>CloneThread</code>, мы теперь знаем, сколько надо копировать для имитации вызова <code>CloneThread</code> из <code>MakeFork</code>. Однако поскольку нам <code>MakeFork</code> также нужен (наша задача выйти именно в него), то мы делаем дополнительно ещё один переход по односвязному списку: <code>*(int *)curptr</code>. После чего создаём массив под сохранение стека и сохраняем его простым копированием.</p>
+<p >
+По&shy;лу&shy;чив ад&shy;рес на&shy;ча&shy;ла кад&shy;ра managed ме&shy;то&shy;да <code>CloneThread</code>, мы те&shy;перь зна&shy;ем, сколь&shy;ко на&shy;до ко&shy;пи&shy;ро&shy;вать для ими&shy;та&shy;ции вы&shy;зо&shy;ва <code>CloneThread</code> из <code>MakeFork</code>. Одна&shy;ко пос&shy;коль&shy;ку нам <code>MakeFork</code> так&shy;же ну&shy;жен (на&shy;ша за&shy;да&shy;ча вый&shy;ти имен&shy;но в не&shy;го), то мы де&shy;ла&shy;ем до&shy;пол&shy;ни&shy;тель&shy;но ещё один пе&shy;ре&shy;ход по од&shy;нос&shy;вяз&shy;но&shy;му спис&shy;ку: <code>*(int *)curptr</code>. Пос&shy;ле че&shy;го соз&shy;даём мас&shy;сив под сох&shy;ра&shy;не&shy;ние сте&shy;ка и сох&shy;ра&shy;ня&shy;ем его прос&shy;тым ко&shy;пи&shy;ро&shy;ва&shy;ни&shy;ем.</p>
 <div class="paragraph-right-side">30</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1268,7 +1395,8 @@ NonClonned:
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">31</div>
-<p>Ещё одна задача, которую надо будет решить, - это исправление адресов переменных, которые попали на стек и при этом указывающих на стек. Для решения этой проблемы мы получаем диапазон адресов, которые нам выделила операционная система под стек потока. Сохраняем полученную информацию и запукаем вторую часть процесса клонирования, запланировав делегат в пул потоков:</p>
+<p >
+Ещё од&shy;на за&shy;да&shy;ча, ко&shy;то&shy;рую на&shy;до бу&shy;дет ре&shy;шить, - это ис&shy;прав&shy;ле&shy;ние ад&shy;ре&shy;сов пе&shy;ре&shy;мен&shy;ных, ко&shy;то&shy;рые по&shy;па&shy;ли на стек и при этом ука&shy;зы&shy;ва&shy;ю&shy;щих на стек. Для ре&shy;ше&shy;ния этой проб&shy;ле&shy;мы мы по&shy;лу&shy;ча&shy;ем ди&shy;а&shy;па&shy;зон ад&shy;ре&shy;сов, ко&shy;то&shy;рые нам вы&shy;де&shy;ли&shy;ла опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;те&shy;ма под стек по&shy;то&shy;ка. Сох&shy;ра&shy;ня&shy;ем по&shy;лу&shy;чен&shy;ную ин&shy;фор&shy;ма&shy;цию и за&shy;пу&shy;ка&shy;ем вто&shy;рую часть про&shy;цес&shy;са кло&shy;ни&shy;ро&shy;ва&shy;ния, зап&shy;ла&shy;ни&shy;ро&shy;вав де&shy;ле&shy;гат в пул по&shy;то&shy;ков:</p>
 <div class="paragraph-right-side">31</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1293,7 +1421,8 @@ NonClonned:
 <h3 id="section-4">Метод восстановления из копии</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">32</div>
-<p>Этот метод вызывается как результат работы предыдущего: нам переданы копия участка стека родительского потока, а также полный набор его регистров. Наша задача в нашем потоке, взятом из пула потоков, дорисовать все вызовы, скопированные из родительского потока таким образом, как будто мы сами их осуществили. Завершив работу, MakeFork дочернего потока попадёт обратно в этот метод, который, завершив работу, освободит поток и вернёт его в пул потоков.</p>
+<p >
+Этот ме&shy;тод вы&shy;зы&shy;ва&shy;ет&shy;ся как ре&shy;зуль&shy;тат ра&shy;бо&shy;ты пре&shy;ды&shy;ду&shy;ще&shy;го: нам пе&shy;ре&shy;да&shy;ны ко&shy;пия учас&shy;тка сте&shy;ка ро&shy;ди&shy;тел&shy;ьского по&shy;то&shy;ка, а так&shy;же пол&shy;ный на&shy;бор его ре&shy;гист&shy;ров. На&shy;ша за&shy;да&shy;ча в на&shy;шем по&shy;то&shy;ке, взя&shy;том из пу&shy;ла по&shy;то&shy;ков, до&shy;ри&shy;со&shy;вать все вы&shy;зо&shy;вы, ско&shy;пи&shy;ро&shy;ван&shy;ные из ро&shy;ди&shy;тел&shy;ьского по&shy;то&shy;ка та&shy;ким об&shy;ра&shy;зом, как буд&shy;то мы са&shy;ми их осу&shy;щест&shy;ви&shy;ли. За&shy;вер&shy;шив ра&shy;бо&shy;ту, MakeFork до&shy;чер&shy;не&shy;го по&shy;то&shy;ка по&shy;падёт об&shy;рат&shy;но в этот ме&shy;тод, ко&shy;то&shy;рый, за&shy;вер&shy;шив ра&shy;бо&shy;ту, ос&shy;во&shy;бо&shy;дит по&shy;ток и вернёт его в пул по&shy;то&shy;ков.</p>
 <div class="paragraph-right-side">32</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1304,7 +1433,8 @@ NonClonned:
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">33</div>
-<p>Первым делом мы сохраняем значения рабочих регистров, чтобы, когда <code>MakeFork</code> завершит свою работу, мы смогли их безболезненно восставновить. Чтобы в дальнейшем минимально влиять на регистры, мы выгружаем переданные нам параметры к себе на стек. Доступ к ним будет идти только через <code>SS:ESP</code>, что для нас будет предсказуемым.</p>
+<p >
+Пер&shy;вым де&shy;лом мы сох&shy;ра&shy;ня&shy;ем зна&shy;че&shy;ния ра&shy;бо&shy;чих ре&shy;гист&shy;ров, что&shy;бы, ког&shy;да <code>MakeFork</code> за&shy;вер&shy;шит свою ра&shy;бо&shy;ту, мы смог&shy;ли их без&shy;бо&shy;лез&shy;нен&shy;но восс&shy;тав&shy;но&shy;вить. Что&shy;бы в даль&shy;ней&shy;шем ми&shy;ни&shy;маль&shy;но вли&shy;ять на ре&shy;гис&shy;тры, мы выг&shy;ру&shy;жа&shy;ем пе&shy;ре&shy;дан&shy;ные нам па&shy;ра&shy;мет&shy;ры к се&shy;бе на стек. Дос&shy;туп к ним бу&shy;дет ид&shy;ти толь&shy;ко че&shy;рез <code>SS:ESP</code>, что для нас бу&shy;дет предс&shy;ка&shy;зу&shy;е&shy;мым.</p>
 <div class="paragraph-right-side">33</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1324,7 +1454,8 @@ NonClonned:
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">34</div>
-<p>Наша следующая задача - это исправить в копии стека значения <code>EBP</code>, которые образуют односвязный список кадров на их будущие новые положения. Для этого мы рассчитываем дельту между адресом нашего стека потока и родительского стека потока, дельту между копией диапазона стека родительского потока и самим родительским потоком.</p>
+<p >
+На&shy;ша сле&shy;ду&shy;ю&shy;щая за&shy;да&shy;ча - это ис&shy;пра&shy;вить в ко&shy;пии сте&shy;ка зна&shy;че&shy;ния <code>EBP</code>, ко&shy;то&shy;рые об&shy;ра&shy;зу&shy;ют од&shy;нос&shy;вяз&shy;ный спи&shy;сок кад&shy;ров на их бу&shy;ду&shy;щие но&shy;вые по&shy;ло&shy;же&shy;ния. Для это&shy;го мы расс&shy;чи&shy;ты&shy;ва&shy;ем дель&shy;ту меж&shy;ду ад&shy;ре&shy;сом на&shy;ше&shy;го сте&shy;ка по&shy;то&shy;ка и ро&shy;ди&shy;тел&shy;ьского сте&shy;ка по&shy;то&shy;ка, дель&shy;ту меж&shy;ду ко&shy;пи&shy;ей ди&shy;а&shy;па&shy;зо&shy;на сте&shy;ка ро&shy;ди&shy;тел&shy;ьского по&shy;то&shy;ка и са&shy;мим ро&shy;ди&shy;т&shy;ельским по&shy;то&shy;ком.</p>
 <div class="paragraph-right-side">34</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1349,7 +1480,8 @@ NonClonned:
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">35</div>
-<p>Используя эти данные, мы в цикле идём по копии стека и исправляем адреса на их будущие новые положения.</p>
+<p >
+Испол&shy;ьзуя эти дан&shy;ные, мы в цик&shy;ле идём по ко&shy;пии сте&shy;ка и ис&shy;прав&shy;ля&shy;ем ад&shy;ре&shy;са на их бу&shy;ду&shy;щие но&shy;вые по&shy;ло&shy;же&shy;ния.</p>
 <div class="paragraph-right-side">35</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1373,7 +1505,8 @@ NonClonned:
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">36</div>
-<p>Когда правка односвязного списка завершена, мы должны исправить значения регистров в их копии, чтобы, если там присутствуют ссылки на стек, они были бы исправлены. Тут на самом деле алгоритм совсем не точен. Ведь если там по некоторой случайности окажется не удачное число из диапазона адресов стека, то оно будет исправлено по ошибке. Но наша задача не для продукта концепт написать, а просто понять работу стека потока. Потому для этих целей нам данная методика подойдёт.</p>
+<p >
+Ког&shy;да прав&shy;ка од&shy;нос&shy;вяз&shy;но&shy;го спис&shy;ка за&shy;вер&shy;ше&shy;на, мы дол&shy;жны ис&shy;пра&shy;вить зна&shy;че&shy;ния ре&shy;гист&shy;ров в их ко&shy;пии, что&shy;бы, ес&shy;ли там при&shy;сут&shy;ствуют ссыл&shy;ки на стек, они бы&shy;ли бы ис&shy;прав&shy;ле&shy;ны. Тут на са&shy;мом де&shy;ле ал&shy;го&shy;ритм сов&shy;сем не то&shy;чен. Ведь ес&shy;ли там по не&shy;ко&shy;то&shy;рой слу&shy;чай&shy;нос&shy;ти ока&shy;жет&shy;ся не удач&shy;ное чис&shy;ло из ди&shy;а&shy;па&shy;зо&shy;на ад&shy;ре&shy;сов сте&shy;ка, то оно бу&shy;дет ис&shy;прав&shy;ле&shy;но по ошиб&shy;ке. Но на&shy;ша за&shy;да&shy;ча не для про&shy;дук&shy;та кон&shy;цепт на&shy;пи&shy;сать, а прос&shy;то по&shy;нять ра&shy;бо&shy;ту сте&shy;ка по&shy;то&shy;ка. По&shy;то&shy;му для этих це&shy;лей нам дан&shy;ная ме&shy;то&shy;ди&shy;ка по&shy;дойдёт.</p>
 <div class="paragraph-right-side">36</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1388,7 +1521,8 @@ NonClonned:
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">37</div>
-<p>Теперь, основная и самая ответственная часть. Когда мы скопируем в конец нашего стека копию диапазона родительского, все будет хорошо до момента, когда <code>MakeFork</code> в дочернем потоке захочет выйти (сделать <code>return</code>). Нам надо указать ему, куда он должен выйти. Для этого мы также имитируем вызов самого &lsquo;MakeFork&rsquo; из этого метода. Мы закладываем в стек адрес метки <code>RestorePointAfterClonnedExited</code>, как будто инструкция процессора <code>call</code> заложила в стек адрес возврата, а также положили текущий <code>EBP</code>, сымитировав построение односвязного списка цепочек кадров методов. После чего закладываем в стек обычной операцией <code>push</code> копию родительского стека тем самым отрисовав все методы, которые были вызваны в родительском стеке из метода <code>MakeFork</code>, включая его самого. Стек готов!</p>
+<p >
+Те&shy;перь, ос&shy;нов&shy;ная и са&shy;мая от&shy;ветст&shy;венная часть. Ког&shy;да мы ско&shy;пи&shy;ру&shy;ем в ко&shy;нец на&shy;ше&shy;го сте&shy;ка ко&shy;пию ди&shy;а&shy;па&shy;зо&shy;на ро&shy;ди&shy;тел&shy;ьского, все бу&shy;дет хо&shy;ро&shy;шо до мо&shy;мен&shy;та, ког&shy;да <code>MakeFork</code> в до&shy;чер&shy;нем по&shy;то&shy;ке за&shy;хо&shy;чет вый&shy;ти (сде&shy;лать <code>return</code>). Нам на&shy;до ука&shy;зать ему, ку&shy;да он дол&shy;жен вый&shy;ти. Для это&shy;го мы так&shy;же ими&shy;ти&shy;ру&shy;ем вы&shy;зов са&shy;мо&shy;го &lsquo;MakeFork&rsquo; из это&shy;го ме&shy;то&shy;да. Мы зак&shy;ла&shy;ды&shy;ва&shy;ем в стек ад&shy;рес мет&shy;ки <code>RestorePointAfterClonnedExited</code>, как буд&shy;то инстр&shy;укция про&shy;цес&shy;со&shy;ра <code>call</code> за&shy;ло&shy;жи&shy;ла в стек ад&shy;рес возв&shy;ра&shy;та, а так&shy;же по&shy;ло&shy;жи&shy;ли те&shy;ку&shy;щий <code>EBP</code>, сы&shy;ми&shy;ти&shy;ро&shy;вав пос&shy;тро&shy;е&shy;ние од&shy;нос&shy;вяз&shy;но&shy;го спис&shy;ка це&shy;по&shy;чек кад&shy;ров ме&shy;то&shy;дов. Пос&shy;ле че&shy;го зак&shy;ла&shy;ды&shy;ва&shy;ем в стек обыч&shy;ной опе&shy;ра&shy;ци&shy;ей <code>push</code> ко&shy;пию ро&shy;ди&shy;тел&shy;ьского сте&shy;ка тем са&shy;мым от&shy;ри&shy;со&shy;вав все ме&shy;то&shy;ды, ко&shy;то&shy;рые бы&shy;ли выз&shy;ва&shy;ны в ро&shy;ди&shy;т&shy;ельском сте&shy;ке из ме&shy;то&shy;да <code>MakeFork</code>, вклю&shy;чая его са&shy;мо&shy;го. Стек го&shy;тов!</p>
 <div class="paragraph-right-side">37</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1405,7 +1539,8 @@ NonClonned:
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">38</div>
-<p>Далее поскольку мы также должны восстановить и регистры, восстанавливаем и их самих.</p>
+<p >
+Да&shy;лее пос&shy;коль&shy;ку мы так&shy;же дол&shy;жны восс&shy;та&shy;но&shy;вить и ре&shy;гис&shy;тры, восс&shy;та&shy;нав&shy;ли&shy;ва&shy;ем и их са&shy;мих.</p>
 <div class="paragraph-right-side">38</div>
 </div>
 <pre><code>    // restore registers, push 1 for Fork() and jmp
@@ -1425,7 +1560,8 @@ NonClonned:
 </code></pre>
 <div class="paragraph-container">
 <div class="paragraph-left-side">39</div>
-<p>А вот теперь самое время вспомнить тот странный код с закладыванием <code>0</code> в стек и проверки на <code>0</code>. В этом потоке мы закладываем <code>1</code> и делаем дальний jmp в код метода <code>ForkImpl</code>. Ведь по стеку мы находимся именно там, а реально все ещё тут. Когда мы туда попадём, то <code>ForkImpl</code> распознает смену потока и осуществит выход в метод <code>MakeFork</code>, который, завершив работу, попадёт в точку <code>RestorePointAfterClonnedExited</code>, т.к. немного ранее мы сымтировали вызов <code>MakeFork</code> из этой точки. Восстановив регистры до состояния &laquo;только что вызваны из TheadPool&raquo;, мы завершаем работу, отдавая поток в пул потоков.</p>
+<p >
+А вот те&shy;перь са&shy;мое вре&shy;мя вспом&shy;нить тот стран&shy;ный код с зак&shy;ла&shy;ды&shy;ва&shy;ни&shy;ем <code>0</code> в стек и про&shy;вер&shy;ки на <code>0</code>. В этом по&shy;то&shy;ке мы зак&shy;ла&shy;ды&shy;ва&shy;ем <code>1</code> и де&shy;ла&shy;ем даль&shy;ний jmp в код ме&shy;то&shy;да <code>ForkImpl</code>. Ведь по сте&shy;ку мы на&shy;хо&shy;дим&shy;ся имен&shy;но там, а ре&shy;ально все ещё тут. Ког&shy;да мы ту&shy;да по&shy;падём, то <code>ForkImpl</code> рас&shy;поз&shy;на&shy;ет сме&shy;ну по&shy;то&shy;ка и осу&shy;щест&shy;вит вы&shy;ход в ме&shy;тод <code>MakeFork</code>, ко&shy;то&shy;рый, за&shy;вер&shy;шив ра&shy;бо&shy;ту, по&shy;падёт в точ&shy;ку <code>RestorePointAfterClonnedExited</code>, т.к. нем&shy;но&shy;го ра&shy;нее мы сым&shy;ти&shy;ро&shy;ва&shy;ли вы&shy;зов <code>MakeFork</code> из этой точ&shy;ки. Восс&shy;та&shy;но&shy;вив ре&shy;гис&shy;тры до сос&shy;то&shy;я&shy;ния &laquo;толь&shy;ко что выз&shy;ва&shy;ны из TheadPool&raquo;, мы за&shy;вер&shy;ша&shy;ем ра&shy;бо&shy;ту, от&shy;да&shy;вая по&shy;ток в пул по&shy;то&shy;ков.</p>
 <div class="paragraph-right-side">39</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1441,40 +1577,50 @@ RestorePointAfterClonnedExited:
  }
 </pre></div>
 </div>
-<p>Проверим? Это - скриншот до вызова клонирования потока:</p>
-<p><img src="./imgs/ThreadStack/ForkBeforeEnter.png" alt="" /></p>
-<p>И после:</p>
-<p><img src="./imgs/ThreadStack/ForkAfterEnter.png" alt="" /></p>
+<p >
+Про&shy;ве&shy;рим? Это - скрин&shy;шот до вы&shy;зо&shy;ва кло&shy;ни&shy;ро&shy;ва&shy;ния по&shy;то&shy;ка:</p>
+<p >
+<img src="./imgs/ThreadStack/ForkBeforeEnter.png" alt="" /></p>
+<p >
+И пос&shy;ле:</p>
+<p >
+<img src="./imgs/ThreadStack/ForkAfterEnter.png" alt="" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">40</div>
-<p>Как мы видим, теперь вместо одного потока внутри ForkImpl мы видим два. И оба - вышли из этого метода.</p>
+<p >
+Как мы ви&shy;дим, те&shy;перь вмес&shy;то од&shy;но&shy;го по&shy;то&shy;ка внут&shy;ри ForkImpl мы ви&shy;дим два. И оба - выш&shy;ли из это&shy;го ме&shy;то&shy;да.</p>
 <div class="paragraph-right-side">40</div>
 </div>
 <h1 id="section-5">Пара слов об уровне пониже</h1>
 <div class="paragraph-container">
 <div class="paragraph-left-side">41</div>
-<p>Если мы заглянем краем глаза на ещё более низкий уровень, то узнаем или же вспомним, что память на самом деле является виртуальной и что она поделена на страницы объёмом 8 или 4 Кб. Каждая такая страница может физически существовать или же нет. А если она существует, то может быть отображена на файл или же реальную оперативную память. Именно этот механизм виртуализации позволяет приложениям иметь раздельную друг от друга память и обеспечивает уровни безопасности между приложением и операционной системой. При чем же здесь стек потока? Как и любая другая оперативная память приложения стек потока является её частью и также состоит из страниц объёмом 4 или 8 Кб. По краям от выделенного для стека пространства находятся две страницы, доступ к которым приводит к системному исключению, нотифицирующему операционную систему о том, что приложение пытается обратиться в невыделенный участок памяти. Внутри этого региона реально выделенными участками являются только те страницы, к которым обратилось приложение: т.е. если приложение резервирует под поток 2Мб памяти, это не значит, что они будут выделены сразу же. Отнюдь, они будут выделены по требованию: если стек потока вырастет до 1 Мб, это будет означать, что приложение получило именно 1 Мб оперативной памяти под стек.</p>
+<p >
+Если мы заг&shy;ля&shy;нем кра&shy;ем гла&shy;за на ещё бо&shy;лее низ&shy;кий уро&shy;вень, то уз&shy;на&shy;ем или же вспом&shy;ним, что па&shy;мять на са&shy;мом де&shy;ле яв&shy;ля&shy;ет&shy;ся вир&shy;ту&shy;альной и что она по&shy;де&shy;ле&shy;на на стра&shy;ни&shy;цы объёмом 8 или 4 Кб. Каж&shy;дая та&shy;кая стра&shy;ни&shy;ца мо&shy;жет фи&shy;зи&shy;чес&shy;ки су&shy;щест&shy;во&shy;вать или же нет. А ес&shy;ли она су&shy;щес&shy;тву&shy;ет, то мо&shy;жет быть отоб&shy;ра&shy;же&shy;на на файл или же ре&shy;альную опе&shy;ра&shy;тив&shy;ную па&shy;мять. Имен&shy;но этот ме&shy;ха&shy;низм вир&shy;ту&shy;а&shy;ли&shy;за&shy;ции поз&shy;во&shy;ля&shy;ет при&shy;ло&shy;же&shy;ни&shy;ям иметь раз&shy;дель&shy;ную друг от дру&shy;га па&shy;мять и обес&shy;пе&shy;чи&shy;ва&shy;ет уров&shy;ни бе&shy;зо&shy;пас&shy;нос&shy;ти меж&shy;ду при&shy;ло&shy;же&shy;ни&shy;ем и опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мой. При чем же здесь стек по&shy;то&shy;ка? Как и лю&shy;бая дру&shy;гая опе&shy;ра&shy;тив&shy;ная па&shy;мять при&shy;ло&shy;же&shy;ния стек по&shy;то&shy;ка яв&shy;ля&shy;ет&shy;ся её частью и так&shy;же сос&shy;то&shy;ит из стра&shy;ниц объёмом 4 или 8 Кб. По кра&shy;ям от вы&shy;де&shy;лен&shy;но&shy;го для сте&shy;ка прост&shy;ранства на&shy;хо&shy;дят&shy;ся две стра&shy;ни&shy;цы, дос&shy;туп к ко&shy;то&shy;рым при&shy;во&shy;дит к сис&shy;тем&shy;но&shy;му ис&shy;клю&shy;че&shy;нию, но&shy;ти&shy;фи&shy;ци&shy;ру&shy;ю&shy;ще&shy;му опе&shy;ра&shy;ци&shy;он&shy;ную сис&shy;те&shy;му о том, что при&shy;ло&shy;же&shy;ние пы&shy;та&shy;ет&shy;ся об&shy;ра&shy;тить&shy;ся в не&shy;вы&shy;де&shy;лен&shy;ный учас&shy;ток па&shy;мя&shy;ти. Внут&shy;ри это&shy;го ре&shy;ги&shy;она ре&shy;ально вы&shy;де&shy;лен&shy;ны&shy;ми участ&shy;ка&shy;ми яв&shy;ля&shy;ют&shy;ся толь&shy;ко те стра&shy;ни&shy;цы, к ко&shy;то&shy;рым об&shy;ра&shy;ти&shy;лось при&shy;ло&shy;же&shy;ние: т.е. ес&shy;ли при&shy;ло&shy;же&shy;ние ре&shy;зер&shy;ви&shy;ру&shy;ет под по&shy;ток 2Мб па&shy;мя&shy;ти, это не зна&shy;чит, что они бу&shy;дут вы&shy;де&shy;ле&shy;ны сра&shy;зу же. Отнюдь, они бу&shy;дут вы&shy;де&shy;ле&shy;ны по тре&shy;бо&shy;ва&shy;нию: ес&shy;ли стек по&shy;то&shy;ка вы&shy;рас&shy;тет до 1 Мб, это бу&shy;дет оз&shy;на&shy;чать, что при&shy;ло&shy;же&shy;ние по&shy;лу&shy;чи&shy;ло имен&shy;но 1 Мб опе&shy;ра&shy;тив&shy;ной па&shy;мя&shy;ти под стек.</p>
 <div class="paragraph-right-side">41</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">42</div>
-<p>Когда приложение резервирует память под локальные переменные, то происходят две вещи: наращивается значение регистра ESP и зануляется память под сами переменные. Поэтому, когда вы напишете рекурсивный метод, который уходит в бесконечную рекурсию, вы получите StackOverflowException: заняв всю выделенную под стек память (весь доступный регион), вы напоритесь на специальную страницу, Guard Page, доступ к которой вызовет нотификацию операционной системы, которая инициирует StackOverflow уровня ОС, которое уйдёт в .NET, будет перехвачено и выбросется исключение StackOverflowException для .NET приложения.</p>
+<p >
+Ког&shy;да при&shy;ло&shy;же&shy;ние ре&shy;зер&shy;ви&shy;ру&shy;ет па&shy;мять под ло&shy;каль&shy;ные пе&shy;ре&shy;мен&shy;ные, то про&shy;ис&shy;хо&shy;дят две ве&shy;щи: на&shy;ра&shy;щи&shy;ва&shy;ет&shy;ся зна&shy;че&shy;ние ре&shy;гис&shy;тра ESP и за&shy;ну&shy;ля&shy;ет&shy;ся па&shy;мять под са&shy;ми пе&shy;ре&shy;мен&shy;ные. По&shy;э&shy;то&shy;му, ког&shy;да вы на&shy;пи&shy;ше&shy;те ре&shy;кур&shy;сив&shy;ный ме&shy;тод, ко&shy;то&shy;рый ухо&shy;дит в бес&shy;ко&shy;неч&shy;ную ре&shy;кур&shy;сию, вы по&shy;лу&shy;чи&shy;те StackOverflowException: за&shy;няв всю вы&shy;де&shy;лен&shy;ную под стек па&shy;мять (весь дос&shy;туп&shy;ный ре&shy;ги&shy;он), вы на&shy;по&shy;ри&shy;тесь на спе&shy;ци&shy;альную стра&shy;ни&shy;цу, Guard Page, дос&shy;туп к ко&shy;то&shy;рой вы&shy;зо&shy;вет но&shy;ти&shy;фи&shy;ка&shy;цию опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы, ко&shy;то&shy;рая ини&shy;ци&shy;и&shy;ру&shy;ет StackOverflow уров&shy;ня ОС, ко&shy;то&shy;рое уйдёт в .NET, бу&shy;дет пе&shy;рех&shy;ва&shy;че&shy;но и выб&shy;ро&shy;сет&shy;ся ис&shy;клю&shy;че&shy;ние StackOverflowException для .NET при&shy;ло&shy;же&shy;ния.</p>
 <div class="paragraph-right-side">42</div>
 </div>
 <h1 id="stackalloc">Выделение памяти на стеке: stackalloc</h1>
 <div class="paragraph-container">
 <div class="paragraph-left-side">43</div>
-<p>В C# существует достаточно интересное и очень редко используемое ключевое слово <code>stackalloc</code>. Оно настолько редко встречается в коде (тут я даже со словом &laquo;немного&raquo; преуменьшил. Скорее, &laquo;никогда&raquo;), что найти подходящий пример его использования достаточно трудно, а уж придумать тем более трудно: ведь если что-то редко используется, то и опыт работы с ним слишком мал. А все почему? Потому что для тех, кто наконец решается выяснить, что делает эта команда, <code>stackalloc</code> становится более пугающим чем полезным: тёмная сторона <code>stackalloc</code> - unsafe код. Тот результат, что он возвращает не является managed указателем: значение - обычный указатель на участок не защищённой памяти. Причём если по этому адресу сделать запись уже после того, как метод завершил работу, вы начнёте писать в локальные переменные некоторого метода или же вообще перетрёте адрес возврата из метода, после чего приложение закончит работу с ошибкой. Однако наша задача - проникнуть в самые уголки и разобраться, что в них скрыто. И понять, в частности, что если нам дали этот инструмент, то не просто же так, чтобы мы смогли найти секретные грабли и наступить на них со всего маху. Наоборот: нам дали этот инструмент чтобы мы смогли им воспользоваться и делать поистине быстрый софт. Я, надеюсь, вдохновил вас? Тогда начнём.</p>
+<p >
+В C# су&shy;щес&shy;тву&shy;ет дос&shy;та&shy;точ&shy;но ин&shy;те&shy;рес&shy;ное и очень ред&shy;ко ис&shy;поль&shy;зу&shy;е&shy;мое клю&shy;че&shy;вое сло&shy;во <code>stackalloc</code>. Оно нас&shy;толь&shy;ко ред&shy;ко встр&shy;еч&shy;ае&shy;тся в ко&shy;де (тут я да&shy;же со сло&shy;вом &laquo;нем&shy;но&shy;го&raquo; пре&shy;у&shy;мень&shy;шил. Ско&shy;рее, &laquo;ни&shy;ког&shy;да&raquo;), что най&shy;ти под&shy;хо&shy;дя&shy;щий при&shy;мер его ис&shy;поль&shy;зо&shy;ва&shy;ния дос&shy;та&shy;точ&shy;но труд&shy;но, а уж при&shy;ду&shy;мать тем бо&shy;лее труд&shy;но: ведь ес&shy;ли что-то ред&shy;ко ис&shy;поль&shy;зу&shy;ет&shy;ся, то и опыт ра&shy;бо&shy;ты с ним слиш&shy;ком мал. А все по&shy;че&shy;му? По&shy;то&shy;му что для тех, кто на&shy;ко&shy;нец ре&shy;ша&shy;ет&shy;ся вы&shy;яс&shy;нить, что де&shy;ла&shy;ет эта ко&shy;ман&shy;да, <code>stackalloc</code> ста&shy;но&shy;вит&shy;ся бо&shy;лее пу&shy;га&shy;ю&shy;щим чем по&shy;лез&shy;ным: тёмная сто&shy;ро&shy;на <code>stackalloc</code> - unsafe код. Тот ре&shy;зуль&shy;тат, что он возв&shy;ра&shy;ща&shy;ет не яв&shy;ля&shy;ет&shy;ся managed ука&shy;за&shy;те&shy;лем: зна&shy;че&shy;ние - обыч&shy;ный ука&shy;за&shy;тель на учас&shy;ток не за&shy;щищённой па&shy;мя&shy;ти. Причём ес&shy;ли по это&shy;му ад&shy;ре&shy;су сде&shy;лать за&shy;пись уже пос&shy;ле то&shy;го, как ме&shy;тод за&shy;вер&shy;шил ра&shy;бо&shy;ту, вы начнёте пи&shy;сать в ло&shy;каль&shy;ные пе&shy;ре&shy;мен&shy;ные не&shy;ко&shy;то&shy;ро&shy;го ме&shy;то&shy;да или же во&shy;об&shy;ще пе&shy;ретрёте ад&shy;рес возв&shy;ра&shy;та из ме&shy;то&shy;да, пос&shy;ле че&shy;го при&shy;ло&shy;же&shy;ние за&shy;кон&shy;чит ра&shy;бо&shy;ту с ошиб&shy;кой. Одна&shy;ко на&shy;ша за&shy;да&shy;ча - про&shy;ник&shy;нуть в са&shy;мые угол&shy;ки и ра&shy;зоб&shy;рать&shy;ся, что в них скры&shy;то. И по&shy;нять, в част&shy;нос&shy;ти, что ес&shy;ли нам да&shy;ли этот инст&shy;румент, то не прос&shy;то же так, что&shy;бы мы смог&shy;ли най&shy;ти сек&shy;рет&shy;ные граб&shy;ли и нас&shy;ту&shy;пить на них со все&shy;го ма&shy;ху. На&shy;о&shy;бо&shy;рот: нам да&shy;ли этот инст&shy;румент что&shy;бы мы смог&shy;ли им вос&shy;поль&shy;зо&shy;вать&shy;ся и де&shy;лать по&shy;ис&shy;ти&shy;не быст&shy;рый софт. Я, на&shy;де&shy;юсь, вдох&shy;но&shy;вил вас? Тог&shy;да начнём.</p>
 <div class="paragraph-right-side">43</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">44</div>
-<p>Чтобы найти правильные примеры использования этого ключевого слова надо проследовать прежде всего к его авторам: компании Microsoft и посмотреть как его используют они. Сделать это можно поискав полнотекстовым поиском по репозиторию <a href="https://github.com/dotnet/coreclr">coreclr</a>. Помимо различных тестов самого ключевого слова мы найдём не более 25 использований этого ключевого слова по коду библиотеки. Я надеюсь, что в предыдущем абзаце я достаточно сильно вас мотивировал, чтобы вы не остановили чтение, увидев эту маленькую цифру, и не закрыли мой труд. Скажу честно: команда CLR куда более дальновидная и профессиональная чем команда .NET Framework. И если она что-то сделала, то это нам сильно в чем-то должно помочь. А если это не использовано в .NET Framework&hellip; Ну, тут можно предположить, что там не все инженеры в курсе, что есть такой мощный инструмент оптимизации. Иначе бы объёмы его использования были бы гораздо больше.</p>
+<p >
+Что&shy;бы най&shy;ти пра&shy;виль&shy;ные при&shy;ме&shy;ры ис&shy;поль&shy;зо&shy;ва&shy;ния это&shy;го клю&shy;че&shy;во&shy;го сло&shy;ва на&shy;до прос&shy;ле&shy;до&shy;вать преж&shy;де все&shy;го к его ав&shy;то&shy;рам: ком&shy;па&shy;нии Microsoft и пос&shy;мот&shy;реть как его ис&shy;поль&shy;зу&shy;ют они. Сде&shy;лать это мож&shy;но по&shy;ис&shy;кав пол&shy;но&shy;текс&shy;то&shy;вым по&shy;ис&shy;ком по ре&shy;по&shy;зи&shy;то&shy;рию <a href="https://github.com/dotnet/coreclr">coreclr</a>. По&shy;ми&shy;мо раз&shy;лич&shy;ных тес&shy;тов са&shy;мо&shy;го клю&shy;че&shy;во&shy;го сло&shy;ва мы найдём не бо&shy;лее 25 ис&shy;поль&shy;зо&shy;ва&shy;ний это&shy;го клю&shy;че&shy;во&shy;го сло&shy;ва по ко&shy;ду биб&shy;ли&shy;о&shy;те&shy;ки. Я на&shy;де&shy;юсь, что в пре&shy;ды&shy;ду&shy;щем аб&shy;за&shy;це я дос&shy;та&shy;точ&shy;но силь&shy;но вас мо&shy;ти&shy;ви&shy;ро&shy;вал, что&shy;бы вы не ос&shy;та&shy;но&shy;ви&shy;ли чте&shy;ние, уви&shy;дев эту ма&shy;лень&shy;кую циф&shy;ру, и не зак&shy;ры&shy;ли мой труд. Ска&shy;жу чес&shy;тно: ко&shy;ман&shy;да CLR ку&shy;да бо&shy;лее даль&shy;но&shy;вид&shy;ная и про&shy;фес&shy;си&shy;о&shy;наль&shy;ная чем ко&shy;ман&shy;да .NET Framework. И ес&shy;ли она что-то сде&shy;ла&shy;ла, то это нам силь&shy;но в чем-то дол&shy;жно по&shy;мочь. А ес&shy;ли это не ис&shy;поль&shy;зо&shy;ва&shy;но в .NET Framework&hellip; Ну, тут мож&shy;но пред&shy;по&shy;ло&shy;жить, что там не все ин&shy;же&shy;не&shy;ры в кур&shy;се, что есть та&shy;кой мощ&shy;ный инст&shy;румент оп&shy;ти&shy;ми&shy;за&shy;ции. Ина&shy;че бы объёмы его ис&shy;поль&shy;зо&shy;ва&shy;ния бы&shy;ли бы го&shy;раз&shy;до боль&shy;ше.</p>
 <div class="paragraph-right-side">44</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">45</div>
-<p><strong>Класс Interop.ReadDir</strong>
+<p >
+<strong>Класс Interop.ReadDir</strong>
 <a href="https://github.com/dotnet/coreclr/blob/b29f6328510207970763580d6f4db864e4b198af/src/mscorlib/shared/Interop/Unix/System.Native/Interop.ReadDir.cs#L71-L83">/src/mscorlib/shared/Interop/Unix/System.Native/Interop.ReadDir.cs</a></p>
 <div class="paragraph-right-side">45</div>
 </div>
@@ -1496,13 +1642,16 @@ RestorePointAfterClonnedExited:
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">46</div>
-<p>Для чего здесь используется <code>stackalloc</code>? Как мы видим, после выделения памяти код уходит в unsafe метод для заполнения созданного буфера данными. Т.е. unsafe метод, которому необходим участок для записи, выделяется место прямо на стеке: динамически. Это отличная оптимизация, если учесть, что альтернативы: запросить участок памяти у Windows или fixed (pinned) массив .NET, который помимо нагрузки на кучу нагружает GC тем, что массив прибивается гвоздями, чтобы GC его не пододвинул во время доступа к его данным. Выделяя память на стеке, мы не рискуем ничем: выделение происходит почти моментально, и мы можем совершенно спокойно заполнить его данными и выйти из метода. А вместе с выходом из метода исчезнет и stack frame метода. В общем, экономия времени значительнейшая.</p>
+<p >
+Для че&shy;го здесь ис&shy;поль&shy;зу&shy;ет&shy;ся <code>stackalloc</code>? Как мы ви&shy;дим, пос&shy;ле вы&shy;де&shy;ле&shy;ния па&shy;мя&shy;ти код ухо&shy;дит в unsafe ме&shy;тод для за&shy;пол&shy;не&shy;ния соз&shy;дан&shy;но&shy;го бу&shy;фе&shy;ра дан&shy;ны&shy;ми. Т.е. unsafe ме&shy;тод, ко&shy;то&shy;ро&shy;му не&shy;об&shy;хо&shy;дим учас&shy;ток для за&shy;пи&shy;си, вы&shy;де&shy;ля&shy;ет&shy;ся мес&shy;то пря&shy;мо на сте&shy;ке: ди&shy;на&shy;ми&shy;чес&shy;ки. Это от&shy;лич&shy;ная оп&shy;ти&shy;ми&shy;за&shy;ция, ес&shy;ли учесть, что аль&shy;те&shy;рн&shy;ативы: зап&shy;ро&shy;сить учас&shy;ток па&shy;мя&shy;ти у Windows или fixed (pinned) мас&shy;сив .NET, ко&shy;то&shy;рый по&shy;ми&shy;мо наг&shy;руз&shy;ки на ку&shy;чу наг&shy;ру&shy;жа&shy;ет GC тем, что мас&shy;сив при&shy;би&shy;ва&shy;ет&shy;ся гвоз&shy;дя&shy;ми, что&shy;бы GC его не по&shy;дод&shy;ви&shy;нул во вре&shy;мя дос&shy;ту&shy;па к его дан&shy;ным. Вы&shy;де&shy;ляя па&shy;мять на сте&shy;ке, мы не рис&shy;ку&shy;ем ни&shy;чем: вы&shy;де&shy;ле&shy;ние про&shy;ис&shy;хо&shy;дит поч&shy;ти мо&shy;мен&shy;таль&shy;но, и мы мо&shy;жем со&shy;вер&shy;шен&shy;но спо&shy;кой&shy;но за&shy;пол&shy;нить его дан&shy;ны&shy;ми и вый&shy;ти из ме&shy;то&shy;да. А вмес&shy;те с вы&shy;хо&shy;дом из ме&shy;то&shy;да ис&shy;чез&shy;нет и stack frame ме&shy;то&shy;да. В об&shy;щем, эко&shy;но&shy;мия вре&shy;ме&shy;ни зна&shy;чи&shy;тель&shy;ней&shy;шая.</p>
 <div class="paragraph-right-side">46</div>
 </div>
-<p>Давайте рассмотрим ещё один пример:</p>
+<p >
+Да&shy;вай&shy;те расс&shy;мот&shy;рим ещё один при&shy;мер:</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">47</div>
-<p><strong>Класс Number.Formatting::FormatDecimal</strong>
+<p >
+<strong>Класс Number.Formatting::FormatDecimal</strong>
 <a href="https://github.com/dotnet/coreclr/blob/efebb38f3c18425c57f94ff910a50e038d13c848/src/mscorlib/shared/System/Number.Formatting.cs#L287-L311">/src/mscorlib/shared/System/Number.Formatting.cs</a></p>
 <div class="paragraph-right-side">47</div>
 </div>
@@ -1536,12 +1685,14 @@ RestorePointAfterClonnedExited:
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">48</div>
-<p>Это - пример форматирования чисел, опирающийся на ещё более интересный пример класса <a href="https://github.com/dotnet/coreclr/blob/efebb38f3c18425c57f94ff910a50e038d13c848/src/mscorlib/shared/System/Text/ValueStringBuilder.cs">ValueStringBuilder</a>, работающий на основе <code>Span&lt;T&gt;</code>. Суть данного участка кода в том, что для того чтобы собрать текстовое представление форматированного числа максимально быстро, код не использует выделения памяти под буфер накопления символов. Этот прекрасный код выделяет память прямо в стековом кадре метода, обеспечивая тем самым отсутствие работы сборщика мусора по экземплярам StringBuilder, если бы метод работал на его основе. Плюс уменьшается время работы самого метода: выделение памяти в куче тоже время занимает. А использование типа <code>Span&lt;T&gt;</code> вместо голых указателей вносит чувство безопасности в работу кода, основанного на stackalloc.</p>
+<p >
+Это - при&shy;мер фор&shy;ма&shy;ти&shy;ро&shy;ва&shy;ния чи&shy;сел, опи&shy;ра&shy;ющий&shy;ся на ещё бо&shy;лее ин&shy;те&shy;рес&shy;ный при&shy;мер клас&shy;са <a href="https://github.com/dotnet/coreclr/blob/efebb38f3c18425c57f94ff910a50e038d13c848/src/mscorlib/shared/System/Text/ValueStringBuilder.cs">ValueStringBuilder</a>, ра&shy;бо&shy;та&shy;ю&shy;щий на ос&shy;но&shy;ве <code>Span&lt;T&gt;</code>. Суть дан&shy;но&shy;го учас&shy;тка ко&shy;да в том, что для то&shy;го что&shy;бы соб&shy;рать текс&shy;то&shy;вое предс&shy;тав&shy;ле&shy;ние фор&shy;ма&shy;ти&shy;ро&shy;ван&shy;но&shy;го чис&shy;ла мак&shy;си&shy;маль&shy;но быс&shy;тро, код не ис&shy;поль&shy;зу&shy;ет вы&shy;де&shy;ле&shy;ния па&shy;мя&shy;ти под бу&shy;фер на&shy;коп&shy;ле&shy;ния сим&shy;во&shy;лов. Этот прек&shy;рас&shy;ный код вы&shy;де&shy;ля&shy;ет па&shy;мять пря&shy;мо в сте&shy;ко&shy;вом кад&shy;ре ме&shy;то&shy;да, обес&shy;пе&shy;чи&shy;вая тем са&shy;мым от&shy;с&shy;утствие ра&shy;бо&shy;ты сбор&shy;щи&shy;ка му&shy;со&shy;ра по эк&shy;земп&shy;ля&shy;рам StringBuilder, ес&shy;ли бы ме&shy;тод ра&shy;бо&shy;тал на его ос&shy;но&shy;ве. Плюс умень&shy;ша&shy;ет&shy;ся вре&shy;мя ра&shy;бо&shy;ты са&shy;мо&shy;го ме&shy;то&shy;да: вы&shy;де&shy;ле&shy;ние па&shy;мя&shy;ти в ку&shy;че то&shy;же вре&shy;мя за&shy;ни&shy;ма&shy;ет. А ис&shy;поль&shy;зо&shy;ва&shy;ние ти&shy;па <code>Span&lt;T&gt;</code> вмес&shy;то го&shy;лых ука&shy;за&shy;те&shy;лей вно&shy;сит чувство бе&shy;зо&shy;пас&shy;нос&shy;ти в ра&shy;бо&shy;ту ко&shy;да, ос&shy;но&shy;ван&shy;но&shy;го на stackalloc.</p>
 <div class="paragraph-right-side">48</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">49</div>
-<p>Также, перед тем как перейти к выводам, стоит упомянуть, как делать нельзя. Другими словами, какой код может работать хорошо, но в один прекрасный момент выстрелит в самый не подходящий момент. Опять же, рассмотрим пример:</p>
+<p >
+Так&shy;же, пе&shy;ред тем как пе&shy;рей&shy;ти к вы&shy;во&shy;дам, сто&shy;ит упо&shy;мя&shy;нуть, как де&shy;лать нель&shy;зя. Дру&shy;ги&shy;ми сло&shy;ва&shy;ми, ка&shy;кой код мо&shy;жет ра&shy;бо&shy;тать хо&shy;ро&shy;шо, но в один прек&shy;рас&shy;ный мо&shy;мент выст&shy;ре&shy;лит в са&shy;мый не под&shy;хо&shy;дя&shy;щий мо&shy;мент. Опять же, расс&shy;мот&shy;рим при&shy;мер:</p>
 <div class="paragraph-right-side">49</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1554,7 +1705,8 @@ RestorePointAfterClonnedExited:
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">50</div>
-<p>Код мал да удал: нельзя вот так брать и передавать размер для выделения памяти на стеке извне. Если вам так нужен заданный снаружи размер, примите сам буфер:</p>
+<p >
+Код мал да удал: нель&shy;зя вот так брать и пе&shy;ре&shy;да&shy;вать раз&shy;мер для вы&shy;де&shy;ле&shy;ния па&shy;мя&shy;ти на сте&shy;ке из&shy;вне. Если вам так ну&shy;жен за&shy;дан&shy;ный сна&shy;ру&shy;жи раз&shy;мер, при&shy;ми&shy;те сам бу&shy;фер:</p>
 <div class="paragraph-right-side">50</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1566,31 +1718,40 @@ RestorePointAfterClonnedExited:
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">51</div>
-<p>Этот код гораздо информативнее, т.к. заставляет пользователя задуматься и быть аккуратным при выборе чисел. Первый вариант при неудачно сложившихся обстоятельствах может выбросить <code>StackOverflowException</code> при достаточно неглубоком положении метода в стеке потока: достаточно передать большое число в качестве параметра. Второй вариант, когда размер принимать всё-таки можно - это когда этот метод вызывается в конкретных случаях и при этом вызывающий код &laquo;знает&raquo; алгоритм работы этого метода. Без знания о внутреннем устройстве метода нет конкретного понимания возможного диапазона для noiseLength и как следствие - возможны ошибки</p>
+<p >
+Этот код го&shy;раз&shy;до ин&shy;фор&shy;ма&shy;тив&shy;нее, т.к. зас&shy;тав&shy;ля&shy;ет поль&shy;зо&shy;ва&shy;те&shy;ля за&shy;ду&shy;мать&shy;ся и быть ак&shy;ку&shy;рат&shy;ным при вы&shy;бо&shy;ре чи&shy;сел. Пер&shy;вый ва&shy;ри&shy;ант при не&shy;удач&shy;но сло&shy;жив&shy;ших&shy;ся об&shy;сто&shy;я&shy;т&shy;ельствах мо&shy;жет выб&shy;ро&shy;сить <code>StackOverflowException</code> при дос&shy;та&shy;точ&shy;но нег&shy;лу&shy;бо&shy;ком по&shy;ло&shy;же&shy;нии ме&shy;то&shy;да в сте&shy;ке по&shy;то&shy;ка: дос&shy;та&shy;точ&shy;но пе&shy;ре&shy;дать боль&shy;шое чис&shy;ло в ка&shy;чес&shy;тве па&shy;ра&shy;мет&shy;ра. Вто&shy;рой ва&shy;ри&shy;ант, ког&shy;да раз&shy;мер при&shy;ни&shy;мать всё-та&shy;ки мож&shy;но - это ког&shy;да этот ме&shy;тод вы&shy;зы&shy;ва&shy;ет&shy;ся в конк&shy;рет&shy;ных слу&shy;ча&shy;ях и при этом вы&shy;зы&shy;ва&shy;ю&shy;щий код &laquo;зна&shy;ет&raquo; ал&shy;го&shy;ритм ра&shy;бо&shy;ты это&shy;го ме&shy;то&shy;да. Без зна&shy;ния о внут&shy;рен&shy;нем ус&shy;трой&shy;стве ме&shy;то&shy;да нет конк&shy;рет&shy;но&shy;го по&shy;ни&shy;ма&shy;ния воз&shy;мож&shy;но&shy;го ди&shy;а&shy;па&shy;зо&shy;на для noiseLength и как след&shy;с&shy;твие - воз&shy;мож&shy;ны ошиб&shy;ки</p>
 <div class="paragraph-right-side">51</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">52</div>
-<p>Вторая проблема, которую я вижу: если нам случайным образом не удалось попасть в размер того буфера, который мы сами себе выделили на стеке, а терять работоспособность мы не хотим, то, конечно, можно пойти несколькими путями: либо довыделить памяти, опять же на стеке, либо выделить её в куче. Причём, скорее всего второй вариант в большинстве случаев окажется более предпочтительным (так и поступили в случае <code>ValueStringBuffer</code>), т.к. более безопасен с точки зрения получения <code>StackOverflowException</code>.</p>
+<p >
+Вто&shy;рая проб&shy;ле&shy;ма, ко&shy;то&shy;рую я ви&shy;жу: ес&shy;ли нам слу&shy;чай&shy;ным об&shy;ра&shy;зом не уда&shy;лось по&shy;пасть в раз&shy;мер то&shy;го бу&shy;фе&shy;ра, ко&shy;то&shy;рый мы са&shy;ми се&shy;бе вы&shy;де&shy;ли&shy;ли на сте&shy;ке, а те&shy;рять ра&shy;бо&shy;тос&shy;по&shy;соб&shy;ность мы не хо&shy;тим, то, ко&shy;неч&shy;но, мож&shy;но пой&shy;ти нес&shy;коль&shy;ки&shy;ми пу&shy;тя&shy;ми: ли&shy;бо до&shy;вы&shy;де&shy;лить па&shy;мя&shy;ти, опять же на сте&shy;ке, ли&shy;бо вы&shy;де&shy;лить её в ку&shy;че. Причём, ско&shy;рее все&shy;го вто&shy;рой ва&shy;ри&shy;ант в боль&shy;шинстве слу&shy;ча&shy;ев ока&shy;жет&shy;ся бо&shy;лее пред&shy;поч&shy;ти&shy;тель&shy;ным (так и пос&shy;ту&shy;пи&shy;ли в слу&shy;чае <code>ValueStringBuffer</code>), т.к. бо&shy;лее бе&shy;зо&shy;па&shy;сен с точ&shy;ки зре&shy;ния по&shy;лу&shy;че&shy;ния <code>StackOverflowException</code>.</p>
 <div class="paragraph-right-side">52</div>
 </div>
 <h2 id="stackalloc-1">Выводы к stackalloc</h2>
-<p>Итак, для чего же лучше всего использовать <code>stackalloc</code>?</p>
+<p >
+Итак, для че&shy;го же луч&shy;ше все&shy;го ис&shy;поль&shy;зо&shy;вать <code>stackalloc</code>?</p>
 <ul>
-<li><p>Для работы с неуправляемым кодом, когда необходимо заполнить неуправляемым методом некоторый буфер данных или же принять от неуправляемого метода некий буфер данных, который будет использоваться в рамках жизни тела метода;</p>
+<li>
+<p >
+Для ра&shy;бо&shy;ты с не&shy;уп&shy;рав&shy;ля&shy;е&shy;мым ко&shy;дом, ког&shy;да не&shy;об&shy;хо&shy;ди&shy;мо за&shy;пол&shy;нить не&shy;уп&shy;рав&shy;ля&shy;е&shy;мым ме&shy;то&shy;дом не&shy;ко&shy;то&shy;рый бу&shy;фер дан&shy;ных или же при&shy;нять от не&shy;уп&shy;рав&shy;ля&shy;е&shy;мо&shy;го ме&shy;то&shy;да не&shy;кий бу&shy;фер дан&shy;ных, ко&shy;то&shy;рый бу&shy;дет ис&shy;поль&shy;зо&shy;вать&shy;ся в рам&shy;ках жиз&shy;ни те&shy;ла ме&shy;то&shy;да;</p>
 </li>
-<li><p>Для методов, которым нужен массив, но опять же на время работы самого метода. Пример с форматированием очень хороший: этот метод может вызываться слишком часто чтобы он выделял временные массивы в куче;</p>
+<li>
+<p >
+Для ме&shy;то&shy;дов, ко&shy;то&shy;рым ну&shy;жен мас&shy;сив, но опять же на вре&shy;мя ра&shy;бо&shy;ты са&shy;мо&shy;го ме&shy;то&shy;да. При&shy;мер с фор&shy;ма&shy;ти&shy;ро&shy;ва&shy;ни&shy;ем очень хо&shy;ро&shy;ший: этот ме&shy;тод мо&shy;жет вы&shy;зы&shy;вать&shy;ся слиш&shy;ком час&shy;то что&shy;бы он вы&shy;де&shy;лял вре&shy;мен&shy;ные мас&shy;си&shy;вы в ку&shy;че;</p>
 </li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">53</div>
-<p>Использование данного аллокатора может сильно повысить производительность ваших приложений.</p>
+<p >
+Испол&shy;ьз&shy;ов&shy;ание дан&shy;но&shy;го ал&shy;ло&shy;ка&shy;то&shy;ра мо&shy;жет силь&shy;но по&shy;вы&shy;сить про&shy;из&shy;во&shy;ди&shy;тель&shy;ность ва&shy;ших при&shy;ло&shy;же&shy;ний.</p>
 <div class="paragraph-right-side">53</div>
 </div>
 <h1 id="section-6">Выводы к разделу</h1>
 <div class="paragraph-container">
 <div class="paragraph-left-side">54</div>
-<p>Конечно же, в общем виде нам нет надобности редактировать стек в продуктовом коде: только если захочется занять своё свободное время интересной задачкой. Однако понимание его структуры даёт нам видимость простоты задачи получения данных из него и его редактирования. Т.е. если вы разработаете API для расширения функционала вашего приложения и если это API не предоставляет доступа к каким-либо данным это не значит что эти данные невозможно получить. Потому всегда проверяйте ваше приложение на устойчивость к взломам.</p>
+<p >
+Ко&shy;неч&shy;но же, в об&shy;щем ви&shy;де нам нет на&shy;доб&shy;нос&shy;ти ре&shy;дак&shy;ти&shy;ро&shy;вать стек в про&shy;дук&shy;то&shy;вом ко&shy;де: толь&shy;ко ес&shy;ли за&shy;хо&shy;чет&shy;ся за&shy;нять своё сво&shy;бод&shy;ное вре&shy;мя ин&shy;те&shy;рес&shy;ной за&shy;дач&shy;кой. Одна&shy;ко по&shy;ни&shy;ма&shy;ние его струк&shy;ту&shy;ры даёт нам ви&shy;ди&shy;мость прос&shy;то&shy;ты за&shy;да&shy;чи по&shy;лу&shy;че&shy;ния дан&shy;ных из не&shy;го и его ре&shy;дак&shy;ти&shy;ро&shy;ва&shy;ния. Т.е. ес&shy;ли вы раз&shy;ра&shy;бо&shy;та&shy;ете API для рас&shy;ши&shy;ре&shy;ния фун&shy;кци&shy;о&shy;на&shy;ла ва&shy;ше&shy;го при&shy;ло&shy;же&shy;ния и ес&shy;ли это API не пре&shy;дос&shy;тав&shy;ля&shy;ет дос&shy;ту&shy;па к ка&shy;ким-ли&shy;бо дан&shy;ным это не зна&shy;чит что эти дан&shy;ные не&shy;воз&shy;мож&shy;но по&shy;лу&shy;чить. По&shy;то&shy;му всег&shy;да про&shy;ве&shy;ряй&shy;те ва&shy;ше при&shy;ло&shy;же&shy;ние на ус&shy;той&shy;чи&shy;вость к взло&shy;мам.</p>
 <div class="paragraph-right-side">54</div>
 </div>
 

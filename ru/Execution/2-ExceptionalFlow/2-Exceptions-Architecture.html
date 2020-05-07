@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>.NET Platform Architecture</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.NET Platform Architecture</title>
 </head>
 <body>
     <link rel="stylesheet" href="../../../res/bootstrap.css">
@@ -57,27 +57,28 @@ strong {
 }
 
 p, li {
-    margin: 0 0 25px;
-    line-height: 32px;
+    margin: 0 0 1em;
+    line-height: 1.5em;
     font-family: inherit;
 }
 
 ol, li {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 ol {
-    padding-left: 1.2rem;
+    padding-left: 1.21em;
 }
 
 ul  {
-    padding-left: 35px;
+    padding-left: 1em;
 }
 
 ol li, ul li {
-    padding-left: 1rem;	
+    padding-left: 0.5em;	
     font-family: inherit;
+    text-align: justify;
 }
 
 table {
@@ -108,6 +109,7 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 *[class*='lang-'] {
     padding: 0px 0px 25px 0px;
+    font-size: 0.75em;
 }
 
 
@@ -126,11 +128,11 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 }
 
 p code:not(.highlight), li code:not(.highlight) {
-    font-size: 16px;
+    font-size: 0.7em;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
-    padding: 4px;
+    padding: 3px;
     color: darkslateblue;
 }
 
@@ -148,11 +150,6 @@ p code.highlight, li code.highlight {
 
 .wide {
     width:150%;
-}
-
-*[class*='lang-'] span, *[class*='lang-'] pre, pre > code {
-    font-size: 13px;
-    line-height: 20px;
 }
 
 p a, li a {
@@ -179,9 +176,9 @@ p img {
 
 blockquote 
 {
-    background-color: lavenderblush;
-    padding-left: 20px;
-    border-left: 1px solid rgba(0,0,0,.08);
+    padding-left: 0.4em;
+    border-left: 0.5em solid rgba(0,0,0,.08);
+    font-style: italic;
 }
 
 blockquote.big-quote, 
@@ -199,8 +196,7 @@ blockquote.breadcrumbs, blockquote.breadcrumbs  p
 }
 
 blockquote p {
-    margin: 16px 0;
-    padding: 12px 12px 13px;
+    padding: 1em 1em 1em 0.6em;
     font-family: inherit;
 }
 
@@ -210,11 +206,14 @@ blockquote p code {
     padding: 4px 6px;
 }
 
+blockquote p em {
+    font-weight: 400;
+}
+
 blockquote.big-quote > p {
     margin: 40px 0 60px 0;
     font-family: Charter;
     font-size: 55px;
-    line-height: 60px;
     padding: 0;
     width: 150%;
 }
@@ -227,31 +226,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 40px;
-    font-family: PF Regal,Georgia,serif;
+    font-size: 2.2em;
+    font-family: Charter,Georgia,serif;
     font-weight: 300;
-    margin: 40px 0 20px 0;
-    border-bottom-style: ridge;
-    padding-bottom: 10px;
-}
-
-h1 b {
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-weight: 700;
-    font-size: 37px;
-    line-height: 42px;
+    margin: 1.8em 0 1.8em 0;
+    text-align: center;
 }
 
 h2 {
-    margin-top: 35px;
-    margin-bottom: 10px;
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-    border-bottom-color: grey;
-    border-bottom-style: solid;
-    padding-bottom: 5px;
+    margin-top: 2em;
+    margin-left: 1.2em;
+    font-family: Charter,Arial,Helvetica Neue,sans-serif;
+    font-size: 1.25em;
+    width: 70%;
 }
 
 h3 {
@@ -293,27 +280,23 @@ h4 {
     line-height: 24px;
     font-size: 13pt;
     margin: 0 0 13px 0;
-    font-family: Charter;
-}
-
-.side-regular-block {
-    border-radius: 5px;
-    background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
-    padding: 22px;
 }
 
 .side-regular-block p {
     top: 0;
 }
-/* Music side player */
 
+/* Music side player */
 .aside-side-container .music-player {
     width: 100%;
     height: 400px;
 }
 
-.aside-side-container.side-media-block h2 {
-    margin-top: -12px;
+/* media block after h1 */
+.aside-container h1 + .aside-side-container.side-media-block h2 {
+    margin: 7em 0 1em 0;
+    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
+    font-weight: 600;
 }
 
 .aside-side-container > li {
@@ -323,8 +306,8 @@ h4 {
 
 .aside-side-container > li ul, .aside-side-container > li ol {
     padding-left: 30px;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 .aside-side-container > li li {
     padding-left: 6px;
@@ -353,6 +336,12 @@ h4 {
     position: relative;
     top: 9px;
 }
+
+.paragraph-container p, .aside-container > p {
+    text-align: justify;
+    text-indent: 1.5em;
+}
+
 .paragraph-container > .paragraph-left-side, .paragraph-container > .paragraph-right-side  {
     font-family: JB Mono, consolas;
     display: block;
@@ -364,12 +353,14 @@ h4 {
     z-index: 1000;
 }
 .paragraph-container > .paragraph-left-side {
-    left: -55px;
+    display: none;
+    left: -2.1cm;
     width: 35px;
     user-select: none;
 }
 
 .paragraph-container > .paragraph-right-side  {
+    display: none;
     left: 100%;
     width: 35px;
     padding-left: 45px;
@@ -400,8 +391,8 @@ h4 {
 
 
 /* MEDIA */
-/* XL */
-@media (min-width: 1400px) {
+/* XXL */
+@media (min-width: 1801px) {
     .book-container
     {
         max-width: 1200px;
@@ -410,12 +401,21 @@ h4 {
     }
 }
 
+/* XL */
+@media (max-width: 1800px) {
+    .book-container
+    {
+        margin-left: 4cm;
+        margin-right: 4cm;
+    }
+}
+
 /* LG */
 @media (max-width: 1400px) {
     .book-container
     {
-        margin-left: 70px;
-        margin-right: 70px;
+        margin-left: 4cm;
+        margin-right: 4cm;
     }
 
     blockquote.big-quote > p {
@@ -425,14 +425,23 @@ h4 {
         margin: 0;
         padding: 4px 0 30px 0;
     }
+}
 
-    .paragraph-container .paragraph-left-side {
-        left: -40px;
-    }
+@media (max-width: 1100px) {
 }
 
 /* MD */
 @media (max-width: 991px) {
+    
+    h2 {
+        width:80%;
+    }
+
+    .book-container
+    {
+        margin-left: 3cm;
+        margin-right: 3cm;
+    }
     
     .book-title-container {
         margin: 73px 0 110px 0;
@@ -453,26 +462,21 @@ h4 {
 
     .book-superheading-title {
         font-size: 15pt;
-    }
-    .book-container {
-        margin: 0 100px;
-    }
+    }                                     
     .article-container {
         width: 100%;
-    }
-    .aside-container > .aside-side-container
-    {
-        position: relative;
-        top: auto;
-        left: auto;
-        width: auto;
-        height: auto;
-        margin: 0;
-        padding: 17px;
     }
 
     .aside-container p {
         top: 0;
+    }
+
+    .aside-container h1 + .aside-side-container.side-media-block h2 {
+        display: none;
+    }
+
+    .wide {
+        width: 100%;     
     }
 
     .side-regular-block {
@@ -490,6 +494,17 @@ h4 {
         margin-top: 20px;
         font-size: 13pt;
         border: none;
+    }
+
+    .aside-container > .aside-side-container
+    {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 17px;
     }
 
     blockquote.big-quote > p {
@@ -519,6 +534,12 @@ h4 {
     li {
         margin: 0 0 10px 0;
     }
+
+    .side-regular-block {
+        border-radius: 5px;
+        background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
+        padding: 22px;
+    }    
 }
 
 /* Smartphone horizontal - SM */
@@ -545,7 +566,7 @@ h4 {
     }
 
     .book-container {
-        margin: 0 50px;
+        margin: 0 2.5cm;
     }
     ul {
         margin-left: 30px;
@@ -553,14 +574,29 @@ h4 {
         padding-left: 25px;
     }
     .paragraph-container > .paragraph-left-side {
-        top: 15px;
+	display: block;
+        top: 14px;
+        font-size: 9pt;
     }
     .paragraph-container > .paragraph-right-side {
-        padding-left: 20px;
-        top: 15px;
+	display: block;
+        padding-left: 40px;
+        top: 14px;
+        font-size: 9pt;
     }
 }
 
+@media (max-width: 630px) {
+    .book-container {
+        margin: 0 1.5cm;
+    }
+    .paragraph-container > .paragraph-left-side {
+        left: -33px;
+    }
+    .paragraph-container > .paragraph-right-side {
+        padding-left: 24px;
+    }
+}
 /* Smartphone - XS */
 @media (max-width: 575px) {
     .book-container {
@@ -581,15 +617,14 @@ h4 {
     }
    
     p, li {
-        line-height: 28px;
+        line-height: 24px;
     }    
     .paragraph-container .paragraph-left-side {
-        display: none;
-        top: 14px;
-    }
+        display: none;        }
     .paragraph-container .paragraph-right-side {
-        padding-left: 10px;
+        padding-left: 21px;
         top: 14px;
+	font-size: 8pt;
     }
 }
 
@@ -830,37 +865,44 @@ h4 {
     <p class="d-none d-xl-block">XL</p> -->
     <h2 id="section">Архитектура исключительной ситуации</h2>
 <blockquote>
-<p><a href="https://github.com/sidristij/dotnetbook/issues/51">Ссылка на обсуждение</a></p>
+<p >
+<a href="https://github.com/sidristij/dotnetbook/issues/51">Ссылка на обсуждение</a></p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p>Наверное, один из самых важных вопросов, который касается нашей темы - это вопрос построения архитектуры исключений в вашем приложении. Этот вопрос интересен по многим причинам. Как по мне так основная - это видимая простота, с которой не всегда очевидно, что делать. Это свойство присуще всем базовым конструкциям, которые используются повсеместно: это и <code>IEnumerable</code>, и <code>IDisposable</code> и <code>IObservable</code> и прочие-прочие. С одной стороны, своей простотой они манят, вовлекают в использование себя в самых разных ситуациях. А с другой стороны, они полны омутов и бродов, из которых, не зная, как иной раз и не выбраться вовсе. И, возможно, глядя на будущий объем у вас созрел вопрос: так что же такого в исключительных ситуациях?</p>
+<p >
+На&shy;вер&shy;ное, один из са&shy;мых важ&shy;ных воп&shy;ро&shy;сов, ко&shy;то&shy;рый ка&shy;са&shy;ет&shy;ся на&shy;шей те&shy;мы - это воп&shy;рос пос&shy;тро&shy;е&shy;ния ар&shy;хи&shy;тек&shy;ту&shy;ры ис&shy;клю&shy;че&shy;ний в ва&shy;шем при&shy;ло&shy;же&shy;нии. Этот воп&shy;рос ин&shy;те&shy;ре&shy;сен по мно&shy;гим при&shy;чи&shy;нам. Как по мне так ос&shy;нов&shy;ная - это ви&shy;ди&shy;мая прос&shy;то&shy;та, с ко&shy;то&shy;рой не всег&shy;да оче&shy;вид&shy;но, что де&shy;лать. Это свой&shy;ство при&shy;су&shy;ще всем ба&shy;зо&shy;вым конст&shy;ру&shy;кциям, ко&shy;то&shy;рые ис&shy;поль&shy;зу&shy;ют&shy;ся пов&shy;се&shy;мес&shy;тно: это и <code>IEnumerable</code>, и <code>IDisposable</code> и <code>IObservable</code> и про&shy;чие-про&shy;чие. С од&shy;ной сто&shy;ро&shy;ны, сво&shy;ей прос&shy;то&shy;той они ма&shy;нят, вов&shy;ле&shy;ка&shy;ют в ис&shy;поль&shy;зо&shy;ва&shy;ние се&shy;бя в са&shy;мых раз&shy;ных си&shy;ту&shy;а&shy;ци&shy;ях. А с дру&shy;гой сто&shy;ро&shy;ны, они пол&shy;ны ому&shy;тов и бро&shy;дов, из ко&shy;то&shy;рых, не зная, как иной раз и не выб&shy;рать&shy;ся вов&shy;се. И, воз&shy;мож&shy;но, гля&shy;дя на бу&shy;ду&shy;щий объ&shy;ем у вас соз&shy;рел воп&shy;рос: так что же та&shy;ко&shy;го в ис&shy;клю&shy;чи&shy;тель&shy;ных си&shy;ту&shy;а&shy;ци&shy;ях?</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p>Но для того чтобы прийти к каким-то выводам относительно построения архитектуры классов исключительных ситуаций мы должны с вами скопить некоторый опыт относительно их классификации. Ведь только поняв, с чем мы будем иметь дело, как и в каких ситуациях программист должен выбирать тип ошибки, а в каких - делать выбор относительно перехвата или пропуска исключений, можно понять как можно построить систему типов таким образом чтобы это стало очевидно для пользователя вашего кода. А потому, попробуем классифицировать исключительные ситуации (не сами типы исключений, а именно ситуации) по различным признакам.</p>
+<p >
+Но для то&shy;го что&shy;бы прий&shy;ти к ка&shy;ким-то вы&shy;во&shy;дам от&shy;но&shy;си&shy;тель&shy;но пос&shy;тро&shy;е&shy;ния ар&shy;хи&shy;тек&shy;ту&shy;ры клас&shy;сов ис&shy;клю&shy;чи&shy;тель&shy;ных си&shy;ту&shy;а&shy;ций мы дол&shy;жны с ва&shy;ми ско&shy;пить не&shy;ко&shy;то&shy;рый опыт от&shy;но&shy;си&shy;тель&shy;но их клас&shy;си&shy;фи&shy;ка&shy;ции. Ведь толь&shy;ко по&shy;няв, с чем мы бу&shy;дем иметь де&shy;ло, как и в ка&shy;ких си&shy;ту&shy;а&shy;ци&shy;ях прог&shy;рам&shy;мист дол&shy;жен вы&shy;би&shy;рать тип ошиб&shy;ки, а в ка&shy;ких - де&shy;лать вы&shy;бор от&shy;но&shy;си&shy;тель&shy;но пе&shy;рех&shy;ва&shy;та или про&shy;пус&shy;ка ис&shy;клю&shy;че&shy;ний, мож&shy;но по&shy;нять как мож&shy;но пос&shy;тро&shy;ить сис&shy;те&shy;му ти&shy;пов та&shy;ким об&shy;ра&shy;зом что&shy;бы это ста&shy;ло оче&shy;вид&shy;но для поль&shy;зо&shy;ва&shy;те&shy;ля ва&shy;ше&shy;го ко&shy;да. А по&shy;то&shy;му, поп&shy;ро&shy;бу&shy;ем клас&shy;си&shy;фи&shy;ци&shy;ро&shy;вать ис&shy;клю&shy;чи&shy;тель&shy;ные си&shy;ту&shy;а&shy;ции (не са&shy;ми ти&shy;пы ис&shy;клю&shy;че&shy;ний, а имен&shy;но си&shy;ту&shy;а&shy;ции) по раз&shy;лич&shy;ным приз&shy;на&shy;кам.</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <h3 id="section-1">По теоретической возможности перехвата проектируемого исключения</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p>По теоретическому перехвату исключения можно легко поделить на два вида: на те, которые перехватывать будут точно и на те, которые с высокой степенью вероятности перехватывать не будут. Почему <em>с высокой степенью вероятности</em>? Потому что всегда найдётся тот, кто попробует перехватить, хотя это и не нужно было совершенно делать.</p>
+<p >
+По те&shy;о&shy;ре&shy;ти&shy;чес&shy;ко&shy;му пе&shy;рех&shy;ва&shy;ту ис&shy;клю&shy;че&shy;ния мож&shy;но лег&shy;ко по&shy;де&shy;лить на два ви&shy;да: на те, ко&shy;то&shy;рые пе&shy;рех&shy;ва&shy;ты&shy;вать бу&shy;дут точ&shy;но и на те, ко&shy;то&shy;рые с вы&shy;со&shy;кой сте&shy;пенью ве&shy;ро&shy;ят&shy;нос&shy;ти пе&shy;рех&shy;ва&shy;ты&shy;вать не бу&shy;дут. По&shy;че&shy;му <em>с высокой степенью вероятности</em>? По&shy;то&shy;му что всег&shy;да найдётся тот, кто поп&shy;ро&shy;бу&shy;ет пе&shy;рех&shy;ва&shy;тить, хо&shy;тя это и не нуж&shy;но бы&shy;ло со&shy;вер&shy;шен&shy;но де&shy;лать.</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p>Давайте для начала раскроем особенности первой группы: исключения, которые должны и будут перехватывать.</p>
+<p >
+Да&shy;вай&shy;те для на&shy;ча&shy;ла рас&shy;кро&shy;ем осо&shy;бен&shy;нос&shy;ти пер&shy;вой груп&shy;пы: ис&shy;клю&shy;че&shy;ния, ко&shy;то&shy;рые дол&shy;жны и бу&shy;дут пе&shy;рех&shy;ва&shy;ты&shy;вать.</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p>Когда мы вводим исключение такого типа, то одной стороны мы сообщаем внешней подсистеме что мы вошли в положение, когда дальнейшие действия в рамках наших данных не имеют смысла. А с другой имеем в виду, что ничего глобального сломано не было и если нас убрать, то ничего не поменяется, а потому это исключение может быть легко перехвачено чтобы поправить ситуацию. Это свойство очень важно: именно оно определяет критичность ошибки и уверенность в том что если перехватить исключение и просто очистить ресурсы, то можно спокойно выполнять код дальше.</p>
+<p >
+Ког&shy;да мы вво&shy;дим ис&shy;клю&shy;че&shy;ние та&shy;ко&shy;го ти&shy;па, то од&shy;ной сто&shy;ро&shy;ны мы со&shy;об&shy;ща&shy;ем внеш&shy;ней под&shy;сис&shy;те&shy;ме что мы вош&shy;ли в по&shy;ло&shy;же&shy;ние, ког&shy;да даль&shy;ней&shy;шие действия в рам&shy;ках на&shy;ших дан&shy;ных не име&shy;ют смыс&shy;ла. А с дру&shy;гой име&shy;ем в ви&shy;ду, что ни&shy;че&shy;го гло&shy;баль&shy;но&shy;го сло&shy;ма&shy;но не бы&shy;ло и ес&shy;ли нас уб&shy;рать, то ни&shy;че&shy;го не по&shy;ме&shy;ня&shy;ет&shy;ся, а по&shy;то&shy;му это ис&shy;клю&shy;че&shy;ние мо&shy;жет быть лег&shy;ко пе&shy;рех&shy;ва&shy;че&shy;но что&shy;бы поп&shy;ра&shy;вить си&shy;ту&shy;а&shy;цию. Это свой&shy;ство очень важ&shy;но: имен&shy;но оно оп&shy;ре&shy;де&shy;ля&shy;ет кри&shy;тич&shy;ность ошиб&shy;ки и уве&shy;рен&shy;ность в том что ес&shy;ли пе&shy;рех&shy;ва&shy;тить ис&shy;клю&shy;че&shy;ние и прос&shy;то очис&shy;тить ре&shy;сур&shy;сы, то мож&shy;но спо&shy;кой&shy;но вы&shy;пол&shy;нять код даль&shy;ше.</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p>Вторая группа как бы это ни звучало странно - отвечает за исключения, которые перехватывать не нужно. Они могут быть использованы только для записи в журнал ошибок, но не для того чтобы можно было как-то поправить ситуацию. Самый простой пример - это исключения группы <code>ArgumentException</code> и <code>NullReferenceException</code>. Ведь в нормальной ситуации вы не должны, например, перехватывать исключение <code>ArgumentNullException</code> потому что источником проблемы тут будете являться именно вы, а не кто либо ещё. Если вы перехватываете данное исключение, то тем самым вы допускаете что вы ошиблись и отдали методу то, что отдавать ему было нельзя:</p>
+<p >
+Вто&shy;рая груп&shy;па как бы это ни зву&shy;ча&shy;ло стран&shy;но - от&shy;ве&shy;ча&shy;ет за ис&shy;клю&shy;че&shy;ния, ко&shy;то&shy;рые пе&shy;рех&shy;ва&shy;ты&shy;вать не нуж&shy;но. Они мо&shy;гут быть ис&shy;поль&shy;зо&shy;ва&shy;ны толь&shy;ко для за&shy;пи&shy;си в жур&shy;нал оши&shy;бок, но не для то&shy;го что&shy;бы мож&shy;но бы&shy;ло как-то поп&shy;ра&shy;вить си&shy;ту&shy;а&shy;цию. Са&shy;мый прос&shy;той при&shy;мер - это ис&shy;клю&shy;че&shy;ния груп&shy;пы <code>ArgumentException</code> и <code>NullReferenceException</code>. Ведь в нор&shy;маль&shy;ной си&shy;ту&shy;а&shy;ции вы не дол&shy;жны, нап&shy;ри&shy;мер, пе&shy;рех&shy;ва&shy;ты&shy;вать ис&shy;клю&shy;че&shy;ние <code>ArgumentNullException</code> по&shy;то&shy;му что ис&shy;точ&shy;ни&shy;ком проб&shy;ле&shy;мы тут бу&shy;де&shy;те яв&shy;лять&shy;ся имен&shy;но вы, а не кто ли&shy;бо ещё. Если вы пе&shy;рех&shy;ва&shy;ты&shy;ва&shy;ете дан&shy;ное ис&shy;клю&shy;че&shy;ние, то тем са&shy;мым вы до&shy;пус&shy;ка&shy;ете что вы ошиб&shy;лись и от&shy;да&shy;ли ме&shy;то&shy;ду то, что от&shy;да&shy;вать ему бы&shy;ло нель&shy;зя:</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -877,12 +919,14 @@ h4 {
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p>В этом методе мы пробуем перехватить <code>ArgumentNullException</code>. Но на мой взгляд его перехват выглядит очень странным: прокинуть корректные аргументы методу - полностью наша забота. Было бы не корректно среагировать постфактум: в такой ситуации самое правильное что только можно сделать - это проверить передаваемые данные заранее, до вызова метода или же что ещё лучше - построить код таким образом чтобы получение неправильных параметров было бы попросту не возможным.</p>
+<p >
+В этом ме&shy;то&shy;де мы про&shy;бу&shy;ем пе&shy;рех&shy;ва&shy;тить <code>ArgumentNullException</code>. Но на мой взгляд его пе&shy;рех&shy;ват выг&shy;ля&shy;дит очень стран&shy;ным: про&shy;ки&shy;нуть кор&shy;рек&shy;т&shy;ные ар&shy;гу&shy;мен&shy;ты ме&shy;то&shy;ду - пол&shy;ностью на&shy;ша за&shy;бо&shy;та. Бы&shy;ло бы не кор&shy;рек&shy;тно сре&shy;а&shy;ги&shy;ро&shy;вать пост&shy;фак&shy;тум: в та&shy;кой си&shy;ту&shy;а&shy;ции са&shy;мое пра&shy;виль&shy;ное что толь&shy;ко мож&shy;но сде&shy;лать - это про&shy;ве&shy;рить пе&shy;ре&shy;да&shy;ва&shy;е&shy;мые дан&shy;ные за&shy;ра&shy;нее, до вы&shy;зо&shy;ва ме&shy;то&shy;да или же что ещё луч&shy;ше - пос&shy;тро&shy;ить код та&shy;ким об&shy;ра&shy;зом что&shy;бы по&shy;лу&shy;че&shy;ние неп&shy;ра&shy;виль&shy;ных па&shy;ра&shy;мет&shy;ров бы&shy;ло бы поп&shy;рос&shy;ту не воз&shy;мож&shy;ным.</p>
 <div class="paragraph-right-side">07</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p>Ещё одна группа - это исключения фатальных ошибок. Если сломан некий кэш и работа подсистемы в любом случае будет не корректной? Тогда это - фатальная ошибка и ближайший по стеку код её перехватывать гарантированно не станет:</p>
+<p >
+Ещё од&shy;на груп&shy;па - это ис&shy;клю&shy;че&shy;ния фа&shy;таль&shy;ных оши&shy;бок. Если сло&shy;ман не&shy;кий кэш и ра&shy;бо&shy;та под&shy;сис&shy;те&shy;мы в лю&shy;бом слу&shy;чае бу&shy;дет не кор&shy;рект&shy;ной? Тог&shy;да это - фа&shy;таль&shy;ная ошиб&shy;ка и бли&shy;жай&shy;ший по сте&shy;ку код её пе&shy;рех&shy;ва&shy;ты&shy;вать га&shy;ран&shy;ти&shy;ро&shy;ван&shy;но не ста&shy;нет:</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -907,13 +951,15 @@ T GetFromCacheOrCalculate()
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
-<p>И пусть <code>CacheCorreptedException</code> - это исключение, означающее &laquo;кэш на жёстком диске не консистентен&raquo;. Тогда получается, что если причина такой ошибки фатальна для подсистемы кэширования (например, отсутствуют права доступа к файлу кэша), то дальнейший код, если не сможет пересоздать кэш командой <code>RecreateCache</code>, а потому факт перехвата этого исключения является ошибкой сам по себе.</p>
+<p >
+И пусть <code>CacheCorreptedException</code> - это ис&shy;клю&shy;че&shy;ние, оз&shy;на&shy;ча&shy;ю&shy;щее &laquo;кэш на жёстком дис&shy;ке не кон&shy;сис&shy;тен&shy;тен&raquo;. Тог&shy;да по&shy;лу&shy;ча&shy;ет&shy;ся, что ес&shy;ли при&shy;чи&shy;на та&shy;кой ошиб&shy;ки фа&shy;таль&shy;на для под&shy;сис&shy;те&shy;мы кэ&shy;ши&shy;ро&shy;ва&shy;ния (нап&shy;ри&shy;мер, от&shy;сут&shy;ствуют пра&shy;ва дос&shy;ту&shy;па к фай&shy;лу кэ&shy;ша), то даль&shy;ней&shy;ший код, ес&shy;ли не смо&shy;жет пе&shy;ре&shy;соз&shy;дать кэш ко&shy;ман&shy;дой <code>RecreateCache</code>, а по&shy;то&shy;му факт пе&shy;рех&shy;ва&shy;та это&shy;го ис&shy;клю&shy;че&shy;ния яв&shy;ля&shy;ет&shy;ся ошиб&shy;кой сам по се&shy;бе.</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <h3 id="section-2">По фактическому перехвату исключительной ситуации</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
-<p>Ещё один вопрос, который останавливает наш полет мысли в программировании алгоритмов - это понимание: стоит ли перехватывать те или иные исключения или же стоит пропустить их сквозь себя кому-то более понимающему. Переводя на язык терминов вопрос, который нам надо решить - разграничить зоны ответственности. Давайте рассмотрим следующий код:</p>
+<p >
+Ещё один воп&shy;рос, ко&shy;то&shy;рый ос&shy;та&shy;нав&shy;ли&shy;ва&shy;ет наш по&shy;лет мыс&shy;ли в прог&shy;рам&shy;ми&shy;ро&shy;ва&shy;нии ал&shy;го&shy;рит&shy;мов - это по&shy;ни&shy;ма&shy;ние: сто&shy;ит ли пе&shy;рех&shy;ва&shy;ты&shy;вать те или иные ис&shy;клю&shy;че&shy;ния или же сто&shy;ит про&shy;пус&shy;тить их сквозь се&shy;бя ко&shy;му-то бо&shy;лее по&shy;ни&shy;ма&shy;ю&shy;ще&shy;му. Пе&shy;ре&shy;во&shy;дя на язык тер&shy;ми&shy;нов воп&shy;рос, ко&shy;то&shy;рый нам на&shy;до ре&shy;шить - разг&shy;ра&shy;ни&shy;чить зо&shy;ны от&shy;ветст&shy;вен&shy;ности. Да&shy;вай&shy;те расс&shy;мот&shy;рим сле&shy;ду&shy;ю&shy;щий код:</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -979,17 +1025,28 @@ T GetFromCacheOrCalculate()
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
-<p>Какая из двух предложенных стратегий является более корректной? Зона ответственности - это очень важно. Изначально может показаться, что поскольку работа <code>WildInvestment</code> и его консистентность целиком и полностью зависит от <code>WildStrategy</code>, то если <code>WildInvestment</code> просто проигнорирует данное исключение, оно уйдёт в уровень повыше и делать ничего более не надо. Однако, прошу заметить что существует чисто архитектурная проблема: метод <code>Main</code> ловит исключение из архитектурно одного слоя, вызывая метод архитектурно - другого. Как это выглядит с точки зрения использования? Да, в общем, так и выглядит:</p>
+<p >
+Ка&shy;кая из двух пред&shy;ло&shy;жен&shy;ных стра&shy;те&shy;гий яв&shy;ля&shy;ет&shy;ся бо&shy;лее кор&shy;рект&shy;ной? Зо&shy;на от&shy;ветст&shy;вен&shy;ности - это очень важ&shy;но. Изна&shy;чаль&shy;но мо&shy;жет по&shy;ка&shy;зать&shy;ся, что пос&shy;коль&shy;ку ра&shy;бо&shy;та <code>WildInvestment</code> и его кон&shy;сис&shy;тент&shy;ность це&shy;ли&shy;ком и пол&shy;ностью за&shy;ви&shy;сит от <code>WildStrategy</code>, то ес&shy;ли <code>WildInvestment</code> прос&shy;то про&shy;иг&shy;но&shy;ри&shy;ру&shy;ет дан&shy;ное ис&shy;клю&shy;че&shy;ние, оно уйдёт в уро&shy;вень по&shy;вы&shy;ше и де&shy;лать ни&shy;че&shy;го бо&shy;лее не на&shy;до. Одна&shy;ко, про&shy;шу за&shy;ме&shy;тить что су&shy;щес&shy;тву&shy;ет чис&shy;то ар&shy;хи&shy;тек&shy;тур&shy;ная проб&shy;ле&shy;ма: ме&shy;тод <code>Main</code> ло&shy;вит ис&shy;клю&shy;че&shy;ние из ар&shy;хи&shy;тек&shy;тур&shy;но од&shy;но&shy;го слоя, вы&shy;зы&shy;вая ме&shy;тод ар&shy;хи&shy;тек&shy;тур&shy;но - дру&shy;го&shy;го. Как это выг&shy;ля&shy;дит с точ&shy;ки зре&shy;ния ис&shy;поль&shy;зо&shy;ва&shy;ния? Да, в об&shy;щем, так и выг&shy;ля&shy;дит:</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <ul>
-<li>заботу об этом исключении просто перевесили на нас;</li>
-<li>у пользователя данного класса нет уверенности, что это исключение прокинуто через ряд методов до нас специально</li>
-<li>мы начинаем тянуть лишние зависимости, от которых мы избавились, вызывая промежуточный слой.</li>
+<li>
+<p >
+за&shy;бо&shy;ту об этом ис&shy;клю&shy;че&shy;нии прос&shy;то пе&shy;ре&shy;ве&shy;си&shy;ли на нас;</p>
+</li>
+<li>
+<p >
+у поль&shy;зо&shy;ва&shy;те&shy;ля дан&shy;но&shy;го клас&shy;са нет уве&shy;рен&shy;нос&shy;ти, что это ис&shy;клю&shy;че&shy;ние про&shy;ки&shy;ну&shy;то че&shy;рез ряд ме&shy;то&shy;дов до нас спе&shy;ци&shy;ально</p>
+</li>
+<li>
+<p >
+мы на&shy;чи&shy;на&shy;ем тя&shy;нуть лиш&shy;ние за&shy;ви&shy;си&shy;мос&shy;ти, от ко&shy;то&shy;рых мы из&shy;ба&shy;ви&shy;лись, вы&shy;зы&shy;вая про&shy;ме&shy;жу&shy;точ&shy;ный слой.</p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
-<p>Однако, из данного вывода следует другой: <code>catch</code> мы должны ставить в методе <code>DoSomethingWild</code>. И это для нас несколько странно: <code>WildInvestment</code> вроде как жёстко зависим от кого-то. Т.е. если <code>PlayRussianRoulette</code> отработать не смог, то и <code>DoSomethingWild</code> тоже: кодов возврата тот не имеет, а сыграть в рулетку он обязан. Что же делать в такой, казалось бы, безвыходной ситуации? Ответ на самом деле прост: находясь в другом слое, <code>DoSomethingWild</code> должен выбросить собственное исключение, которое относится к этому слою и обернуть исходное как оригинальный источник проблемы - в <code>InnerException</code>:</p>
+<p >
+Одна&shy;ко, из дан&shy;но&shy;го вы&shy;во&shy;да сле&shy;ду&shy;ет дру&shy;гой: <code>catch</code> мы дол&shy;жны ста&shy;вить в ме&shy;то&shy;де <code>DoSomethingWild</code>. И это для нас нес&shy;коль&shy;ко стран&shy;но: <code>WildInvestment</code> вро&shy;де как жёстко за&shy;ви&shy;сим от ко&shy;го-то. Т.е. ес&shy;ли <code>PlayRussianRoulette</code> от&shy;ра&shy;бо&shy;тать не смог, то и <code>DoSomethingWild</code> то&shy;же: ко&shy;дов возв&shy;ра&shy;та тот не име&shy;ет, а сыг&shy;рать в ру&shy;лет&shy;ку он обя&shy;зан. Что же де&shy;лать в та&shy;кой, ка&shy;за&shy;лось бы, без&shy;вы&shy;ход&shy;ной си&shy;ту&shy;а&shy;ции? Ответ на са&shy;мом де&shy;ле прост: на&shy;хо&shy;дясь в дру&shy;гом слое, <code>DoSomethingWild</code> дол&shy;жен выб&shy;ро&shy;сить собст&shy;венное ис&shy;клю&shy;че&shy;ние, ко&shy;то&shy;рое от&shy;но&shy;сит&shy;ся к это&shy;му слою и обер&shy;нуть ис&shy;ход&shy;ное как ори&shy;ги&shy;наль&shy;ный ис&shy;точ&shy;ник проб&shy;ле&shy;мы - в <code>InnerException</code>:</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1059,31 +1116,39 @@ T GetFromCacheOrCalculate()
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
-<p>Обернув исключение другим мы по сути переводим проблематику из одного слоя приложения в другой, сделав его работу более предсказуемой с точки зрения пользователя этого класса: метода <code>Main</code>.</p>
+<p >
+Обер&shy;нув ис&shy;клю&shy;че&shy;ние дру&shy;гим мы по су&shy;ти пе&shy;ре&shy;во&shy;дим проб&shy;ле&shy;ма&shy;ти&shy;ку из од&shy;но&shy;го слоя при&shy;ло&shy;же&shy;ния в дру&shy;гой, сде&shy;лав его ра&shy;бо&shy;ту бо&shy;лее предс&shy;ка&shy;зу&shy;е&shy;мой с точ&shy;ки зре&shy;ния поль&shy;зо&shy;ва&shy;те&shy;ля это&shy;го клас&shy;са: ме&shy;то&shy;да <code>Main</code>.</p>
 <div class="paragraph-right-side">13</div>
 </div>
 <h3 id="section-3">По вопросам переиспользования</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
-<p>Очень часто перед нами встаёт непростая задача: с одной стороны нам лень создавать новый тип исключения, а когда мы всё-таки решаемся, не всегда ясно от чего отталкиваться: какой тип взять за основу как базовый. А ведь именно эти решения и определяют всю архитектуру исключительных ситуаций. Давайте пробежимся по популярым решениям и сделаем некоторые выводы.</p>
+<p >
+Очень час&shy;то пе&shy;ред на&shy;ми встаёт неп&shy;рос&shy;тая за&shy;да&shy;ча: с од&shy;ной сто&shy;ро&shy;ны нам лень соз&shy;да&shy;вать но&shy;вый тип ис&shy;клю&shy;че&shy;ния, а ког&shy;да мы всё-та&shy;ки ре&shy;ша&shy;ем&shy;ся, не всег&shy;да яс&shy;но от че&shy;го от&shy;тал&shy;ки&shy;вать&shy;ся: ка&shy;кой тип взять за ос&shy;но&shy;ву как ба&shy;зо&shy;вый. А ведь имен&shy;но эти ре&shy;ше&shy;ния и оп&shy;ре&shy;де&shy;ля&shy;ют всю ар&shy;хи&shy;тек&shy;ту&shy;ру ис&shy;клю&shy;чи&shy;тель&shy;ных си&shy;ту&shy;а&shy;ций. Да&shy;вай&shy;те про&shy;бе&shy;жим&shy;ся по по&shy;пу&shy;ля&shy;рым ре&shy;ше&shy;ни&shy;ям и сде&shy;ла&shy;ем не&shy;ко&shy;то&shy;рые вы&shy;во&shy;ды.</p>
 <div class="paragraph-right-side">14</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
-<p>При выборе типа исключений можно попробовать взять уже существующее решение: найти исключение с похожим смыслом в названии и использовать его. Например, если нам отдали через параметр какую-либо сущность, которая нас почему-то не устраивает, мы можем выбросить <code>InvalidArgumentException</code>, указав причину ошибки - в Message. Этот сценарий выглядит хорошо, особенно с учётом того что <code>InvalidArgumentException</code> находится в группе исключений, которые не подлежат обязательному перехвату. Но плохим будет выбор <code>InvalidDataException</code> если вы работаете с какими-либо данными. Просто потому что этот тип находится в зоне <code>System.IO</code>, а это врядли то, чем вы занимаетесь. Т.е. получается что найти существующий тип потому что лениво делать свой - практически всегда будет не правильным подходом. Исключений, которые созданы для общего круга задач почти не существует. Практически все из них созданы под конкретные ситуации и их переиспользование будет грубым нарушением архитектуры исключительных ситуаций. Мало того, получив исключение определённого типа (например, тот же <code>System.IO.InvalidDataException</code>), пользователь будет запутан: с одной стороны он увидит источник проблемы в <code>System.IO</code> как пространство имён исключения, а с другой - совершенно другое пространство имён точки выброса. Плюс ко всему, задумавшись о правилах выброса этого исключения зайдёт на <a href="https://referencesource.microsoft.com/">referencesource.microsoft.com</a> и найдёт <a href="https://referencesource.microsoft.com/#System/sys/System/IO/compression/InvalidDataException.cs,2b389f14fb01ad1b,references">все места его выброса</a>:</p>
+<p >
+При вы&shy;бо&shy;ре ти&shy;па ис&shy;клю&shy;че&shy;ний мож&shy;но поп&shy;ро&shy;бо&shy;вать взять уже су&shy;щес&shy;тву&shy;ю&shy;щее ре&shy;ше&shy;ние: най&shy;ти ис&shy;клю&shy;че&shy;ние с по&shy;хо&shy;жим смыс&shy;лом в наз&shy;ва&shy;нии и ис&shy;поль&shy;зо&shy;вать его. Нап&shy;ри&shy;мер, ес&shy;ли нам от&shy;да&shy;ли че&shy;рез па&shy;ра&shy;метр ка&shy;кую-ли&shy;бо сущ&shy;ность, ко&shy;то&shy;рая нас по&shy;че&shy;му-то не ус&shy;тра&shy;и&shy;ва&shy;ет, мы мо&shy;жем выб&shy;ро&shy;сить <code>InvalidArgumentException</code>, ука&shy;зав при&shy;чи&shy;ну ошиб&shy;ки - в Message. Этот сце&shy;на&shy;рий выг&shy;ля&shy;дит хо&shy;ро&shy;шо, осо&shy;бен&shy;но с учётом то&shy;го что <code>InvalidArgumentException</code> на&shy;хо&shy;дит&shy;ся в груп&shy;пе ис&shy;клю&shy;че&shy;ний, ко&shy;то&shy;рые не под&shy;ле&shy;жат обя&shy;за&shy;тель&shy;но&shy;му пе&shy;рех&shy;ва&shy;ту. Но пло&shy;хим бу&shy;дет вы&shy;бор <code>InvalidDataException</code> ес&shy;ли вы ра&shy;бо&shy;та&shy;ете с ка&shy;ки&shy;ми-ли&shy;бо дан&shy;ны&shy;ми. Прос&shy;то по&shy;то&shy;му что этот тип на&shy;хо&shy;дит&shy;ся в зо&shy;не <code>System.IO</code>, а это вряд&shy;ли то, чем вы за&shy;ни&shy;ма&shy;е&shy;тесь. Т.е. по&shy;лу&shy;ча&shy;ет&shy;ся что най&shy;ти су&shy;щес&shy;тву&shy;ю&shy;щий тип по&shy;то&shy;му что ле&shy;ни&shy;во де&shy;лать свой - прак&shy;ти&shy;чес&shy;ки всег&shy;да бу&shy;дет не пра&shy;виль&shy;ным под&shy;хо&shy;дом. Искл&shy;юч&shy;ений, ко&shy;то&shy;рые соз&shy;да&shy;ны для об&shy;ще&shy;го кру&shy;га за&shy;дач поч&shy;ти не су&shy;щес&shy;тву&shy;ет. Прак&shy;ти&shy;чес&shy;ки все из них соз&shy;да&shy;ны под конк&shy;рет&shy;ные си&shy;ту&shy;а&shy;ции и их пе&shy;ре&shy;ис&shy;поль&shy;зо&shy;ва&shy;ние бу&shy;дет гру&shy;бым на&shy;ру&shy;ше&shy;ни&shy;ем ар&shy;хи&shy;тек&shy;ту&shy;ры ис&shy;клю&shy;чи&shy;тель&shy;ных си&shy;ту&shy;а&shy;ций. Ма&shy;ло то&shy;го, по&shy;лу&shy;чив ис&shy;клю&shy;че&shy;ние оп&shy;ре&shy;делённо&shy;го ти&shy;па (нап&shy;ри&shy;мер, тот же <code>System.IO.InvalidDataException</code>), поль&shy;зо&shy;ва&shy;тель бу&shy;дет за&shy;пу&shy;тан: с од&shy;ной сто&shy;ро&shy;ны он уви&shy;дит ис&shy;точ&shy;ник проб&shy;ле&shy;мы в <code>System.IO</code> как прост&shy;ранство имён ис&shy;клю&shy;че&shy;ния, а с дру&shy;гой - со&shy;вер&shy;шен&shy;но дру&shy;гое прост&shy;ранство имён точ&shy;ки выб&shy;ро&shy;са. Плюс ко все&shy;му, за&shy;ду&shy;мав&shy;шись о пра&shy;ви&shy;лах выб&shy;ро&shy;са это&shy;го ис&shy;клю&shy;че&shy;ния зайдёт на <a href="https://referencesource.microsoft.com/">referencesource.microsoft.com</a> и найдёт <a href="https://referencesource.microsoft.com/#System/sys/System/IO/compression/InvalidDataException.cs,2b389f14fb01ad1b,references">все места его выброса</a>:</p>
 <div class="paragraph-right-side">15</div>
 </div>
 <ul>
-<li><code>internal class System.IO.Compression.Inflater</code></li>
+<li>
+<p >
+<code>internal class System.IO.Compression.Inflater</code></p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
-<p>И поймёт что <del>просто у кого-то кривые руки</del> выбор типа исключения его запутал, поскольку метод, выбросивший исключение компрессией не занимался.</p>
+<p >
+И поймёт что <del>просто у кого-то кривые руки</del> вы&shy;бор ти&shy;па ис&shy;клю&shy;че&shy;ния его за&shy;пу&shy;тал, пос&shy;коль&shy;ку ме&shy;тод, выб&shy;ро&shy;сив&shy;ший ис&shy;клю&shy;че&shy;ние комп&shy;рес&shy;си&shy;ей не за&shy;ни&shy;мал&shy;ся.</p>
 <div class="paragraph-right-side">16</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
-<p>Также в целях упрощения переиспользования можно просто взять и создать какое-то одно исключение, объявив у него поле <code>ErrorCode</code> с кодом ошибки и жить себе припеваючи. Казалось бы: хорошее решение. Бросаете везде одно и то же исключение, выставив код, ловите всего-навсего одним <code>catch</code> повышая тем самым стабильность приложения: и делать более ничего не надо. Однако, прошу не согласиться с такой позицией. Действуя таким образом по всему приложению вы с одной стороны, конечно, упрощаете себе жизнь. Но с другой - вы отбрасываете возможность ловить подгруппу исключений, объединённых некоторой общей особенностью. Как это сделано, например, с <code>ArgumentException</code>, который под собой объединяет, целую группу исключений путём наследования. Второй серьёзный минус - чрезмерно большие и нечитаемые простыни кода, который будет организовывать фильтрацию по коду ошибки. А вот если взять другую ситуацию: когда конечному пользователю конкретизация ошибки не должна быть важна, введение обобщающего типа плюс код ошибки выглядит уже куда более правильным применением:</p>
+<p >
+Так&shy;же в це&shy;лях уп&shy;ро&shy;ще&shy;ния пе&shy;ре&shy;ис&shy;поль&shy;зо&shy;ва&shy;ния мож&shy;но прос&shy;то взять и соз&shy;дать ка&shy;кое-то од&shy;но ис&shy;клю&shy;че&shy;ние, объ&shy;я&shy;вив у не&shy;го по&shy;ле <code>ErrorCode</code> с ко&shy;дом ошиб&shy;ки и жить се&shy;бе при&shy;пе&shy;ва&shy;ючи. Ка&shy;за&shy;лось бы: хо&shy;ро&shy;шее ре&shy;ше&shy;ние. Бро&shy;са&shy;ете вез&shy;де од&shy;но и то же ис&shy;клю&shy;че&shy;ние, выс&shy;та&shy;вив код, ло&shy;ви&shy;те все&shy;го-нав&shy;се&shy;го од&shy;ним <code>catch</code> по&shy;вы&shy;шая тем са&shy;мым ста&shy;биль&shy;ность при&shy;ло&shy;же&shy;ния: и де&shy;лать бо&shy;лее ни&shy;че&shy;го не на&shy;до. Одна&shy;ко, про&shy;шу не сог&shy;ла&shy;сить&shy;ся с та&shy;кой по&shy;зи&shy;ци&shy;ей. Действуя та&shy;ким об&shy;ра&shy;зом по все&shy;му при&shy;ло&shy;же&shy;нию вы с од&shy;ной сто&shy;ро&shy;ны, ко&shy;неч&shy;но, уп&shy;ро&shy;ща&shy;ете се&shy;бе жизнь. Но с дру&shy;гой - вы от&shy;бра&shy;сы&shy;ва&shy;ете воз&shy;мож&shy;ность ло&shy;вить подг&shy;руп&shy;пу ис&shy;клю&shy;че&shy;ний, объ&shy;е&shy;динённых не&shy;ко&shy;то&shy;рой об&shy;щей осо&shy;бен&shy;ностью. Как это сде&shy;ла&shy;но, нап&shy;ри&shy;мер, с <code>ArgumentException</code>, ко&shy;то&shy;рый под со&shy;бой объ&shy;е&shy;ди&shy;ня&shy;ет, це&shy;лую груп&shy;пу ис&shy;клю&shy;че&shy;ний путём нас&shy;ле&shy;до&shy;ва&shy;ния. Вто&shy;рой серьёзный ми&shy;нус - чрез&shy;мер&shy;но боль&shy;шие и не&shy;чи&shy;та&shy;е&shy;мые прос&shy;ты&shy;ни ко&shy;да, ко&shy;то&shy;рый бу&shy;дет ор&shy;га&shy;ни&shy;зо&shy;вы&shy;вать фил&shy;ьтрацию по ко&shy;ду ошиб&shy;ки. А вот ес&shy;ли взять дру&shy;гую си&shy;ту&shy;а&shy;цию: ког&shy;да ко&shy;неч&shy;но&shy;му поль&shy;зо&shy;ва&shy;те&shy;лю конк&shy;ре&shy;ти&shy;за&shy;ция ошиб&shy;ки не дол&shy;жна быть важ&shy;на, вве&shy;де&shy;ние обоб&shy;ща&shy;ю&shy;ще&shy;го ти&shy;па плюс код ошиб&shy;ки выг&shy;ля&shy;дит уже ку&shy;да бо&shy;лее пра&shy;виль&shy;ным при&shy;ме&shy;не&shy;ни&shy;ем:</p>
 <div class="paragraph-right-side">17</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1117,22 +1182,26 @@ T GetFromCacheOrCalculate()
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
-<p>Коду, который защищает вызов парсера почти всегда безразлично, по какой причине был завален парсинг: ему важен сам факт ошибки. Однако, если это всё-таки станет важно, пользователь всегда сможет вычленить код ошибки из свойства <code>ErrorCode</code>. Для этого вовсе не обязательно искать нужные слова по подстроке в <code>Message</code>.</p>
+<p >
+Ко&shy;ду, ко&shy;то&shy;рый за&shy;щи&shy;ща&shy;ет вы&shy;зов пар&shy;се&shy;ра поч&shy;ти всег&shy;да без&shy;раз&shy;лич&shy;но, по ка&shy;кой при&shy;чи&shy;не был за&shy;ва&shy;лен пар&shy;синг: ему ва&shy;жен сам факт ошиб&shy;ки. Одна&shy;ко, ес&shy;ли это всё-та&shy;ки ста&shy;нет важ&shy;но, поль&shy;зо&shy;ва&shy;тель всег&shy;да смо&shy;жет выч&shy;ле&shy;нить код ошиб&shy;ки из свой&shy;ства <code>ErrorCode</code>. Для это&shy;го вов&shy;се не обя&shy;за&shy;тель&shy;но ис&shy;кать нуж&shy;ные сло&shy;ва по подс&shy;троке в <code>Message</code>.</p>
 <div class="paragraph-right-side">18</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
-<p>Если отталкиваться от игнорирования вопросов переиспользования, то можно создать по типу исключения под каждую ситуацию. С одной стороны это выглядит логично: один тип ошибки - один тип исключения. Однако, тут, как и во всем, главное не переусердствовать: имея по типу исключительных операций на каждую точку выброса, вы порождаете тем самым проблемы для перехвата: код вызывающего метода будет перегружен блоками <code>catch</code>. Ведь ему надо обработать все типы исключений, которые вы хотите ему отдать. Другой минус - чисто архитектурный. Если вы не используете наследования, то тем самым дезориентируете пользователя этих исключений: между ними может быть много общего, а перехватывать их приходится по отдельности.</p>
+<p >
+Если от&shy;тал&shy;ки&shy;вать&shy;ся от иг&shy;но&shy;ри&shy;ро&shy;ва&shy;ния воп&shy;ро&shy;сов пе&shy;ре&shy;ис&shy;поль&shy;зо&shy;ва&shy;ния, то мож&shy;но соз&shy;дать по ти&shy;пу ис&shy;клю&shy;че&shy;ния под каж&shy;дую си&shy;ту&shy;а&shy;цию. С од&shy;ной сто&shy;ро&shy;ны это выг&shy;ля&shy;дит ло&shy;гич&shy;но: один тип ошиб&shy;ки - один тип ис&shy;клю&shy;че&shy;ния. Одна&shy;ко, тут, как и во всем, глав&shy;ное не пе&shy;ре&shy;у&shy;серд&shy;ствовать: имея по ти&shy;пу ис&shy;клю&shy;чи&shy;тель&shy;ных опе&shy;ра&shy;ций на каж&shy;дую точ&shy;ку выб&shy;ро&shy;са, вы по&shy;рож&shy;да&shy;ете тем са&shy;мым проб&shy;ле&shy;мы для пе&shy;рех&shy;ва&shy;та: код вы&shy;зы&shy;ва&shy;ю&shy;ще&shy;го ме&shy;то&shy;да бу&shy;дет пе&shy;рег&shy;ру&shy;жен бло&shy;ка&shy;ми <code>catch</code>. Ведь ему на&shy;до об&shy;ра&shy;бо&shy;тать все ти&shy;пы ис&shy;клю&shy;че&shy;ний, ко&shy;то&shy;рые вы хо&shy;ти&shy;те ему от&shy;дать. Дру&shy;гой ми&shy;нус - чис&shy;то ар&shy;хи&shy;тек&shy;тур&shy;ный. Если вы не ис&shy;поль&shy;зу&shy;ете нас&shy;ле&shy;до&shy;ва&shy;ния, то тем са&shy;мым де&shy;зо&shy;ри&shy;ен&shy;ти&shy;ру&shy;ете поль&shy;зо&shy;ва&shy;те&shy;ля этих ис&shy;клю&shy;че&shy;ний: меж&shy;ду ни&shy;ми мо&shy;жет быть мно&shy;го об&shy;ще&shy;го, а пе&shy;рех&shy;ва&shy;ты&shy;вать их при&shy;хо&shy;дит&shy;ся по от&shy;дель&shy;нос&shy;ти.</p>
 <div class="paragraph-right-side">19</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
-<p>Тем не менее, существуют хорошие сценарии для введения отдельных типов для конкретных ситуаций. Например, когда поломка происходит не для всей сущности в целом, а для конкретного метода. Тогда этот тип должен быть в иерархии наследования находиться в таком месте чтобы не возникало мысли его перехватить заодно с чем-то ещё: например, выделив его через отдельную                ветвь наследования.</p>
+<p >
+Тем не ме&shy;нее, су&shy;щес&shy;тву&shy;ют хо&shy;ро&shy;шие сце&shy;на&shy;рии для вве&shy;де&shy;ния от&shy;дель&shy;ных ти&shy;пов для конк&shy;рет&shy;ных си&shy;ту&shy;а&shy;ций. Нап&shy;ри&shy;мер, ког&shy;да по&shy;лом&shy;ка про&shy;ис&shy;хо&shy;дит не для всей сущ&shy;нос&shy;ти в це&shy;лом, а для конк&shy;рет&shy;но&shy;го ме&shy;то&shy;да. Тог&shy;да этот тип дол&shy;жен быть в иера&shy;рхии нас&shy;ле&shy;до&shy;ва&shy;ния на&shy;хо&shy;дить&shy;ся в та&shy;ком мес&shy;те что&shy;бы не воз&shy;ни&shy;ка&shy;ло мыс&shy;ли его пе&shy;рех&shy;ва&shy;тить за&shy;од&shy;но с чем-то ещё: нап&shy;ри&shy;мер, вы&shy;де&shy;лив его че&shy;рез от&shy;дель&shy;ную                ветвь нас&shy;ле&shy;до&shy;ва&shy;ния.</p>
 <div class="paragraph-right-side">20</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
-<p>Дополнительно, если объединить эти два подхода, можно получить очень мощный инструментарий по работе с группой ошибок: можно ввести обобщающий абстрактный тип, от которого унаследовать конкретные частные ситуации. Базовый класс (наш обобщающий тип) необходимо снабдить абстрактным свойством, хранящем код ошибки, а наследники, переопределяя это свойство будут этот код ошибки уточнять:</p>
+<p >
+До&shy;пол&shy;ни&shy;тель&shy;но, ес&shy;ли объ&shy;е&shy;ди&shy;нить эти два под&shy;хо&shy;да, мож&shy;но по&shy;лу&shy;чить очень мощ&shy;ный инст&shy;рум&shy;ен&shy;тарий по ра&shy;бо&shy;те с груп&shy;пой оши&shy;бок: мож&shy;но ввес&shy;ти обоб&shy;ща&shy;ю&shy;щий абстр&shy;актный тип, от ко&shy;то&shy;ро&shy;го унас&shy;ле&shy;до&shy;вать конк&shy;рет&shy;ные час&shy;т&shy;ные си&shy;ту&shy;а&shy;ции. Ба&shy;зо&shy;вый класс (наш обоб&shy;ща&shy;ю&shy;щий тип) не&shy;об&shy;хо&shy;ди&shy;мо снаб&shy;дить абстр&shy;актным свой&shy;с&shy;твом, хра&shy;ня&shy;щем код ошиб&shy;ки, а нас&shy;лед&shy;ни&shy;ки, пе&shy;ре&shy;оп&shy;ре&shy;де&shy;ляя это свой&shy;ство бу&shy;дут этот код ошиб&shy;ки уточ&shy;нять:</p>
 <div class="paragraph-right-side">21</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1168,30 +1237,45 @@ T GetFromCacheOrCalculate()
 <span style="color:Blue;">throw</span> <span style="color:Blue;">new</span> MissingModifierParserException(ParserError.MissingModifier);
 </pre></div>
 </div>
-<p>Какие замечательные свойства мы получим при таком подходе?</p>
+<p >
+Ка&shy;кие за&shy;ме&shy;ча&shy;тель&shy;ные свой&shy;ства мы по&shy;лу&shy;чим при та&shy;ком под&shy;хо&shy;де?</p>
 <ul>
-<li>с одной стороны мы сохранили перехват исключения по базовому типу;</li>
-<li>с другой стороны, перехватив исключение по базовому типу сохранилась возможность узнать конкретную ситуацию;</li>
-<li>и плюс ко всему можно перехватить по конкретному типу, а не по базовому, не пользуясь плоской структурой классов.</li>
+<li>
+<p >
+с од&shy;ной сто&shy;ро&shy;ны мы сох&shy;ра&shy;ни&shy;ли пе&shy;рех&shy;ват ис&shy;клю&shy;че&shy;ния по ба&shy;зо&shy;во&shy;му ти&shy;пу;</p>
+</li>
+<li>
+<p >
+с дру&shy;гой сто&shy;ро&shy;ны, пе&shy;рех&shy;ва&shy;тив ис&shy;клю&shy;че&shy;ние по ба&shy;зо&shy;во&shy;му ти&shy;пу сох&shy;ра&shy;ни&shy;лась воз&shy;мож&shy;ность уз&shy;нать конк&shy;рет&shy;ную си&shy;ту&shy;а&shy;цию;</p>
+</li>
+<li>
+<p >
+и плюс ко все&shy;му мож&shy;но пе&shy;рех&shy;ва&shy;тить по конк&shy;рет&shy;но&shy;му ти&shy;пу, а не по ба&shy;зо&shy;во&shy;му, не поль&shy;зу&shy;ясь плос&shy;кой струк&shy;ту&shy;рой клас&shy;сов.</p>
+</li>
 </ul>
-<p>Как по мне так очень удобный вариант.</p>
+<p >
+Как по мне так очень удоб&shy;ный ва&shy;ри&shy;ант.</p>
 <h3 id="section-4">По отношению к единой группе поведенческих ситуаций</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
-<p>Какие же выводы можно сделать, основываясь на ранее описанных рассуждениях? Давайте попробуем их сформулировать:</p>
+<p >
+Ка&shy;кие же вы&shy;во&shy;ды мож&shy;но сде&shy;лать, ос&shy;но&shy;вы&shy;ва&shy;ясь на ра&shy;нее опи&shy;сан&shy;ных рас&shy;суж&shy;де&shy;ни&shy;ях? Да&shy;вай&shy;те поп&shy;ро&shy;бу&shy;ем их сфор&shy;му&shy;ли&shy;ро&shy;вать:</p>
 <div class="paragraph-right-side">22</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
-<p>Для начала давайте определимся, что имеется в виду под ситуациями. Когда мы говорим про классы и объекты, то мы привыкли в первую очередь оперировать сущностями с некоторым внутренним состоянием, над которыми можно осуществлять действия. Получается, что тем самым мы нашли первый тип поведенческой ситуации: действия над некоторой сущностью. Далее, если посмотреть на граф объектов как бы со стороны, можно заметить что он логически объединён в функциональные группы: первая занимается кэшированием, вторая - работа с базами данных, третья осуществляет математические расчёты. Через все эти функциональные группы могут идти слои: слой логирования различных внутренних состояний, журналирование процессов, трассировка вызовов методов. Слои могут быть более охватывающие: объединяющие в себе несколько функциональных групп. Например, слой модели, слой контроллеров, слой представления. Эти группы могут находиться как в одной сборке, так и в совершенно разных, но каждая из них может создавать свои исключительные ситуации.</p>
+<p >
+Для на&shy;ча&shy;ла да&shy;вай&shy;те оп&shy;ре&shy;де&shy;лим&shy;ся, что име&shy;ет&shy;ся в ви&shy;ду под си&shy;ту&shy;а&shy;ци&shy;ями. Ког&shy;да мы го&shy;во&shy;рим про клас&shy;сы и объ&shy;ек&shy;ты, то мы при&shy;вык&shy;ли в пер&shy;вую оче&shy;редь опе&shy;ри&shy;ро&shy;вать сущ&shy;нос&shy;тя&shy;ми с не&shy;ко&shy;то&shy;рым внут&shy;рен&shy;ним сос&shy;то&shy;я&shy;ни&shy;ем, над ко&shy;то&shy;ры&shy;ми мож&shy;но осу&shy;щ&shy;ествлять действия. По&shy;лу&shy;ча&shy;ет&shy;ся, что тем са&shy;мым мы наш&shy;ли пер&shy;вый тип по&shy;ве&shy;ден&shy;чес&shy;кой си&shy;ту&shy;а&shy;ции: действия над не&shy;ко&shy;то&shy;рой сущ&shy;ностью. Да&shy;лее, ес&shy;ли пос&shy;мот&shy;реть на граф объ&shy;ек&shy;тов как бы со сто&shy;ро&shy;ны, мож&shy;но за&shy;ме&shy;тить что он ло&shy;ги&shy;чес&shy;ки объ&shy;е&shy;динён в фун&shy;кци&shy;о&shy;наль&shy;ные груп&shy;пы: пер&shy;вая за&shy;ни&shy;ма&shy;ет&shy;ся кэ&shy;ши&shy;ро&shy;ва&shy;ни&shy;ем, вто&shy;рая - ра&shy;бо&shy;та с ба&shy;за&shy;ми дан&shy;ных, третья осу&shy;щес&shy;твляет ма&shy;те&shy;ма&shy;ти&shy;чес&shy;кие расчёты. Че&shy;рез все эти фун&shy;кци&shy;о&shy;наль&shy;ные груп&shy;пы мо&shy;гут ид&shy;ти слои: слой ло&shy;ги&shy;ро&shy;ва&shy;ния раз&shy;лич&shy;ных внут&shy;рен&shy;них сос&shy;то&shy;я&shy;ний, жур&shy;на&shy;ли&shy;ро&shy;ва&shy;ние про&shy;цес&shy;сов, трас&shy;си&shy;ров&shy;ка вы&shy;зо&shy;вов ме&shy;то&shy;дов. Слои мо&shy;гут быть бо&shy;лее ох&shy;ва&shy;ты&shy;ва&shy;ю&shy;щие: объ&shy;е&shy;ди&shy;ня&shy;ю&shy;щие в се&shy;бе нес&shy;коль&shy;ко фун&shy;кци&shy;о&shy;наль&shy;ных групп. Нап&shy;ри&shy;мер, слой мо&shy;де&shy;ли, слой конт&shy;рол&shy;ле&shy;ров, слой предс&shy;тав&shy;ле&shy;ния. Эти груп&shy;пы мо&shy;гут на&shy;хо&shy;дить&shy;ся как в од&shy;ной сбор&shy;ке, так и в со&shy;вер&shy;шен&shy;но раз&shy;ных, но каж&shy;дая из них мо&shy;жет соз&shy;да&shy;вать свои ис&shy;клю&shy;чи&shy;тель&shy;ные си&shy;ту&shy;а&shy;ции.</p>
 <div class="paragraph-right-side">23</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">24</div>
-<p>Получается, что если рассуждать таким образом, то можно построить некоторую иерархию типов исключительных ситуаций, основываясь на принадлежности типа той или иной группе или слою создавая тем самым возможность перехватывающему исключения коду лёгкую смысловую навигацию в этой иерархии типов.</p>
+<p >
+По&shy;лу&shy;ча&shy;ет&shy;ся, что ес&shy;ли рас&shy;суж&shy;дать та&shy;ким об&shy;ра&shy;зом, то мож&shy;но пос&shy;тро&shy;ить не&shy;ко&shy;то&shy;рую иера&shy;рхию ти&shy;пов ис&shy;клю&shy;чи&shy;тель&shy;ных си&shy;ту&shy;а&shy;ций, ос&shy;но&shy;вы&shy;ва&shy;ясь на при&shy;над&shy;леж&shy;нос&shy;ти ти&shy;па той или иной груп&shy;пе или слою соз&shy;да&shy;вая тем са&shy;мым воз&shy;мож&shy;ность пе&shy;рех&shy;ва&shy;ты&shy;ва&shy;ю&shy;ще&shy;му ис&shy;клю&shy;че&shy;ния ко&shy;ду лёгкую смыс&shy;ло&shy;вую на&shy;ви&shy;га&shy;цию в этой иера&shy;рхии ти&shy;пов.</p>
 <div class="paragraph-right-side">24</div>
 </div>
-<p>Давайте рассмотрим код:</p>
+<p >
+Да&shy;вай&shy;те расс&shy;мот&shy;рим код:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">namespace</span> JetFinance
 {
@@ -1222,10 +1306,12 @@ T GetFromCacheOrCalculate()
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
-<p>На что это похоже? Как по мне, пространства имён - прекрасная возможность естественной группировки типов исключений по их поведенческим ситуациям: все, что принадлежит определённым группам там и должно находиться, включая исключения. Мало того, когда вы получите определённое исключение, то помимо названия его типа вы увидите и его пространство имён, что чётко определит его принадлежность. Помните пример плохого переиспользования типа <code>InvalidDataException</code>, который на самом деле определён в пространстве имён <code>System.IO</code>? Его принадлежность данному пространству имён означает что по сути исключение этого типа может быть выброшено из классов, находящихся в пространстве имён <code>System.IO</code> либо в более вложенном. Но само исключение при этом было выброшено совершенно из другого места, запутывая исследователя возникшей проблемы. Сосредотачивая типы исключений по тем же пространствам имён, что и типы, эти исключения выбрасывающие, вы с одной стороны сохраняете архитектуру типов консистентной, а с другой - облегчаете понимание причин произошедшего конечным разработчиком.</p>
+<p >
+На что это по&shy;хо&shy;же? Как по мне, прост&shy;ранства имён - прек&shy;рас&shy;ная воз&shy;мож&shy;ность ес&shy;тест&shy;вен&shy;ной груп&shy;пи&shy;ров&shy;ки ти&shy;пов ис&shy;клю&shy;че&shy;ний по их по&shy;ве&shy;ден&shy;чес&shy;ким си&shy;ту&shy;а&shy;ци&shy;ям: все, что при&shy;над&shy;ле&shy;жит оп&shy;ре&shy;делённым груп&shy;пам там и дол&shy;жно на&shy;хо&shy;дить&shy;ся, вклю&shy;чая ис&shy;клю&shy;че&shy;ния. Ма&shy;ло то&shy;го, ког&shy;да вы по&shy;лу&shy;чи&shy;те оп&shy;ре&shy;делённое ис&shy;клю&shy;че&shy;ние, то по&shy;ми&shy;мо наз&shy;ва&shy;ния его ти&shy;па вы уви&shy;ди&shy;те и его прост&shy;ранство имён, что чётко оп&shy;ре&shy;де&shy;лит его при&shy;над&shy;леж&shy;ность. Пом&shy;ни&shy;те при&shy;мер пло&shy;хо&shy;го пе&shy;ре&shy;ис&shy;поль&shy;зо&shy;ва&shy;ния ти&shy;па <code>InvalidDataException</code>, ко&shy;то&shy;рый на са&shy;мом де&shy;ле оп&shy;ре&shy;делён в прост&shy;ранстве имён <code>System.IO</code>? Его при&shy;над&shy;леж&shy;ность дан&shy;но&shy;му прост&shy;ранству имён оз&shy;на&shy;ча&shy;ет что по су&shy;ти ис&shy;клю&shy;че&shy;ние это&shy;го ти&shy;па мо&shy;жет быть выб&shy;ро&shy;ше&shy;но из клас&shy;сов, на&shy;хо&shy;дя&shy;щих&shy;ся в прост&shy;ранстве имён <code>System.IO</code> ли&shy;бо в бо&shy;лее вло&shy;жен&shy;ном. Но са&shy;мо ис&shy;клю&shy;че&shy;ние при этом бы&shy;ло выб&shy;ро&shy;ше&shy;но со&shy;вер&shy;шен&shy;но из дру&shy;го&shy;го мес&shy;та, за&shy;пу&shy;ты&shy;вая ис&shy;сле&shy;до&shy;ва&shy;те&shy;ля воз&shy;ник&shy;шей проб&shy;ле&shy;мы. Сос&shy;ре&shy;до&shy;та&shy;чи&shy;вая ти&shy;пы ис&shy;клю&shy;че&shy;ний по тем же прост&shy;р&shy;анствам имён, что и ти&shy;пы, эти ис&shy;клю&shy;че&shy;ния выб&shy;ра&shy;сы&shy;ва&shy;ю&shy;щие, вы с од&shy;ной сто&shy;ро&shy;ны сох&shy;ра&shy;ня&shy;ете ар&shy;хи&shy;тек&shy;ту&shy;ру ти&shy;пов кон&shy;сис&shy;тент&shy;ной, а с дру&shy;гой - об&shy;лег&shy;ча&shy;ете по&shy;ни&shy;ма&shy;ние при&shy;чин про&shy;и&shy;зо&shy;шед&shy;ше&shy;го ко&shy;неч&shy;ным раз&shy;ра&shy;бот&shy;чи&shy;ком.</p>
 <div class="paragraph-right-side">25</div>
 </div>
-<p>Каков второй путь группировки на уровне кода? Наследование:</p>
+<p >
+Ка&shy;ков вто&shy;рой путь груп&shy;пи&shy;ров&shy;ки на уров&shy;не ко&shy;да? Нас&shy;ле&shy;до&shy;ва&shy;ние:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">abstract</span> <span style="color:Blue;">class</span> LoggerExceptionBase : Exception
 {
@@ -1246,14 +1332,25 @@ T GetFromCacheOrCalculate()
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
-<p>Причём, если в случае с обычными сущностями приложения наследование означает наследование поведения и данных, объединяя типы по принадлежности к <em>единой группе сущностей</em>, то в случае исключений наследование означает принадлежность к <em>единой группе ситуаций</em>, поскольку суть исключения - не сущность, а проблематика.</p>
+<p >
+Причём, ес&shy;ли в слу&shy;чае с обыч&shy;ны&shy;ми сущ&shy;нос&shy;тя&shy;ми при&shy;ло&shy;же&shy;ния нас&shy;ле&shy;до&shy;ва&shy;ние оз&shy;на&shy;ча&shy;ет нас&shy;ле&shy;до&shy;ва&shy;ние по&shy;ве&shy;де&shy;ния и дан&shy;ных, объ&shy;е&shy;ди&shy;няя ти&shy;пы по при&shy;над&shy;леж&shy;нос&shy;ти к <em>единой группе сущностей</em>, то в слу&shy;чае ис&shy;клю&shy;че&shy;ний нас&shy;ле&shy;до&shy;ва&shy;ние оз&shy;на&shy;ча&shy;ет при&shy;над&shy;леж&shy;ность к <em>единой группе ситуаций</em>, пос&shy;коль&shy;ку суть ис&shy;клю&shy;че&shy;ния - не сущ&shy;ность, а проб&shy;ле&shy;ма&shy;ти&shy;ка.</p>
 <div class="paragraph-right-side">26</div>
 </div>
-<p>Объединяя оба метода группировки, можно сделать некоторые выводы:</p>
+<p >
+Объ&shy;единяя оба ме&shy;то&shy;да груп&shy;пи&shy;ров&shy;ки, мож&shy;но сде&shy;лать не&shy;ко&shy;то&shy;рые вы&shy;во&shy;ды:</p>
 <ul>
-<li>внутри сборки (<code>Assembly</code>) должен присутствовать базовый тип исключений, которые данная сборка выбрасывает. Этот тип исключений должен находиться в корневом для сборки пространстве имён. Это будет первый слой группировки;</li>
-<li>далее внутри самой сборки может быть одно или несколько различных пространств имён. Каждое из них делит сборку на некоторые функциональные зоны, тем самым определяя группы ситуаций, которые в данной сборке возникают. Это могут быть зоны контроллеров, сущностей баз данных, алгоритмов обработки данных и прочих. Для нас эти пространства имён - группировка типов по функциональной принадлежности, а с точки зрения исключений - группировка по проблемным зонам этой же сборки;</li>
-<li>наследование исключений может идти только от типов в этом же пространстве имён либо в более корневом. Это гарантирует однозначное понимание ситуации конечным пользователем и отсутствие перехвата <em>левых</em> исключений при перехвате по базовому типу. Согласитесь: было бы странно получить <code>global::Finiki.Logistics.OhMyException</code>, имея <code>catch(global::Legacy.LoggerExeption exception)</code>, зато абсолютно гармонично выглядит следующий код:</li>
+<li>
+<p >
+внут&shy;ри сбор&shy;ки (<code>Assembly</code>) дол&shy;жен при&shy;сутс&shy;твовать ба&shy;зо&shy;вый тип ис&shy;клю&shy;че&shy;ний, ко&shy;то&shy;рые дан&shy;ная сбор&shy;ка выб&shy;ра&shy;сы&shy;ва&shy;ет. Этот тип ис&shy;клю&shy;че&shy;ний дол&shy;жен на&shy;хо&shy;дить&shy;ся в кор&shy;не&shy;вом для сбор&shy;ки прост&shy;ранстве имён. Это бу&shy;дет пер&shy;вый слой груп&shy;пи&shy;ров&shy;ки;</p>
+</li>
+<li>
+<p >
+да&shy;лее внут&shy;ри са&shy;мой сбор&shy;ки мо&shy;жет быть од&shy;но или нес&shy;коль&shy;ко раз&shy;лич&shy;ных прост&shy;ранств имён. Каж&shy;дое из них де&shy;лит сбор&shy;ку на не&shy;ко&shy;то&shy;рые фун&shy;кци&shy;о&shy;наль&shy;ные зо&shy;ны, тем са&shy;мым оп&shy;ре&shy;де&shy;ляя груп&shy;пы си&shy;ту&shy;а&shy;ций, ко&shy;то&shy;рые в дан&shy;ной сбор&shy;ке воз&shy;ни&shy;ка&shy;ют. Это мо&shy;гут быть зо&shy;ны конт&shy;рол&shy;ле&shy;ров, сущ&shy;нос&shy;тей баз дан&shy;ных, ал&shy;го&shy;рит&shy;мов об&shy;ра&shy;бот&shy;ки дан&shy;ных и про&shy;чих. Для нас эти прост&shy;ранства имён - груп&shy;пи&shy;ров&shy;ка ти&shy;пов по фун&shy;кци&shy;о&shy;наль&shy;ной при&shy;над&shy;леж&shy;нос&shy;ти, а с точ&shy;ки зре&shy;ния ис&shy;клю&shy;че&shy;ний - груп&shy;пи&shy;ров&shy;ка по проб&shy;лем&shy;ным зо&shy;нам этой же сбор&shy;ки;</p>
+</li>
+<li>
+<p >
+нас&shy;ле&shy;до&shy;ва&shy;ние ис&shy;клю&shy;че&shy;ний мо&shy;жет ид&shy;ти толь&shy;ко от ти&shy;пов в этом же прост&shy;ранстве имён ли&shy;бо в бо&shy;лее кор&shy;не&shy;вом. Это га&shy;ран&shy;ти&shy;ру&shy;ет од&shy;ноз&shy;нач&shy;ное по&shy;ни&shy;ма&shy;ние си&shy;ту&shy;а&shy;ции ко&shy;неч&shy;ным поль&shy;зо&shy;ва&shy;те&shy;лем и от&shy;с&shy;утствие пе&shy;рех&shy;ва&shy;та <em>левых</em> ис&shy;клю&shy;че&shy;ний при пе&shy;рех&shy;ва&shy;те по ба&shy;зо&shy;во&shy;му ти&shy;пу. Сог&shy;ла&shy;си&shy;тесь: бы&shy;ло бы стран&shy;но по&shy;лу&shy;чить <code>global::Finiki.Logistics.OhMyException</code>, имея <code>catch(global::Legacy.LoggerExeption exception)</code>, за&shy;то аб&shy;со&shy;лют&shy;но гар&shy;мо&shy;нич&shy;но выг&shy;ля&shy;дит сле&shy;ду&shy;ю&shy;щий код:</p>
+</li>
 </ul>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">namespace</span> JetFinance.FinancialPipe
@@ -1300,29 +1397,62 @@ T GetFromCacheOrCalculate()
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">27</div>
-<p>Заметьте, что тут происходит: мы как пользовательский код вызываем некий библиотечный метод, который, насколько мы знаем, может при некоторых обстоятельствах выбросить исключение <code>XmlParserServiceException</code>. И, насколько мы знаем, это исключение находится в пространстве имён, наследуя <code>JetFinance.FinancialPipe.FinancialPipeExceptionBase</code>, что говорит о возможном упущении других исключений: это сейчас микросервис <code>XmlParserService</code> создаёт только одно исключение, но в будущем могут появиться и другие. И поскольку у нас есть конвенция в создании типов исключений, мы точно знаем от кого это новое исключение будет наследоваться и заранее ставим обобщающий <code>catch</code> не затрагивая при этом ничего лишнего: то, что не попало в зону нашей ответственности пролетит мимо.</p>
+<p >
+За&shy;меть&shy;те, что тут про&shy;ис&shy;хо&shy;дит: мы как поль&shy;зо&shy;ва&shy;т&shy;ельский код вы&shy;зы&shy;ва&shy;ем не&shy;кий биб&shy;ли&shy;отеч&shy;ный ме&shy;тод, ко&shy;то&shy;рый, нас&shy;коль&shy;ко мы зна&shy;ем, мо&shy;жет при не&shy;ко&shy;то&shy;рых об&shy;сто&shy;я&shy;т&shy;ельствах выб&shy;ро&shy;сить ис&shy;клю&shy;че&shy;ние <code>XmlParserServiceException</code>. И, нас&shy;коль&shy;ко мы зна&shy;ем, это ис&shy;клю&shy;че&shy;ние на&shy;хо&shy;дит&shy;ся в прост&shy;ранстве имён, нас&shy;ле&shy;дуя <code>JetFinance.FinancialPipe.FinancialPipeExceptionBase</code>, что го&shy;во&shy;рит о воз&shy;мож&shy;ном упу&shy;ще&shy;нии дру&shy;гих ис&shy;клю&shy;че&shy;ний: это сей&shy;час мик&shy;ро&shy;сер&shy;вис <code>XmlParserService</code> соз&shy;даёт толь&shy;ко од&shy;но ис&shy;клю&shy;че&shy;ние, но в бу&shy;ду&shy;щем мо&shy;гут по&shy;я&shy;вить&shy;ся и дру&shy;гие. И пос&shy;коль&shy;ку у нас есть кон&shy;вен&shy;ция в соз&shy;да&shy;нии ти&shy;пов ис&shy;клю&shy;че&shy;ний, мы точ&shy;но зна&shy;ем от ко&shy;го это но&shy;вое ис&shy;клю&shy;че&shy;ние бу&shy;дет нас&shy;ле&shy;до&shy;вать&shy;ся и за&shy;ра&shy;нее ста&shy;вим обоб&shy;ща&shy;ю&shy;щий <code>catch</code> не зат&shy;ра&shy;ги&shy;вая при этом ни&shy;че&shy;го лиш&shy;не&shy;го: то, что не по&shy;па&shy;ло в зо&shy;ну на&shy;шей от&shy;ветст&shy;вен&shy;ности про&shy;ле&shy;тит ми&shy;мо.</p>
 <div class="paragraph-right-side">27</div>
 </div>
-<p>Как же построить иерархию типов?</p>
+<p >
+Как же пос&shy;тро&shy;ить иера&shy;рхию ти&shy;пов?</p>
 <ul>
-<li>Для начала необходимо сделать базовый класс для домена. Назовём его доменным базовым классом. Домен в данном случае - это обобщающее некоторое количество сборок слово, которое объединяет их по некоторому глобальному признаку: логирование, бизнес-логика, UI. Т.е. максимально крупные функциональные зоны приложения;</li>
-<li>Далее необходимо ввести дополнительный базовый класс для исключений, которые перехватывать необходимо: от него будут наследоваться все исключение, которые будут перехватываться ключевым словом <code>catch</code>;</li>
-<li>Все исключения, которые обозначают фатальные ошибки – наследовать напрямую от доменного базового класса. Тем самым вы отделили их от перехватываемых архитектурно;</li>
-<li>Разделить домен на функциональные зоны по пространствам имён и объявить базовый тип исключений, которые будут выбрасываться из каждой функциональной зоны. Тут стоит дополнительно орудовать здравым смыслом: если приложение имеет большую вложенность пространств имён, то делать по базовому типу для каждого уровня вложенности, конечно, не стоит. Однако, если на каком-то уровне вложенности происходит ветвление: одна группа исключений ушла в одно подпространство имён, а другая - в другое, то тут, конечно, стоит ввести два базовых типа для каждой подгруппы;</li>
-<li>Частные исключения наследовать от типов исключений функциональных зон</li>
-<li>Если группа частных исключений может быть объединена, объединить их ещё одним базовым типом: так вы упрощаете их перехват;</li>
-<li>Если предполагается, что группа будет чаще перехватываться по своему базовому классу, ввести Mixed Mode c ErrorCode.</li>
+<li>
+<p >
+Для на&shy;ча&shy;ла не&shy;об&shy;хо&shy;ди&shy;мо сде&shy;лать ба&shy;зо&shy;вый класс для до&shy;ме&shy;на. На&shy;зовём его до&shy;мен&shy;ным ба&shy;зо&shy;вым клас&shy;сом. До&shy;мен в дан&shy;ном слу&shy;чае - это обоб&shy;ща&shy;ю&shy;щее не&shy;ко&shy;то&shy;рое ко&shy;ли&shy;чес&shy;тво сбо&shy;рок сло&shy;во, ко&shy;то&shy;рое объ&shy;е&shy;ди&shy;ня&shy;ет их по не&shy;ко&shy;то&shy;ро&shy;му гло&shy;баль&shy;но&shy;му приз&shy;на&shy;ку: ло&shy;ги&shy;ро&shy;ва&shy;ние, биз&shy;нес-ло&shy;ги&shy;ка, UI. Т.е. мак&shy;си&shy;маль&shy;но круп&shy;ные фун&shy;кци&shy;о&shy;наль&shy;ные зо&shy;ны при&shy;ло&shy;же&shy;ния;</p>
+</li>
+<li>
+<p >
+Да&shy;лее не&shy;об&shy;хо&shy;ди&shy;мо ввес&shy;ти до&shy;пол&shy;ни&shy;тель&shy;ный ба&shy;зо&shy;вый класс для ис&shy;клю&shy;че&shy;ний, ко&shy;то&shy;рые пе&shy;рех&shy;ва&shy;ты&shy;вать не&shy;об&shy;хо&shy;ди&shy;мо: от не&shy;го бу&shy;дут нас&shy;ле&shy;до&shy;вать&shy;ся все ис&shy;клю&shy;че&shy;ние, ко&shy;то&shy;рые бу&shy;дут пе&shy;рех&shy;ва&shy;ты&shy;вать&shy;ся клю&shy;че&shy;вым сло&shy;вом <code>catch</code>;</p>
+</li>
+<li>
+<p >
+Все ис&shy;клю&shy;че&shy;ния, ко&shy;то&shy;рые обоз&shy;на&shy;ча&shy;ют фа&shy;таль&shy;ные ошиб&shy;ки – нас&shy;ле&shy;до&shy;вать нап&shy;ря&shy;мую от до&shy;мен&shy;но&shy;го ба&shy;зо&shy;во&shy;го клас&shy;са. Тем са&shy;мым вы от&shy;де&shy;ли&shy;ли их от пе&shy;рех&shy;ва&shy;ты&shy;ва&shy;е&shy;мых ар&shy;хи&shy;тек&shy;тур&shy;но;</p>
+</li>
+<li>
+<p >
+Раз&shy;де&shy;лить до&shy;мен на фун&shy;кци&shy;о&shy;наль&shy;ные зо&shy;ны по прост&shy;р&shy;анствам имён и объ&shy;я&shy;вить ба&shy;зо&shy;вый тип ис&shy;клю&shy;че&shy;ний, ко&shy;то&shy;рые бу&shy;дут выб&shy;ра&shy;сы&shy;вать&shy;ся из каж&shy;дой фун&shy;кци&shy;о&shy;наль&shy;ной зо&shy;ны. Тут сто&shy;ит до&shy;пол&shy;ни&shy;тель&shy;но ору&shy;до&shy;вать здра&shy;вым смыс&shy;лом: ес&shy;ли при&shy;ло&shy;же&shy;ние име&shy;ет боль&shy;шую вло&shy;жен&shy;ность прост&shy;ранств имён, то де&shy;лать по ба&shy;зо&shy;во&shy;му ти&shy;пу для каж&shy;до&shy;го уров&shy;ня вло&shy;жен&shy;нос&shy;ти, ко&shy;неч&shy;но, не сто&shy;ит. Одна&shy;ко, ес&shy;ли на ка&shy;ком-то уров&shy;не вло&shy;жен&shy;нос&shy;ти про&shy;ис&shy;хо&shy;дит ветв&shy;ле&shy;ние: од&shy;на груп&shy;па ис&shy;клю&shy;че&shy;ний уш&shy;ла в од&shy;но подп&shy;рост&shy;ранство имён, а дру&shy;гая - в дру&shy;гое, то тут, ко&shy;неч&shy;но, сто&shy;ит ввес&shy;ти два ба&shy;зо&shy;вых ти&shy;па для каж&shy;дой подг&shy;руп&shy;пы;</p>
+</li>
+<li>
+<p >
+Час&shy;т&shy;ные ис&shy;клю&shy;че&shy;ния нас&shy;ле&shy;до&shy;вать от ти&shy;пов ис&shy;клю&shy;че&shy;ний фун&shy;кци&shy;о&shy;наль&shy;ных зон</p>
+</li>
+<li>
+<p >
+Если груп&shy;па част&shy;ных ис&shy;клю&shy;че&shy;ний мо&shy;жет быть объ&shy;е&shy;ди&shy;не&shy;на, объ&shy;е&shy;ди&shy;нить их ещё од&shy;ним ба&shy;зо&shy;вым ти&shy;пом: так вы уп&shy;ро&shy;ща&shy;ете их пе&shy;рех&shy;ват;</p>
+</li>
+<li>
+<p >
+Если пред&shy;по&shy;ла&shy;га&shy;ет&shy;ся, что груп&shy;па бу&shy;дет ча&shy;ще пе&shy;рех&shy;ва&shy;ты&shy;вать&shy;ся по сво&shy;ему ба&shy;зо&shy;во&shy;му клас&shy;су, ввес&shy;ти Mixed Mode c ErrorCode.</p>
+</li>
 </ul>
 <h3 id="section-5">По источнику ошибки</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
-<p>Ещё одним поводом для объединения исключений в некоторую группу может выступать источник ошибки. Например, если вы разрабатываете библиотеку классов, то группами источников могут стать:</p>
+<p >
+Ещё од&shy;ним по&shy;во&shy;дом для объ&shy;е&shy;ди&shy;не&shy;ния ис&shy;клю&shy;че&shy;ний в не&shy;ко&shy;то&shy;рую груп&shy;пу мо&shy;жет выс&shy;ту&shy;пать ис&shy;точ&shy;ник ошиб&shy;ки. Нап&shy;ри&shy;мер, ес&shy;ли вы раз&shy;ра&shy;ба&shy;ты&shy;ва&shy;ете биб&shy;ли&shy;о&shy;те&shy;ку клас&shy;сов, то груп&shy;па&shy;ми ис&shy;точ&shy;ни&shy;ков мо&shy;гут стать:</p>
 <div class="paragraph-right-side">28</div>
 </div>
 <ul>
-<li>Вызов unsafe кода, который отработал с ошибкой. Данную ситуацию следует обработать следующим образом: обернуть исключение либо код ошибки в собственный тип исключения, а полученные данные об ошибке (например, оригинальный код ошибки) сохранить в публичном свойстве исключения;</li>
-<li>Вызов кода из внешних зависимостей, который вызвал исключения, которые наша библиотека перехватить не может, т.к. они не входят в её зону ответственности. Сюда могут входить исключения из методов тех сущностей, которые были приняты в качестве параметров текущего метода или же конструктора того класса, метод которого вызвал внешнюю зависимость. Как пример, метод нашего класса вызвал метод другого класса, экземпляр которого был получен через параметры метода. Если исключение говорит о том что источником проблемы были мы сами - генерируем наше собственное исключение с сохранением оригинального - в <code>InnerExcepton</code>. Если же мы понимаем что проблема именно в работе внешней зависимости - пропускаем исключение насквозь как принадлежащее к группе внешних не подконтрольных зависимостей;</li>
-<li>Наш собственный код, который был случайным образом введён в не консистентное состояние. Хорошим примером может стать парсинг текста. Внешних зависимостей нет, ухода в <code>unsafe</code> нет, а ошибка парсинга есть.</li>
+<li>
+<p >
+Вы&shy;зов unsafe ко&shy;да, ко&shy;то&shy;рый от&shy;ра&shy;бо&shy;тал с ошиб&shy;кой. Дан&shy;ную си&shy;ту&shy;а&shy;цию сле&shy;ду&shy;ет об&shy;ра&shy;бо&shy;тать сле&shy;ду&shy;ю&shy;щим об&shy;ра&shy;зом: обер&shy;нуть ис&shy;клю&shy;че&shy;ние ли&shy;бо код ошиб&shy;ки в собст&shy;венный тип ис&shy;клю&shy;че&shy;ния, а по&shy;лу&shy;чен&shy;ные дан&shy;ные об ошиб&shy;ке (нап&shy;ри&shy;мер, ори&shy;ги&shy;наль&shy;ный код ошиб&shy;ки) сох&shy;ра&shy;нить в пуб&shy;лич&shy;ном свой&shy;стве ис&shy;клю&shy;че&shy;ния;</p>
+</li>
+<li>
+<p >
+Вы&shy;зов ко&shy;да из внеш&shy;них за&shy;ви&shy;си&shy;мос&shy;тей, ко&shy;то&shy;рый выз&shy;вал ис&shy;клю&shy;че&shy;ния, ко&shy;то&shy;рые на&shy;ша биб&shy;ли&shy;о&shy;те&shy;ка пе&shy;рех&shy;ва&shy;тить не мо&shy;жет, т.к. они не вхо&shy;дят в её зо&shy;ну от&shy;ветст&shy;вен&shy;ности. Сю&shy;да мо&shy;гут вхо&shy;дить ис&shy;клю&shy;че&shy;ния из ме&shy;то&shy;дов тех сущ&shy;нос&shy;тей, ко&shy;то&shy;рые бы&shy;ли при&shy;ня&shy;ты в ка&shy;чес&shy;тве па&shy;ра&shy;мет&shy;ров те&shy;ку&shy;ще&shy;го ме&shy;то&shy;да или же конст&shy;ру&shy;ктора то&shy;го клас&shy;са, ме&shy;тод ко&shy;то&shy;ро&shy;го выз&shy;вал внеш&shy;нюю за&shy;ви&shy;си&shy;мость. Как при&shy;мер, ме&shy;тод на&shy;ше&shy;го клас&shy;са выз&shy;вал ме&shy;тод дру&shy;го&shy;го клас&shy;са, эк&shy;земп&shy;ляр ко&shy;то&shy;ро&shy;го был по&shy;лу&shy;чен че&shy;рез па&shy;ра&shy;мет&shy;ры ме&shy;то&shy;да. Если ис&shy;клю&shy;че&shy;ние го&shy;во&shy;рит о том что ис&shy;точ&shy;ни&shy;ком проб&shy;ле&shy;мы бы&shy;ли мы са&shy;ми - ге&shy;не&shy;ри&shy;ру&shy;ем на&shy;ше собст&shy;венное ис&shy;клю&shy;че&shy;ние с сох&shy;ра&shy;не&shy;ни&shy;ем ори&shy;ги&shy;наль&shy;но&shy;го - в <code>InnerExcepton</code>. Если же мы по&shy;ни&shy;ма&shy;ем что проб&shy;ле&shy;ма имен&shy;но в ра&shy;бо&shy;те внеш&shy;ней за&shy;ви&shy;си&shy;мос&shy;ти - про&shy;пус&shy;ка&shy;ем ис&shy;клю&shy;че&shy;ние наск&shy;возь как при&shy;над&shy;ле&shy;жа&shy;щее к груп&shy;пе внеш&shy;них не под&shy;конт&shy;роль&shy;ных за&shy;ви&shy;си&shy;мос&shy;тей;</p>
+</li>
+<li>
+<p >
+Наш собст&shy;венный код, ко&shy;то&shy;рый был слу&shy;чай&shy;ным об&shy;ра&shy;зом введён в не кон&shy;сис&shy;тен&shy;т&shy;ное сос&shy;то&shy;я&shy;ние. Хо&shy;ро&shy;шим при&shy;ме&shy;ром мо&shy;жет стать пар&shy;синг тек&shy;ста. Внеш&shy;них за&shy;ви&shy;си&shy;мос&shy;тей нет, ухо&shy;да в <code>unsafe</code> нет, а ошиб&shy;ка пар&shy;син&shy;га есть.</p>
+</li>
 </ul>
 
 </div>

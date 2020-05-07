@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>.NET Platform Architecture</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.NET Platform Architecture</title>
 </head>
 <body>
     <link rel="stylesheet" href="../../res/bootstrap.css">
@@ -57,27 +57,28 @@ strong {
 }
 
 p, li {
-    margin: 0 0 25px;
-    line-height: 32px;
+    margin: 0 0 1em;
+    line-height: 1.5em;
     font-family: inherit;
 }
 
 ol, li {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 ol {
-    padding-left: 1.2rem;
+    padding-left: 1.21em;
 }
 
 ul  {
-    padding-left: 35px;
+    padding-left: 1em;
 }
 
 ol li, ul li {
-    padding-left: 1rem;	
+    padding-left: 0.5em;	
     font-family: inherit;
+    text-align: justify;
 }
 
 table {
@@ -108,6 +109,7 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 *[class*='lang-'] {
     padding: 0px 0px 25px 0px;
+    font-size: 0.75em;
 }
 
 
@@ -126,11 +128,11 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 }
 
 p code:not(.highlight), li code:not(.highlight) {
-    font-size: 16px;
+    font-size: 0.7em;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
-    padding: 4px;
+    padding: 3px;
     color: darkslateblue;
 }
 
@@ -148,11 +150,6 @@ p code.highlight, li code.highlight {
 
 .wide {
     width:150%;
-}
-
-*[class*='lang-'] span, *[class*='lang-'] pre, pre > code {
-    font-size: 13px;
-    line-height: 20px;
 }
 
 p a, li a {
@@ -179,9 +176,9 @@ p img {
 
 blockquote 
 {
-    background-color: lavenderblush;
-    padding-left: 20px;
-    border-left: 1px solid rgba(0,0,0,.08);
+    padding-left: 0.4em;
+    border-left: 0.5em solid rgba(0,0,0,.08);
+    font-style: italic;
 }
 
 blockquote.big-quote, 
@@ -199,8 +196,7 @@ blockquote.breadcrumbs, blockquote.breadcrumbs  p
 }
 
 blockquote p {
-    margin: 16px 0;
-    padding: 12px 12px 13px;
+    padding: 1em 1em 1em 0.6em;
     font-family: inherit;
 }
 
@@ -210,11 +206,14 @@ blockquote p code {
     padding: 4px 6px;
 }
 
+blockquote p em {
+    font-weight: 400;
+}
+
 blockquote.big-quote > p {
     margin: 40px 0 60px 0;
     font-family: Charter;
     font-size: 55px;
-    line-height: 60px;
     padding: 0;
     width: 150%;
 }
@@ -227,31 +226,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 40px;
-    font-family: PF Regal,Georgia,serif;
+    font-size: 2.2em;
+    font-family: Charter,Georgia,serif;
     font-weight: 300;
-    margin: 40px 0 20px 0;
-    border-bottom-style: ridge;
-    padding-bottom: 10px;
-}
-
-h1 b {
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-weight: 700;
-    font-size: 37px;
-    line-height: 42px;
+    margin: 1.8em 0 1.8em 0;
+    text-align: center;
 }
 
 h2 {
-    margin-top: 35px;
-    margin-bottom: 10px;
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-    border-bottom-color: grey;
-    border-bottom-style: solid;
-    padding-bottom: 5px;
+    margin-top: 2em;
+    margin-left: 1.2em;
+    font-family: Charter,Arial,Helvetica Neue,sans-serif;
+    font-size: 1.25em;
+    width: 70%;
 }
 
 h3 {
@@ -293,27 +280,23 @@ h4 {
     line-height: 24px;
     font-size: 13pt;
     margin: 0 0 13px 0;
-    font-family: Charter;
-}
-
-.side-regular-block {
-    border-radius: 5px;
-    background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
-    padding: 22px;
 }
 
 .side-regular-block p {
     top: 0;
 }
-/* Music side player */
 
+/* Music side player */
 .aside-side-container .music-player {
     width: 100%;
     height: 400px;
 }
 
-.aside-side-container.side-media-block h2 {
-    margin-top: -12px;
+/* media block after h1 */
+.aside-container h1 + .aside-side-container.side-media-block h2 {
+    margin: 7em 0 1em 0;
+    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
+    font-weight: 600;
 }
 
 .aside-side-container > li {
@@ -323,8 +306,8 @@ h4 {
 
 .aside-side-container > li ul, .aside-side-container > li ol {
     padding-left: 30px;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 .aside-side-container > li li {
     padding-left: 6px;
@@ -353,6 +336,12 @@ h4 {
     position: relative;
     top: 9px;
 }
+
+.paragraph-container p, .aside-container > p {
+    text-align: justify;
+    text-indent: 1.5em;
+}
+
 .paragraph-container > .paragraph-left-side, .paragraph-container > .paragraph-right-side  {
     font-family: JB Mono, consolas;
     display: block;
@@ -364,12 +353,14 @@ h4 {
     z-index: 1000;
 }
 .paragraph-container > .paragraph-left-side {
-    left: -55px;
+    display: none;
+    left: -2.1cm;
     width: 35px;
     user-select: none;
 }
 
 .paragraph-container > .paragraph-right-side  {
+    display: none;
     left: 100%;
     width: 35px;
     padding-left: 45px;
@@ -400,8 +391,8 @@ h4 {
 
 
 /* MEDIA */
-/* XL */
-@media (min-width: 1400px) {
+/* XXL */
+@media (min-width: 1801px) {
     .book-container
     {
         max-width: 1200px;
@@ -410,12 +401,21 @@ h4 {
     }
 }
 
+/* XL */
+@media (max-width: 1800px) {
+    .book-container
+    {
+        margin-left: 4cm;
+        margin-right: 4cm;
+    }
+}
+
 /* LG */
 @media (max-width: 1400px) {
     .book-container
     {
-        margin-left: 70px;
-        margin-right: 70px;
+        margin-left: 4cm;
+        margin-right: 4cm;
     }
 
     blockquote.big-quote > p {
@@ -425,14 +425,23 @@ h4 {
         margin: 0;
         padding: 4px 0 30px 0;
     }
+}
 
-    .paragraph-container .paragraph-left-side {
-        left: -40px;
-    }
+@media (max-width: 1100px) {
 }
 
 /* MD */
 @media (max-width: 991px) {
+    
+    h2 {
+        width:80%;
+    }
+
+    .book-container
+    {
+        margin-left: 3cm;
+        margin-right: 3cm;
+    }
     
     .book-title-container {
         margin: 73px 0 110px 0;
@@ -453,26 +462,21 @@ h4 {
 
     .book-superheading-title {
         font-size: 15pt;
-    }
-    .book-container {
-        margin: 0 100px;
-    }
+    }                                     
     .article-container {
         width: 100%;
-    }
-    .aside-container > .aside-side-container
-    {
-        position: relative;
-        top: auto;
-        left: auto;
-        width: auto;
-        height: auto;
-        margin: 0;
-        padding: 17px;
     }
 
     .aside-container p {
         top: 0;
+    }
+
+    .aside-container h1 + .aside-side-container.side-media-block h2 {
+        display: none;
+    }
+
+    .wide {
+        width: 100%;     
     }
 
     .side-regular-block {
@@ -490,6 +494,17 @@ h4 {
         margin-top: 20px;
         font-size: 13pt;
         border: none;
+    }
+
+    .aside-container > .aside-side-container
+    {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 17px;
     }
 
     blockquote.big-quote > p {
@@ -519,6 +534,12 @@ h4 {
     li {
         margin: 0 0 10px 0;
     }
+
+    .side-regular-block {
+        border-radius: 5px;
+        background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
+        padding: 22px;
+    }    
 }
 
 /* Smartphone horizontal - SM */
@@ -545,7 +566,7 @@ h4 {
     }
 
     .book-container {
-        margin: 0 50px;
+        margin: 0 2.5cm;
     }
     ul {
         margin-left: 30px;
@@ -553,14 +574,29 @@ h4 {
         padding-left: 25px;
     }
     .paragraph-container > .paragraph-left-side {
-        top: 15px;
+	display: block;
+        top: 14px;
+        font-size: 9pt;
     }
     .paragraph-container > .paragraph-right-side {
-        padding-left: 20px;
-        top: 15px;
+	display: block;
+        padding-left: 40px;
+        top: 14px;
+        font-size: 9pt;
     }
 }
 
+@media (max-width: 630px) {
+    .book-container {
+        margin: 0 1.5cm;
+    }
+    .paragraph-container > .paragraph-left-side {
+        left: -33px;
+    }
+    .paragraph-container > .paragraph-right-side {
+        padding-left: 24px;
+    }
+}
 /* Smartphone - XS */
 @media (max-width: 575px) {
     .book-container {
@@ -581,15 +617,14 @@ h4 {
     }
    
     p, li {
-        line-height: 28px;
+        line-height: 24px;
     }    
     .paragraph-container .paragraph-left-side {
-        display: none;
-        top: 14px;
-    }
+        display: none;        }
     .paragraph-container .paragraph-right-side {
-        padding-left: 10px;
+        padding-left: 21px;
         top: 14px;
+	font-size: 8pt;
     }
 }
 
@@ -829,145 +864,182 @@ h4 {
     <p class="d-none d-lg-block d-xl-none">LG</p>
     <p class="d-none d-xl-block">XL</p> -->
     <blockquote class="breadcrumbs">
-<p> <a href="../readme.html">Содержание</a> / <a href="./01-00-MemoryManagement-Intro.html">Основы управления памятью</a></p>
+<p >
+ <a href="../readme.html">Содержание</a> / <a href="./01-00-MemoryManagement-Intro.html">Основы управления памятью</a></p>
 </blockquote>
 <h2 id="section">Введение в сборку мусора</h2>
 <blockquote class="big-quote">
-<p> Адаптация курса в процессе</p>
+<p >
+ Адап&shy;та&shy;ция кур&shy;са в про&shy;цес&shy;се</p>
 </blockquote>
-<p>Следующий вопрос, который мы обсудим - это введение в сборку мусора.</p>
+<p >
+Сле&shy;ду&shy;ю&shy;щий воп&shy;рос, ко&shy;то&shy;рый мы об&shy;су&shy;дим - это вве&shy;де&shy;ние в сбор&shy;ку му&shy;со&shy;ра.</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p>GC работает в двух основных режимах:  Workstation и Server. Связано это с особенностями поведения приложения: либо оно серверное, либо десктопное.</p>
+<p >
+GC ра&shy;бо&shy;та&shy;ет в двух ос&shy;нов&shy;ных ре&shy;жи&shy;мах:  Workstation и Server. Свя&shy;за&shy;но это с осо&shy;бен&shy;нос&shy;тя&shy;ми по&shy;ве&shy;де&shy;ния при&shy;ло&shy;же&shy;ния: ли&shy;бо оно сер&shy;вер&shy;ное, ли&shy;бо деск&shy;топ&shy;ное.</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p>У десктопного приложения есть UI, со своими стандартами отклика. Стандарты отклика - около ста миллисекунд. Если после нажатия на кнопку и в течение ста миллисекунд ничего не происходит визуально, пользователь начинает думать, что программа тормозит. Исходя из этих оценок, приложение должно отрабатывать равномерно быстро без больших задержек в случайных местах. Поэтому GC работает чаще, чтобы иметь маленькую кучу нулевого поколения, на которой он может за известное время отработать.</p>
+<p >
+У деск&shy;топ&shy;но&shy;го при&shy;ло&shy;же&shy;ния есть UI, со сво&shy;ими стан&shy;дар&shy;та&shy;ми от&shy;кли&shy;ка. Стан&shy;дар&shy;ты от&shy;кли&shy;ка - око&shy;ло ста мил&shy;ли&shy;се&shy;кунд. Если пос&shy;ле на&shy;жа&shy;тия на кноп&shy;ку и в те&shy;че&shy;ние ста мил&shy;ли&shy;се&shy;кунд ни&shy;че&shy;го не про&shy;ис&shy;хо&shy;дит ви&shy;зу&shy;ально, поль&shy;зо&shy;ва&shy;тель на&shy;чи&shy;на&shy;ет ду&shy;мать, что прог&shy;рам&shy;ма тор&shy;мо&shy;зит. Исхо&shy;дя из этих оце&shy;нок, при&shy;ло&shy;же&shy;ние дол&shy;жно от&shy;ра&shy;ба&shy;ты&shy;вать рав&shy;но&shy;мер&shy;но быс&shy;тро без боль&shy;ших за&shy;дер&shy;жек в слу&shy;чай&shy;ных мес&shy;тах. По&shy;э&shy;то&shy;му GC ра&shy;бо&shy;та&shy;ет ча&shy;ще, что&shy;бы иметь ма&shy;лень&shy;кую ку&shy;чу ну&shy;ле&shy;во&shy;го по&shy;ко&shy;ле&shy;ния, на ко&shy;то&shy;рой он мо&shy;жет за из&shy;вес&shy;т&shy;ное вре&shy;мя от&shy;ра&shy;бо&shy;тать.</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p>Если GC вдруг внезапно запустился во время отрисовки кнопки, он гарантированно уйдет раньше, чем эти сто миллисекунд, не создав у пользователя ощущения, что что-то тормозит.Если речь идет о серверном режиме работы, то там несколько другие условия работы. На сервере обычно много памяти, а менеджер памяти имеет возможность развернуться достаточно широко. Как мы знаем, на каждое ядро создает по паре хипов, в процессе работы GC отрабатывает реже, а по возможности - не отрабатывает в принципе. И, тем самым, GC увеличивает скорость работы сервера в промежутках между сборкой мусора.</p>
+<p >
+Если GC вдруг вне&shy;зап&shy;но за&shy;пус&shy;тил&shy;ся во вре&shy;мя от&shy;ри&shy;сов&shy;ки кноп&shy;ки, он га&shy;ран&shy;ти&shy;ро&shy;ван&shy;но уй&shy;дет рань&shy;ше, чем эти сто мил&shy;ли&shy;се&shy;кунд, не соз&shy;дав у поль&shy;зо&shy;ва&shy;те&shy;ля ощу&shy;ще&shy;ния, что что-то тор&shy;мо&shy;зит.Если речь идет о сер&shy;вер&shy;ном ре&shy;жи&shy;ме ра&shy;бо&shy;ты, то там нес&shy;коль&shy;ко дру&shy;гие ус&shy;ло&shy;вия ра&shy;бо&shy;ты. На сер&shy;ве&shy;ре обыч&shy;но мно&shy;го па&shy;мя&shy;ти, а ме&shy;нед&shy;жер па&shy;мя&shy;ти име&shy;ет воз&shy;мож&shy;ность раз&shy;вер&shy;нуть&shy;ся дос&shy;та&shy;точ&shy;но ши&shy;ро&shy;ко. Как мы зна&shy;ем, на каж&shy;дое яд&shy;ро соз&shy;да&shy;ет по па&shy;ре хи&shy;пов, в про&shy;цес&shy;се ра&shy;бо&shy;ты GC от&shy;ра&shy;ба&shy;ты&shy;ва&shy;ет ре&shy;же, а по воз&shy;мож&shy;нос&shy;ти - не от&shy;ра&shy;ба&shy;ты&shy;ва&shy;ет в прин&shy;ци&shy;пе. И, тем са&shy;мым, GC уве&shy;ли&shy;чи&shy;ва&shy;ет ско&shy;рость ра&shy;бо&shy;ты сер&shy;ве&shy;ра в про&shy;ме&shy;жут&shy;ках меж&shy;ду сбор&shy;кой му&shy;со&shy;ра.</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p>Прерывается он редко. Если говорить про ASP.NET (а там у нас запрос-ответ), то можно пока на одной ноде идет GC, на второй что-то делать. Каждый из этих режимов сейчас доступен в двух подрежимах: Concurrent и Non-Concurrent. Concurrent - это мифический режим. То есть когда у нас GC происходит, основной режим - когда все потоки встают и после завершения GC продолжают работу. Проще всего менять память, когда она не меняется кем-то другим. Мы может сжать кучу, поменять все указатели объектов на новые значения. Все это произойдет и при этом основное приложение не работает, а значит - нет рисков. Это Non-Concurrent. А Concurrent - это идеальный режим, когда все происходи в параллели. Но такого не бывает.</p>
+<p >
+Пре&shy;ры&shy;ва&shy;ет&shy;ся он ред&shy;ко. Если го&shy;во&shy;рить про ASP.NET (а там у нас зап&shy;рос-от&shy;вет), то мож&shy;но по&shy;ка на од&shy;ной но&shy;де идет GC, на вто&shy;рой что-то де&shy;лать. Каж&shy;дый из этих ре&shy;жи&shy;мов сей&shy;час дос&shy;ту&shy;пен в двух под&shy;ре&shy;жи&shy;мах: Concurrent и Non-Concurrent. Concurrent - это ми&shy;фи&shy;чес&shy;кий ре&shy;жим. То есть ког&shy;да у нас GC про&shy;ис&shy;хо&shy;дит, ос&shy;нов&shy;ной ре&shy;жим - ког&shy;да все по&shy;то&shy;ки вст&shy;ают и пос&shy;ле за&shy;вер&shy;ше&shy;ния GC про&shy;дол&shy;жа&shy;ют ра&shy;бо&shy;ту. Про&shy;ще все&shy;го ме&shy;нять па&shy;мять, ког&shy;да она не ме&shy;ня&shy;ет&shy;ся кем-то дру&shy;гим. Мы мо&shy;жет сжать ку&shy;чу, по&shy;ме&shy;нять все ука&shy;за&shy;те&shy;ли объ&shy;ек&shy;тов на но&shy;вые зна&shy;че&shy;ния. Все это про&shy;изой&shy;дет и при этом ос&shy;нов&shy;ное при&shy;ло&shy;же&shy;ние не ра&shy;бо&shy;та&shy;ет, а зна&shy;чит - нет рис&shy;ков. Это Non-Concurrent. А Concurrent - это иде&shy;альный ре&shy;жим, ког&shy;да все про&shy;ис&shy;хо&shy;ди в па&shy;рал&shy;ле&shy;ли. Но та&shy;ко&shy;го не бы&shy;ва&shy;ет.</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p>Как происходит сборка мусора? Если срабатывает триггер нулевого поколения, будет собрано только оно. Это правило. Нулевое поколение состоит из новых объектов, соответственно диапазон сборки мусора короткий, алгоритмы отработают крайне быстро.</p>
+<p >
+Как про&shy;ис&shy;хо&shy;дит сбор&shy;ка му&shy;со&shy;ра? Если сра&shy;ба&shy;ты&shy;ва&shy;ет триг&shy;гер ну&shy;ле&shy;во&shy;го по&shy;ко&shy;ле&shy;ния, бу&shy;дет соб&shy;ра&shy;но толь&shy;ко оно. Это пра&shy;ви&shy;ло. Ну&shy;ле&shy;вое по&shy;ко&shy;ле&shy;ние сос&shy;то&shy;ит из но&shy;вых объ&shy;ек&shy;тов, со&shy;от&shy;ветст&shy;венно ди&shy;а&shy;па&shy;зон сбор&shy;ки му&shy;со&shy;ра ко&shy;рот&shy;кий, ал&shy;го&shy;рит&shy;мы от&shy;ра&shy;бо&shy;та&shy;ют край&shy;не быс&shy;тро.</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p>Если срабатывает триггер первого поколения, будет собрано нулевое и первое, потому что подразумевается, что первое поколение будет отрабатывать дольше. Если учесть, что нулевое отрабатывает чаще, то, скорее всего, после первого поколения, нулевое тоже будет в ближайшем будущем собрано, то можно его собрать сразу же. Поскольку первое поколение более тяжеловесное, если к нем присоединить сборку нулевого, это не сильно скажется на производительности.</p>
+<p >
+Если сра&shy;ба&shy;ты&shy;ва&shy;ет триг&shy;гер пер&shy;во&shy;го по&shy;ко&shy;ле&shy;ния, бу&shy;дет соб&shy;ра&shy;но ну&shy;ле&shy;вое и пер&shy;вое, по&shy;то&shy;му что под&shy;ра&shy;зу&shy;ме&shy;ва&shy;ет&shy;ся, что пер&shy;вое по&shy;ко&shy;ле&shy;ние бу&shy;дет от&shy;ра&shy;ба&shy;ты&shy;вать доль&shy;ше. Если учесть, что ну&shy;ле&shy;вое от&shy;ра&shy;ба&shy;ты&shy;ва&shy;ет ча&shy;ще, то, ско&shy;рее все&shy;го, пос&shy;ле пер&shy;во&shy;го по&shy;ко&shy;ле&shy;ния, ну&shy;ле&shy;вое то&shy;же бу&shy;дет в бли&shy;жай&shy;шем бу&shy;ду&shy;щем соб&shy;ра&shy;но, то мож&shy;но его соб&shy;рать сра&shy;зу же. Пос&shy;коль&shy;ку пер&shy;вое по&shy;ко&shy;ле&shy;ние бо&shy;лее тя&shy;же&shy;ло&shy;вес&shy;ное, ес&shy;ли к нем при&shy;со&shy;е&shy;ди&shy;нить сбор&shy;ку ну&shy;ле&shy;во&shy;го, это не силь&shy;но ска&shy;жет&shy;ся на про&shy;из&shy;во&shy;ди&shy;тель&shy;нос&shy;ти.</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p>Если мы дошли до второго поколения, которое может достигать феерических размеров, то тем более никакой погоды не сделает, если собрать первое и нулевое поколение вместе со вторым.</p>
+<p >
+Если мы дош&shy;ли до вто&shy;ро&shy;го по&shy;ко&shy;ле&shy;ния, ко&shy;то&shy;рое мо&shy;жет дос&shy;ти&shy;гать фе&shy;е&shy;ри&shy;чес&shy;ких раз&shy;ме&shy;ров, то тем бо&shy;лее ни&shy;ка&shy;кой по&shy;го&shy;ды не сде&shy;ла&shy;ет, ес&shy;ли соб&shy;рать пер&shy;вое и ну&shy;ле&shy;вое по&shy;ко&shy;ле&shy;ние вмес&shy;те со вто&shy;рым.</p>
 <div class="paragraph-right-side">07</div>
 </div>
-<p>Каков порядок?</p>
+<p >
+Ка&shy;ков по&shy;ря&shy;док?</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p>У нас есть такой график 08:43. То, что темно - это есть какие-то объекты. Светлые участки без объектов. Есть некий allocation context. Пусть, у нас будет один поток.</p>
+<p >
+У нас есть та&shy;кой гра&shy;фик 08:43. То, что тем&shy;но - это есть ка&shy;кие-то объ&shy;ек&shy;ты. Свет&shy;лые учас&shy;тки без объ&shy;ек&shy;тов. Есть не&shy;кий allocation context. Пусть, у нас бу&shy;дет один по&shy;ток.</p>
 <div class="paragraph-right-side">08</div>
 </div>
-<p>Что тут делает GC.</p>
+<p >
+Что тут де&shy;ла&shy;ет GC.</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
-<p>Первым делом он маркирует объекты для целевых поколений. Но здесь нет ссылки и пора мусор почистить. Дальше идет следующий этап: GC выбирает между техниками сборки мусора. Техник может быть две: sweep collection без сжатием, и техника с сжатием.</p>
+<p >
+Пер&shy;вым де&shy;лом он мар&shy;ки&shy;ру&shy;ет объ&shy;ек&shy;ты для це&shy;ле&shy;вых по&shy;ко&shy;ле&shy;ний. Но здесь нет ссыл&shy;ки и по&shy;ра му&shy;сор по&shy;чис&shy;тить. Даль&shy;ше идет сле&shy;ду&shy;ю&shy;щий этап: GC вы&shy;би&shy;ра&shy;ет меж&shy;ду тех&shy;ни&shy;ка&shy;ми сбор&shy;ки му&shy;со&shy;ра. Тех&shy;ник мо&shy;жет быть две: sweep collection без сжа&shy;ти&shy;ем, и тех&shy;ни&shy;ка с сжа&shy;ти&shy;ем.</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
-<p>В sweep collection все недостижимые объекты нулевого поколения трактуются как свободное место. Все достижимые ообъекты становятся поколением один. То есть он у нас двигает границы. Мы промаркировали, освободили место, поколение передвинули. Compact collection все достижимые объекты поколения ноль уплотняются, занимая места недостижимых объектов. На слайде видно 10:38, что в том месте находится то, что было, а где есть свободные места. Уплотняем и сдвигаем границу поколений. Мы не копируем объекты из поколения в поколение - это дорого. Мы сдвигаем границу, указатель.</p>
+<p >
+В sweep collection все не&shy;дос&shy;ти&shy;жи&shy;мые объ&shy;ек&shy;ты ну&shy;ле&shy;во&shy;го по&shy;ко&shy;ле&shy;ния трак&shy;ту&shy;ют&shy;ся как сво&shy;бод&shy;ное мес&shy;то. Все дос&shy;ти&shy;жи&shy;мые ооб&shy;ъе&shy;кты ста&shy;но&shy;вят&shy;ся по&shy;ко&shy;ле&shy;ни&shy;ем один. То есть он у нас дви&shy;га&shy;ет гра&shy;ни&shy;цы. Мы про&shy;мар&shy;ки&shy;ро&shy;ва&shy;ли, ос&shy;во&shy;бо&shy;ди&shy;ли мес&shy;то, по&shy;ко&shy;ле&shy;ние пе&shy;ред&shy;ви&shy;ну&shy;ли. Compact collection все дос&shy;ти&shy;жи&shy;мые объ&shy;ек&shy;ты по&shy;ко&shy;ле&shy;ния ноль уп&shy;лот&shy;ня&shy;ют&shy;ся, за&shy;ни&shy;мая мес&shy;та не&shy;дос&shy;ти&shy;жи&shy;мых объ&shy;ек&shy;тов. На слай&shy;де вид&shy;но 10:38, что в том мес&shy;те на&shy;хо&shy;дит&shy;ся то, что бы&shy;ло, а где есть сво&shy;бод&shy;ные мес&shy;та. Уплот&shy;ня&shy;ем и сдви&shy;га&shy;ем гра&shy;ни&shy;цу по&shy;ко&shy;ле&shy;ний. Мы не ко&shy;пи&shy;ру&shy;ем объ&shy;ек&shy;ты из по&shy;ко&shy;ле&shy;ния в по&shy;ко&shy;ле&shy;ние - это до&shy;ро&shy;го. Мы сдви&shy;га&shy;ем гра&shy;ни&shy;цу, ука&shy;за&shy;тель.</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
-<p>Маркировке были подвергнуты только объекты нулевого поколения, другие объекты мы не маркировали, это дорого. Поколение ноль стало пустым. Это поведение по умолчанию. После того, как граница поколений сдвинулась, достижимые объекты переместились в поколение номер один. У объектов нет признаков, в каком поколении они находятся. При смене поколения они никуда не копируются, просто меняется адрес диапазона. Когда вы проверяете GC.GetGeneration(), получаете номер поколение. Этот метод смотрит, в какой диапазон адресов попадает адрес объекта.</p>
+<p >
+Мар&shy;ки&shy;ров&shy;ке бы&shy;ли под&shy;верг&shy;ну&shy;ты толь&shy;ко объ&shy;ек&shy;ты ну&shy;ле&shy;во&shy;го по&shy;ко&shy;ле&shy;ния, дру&shy;гие объ&shy;ек&shy;ты мы не мар&shy;ки&shy;ро&shy;ва&shy;ли, это до&shy;ро&shy;го. По&shy;ко&shy;ле&shy;ние ноль ста&shy;ло пус&shy;тым. Это по&shy;ве&shy;де&shy;ние по умол&shy;ча&shy;нию. Пос&shy;ле то&shy;го, как гра&shy;ни&shy;ца по&shy;ко&shy;ле&shy;ний сдви&shy;ну&shy;лась, дос&shy;ти&shy;жи&shy;мые объ&shy;ек&shy;ты пе&shy;ре&shy;мес&shy;ти&shy;лись в по&shy;ко&shy;ле&shy;ние но&shy;мер один. У объ&shy;ек&shy;тов нет приз&shy;на&shy;ков, в ка&shy;ком по&shy;ко&shy;ле&shy;нии они на&shy;хо&shy;дят&shy;ся. При сме&shy;не по&shy;ко&shy;ле&shy;ния они ни&shy;ку&shy;да не ко&shy;пи&shy;ру&shy;ют&shy;ся, прос&shy;то ме&shy;ня&shy;ет&shy;ся ад&shy;рес ди&shy;а&shy;па&shy;зо&shy;на. Ког&shy;да вы про&shy;ве&shy;ря&shy;ете GC.GetGeneration(), по&shy;лу&shy;ча&shy;ете но&shy;мер по&shy;ко&shy;ле&shy;ние. Этот ме&shy;тод смот&shy;рит, в ка&shy;кой ди&shy;а&shy;па&shy;зон ад&shy;ре&shy;сов по&shy;па&shy;да&shy;ет ад&shy;рес объ&shy;ек&shy;та.</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
-<p>Поколение один выросло, как в случае sweep, так и в случае compact. Поколение два и LOH оказались не тронутыми.</p>
+<p >
+По&shy;ко&shy;ле&shy;ние один вы&shy;рос&shy;ло, как в слу&shy;чае sweep, так и в слу&shy;чае compact. По&shy;ко&shy;ле&shy;ние два и LOH ока&shy;за&shy;лись не тро&shy;ну&shy;ты&shy;ми.</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
-<p>GC выбирает между техниками сбора мусора. Но на самом деле может так случится, что может быть произведено выделение памяти в более старшем поколении. Если там оказался какой-то свободный участок.У нас есть три поколения, есть LOH. Срабатывает первое поколение, GC работает на первом и нулевом. Дальше GC решает, что можно переместить объект один из gen_1 в gen_2, дальше уплотнить кучу, то gen_0 получится очень большим. Если вдруг какой-то объект почему-то при сборке мусора нулевого поколения переместился во второе, то удивляться не стоит, такое может случится очень легко.Еще один вариант: закончился сегмент. Если обычной сборки мусора не достаточно для размещения allocation context, то текущий сегмент начинает резервировать все заново. Этот сегмент памяти, где размещался хип, помечается как gen_2 only. Это значит, что в текущем сегменте будет жить только второе поколение. А дальше он выделяет новый сегмент виртуальной памяти, резервирует новый кусок.</p>
+<p >
+GC вы&shy;би&shy;ра&shy;ет меж&shy;ду тех&shy;ни&shy;ка&shy;ми сбо&shy;ра му&shy;со&shy;ра. Но на са&shy;мом де&shy;ле мо&shy;жет так слу&shy;чит&shy;ся, что мо&shy;жет быть про&shy;из&shy;ве&shy;де&shy;но вы&shy;де&shy;ле&shy;ние па&shy;мя&shy;ти в бо&shy;лее стар&shy;шем по&shy;ко&shy;ле&shy;нии. Если там ока&shy;зал&shy;ся ка&shy;кой-то сво&shy;бод&shy;ный учас&shy;ток.У нас есть три по&shy;ко&shy;ле&shy;ния, есть LOH. Сра&shy;ба&shy;ты&shy;ва&shy;ет пер&shy;вое по&shy;ко&shy;ле&shy;ние, GC ра&shy;бо&shy;та&shy;ет на пер&shy;вом и ну&shy;ле&shy;вом. Даль&shy;ше GC ре&shy;ша&shy;ет, что мож&shy;но пе&shy;ре&shy;мес&shy;тить объ&shy;ект один из gen_1 в gen_2, даль&shy;ше уп&shy;лот&shy;нить ку&shy;чу, то gen_0 по&shy;лу&shy;чит&shy;ся очень боль&shy;шим. Если вдруг ка&shy;кой-то объ&shy;ект по&shy;че&shy;му-то при сбор&shy;ке му&shy;со&shy;ра ну&shy;ле&shy;во&shy;го по&shy;ко&shy;ле&shy;ния пе&shy;ре&shy;мес&shy;тил&shy;ся во вто&shy;рое, то удив&shy;лять&shy;ся не сто&shy;ит, та&shy;кое мо&shy;жет слу&shy;чит&shy;ся очень лег&shy;ко.Еще один ва&shy;ри&shy;ант: за&shy;кон&shy;чил&shy;ся сег&shy;мент. Если обыч&shy;ной сбор&shy;ки му&shy;со&shy;ра не дос&shy;та&shy;точ&shy;но для раз&shy;ме&shy;ще&shy;ния allocation context, то те&shy;ку&shy;щий сег&shy;мент на&shy;чи&shy;на&shy;ет ре&shy;зер&shy;ви&shy;ро&shy;вать все за&shy;но&shy;во. Этот сег&shy;мент па&shy;мя&shy;ти, где раз&shy;ме&shy;щал&shy;ся хип, по&shy;ме&shy;ча&shy;ет&shy;ся как gen_2 only. Это зна&shy;чит, что в те&shy;ку&shy;щем сег&shy;мен&shy;те бу&shy;дет жить толь&shy;ко вто&shy;рое по&shy;ко&shy;ле&shy;ние. А даль&shy;ше он вы&shy;де&shy;ля&shy;ет но&shy;вый сег&shy;мент вир&shy;ту&shy;альной па&shy;мя&shy;ти, ре&shy;зер&shy;ви&shy;ру&shy;ет но&shy;вый ку&shy;сок.</p>
 <div class="paragraph-right-side">13</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
-<p>Когда приложение стартовало, он зарезервировал большой кусок памяти, но ее там физически нет. Начал коммитить. Пока он заполняет память, пытается сжать, коммитить дальше, память растет. И вот он докоммитил до конца этого большого зарезервированного куска. Резерв закончился. Сейчас ему нужен новый зарезервированный кусок. Он аллоцирует новый. И когда их больше одного становится, этот новый кусок помечается как  эфемерный. Там будет размещаться только нулевое и первое поколение. Для всех остальных будет поколение два. Когда будет три сегмента, то первые два сегмента будут использоваться под поколение два, а третий - эфемерный под нулевое и первое. Когда их будет 50, то первые 49 сегментов будут принадлежать второму поколению, а последний под нулевое и первое. 16:54</p>
+<p >
+Ког&shy;да при&shy;ло&shy;же&shy;ние стар&shy;то&shy;ва&shy;ло, он за&shy;ре&shy;зер&shy;ви&shy;ро&shy;вал боль&shy;шой ку&shy;сок па&shy;мя&shy;ти, но ее там фи&shy;зи&shy;чес&shy;ки нет. На&shy;чал ком&shy;ми&shy;тить. По&shy;ка он за&shy;пол&shy;ня&shy;ет па&shy;мять, пы&shy;та&shy;ет&shy;ся сжать, ком&shy;ми&shy;тить даль&shy;ше, па&shy;мять рас&shy;тет. И вот он до&shy;ком&shy;ми&shy;тил до кон&shy;ца это&shy;го боль&shy;шо&shy;го за&shy;ре&shy;зер&shy;ви&shy;ро&shy;ван&shy;но&shy;го кус&shy;ка. Ре&shy;зерв за&shy;кон&shy;чил&shy;ся. Сей&shy;час ему ну&shy;жен но&shy;вый за&shy;ре&shy;зер&shy;ви&shy;ро&shy;ван&shy;ный ку&shy;сок. Он ал&shy;ло&shy;ци&shy;ру&shy;ет но&shy;вый. И ког&shy;да их боль&shy;ше од&shy;но&shy;го ста&shy;но&shy;вит&shy;ся, этот но&shy;вый ку&shy;сок по&shy;ме&shy;ча&shy;ет&shy;ся как  эфе&shy;мер&shy;ный. Там бу&shy;дет раз&shy;ме&shy;щать&shy;ся толь&shy;ко ну&shy;ле&shy;вое и пер&shy;вое по&shy;ко&shy;ле&shy;ние. Для всех ос&shy;таль&shy;ных бу&shy;дет по&shy;ко&shy;ле&shy;ние два. Ког&shy;да бу&shy;дет три сег&shy;мен&shy;та, то пер&shy;вые два сег&shy;мен&shy;та бу&shy;дут ис&shy;поль&shy;зо&shy;вать&shy;ся под по&shy;ко&shy;ле&shy;ние два, а тре&shy;тий - эфе&shy;мер&shy;ный под ну&shy;ле&shy;вое и пер&shy;вое. Ког&shy;да их бу&shy;дет 50, то пер&shy;вые 49 сег&shy;мен&shy;тов бу&shy;дут при&shy;над&shy;ле&shy;жать вто&shy;ро&shy;му по&shy;ко&shy;ле&shy;нию, а пос&shy;лед&shy;ний под ну&shy;ле&shy;вое и пер&shy;вое. 16:54</p>
 <div class="paragraph-right-side">14</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
-<p>В кончившемся сегменте могли быть объекты нулевого поколения, а оно становится второго, то он должен скопировать объекты из нулевого поколения старого сегмента в первое поколение  нового. Потому что все старые сегменты gen_2 only. А для нулевого поколения создаются allocation context для тредов.</p>
+<p >
+В кон&shy;чив&shy;шем&shy;ся сег&shy;мен&shy;те мог&shy;ли быть объ&shy;ек&shy;ты ну&shy;ле&shy;во&shy;го по&shy;ко&shy;ле&shy;ния, а оно ста&shy;но&shy;вит&shy;ся вто&shy;ро&shy;го, то он дол&shy;жен ско&shy;пи&shy;ро&shy;вать объ&shy;ек&shy;ты из ну&shy;ле&shy;во&shy;го по&shy;ко&shy;ле&shy;ния ста&shy;ро&shy;го сег&shy;мен&shy;та в пер&shy;вое по&shy;ко&shy;ле&shy;ние  но&shy;во&shy;го. По&shy;то&shy;му что все ста&shy;рые сег&shy;мен&shy;ты gen_2 only. А для ну&shy;ле&shy;во&shy;го по&shy;ко&shy;ле&shy;ния соз&shy;да&shy;ют&shy;ся allocation context для тре&shy;дов.</p>
 <div class="paragraph-right-side">15</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
-<p>Посмотрим на слайд 17:42, там видно, как все делается. Потом выделяется новый сегмент, все уплотнили. Дальше некуда, выделяется новый сегмент. В нем располагается gen_1 и gen_0, а в старом только gen_2. Если их было много, но при этом один из gen_2 сегментов старых вдруг кардинально опустел, и там освободилось много места, то GC может принять следующее решение: поскольку у нас есть кусок свободной памяти, а аллоцировать новый сегмент намного дороже, чем просто скопировать, то он просто берет и использует один из старых сегментов как эфемерный, то есть переиспользует его.</p>
+<p >
+Пос&shy;мот&shy;рим на слайд 17:42, там вид&shy;но, как все де&shy;ла&shy;ет&shy;ся. По&shy;том вы&shy;де&shy;ля&shy;ет&shy;ся но&shy;вый сег&shy;мент, все уп&shy;лот&shy;ни&shy;ли. Даль&shy;ше не&shy;ку&shy;да, вы&shy;де&shy;ля&shy;ет&shy;ся но&shy;вый сег&shy;мент. В нем рас&shy;по&shy;ла&shy;га&shy;ет&shy;ся gen_1 и gen_0, а в ста&shy;ром толь&shy;ко gen_2. Если их бы&shy;ло мно&shy;го, но при этом один из gen_2 сег&shy;мен&shy;тов ста&shy;рых вдруг кар&shy;ди&shy;наль&shy;но опус&shy;тел, и там ос&shy;во&shy;бо&shy;ди&shy;лось мно&shy;го мес&shy;та, то GC мо&shy;жет при&shy;нять сле&shy;ду&shy;ю&shy;щее ре&shy;ше&shy;ние: пос&shy;коль&shy;ку у нас есть ку&shy;сок сво&shy;бод&shy;ной па&shy;мя&shy;ти, а ал&shy;ло&shy;ци&shy;ро&shy;вать но&shy;вый сег&shy;мент нам&shy;но&shy;го до&shy;ро&shy;же, чем прос&shy;то ско&shy;пи&shy;ро&shy;вать, то он прос&shy;то бе&shy;рет и ис&shy;поль&shy;зу&shy;ет один из ста&shy;рых сег&shy;мен&shy;тов как эфе&shy;мер&shy;ный, то есть пе&shy;ре&shy;ис&shy;поль&shy;зу&shy;ет его.</p>
 <div class="paragraph-right-side">16</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
-<p>Чтобы это хорошо заработало, старые объекты gen_2 из этого сегмента должны быть убраны. Там не должно быть второго поколения.</p>
+<p >
+Что&shy;бы это хо&shy;ро&shy;шо за&shy;ра&shy;бо&shy;та&shy;ло, ста&shy;рые объ&shy;ек&shy;ты gen_2 из это&shy;го сег&shy;мен&shy;та дол&shy;жны быть уб&shy;ра&shy;ны. Там не дол&shy;жно быть вто&shy;ро&shy;го по&shy;ко&shy;ле&shy;ния.</p>
 <div class="paragraph-right-side">17</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
-<p>У нас было три поколения gen_2 only, дальше он решил, что третий gen_2 only  опустел и можно там разместить эфемерный сегмент вместо того, чтобы аллоцировать там новый кусок памяти от Windows. Он берет и перегоняет gen_0 туда, при этом нулевое поколение становится gen_1. Gen_2 перемещается из третьего сегмента в четвертый, который становиться gen_2 only. И остаток третьего сегмента становится gen_0. Идет такая пересортировка, так будет работать лучше. В старом эфемерном сегменте заканчивается место, а в третьем место есть, и они меняются ролями.</p>
+<p >
+У нас бы&shy;ло три по&shy;ко&shy;ле&shy;ния gen_2 only, даль&shy;ше он ре&shy;шил, что тре&shy;тий gen_2 only  опус&shy;тел и мож&shy;но там раз&shy;мес&shy;тить эфе&shy;мер&shy;ный сег&shy;мент вмес&shy;то то&shy;го, что&shy;бы ал&shy;ло&shy;ци&shy;ро&shy;вать там но&shy;вый ку&shy;сок па&shy;мя&shy;ти от Windows. Он бе&shy;рет и пе&shy;ре&shy;го&shy;ня&shy;ет gen_0 ту&shy;да, при этом ну&shy;ле&shy;вое по&shy;ко&shy;ле&shy;ние ста&shy;но&shy;вит&shy;ся gen_1. Gen_2 пе&shy;ре&shy;ме&shy;ща&shy;ет&shy;ся из трет&shy;ьего сег&shy;мен&shy;та в чет&shy;вер&shy;тый, ко&shy;то&shy;рый ста&shy;но&shy;вить&shy;ся gen_2 only. И ос&shy;та&shy;ток трет&shy;ьего сег&shy;мен&shy;та ста&shy;но&shy;вит&shy;ся gen_0. Идет та&shy;кая пе&shy;ре&shy;сор&shy;ти&shy;ров&shy;ка, так бу&shy;дет ра&shy;бо&shy;тать луч&shy;ше. В ста&shy;ром эфе&shy;мер&shy;ном сег&shy;мен&shy;те за&shy;кан&shy;чи&shy;ва&shy;ет&shy;ся мес&shy;то, а в трет&shy;ьем мес&shy;то есть, и они ме&shy;ня&shy;ют&shy;ся ро&shy;ля&shy;ми.</p>
 <div class="paragraph-right-side">18</div>
 </div>
-<p>Как происходит сборка мусора?</p>
+<p >
+Как про&shy;ис&shy;хо&shy;дит сбор&shy;ка му&shy;со&shy;ра?</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
-<p>Во-первых, что-то запускает сборку мусора. Дальше все управляемые потоки встают на паузу, если у нас Non-Concurren GC. Поток, который вызывал GC запускает процедуру сборки мусора, то есть GC работает в потоке, который его инициировал. Дальше выбирается поколение, которое будет очищаться. Происходит фаза маркировки для выбранных поколений. То есть мы пробегаемся по всем объектам и маркируем их. Дополнительно идем в карточный стол, ищем там ненулевые значения, трактуем их как корни. Маркируем все, что исходит от них. Дальше фаза планирования. На основе данных из фазы маркировки пытаемся понять, какой из двух алгоритмов сборки мусора будем применять - sweep или compact. Sweep из-за скорости в приоритете, но если статистика показывает, что лучше compact, то будет выбран он. В дальнейшем мы поймем, что на самом деле фаза планирования является основной. Для того, чтобы понять, какой алгоритм применить, надо фактически выполнить оба алгоритма одновременно. Последняя операция - сбор мусора - фактически это коммитмент тех вычислений, которые были сделаны на предыдущей фазе.  Далее идет последний шаг - восстановить работу всех потоков.Визуально это можно увидеть на слайде 23:17.</p>
+<p >
+Во-пер&shy;вых, что-то за&shy;пус&shy;ка&shy;ет сбор&shy;ку му&shy;со&shy;ра. Даль&shy;ше все уп&shy;рав&shy;ля&shy;е&shy;мые по&shy;то&shy;ки вст&shy;ают на па&shy;узу, ес&shy;ли у нас Non-Concurren GC. По&shy;ток, ко&shy;то&shy;рый вы&shy;зы&shy;вал GC за&shy;пус&shy;ка&shy;ет про&shy;це&shy;ду&shy;ру сбор&shy;ки му&shy;со&shy;ра, то есть GC ра&shy;бо&shy;та&shy;ет в по&shy;то&shy;ке, ко&shy;то&shy;рый его ини&shy;ци&shy;и&shy;ро&shy;вал. Даль&shy;ше вы&shy;би&shy;ра&shy;ет&shy;ся по&shy;ко&shy;ле&shy;ние, ко&shy;то&shy;рое бу&shy;дет очи&shy;щать&shy;ся. Про&shy;ис&shy;хо&shy;дит фа&shy;за мар&shy;ки&shy;ров&shy;ки для выб&shy;ран&shy;ных по&shy;ко&shy;ле&shy;ний. То есть мы про&shy;бе&shy;га&shy;ем&shy;ся по всем объ&shy;ек&shy;там и мар&shy;ки&shy;ру&shy;ем их. До&shy;пол&shy;ни&shy;тель&shy;но идем в кар&shy;точ&shy;ный стол, ищем там не&shy;ну&shy;ле&shy;вые зна&shy;че&shy;ния, трак&shy;ту&shy;ем их как кор&shy;ни. Мар&shy;ки&shy;ру&shy;ем все, что ис&shy;хо&shy;дит от них. Даль&shy;ше фа&shy;за пла&shy;ни&shy;ро&shy;ва&shy;ния. На ос&shy;но&shy;ве дан&shy;ных из фа&shy;зы мар&shy;ки&shy;ров&shy;ки пы&shy;та&shy;ем&shy;ся по&shy;нять, ка&shy;кой из двух ал&shy;го&shy;рит&shy;мов сбор&shy;ки му&shy;со&shy;ра бу&shy;дем при&shy;ме&shy;нять - sweep или compact. Sweep из-за ско&shy;рос&shy;ти в при&shy;о&shy;ри&shy;те&shy;те, но ес&shy;ли ста&shy;тис&shy;ти&shy;ка по&shy;ка&shy;зы&shy;ва&shy;ет, что луч&shy;ше compact, то бу&shy;дет выб&shy;ран он. В даль&shy;ней&shy;шем мы пой&shy;мем, что на са&shy;мом де&shy;ле фа&shy;за пла&shy;ни&shy;ро&shy;ва&shy;ния яв&shy;ля&shy;ет&shy;ся ос&shy;нов&shy;ной. Для то&shy;го, что&shy;бы по&shy;нять, ка&shy;кой ал&shy;го&shy;ритм при&shy;ме&shy;нить, на&shy;до фак&shy;ти&shy;чес&shy;ки вы&shy;пол&shy;нить оба ал&shy;го&shy;рит&shy;ма од&shy;нов&shy;ре&shy;мен&shy;но. Пос&shy;лед&shy;няя опе&shy;ра&shy;ция - сбор му&shy;со&shy;ра - фак&shy;ти&shy;чес&shy;ки это ком&shy;мит&shy;мент тех вы&shy;чис&shy;ле&shy;ний, ко&shy;то&shy;рые бы&shy;ли сде&shy;ла&shy;ны на пре&shy;ды&shy;ду&shy;щей фа&shy;зе.  Да&shy;лее идет пос&shy;лед&shy;ний шаг - восс&shy;та&shy;но&shy;вить ра&shy;бо&shy;ту всех по&shy;то&shy;ков.Ви&shy;зу&shy;ально это мож&shy;но уви&shy;деть на слай&shy;де 23:17.</p>
 <div class="paragraph-right-side">19</div>
 </div>
-<p>Что вызывает GC?</p>
+<p >
+Что вы&shy;зы&shy;ва&shy;ет GC?</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
-<p>Причин может быть много. Попытка аллоцировать в SOH, а там место закончился.  inducted  - когда мы руками запросили.</p>
+<p >
+При&shy;чин мо&shy;жет быть мно&shy;го. По&shy;пыт&shy;ка ал&shy;ло&shy;ци&shy;ро&shy;вать в SOH, а там мес&shy;то за&shy;кон&shy;чил&shy;ся.  inducted  - ког&shy;да мы ру&shy;ка&shy;ми зап&shy;ро&shy;си&shy;ли.</p>
 <div class="paragraph-right-side">20</div>
 </div>
-<p>lowmemory - закончилась свободная память внутри процесса.</p>
-<p>empty - затрудняюсь сказать что.</p>
-<p>alloc_loh - соответственно, закончилась память в LOH.</p>
-<p>oos_loh - это по короткому пути.</p>
+<p >
+lowmemory - за&shy;кон&shy;чи&shy;лась сво&shy;бод&shy;ная па&shy;мять внут&shy;ри про&shy;цес&shy;са.</p>
+<p >
+empty - зат&shy;руд&shy;ня&shy;юсь ска&shy;зать что.</p>
+<p >
+alloc_loh - со&shy;от&shy;ветст&shy;венно, за&shy;кон&shy;чи&shy;лась па&shy;мять в LOH.</p>
+<p >
+oos_loh - это по ко&shy;рот&shy;ко&shy;му пу&shy;ти.</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
-<p>И так далее, на них не имеет смысла долго останавливаться. Что может быть. Исчерпали место в SOH. Это стадия, когда у нас allocation context закончился и GC надо его расширить. Когда контекст надо передвинуть в другое место. Прежде чем это делать, мы пытаемся скомпактить. Прежде чем мы расширяем сегмент. Потому что сегмент расширять дорого, мы попытаемся собрать мусор. Не получилось - пришлось расширять сегмент. И, наконец, прежде чем мы пытаемя новый сегмент использовать под эфемерный. Потому что новый сегмент - это еще дороже. И нужно попытаться в рамках текущего найти какие-то свободные участки и разместить новые объекты там.</p>
+<p >
+И так да&shy;лее, на них не име&shy;ет смыс&shy;ла дол&shy;го ос&shy;та&shy;нав&shy;ли&shy;вать&shy;ся. Что мо&shy;жет быть. Исчер&shy;па&shy;ли мес&shy;то в SOH. Это ста&shy;дия, ког&shy;да у нас allocation context за&shy;кон&shy;чил&shy;ся и GC на&shy;до его рас&shy;ши&shy;рить. Ког&shy;да кон&shy;текст на&shy;до пе&shy;ред&shy;ви&shy;нуть в дру&shy;гое мес&shy;то. Преж&shy;де чем это де&shy;лать, мы пы&shy;та&shy;ем&shy;ся ском&shy;пак&shy;тить. Преж&shy;де чем мы рас&shy;ши&shy;ря&shy;ем сег&shy;мент. По&shy;то&shy;му что сег&shy;мент рас&shy;ши&shy;рять до&shy;ро&shy;го, мы по&shy;пы&shy;та&shy;ем&shy;ся соб&shy;рать му&shy;сор. Не по&shy;лу&shy;чи&shy;лось - приш&shy;лось рас&shy;ши&shy;рять сег&shy;мент. И, на&shy;ко&shy;нец, преж&shy;де чем мы пы&shy;та&shy;емя но&shy;вый сег&shy;мент ис&shy;поль&shy;зо&shy;вать под эфе&shy;мер&shy;ный. По&shy;то&shy;му что но&shy;вый сег&shy;мент - это еще до&shy;ро&shy;же. И нуж&shy;но по&shy;пы&shy;тать&shy;ся в рам&shy;ках те&shy;ку&shy;ще&shy;го най&shy;ти ка&shy;кие-то сво&shy;бод&shy;ные учас&shy;тки и раз&shy;мес&shy;тить но&shy;вые объ&shy;ек&shy;ты там.</p>
 <div class="paragraph-right-side">21</div>
 </div>
-<p>Тоже самое про LOH.</p>
+<p >
+То&shy;же са&shy;мое про LOH.</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
-<p>Аллокатор исчерпал место после медленного алгоритма выделения памяти, после реорганизации сегментов и после GC. Ручной вызов GC тоже бывает триггером. Их бывает три режима. Первый GC.Collect() - вызов полного GC, блокирующего при этом при вынужденного compacting на LOH. Вызов GC.Collect(int gen) - на нужном поколении. Это тоже самое, но с выбором поколения. И последний режим - GC.Collect(int gen, GCCollectionMode mode) - это вызов на необходимом боколении, блокирующий, без вынужденного compacting, с необходимым режимом. Про ручной вызов GC хочется сказать, что на самом деле если вы доходите до этой стадии, это значит, что скорее всего вы не очень понимаете, что происходит в приложении. И как hotfix, чтобы все стало хорошо, вызывается GC.Collect().</p>
+<p >
+Алло&shy;ка&shy;тор ис&shy;чер&shy;пал мес&shy;то пос&shy;ле мед&shy;лен&shy;но&shy;го ал&shy;го&shy;рит&shy;ма вы&shy;де&shy;ле&shy;ния па&shy;мя&shy;ти, пос&shy;ле ре&shy;ор&shy;га&shy;ни&shy;за&shy;ции сег&shy;мен&shy;тов и пос&shy;ле GC. Руч&shy;ной вы&shy;зов GC то&shy;же бы&shy;ва&shy;ет триг&shy;ге&shy;ром. Их бы&shy;ва&shy;ет три ре&shy;жи&shy;ма. Пер&shy;вый GC.Collect() - вы&shy;зов пол&shy;но&shy;го GC, бло&shy;ки&shy;ру&shy;ю&shy;ще&shy;го при этом при вы&shy;нуж&shy;ден&shy;но&shy;го compacting на LOH. Вы&shy;зов GC.Collect(int gen) - на нуж&shy;ном по&shy;ко&shy;ле&shy;нии. Это то&shy;же са&shy;мое, но с вы&shy;бо&shy;ром по&shy;ко&shy;ле&shy;ния. И пос&shy;лед&shy;ний ре&shy;жим - GC.Collect(int gen, GCCollectionMode mode) - это вы&shy;зов на не&shy;об&shy;хо&shy;ди&shy;мом бо&shy;ко&shy;ле&shy;нии, бло&shy;ки&shy;ру&shy;ю&shy;щий, без вы&shy;нуж&shy;ден&shy;но&shy;го compacting, с не&shy;об&shy;хо&shy;ди&shy;мым ре&shy;жи&shy;мом. Про руч&shy;ной вы&shy;зов GC хо&shy;чет&shy;ся ска&shy;зать, что на са&shy;мом де&shy;ле ес&shy;ли вы до&shy;хо&shy;ди&shy;те до этой ста&shy;дии, это зна&shy;чит, что ско&shy;рее все&shy;го вы не очень по&shy;ни&shy;ма&shy;ете, что про&shy;ис&shy;хо&shy;дит в при&shy;ло&shy;же&shy;нии. И как hotfix, что&shy;бы все ста&shy;ло хо&shy;ро&shy;шо, вы&shy;зы&shy;ва&shy;ет&shy;ся GC.Collect().</p>
 <div class="paragraph-right-side">22</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
-<p>То, что я слышу чаще всего, про вызов GC.Collect(), это приложения на технологии Xamarin. Там есть свои особенности. На Android там есть два GC: от .NET и от Java. Проблема в том, что все приходит от Java, имеет реализацию интерфейса disposable. Вкупе с непониманием, кто должен дергать dispose, там очень сильно текут ресурсы. Если не привыкнуть писать правильно. Это время от времени приводит к мысли вызвать GC.Collect().Если хочется вызвать GC.Collect() в обычном приложении, то, скорее всего, это значит, что нам не очень понятно как это все работает внутри. Почему алгоритмы приводят в необходимости вызова этого метода.</p>
+<p >
+То, что я слы&shy;шу ча&shy;ще все&shy;го, про вы&shy;зов GC.Collect(), это при&shy;ло&shy;же&shy;ния на тех&shy;но&shy;ло&shy;гии Xamarin. Там есть свои осо&shy;бен&shy;нос&shy;ти. На Android там есть два GC: от .NET и от Java. Проб&shy;ле&shy;ма в том, что все при&shy;хо&shy;дит от Java, име&shy;ет ре&shy;а&shy;ли&shy;за&shy;цию ин&shy;тер&shy;фей&shy;са disposable. Вку&shy;пе с не&shy;по&shy;ни&shy;ма&shy;ни&shy;ем, кто дол&shy;жен дер&shy;гать dispose, там очень силь&shy;но те&shy;кут ре&shy;сур&shy;сы. Если не при&shy;вык&shy;нуть пи&shy;сать пра&shy;виль&shy;но. Это вре&shy;мя от вре&shy;ме&shy;ни при&shy;во&shy;дит к мыс&shy;ли выз&shy;вать GC.Collect().Если хо&shy;чет&shy;ся выз&shy;вать GC.Collect() в обыч&shy;ном при&shy;ло&shy;же&shy;нии, то, ско&shy;рее все&shy;го, это зна&shy;чит, что нам не очень по&shy;нят&shy;но как это все ра&shy;бо&shy;та&shy;ет внут&shy;ри. По&shy;че&shy;му ал&shy;го&shy;рит&shy;мы при&shy;во&shy;дят в не&shy;об&shy;хо&shy;ди&shy;мос&shy;ти вы&shy;зо&shy;ва это&shy;го ме&shy;то&shy;да.</p>
 <div class="paragraph-right-side">23</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">24</div>
-<p>Чтобы не вызывать, необходимо посмотреть метрики от GC, построить графики. И посмотреть наложение графиков расхода памяти по разным поколениям, на график срабатывания GC, на другие графики и понять, что приводит к проседанию памяти. Возможно, вы увидите, что там что-то течет в этих графиках. Если такие места есть, то нужно смотреть внимательно в эти места и изучать там. В общем случае GC.Collect() вызывать не надо. Это, во-первых, означает, что GC потеряет свои статистики. После ручного вызова метода, GC может в том потоке, где вы только что выделяли объекты выдать вам allocation context не на 8Кб, а маленький, который замедлит дальнейшее выделение памяти. Это то, что лежит на поверхности.</p>
+<p >
+Что&shy;бы не вы&shy;зы&shy;вать, не&shy;об&shy;хо&shy;ди&shy;мо пос&shy;мот&shy;реть мет&shy;ри&shy;ки от GC, пос&shy;тро&shy;ить гра&shy;фи&shy;ки. И пос&shy;мот&shy;реть на&shy;ло&shy;же&shy;ние гра&shy;фи&shy;ков рас&shy;хо&shy;да па&shy;мя&shy;ти по раз&shy;ным по&shy;ко&shy;ле&shy;ни&shy;ям, на гра&shy;фик сра&shy;ба&shy;ты&shy;ва&shy;ния GC, на дру&shy;гие гра&shy;фи&shy;ки и по&shy;нять, что при&shy;во&shy;дит к про&shy;се&shy;да&shy;нию па&shy;мя&shy;ти. Воз&shy;мож&shy;но, вы уви&shy;ди&shy;те, что там что-то те&shy;чет в этих гра&shy;фи&shy;ках. Если та&shy;кие мес&shy;та есть, то нуж&shy;но смот&shy;реть вни&shy;ма&shy;тель&shy;но в эти мес&shy;та и изу&shy;чать там. В об&shy;щем слу&shy;чае GC.Collect() вы&shy;зы&shy;вать не на&shy;до. Это, во-пер&shy;вых, оз&shy;на&shy;ча&shy;ет, что GC по&shy;те&shy;ря&shy;ет свои ста&shy;тис&shy;ти&shy;ки. Пос&shy;ле руч&shy;но&shy;го вы&shy;зо&shy;ва ме&shy;то&shy;да, GC мо&shy;жет в том по&shy;то&shy;ке, где вы толь&shy;ко что вы&shy;де&shy;ля&shy;ли объ&shy;ек&shy;ты вы&shy;дать вам allocation context не на 8Кб, а ма&shy;лень&shy;кий, ко&shy;то&shy;рый за&shy;мед&shy;лит даль&shy;ней&shy;шее вы&shy;де&shy;ле&shy;ние па&shy;мя&shy;ти. Это то, что ле&shy;жит на по&shy;верх&shy;нос&shy;ти.</p>
 <div class="paragraph-right-side">24</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
-<p>На данном этапе мы рассмотрели в общих чертах все шаги в каком порядке это работает. Далее будем рассматривать конкретные шаги, подробности. Но эти подробности хороши, когда видишь картину целиком. Текущий доклад был про общую картину, как GC отрабатывает, какие режимы есть. Последующие доклады  - это будет изучение вглубь. Сейчас будет маркировка, планирование, сборка мусора, то, что касается GC. После чего последним докладом по GC будет общий обзорный доклад с выводами. На основе того, что мы услышали, какие правила можно вывести, как наши алгоритмы должны быть построены, чтобы не наталкиваться на плохую работу GC.</p>
+<p >
+На дан&shy;ном эта&shy;пе мы расс&shy;мот&shy;ре&shy;ли в об&shy;щих чер&shy;тах все ша&shy;ги в ка&shy;ком по&shy;ряд&shy;ке это ра&shy;бо&shy;та&shy;ет. Да&shy;лее бу&shy;дем расс&shy;мат&shy;ри&shy;вать конк&shy;рет&shy;ные ша&shy;ги, под&shy;роб&shy;нос&shy;ти. Но эти под&shy;роб&shy;нос&shy;ти хо&shy;ро&shy;ши, ког&shy;да ви&shy;дишь кар&shy;ти&shy;ну це&shy;ли&shy;ком. Те&shy;ку&shy;щий док&shy;лад был про об&shy;щую кар&shy;ти&shy;ну, как GC от&shy;ра&shy;ба&shy;ты&shy;ва&shy;ет, ка&shy;кие ре&shy;жи&shy;мы есть. Пос&shy;ле&shy;ду&shy;ю&shy;щие док&shy;ла&shy;ды  - это бу&shy;дет изу&shy;че&shy;ние вглубь. Сей&shy;час бу&shy;дет мар&shy;ки&shy;ров&shy;ка, пла&shy;ни&shy;ро&shy;ва&shy;ние, сбор&shy;ка му&shy;со&shy;ра, то, что ка&shy;са&shy;ет&shy;ся GC. Пос&shy;ле че&shy;го пос&shy;лед&shy;ним док&shy;ла&shy;дом по GC бу&shy;дет об&shy;щий об&shy;зор&shy;ный док&shy;лад с вы&shy;во&shy;да&shy;ми. На ос&shy;но&shy;ве то&shy;го, что мы ус&shy;лы&shy;ша&shy;ли, ка&shy;кие пра&shy;ви&shy;ла мож&shy;но вы&shy;вес&shy;ти, как на&shy;ши ал&shy;го&shy;рит&shy;мы дол&shy;жны быть пос&shy;тро&shy;ены, что&shy;бы не на&shy;тал&shy;ки&shy;вать&shy;ся на пло&shy;хую ра&shy;бо&shy;ту GC.</p>
 <div class="paragraph-right-side">25</div>
 </div>
 

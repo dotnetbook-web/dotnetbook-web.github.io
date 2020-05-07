@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>.NET Platform Architecture</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.NET Platform Architecture</title>
 </head>
 <body>
     <link rel="stylesheet" href="../../res/bootstrap.css">
@@ -57,27 +57,28 @@ strong {
 }
 
 p, li {
-    margin: 0 0 25px;
-    line-height: 32px;
+    margin: 0 0 1em;
+    line-height: 1.5em;
     font-family: inherit;
 }
 
 ol, li {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 ol {
-    padding-left: 1.2rem;
+    padding-left: 1.21em;
 }
 
 ul  {
-    padding-left: 35px;
+    padding-left: 1em;
 }
 
 ol li, ul li {
-    padding-left: 1rem;	
+    padding-left: 0.5em;	
     font-family: inherit;
+    text-align: justify;
 }
 
 table {
@@ -108,6 +109,7 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 *[class*='lang-'] {
     padding: 0px 0px 25px 0px;
+    font-size: 0.75em;
 }
 
 
@@ -126,11 +128,11 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 }
 
 p code:not(.highlight), li code:not(.highlight) {
-    font-size: 16px;
+    font-size: 0.7em;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
-    padding: 4px;
+    padding: 3px;
     color: darkslateblue;
 }
 
@@ -148,11 +150,6 @@ p code.highlight, li code.highlight {
 
 .wide {
     width:150%;
-}
-
-*[class*='lang-'] span, *[class*='lang-'] pre, pre > code {
-    font-size: 13px;
-    line-height: 20px;
 }
 
 p a, li a {
@@ -179,9 +176,9 @@ p img {
 
 blockquote 
 {
-    background-color: lavenderblush;
-    padding-left: 20px;
-    border-left: 1px solid rgba(0,0,0,.08);
+    padding-left: 0.4em;
+    border-left: 0.5em solid rgba(0,0,0,.08);
+    font-style: italic;
 }
 
 blockquote.big-quote, 
@@ -199,8 +196,7 @@ blockquote.breadcrumbs, blockquote.breadcrumbs  p
 }
 
 blockquote p {
-    margin: 16px 0;
-    padding: 12px 12px 13px;
+    padding: 1em 1em 1em 0.6em;
     font-family: inherit;
 }
 
@@ -210,11 +206,14 @@ blockquote p code {
     padding: 4px 6px;
 }
 
+blockquote p em {
+    font-weight: 400;
+}
+
 blockquote.big-quote > p {
     margin: 40px 0 60px 0;
     font-family: Charter;
     font-size: 55px;
-    line-height: 60px;
     padding: 0;
     width: 150%;
 }
@@ -227,31 +226,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 40px;
-    font-family: PF Regal,Georgia,serif;
+    font-size: 2.2em;
+    font-family: Charter,Georgia,serif;
     font-weight: 300;
-    margin: 40px 0 20px 0;
-    border-bottom-style: ridge;
-    padding-bottom: 10px;
-}
-
-h1 b {
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-weight: 700;
-    font-size: 37px;
-    line-height: 42px;
+    margin: 1.8em 0 1.8em 0;
+    text-align: center;
 }
 
 h2 {
-    margin-top: 35px;
-    margin-bottom: 10px;
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-    border-bottom-color: grey;
-    border-bottom-style: solid;
-    padding-bottom: 5px;
+    margin-top: 2em;
+    margin-left: 1.2em;
+    font-family: Charter,Arial,Helvetica Neue,sans-serif;
+    font-size: 1.25em;
+    width: 70%;
 }
 
 h3 {
@@ -293,27 +280,23 @@ h4 {
     line-height: 24px;
     font-size: 13pt;
     margin: 0 0 13px 0;
-    font-family: Charter;
-}
-
-.side-regular-block {
-    border-radius: 5px;
-    background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
-    padding: 22px;
 }
 
 .side-regular-block p {
     top: 0;
 }
-/* Music side player */
 
+/* Music side player */
 .aside-side-container .music-player {
     width: 100%;
     height: 400px;
 }
 
-.aside-side-container.side-media-block h2 {
-    margin-top: -12px;
+/* media block after h1 */
+.aside-container h1 + .aside-side-container.side-media-block h2 {
+    margin: 7em 0 1em 0;
+    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
+    font-weight: 600;
 }
 
 .aside-side-container > li {
@@ -323,8 +306,8 @@ h4 {
 
 .aside-side-container > li ul, .aside-side-container > li ol {
     padding-left: 30px;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 .aside-side-container > li li {
     padding-left: 6px;
@@ -353,6 +336,12 @@ h4 {
     position: relative;
     top: 9px;
 }
+
+.paragraph-container p, .aside-container > p {
+    text-align: justify;
+    text-indent: 1.5em;
+}
+
 .paragraph-container > .paragraph-left-side, .paragraph-container > .paragraph-right-side  {
     font-family: JB Mono, consolas;
     display: block;
@@ -364,12 +353,14 @@ h4 {
     z-index: 1000;
 }
 .paragraph-container > .paragraph-left-side {
-    left: -55px;
+    display: none;
+    left: -2.1cm;
     width: 35px;
     user-select: none;
 }
 
 .paragraph-container > .paragraph-right-side  {
+    display: none;
     left: 100%;
     width: 35px;
     padding-left: 45px;
@@ -400,8 +391,8 @@ h4 {
 
 
 /* MEDIA */
-/* XL */
-@media (min-width: 1400px) {
+/* XXL */
+@media (min-width: 1801px) {
     .book-container
     {
         max-width: 1200px;
@@ -410,12 +401,21 @@ h4 {
     }
 }
 
+/* XL */
+@media (max-width: 1800px) {
+    .book-container
+    {
+        margin-left: 4cm;
+        margin-right: 4cm;
+    }
+}
+
 /* LG */
 @media (max-width: 1400px) {
     .book-container
     {
-        margin-left: 70px;
-        margin-right: 70px;
+        margin-left: 4cm;
+        margin-right: 4cm;
     }
 
     blockquote.big-quote > p {
@@ -425,14 +425,23 @@ h4 {
         margin: 0;
         padding: 4px 0 30px 0;
     }
+}
 
-    .paragraph-container .paragraph-left-side {
-        left: -40px;
-    }
+@media (max-width: 1100px) {
 }
 
 /* MD */
 @media (max-width: 991px) {
+    
+    h2 {
+        width:80%;
+    }
+
+    .book-container
+    {
+        margin-left: 3cm;
+        margin-right: 3cm;
+    }
     
     .book-title-container {
         margin: 73px 0 110px 0;
@@ -453,26 +462,21 @@ h4 {
 
     .book-superheading-title {
         font-size: 15pt;
-    }
-    .book-container {
-        margin: 0 100px;
-    }
+    }                                     
     .article-container {
         width: 100%;
-    }
-    .aside-container > .aside-side-container
-    {
-        position: relative;
-        top: auto;
-        left: auto;
-        width: auto;
-        height: auto;
-        margin: 0;
-        padding: 17px;
     }
 
     .aside-container p {
         top: 0;
+    }
+
+    .aside-container h1 + .aside-side-container.side-media-block h2 {
+        display: none;
+    }
+
+    .wide {
+        width: 100%;     
     }
 
     .side-regular-block {
@@ -490,6 +494,17 @@ h4 {
         margin-top: 20px;
         font-size: 13pt;
         border: none;
+    }
+
+    .aside-container > .aside-side-container
+    {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 17px;
     }
 
     blockquote.big-quote > p {
@@ -519,6 +534,12 @@ h4 {
     li {
         margin: 0 0 10px 0;
     }
+
+    .side-regular-block {
+        border-radius: 5px;
+        background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
+        padding: 22px;
+    }    
 }
 
 /* Smartphone horizontal - SM */
@@ -545,7 +566,7 @@ h4 {
     }
 
     .book-container {
-        margin: 0 50px;
+        margin: 0 2.5cm;
     }
     ul {
         margin-left: 30px;
@@ -553,14 +574,29 @@ h4 {
         padding-left: 25px;
     }
     .paragraph-container > .paragraph-left-side {
-        top: 15px;
+	display: block;
+        top: 14px;
+        font-size: 9pt;
     }
     .paragraph-container > .paragraph-right-side {
-        padding-left: 20px;
-        top: 15px;
+	display: block;
+        padding-left: 40px;
+        top: 14px;
+        font-size: 9pt;
     }
 }
 
+@media (max-width: 630px) {
+    .book-container {
+        margin: 0 1.5cm;
+    }
+    .paragraph-container > .paragraph-left-side {
+        left: -33px;
+    }
+    .paragraph-container > .paragraph-right-side {
+        padding-left: 24px;
+    }
+}
 /* Smartphone - XS */
 @media (max-width: 575px) {
     .book-container {
@@ -581,15 +617,14 @@ h4 {
     }
    
     p, li {
-        line-height: 28px;
+        line-height: 24px;
     }    
     .paragraph-container .paragraph-left-side {
-        display: none;
-        top: 14px;
-    }
+        display: none;        }
     .paragraph-container .paragraph-right-side {
-        padding-left: 10px;
+        padding-left: 21px;
         top: 14px;
+	font-size: 8pt;
     }
 }
 
@@ -829,127 +864,158 @@ h4 {
     <p class="d-none d-lg-block d-xl-none">LG</p>
     <p class="d-none d-xl-block">XL</p> -->
     <blockquote class="breadcrumbs">
-<p> <a href="../readme.html">Содержание</a> / <a href="./01-00-MemoryManagement-Intro.html">Основы управления памятью</a></p>
+<p >
+ <a href="../readme.html">Содержание</a> / <a href="./01-00-MemoryManagement-Intro.html">Основы управления памятью</a></p>
 </blockquote>
 <h2 id="section">Фаза маркировки достижимых объектов</h2>
 <blockquote class="big-quote">
-<p> Адаптация курса в процессе</p>
+<p >
+ Адап&shy;та&shy;ция кур&shy;са в про&shy;цес&shy;се</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p>Мы поговорили про выделение памяти, про общую картину, теперь будем обсуждать все подробно. Фаза маркировки GC.</p>
+<p >
+Мы по&shy;го&shy;во&shy;ри&shy;ли про вы&shy;де&shy;ле&shy;ние па&shy;мя&shy;ти, про об&shy;щую кар&shy;ти&shy;ну, те&shy;перь бу&shy;дем об&shy;суж&shy;дать все под&shy;роб&shy;но. Фа&shy;за мар&shy;ки&shy;ров&shy;ки GC.</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p>На этой стадии GC понимает какие поколения будут собраны. У нас есть знание, что GC является трассирующим. Как и весь алгоритм трассировки в 3D, чтобы простроить сцену, мы луч опускаем, с чем пересекся - то и объект, а куда отразился - отражение. Тоже самое и в GC. Мы к объекту идем по исходящим ссылкам и с помощью трассировки понимаем, какие объекты являются достижимыми, а какие - мусором.</p>
+<p >
+На этой ста&shy;дии GC по&shy;ни&shy;ма&shy;ет ка&shy;кие по&shy;ко&shy;ле&shy;ния бу&shy;дут соб&shy;ра&shy;ны. У нас есть зна&shy;ние, что GC яв&shy;ля&shy;ет&shy;ся трас&shy;си&shy;ру&shy;ю&shy;щим. Как и весь ал&shy;го&shy;ритм трас&shy;си&shy;ров&shy;ки в 3D, что&shy;бы прос&shy;тро&shy;ить сце&shy;ну, мы луч опус&shy;ка&shy;ем, с чем пе&shy;ре&shy;сек&shy;ся - то и объ&shy;ект, а ку&shy;да от&shy;ра&shy;зил&shy;ся - от&shy;ра&shy;же&shy;ние. То&shy;же са&shy;мое и в GC. Мы к объ&shy;ек&shy;ту идем по ис&shy;хо&shy;дя&shy;щим ссыл&shy;кам и с по&shy;мощью трас&shy;си&shy;ров&shy;ки по&shy;ни&shy;ма&shy;ем, ка&shy;кие объ&shy;ек&shy;ты яв&shy;ля&shy;ют&shy;ся дос&shy;ти&shy;жи&shy;мы&shy;ми, а ка&shy;кие - му&shy;со&shy;ром.</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p>Он стартует из различных корней и относительно них обходит весь граф объекта. Все, до чего он дошел - хорошо. Остальное - мертвые зоны. Если рассматривать простой сценарий, когда GC у нас не Non-Concurrent, то у нас встают сначала managed потоки, когда они встали можно делать с памятью все, что угодно. Например, сделать фазу маркировки. На этой фазе для любого адреса из группы корней в заголовке объекта устанавливается флаг pin, если объект у нас pinned. Pinning может происходить либо из таблицы хендлов у application domain, либо из ключевого слова fixed. И когда GC посреди fixed срабатывает, он понимает, что эту переменную надо запинить.</p>
+<p >
+Он стар&shy;ту&shy;ет из раз&shy;лич&shy;ных кор&shy;ней и от&shy;но&shy;си&shy;тель&shy;но них об&shy;хо&shy;дит весь граф объ&shy;ек&shy;та. Все, до че&shy;го он до&shy;шел - хо&shy;ро&shy;шо. Остал&shy;ьное - мер&shy;т&shy;вые зо&shy;ны. Если расс&shy;мат&shy;ри&shy;вать прос&shy;той сце&shy;на&shy;рий, ког&shy;да GC у нас не Non-Concurrent, то у нас вст&shy;ают сна&shy;ча&shy;ла managed по&shy;то&shy;ки, ког&shy;да они вста&shy;ли мож&shy;но де&shy;лать с па&shy;мятью все, что угод&shy;но. Нап&shy;ри&shy;мер, сде&shy;лать фа&shy;зу мар&shy;ки&shy;ров&shy;ки. На этой фа&shy;зе для лю&shy;бо&shy;го ад&shy;ре&shy;са из груп&shy;пы кор&shy;ней в за&shy;го&shy;лов&shy;ке объ&shy;ек&shy;та ус&shy;та&shy;нав&shy;ли&shy;ва&shy;ет&shy;ся флаг pin, ес&shy;ли объ&shy;ект у нас pinned. Pinning мо&shy;жет про&shy;ис&shy;хо&shy;дить ли&shy;бо из таб&shy;ли&shy;цы хенд&shy;лов у application domain, ли&shy;бо из клю&shy;че&shy;во&shy;го сло&shy;ва fixed. И ког&shy;да GC пос&shy;ре&shy;ди fixed сра&shy;ба&shy;ты&shy;ва&shy;ет, он по&shy;ни&shy;ма&shy;ет, что эту пе&shy;ре&shy;мен&shy;ную на&shy;до за&shy;пи&shy;нить.</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p>Обладая информацией о том, что у объекта есть исходящие ссылки на managed поля (это известно из таблицы виртуальных методов), он обходит все исходящие ссылки. Обход графов осуществляется путем обхода в глубину.  Он сохраняет свое состояние во внутреннем стояке. При этом, при посещении каждого объекта, мы смотрим если он уже посещен, то пропускаем, если не стоит - устанавливаем флаг, как посещенному на указателе VMT. И, поскольку у нас все адреса в таблице виртуальных методов выровнены по  процессорному слову (они делятся в 32х разрядной системе на 4 без остатка, а в 64х разрядной - на 8, это сделано для того, чтобы процессор быстрее работал на этих адресах), то получается, что младшие два бита адреса не используются и равны нулю. Значит, туда можно что-то записать, ничего при этом не испортив. Главное, потом не забыть маркировку снять.</p>
+<p >
+Обла&shy;дая ин&shy;фор&shy;ма&shy;ци&shy;ей о том, что у объ&shy;ек&shy;та есть ис&shy;хо&shy;дя&shy;щие ссыл&shy;ки на managed по&shy;ля (это из&shy;вес&shy;тно из таб&shy;ли&shy;цы вир&shy;ту&shy;альных ме&shy;то&shy;дов), он об&shy;хо&shy;дит все ис&shy;хо&shy;дя&shy;щие ссыл&shy;ки. Обход гра&shy;фов осу&shy;щес&shy;тв&shy;ляется пу&shy;тем об&shy;хо&shy;да в глу&shy;би&shy;ну.  Он сох&shy;ра&shy;ня&shy;ет свое сос&shy;то&shy;я&shy;ние во внут&shy;рен&shy;нем сто&shy;яке. При этом, при по&shy;се&shy;ще&shy;нии каж&shy;до&shy;го объ&shy;ек&shy;та, мы смот&shy;рим ес&shy;ли он уже по&shy;се&shy;щен, то про&shy;пус&shy;ка&shy;ем, ес&shy;ли не сто&shy;ит - ус&shy;та&shy;нав&shy;ли&shy;ва&shy;ем флаг, как по&shy;се&shy;щен&shy;но&shy;му на ука&shy;за&shy;те&shy;ле VMT. И, пос&shy;коль&shy;ку у нас все ад&shy;ре&shy;са в таб&shy;ли&shy;це вир&shy;ту&shy;альных ме&shy;то&shy;дов вы&shy;ров&shy;не&shy;ны по  про&shy;цес&shy;сор&shy;но&shy;му сло&shy;ву (они де&shy;лят&shy;ся в 32х раз&shy;ряд&shy;ной сис&shy;те&shy;ме на 4 без ос&shy;тат&shy;ка, а в 64х раз&shy;ряд&shy;ной - на 8, это сде&shy;ла&shy;но для то&shy;го, что&shy;бы про&shy;цес&shy;сор быс&shy;т&shy;рее ра&shy;бо&shy;тал на этих ад&shy;ре&shy;сах), то по&shy;лу&shy;ча&shy;ет&shy;ся, что млад&shy;шие два би&shy;та ад&shy;ре&shy;са не ис&shy;поль&shy;зу&shy;ют&shy;ся и рав&shy;ны ну&shy;лю. Зна&shy;чит, ту&shy;да мож&shy;но что-то за&shy;пи&shy;сать, ни&shy;че&shy;го при этом не ис&shy;пор&shy;тив. Глав&shy;ное, по&shy;том не за&shy;быть мар&shy;ки&shy;ров&shy;ку снять.</p>
 <div class="paragraph-right-side">04</div>
 </div>
-<p>Все исходящие указатели из объекта с полей добавляются в стек адресов на обход.</p>
+<p >
+Все ис&shy;хо&shy;дя&shy;щие ука&shy;за&shy;те&shy;ли из объ&shy;ек&shy;та с по&shy;лей до&shy;бав&shy;ля&shy;ют&shy;ся в стек ад&shy;ре&shy;сов на об&shy;ход.</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p>В стек сначала добавляем все корни, потом начинаем цикл обхода. Забираем с вершины стека адрес, идем в таблицу виртуальных методов, там обходим информацию о исходящих ссылках на управляемые объекты. Каждую исходящую ссылку заносим обратно в стек, а объект маркируем как пройденный. Следующая итерация. Когда стек пустеет - обход завершился. Все установленные флаги стираются во время фазы планирования.</p>
+<p >
+В стек сна&shy;ча&shy;ла до&shy;бав&shy;ля&shy;ем все кор&shy;ни, по&shy;том на&shy;чи&shy;на&shy;ем цикл об&shy;хо&shy;да. За&shy;би&shy;ра&shy;ем с вер&shy;ши&shy;ны сте&shy;ка ад&shy;рес, идем в таб&shy;ли&shy;цу вир&shy;ту&shy;альных ме&shy;то&shy;дов, там об&shy;хо&shy;дим ин&shy;фор&shy;ма&shy;цию о ис&shy;хо&shy;дя&shy;щих ссыл&shy;ках на уп&shy;рав&shy;ля&shy;е&shy;мые объ&shy;ек&shy;ты. Каж&shy;дую ис&shy;хо&shy;дя&shy;щую ссыл&shy;ку за&shy;но&shy;сим об&shy;рат&shy;но в стек, а объ&shy;ект мар&shy;ки&shy;ру&shy;ем как прой&shy;ден&shy;ный. Сле&shy;ду&shy;ю&shy;щая ите&shy;ра&shy;ция. Ког&shy;да стек пус&shy;те&shy;ет - об&shy;ход за&shy;вер&shy;шил&shy;ся. Все ус&shy;та&shy;нов&shy;лен&shy;ные фла&shy;ги сти&shy;ра&shy;ют&shy;ся во вре&shy;мя фа&shy;зы пла&shy;ни&shy;ро&shy;ва&shy;ния.</p>
 <div class="paragraph-right-side">05</div>
 </div>
-<p>Корни.</p>
+<p >
+Кор&shy;ни.</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p>Во-первых, корнями являются локальные переменные метода. В данном примере 06:36 есть локальная переменная path и она является, по сути, корнем. Мы можем в локальную переменную сохранить адрес объекта, но никуда больше. Чтобы доказать, что объект достижим, нам необходимо обойти весь стек потока и собрать там исходящие локальные переменные.</p>
+<p >
+Во-пер&shy;вых, кор&shy;ня&shy;ми яв&shy;ля&shy;ют&shy;ся ло&shy;каль&shy;ные пе&shy;ре&shy;мен&shy;ные ме&shy;то&shy;да. В дан&shy;ном при&shy;ме&shy;ре 06:36 есть ло&shy;каль&shy;ная пе&shy;ре&shy;мен&shy;ная path и она яв&shy;ля&shy;ет&shy;ся, по су&shy;ти, кор&shy;нем. Мы мо&shy;жем в ло&shy;каль&shy;ную пе&shy;ре&shy;мен&shy;ную сох&shy;ра&shy;нить ад&shy;рес объ&shy;ек&shy;та, но ни&shy;ку&shy;да боль&shy;ше. Что&shy;бы до&shy;ка&shy;зать, что объ&shy;ект дос&shy;ти&shy;жим, нам не&shy;об&shy;хо&shy;ди&shy;мо обой&shy;ти весь стек по&shy;то&shy;ка и соб&shy;рать там ис&shy;хо&shy;дя&shy;щие ло&shy;каль&shy;ные пе&shy;ре&shy;мен&shy;ные.</p>
 <div class="paragraph-right-side">06</div>
 </div>
-<p>Это не должно быть собрано GC и может быть долго.</p>
-<p>Локальные переменные могут храниться в двух местах.</p>
+<p >
+Это не дол&shy;жно быть соб&shy;ра&shy;но GC и мо&shy;жет быть дол&shy;го.</p>
+<p >
+Ло&shy;каль&shy;ные пе&shy;ре&shy;мен&shy;ные мо&shy;гут хра&shy;нить&shy;ся в двух мес&shy;тах.</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p>Во-первых, в стеке потока - это структура, на основе которой происходит вызов методов. Есть поток, там крутятся методы, они друг друга вызывают. Их локальные переменные не пересекаются с локальными переменными таких же методов, которые в это же время вызываются, но в другом потоке. У каждого потока есть свой стек. Это массив, где при вызове метода выделяется некий кадр - кусок, в котором есть место под локальные переменные и некоторые параметры, с которыми метод вызывается. Когда вызывается следующий метод, он добавляется в конец. А когда метод завершает работу, они начинают с этого стека уходить. На этом стеке как раз хранятся локальные переменные метода и некоторые параметры, начиная с третьего, на сколько я помню, а первые два передаются через регистр.</p>
+<p >
+Во-пер&shy;вых, в сте&shy;ке по&shy;то&shy;ка - это струк&shy;ту&shy;ра, на ос&shy;но&shy;ве ко&shy;то&shy;рой про&shy;ис&shy;хо&shy;дит вы&shy;зов ме&shy;то&shy;дов. Есть по&shy;ток, там кру&shy;тят&shy;ся ме&shy;то&shy;ды, они друг дру&shy;га вы&shy;зы&shy;ва&shy;ют. Их ло&shy;каль&shy;ные пе&shy;ре&shy;мен&shy;ные не пе&shy;ре&shy;се&shy;ка&shy;ют&shy;ся с ло&shy;каль&shy;ны&shy;ми пе&shy;ре&shy;мен&shy;ны&shy;ми та&shy;ких же ме&shy;то&shy;дов, ко&shy;то&shy;рые в это же вре&shy;мя вы&shy;зы&shy;ва&shy;ют&shy;ся, но в дру&shy;гом по&shy;то&shy;ке. У каж&shy;до&shy;го по&shy;то&shy;ка есть свой стек. Это мас&shy;сив, где при вы&shy;зо&shy;ве ме&shy;то&shy;да вы&shy;де&shy;ля&shy;ет&shy;ся не&shy;кий кадр - ку&shy;сок, в ко&shy;то&shy;ром есть мес&shy;то под ло&shy;каль&shy;ные пе&shy;ре&shy;мен&shy;ные и не&shy;ко&shy;то&shy;рые па&shy;ра&shy;мет&shy;ры, с ко&shy;то&shy;ры&shy;ми ме&shy;тод вы&shy;зы&shy;ва&shy;ет&shy;ся. Ког&shy;да вы&shy;зы&shy;ва&shy;ет&shy;ся сле&shy;ду&shy;ю&shy;щий ме&shy;тод, он до&shy;бав&shy;ля&shy;ет&shy;ся в ко&shy;нец. А ког&shy;да ме&shy;тод за&shy;вер&shy;ша&shy;ет ра&shy;бо&shy;ту, они на&shy;чи&shy;на&shy;ют с это&shy;го сте&shy;ка ухо&shy;дить. На этом сте&shy;ке как раз хра&shy;нят&shy;ся ло&shy;каль&shy;ные пе&shy;ре&shy;мен&shy;ные ме&shy;то&shy;да и не&shy;ко&shy;то&shy;рые па&shy;ра&shy;мет&shy;ры, на&shy;чи&shy;ная с трет&shy;ьего, на сколь&shy;ко я пом&shy;ню, а пер&shy;вые два пе&shy;ре&shy;да&shy;ют&shy;ся че&shy;рез ре&shy;гистр.</p>
 <div class="paragraph-right-side">07</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p>Поскольку некоторые методы могут долго работать, то GC должен понимать, что эти места до определенных моментов собирать не надо. Дальше нужно смотреть по scope переменных, код на слайде 09:45. Первый - это переменная class1. Она доступна в течение жизни всего метода. Она сначала аллоцировалась и с точки зрения языка C# она живет от первой фигурной скобки до последней. Если говорить о переменной class2 с точки зрения языка C# она живет внутри блока if, от первой фигурной скобки до последней. Но есть два варианта окончания scope. Упрощенный, когда scope заканчивается с неким лексическим блоком, а есть вариант, когда scope заканчивается с последним местом его использования.</p>
+<p >
+Пос&shy;коль&shy;ку не&shy;ко&shy;то&shy;рые ме&shy;то&shy;ды мо&shy;гут дол&shy;го ра&shy;бо&shy;тать, то GC дол&shy;жен по&shy;ни&shy;мать, что эти мес&shy;та до оп&shy;ре&shy;де&shy;лен&shy;ных мо&shy;мен&shy;тов со&shy;би&shy;рать не на&shy;до. Даль&shy;ше нуж&shy;но смот&shy;реть по scope пе&shy;ре&shy;мен&shy;ных, код на слай&shy;де 09:45. Пер&shy;вый - это пе&shy;ре&shy;мен&shy;ная class1. Она дос&shy;туп&shy;на в те&shy;че&shy;ние жиз&shy;ни все&shy;го ме&shy;то&shy;да. Она сна&shy;ча&shy;ла ал&shy;ло&shy;ци&shy;ро&shy;ва&shy;лась и с точ&shy;ки зре&shy;ния язы&shy;ка C# она жи&shy;вет от пер&shy;вой фи&shy;гур&shy;ной скоб&shy;ки до пос&shy;лед&shy;ней. Если го&shy;во&shy;рить о пе&shy;ре&shy;мен&shy;ной class2 с точ&shy;ки зре&shy;ния язы&shy;ка C# она жи&shy;вет внут&shy;ри бло&shy;ка if, от пер&shy;вой фи&shy;гур&shy;ной скоб&shy;ки до пос&shy;лед&shy;ней. Но есть два ва&shy;ри&shy;ан&shy;та окон&shy;ча&shy;ния scope. Упро&shy;щен&shy;ный, ког&shy;да scope за&shy;кан&shy;чи&shy;ва&shy;ет&shy;ся с не&shy;ким лек&shy;си&shy;чес&shy;ким бло&shy;ком, а есть ва&shy;ри&shy;ант, ког&shy;да scope за&shy;кан&shy;чи&shy;ва&shy;ет&shy;ся с пос&shy;лед&shy;ним мес&shy;том его ис&shy;поль&shy;зо&shy;ва&shy;ния.</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
-<p>Раньше  я считал магией, когда говорили, что GC может собрать объект прямо посреди метода, если вы перестали его использовать и других ссылок на него нет. Как GC понимает, что код перестал использовать переменную. Оказывается, все просто. Сбоку от описания метода лежит еще дополнительное описание scope переменных. Он примерно выглядит как на слайде 11:11. Если смотреть построчно, в первой и второе строках нет переменных. В третьей появилась переменная class1 в scope. Потом появился class2,  и вот они постепенно начали исчезать. Это для частично прерываемого scope. Для полностью прерываемого scope у нас ситуация другая - слайд 11:37 . И на каком-то этапе они обе перестали использоваться. Седьмая строка - последняя, где используются обе переменные. И дальше идет операция return и после этого можно и не использовать. На самом деле здесь произойдет GC, то оба инстанса будут собраны. Но он сохраняет не просто значение переменной, но и место, где оно хранится, потому что архитектура Intel не подразумевает, что вы работаете напрямую с памятью. Надо сначала перекладывать адрес в регистр, а потом на основе регистра уже производить какие-то действия. В таблице scope хранятся именно регистры, хранящие данные. И когда доходит до варианта None, значит можно все собирать с конкретно этих регистров GC. Для Fully Interruptible на слайде 13:06 не используется class1. У нас тут картина меняется. Получается, что в третьей и четвертой строчке у нас используется регистр rax под хранение class1, потом в пятой строчке его использование пропадает. И если здесь сработает GC, то инстанс class1 может быть свободно собран.</p>
+<p >
+Рань&shy;ше  я счи&shy;тал ма&shy;ги&shy;ей, ког&shy;да го&shy;во&shy;ри&shy;ли, что GC мо&shy;жет соб&shy;рать объ&shy;ект пря&shy;мо пос&shy;ре&shy;ди ме&shy;то&shy;да, ес&shy;ли вы пе&shy;рес&shy;та&shy;ли его ис&shy;поль&shy;зо&shy;вать и дру&shy;гих ссы&shy;лок на не&shy;го нет. Как GC по&shy;ни&shy;ма&shy;ет, что код пе&shy;рес&shy;тал ис&shy;поль&shy;зо&shy;вать пе&shy;ре&shy;мен&shy;ную. Ока&shy;зы&shy;ва&shy;ет&shy;ся, все прос&shy;то. Сбо&shy;ку от опи&shy;са&shy;ния ме&shy;то&shy;да ле&shy;жит еще до&shy;пол&shy;ни&shy;тель&shy;ное опи&shy;са&shy;ние scope пе&shy;ре&shy;мен&shy;ных. Он при&shy;мер&shy;но выг&shy;ля&shy;дит как на слай&shy;де 11:11. Если смот&shy;реть пост&shy;роч&shy;но, в пер&shy;вой и вто&shy;рое стро&shy;ках нет пе&shy;ре&shy;мен&shy;ных. В трет&shy;ьей по&shy;я&shy;ви&shy;лась пе&shy;ре&shy;мен&shy;ная class1 в scope. По&shy;том по&shy;явил&shy;ся class2,  и вот они пос&shy;те&shy;пен&shy;но на&shy;ча&shy;ли ис&shy;че&shy;зать. Это для час&shy;тич&shy;но пре&shy;ры&shy;ва&shy;е&shy;мо&shy;го scope. Для пол&shy;ностью пре&shy;ры&shy;ва&shy;е&shy;мо&shy;го scope у нас си&shy;ту&shy;а&shy;ция дру&shy;гая - слайд 11:37 . И на ка&shy;ком-то эта&shy;пе они обе пе&shy;рес&shy;та&shy;ли ис&shy;поль&shy;зо&shy;вать&shy;ся. Седь&shy;мая стро&shy;ка - пос&shy;лед&shy;няя, где ис&shy;поль&shy;зу&shy;ют&shy;ся обе пе&shy;ре&shy;мен&shy;ные. И даль&shy;ше идет опе&shy;ра&shy;ция return и пос&shy;ле это&shy;го мож&shy;но и не ис&shy;поль&shy;зо&shy;вать. На са&shy;мом де&shy;ле здесь про&shy;изой&shy;дет GC, то оба ин&shy;стан&shy;са бу&shy;дут соб&shy;ра&shy;ны. Но он сох&shy;ра&shy;ня&shy;ет не прос&shy;то зна&shy;че&shy;ние пе&shy;ре&shy;мен&shy;ной, но и мес&shy;то, где оно хра&shy;нит&shy;ся, по&shy;то&shy;му что ар&shy;хи&shy;тек&shy;ту&shy;ра Intel не под&shy;ра&shy;зу&shy;ме&shy;ва&shy;ет, что вы ра&shy;бо&shy;та&shy;ете нап&shy;ря&shy;мую с па&shy;мятью. На&shy;до сна&shy;ча&shy;ла пе&shy;рек&shy;ла&shy;ды&shy;вать ад&shy;рес в ре&shy;гистр, а по&shy;том на ос&shy;но&shy;ве ре&shy;гис&shy;тра уже про&shy;из&shy;во&shy;дить ка&shy;кие-то действия. В таб&shy;ли&shy;це scope хра&shy;нят&shy;ся имен&shy;но ре&shy;гис&shy;тры, хра&shy;ня&shy;щие дан&shy;ные. И ког&shy;да до&shy;хо&shy;дит до ва&shy;ри&shy;ан&shy;та None, зна&shy;чит мож&shy;но все со&shy;би&shy;рать с конк&shy;рет&shy;но этих ре&shy;гист&shy;ров GC. Для Fully Interruptible на слай&shy;де 13:06 не ис&shy;поль&shy;зу&shy;ет&shy;ся class1. У нас тут кар&shy;ти&shy;на ме&shy;ня&shy;ет&shy;ся. По&shy;лу&shy;ча&shy;ет&shy;ся, что в трет&shy;ьей и чет&shy;вер&shy;той строч&shy;ке у нас ис&shy;поль&shy;зу&shy;ет&shy;ся ре&shy;гистр rax под хра&shy;не&shy;ние class1, по&shy;том в пя&shy;той строч&shy;ке его ис&shy;поль&shy;зо&shy;ва&shy;ние про&shy;па&shy;да&shy;ет. И ес&shy;ли здесь сра&shy;бо&shy;та&shy;ет GC, то ин&shy;с&shy;танс class1 мо&shy;жет быть сво&shy;бод&shy;но соб&shy;ран.</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
-<p>Дальше джиттер понимает, что rax больше не используется и можно его переиспользовать еще раз уже под другую переменную. Делает это ровно в трех строках, после чего точно также дальше не используется и собирается.</p>
+<p >
+Даль&shy;ше джит&shy;тер по&shy;ни&shy;ма&shy;ет, что rax боль&shy;ше не ис&shy;поль&shy;зу&shy;ет&shy;ся и мож&shy;но его пе&shy;ре&shy;ис&shy;поль&shy;зо&shy;вать еще раз уже под дру&shy;гую пе&shy;ре&shy;мен&shy;ную. Де&shy;ла&shy;ет это ров&shy;но в трех стро&shy;ках, пос&shy;ле че&shy;го точ&shy;но так&shy;же даль&shy;ше не ис&shy;поль&shy;зу&shy;ет&shy;ся и со&shy;би&shy;ра&shy;ет&shy;ся.</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
-<p>Эта таблица использования 13:55 называется Eager root collection. Помимо того, что локальные переменные определяются стеком потока, они дополнительно определяются этой таблицей, которая, на самом деле добавляет нам много проблем.</p>
+<p >
+Эта таб&shy;ли&shy;ца ис&shy;поль&shy;зо&shy;ва&shy;ния 13:55 на&shy;зы&shy;ва&shy;ет&shy;ся Eager root collection. По&shy;ми&shy;мо то&shy;го, что ло&shy;каль&shy;ные пе&shy;ре&shy;мен&shy;ные оп&shy;ре&shy;де&shy;ля&shy;ют&shy;ся сте&shy;ком по&shy;то&shy;ка, они до&shy;пол&shy;ни&shy;тель&shy;но оп&shy;ре&shy;де&shy;ля&shy;ют&shy;ся этой таб&shy;ли&shy;цей, ко&shy;то&shy;рая, на са&shy;мом де&shy;ле до&shy;бав&shy;ля&shy;ет нам мно&shy;го проб&shy;лем.</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
-<p>Какие именно проблемы? Вот такой код 14:21, очень простой. У нас есть таймер, который срабатывает каждые сто миллисекунд, выводя на экран текущие дату и время. Он запускается, работает и дальше у нас печатается &laquo;Hello&raquo;, GC.Collect() и ReadKey(). Если смотреть с точки зрения C#, то таймер используется во всем Main. Поведение в данном случае должно быть такое: напечатали &laquo;Hello&raquo;, дальше, пока пользователь не нажал кнопку, мы начинаем тикать на экран текущее время. Во втором варианте, когда у нас таймер используется только в одной строчке, вызывается GC.Collect(), GC должен понять, что после первой строчки таймер уже не нужен. И мы максимум одну строчку успеем увидеть, прежде, чем GC этот таймер соберет. А может быть и вообще не увидим. Суть в том, что поведение будет разным. Это было поведение debug режима и релиза.</p>
+<p >
+Ка&shy;кие имен&shy;но проб&shy;ле&shy;мы? Вот та&shy;кой код 14:21, очень прос&shy;той. У нас есть тай&shy;мер, ко&shy;то&shy;рый сра&shy;ба&shy;ты&shy;ва&shy;ет каж&shy;дые сто мил&shy;ли&shy;се&shy;кунд, вы&shy;во&shy;дя на эк&shy;ран те&shy;ку&shy;щие да&shy;ту и вре&shy;мя. Он за&shy;пус&shy;ка&shy;ет&shy;ся, ра&shy;бо&shy;та&shy;ет и даль&shy;ше у нас пе&shy;ча&shy;та&shy;ет&shy;ся &laquo;Hello&raquo;, GC.Collect() и ReadKey(). Если смот&shy;реть с точ&shy;ки зре&shy;ния C#, то тай&shy;мер ис&shy;поль&shy;зу&shy;ет&shy;ся во всем Main. По&shy;ве&shy;де&shy;ние в дан&shy;ном слу&shy;чае дол&shy;жно быть та&shy;кое: на&shy;пе&shy;ча&shy;та&shy;ли &laquo;Hello&raquo;, даль&shy;ше, по&shy;ка поль&shy;зо&shy;ва&shy;тель не на&shy;жал кноп&shy;ку, мы на&shy;чи&shy;на&shy;ем ти&shy;кать на эк&shy;ран те&shy;ку&shy;щее вре&shy;мя. Во вто&shy;ром ва&shy;ри&shy;ан&shy;те, ког&shy;да у нас тай&shy;мер ис&shy;поль&shy;зу&shy;ет&shy;ся толь&shy;ко в од&shy;ной строч&shy;ке, вы&shy;зы&shy;ва&shy;ет&shy;ся GC.Collect(), GC дол&shy;жен по&shy;нять, что пос&shy;ле пер&shy;вой строч&shy;ки тай&shy;мер уже не ну&shy;жен. И мы мак&shy;си&shy;мум од&shy;ну строч&shy;ку ус&shy;пе&shy;ем уви&shy;деть, преж&shy;де, чем GC этот тай&shy;мер со&shy;бе&shy;рет. А мо&shy;жет быть и во&shy;об&shy;ще не уви&shy;дим. Суть в том, что по&shy;ве&shy;де&shy;ние бу&shy;дет раз&shy;ным. Это бы&shy;ло по&shy;ве&shy;де&shy;ние debug ре&shy;жи&shy;ма и ре&shy;ли&shy;за.</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
-<p>То есть, когда мы в релизе, думаем что все отладили и все прекрасно, запускаем на сервер, а там такое поведение и сложно понять почему оно. Получается, что поведение на релизе и на debug режиме отличается. Об этом надо помнить. И это легко проверить.</p>
+<p >
+То есть, ког&shy;да мы в ре&shy;ли&shy;зе, ду&shy;ма&shy;ем что все от&shy;ла&shy;ди&shy;ли и все прек&shy;рас&shy;но, за&shy;пус&shy;ка&shy;ем на сер&shy;вер, а там та&shy;кое по&shy;ве&shy;де&shy;ние и слож&shy;но по&shy;нять по&shy;че&shy;му оно. По&shy;лу&shy;ча&shy;ет&shy;ся, что по&shy;ве&shy;де&shy;ние на ре&shy;ли&shy;зе и на debug ре&shy;жи&shy;ме от&shy;ли&shy;ча&shy;ет&shy;ся. Об этом на&shy;до пом&shy;нить. И это лег&shy;ко про&shy;ве&shy;рить.</p>
 <div class="paragraph-right-side">13</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
-<p>Еще один вариант такого поведения на слайде 17:12. У нас Main. Он создает экземпляр класса SomeClass, вызывает DoSomething и ждет пользователя. Дальше SomeClass, у него есть DoSomething, посреди которого срабатывает GC, делает WriteLine. И у него есть финализатор, в котором вызывается строчка финалайзера. Данный метод может быть заинлайнен. Метод Main короткий, ничего не делает и его можно оптимизировать и передвинуть наверх. При этом исчезнет scope переменной message. Scope переменной sc продлится либо до второй строчки, где DoSomething, либо до конца метода Main. Разница в том, что если DoSomething будет заинлайнен, то у него пропадет ссылка на текущий объект this.  Значит, пропадет и scope его использования. А значит GC, который вызвался посреди метода DoSomething может вызвать финализатор этого класса до того, как метод этого класса закончит работу. Такое тоже возможно.</p>
+<p >
+Еще один ва&shy;ри&shy;ант та&shy;ко&shy;го по&shy;ве&shy;де&shy;ния на слай&shy;де 17:12. У нас Main. Он соз&shy;да&shy;ет эк&shy;земп&shy;ляр клас&shy;са SomeClass, вы&shy;зы&shy;ва&shy;ет DoSomething и ждет поль&shy;зо&shy;ва&shy;те&shy;ля. Даль&shy;ше SomeClass, у не&shy;го есть DoSomething, пос&shy;ре&shy;ди ко&shy;то&shy;ро&shy;го сра&shy;ба&shy;ты&shy;ва&shy;ет GC, де&shy;ла&shy;ет WriteLine. И у не&shy;го есть фи&shy;на&shy;ли&shy;за&shy;тор, в ко&shy;то&shy;ром вы&shy;зы&shy;ва&shy;ет&shy;ся строч&shy;ка фи&shy;на&shy;лай&shy;зе&shy;ра. Дан&shy;ный ме&shy;тод мо&shy;жет быть за&shy;ин&shy;лай&shy;нен. Ме&shy;тод Main ко&shy;рот&shy;кий, ни&shy;че&shy;го не де&shy;ла&shy;ет и его мож&shy;но оп&shy;ти&shy;ми&shy;зи&shy;ро&shy;вать и пе&shy;ред&shy;ви&shy;нуть на&shy;верх. При этом ис&shy;чез&shy;нет scope пе&shy;ре&shy;мен&shy;ной message. Scope пе&shy;ре&shy;мен&shy;ной sc прод&shy;лит&shy;ся ли&shy;бо до вто&shy;рой строч&shy;ки, где DoSomething, ли&shy;бо до кон&shy;ца ме&shy;то&shy;да Main. Раз&shy;ни&shy;ца в том, что ес&shy;ли DoSomething бу&shy;дет за&shy;ин&shy;лай&shy;нен, то у не&shy;го про&shy;па&shy;дет ссыл&shy;ка на те&shy;ку&shy;щий объ&shy;ект this.  Зна&shy;чит, про&shy;па&shy;дет и scope его ис&shy;поль&shy;зо&shy;ва&shy;ния. А зна&shy;чит GC, ко&shy;то&shy;рый выз&shy;вал&shy;ся пос&shy;ре&shy;ди ме&shy;то&shy;да DoSomething мо&shy;жет выз&shy;вать фи&shy;на&shy;ли&shy;за&shy;тор это&shy;го клас&shy;са до то&shy;го, как ме&shy;тод это&shy;го клас&shy;са за&shy;кон&shy;чит ра&shy;бо&shy;ту. Та&shy;кое то&shy;же воз&shy;мож&shy;но.</p>
 <div class="paragraph-right-side">14</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
-<p>Первое - у нас есть сам класс. У него метод DoSomething, у него есть GC.Collect, есть Console.WriteLine и отсутсвует использование указателя this, потому что все это статическое, есть финализатор. И если посреди работы метода DoSomething, или  даже с использованием this, но GC сработал после последней точки его применения, тоже может быть ситуация, что финализатор вызовется до того, как этот метод завершит работу. Указатель на объект уже никому не нужен, а значит GC может совершенно спокойно экземпляр этого класса собрать. Выглядит страшно, но призываю не удивляться, если такое случиться.</p>
+<p >
+Пер&shy;вое - у нас есть сам класс. У не&shy;го ме&shy;тод DoSomething, у не&shy;го есть GC.Collect, есть Console.WriteLine и от&shy;сут&shy;сву&shy;ет ис&shy;поль&shy;зо&shy;ва&shy;ние ука&shy;за&shy;те&shy;ля this, по&shy;то&shy;му что все это ста&shy;ти&shy;чес&shy;кое, есть фи&shy;на&shy;ли&shy;за&shy;тор. И ес&shy;ли пос&shy;ре&shy;ди ра&shy;бо&shy;ты ме&shy;то&shy;да DoSomething, или  да&shy;же с ис&shy;поль&shy;зо&shy;ва&shy;ни&shy;ем this, но GC сра&shy;бо&shy;тал пос&shy;ле пос&shy;лед&shy;ней точ&shy;ки его при&shy;ме&shy;не&shy;ния, то&shy;же мо&shy;жет быть си&shy;ту&shy;а&shy;ция, что фи&shy;на&shy;ли&shy;за&shy;тор вы&shy;зо&shy;вет&shy;ся до то&shy;го, как этот ме&shy;тод за&shy;вер&shy;шит ра&shy;бо&shy;ту. Ука&shy;за&shy;тель на объ&shy;ект уже ни&shy;ко&shy;му не ну&shy;жен, а зна&shy;чит GC мо&shy;жет со&shy;вер&shy;шен&shy;но спо&shy;кой&shy;но эк&shy;земп&shy;ляр это&shy;го клас&shy;са соб&shy;рать. Выг&shy;ля&shy;дит страш&shy;но, но при&shy;зы&shy;ваю не удив&shy;лять&shy;ся, ес&shy;ли та&shy;кое слу&shy;чить&shy;ся.</p>
 <div class="paragraph-right-side">15</div>
 </div>
-<p>Scope переменных.</p>
+<p >
+Scope пе&shy;ре&shy;мен&shy;ных.</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
-<p>Как расширить scope переменных, чтобы таймер был в обоих случаях. Простейший способ расширить - это вызвать GC.KeepAlive(). На самом деле это пустой метод, смысл в том, чтобы продлить использование переменной, ничего не делая.  Сслыка на объект куда-то уходит и джиттер автоматически расширяет scope переменной до конца метода. Переменная ждет.</p>
+<p >
+Как рас&shy;ши&shy;рить scope пе&shy;ре&shy;мен&shy;ных, что&shy;бы тай&shy;мер был в обо&shy;их слу&shy;ча&shy;ях. Прос&shy;тей&shy;ший спо&shy;соб рас&shy;ши&shy;рить - это выз&shy;вать GC.KeepAlive(). На са&shy;мом де&shy;ле это пус&shy;той ме&shy;тод, смысл в том, что&shy;бы прод&shy;лить ис&shy;поль&shy;зо&shy;ва&shy;ние пе&shy;ре&shy;мен&shy;ной, ни&shy;че&shy;го не де&shy;лая.  Сслы&shy;ка на объ&shy;ект ку&shy;да-то ухо&shy;дит и джит&shy;тер ав&shy;то&shy;ма&shy;ти&shy;чес&shy;ки рас&shy;ши&shy;ря&shy;ет scope пе&shy;ре&shy;мен&shy;ной до кон&shy;ца ме&shy;то&shy;да. Пе&shy;ре&shy;мен&shy;ная ждет.</p>
 <div class="paragraph-right-side">16</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
-<p>Еще одни корни - это pinned locals. Ключевое слово fixed. Есть два варианта пиннинга. Пиннинг - вещь очень плохая. Мы об этом поговорим на фазе планирования. Если есть возможность обходить пиннинг, лучше это делать. Если такой возможности нет, то нужно воспользоваться ключевым словом fixed, которое реального пиннинга делать не будет. Если дизассемблировать этот код в msi, то мы заметим, что эти переменные, которые обозначены 22:24 byte* array = list, вот этот list пометится как pinned. То есть мы пинуем list, его адрес помещаем в array. Но list пинуется, но только тогда, когда внутри этого fixed 22:49 срабатывает GC, если он не срабатывает между этими двумя фигурными скобками, то реального пиннинга не будет. Будет только флаг для GC, что этот массив нужно запинить, если он вдруг начнет эту область проходить. Это отличная оптимизация. Получается, что в  Eager Roots  collection дополнительно ставится тоже флаг, то, что переменная является pinned. Но не только у него, а у регистров тоже и у всего, где по реальному коду память будет содержать исходящие ссылки, дополнительно этот флаг так ж ставиться. Если GC срабатывает внутри фигурных скобок, то он, обходя Eager Roots collection, понимает, какие области памяти необходимо запинить и делает это, на время своей работы. Как только GC отработал и отпустил потоки, он распинивает эти объекты.</p>
+<p >
+Еще од&shy;ни кор&shy;ни - это pinned locals. Клю&shy;че&shy;вое сло&shy;во fixed. Есть два ва&shy;ри&shy;ан&shy;та пин&shy;нин&shy;га. Пин&shy;нинг - вещь очень пло&shy;хая. Мы об этом по&shy;го&shy;во&shy;рим на фа&shy;зе пла&shy;ни&shy;ро&shy;ва&shy;ния. Если есть воз&shy;мож&shy;ность об&shy;хо&shy;дить пин&shy;нинг, луч&shy;ше это де&shy;лать. Если та&shy;кой воз&shy;мож&shy;нос&shy;ти нет, то нуж&shy;но вос&shy;поль&shy;зо&shy;вать&shy;ся клю&shy;че&shy;вым сло&shy;вом fixed, ко&shy;то&shy;рое ре&shy;ал&shy;ьного пин&shy;нин&shy;га де&shy;лать не бу&shy;дет. Если ди&shy;зас&shy;семб&shy;ли&shy;ро&shy;вать этот код в msi, то мы за&shy;ме&shy;тим, что эти пе&shy;ре&shy;мен&shy;ные, ко&shy;то&shy;рые обоз&shy;на&shy;че&shy;ны 22:24 byte* array = list, вот этот list по&shy;ме&shy;тит&shy;ся как pinned. То есть мы пи&shy;ну&shy;ем list, его ад&shy;рес по&shy;ме&shy;ща&shy;ем в array. Но list пи&shy;ну&shy;ет&shy;ся, но толь&shy;ко тог&shy;да, ког&shy;да внут&shy;ри это&shy;го fixed 22:49 сра&shy;ба&shy;ты&shy;ва&shy;ет GC, ес&shy;ли он не сра&shy;ба&shy;ты&shy;ва&shy;ет меж&shy;ду эти&shy;ми дву&shy;мя фи&shy;гур&shy;ны&shy;ми скоб&shy;ка&shy;ми, то ре&shy;ал&shy;ьного пин&shy;нин&shy;га не бу&shy;дет. Бу&shy;дет толь&shy;ко флаг для GC, что этот мас&shy;сив нуж&shy;но за&shy;пи&shy;нить, ес&shy;ли он вдруг нач&shy;нет эту об&shy;ласть про&shy;хо&shy;дить. Это от&shy;лич&shy;ная оп&shy;ти&shy;ми&shy;за&shy;ция. По&shy;лу&shy;ча&shy;ет&shy;ся, что в  Eager Roots  collection до&shy;пол&shy;ни&shy;тель&shy;но ста&shy;вит&shy;ся то&shy;же флаг, то, что пе&shy;ре&shy;мен&shy;ная яв&shy;ля&shy;ет&shy;ся pinned. Но не толь&shy;ко у не&shy;го, а у ре&shy;гист&shy;ров то&shy;же и у все&shy;го, где по ре&shy;ал&shy;ьному ко&shy;ду па&shy;мять бу&shy;дет со&shy;дер&shy;жать ис&shy;хо&shy;дя&shy;щие ссыл&shy;ки, до&shy;пол&shy;ни&shy;тель&shy;но этот флаг так ж ста&shy;вить&shy;ся. Если GC сра&shy;ба&shy;ты&shy;ва&shy;ет внут&shy;ри фи&shy;гур&shy;ных ско&shy;бок, то он, об&shy;хо&shy;дя Eager Roots collection, по&shy;ни&shy;ма&shy;ет, ка&shy;кие об&shy;лас&shy;ти па&shy;мя&shy;ти не&shy;об&shy;хо&shy;ди&shy;мо за&shy;пи&shy;нить и де&shy;ла&shy;ет это, на вре&shy;мя сво&shy;ей ра&shy;бо&shy;ты. Как толь&shy;ко GC от&shy;ра&shy;бо&shy;тал и от&shy;пус&shy;тил по&shy;то&shy;ки, он рас&shy;пи&shy;ни&shy;ва&shy;ет эти объ&shy;ек&shy;ты.</p>
 <div class="paragraph-right-side">17</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
-<p>Еще одна группа корней - это Finalization Roots. Если мы сделали финализатор, и финализируемый объект ушел в очередь на финализацию, то он является естественным образом рутом для обхода объектов. Иначе получится так, что если эти объекты еще на кого-то ссылаются, то они будут собраны GC. Чтобы этого не допустить, финализацию мы тоже обходим.</p>
+<p >
+Еще од&shy;на груп&shy;па кор&shy;ней - это Finalization Roots. Если мы сде&shy;ла&shy;ли фи&shy;на&shy;ли&shy;за&shy;тор, и фи&shy;на&shy;ли&shy;зи&shy;ру&shy;е&shy;мый объ&shy;ект ушел в оче&shy;редь на фи&shy;на&shy;ли&shy;за&shy;цию, то он яв&shy;ля&shy;ет&shy;ся ес&shy;тест&shy;вен&shy;ным об&shy;ра&shy;зом ру&shy;том для об&shy;хо&shy;да объ&shy;ек&shy;тов. Ина&shy;че по&shy;лу&shy;чит&shy;ся так, что ес&shy;ли эти объ&shy;ек&shy;ты еще на ко&shy;го-то ссы&shy;ла&shy;ют&shy;ся, то они бу&shy;дут соб&shy;ра&shy;ны GC. Что&shy;бы это&shy;го не до&shy;пус&shy;тить, фи&shy;на&shy;ли&shy;за&shy;цию мы то&shy;же об&shy;хо&shy;дим.</p>
 <div class="paragraph-right-side">18</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
-<p>GC Internal Roots. Для обхода графа объектов используется карточный стол. Таблица маркировки старшего поколения, что есть ссылка на младшее. То есть корнями так же является карточный стол. Это причина, по которой лучше группировать места ссылок на более младшее поколение вместе. Поскольку весь карточный стол является корнем, то фаза маркировки будет проходить дольше, если на карточном столе будет много ненулевых значений. Когда мы его просматриваем в поисках ненулевых значений. Если нашли такое, то объект текущего поколения ссылается на более младшее. Мы трактуем ссылку как корень и тоже обходим.</p>
+<p >
+GC Internal Roots. Для об&shy;хо&shy;да гра&shy;фа объ&shy;ек&shy;тов ис&shy;поль&shy;зу&shy;ет&shy;ся кар&shy;точ&shy;ный стол. Таб&shy;ли&shy;ца мар&shy;ки&shy;ров&shy;ки стар&shy;ше&shy;го по&shy;ко&shy;ле&shy;ния, что есть ссыл&shy;ка на млад&shy;шее. То есть кор&shy;ня&shy;ми так же яв&shy;ля&shy;ет&shy;ся кар&shy;точ&shy;ный стол. Это при&shy;чи&shy;на, по ко&shy;то&shy;рой луч&shy;ше груп&shy;пи&shy;ро&shy;вать мес&shy;та ссы&shy;лок на бо&shy;лее млад&shy;шее по&shy;ко&shy;ле&shy;ние вмес&shy;те. Пос&shy;коль&shy;ку весь кар&shy;точ&shy;ный стол яв&shy;ля&shy;ет&shy;ся кор&shy;нем, то фа&shy;за мар&shy;ки&shy;ров&shy;ки бу&shy;дет про&shy;хо&shy;дить доль&shy;ше, ес&shy;ли на кар&shy;точ&shy;ном сто&shy;ле бу&shy;дет мно&shy;го не&shy;ну&shy;ле&shy;вых зна&shy;че&shy;ний. Ког&shy;да мы его прос&shy;мат&shy;ри&shy;ва&shy;ем в по&shy;ис&shy;ках не&shy;ну&shy;ле&shy;вых зна&shy;че&shy;ний. Если наш&shy;ли та&shy;кое, то объ&shy;ект те&shy;ку&shy;ще&shy;го по&shy;ко&shy;ле&shy;ния ссы&shy;ла&shy;ет&shy;ся на бо&shy;лее млад&shy;шее. Мы трак&shy;ту&shy;ем ссыл&shy;ку как ко&shy;рень и то&shy;же об&shy;хо&shy;дим.</p>
 <div class="paragraph-right-side">19</div>
 </div>
-<p>GC Handle Roots</p>
+<p >
+GC Handle Roots</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
-<p>Последняя группа корней - это внутренние корни, в том числе таблицы handle. Внутреннике корни - это статики. Массивы статических полей всех классов - это ссылка изнутри app domain. Тут же есть ссылка на таблицу handle. Они делятся на бакеты. Бакеты группируются по принципу типа GC handdle, их может быть много. Есть GC handle с weak reference, есть com-вские, есть запинованные - всех не перечислить. Соответственно, все они могут ссылаться уже куда угодно - SOH, LOH. И эта таблица также является и таблицей корней.</p>
+<p >
+Пос&shy;лед&shy;няя груп&shy;па кор&shy;ней - это внут&shy;рен&shy;ние кор&shy;ни, в том чис&shy;ле таб&shy;ли&shy;цы handle. Внут&shy;рен&shy;ни&shy;ке кор&shy;ни - это ста&shy;ти&shy;ки. Мас&shy;си&shy;вы ста&shy;ти&shy;чес&shy;ких по&shy;лей всех клас&shy;сов - это ссыл&shy;ка из&shy;нут&shy;ри app domain. Тут же есть ссыл&shy;ка на таб&shy;ли&shy;цу handle. Они де&shy;лят&shy;ся на ба&shy;ке&shy;ты. Ба&shy;ке&shy;ты груп&shy;пи&shy;ру&shy;ют&shy;ся по прин&shy;ци&shy;пу ти&shy;па GC handdle, их мо&shy;жет быть мно&shy;го. Есть GC handle с weak reference, есть com-вские, есть за&shy;пи&shy;но&shy;ван&shy;ные - всех не пе&shy;ре&shy;чис&shy;лить. Со&shy;от&shy;ветст&shy;венно, все они мо&shy;гут ссы&shy;лать&shy;ся уже ку&shy;да угод&shy;но - SOH, LOH. И эта таб&shy;ли&shy;ца так&shy;же яв&shy;ля&shy;ет&shy;ся и таб&shy;ли&shy;цей кор&shy;ней.</p>
 <div class="paragraph-right-side">20</div>
 </div>
-<p>Если совсем далеко не уходить, то это все. Какие можно сделать выводы?</p>
+<p >
+Если сов&shy;сем да&shy;ле&shy;ко не ухо&shy;дить, то это все. Ка&shy;кие мож&shy;но сде&shy;лать вы&shy;во&shy;ды?</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
-<p>Во-первых, не стоит делать много разных GC handle-ов. При их появлении создается дополнительная нагрузка на GC: структура handle-ов является боковой для графа объектов. Чтобы правильно все сделать GC вынужден лезть в таблицу handle, пробегать ее, перемаркировывать объекты, чтобы потом, на фазе планирования, правильно с этими объектами поступить.</p>
+<p >
+Во-пер&shy;вых, не сто&shy;ит де&shy;лать мно&shy;го раз&shy;ных GC handle-ов. При их по&shy;яв&shy;ле&shy;нии соз&shy;да&shy;ет&shy;ся до&shy;пол&shy;ни&shy;тель&shy;ная наг&shy;руз&shy;ка на GC: струк&shy;ту&shy;ра handle-ов яв&shy;ля&shy;ет&shy;ся бо&shy;ко&shy;вой для гра&shy;фа объ&shy;ек&shy;тов. Что&shy;бы пра&shy;виль&shy;но все сде&shy;лать GC вы&shy;нуж&shy;ден лезть в таб&shy;ли&shy;цу handle, про&shy;бе&shy;гать ее, пе&shy;ре&shy;мар&shy;ки&shy;ро&shy;вы&shy;вать объ&shy;ек&shy;ты, что&shy;бы по&shy;том, на фа&shy;зе пла&shy;ни&shy;ро&shy;ва&shy;ния, пра&shy;виль&shy;но с эти&shy;ми объ&shy;ек&shy;та&shy;ми пос&shy;ту&shy;пить.</p>
 <div class="paragraph-right-side">21</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
-<p>Есть проблема и с карточным столом. Статики в целом - их не надо много делать. Это места, которые вечно держат все. А насчет пиннинга мы поговорим далее, так как при стадии планирования пиннинг играет важную роль. Нет таких сценариев, когда мы просто так используем пиннинг по принуждению, но то, что использовать надо с ключевым словом fixed мы точно запомним. Ну и начнем лучше проходить собеседования.</p>
+<p >
+Есть проб&shy;ле&shy;ма и с кар&shy;точ&shy;ным сто&shy;лом. Ста&shy;ти&shy;ки в це&shy;лом - их не на&shy;до мно&shy;го де&shy;лать. Это мес&shy;та, ко&shy;то&shy;рые веч&shy;но дер&shy;жат все. А нас&shy;чет пин&shy;нин&shy;га мы по&shy;го&shy;во&shy;рим да&shy;лее, так как при ста&shy;дии пла&shy;ни&shy;ро&shy;ва&shy;ния пин&shy;нинг иг&shy;ра&shy;ет важ&shy;ную роль. Нет та&shy;ких сце&shy;на&shy;ри&shy;ев, ког&shy;да мы прос&shy;то так ис&shy;поль&shy;зу&shy;ем пин&shy;нинг по при&shy;нуж&shy;де&shy;нию, но то, что ис&shy;поль&shy;зо&shy;вать на&shy;до с клю&shy;че&shy;вым сло&shy;вом fixed мы точ&shy;но за&shy;пом&shy;ним. Ну и нач&shy;нем луч&shy;ше про&shy;хо&shy;дить со&shy;бе&shy;се&shy;до&shy;ва&shy;ния.</p>
 <div class="paragraph-right-side">22</div>
 </div>
 

@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>.NET Platform Architecture</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.NET Platform Architecture</title>
 </head>
 <body>
     <link rel="stylesheet" href="../../res/bootstrap.css">
@@ -57,27 +57,28 @@ strong {
 }
 
 p, li {
-    margin: 0 0 25px;
-    line-height: 32px;
+    margin: 0 0 1em;
+    line-height: 1.5em;
     font-family: inherit;
 }
 
 ol, li {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 ol {
-    padding-left: 1.2rem;
+    padding-left: 1.21em;
 }
 
 ul  {
-    padding-left: 35px;
+    padding-left: 1em;
 }
 
 ol li, ul li {
-    padding-left: 1rem;	
+    padding-left: 0.5em;	
     font-family: inherit;
+    text-align: justify;
 }
 
 table {
@@ -108,6 +109,7 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 *[class*='lang-'] {
     padding: 0px 0px 25px 0px;
+    font-size: 0.75em;
 }
 
 
@@ -126,11 +128,11 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 }
 
 p code:not(.highlight), li code:not(.highlight) {
-    font-size: 16px;
+    font-size: 0.7em;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
-    padding: 4px;
+    padding: 3px;
     color: darkslateblue;
 }
 
@@ -148,11 +150,6 @@ p code.highlight, li code.highlight {
 
 .wide {
     width:150%;
-}
-
-*[class*='lang-'] span, *[class*='lang-'] pre, pre > code {
-    font-size: 13px;
-    line-height: 20px;
 }
 
 p a, li a {
@@ -179,9 +176,9 @@ p img {
 
 blockquote 
 {
-    background-color: lavenderblush;
-    padding-left: 20px;
-    border-left: 1px solid rgba(0,0,0,.08);
+    padding-left: 0.4em;
+    border-left: 0.5em solid rgba(0,0,0,.08);
+    font-style: italic;
 }
 
 blockquote.big-quote, 
@@ -199,8 +196,7 @@ blockquote.breadcrumbs, blockquote.breadcrumbs  p
 }
 
 blockquote p {
-    margin: 16px 0;
-    padding: 12px 12px 13px;
+    padding: 1em 1em 1em 0.6em;
     font-family: inherit;
 }
 
@@ -210,11 +206,14 @@ blockquote p code {
     padding: 4px 6px;
 }
 
+blockquote p em {
+    font-weight: 400;
+}
+
 blockquote.big-quote > p {
     margin: 40px 0 60px 0;
     font-family: Charter;
     font-size: 55px;
-    line-height: 60px;
     padding: 0;
     width: 150%;
 }
@@ -227,31 +226,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 40px;
-    font-family: PF Regal,Georgia,serif;
+    font-size: 2.2em;
+    font-family: Charter,Georgia,serif;
     font-weight: 300;
-    margin: 40px 0 20px 0;
-    border-bottom-style: ridge;
-    padding-bottom: 10px;
-}
-
-h1 b {
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-weight: 700;
-    font-size: 37px;
-    line-height: 42px;
+    margin: 1.8em 0 1.8em 0;
+    text-align: center;
 }
 
 h2 {
-    margin-top: 35px;
-    margin-bottom: 10px;
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-    border-bottom-color: grey;
-    border-bottom-style: solid;
-    padding-bottom: 5px;
+    margin-top: 2em;
+    margin-left: 1.2em;
+    font-family: Charter,Arial,Helvetica Neue,sans-serif;
+    font-size: 1.25em;
+    width: 70%;
 }
 
 h3 {
@@ -293,27 +280,23 @@ h4 {
     line-height: 24px;
     font-size: 13pt;
     margin: 0 0 13px 0;
-    font-family: Charter;
-}
-
-.side-regular-block {
-    border-radius: 5px;
-    background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
-    padding: 22px;
 }
 
 .side-regular-block p {
     top: 0;
 }
-/* Music side player */
 
+/* Music side player */
 .aside-side-container .music-player {
     width: 100%;
     height: 400px;
 }
 
-.aside-side-container.side-media-block h2 {
-    margin-top: -12px;
+/* media block after h1 */
+.aside-container h1 + .aside-side-container.side-media-block h2 {
+    margin: 7em 0 1em 0;
+    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
+    font-weight: 600;
 }
 
 .aside-side-container > li {
@@ -323,8 +306,8 @@ h4 {
 
 .aside-side-container > li ul, .aside-side-container > li ol {
     padding-left: 30px;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 .aside-side-container > li li {
     padding-left: 6px;
@@ -353,6 +336,12 @@ h4 {
     position: relative;
     top: 9px;
 }
+
+.paragraph-container p, .aside-container > p {
+    text-align: justify;
+    text-indent: 1.5em;
+}
+
 .paragraph-container > .paragraph-left-side, .paragraph-container > .paragraph-right-side  {
     font-family: JB Mono, consolas;
     display: block;
@@ -364,12 +353,14 @@ h4 {
     z-index: 1000;
 }
 .paragraph-container > .paragraph-left-side {
-    left: -55px;
+    display: none;
+    left: -2.1cm;
     width: 35px;
     user-select: none;
 }
 
 .paragraph-container > .paragraph-right-side  {
+    display: none;
     left: 100%;
     width: 35px;
     padding-left: 45px;
@@ -400,8 +391,8 @@ h4 {
 
 
 /* MEDIA */
-/* XL */
-@media (min-width: 1400px) {
+/* XXL */
+@media (min-width: 1801px) {
     .book-container
     {
         max-width: 1200px;
@@ -410,12 +401,21 @@ h4 {
     }
 }
 
+/* XL */
+@media (max-width: 1800px) {
+    .book-container
+    {
+        margin-left: 4cm;
+        margin-right: 4cm;
+    }
+}
+
 /* LG */
 @media (max-width: 1400px) {
     .book-container
     {
-        margin-left: 70px;
-        margin-right: 70px;
+        margin-left: 4cm;
+        margin-right: 4cm;
     }
 
     blockquote.big-quote > p {
@@ -425,14 +425,23 @@ h4 {
         margin: 0;
         padding: 4px 0 30px 0;
     }
+}
 
-    .paragraph-container .paragraph-left-side {
-        left: -40px;
-    }
+@media (max-width: 1100px) {
 }
 
 /* MD */
 @media (max-width: 991px) {
+    
+    h2 {
+        width:80%;
+    }
+
+    .book-container
+    {
+        margin-left: 3cm;
+        margin-right: 3cm;
+    }
     
     .book-title-container {
         margin: 73px 0 110px 0;
@@ -453,26 +462,21 @@ h4 {
 
     .book-superheading-title {
         font-size: 15pt;
-    }
-    .book-container {
-        margin: 0 100px;
-    }
+    }                                     
     .article-container {
         width: 100%;
-    }
-    .aside-container > .aside-side-container
-    {
-        position: relative;
-        top: auto;
-        left: auto;
-        width: auto;
-        height: auto;
-        margin: 0;
-        padding: 17px;
     }
 
     .aside-container p {
         top: 0;
+    }
+
+    .aside-container h1 + .aside-side-container.side-media-block h2 {
+        display: none;
+    }
+
+    .wide {
+        width: 100%;     
     }
 
     .side-regular-block {
@@ -490,6 +494,17 @@ h4 {
         margin-top: 20px;
         font-size: 13pt;
         border: none;
+    }
+
+    .aside-container > .aside-side-container
+    {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 17px;
     }
 
     blockquote.big-quote > p {
@@ -519,6 +534,12 @@ h4 {
     li {
         margin: 0 0 10px 0;
     }
+
+    .side-regular-block {
+        border-radius: 5px;
+        background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
+        padding: 22px;
+    }    
 }
 
 /* Smartphone horizontal - SM */
@@ -545,7 +566,7 @@ h4 {
     }
 
     .book-container {
-        margin: 0 50px;
+        margin: 0 2.5cm;
     }
     ul {
         margin-left: 30px;
@@ -553,14 +574,29 @@ h4 {
         padding-left: 25px;
     }
     .paragraph-container > .paragraph-left-side {
-        top: 15px;
+	display: block;
+        top: 14px;
+        font-size: 9pt;
     }
     .paragraph-container > .paragraph-right-side {
-        padding-left: 20px;
-        top: 15px;
+	display: block;
+        padding-left: 40px;
+        top: 14px;
+        font-size: 9pt;
     }
 }
 
+@media (max-width: 630px) {
+    .book-container {
+        margin: 0 1.5cm;
+    }
+    .paragraph-container > .paragraph-left-side {
+        left: -33px;
+    }
+    .paragraph-container > .paragraph-right-side {
+        padding-left: 24px;
+    }
+}
 /* Smartphone - XS */
 @media (max-width: 575px) {
     .book-container {
@@ -581,15 +617,14 @@ h4 {
     }
    
     p, li {
-        line-height: 28px;
+        line-height: 24px;
     }    
     .paragraph-container .paragraph-left-side {
-        display: none;
-        top: 14px;
-    }
+        display: none;        }
     .paragraph-container .paragraph-right-side {
-        padding-left: 10px;
+        padding-left: 21px;
         top: 14px;
+	font-size: 8pt;
     }
 }
 
@@ -828,99 +863,118 @@ h4 {
     <p class="d-none d-sm-block d-md-none">MD</p>
     <p class="d-none d-lg-block d-xl-none">LG</p>
     <p class="d-none d-xl-block">XL</p> -->
-    <h1 id="section">Управление памятью</h1>
-<div class="aside-container"><h2 id="section-1">Пара слов перед стартом</h2>
+    <div class="aside-container"><h1 id="section" class="wide">Управление памятью</h1>
 <div class="aside-side-container side-media-block">
-<h2 id="section-2">Аудиокнига</h2>
-<p><iframe src="https://music.yandex.ru/iframe/#album/9613103" width="400px" height="102px" class="music-player" frameborder="0"></iframe></p>
+<h2 id="section-1">Аудиокнига</h2>
+<p >
+<iframe src="https://music.yandex.ru/iframe/#album/9613103" width="400px" height="102px" class="music-player" frameborder="0"></iframe></p>
 </div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p>Когда я разговаривал с различными людьми и рассказывал, как работает Garbage Collector (для меня по началу это было большим и странным увлечением), то весь рассказ умещался максимум минут на 15. После чего, мне задавали один вопрос: «а зачем это знать? Ведь работает как-то и работает». После чего в голове начиналась путаница: с одной стороны я понимал, что они в большинстве случаев правы. И рассказывал про то самое меньшинство случаев, где эти знания прекрасно себя чувствуют и используются. Но поскольку таких случаев было всё-таки меньшинство, в глазах собеседника оставалось некоторое чувство недоверия.</p>
+<p >
+Ког&shy;да я раз&shy;го&shy;ва&shy;ри&shy;вал с раз&shy;лич&shy;ны&shy;ми людь&shy;ми и расс&shy;ка&shy;зы&shy;вал, как ра&shy;бо&shy;та&shy;ет Garbage Collector (для ме&shy;ня по на&shy;ча&shy;лу это бы&shy;ло боль&shy;шим и стран&shy;ным ув&shy;ле&shy;че&shy;ни&shy;ем), то весь расс&shy;каз уме&shy;щал&shy;ся мак&shy;си&shy;мум ми&shy;нут на 15. Пос&shy;ле че&shy;го, мне за&shy;да&shy;ва&shy;ли один воп&shy;рос: «а за&shy;чем это знать? Ведь ра&shy;бо&shy;та&shy;ет как-то и ра&shy;бо&shy;та&shy;ет». Пос&shy;ле че&shy;го в го&shy;ло&shy;ве на&shy;чи&shy;на&shy;лась пу&shy;та&shy;ни&shy;ца: с од&shy;ной сто&shy;ро&shy;ны я по&shy;ни&shy;мал, что они в боль&shy;шинстве слу&shy;ча&shy;ев пра&shy;вы. И расс&shy;ка&shy;зы&shy;вал про то са&shy;мое мень&shy;шинство слу&shy;ча&shy;ев, где эти зна&shy;ния прек&shy;рас&shy;но се&shy;бя чув&shy;ствуют и ис&shy;поль&shy;зу&shy;ют&shy;ся. Но пос&shy;коль&shy;ку та&shy;ких слу&shy;ча&shy;ев бы&shy;ло всё-та&shy;ки мень&shy;шинство, в гла&shy;зах со&shy;бе&shy;сед&shy;ни&shy;ка ос&shy;та&shy;ва&shy;лось не&shy;ко&shy;то&shy;рое чувство не&shy;до&shy;ве&shy;рия.</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p>На уровне тех знаний, которые нам давали раньше в немногочисленных источниках, люди, которых собеседуют на позицию разработчика обычно говорят: есть три поколения, пара хипов больших и малых объектов. Еще максимум можно услышать  &mdash;  про наличие неких сегментов и таблицы карт. Но обычно дальше поколений и хипов люди не уходят. И все почему? Ведь <strong>вовсе не потому</strong>, что чего-то не знают, а потому, что действительно <strong>не понятно, зачем это знать</strong>. Ведь та информация, которая нам давалась, выглядела как рекламный буклет к чему-то большому и закрытому. Ну знаем мы про три поколения, ну и что?.. Всё это, согласитесь, какое-то эфемерное.</p>
+<p >
+На уров&shy;не тех зна&shy;ний, ко&shy;то&shy;рые нам да&shy;ва&shy;ли рань&shy;ше в нем&shy;но&shy;го&shy;чис&shy;лен&shy;ных ис&shy;точ&shy;ни&shy;ках, лю&shy;ди, ко&shy;то&shy;рых со&shy;бе&shy;се&shy;ду&shy;ют на по&shy;зи&shy;цию раз&shy;ра&shy;бот&shy;чи&shy;ка обыч&shy;но го&shy;во&shy;рят: есть три по&shy;ко&shy;ле&shy;ния, па&shy;ра хи&shy;пов боль&shy;ших и ма&shy;лых объ&shy;ек&shy;тов. Еще мак&shy;си&shy;мум мож&shy;но ус&shy;лы&shy;шать  &mdash;  про на&shy;ли&shy;чие не&shy;ких сег&shy;мен&shy;тов и таб&shy;ли&shy;цы карт. Но обыч&shy;но даль&shy;ше по&shy;ко&shy;ле&shy;ний и хи&shy;пов лю&shy;ди не ухо&shy;дят. И все по&shy;че&shy;му? Ведь <strong>вовсе не потому</strong>, что че&shy;го-то не зна&shy;ют, а по&shy;то&shy;му, что дейс&shy;твит&shy;ельно <strong>не понятно, зачем это знать</strong>. Ведь та ин&shy;фор&shy;ма&shy;ция, ко&shy;то&shy;рая нам да&shy;ва&shy;лась, выг&shy;ля&shy;де&shy;ла как рек&shy;лам&shy;ный бук&shy;лет к че&shy;му-то боль&shy;шо&shy;му и зак&shy;ры&shy;то&shy;му. Ну зна&shy;ем мы про три по&shy;ко&shy;ле&shy;ния, ну и что?.. Всё это, сог&shy;ла&shy;си&shy;тесь, ка&shy;кое-то эфе&shy;мер&shy;ное.</p>
 <div class="paragraph-right-side">02</div>
 </div>
-<div class="aside-container"><p>Сейчас же, когда Microsoft открыли исходники, я ожидал нескольких бенефитов от этого. Первый бенефит  &mdash;  это то, что сообщество накинется и начнет какие-то баги исправлять. И оно накинулось! И исправило все грамматические ошибки в комментариях. Много запятых исправлено и опечаток. Иногда даже написано, что, например, свойство <code>IsEnabled</code> возвращает признак того, что что-то включено. Можно даже подать на членство в .NET Foundation, опираясь на множество вот таких вот комментариев (и, понятное дело, не получить). Сейчас же можно: дорога открыта для граммар-наци. Второй бенефит, который ожидался  &mdash;  это предложение нового и полезного функционала в готовом виде. Этот бенефит, насколько я знаю, время от времени также срабатывает, но это очень редкие кейсы. Например, один разработчик очень ускорил получение символа по индексу в строке. Как выяснилось, ранее это работало не очень эффективно.</p>
+<div class="aside-container">
+<p >
+Сей&shy;час же, ког&shy;да Microsoft от&shy;кры&shy;ли ис&shy;ход&shy;ни&shy;ки, я ожи&shy;дал нес&shy;коль&shy;ких бе&shy;не&shy;фи&shy;тов от это&shy;го. Пер&shy;вый бе&shy;не&shy;фит  &mdash;  это то, что со&shy;об&shy;щес&shy;тво на&shy;ки&shy;нет&shy;ся и нач&shy;нет ка&shy;кие-то ба&shy;ги ис&shy;прав&shy;лять. И оно на&shy;ки&shy;ну&shy;лось! И ис&shy;пра&shy;ви&shy;ло все грам&shy;ма&shy;ти&shy;чес&shy;кие ошиб&shy;ки в ком&shy;мен&shy;та&shy;ри&shy;ях. Мно&shy;го за&shy;пя&shy;тых ис&shy;прав&shy;ле&shy;но и опе&shy;ча&shy;ток. Иног&shy;да да&shy;же на&shy;пи&shy;са&shy;но, что, нап&shy;ри&shy;мер, свой&shy;ство <code>IsEnabled</code> возв&shy;ра&shy;ща&shy;ет приз&shy;нак то&shy;го, что что-то вклю&shy;че&shy;но. Мож&shy;но да&shy;же по&shy;дать на член&shy;ство в .NET Foundation, опи&shy;ра&shy;ясь на мно&shy;жес&shy;тво вот та&shy;ких вот ком&shy;мен&shy;та&shy;ри&shy;ев (и, по&shy;нят&shy;ное де&shy;ло, не по&shy;лу&shy;чить). Сей&shy;час же мож&shy;но: до&shy;ро&shy;га от&shy;кры&shy;та для грам&shy;мар-на&shy;ци. Вто&shy;рой бе&shy;не&shy;фит, ко&shy;то&shy;рый ожи&shy;дал&shy;ся  &mdash;  это пред&shy;ло&shy;же&shy;ние но&shy;во&shy;го и по&shy;лез&shy;но&shy;го фун&shy;кци&shy;о&shy;на&shy;ла в го&shy;то&shy;вом ви&shy;де. Этот бе&shy;не&shy;фит, нас&shy;коль&shy;ко я знаю, вре&shy;мя от вре&shy;ме&shy;ни так&shy;же сра&shy;ба&shy;ты&shy;ва&shy;ет, но это очень ред&shy;кие кей&shy;сы. Нап&shy;ри&shy;мер, один раз&shy;ра&shy;бот&shy;чик очень ус&shy;ко&shy;рил по&shy;лу&shy;че&shy;ние сим&shy;во&shy;ла по ин&shy;дек&shy;су в стро&shy;ке. Как вы&shy;яс&shy;ни&shy;лось, ра&shy;нее это ра&shy;бо&shy;та&shy;ло не очень эф&shy;фек&shy;тив&shy;но.</p>
 <div class="aside-side-container side-regular-block">
-<p>Членство в .NET Foundation сейчас зарабатывается плотной работой и интересными коммитами. Хорошее дело можно затеять, обратившись в код компилятора методов (JIT) и оптимизировать какой-либо пользовательский случай. Например, автоматическая векторизация каких-то расчётов.</p>
+<p >
+Член&shy;ство в .NET Foundation сей&shy;час за&shy;ра&shy;ба&shy;ты&shy;ва&shy;ет&shy;ся плот&shy;ной ра&shy;бо&shy;той и ин&shy;те&shy;рес&shy;ны&shy;ми ком&shy;ми&shy;та&shy;ми. Хо&shy;ро&shy;шее де&shy;ло мож&shy;но за&shy;те&shy;ять, об&shy;ра&shy;тив&shy;шись в код ком&shy;пи&shy;ля&shy;то&shy;ра ме&shy;то&shy;дов (JIT) и оп&shy;ти&shy;ми&shy;зи&shy;ро&shy;вать ка&shy;кой-ли&shy;бо поль&shy;зо&shy;ва&shy;т&shy;ельский слу&shy;чай. Нап&shy;ри&shy;мер, ав&shy;то&shy;ма&shy;ти&shy;чес&shy;кая век&shy;то&shy;ри&shy;за&shy;ция ка&shy;ких-то расчётов.</p>
 </div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p>Наш рассказ про менеджмент памяти будет идти от общего к частному. Т.е. для начала мы посмотрим на алгоритмы с высоты птичьего полёта не сильно вдаваясь в подробности. Ведь если мы начнем сразу с подробностей, придётся делать отсылки к будущим главам, а оттуда  &mdash;  обратно в ранние главы. Это крайне не удобно как для написания, так и в чтении. Напротив: сделав вводную мы поймем все основы. А потом  &mdash;  начнем погружаться в детали.</p>
+<p >
+Наш расс&shy;каз про ме&shy;недж&shy;мент па&shy;мя&shy;ти бу&shy;дет ид&shy;ти от об&shy;ще&shy;го к част&shy;но&shy;му. Т.е. для на&shy;ча&shy;ла мы пос&shy;мот&shy;рим на ал&shy;го&shy;рит&shy;мы с вы&shy;со&shy;ты птич&shy;ьего полёта не силь&shy;но вда&shy;ва&shy;ясь в под&shy;роб&shy;нос&shy;ти. Ведь ес&shy;ли мы нач&shy;нем сра&shy;зу с под&shy;роб&shy;нос&shy;тей, придётся де&shy;лать от&shy;сыл&shy;ки к бу&shy;ду&shy;щим гла&shy;вам, а от&shy;ту&shy;да  &mdash;  об&shy;рат&shy;но в ран&shy;ние гла&shy;вы. Это край&shy;не не удоб&shy;но как для на&shy;пи&shy;са&shy;ния, так и в чте&shy;нии. Нап&shy;ро&shy;тив: сде&shy;лав ввод&shy;ную мы пой&shy;мем все ос&shy;но&shy;вы. А по&shy;том  &mdash;  нач&shy;нем пог&shy;ру&shy;жать&shy;ся в де&shy;та&shy;ли.</p>
 <div class="paragraph-right-side">03</div>
 </div>
-<h2 id="section-3">Введение в управление памятью</h2>
+<h2 id="section-2">Введение в управление памятью</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p>Мы пишем разные программы: консольные, сервисы, web-сервисы и другие. Все они работают примерно одинаково. Но есть очень важное отличие  &mdash;  это стиль работы с памятью. Консольные приложения, скорее всего, работают в рамках базовой, выделенной при старте приложения, памяти. Такое приложение всю или частично ее использует и больше ничего не запросит: запустилось и вышло. Иногда речь идет о сервисах, которые долго работают, перерабатывают память постоянно. И делают это не по изолированным запросам, в отличие от сервисов ASP.NET и WCF (которые мы вызвали, из базы что-то достали и забыли). А именно как какой-то расчётный сервис: есть поток данных на вход, с которыми сервис работает и так может работать очень долго, выделяя и освобождая память. И это уже совершенно другой стиль расхода памяти: ведь в этом случае память необходимо контролировать, смотреть как она расходуется, течет или не течет.</p>
+<p >
+Мы пи&shy;шем раз&shy;ные прог&shy;рам&shy;мы: кон&shy;соль&shy;ные, сер&shy;ви&shy;сы, web-сер&shy;ви&shy;сы и дру&shy;гие. Все они ра&shy;бо&shy;та&shy;ют при&shy;мер&shy;но оди&shy;на&shy;ко&shy;во. Но есть очень важ&shy;ное от&shy;ли&shy;чие  &mdash;  это стиль ра&shy;бо&shy;ты с па&shy;мятью. Кон&shy;соль&shy;ные при&shy;ло&shy;же&shy;ния, ско&shy;рее все&shy;го, ра&shy;бо&shy;та&shy;ют в рам&shy;ках ба&shy;зо&shy;вой, вы&shy;де&shy;лен&shy;ной при стар&shy;те при&shy;ло&shy;же&shy;ния, па&shy;мя&shy;ти. Та&shy;кое при&shy;ло&shy;же&shy;ние всю или час&shy;тич&shy;но ее ис&shy;поль&shy;зу&shy;ет и боль&shy;ше ни&shy;че&shy;го не зап&shy;ро&shy;сит: за&shy;пус&shy;ти&shy;лось и выш&shy;ло. Иног&shy;да речь идет о сер&shy;ви&shy;сах, ко&shy;то&shy;рые дол&shy;го ра&shy;бо&shy;та&shy;ют, пе&shy;ре&shy;ра&shy;ба&shy;ты&shy;ва&shy;ют па&shy;мять пос&shy;то&shy;ян&shy;но. И де&shy;ла&shy;ют это не по изо&shy;ли&shy;ро&shy;ван&shy;ным зап&shy;ро&shy;сам, в от&shy;ли&shy;чие от сер&shy;ви&shy;сов ASP.NET и WCF (ко&shy;то&shy;рые мы выз&shy;ва&shy;ли, из ба&shy;зы что-то дос&shy;та&shy;ли и за&shy;бы&shy;ли). А имен&shy;но как ка&shy;кой-то расчётный сер&shy;вис: есть по&shy;ток дан&shy;ных на вход, с ко&shy;то&shy;ры&shy;ми сер&shy;вис ра&shy;бо&shy;та&shy;ет и так мо&shy;жет ра&shy;бо&shy;тать очень дол&shy;го, вы&shy;де&shy;ляя и ос&shy;во&shy;бож&shy;дая па&shy;мять. И это уже со&shy;вер&shy;шен&shy;но дру&shy;гой стиль рас&shy;хо&shy;да па&shy;мя&shy;ти: ведь в этом слу&shy;чае па&shy;мять не&shy;об&shy;хо&shy;ди&shy;мо конт&shy;ро&shy;ли&shy;ро&shy;вать, смот&shy;реть как она рас&shy;хо&shy;ду&shy;ет&shy;ся, те&shy;чет или не те&shy;чет.</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p>А если это ASP.NET, то это уже третий способ управления памятью. Надо понимать, что нас вызвал внешний код, мы отработаем достаточно быстро и исчезнем. Отсюда, если мы во время запроса выделяем некоторую память, можно сделать всё так, чтобы не волноваться по поводу её освобождения: ведь метод завершит свою работу и все объекты потеряют свои корни: локальные переменные метода, обрабатывающего запрос. Но и расточительством заниматься не стоит: при высокой нагрузке вы получите траффик объектов. Возможно, часть объектов стоит сделать структурами?</p>
+<p >
+А ес&shy;ли это ASP.NET, то это уже тре&shy;тий спо&shy;соб уп&shy;рав&shy;ле&shy;ния па&shy;мятью. На&shy;до по&shy;ни&shy;мать, что нас выз&shy;вал внеш&shy;ний код, мы от&shy;ра&shy;бо&shy;та&shy;ем дос&shy;та&shy;точ&shy;но быс&shy;тро и ис&shy;чез&shy;нем. Отсю&shy;да, ес&shy;ли мы во вре&shy;мя зап&shy;ро&shy;са вы&shy;де&shy;ля&shy;ем не&shy;ко&shy;то&shy;рую па&shy;мять, мож&shy;но сде&shy;лать всё так, что&shy;бы не вол&shy;но&shy;вать&shy;ся по по&shy;во&shy;ду её ос&shy;во&shy;бож&shy;де&shy;ния: ведь ме&shy;тод за&shy;вер&shy;шит свою ра&shy;бо&shy;ту и все объ&shy;ек&shy;ты по&shy;те&shy;ря&shy;ют свои кор&shy;ни: ло&shy;каль&shy;ные пе&shy;ре&shy;мен&shy;ные ме&shy;то&shy;да, об&shy;ра&shy;ба&shy;ты&shy;ва&shy;ю&shy;ще&shy;го зап&shy;рос. Но и рас&shy;то&shy;чи&shy;т&shy;ельством за&shy;ни&shy;мать&shy;ся не сто&shy;ит: при вы&shy;со&shy;кой наг&shy;руз&shy;ке вы по&shy;лу&shy;чи&shy;те траф&shy;фик объ&shy;ек&shy;тов. Воз&shy;мож&shy;но, часть объ&shy;ек&shy;тов сто&shy;ит сде&shy;лать струк&shy;ту&shy;ра&shy;ми?</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p>Как же этим всем управлять? С точки зрения разработки Garbage Collector'а, с точки зрения системы менеджмента памяти у нас есть совершенно разные стили и мы должны в них идеально хорошо работать. У нас же может быть машина, на которой запустилось консольное приложение, а есть машина, на которой приложение забирает 256 Гб. Эти системы помимо различия в объёме пожираемой памяти также отличаются по ряду других признаков: например, в стиле её выделения и освобождения путём обнуления ссылок (или их ненужности. при выходе из метода локальные переменные более не нужны, но они не обнуляются). Поэтому, для начала надо как-то классифицировать эту память: а от классификации памяти танцевать в сторону оптимизации её выделения и освобождения в зависимости от того, с каким классом памяти мы в данный момент работаем.</p>
+<p >
+Как же этим всем уп&shy;рав&shy;лять? С точ&shy;ки зре&shy;ния раз&shy;ра&shy;бот&shy;ки Garbage Collector'а, с точ&shy;ки зре&shy;ния сис&shy;те&shy;мы ме&shy;недж&shy;мен&shy;та па&shy;мя&shy;ти у нас есть со&shy;вер&shy;шен&shy;но раз&shy;ные сти&shy;ли и мы дол&shy;жны в них иде&shy;ально хо&shy;ро&shy;шо ра&shy;бо&shy;тать. У нас же мо&shy;жет быть ма&shy;ши&shy;на, на ко&shy;то&shy;рой за&shy;пус&shy;ти&shy;лось кон&shy;соль&shy;ное при&shy;ло&shy;же&shy;ние, а есть ма&shy;ши&shy;на, на ко&shy;то&shy;рой при&shy;ло&shy;же&shy;ние за&shy;би&shy;ра&shy;ет 256 Гб. Эти сис&shy;те&shy;мы по&shy;ми&shy;мо раз&shy;ли&shy;чия в объёме по&shy;жи&shy;ра&shy;е&shy;мой па&shy;мя&shy;ти так&shy;же от&shy;ли&shy;ча&shy;ют&shy;ся по ря&shy;ду дру&shy;гих приз&shy;на&shy;ков: нап&shy;ри&shy;мер, в сти&shy;ле её вы&shy;де&shy;ле&shy;ния и ос&shy;во&shy;бож&shy;де&shy;ния путём об&shy;ну&shy;ле&shy;ния ссы&shy;лок (или их не&shy;нуж&shy;нос&shy;ти. при вы&shy;хо&shy;де из ме&shy;то&shy;да ло&shy;каль&shy;ные пе&shy;ре&shy;мен&shy;ные бо&shy;лее не нуж&shy;ны, но они не об&shy;ну&shy;ля&shy;ют&shy;ся). По&shy;э&shy;то&shy;му, для на&shy;ча&shy;ла на&shy;до как-то клас&shy;си&shy;фи&shy;ци&shy;ро&shy;вать эту па&shy;мять: а от клас&shy;си&shy;фи&shy;ка&shy;ции па&shy;мя&shy;ти тан&shy;це&shy;вать в сто&shy;ро&shy;ну оп&shy;ти&shy;ми&shy;за&shy;ции её вы&shy;де&shy;ле&shy;ния и ос&shy;во&shy;бож&shy;де&shy;ния в за&shy;ви&shy;си&shy;мос&shy;ти от то&shy;го, с ка&shy;ким клас&shy;сом па&shy;мя&shy;ти мы в дан&shy;ный мо&shy;мент ра&shy;бо&shy;та&shy;ем.</p>
 <div class="paragraph-right-side">06</div>
 </div>
-<h2 id="section-4">Возможные классификации памяти исходя из логики</h2>
+<h2 id="section-3">Возможные классификации памяти исходя из логики</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p>Как можно классифицировать память? Чисто интуитивно можно разделять выделяемые участки памяти исходя из размеров объекта, который выделяется. Например, понятно, что если мы говорим о больших структурах данных, то управлять ими надо совершенно по-другому, нежели маленькими: потому что они тяжелые и их трудно перемещать при надобности. А маленькие, соответственно, занимают мало места и из-за того, что они образуют группы, перемещать легко. Однако из-за того что их намного больше, ими тяжелее управлять: знать о положении в памяти каждого из них. А значит, для них без всякой статистики и так понятно, что должен быть другой подход.</p>
+<p >
+Как мож&shy;но клас&shy;си&shy;фи&shy;ци&shy;ро&shy;вать па&shy;мять? Чис&shy;то ин&shy;ту&shy;итив&shy;но мож&shy;но раз&shy;де&shy;лять вы&shy;де&shy;ля&shy;е&shy;мые учас&shy;тки па&shy;мя&shy;ти ис&shy;хо&shy;дя из раз&shy;ме&shy;ров объ&shy;ек&shy;та, ко&shy;то&shy;рый вы&shy;де&shy;ля&shy;ет&shy;ся. Нап&shy;ри&shy;мер, по&shy;нят&shy;но, что ес&shy;ли мы го&shy;во&shy;рим о боль&shy;ших струк&shy;ту&shy;рах дан&shy;ных, то уп&shy;рав&shy;лять ими на&shy;до со&shy;вер&shy;шен&shy;но по-дру&shy;го&shy;му, не&shy;же&shy;ли ма&shy;лень&shy;ки&shy;ми: по&shy;то&shy;му что они тя&shy;же&shy;лые и их труд&shy;но пе&shy;ре&shy;ме&shy;щать при на&shy;доб&shy;нос&shy;ти. А ма&shy;лень&shy;кие, со&shy;от&shy;ветст&shy;венно, за&shy;ни&shy;ма&shy;ют ма&shy;ло мес&shy;та и из-за то&shy;го, что они об&shy;ра&shy;зу&shy;ют груп&shy;пы, пе&shy;ре&shy;ме&shy;щать лег&shy;ко. Одна&shy;ко из-за то&shy;го что их нам&shy;но&shy;го боль&shy;ше, ими тя&shy;же&shy;лее уп&shy;рав&shy;лять: знать о по&shy;ло&shy;же&shy;нии в па&shy;мя&shy;ти каж&shy;до&shy;го из них. А зна&shy;чит, для них без вся&shy;кой ста&shy;тис&shy;ти&shy;ки и так по&shy;нят&shy;но, что дол&shy;жен быть дру&shy;гой под&shy;ход.</p>
 <div class="paragraph-right-side">07</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p>Если разделять по времени жизни, то тут тоже возникают идеи. Например, если объекты короткоживущие, то, возможно, к ним надо чаще присматриваться, чтобы побыстрее от них избавляться (желательно, сразу, как только они стали не нужны). Если объекты долгоживущие, то можно уже посмотреть на статистику. Например, можно пофантазировать и решить, что эту область памяти анализировать на предмет ненужных объектов можно и пореже: ведь большие объекты редко создают траффик в памяти. А если смотреть редко, это сокращает время на сборку мусора сумме, но увеличивает  &mdash;  каждый вызов GC.</p>
+<p >
+Если раз&shy;де&shy;лять по вре&shy;ме&shy;ни жиз&shy;ни, то тут то&shy;же воз&shy;ни&shy;ка&shy;ют идеи. Нап&shy;ри&shy;мер, ес&shy;ли объ&shy;ек&shy;ты ко&shy;рот&shy;ко&shy;жи&shy;ву&shy;щие, то, воз&shy;мож&shy;но, к ним на&shy;до ча&shy;ще прис&shy;мат&shy;ри&shy;вать&shy;ся, что&shy;бы по&shy;быс&shy;т&shy;рее от них из&shy;бав&shy;лять&shy;ся (же&shy;ла&shy;тель&shy;но, сра&shy;зу, как толь&shy;ко они ста&shy;ли не нуж&shy;ны). Если объ&shy;ек&shy;ты дол&shy;го&shy;жи&shy;ву&shy;щие, то мож&shy;но уже пос&shy;мот&shy;реть на ста&shy;тис&shy;ти&shy;ку. Нап&shy;ри&shy;мер, мож&shy;но по&shy;фан&shy;та&shy;зи&shy;ро&shy;вать и ре&shy;шить, что эту об&shy;ласть па&shy;мя&shy;ти ана&shy;ли&shy;зи&shy;ро&shy;вать на пред&shy;мет не&shy;нуж&shy;ных объ&shy;ек&shy;тов мож&shy;но и по&shy;ре&shy;же: ведь боль&shy;шие объ&shy;ек&shy;ты ред&shy;ко соз&shy;да&shy;ют траф&shy;фик в па&shy;мя&shy;ти. А ес&shy;ли смот&shy;реть ред&shy;ко, это сок&shy;ра&shy;ща&shy;ет вре&shy;мя на сбор&shy;ку му&shy;со&shy;ра сум&shy;ме, но уве&shy;ли&shy;чи&shy;ва&shy;ет  &mdash;  каж&shy;дый вы&shy;зов GC.</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
-<p>Или же по типу данных. Можно легко предположить, что все типы, которые отнаследованы от типа <code>Attribute</code> или в зоне <code>Reflection</code>, будут жить почти всегда вечно. Или строки, которые представляют собой массив символов: к ним тоже может быть свой подход.</p>
+<p >
+Или же по ти&shy;пу дан&shy;ных. Мож&shy;но лег&shy;ко пред&shy;по&shy;ло&shy;жить, что все ти&shy;пы, ко&shy;то&shy;рые от&shy;нас&shy;ле&shy;до&shy;ва&shy;ны от ти&shy;па <code>Attribute</code> или в зо&shy;не <code>Reflection</code>, бу&shy;дут жить поч&shy;ти всег&shy;да веч&shy;но. Или стро&shy;ки, ко&shy;то&shy;рые предс&shy;тав&shy;ля&shy;ют со&shy;бой мас&shy;сив сим&shy;во&shy;лов: к ним то&shy;же мо&shy;жет быть свой под&shy;ход.</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
-<p>Видов может быть сколько угодно много и в зависимости от классификаций может оказаться, что управление памятью для конкретной классификации может быть более эффективно, если учитывать её особенности.</p>
+<p >
+Ви&shy;дов мо&shy;жет быть сколь&shy;ко угод&shy;но мно&shy;го и в за&shy;ви&shy;си&shy;мос&shy;ти от клас&shy;си&shy;фи&shy;ка&shy;ций мо&shy;жет ока&shy;зать&shy;ся, что уп&shy;рав&shy;ле&shy;ние па&shy;мятью для конк&shy;рет&shy;ной клас&shy;си&shy;фи&shy;ка&shy;ции мо&shy;жет быть бо&shy;лее эф&shy;фек&shy;тив&shy;но, ес&shy;ли учи&shy;ты&shy;вать её осо&shy;бен&shy;нос&shy;ти.</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
-<p>Когда создавали архитектуру нашего GC, то выбрали первые два вида классификаций: размер и время жизни (хотя, если присмотреться к делению типов на классы и структуры, то можно подумать, что классификации на самом деле три. Однако, различие свойств классов и структур можно свести к размеру и времени жизни).</p>
+<p >
+Ког&shy;да соз&shy;да&shy;ва&shy;ли ар&shy;хи&shy;тек&shy;ту&shy;ру на&shy;ше&shy;го GC, то выб&shy;ра&shy;ли пер&shy;вые два ви&shy;да клас&shy;си&shy;фи&shy;ка&shy;ций: раз&shy;мер и вре&shy;мя жиз&shy;ни (хо&shy;тя, ес&shy;ли прис&shy;мот&shy;реть&shy;ся к де&shy;ле&shy;нию ти&shy;пов на клас&shy;сы и струк&shy;ту&shy;ры, то мож&shy;но по&shy;ду&shy;мать, что клас&shy;си&shy;фи&shy;ка&shy;ции на са&shy;мом де&shy;ле три. Одна&shy;ко, раз&shy;ли&shy;чие свойств клас&shy;сов и струк&shy;тур мож&shy;но свес&shy;ти к раз&shy;ме&shy;ру и вре&shy;ме&shy;ни жиз&shy;ни).</p>
 <div class="paragraph-right-side">11</div>
 </div>
-<h2 id="section-5">Как это работает у нас. Обоснование выбора архитекторов</h2>
+<h2 id="section-4">Как это работает у нас. Обоснование выбора архитекторов</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
-<p>Если мы с вами будем досконально разбираться, почему были выбраны именно эти два алгоритма управления памятью: <code class="highlight">Sweep</code> и <code class="highlight">Compact</code>, нам для этого придётся рассматривать десятки алгоритмов управления памятью, которые существуют в мире: начиная обычными словарями, заканчивая очень сложными lock-free структурами. Вместо этого, оставив голову мыслям о полезном, мы просто <em>обоснуем</em> выбор и тем самым <em>поймём</em>, почему выбор был сделан именно таким. Мы более не смотрим в рекламный буклет ракеты-носителя: у нас на руках полный набор документации.</p>
+<p >
+Если мы с ва&shy;ми бу&shy;дем дос&shy;ко&shy;наль&shy;но раз&shy;би&shy;рать&shy;ся, по&shy;че&shy;му бы&shy;ли выб&shy;ра&shy;ны имен&shy;но эти два ал&shy;го&shy;рит&shy;ма уп&shy;рав&shy;ле&shy;ния па&shy;мятью: <em>Sweep</em> и <em>Compact</em>, нам для это&shy;го придётся расс&shy;мат&shy;ри&shy;вать де&shy;сят&shy;ки ал&shy;го&shy;рит&shy;мов уп&shy;рав&shy;ле&shy;ния па&shy;мятью, ко&shy;то&shy;рые су&shy;щес&shy;тву&shy;ют в ми&shy;ре: на&shy;чи&shy;ная обыч&shy;ны&shy;ми сло&shy;ва&shy;ря&shy;ми, за&shy;кан&shy;чи&shy;вая очень слож&shy;ны&shy;ми lock-free струк&shy;ту&shy;ра&shy;ми. Вмес&shy;то это&shy;го, ос&shy;та&shy;вив го&shy;ло&shy;ву мыс&shy;лям о по&shy;лез&shy;ном, мы прос&shy;то <em>обоснуем</em> вы&shy;бор и тем са&shy;мым <em>поймём</em>, по&shy;че&shy;му вы&shy;бор был сде&shy;лан имен&shy;но та&shy;ким. Мы бо&shy;лее не смот&shy;рим в рек&shy;лам&shy;ный бук&shy;лет ра&shy;ке&shy;ты-но&shy;си&shy;те&shy;ля: у нас на ру&shy;ках пол&shy;ный на&shy;бор до&shy;ку&shy;мен&shy;та&shy;ции.</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
-<p><a id="fnref:0" href="#fn:" class="footnote-ref"><sup></sup></a> Я выбрал формат рассуждения чтобы вы почувствовали себя архитекторами платформы и сами пришли к тем же самым выводам, к каким пришли реальные архитекторы в штаб-квартире Microsoft в Рэдмонде.</p>
+<p >
+<a id="fnref:0" href="#fn:" class="footnote-ref"><sup></sup></a> Я выб&shy;рал фор&shy;мат рас&shy;суж&shy;де&shy;ния что&shy;бы вы по&shy;чувс&shy;тв&shy;овали се&shy;бя ар&shy;хи&shy;тек&shy;то&shy;ра&shy;ми плат&shy;фор&shy;мы и са&shy;ми приш&shy;ли к тем же са&shy;мым вы&shy;во&shy;дам, к ка&shy;ким приш&shy;ли ре&shy;альные ар&shy;хи&shy;тек&shy;то&shy;ры в штаб-квар&shy;ти&shy;ре Microsoft в Рэд&shy;мон&shy;де.</p>
 <div class="paragraph-right-side">13</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
-<p>Определимся с терминологией: менеджмент памяти  &mdash;  это структура данных и ряд алгоритмов, которые позволяют &laquo;выделять&raquo; память и отдавать её внешнему потребителю и освобождать её, регистрируя как свободный участок. Т.е. если взять, например, какой-то массив байт (линейный кусок памяти), написать алгоритмы разметки массива на объекты .NET (запросили новый объект: мы подсчитали его размер, пометили у себя что этот вот кусок и есть новый объект, отдали указатель на объект внешней стороне) и алгоритмы освобождения памяти (когда нам говорят, что объект более не нужен, а потому память из-под него можно выдать кому-то другому).</p>
+<p >
+Опре&shy;де&shy;лим&shy;ся с тер&shy;ми&shy;но&shy;ло&shy;ги&shy;ей: ме&shy;недж&shy;мент па&shy;мя&shy;ти  &mdash;  это струк&shy;ту&shy;ра дан&shy;ных и ряд ал&shy;го&shy;рит&shy;мов, ко&shy;то&shy;рые поз&shy;во&shy;ля&shy;ют &laquo;вы&shy;де&shy;лять&raquo; па&shy;мять и от&shy;да&shy;вать её внеш&shy;не&shy;му пот&shy;ре&shy;би&shy;те&shy;лю и ос&shy;во&shy;бож&shy;дать её, ре&shy;гист&shy;ри&shy;руя как сво&shy;бод&shy;ный учас&shy;ток. Т.е. ес&shy;ли взять, нап&shy;ри&shy;мер, ка&shy;кой-то мас&shy;сив байт (ли&shy;ней&shy;ный ку&shy;сок па&shy;мя&shy;ти), на&shy;пи&shy;сать ал&shy;го&shy;рит&shy;мы раз&shy;мет&shy;ки мас&shy;си&shy;ва на объ&shy;ек&shy;ты .NET (зап&shy;ро&shy;си&shy;ли но&shy;вый объ&shy;ект: мы подс&shy;чи&shy;та&shy;ли его раз&shy;мер, по&shy;ме&shy;ти&shy;ли у се&shy;бя что этот вот ку&shy;сок и есть но&shy;вый объ&shy;ект, от&shy;да&shy;ли ука&shy;за&shy;тель на объ&shy;ект внеш&shy;ней сто&shy;ро&shy;не) и ал&shy;го&shy;рит&shy;мы ос&shy;во&shy;бож&shy;де&shy;ния па&shy;мя&shy;ти (ког&shy;да нам го&shy;во&shy;рят, что объ&shy;ект бо&shy;лее не ну&shy;жен, а по&shy;то&shy;му па&shy;мять из-под не&shy;го мож&shy;но вы&shy;дать ко&shy;му-то дру&shy;го&shy;му).</p>
 <div class="paragraph-right-side">14</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
-<p>Исходя из классификации выделяемых объектов на основании их размера можно разделить места под выделение памяти на два больших раздела: на место с объектами размером ниже определенного порога и на место с размером выше этого порога и посмотреть, какую разницу можно внести в управление этими группами (исходя из их размера) и что из этого выйдет. Рассмотрим каждую категорию в отдельности.</p>
+<p >
+Исхо&shy;дя из клас&shy;си&shy;фи&shy;ка&shy;ции вы&shy;де&shy;ля&shy;е&shy;мых объ&shy;ек&shy;тов на ос&shy;но&shy;ва&shy;нии их раз&shy;ме&shy;ра мож&shy;но раз&shy;де&shy;лить мес&shy;та под вы&shy;де&shy;ле&shy;ние па&shy;мя&shy;ти на два боль&shy;ших раз&shy;де&shy;ла: на мес&shy;то с объ&shy;ек&shy;та&shy;ми раз&shy;ме&shy;ром ни&shy;же оп&shy;ре&shy;де&shy;лен&shy;но&shy;го по&shy;ро&shy;га и на мес&shy;то с раз&shy;ме&shy;ром вы&shy;ше это&shy;го по&shy;ро&shy;га и пос&shy;мот&shy;реть, ка&shy;кую раз&shy;ни&shy;цу мож&shy;но внес&shy;ти в уп&shy;рав&shy;ле&shy;ние эти&shy;ми груп&shy;па&shy;ми (ис&shy;хо&shy;дя из их раз&shy;ме&shy;ра) и что из это&shy;го вый&shy;дет. Расс&shy;мот&shy;рим каж&shy;дую ка&shy;те&shy;го&shy;рию в от&shy;дель&shy;нос&shy;ти.</p>
 <div class="paragraph-right-side">15</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
-<p>Если рассматривать вопросы <strong>управления условно</strong> &laquo;<em>маленьких</em>&raquo; объектов, то можно заметить, что если придерживаться идеи сохранения информации о каждом объекте, нам будет очень дорого поддерживать структуры данных управления памятью, которые будут хранить в себе ссылки на каждый такой объект. В конечном счёте может оказаться, что для того, чтобы хранить информацию об одном объекте понадобится столько же памяти, сколько занимает сам объект. Вместо этого стоит подумать: если при сборке мусора мы будем помечать достижимые объекты обходом графа объектов (понять это легко, зная, откуда начинать обход графа), а линейный проход по куче нам понадобится <em>только</em> для идентификации всех остальных, т.е. мусорных объектов, так ли нам необходимо в алгоритмах менеджмента памяти хранить информацию о каждом объекте? Ответ очевиден: надобности в этом нет никакой. Ведь если мы будем размещать объекты друг за другом и при этом сделать возможным узнать размер каждого из них, сделать итератор кучи очень просто:</p>
+<p >
+Если расс&shy;мат&shy;ри&shy;вать воп&shy;ро&shy;сы <strong>управления условно</strong> &laquo;<em>маленьких</em>&raquo; объ&shy;ек&shy;тов, то мож&shy;но за&shy;ме&shy;тить, что ес&shy;ли при&shy;дер&shy;жи&shy;вать&shy;ся идеи сох&shy;ра&shy;не&shy;ния ин&shy;фор&shy;ма&shy;ции о каж&shy;дом объ&shy;ек&shy;те, нам бу&shy;дет очень до&shy;ро&shy;го под&shy;дер&shy;жи&shy;вать струк&shy;ту&shy;ры дан&shy;ных уп&shy;рав&shy;ле&shy;ния па&shy;мятью, ко&shy;то&shy;рые бу&shy;дут хра&shy;нить в се&shy;бе ссыл&shy;ки на каж&shy;дый та&shy;кой объ&shy;ект. В ко&shy;неч&shy;ном счёте мо&shy;жет ока&shy;зать&shy;ся, что для то&shy;го, что&shy;бы хра&shy;нить ин&shy;фор&shy;ма&shy;цию об од&shy;ном объ&shy;ек&shy;те по&shy;на&shy;до&shy;бит&shy;ся столь&shy;ко же па&shy;мя&shy;ти, сколь&shy;ко за&shy;ни&shy;ма&shy;ет сам объ&shy;ект. Вмес&shy;то это&shy;го сто&shy;ит по&shy;ду&shy;мать: ес&shy;ли при сбор&shy;ке му&shy;со&shy;ра мы бу&shy;дем по&shy;ме&shy;чать дос&shy;ти&shy;жи&shy;мые объ&shy;ек&shy;ты об&shy;хо&shy;дом гра&shy;фа объ&shy;ек&shy;тов (по&shy;нять это лег&shy;ко, зная, от&shy;ку&shy;да на&shy;чи&shy;нать об&shy;ход гра&shy;фа), а ли&shy;ней&shy;ный про&shy;ход по ку&shy;че нам по&shy;на&shy;до&shy;бит&shy;ся <em>только</em> для иден&shy;ти&shy;фи&shy;ка&shy;ции всех ос&shy;таль&shy;ных, т.е. му&shy;сор&shy;ных объ&shy;ек&shy;тов, так ли нам не&shy;об&shy;хо&shy;ди&shy;мо в ал&shy;го&shy;рит&shy;мах ме&shy;недж&shy;мен&shy;та па&shy;мя&shy;ти хра&shy;нить ин&shy;фор&shy;ма&shy;цию о каж&shy;дом объ&shy;ек&shy;те? Ответ оче&shy;ви&shy;ден: на&shy;доб&shy;нос&shy;ти в этом нет ни&shy;ка&shy;кой. Ведь ес&shy;ли мы бу&shy;дем раз&shy;ме&shy;щать объ&shy;ек&shy;ты друг за дру&shy;гом и при этом сде&shy;лать воз&shy;мож&shy;ным уз&shy;нать раз&shy;мер каж&shy;до&shy;го из них, сде&shy;лать ите&shy;ра&shy;тор ку&shy;чи очень прос&shy;то:</p>
 <div class="paragraph-right-side">16</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -935,129 +989,163 @@ h4 {
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
-<p>А значит, можно попробовать исходить из того, что такую информацию мы хранить не должны: пройти кучу мы можем линейно, зная размер каждого объекта и смещая указатель каждый раз на размер очередного объекта.</p>
+<p >
+А зна&shy;чит, мож&shy;но поп&shy;ро&shy;бо&shy;вать ис&shy;хо&shy;дить из то&shy;го, что та&shy;кую ин&shy;фор&shy;ма&shy;цию мы хра&shy;нить не дол&shy;жны: прой&shy;ти ку&shy;чу мы мо&shy;жем ли&shy;ней&shy;но, зная раз&shy;мер каж&shy;до&shy;го объ&shy;ек&shy;та и сме&shy;щая ука&shy;за&shy;тель каж&shy;дый раз на раз&shy;мер оче&shy;ред&shy;но&shy;го объ&shy;ек&shy;та.</p>
 <div class="paragraph-right-side">17</div>
 </div>
 <blockquote>
-<p>В куче нет дополнительных структур данных, которые хранят указатели на каждый объект, которым управляет куча.</p>
+<p >
+В ку&shy;че нет до&shy;пол&shy;ни&shy;тель&shy;ных струк&shy;тур дан&shy;ных, ко&shy;то&shy;рые хра&shy;нят ука&shy;за&shy;те&shy;ли на каж&shy;дый объ&shy;ект, ко&shy;то&shy;рым уп&shy;рав&shy;ля&shy;ет ку&shy;ча.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
-<p>Однако, тем не менее, когда память нам более не нужна, мы должны её освобождать. А при освобождении памяти нам становится трудно полагаться на линейное прохождение кучи: это долго и не эффективно. Как следствие, мы приходим к мысли, что надо как-то хранить информацию о свободных участках памяти.</p>
+<p >
+Одна&shy;ко, тем не ме&shy;нее, ког&shy;да па&shy;мять нам бо&shy;лее не нуж&shy;на, мы дол&shy;жны её ос&shy;во&shy;бож&shy;дать. А при ос&shy;во&shy;бож&shy;де&shy;нии па&shy;мя&shy;ти нам ста&shy;но&shy;вит&shy;ся труд&shy;но по&shy;ла&shy;гать&shy;ся на ли&shy;ней&shy;ное про&shy;хож&shy;де&shy;ние ку&shy;чи: это дол&shy;го и не эф&shy;фек&shy;тив&shy;но. Как след&shy;с&shy;твие, мы при&shy;хо&shy;дим к мыс&shy;ли, что на&shy;до как-то хра&shy;нить ин&shy;фор&shy;ма&shy;цию о сво&shy;бод&shy;ных участ&shy;ках па&shy;мя&shy;ти.</p>
 <div class="paragraph-right-side">18</div>
 </div>
 <blockquote>
-<p>В куче есть списки свободных участков памяти: набор указателей на их начала + размер.</p>
+<p >
+В ку&shy;че есть спис&shy;ки сво&shy;бод&shy;ных участ&shy;ков па&shy;мя&shy;ти: на&shy;бор ука&shy;за&shy;те&shy;лей на их на&shy;ча&shy;ла + раз&shy;мер.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
-<p>Если, как мы решили, хранить информацию о свободных участках, и при этом при освобождении памяти из под объектов эти участки оказались слишком малы для размещения в них чего-либо полезного, то во-первых мы приходим к той-же проблеме хранения информации о свободных участках, с которой столкнулись при рассмотрении занятых: хранить информацию о таких малышах может оказаться слишком дорого. Это снова звучит расточительно, согласитесь: не всегда выпадает удача освобождения группы объектов, следующих друг за другом. Обычно они освобождаются в хаотичном порядке, образуя небольшие просветы свободной памяти, где сложно выделить что-либо ещё. Но всё-таки в отличии от занятых участков, которые нам нет надобности линейно искать, искать свободные участки нам необходимо потому что при выделении памяти они нам снова могут понадобиться. А потому возникает вполне естественное желание уменьшить фрагментацию и сжать кучу, переместив все занятые участки на места свободных, образовав тем самым большую зону свободного участка, где можно совершенно спокойно выделять память.</p>
+<p >
+Если, как мы ре&shy;ши&shy;ли, хра&shy;нить ин&shy;фор&shy;ма&shy;цию о сво&shy;бод&shy;ных участ&shy;ках, и при этом при ос&shy;во&shy;бож&shy;де&shy;нии па&shy;мя&shy;ти из под объ&shy;ек&shy;тов эти учас&shy;тки ока&shy;за&shy;лись слиш&shy;ком ма&shy;лы для раз&shy;ме&shy;ще&shy;ния в них че&shy;го-ли&shy;бо по&shy;лез&shy;но&shy;го, то во-пер&shy;вых мы при&shy;хо&shy;дим к той-же проб&shy;ле&shy;ме хра&shy;не&shy;ния ин&shy;фор&shy;ма&shy;ции о сво&shy;бод&shy;ных участ&shy;ках, с ко&shy;то&shy;рой столк&shy;ну&shy;лись при расс&shy;мот&shy;ре&shy;нии за&shy;ня&shy;тых: хра&shy;нить ин&shy;фор&shy;ма&shy;цию о та&shy;ких ма&shy;лы&shy;шах мо&shy;жет ока&shy;зать&shy;ся слиш&shy;ком до&shy;ро&shy;го. Это сно&shy;ва зву&shy;чит рас&shy;то&shy;чи&shy;тель&shy;но, сог&shy;ла&shy;си&shy;тесь: не всег&shy;да вы&shy;па&shy;да&shy;ет уда&shy;ча ос&shy;во&shy;бож&shy;де&shy;ния груп&shy;пы объ&shy;ек&shy;тов, сле&shy;ду&shy;ю&shy;щих друг за дру&shy;гом. Обыч&shy;но они ос&shy;во&shy;бож&shy;да&shy;ют&shy;ся в ха&shy;отич&shy;ном по&shy;ряд&shy;ке, об&shy;ра&shy;зуя не&shy;боль&shy;шие прос&shy;ве&shy;ты сво&shy;бод&shy;ной па&shy;мя&shy;ти, где слож&shy;но вы&shy;де&shy;лить что-ли&shy;бо ещё. Но всё-та&shy;ки в от&shy;ли&shy;чии от за&shy;ня&shy;тых участ&shy;ков, ко&shy;то&shy;рые нам нет на&shy;доб&shy;нос&shy;ти ли&shy;ней&shy;но ис&shy;кать, ис&shy;кать сво&shy;бод&shy;ные учас&shy;тки нам не&shy;об&shy;хо&shy;ди&shy;мо по&shy;то&shy;му что при вы&shy;де&shy;ле&shy;нии па&shy;мя&shy;ти они нам сно&shy;ва мо&shy;гут по&shy;на&shy;до&shy;бить&shy;ся. А по&shy;то&shy;му воз&shy;ни&shy;ка&shy;ет впол&shy;не ес&shy;тест&shy;вен&shy;ное же&shy;ла&shy;ние умень&shy;шить фраг&shy;мен&shy;та&shy;цию и сжать ку&shy;чу, пе&shy;ре&shy;мес&shy;тив все за&shy;ня&shy;тые учас&shy;тки на мес&shy;та сво&shy;бод&shy;ных, об&shy;ра&shy;зо&shy;вав тем са&shy;мым боль&shy;шую зо&shy;ну сво&shy;бод&shy;но&shy;го учас&shy;тка, где мож&shy;но со&shy;вер&shy;шен&shy;но спо&shy;кой&shy;но вы&shy;де&shy;лять па&shy;мять.</p>
 <div class="paragraph-right-side">19</div>
 </div>
 <blockquote>
-<p>Отсюда рождается идея алгоритма сжатия кучи Compacting.</p>
+<p >
+Отсю&shy;да рож&shy;да&shy;ет&shy;ся идея ал&shy;го&shy;рит&shy;ма сжа&shy;тия ку&shy;чи Compacting.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
-<p>Но, подождите, скажите вы. Ведь эта операция может быть очень тяжёлой. Представьте только, что вы освободили объект в самом начале кучи. И что, скажете вы, надо двигать вообще всё?? Ну конечно, можно пофантазировать на тему векторных инструкций CPU, которыми можно воспользоваться для копирования огромного занятого участка памяти. Но это ведь только начало работы. Надо ещё исправить все указатели с полей объектов на объекты, которые подверглись передвижениям. Эта операция может занять дичайше длительное время. Нет, надо исходить из чего-то другого. Например, разделив весь отрезок памяти кучи на сектора и работать с ними по отдельности. Если работать отдельно в каждом секторе (для предсказуемости времени работы алгоритмов и масштабирования этой предсказмуемости  &mdash;  желательно, фиксированных размеров), идея сжатия уже не кажется такой уж тяжёлой: достаточно сжать отдельно взятый сектор и тогда можно даже начать рассуждать о времени, которое необходимо для сжатия одного такого сектора.</p>
+<p >
+Но, по&shy;дож&shy;ди&shy;те, ска&shy;жи&shy;те вы. Ведь эта опе&shy;ра&shy;ция мо&shy;жет быть очень тяжёлой. Предс&shy;тавь&shy;те толь&shy;ко, что вы ос&shy;во&shy;бо&shy;ди&shy;ли объ&shy;ект в са&shy;мом на&shy;ча&shy;ле ку&shy;чи. И что, ска&shy;же&shy;те вы, на&shy;до дви&shy;гать во&shy;об&shy;ще всё?? Ну ко&shy;неч&shy;но, мож&shy;но по&shy;фан&shy;та&shy;зи&shy;ро&shy;вать на те&shy;му век&shy;тор&shy;ных инстр&shy;укций CPU, ко&shy;то&shy;ры&shy;ми мож&shy;но вос&shy;поль&shy;зо&shy;вать&shy;ся для ко&shy;пи&shy;ро&shy;ва&shy;ния ог&shy;ром&shy;но&shy;го за&shy;ня&shy;то&shy;го учас&shy;тка па&shy;мя&shy;ти. Но это ведь толь&shy;ко на&shy;ча&shy;ло ра&shy;бо&shy;ты. На&shy;до ещё ис&shy;пра&shy;вить все ука&shy;за&shy;те&shy;ли с по&shy;лей объ&shy;ек&shy;тов на объ&shy;ек&shy;ты, ко&shy;то&shy;рые под&shy;верг&shy;лись пе&shy;ред&shy;ви&shy;же&shy;ни&shy;ям. Эта опе&shy;ра&shy;ция мо&shy;жет за&shy;нять ди&shy;чай&shy;ше дли&shy;тель&shy;ное вре&shy;мя. Нет, на&shy;до ис&shy;хо&shy;дить из че&shy;го-то дру&shy;го&shy;го. Нап&shy;ри&shy;мер, раз&shy;де&shy;лив весь от&shy;ре&shy;зок па&shy;мя&shy;ти ку&shy;чи на сек&shy;то&shy;ра и ра&shy;бо&shy;тать с ни&shy;ми по от&shy;дель&shy;нос&shy;ти. Если ра&shy;бо&shy;тать от&shy;дель&shy;но в каж&shy;дом сек&shy;то&shy;ре (для предс&shy;ка&shy;зу&shy;емос&shy;ти вре&shy;ме&shy;ни ра&shy;бо&shy;ты ал&shy;го&shy;рит&shy;мов и масш&shy;та&shy;би&shy;ро&shy;ва&shy;ния этой предс&shy;каз&shy;му&shy;емос&shy;ти  &mdash;  же&shy;ла&shy;тель&shy;но, фик&shy;си&shy;ро&shy;ван&shy;ных раз&shy;ме&shy;ров), идея сжа&shy;тия уже не ка&shy;жет&shy;ся та&shy;кой уж тяжёлой: дос&shy;та&shy;точ&shy;но сжать от&shy;дель&shy;но взя&shy;тый сек&shy;тор и тог&shy;да мож&shy;но да&shy;же на&shy;чать рас&shy;суж&shy;дать о вре&shy;ме&shy;ни, ко&shy;то&shy;рое не&shy;об&shy;хо&shy;ди&shy;мо для сжа&shy;тия од&shy;но&shy;го та&shy;ко&shy;го сек&shy;то&shy;ра.</p>
 <div class="paragraph-right-side">20</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
-<p>Теперь осталось понять, на основании чего делить на сектора. Тут надо обратиться ко второй классификации, которая введена на платформе: разделение памяти, исходя из времени жизни отдельных её элементов.</p>
+<p >
+Те&shy;перь ос&shy;та&shy;лось по&shy;нять, на ос&shy;но&shy;ва&shy;нии че&shy;го де&shy;лить на сек&shy;то&shy;ра. Тут на&shy;до об&shy;ра&shy;тить&shy;ся ко вто&shy;рой клас&shy;си&shy;фи&shy;ка&shy;ции, ко&shy;то&shy;рая вве&shy;де&shy;на на плат&shy;фор&shy;ме: раз&shy;де&shy;ле&shy;ние па&shy;мя&shy;ти, ис&shy;хо&shy;дя из вре&shy;ме&shy;ни жиз&shy;ни от&shy;дель&shy;ных её эле&shy;мен&shy;тов.</p>
 <div class="paragraph-right-side">21</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
-<p>Деление простое: если учесть, что выделять память мы будем по мере возрастания адресов, то первые выделенные объекты (в младших адресах) становятся самыми старыми, а те, что находятся в старших адресах  &mdash;  самыми молодыми. Далее, проявив смекалку, можно прийти к выводам, что в приложениях объекты делятся на две группы: те, что создали для долгой жизни и те, которые были созданы жить очень мало. Например, для временного хранения указателей на другие объекты в виде коллекции. Или те же DTO объекты. Соответственно, время от времени сжимая кучу мы получаем ряд долгоживущих объектов  &mdash;  в младших адресах и ряд короткоживущих  &mdash;  в старших.</p>
+<p >
+Де&shy;ле&shy;ние прос&shy;тое: ес&shy;ли учесть, что вы&shy;де&shy;лять па&shy;мять мы бу&shy;дем по ме&shy;ре воз&shy;рас&shy;та&shy;ния ад&shy;ре&shy;сов, то пер&shy;вые вы&shy;де&shy;лен&shy;ные объ&shy;ек&shy;ты (в млад&shy;ших ад&shy;ре&shy;сах) ста&shy;но&shy;вят&shy;ся са&shy;мы&shy;ми ста&shy;ры&shy;ми, а те, что на&shy;хо&shy;дят&shy;ся в стар&shy;ших ад&shy;ре&shy;сах  &mdash;  са&shy;мы&shy;ми мо&shy;ло&shy;ды&shy;ми. Да&shy;лее, про&shy;я&shy;вив сме&shy;кал&shy;ку, мож&shy;но прий&shy;ти к вы&shy;во&shy;дам, что в при&shy;ло&shy;же&shy;ни&shy;ях объ&shy;ек&shy;ты де&shy;лят&shy;ся на две груп&shy;пы: те, что соз&shy;да&shy;ли для дол&shy;гой жиз&shy;ни и те, ко&shy;то&shy;рые бы&shy;ли соз&shy;да&shy;ны жить очень ма&shy;ло. Нап&shy;ри&shy;мер, для вре&shy;мен&shy;но&shy;го хра&shy;не&shy;ния ука&shy;за&shy;те&shy;лей на дру&shy;гие объ&shy;ек&shy;ты в ви&shy;де кол&shy;лек&shy;ции. Или те же DTO объ&shy;ек&shy;ты. Со&shy;от&shy;ветст&shy;венно, вре&shy;мя от вре&shy;ме&shy;ни сжи&shy;мая ку&shy;чу мы по&shy;лу&shy;ча&shy;ем ряд дол&shy;го&shy;жи&shy;ву&shy;щих объ&shy;ек&shy;тов  &mdash;  в млад&shy;ших ад&shy;ре&shy;сах и ряд ко&shy;рот&shy;ко&shy;жи&shy;ву&shy;щих  &mdash;  в стар&shy;ших.</p>
 <div class="paragraph-right-side">22</div>
 </div>
 <blockquote>
-<p>Таким образом мы получили <em>поколения</em>.</p>
+<p >
+Та&shy;ким об&shy;ра&shy;зом мы по&shy;лу&shy;чи&shy;ли <em>поколения</em>.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
-<p>Разделив память на поколения, мы получаем возможность реже заглядывать за сборкой мусора в объекты старшего поколения, которых становится всё больше и больше.</p>
+<p >
+Раз&shy;де&shy;лив па&shy;мять на по&shy;ко&shy;ле&shy;ния, мы по&shy;лу&shy;ча&shy;ем воз&shy;мож&shy;ность ре&shy;же заг&shy;ля&shy;ды&shy;вать за сбор&shy;кой му&shy;со&shy;ра в объ&shy;ек&shy;ты стар&shy;ше&shy;го по&shy;ко&shy;ле&shy;ния, ко&shy;то&shy;рых ста&shy;но&shy;вит&shy;ся всё боль&shy;ше и боль&shy;ше.</p>
 <div class="paragraph-right-side">23</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">24</div>
-<p>Но возникает еще один вопрос: если мы будем иметь всего два поколения, мы получим проблемы:</p>
+<p >
+Но воз&shy;ни&shy;ка&shy;ет еще один воп&shy;рос: ес&shy;ли мы бу&shy;дем иметь все&shy;го два по&shy;ко&shy;ле&shy;ния, мы по&shy;лу&shy;чим проб&shy;ле&shy;мы:</p>
 <div class="paragraph-right-side">24</div>
 </div>
 <ul>
-<li>Либо мы будем стараться, чтобы GC отрабатывал максимально быстро: тогда размер <em>младшего поколения мы будем стараться делать минимальных размеров</em>. Как результат  &mdash;  недавно созданные объекты при вызове GC будут случайно уходить в старшее поколение (если GC сработал &laquo;прям вот сейчас, во время яростного выделения памяти под множество объектов&raquo;), хотя если бы он сработал чуть позже, они бы остались в младшем, где были бы собраны за короткие сроки.</li>
-<li>Либо, чтобы минимизировать такое случайное &laquo;проваливание&raquo;, мы <em>увеличим размер младшего поколения</em>. Однако, в этом случае GC на младшем поколении будет работать достаточно долго, замедляя и подтормаживая тем самым всё приложение.</li>
+<li>
+<p >
+Ли&shy;бо мы бу&shy;дем ста&shy;рать&shy;ся, что&shy;бы GC от&shy;ра&shy;ба&shy;ты&shy;вал мак&shy;си&shy;маль&shy;но быс&shy;тро: тог&shy;да раз&shy;мер <em>младшего поколения мы будем стараться делать минимальных размеров</em>. Как ре&shy;зуль&shy;тат  &mdash;  не&shy;дав&shy;но соз&shy;дан&shy;ные объ&shy;ек&shy;ты при вы&shy;зо&shy;ве GC бу&shy;дут слу&shy;чай&shy;но ухо&shy;дить в стар&shy;шее по&shy;ко&shy;ле&shy;ние (ес&shy;ли GC сра&shy;бо&shy;тал &laquo;прям вот сей&shy;час, во вре&shy;мя ярост&shy;но&shy;го вы&shy;де&shy;ле&shy;ния па&shy;мя&shy;ти под мно&shy;жес&shy;тво объ&shy;ек&shy;тов&raquo;), хо&shy;тя ес&shy;ли бы он сра&shy;бо&shy;тал чуть поз&shy;же, они бы ос&shy;та&shy;лись в млад&shy;шем, где бы&shy;ли бы соб&shy;ра&shy;ны за ко&shy;рот&shy;кие сро&shy;ки.</p>
+</li>
+<li>
+<p >
+Ли&shy;бо, что&shy;бы ми&shy;ни&shy;ми&shy;зи&shy;ро&shy;вать та&shy;кое слу&shy;чай&shy;ное &laquo;про&shy;ва&shy;ли&shy;ва&shy;ние&raquo;, мы <em>увеличим размер младшего поколения</em>. Одна&shy;ко, в этом слу&shy;чае GC на млад&shy;шем по&shy;ко&shy;ле&shy;нии бу&shy;дет ра&shy;бо&shy;тать дос&shy;та&shy;точ&shy;но дол&shy;го, за&shy;мед&shy;ляя и под&shy;тор&shy;ма&shy;жи&shy;вая тем са&shy;мым всё при&shy;ло&shy;же&shy;ние.</p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
-<p>Выход  &mdash;  введение &laquo;среднего&raquo; поколения. Подросткового. Суть его введения сводится к получению баланса между <em>получением минимального по размеру младшего поколения</em> и <em>максимально-стабильного старшего поколения</em>, где лучше ничего не трогать. Это  &mdash;  зона, где судьба объектов еще не решена. Первое (не забываем, что мы считаем с нуля) поколение создается также небольшим, но чуть крупнее, чем младшее и потому GC туда заглядывает реже. Он тем самым дает возможность объектам, которые находятся во временном, &laquo;подростковом&raquo; поколении, не уйти в старшее поколение, которое собирать крайне тяжело.</p>
+<p >
+Вы&shy;ход  &mdash;  вве&shy;де&shy;ние &laquo;сред&shy;не&shy;го&raquo; по&shy;ко&shy;ле&shy;ния. Под&shy;рост&shy;ко&shy;во&shy;го. Суть его вве&shy;де&shy;ния сво&shy;дит&shy;ся к по&shy;лу&shy;че&shy;нию ба&shy;лан&shy;са меж&shy;ду <em>получением минимального по размеру младшего поколения</em> и <em>максимально-стабильного старшего поколения</em>, где луч&shy;ше ни&shy;че&shy;го не тро&shy;гать. Это  &mdash;  зо&shy;на, где судь&shy;ба объ&shy;ек&shy;тов еще не ре&shy;ше&shy;на. Пер&shy;вое (не за&shy;бы&shy;ва&shy;ем, что мы счи&shy;та&shy;ем с ну&shy;ля) по&shy;ко&shy;ле&shy;ние соз&shy;да&shy;ет&shy;ся так&shy;же не&shy;боль&shy;шим, но чуть круп&shy;нее, чем млад&shy;шее и по&shy;то&shy;му GC ту&shy;да заг&shy;ля&shy;ды&shy;ва&shy;ет ре&shy;же. Он тем са&shy;мым да&shy;ет воз&shy;мож&shy;ность объ&shy;ек&shy;там, ко&shy;то&shy;рые на&shy;хо&shy;дят&shy;ся во вре&shy;мен&shy;ном, &laquo;под&shy;рост&shy;ко&shy;вом&raquo; по&shy;ко&shy;ле&shy;нии, не уй&shy;ти в стар&shy;шее по&shy;ко&shy;ле&shy;ние, ко&shy;то&shy;рое со&shy;би&shy;рать край&shy;не тя&shy;же&shy;ло.</p>
 <div class="paragraph-right-side">25</div>
 </div>
 <blockquote>
-<p>Так мы получили идею трёх поколений.</p>
+<p >
+Так мы по&shy;лу&shy;чи&shy;ли идею трёх по&shy;ко&shy;ле&shy;ний.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
-<p>Следующий слой оптимизации  &mdash;  попытка отказаться от сжатия. Ведь если его не делать, мы избавляемся от огромного пласта работы. Вернемся к вопросу свободных участков.</p>
+<p >
+Сле&shy;ду&shy;ю&shy;щий слой оп&shy;ти&shy;ми&shy;за&shy;ции  &mdash;  по&shy;пыт&shy;ка от&shy;ка&shy;зать&shy;ся от сжа&shy;тия. Ведь ес&shy;ли его не де&shy;лать, мы из&shy;бав&shy;ля&shy;ем&shy;ся от ог&shy;ром&shy;но&shy;го плас&shy;та ра&shy;бо&shy;ты. Вер&shy;нем&shy;ся к воп&shy;ро&shy;су сво&shy;бод&shy;ных участ&shy;ков.</p>
 <div class="paragraph-right-side">26</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">27</div>
-<p>Если после того, как мы израсходовали всю доступную в куче память и был вызван GC, возникает естественное желание отказаться от сжатия в пользу дальнейшего выделения памяти внутри освободившихся участков, если их размер достаточен для размещения некоторого количества объектов. Тут мы приходим к идее второго алгоритма освобождения памяти в GC, который называется <code>Sweep</code>: память не сжимаем, для размещения новых объектов используем пустоты от освобожденных объектов.</p>
+<p >
+Если пос&shy;ле то&shy;го, как мы из&shy;рас&shy;хо&shy;до&shy;ва&shy;ли всю дос&shy;туп&shy;ную в ку&shy;че па&shy;мять и был выз&shy;ван GC, воз&shy;ни&shy;ка&shy;ет ес&shy;тест&shy;вен&shy;ное же&shy;ла&shy;ние от&shy;ка&shy;зать&shy;ся от сжа&shy;тия в поль&shy;зу даль&shy;ней&shy;ше&shy;го вы&shy;де&shy;ле&shy;ния па&shy;мя&shy;ти внут&shy;ри ос&shy;во&shy;бо&shy;див&shy;ших&shy;ся участ&shy;ков, ес&shy;ли их раз&shy;мер дос&shy;та&shy;то&shy;чен для раз&shy;ме&shy;ще&shy;ния не&shy;ко&shy;то&shy;ро&shy;го ко&shy;ли&shy;чес&shy;тва объ&shy;ек&shy;тов. Тут мы при&shy;хо&shy;дим к идее вто&shy;ро&shy;го ал&shy;го&shy;рит&shy;ма ос&shy;во&shy;бож&shy;де&shy;ния па&shy;мя&shy;ти в GC, ко&shy;то&shy;рый на&shy;зы&shy;ва&shy;ет&shy;ся <code>Sweep</code>: па&shy;мять не сжи&shy;ма&shy;ем, для раз&shy;ме&shy;ще&shy;ния но&shy;вых объ&shy;ек&shy;тов ис&shy;поль&shy;зу&shy;ем пус&shy;то&shy;ты от ос&shy;во&shy;бож&shy;ден&shy;ных объ&shy;ек&shy;тов.</p>
 <div class="paragraph-right-side">27</div>
 </div>
 <blockquote>
-<p>Так мы описали и обосновали все основы алгоритмов GC.</p>
+<p >
+Так мы опи&shy;са&shy;ли и обос&shy;но&shy;ва&shy;ли все ос&shy;но&shy;вы ал&shy;го&shy;рит&shy;мов GC.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
-<p>Далее спускаться мы не будем, иначе я не оставлю себе почвы для размышлений. Замечу только, что мы рассмотрели все предпосылки и выводы к существующим алгоритмам менеджмента памяти.</p>
+<p >
+Да&shy;лее спус&shy;кать&shy;ся мы не бу&shy;дем, ина&shy;че я не ос&shy;тав&shy;лю се&shy;бе поч&shy;вы для раз&shy;мыш&shy;ле&shy;ний. За&shy;ме&shy;чу толь&shy;ко, что мы расс&shy;мот&shy;ре&shy;ли все пред&shy;по&shy;сыл&shy;ки и вы&shy;во&shy;ды к су&shy;щес&shy;тву&shy;ю&shy;щим ал&shy;го&shy;рит&shy;мам ме&shy;недж&shy;мен&shy;та па&shy;мя&shy;ти.</p>
 <div class="paragraph-right-side">28</div>
 </div>
-<h2 id="section-6">Как это работает у нас</h2>
+<h2 id="section-5">Как это работает у нас</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">29</div>
-<p>Теперь мы зайдём с другой стороны. Я буду выполировывать факты так, что даже если у вас плохая память на вычитке текста, вы всё равно запомните, как работает менеджмент памяти в .NET.</p>
+<p >
+Те&shy;перь мы зайдём с дру&shy;гой сто&shy;ро&shy;ны. Я бу&shy;ду вы&shy;по&shy;ли&shy;ро&shy;вы&shy;вать фак&shy;ты так, что да&shy;же ес&shy;ли у вас пло&shy;хая па&shy;мять на вы&shy;чит&shy;ке тек&shy;ста, вы всё рав&shy;но за&shy;пом&shy;ни&shy;те, как ра&shy;бо&shy;та&shy;ет ме&shy;недж&shy;мент па&shy;мя&shy;ти в .NET.</p>
 <div class="paragraph-right-side">29</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">30</div>
-<p>Итак, мы знаем, что у нас существует два способа классифицировать память: исходя из времени жизни сущностей и исходя из их размера. Подумаем, что мы имеем, исходя из размеров объектов. Если у нас объекты имеют большие размеры, то нам не выгодно часто делать <code>Сompact</code>. Потому что в этом случае мы все объекты перетаскиваем на освободившиеся участки. То есть копируем их. А если объект огромен, то копировать дорого и каждый раз прибегая к сжатию кучи можно сильно просесть по производительности. В данной ситуации удобен только <code>Sweep</code>. Об этом способе мы подробно поговорим позже, но если совсем коротко, то память освобождается и свободный кусок сохраняется в список свободных участков и дальше переиспользуется при выделении объектов. Вызов <code>Compact</code> может быть выгоден в редких случаях: когда <em>есть понимание</em>, что из-за <code>Sweep</code> и траффика буферов большого размера существует некоторая фрагментация в зоне крупных объектов (Large Objects Heap. Давайте уже начнём называть вещи своими именами). И ручной вызов GC с указанием метода сбора мусора <code>Compact</code> в этом случае может нам помочь. Однако, давайте не будем углубляться: у нас для этого есть очень много времени.</p>
+<p >
+Итак, мы зна&shy;ем, что у нас су&shy;щес&shy;тву&shy;ет два спо&shy;со&shy;ба клас&shy;си&shy;фи&shy;ци&shy;ро&shy;вать па&shy;мять: ис&shy;хо&shy;дя из вре&shy;ме&shy;ни жиз&shy;ни сущ&shy;нос&shy;тей и ис&shy;хо&shy;дя из их раз&shy;ме&shy;ра. По&shy;ду&shy;ма&shy;ем, что мы име&shy;ем, ис&shy;хо&shy;дя из раз&shy;ме&shy;ров объ&shy;ек&shy;тов. Если у нас объ&shy;ек&shy;ты име&shy;ют боль&shy;шие раз&shy;ме&shy;ры, то нам не вы&shy;год&shy;но час&shy;то де&shy;лать <code>Сompact</code>. По&shy;то&shy;му что в этом слу&shy;чае мы все объ&shy;ек&shy;ты пе&shy;ре&shy;тас&shy;ки&shy;ва&shy;ем на ос&shy;во&shy;бо&shy;див&shy;ши&shy;еся учас&shy;тки. То есть ко&shy;пи&shy;ру&shy;ем их. А ес&shy;ли объ&shy;ект ог&shy;ро&shy;мен, то ко&shy;пи&shy;ро&shy;вать до&shy;ро&shy;го и каж&shy;дый раз при&shy;бе&shy;гая к сжа&shy;тию ку&shy;чи мож&shy;но силь&shy;но про&shy;сесть по про&shy;из&shy;во&shy;ди&shy;тель&shy;нос&shy;ти. В дан&shy;ной си&shy;ту&shy;а&shy;ции удо&shy;бен толь&shy;ко <code>Sweep</code>. Об этом спо&shy;со&shy;бе мы под&shy;роб&shy;но по&shy;го&shy;во&shy;рим поз&shy;же, но ес&shy;ли сов&shy;сем ко&shy;рот&shy;ко, то па&shy;мять ос&shy;во&shy;бож&shy;да&shy;ет&shy;ся и сво&shy;бод&shy;ный ку&shy;сок сох&shy;ра&shy;ня&shy;ет&shy;ся в спи&shy;сок сво&shy;бод&shy;ных участ&shy;ков и даль&shy;ше пе&shy;ре&shy;ис&shy;поль&shy;зу&shy;ет&shy;ся при вы&shy;де&shy;ле&shy;нии объ&shy;ек&shy;тов. Вы&shy;зов <code>Compact</code> мо&shy;жет быть вы&shy;го&shy;ден в ред&shy;ких слу&shy;ча&shy;ях: ког&shy;да <em>есть понимание</em>, что из-за <code>Sweep</code> и траф&shy;фи&shy;ка бу&shy;фе&shy;ров боль&shy;шо&shy;го раз&shy;ме&shy;ра су&shy;щес&shy;тву&shy;ет не&shy;ко&shy;то&shy;рая фраг&shy;мен&shy;та&shy;ция в зо&shy;не круп&shy;ных объ&shy;ек&shy;тов (Large Objects Heap. Да&shy;вай&shy;те уже начнём на&shy;зы&shy;вать ве&shy;щи сво&shy;ими име&shy;на&shy;ми). И руч&shy;ной вы&shy;зов GC с ука&shy;за&shy;ни&shy;ем ме&shy;то&shy;да сбо&shy;ра му&shy;со&shy;ра <code>Compact</code> в этом слу&shy;чае мо&shy;жет нам по&shy;мочь. Одна&shy;ко, да&shy;вай&shy;те не бу&shy;дем уг&shy;луб&shy;лять&shy;ся: у нас для это&shy;го есть очень мно&shy;го вре&shy;ме&shy;ни.</p>
 <div class="paragraph-right-side">30</div>
 </div>
 <blockquote>
-<p>Остановимся лишь на том, что в <code>LOH</code> метод сбора мусора <code>Sweep</code> имеет абсолютное преимущество перед <code>Compact</code></p>
+<p >
+Оста&shy;но&shy;вим&shy;ся лишь на том, что в <code>LOH</code> ме&shy;тод сбо&shy;ра му&shy;со&shy;ра <code>Sweep</code> име&shy;ет аб&shy;со&shy;лют&shy;ное пре&shy;и&shy;му&shy;щес&shy;тво пе&shy;ред <code>Compact</code></p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">31</div>
-<p>А если объекты маленькие, то наоборот: хоть и не всегда, но удобен <code>Compact</code>. Например, у нас была куча объектов и мы потеряли ссылку на объекты через одного, и получается, что занятые участки и свободные чередуются, например по 24 байта. И может так оказаться, что такими маленькими участками мы воспользоваться не сможем потому что дальше мы будем выделять более крупные объекты. Возникает дилемма: либо наращивать кучу либо избавиться от фрагментации. Поэтому тут, возможно, стоит сжать кучу. Однако, если объекты ушли на покой группой, то нам в данном случае по-прежнему выгоден <code>Sweep</code>, поскольку тот не сжимает кучу, а использует для дальнейшего выделения памяти освободившееся место.</p>
+<p >
+А ес&shy;ли объ&shy;ек&shy;ты ма&shy;лень&shy;кие, то на&shy;о&shy;бо&shy;рот: хоть и не всег&shy;да, но удо&shy;бен <code>Compact</code>. Нап&shy;ри&shy;мер, у нас бы&shy;ла ку&shy;ча объ&shy;ек&shy;тов и мы по&shy;те&shy;ря&shy;ли ссыл&shy;ку на объ&shy;ек&shy;ты че&shy;рез од&shy;но&shy;го, и по&shy;лу&shy;ча&shy;ет&shy;ся, что за&shy;ня&shy;тые учас&shy;тки и сво&shy;бод&shy;ные че&shy;ре&shy;ду&shy;ют&shy;ся, нап&shy;ри&shy;мер по 24 бай&shy;та. И мо&shy;жет так ока&shy;зать&shy;ся, что та&shy;ки&shy;ми ма&shy;лень&shy;ки&shy;ми участ&shy;ка&shy;ми мы вос&shy;поль&shy;зо&shy;вать&shy;ся не смо&shy;жем по&shy;то&shy;му что даль&shy;ше мы бу&shy;дем вы&shy;де&shy;лять бо&shy;лее круп&shy;ные объ&shy;ек&shy;ты. Воз&shy;ни&shy;ка&shy;ет ди&shy;лем&shy;ма: ли&shy;бо на&shy;ра&shy;щи&shy;вать ку&shy;чу ли&shy;бо из&shy;ба&shy;вить&shy;ся от фраг&shy;мен&shy;та&shy;ции. По&shy;э&shy;то&shy;му тут, воз&shy;мож&shy;но, сто&shy;ит сжать ку&shy;чу. Одна&shy;ко, ес&shy;ли объ&shy;ек&shy;ты уш&shy;ли на по&shy;кой груп&shy;пой, то нам в дан&shy;ном слу&shy;чае по-преж&shy;не&shy;му вы&shy;го&shy;ден <code>Sweep</code>, пос&shy;коль&shy;ку тот не сжи&shy;ма&shy;ет ку&shy;чу, а ис&shy;поль&shy;зу&shy;ет для даль&shy;ней&shy;ше&shy;го вы&shy;де&shy;ле&shy;ния па&shy;мя&shy;ти ос&shy;во&shy;бо&shy;див&shy;ше&shy;еся мес&shy;то.</p>
 <div class="paragraph-right-side">31</div>
 </div>
 <blockquote>
-<p>Отсюда можно сделать простой вывод: в обоих кучах память управляется одинаково. Но в LOH в отличии от SOH отключен автоматический вызов <code>Compact</code>. Он доступен только для прямого вызова.</p>
+<p >
+Отсю&shy;да мож&shy;но сде&shy;лать прос&shy;той вы&shy;вод: в обо&shy;их ку&shy;чах па&shy;мять уп&shy;рав&shy;ля&shy;ет&shy;ся оди&shy;на&shy;ко&shy;во. Но в LOH в от&shy;ли&shy;чии от SOH от&shy;клю&shy;чен ав&shy;то&shy;ма&shy;ти&shy;чес&shy;кий вы&shy;зов <code>Compact</code>. Он дос&shy;ту&shy;пен толь&shy;ко для пря&shy;мо&shy;го вы&shy;зо&shy;ва.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">32</div>
-<p>Тут возникает проблема: у нас есть хип маленьких объектов и хип больших. Они, соответственно, разделены. Но по факту мы всегда выделяем маленькие объекты. Их в любом случае будет больше: возможно, миллионы. GC проходит через разные стадии: стадия планирования, стадия маркировки, сбора мусора. На 200 Гб памяти, если так получится, любая из стадий будет очень дорогой, а потому память надо как-то дополнительно сегментировать, чтобы оптимизировать работу с ними.</p>
+<p >
+Тут воз&shy;ни&shy;ка&shy;ет проб&shy;ле&shy;ма: у нас есть хип ма&shy;лень&shy;ких объ&shy;ек&shy;тов и хип боль&shy;ших. Они, со&shy;от&shy;ветст&shy;венно, раз&shy;де&shy;ле&shy;ны. Но по фак&shy;ту мы всег&shy;да вы&shy;де&shy;ля&shy;ем ма&shy;лень&shy;кие объ&shy;ек&shy;ты. Их в лю&shy;бом слу&shy;чае бу&shy;дет боль&shy;ше: воз&shy;мож&shy;но, мил&shy;ли&shy;оны. GC про&shy;хо&shy;дит че&shy;рез раз&shy;ные ста&shy;дии: ста&shy;дия пла&shy;ни&shy;ро&shy;ва&shy;ния, ста&shy;дия мар&shy;ки&shy;ров&shy;ки, сбо&shy;ра му&shy;со&shy;ра. На 200 Гб па&shy;мя&shy;ти, ес&shy;ли так по&shy;лу&shy;чит&shy;ся, лю&shy;бая из ста&shy;дий бу&shy;дет очень до&shy;ро&shy;гой, а по&shy;то&shy;му па&shy;мять на&shy;до как-то до&shy;пол&shy;ни&shy;тель&shy;но сег&shy;мен&shy;ти&shy;ро&shy;вать, что&shy;бы оп&shy;ти&shy;ми&shy;зи&shy;ро&shy;вать ра&shy;бо&shy;ту с ни&shy;ми.</p>
 <div class="paragraph-right-side">32</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">33</div>
-<p>Поэтому, второй тип сегментации работает исходя из времени жизни объектов. Куча растет у нас в одном направлении. Выделение памяти движется от младших адресов к старшим. Соответственно, при выделении памяти берется указатель на первый свободный участок и затем он сдвигается на размер выделенного объекта и всё: куча растет в одном направлении. Отсюда, используя наши ранние рассуждения можно сделать вывод о том, как легко поделить на три поколения. Нулевое поколение  &mdash;  место, где объекты выделяются. Первое поколение  &mdash;  это место, где объекты не были собраны Garbage Collector, но в них пока еще нет уверенности: мы хотим сохранить стабильность во втором поколении и даём объектам еще один шанс быть собранными. И, соответственно, второе поколение, где объекты в идеале будут находиться без сборки мусора.</p>
+<p >
+По&shy;э&shy;то&shy;му, вто&shy;рой тип сег&shy;мен&shy;та&shy;ции ра&shy;бо&shy;та&shy;ет ис&shy;хо&shy;дя из вре&shy;ме&shy;ни жиз&shy;ни объ&shy;ек&shy;тов. Ку&shy;ча рас&shy;тет у нас в од&shy;ном нап&shy;рав&shy;ле&shy;нии. Вы&shy;де&shy;ле&shy;ние па&shy;мя&shy;ти дви&shy;жет&shy;ся от млад&shy;ших ад&shy;ре&shy;сов к стар&shy;шим. Со&shy;от&shy;ветст&shy;венно, при вы&shy;де&shy;ле&shy;нии па&shy;мя&shy;ти бе&shy;рет&shy;ся ука&shy;за&shy;тель на пер&shy;вый сво&shy;бод&shy;ный учас&shy;ток и за&shy;тем он сдви&shy;га&shy;ет&shy;ся на раз&shy;мер вы&shy;де&shy;лен&shy;но&shy;го объ&shy;ек&shy;та и всё: ку&shy;ча рас&shy;тет в од&shy;ном нап&shy;рав&shy;ле&shy;нии. Отсю&shy;да, ис&shy;поль&shy;зуя на&shy;ши ран&shy;ние рас&shy;суж&shy;де&shy;ния мож&shy;но сде&shy;лать вы&shy;вод о том, как лег&shy;ко по&shy;де&shy;лить на три по&shy;ко&shy;ле&shy;ния. Ну&shy;ле&shy;вое по&shy;ко&shy;ле&shy;ние  &mdash;  мес&shy;то, где объ&shy;ек&shy;ты вы&shy;де&shy;ля&shy;ют&shy;ся. Пер&shy;вое по&shy;ко&shy;ле&shy;ние  &mdash;  это мес&shy;то, где объ&shy;ек&shy;ты не бы&shy;ли соб&shy;ра&shy;ны Garbage Collector, но в них по&shy;ка еще нет уве&shy;рен&shy;нос&shy;ти: мы хо&shy;тим сох&shy;ра&shy;нить ста&shy;биль&shy;ность во вто&shy;ром по&shy;ко&shy;ле&shy;нии и даём объ&shy;ек&shy;там еще один шанс быть соб&shy;ран&shy;ны&shy;ми. И, со&shy;от&shy;ветст&shy;венно, вто&shy;рое по&shy;ко&shy;ле&shy;ние, где объ&shy;ек&shy;ты в иде&shy;але бу&shy;дут на&shy;хо&shy;дить&shy;ся без сбор&shy;ки му&shy;со&shy;ра.</p>
 <div class="paragraph-right-side">33</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">34</div>
-<p>Как я уже говорил, если объекты живут долго, то туда можно реже заглядывать, чтобы запускать GC. Поэтому, если мы сделаем нулевое поколение определенных, малых и заранее известных размеров, мы сможем обходить его за <em>гарантированно короткий</em> промежуток времени. И Microsoft гарантирует, что нулевое поколение будет собираться за какие-то определенные миллисекунды. Т.е. GC быстро что-то сделал и дальше пошел, а никто даже и не заметил, что он отработал.</p>
+<p >
+Как я уже го&shy;во&shy;рил, ес&shy;ли объ&shy;ек&shy;ты жи&shy;вут дол&shy;го, то ту&shy;да мож&shy;но ре&shy;же заг&shy;ля&shy;ды&shy;вать, что&shy;бы за&shy;пус&shy;кать GC. По&shy;э&shy;то&shy;му, ес&shy;ли мы сде&shy;ла&shy;ем ну&shy;ле&shy;вое по&shy;ко&shy;ле&shy;ние оп&shy;ре&shy;де&shy;лен&shy;ных, ма&shy;лых и за&shy;ра&shy;нее из&shy;вест&shy;ных раз&shy;ме&shy;ров, мы смо&shy;жем об&shy;хо&shy;дить его за <em>гарантированно короткий</em> про&shy;ме&shy;жу&shy;ток вре&shy;ме&shy;ни. И Microsoft га&shy;ран&shy;ти&shy;ру&shy;ет, что ну&shy;ле&shy;вое по&shy;ко&shy;ле&shy;ние бу&shy;дет со&shy;би&shy;рать&shy;ся за ка&shy;кие-то оп&shy;ре&shy;де&shy;лен&shy;ные мил&shy;ли&shy;се&shy;кун&shy;ды. Т.е. GC быс&shy;тро что-то сде&shy;лал и даль&shy;ше по&shy;шел, а ник&shy;то да&shy;же и не за&shy;ме&shy;тил, что он от&shy;ра&shy;бо&shy;тал.</p>
 <div class="paragraph-right-side">34</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">35</div>
-<p><code>LOH</code> имеет другую структуру. Сюда попадает все, что больше или равно 85 тысячам байт. Цифра странная, но нам полезно ее знать: её можно использовать, например, чтобы определить размер для выделяемого массива, чтобы он не ушел в кучу больших объектов. Если выделяете массив int-ов, то нужно грубо поделить на четыре и получится примерно 20 тысяч int-ов, которые туда прекрасно лягут и не уйдут в LOH. Также интересно, что в LOH уходят массивы double от тысячи элементов и выше.</p>
+<p >
+<code>LOH</code> име&shy;ет дру&shy;гую струк&shy;ту&shy;ру. Сю&shy;да по&shy;па&shy;да&shy;ет все, что боль&shy;ше или рав&shy;но 85 ты&shy;ся&shy;чам байт. Циф&shy;ра стран&shy;ная, но нам по&shy;лез&shy;но ее знать: её мож&shy;но ис&shy;поль&shy;зо&shy;вать, нап&shy;ри&shy;мер, что&shy;бы оп&shy;ре&shy;де&shy;лить раз&shy;мер для вы&shy;де&shy;ля&shy;е&shy;мо&shy;го мас&shy;си&shy;ва, что&shy;бы он не ушел в ку&shy;чу боль&shy;ших объ&shy;ек&shy;тов. Если вы&shy;де&shy;ля&shy;ете мас&shy;сив int-ов, то нуж&shy;но гру&shy;бо по&shy;де&shy;лить на че&shy;ты&shy;ре и по&shy;лу&shy;чит&shy;ся при&shy;мер&shy;но 20 ты&shy;сяч int-ов, ко&shy;то&shy;рые ту&shy;да прек&shy;рас&shy;но ля&shy;гут и не уй&shy;дут в LOH. Так&shy;же ин&shy;те&shy;рес&shy;но, что в LOH ухо&shy;дят мас&shy;си&shy;вы double от ты&shy;ся&shy;чи эле&shy;мен&shy;тов и вы&shy;ше.</p>
 <div class="paragraph-right-side">35</div>
 </div>
-<p>Проверить это все очень легко. Можно написать такой код:</p>
+<p >
+Про&shy;ве&shy;рить это все очень лег&shy;ко. Мож&shy;но на&shy;пи&shy;сать та&shy;кой код:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">var</span> arr1 = <span style="color:Blue;">new</span> <span style="color:Blue;">double</span>[999];  <span style="color:Green;">// -&gt; Gen 0</span>
 <span style="color:Blue;">var</span> arr2 = <span style="color:Blue;">new</span> <span style="color:Blue;">double</span>[1000]; <span style="color:Green;">// -&gt; Gen 2</span>
@@ -1065,121 +1153,145 @@ h4 {
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">36</div>
-<p>и первый массив пойдет в нулевое, а второй  &mdash;  во второе поколение. Какие еще классификации типов существуют для GC? У нас есть две основных, которые мы только что рассмотрели. Однако, хоть эта классификация в общем смысле нам и не доступна, она нам доступна в узком смысле: классификация по типу. Все мы знаем про интернированные строки. Если мы предполагаем, что какая-то строка будет часто встречаться, то ее стоит интернировать, тогда мы сэкономим на памяти.</p>
+<p >
+и пер&shy;вый мас&shy;сив пой&shy;дет в ну&shy;ле&shy;вое, а вто&shy;рой  &mdash;  во вто&shy;рое по&shy;ко&shy;ле&shy;ние. Ка&shy;кие еще клас&shy;си&shy;фи&shy;ка&shy;ции ти&shy;пов су&shy;щес&shy;тву&shy;ют для GC? У нас есть две ос&shy;нов&shy;ных, ко&shy;то&shy;рые мы толь&shy;ко что расс&shy;мот&shy;ре&shy;ли. Одна&shy;ко, хоть эта клас&shy;си&shy;фи&shy;ка&shy;ция в об&shy;щем смыс&shy;ле нам и не дос&shy;туп&shy;на, она нам дос&shy;туп&shy;на в уз&shy;ком смыс&shy;ле: клас&shy;си&shy;фи&shy;ка&shy;ция по ти&shy;пу. Все мы зна&shy;ем про ин&shy;тер&shy;ни&shy;ро&shy;ван&shy;ные стро&shy;ки. Если мы пред&shy;по&shy;ла&shy;га&shy;ем, что ка&shy;кая-то стро&shy;ка бу&shy;дет час&shy;то встр&shy;ечат&shy;ься, то ее сто&shy;ит ин&shy;тер&shy;ни&shy;ро&shy;вать, тог&shy;да мы сэ&shy;ко&shy;но&shy;мим на па&shy;мя&shy;ти.</p>
 <div class="paragraph-right-side">36</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">37</div>
-<p>Как они хранятся? Если строка интернирована, то она хранится как обычная строка в куче. Но ее надо как-то найти, чтобы проверить, что точно такая же строка уже существует. Куча иногда может достигать нескольких сотен гигабайт и поиск будет очень дорогим решением. Поэтому интернированные строки хранятся отдельно (предполагается, что их будет не так много).</p>
+<p >
+Как они хра&shy;нят&shy;ся? Если стро&shy;ка ин&shy;тер&shy;ни&shy;ро&shy;ва&shy;на, то она хра&shy;нит&shy;ся как обыч&shy;ная стро&shy;ка в ку&shy;че. Но ее на&shy;до как-то най&shy;ти, что&shy;бы про&shy;ве&shy;рить, что точ&shy;но та&shy;кая же стро&shy;ка уже су&shy;щес&shy;тву&shy;ет. Ку&shy;ча иног&shy;да мо&shy;жет дос&shy;ти&shy;гать нес&shy;коль&shy;ких со&shy;тен ги&shy;га&shy;байт и по&shy;иск бу&shy;дет очень до&shy;ро&shy;гим ре&shy;ше&shy;ни&shy;ем. По&shy;э&shy;то&shy;му ин&shy;тер&shy;ни&shy;ро&shy;ван&shy;ные стро&shy;ки хра&shy;нят&shy;ся от&shy;дель&shy;но (пред&shy;по&shy;ла&shy;га&shy;ет&shy;ся, что их бу&shy;дет не так мно&shy;го).</p>
 <div class="paragraph-right-side">37</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">38</div>
-<p>У каждого домена при этом (системного или с базовым типом BaseDomain) есть внутренние таблицы, которая нам не доступны. Среди прочих существует Large Heap Handle Table. Существует два типа внутренних массивов, основанных на bucket-ах. Это массив статиков. Имеются ввиду статические члены классов, которые хранятся в массивах. У каждого домена есть ссылка на массив статиков. И дальше ячейками являются ссылки на значения. И еще одна  &mdash;  pinning handles. Это таблица запиненных элементов. Для тех случаев, когда вы пинуете объект в памяти, можете сделать это двумя путями. Первый  &mdash;  это через API, а второй  &mdash;  через ключевое слово fixed в C#. Это два совершенно разных механизма.</p>
+<p >
+У каж&shy;до&shy;го до&shy;ме&shy;на при этом (сис&shy;тем&shy;но&shy;го или с ба&shy;зо&shy;вым ти&shy;пом BaseDomain) есть внут&shy;рен&shy;ние таб&shy;ли&shy;цы, ко&shy;то&shy;рая нам не дос&shy;туп&shy;ны. Сре&shy;ди про&shy;чих су&shy;щес&shy;тву&shy;ет Large Heap Handle Table. Су&shy;щес&shy;тву&shy;ет два ти&shy;па внут&shy;рен&shy;них мас&shy;си&shy;вов, ос&shy;но&shy;ван&shy;ных на bucket-ах. Это мас&shy;сив ста&shy;ти&shy;ков. Име&shy;ют&shy;ся вви&shy;ду ста&shy;ти&shy;чес&shy;кие чле&shy;ны клас&shy;сов, ко&shy;то&shy;рые хра&shy;нят&shy;ся в мас&shy;си&shy;вах. У каж&shy;до&shy;го до&shy;ме&shy;на есть ссыл&shy;ка на мас&shy;сив ста&shy;ти&shy;ков. И даль&shy;ше ячей&shy;ка&shy;ми яв&shy;ля&shy;ют&shy;ся ссыл&shy;ки на зна&shy;че&shy;ния. И еще од&shy;на  &mdash;  pinning handles. Это таб&shy;ли&shy;ца за&shy;пи&shy;нен&shy;ных эле&shy;мен&shy;тов. Для тех слу&shy;ча&shy;ев, ког&shy;да вы пи&shy;ну&shy;ете объ&shy;ект в па&shy;мя&shy;ти, мо&shy;же&shy;те сде&shy;лать это дву&shy;мя пу&shy;тя&shy;ми. Пер&shy;вый  &mdash;  это че&shy;рез API, а вто&shy;рой  &mdash;  че&shy;рез клю&shy;че&shy;вое сло&shy;во fixed в C#. Это два со&shy;вер&shy;шен&shy;но раз&shy;ных ме&shy;ха&shy;низ&shy;ма.</p>
 <div class="paragraph-right-side">38</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">39</div>
-<p>Соответственно, исходя из времени жизни, из-за большого количества объектов, SOH разделен на части, чтобы им было проще управлять. Заполнение SOH идет линейно, поэтому старые объекты живут в младших адресах, свежие  &mdash;  в старших. Старые объекты, как правило, живут долго. Чем дольше объект существует, тем больше вероятность того, что он будет существовать все время работы приложения. Поэтому существует три поколения. Нулевое поколение  &mdash;  это между временем создания объекта и ближайшим GC. Объектов не успевает накопится слишком много и GC успевает их быстро убрать, не залезая в остальную кучу.</p>
+<p >
+Со&shy;от&shy;ветст&shy;венно, ис&shy;хо&shy;дя из вре&shy;ме&shy;ни жиз&shy;ни, из-за боль&shy;шо&shy;го ко&shy;ли&shy;чес&shy;тва объ&shy;ек&shy;тов, SOH раз&shy;де&shy;лен на час&shy;ти, что&shy;бы им бы&shy;ло про&shy;ще уп&shy;рав&shy;лять. За&shy;пол&shy;не&shy;ние SOH идет ли&shy;ней&shy;но, по&shy;э&shy;то&shy;му ста&shy;рые объ&shy;ек&shy;ты жи&shy;вут в млад&shy;ших ад&shy;ре&shy;сах, све&shy;жие  &mdash;  в стар&shy;ших. Ста&shy;рые объ&shy;ек&shy;ты, как пра&shy;ви&shy;ло, жи&shy;вут дол&shy;го. Чем доль&shy;ше объ&shy;ект су&shy;щес&shy;тву&shy;ет, тем боль&shy;ше ве&shy;ро&shy;ят&shy;ность то&shy;го, что он бу&shy;дет су&shy;щест&shy;во&shy;вать все вре&shy;мя ра&shy;бо&shy;ты при&shy;ло&shy;же&shy;ния. По&shy;э&shy;то&shy;му су&shy;щес&shy;тву&shy;ет три по&shy;ко&shy;ле&shy;ния. Ну&shy;ле&shy;вое по&shy;ко&shy;ле&shy;ние  &mdash;  это меж&shy;ду вре&shy;ме&shy;нем соз&shy;да&shy;ния объ&shy;ек&shy;та и бли&shy;жай&shy;шим GC. Об&shy;ъектов не ус&shy;пе&shy;ва&shy;ет на&shy;ко&shy;пит&shy;ся слиш&shy;ком мно&shy;го и GC ус&shy;пе&shy;ва&shy;ет их быс&shy;тро уб&shy;рать, не за&shy;ле&shy;зая в ос&shy;таль&shy;ную ку&shy;чу.</p>
 <div class="paragraph-right-side">39</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">40</div>
-<p>Первое поколение живет между первым и вторым GC. Соответственно, для тех, кто не ушел во второе. Оптимизация какая: нулевое собирать быстро, первое  &mdash;  чуть подольше. Это последняя возможность GC собрать объект, прежде чем он ушел во второе, огромное, поколение. Если объект ушел во второе поколение, то, скорее всего, он будет жить долго. Туда можно редко обращаться. А первое  &mdash;  для объекта, который случайно ушел в первое поколение, но на самом деле он короткоживущий. Это такая оптимизация, чтобы его во втором не ловить. И второе поколение для тех, кто решил пожить подольше и если GC туда пришел, то он там останется работать надолго.</p>
+<p >
+Пер&shy;вое по&shy;ко&shy;ле&shy;ние жи&shy;вет меж&shy;ду пер&shy;вым и вто&shy;рым GC. Со&shy;от&shy;ветст&shy;венно, для тех, кто не ушел во вто&shy;рое. Опти&shy;ми&shy;за&shy;ция ка&shy;кая: ну&shy;ле&shy;вое со&shy;би&shy;рать быс&shy;тро, пер&shy;вое  &mdash;  чуть по&shy;доль&shy;ше. Это пос&shy;лед&shy;няя воз&shy;мож&shy;ность GC соб&shy;рать объ&shy;ект, преж&shy;де чем он ушел во вто&shy;рое, ог&shy;ром&shy;ное, по&shy;ко&shy;ле&shy;ние. Если объ&shy;ект ушел во вто&shy;рое по&shy;ко&shy;ле&shy;ние, то, ско&shy;рее все&shy;го, он бу&shy;дет жить дол&shy;го. Ту&shy;да мож&shy;но ред&shy;ко об&shy;ра&shy;щать&shy;ся. А пер&shy;вое  &mdash;  для объ&shy;ек&shy;та, ко&shy;то&shy;рый слу&shy;чай&shy;но ушел в пер&shy;вое по&shy;ко&shy;ле&shy;ние, но на са&shy;мом де&shy;ле он ко&shy;рот&shy;ко&shy;жи&shy;ву&shy;щий. Это та&shy;кая оп&shy;ти&shy;ми&shy;за&shy;ция, что&shy;бы его во вто&shy;ром не ло&shy;вить. И вто&shy;рое по&shy;ко&shy;ле&shy;ние для тех, кто ре&shy;шил по&shy;жить по&shy;доль&shy;ше и ес&shy;ли GC ту&shy;да при&shy;шел, то он там ос&shy;та&shy;нет&shy;ся ра&shy;бо&shy;тать на&shy;дол&shy;го.</p>
 <div class="paragraph-right-side">40</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">41</div>
-<p>Оранжевые кубики  &mdash;  это руты. Руты  &mdash;  это точки, относительно которых, если обходить граф, то гарантированно вы обойдете все объекты, которыми пользуется программа. Если бы фаза маркировки работала на всех поколениях, то она бы работала долго. Поэтому она работает максимально на самых младших. Если мы решили, что собираем нулевое поколение, то она только там и будет работать. Поэтому есть три типа ссылок.  Первый тип  &mdash;  ссылка внутри одного поколения. Например, если мы с рута пришли в нулевое поколение, а дальше у нас ссылка из этого объекта, но опять в нулевое поколение. Это внутренняя ссылка.   Второй тип ссылок  &mdash;  это ссылка из более старшего поколения в более младшее поколение. Older-to-younger. Он характеризуется тем, что объект, на который мы ссылаемся из первого поколения нет имеет ссылки с рута в нулевом поколении. Это значит, что если мы будем маркировать только нулевое поколение, чтобы на нем GC отработал, то мы пропустим этот объект. Мы должны знать о существовании ссылки с более старшего поколения.</p>
+<p >
+Оран&shy;же&shy;вые ку&shy;би&shy;ки  &mdash;  это ру&shy;ты. Ру&shy;ты  &mdash;  это точ&shy;ки, от&shy;но&shy;си&shy;тель&shy;но ко&shy;то&shy;рых, ес&shy;ли об&shy;хо&shy;дить граф, то га&shy;ран&shy;ти&shy;ро&shy;ван&shy;но вы обой&shy;де&shy;те все объ&shy;ек&shy;ты, ко&shy;то&shy;ры&shy;ми поль&shy;зу&shy;ет&shy;ся прог&shy;рам&shy;ма. Если бы фа&shy;за мар&shy;ки&shy;ров&shy;ки ра&shy;бо&shy;та&shy;ла на всех по&shy;ко&shy;ле&shy;ни&shy;ях, то она бы ра&shy;бо&shy;та&shy;ла дол&shy;го. По&shy;э&shy;то&shy;му она ра&shy;бо&shy;та&shy;ет мак&shy;си&shy;маль&shy;но на са&shy;мых млад&shy;ших. Если мы ре&shy;ши&shy;ли, что со&shy;би&shy;ра&shy;ем ну&shy;ле&shy;вое по&shy;ко&shy;ле&shy;ние, то она толь&shy;ко там и бу&shy;дет ра&shy;бо&shy;тать. По&shy;э&shy;то&shy;му есть три ти&shy;па ссы&shy;лок.  Пер&shy;вый тип  &mdash;  ссыл&shy;ка внут&shy;ри од&shy;но&shy;го по&shy;ко&shy;ле&shy;ния. Нап&shy;ри&shy;мер, ес&shy;ли мы с ру&shy;та приш&shy;ли в ну&shy;ле&shy;вое по&shy;ко&shy;ле&shy;ние, а даль&shy;ше у нас ссыл&shy;ка из это&shy;го объ&shy;ек&shy;та, но опять в ну&shy;ле&shy;вое по&shy;ко&shy;ле&shy;ние. Это внут&shy;рен&shy;няя ссыл&shy;ка.   Вто&shy;рой тип ссы&shy;лок  &mdash;  это ссыл&shy;ка из бо&shy;лее стар&shy;ше&shy;го по&shy;ко&shy;ле&shy;ния в бо&shy;лее млад&shy;шее по&shy;ко&shy;ле&shy;ние. Older-to-younger. Он ха&shy;рак&shy;те&shy;ри&shy;зу&shy;ет&shy;ся тем, что объ&shy;ект, на ко&shy;то&shy;рый мы ссы&shy;ла&shy;ем&shy;ся из пер&shy;во&shy;го по&shy;ко&shy;ле&shy;ния нет име&shy;ет ссыл&shy;ки с ру&shy;та в ну&shy;ле&shy;вом по&shy;ко&shy;ле&shy;нии. Это зна&shy;чит, что ес&shy;ли мы бу&shy;дем мар&shy;ки&shy;ро&shy;вать толь&shy;ко ну&shy;ле&shy;вое по&shy;ко&shy;ле&shy;ние, что&shy;бы на нем GC от&shy;ра&shy;бо&shy;тал, то мы про&shy;пус&shy;тим этот объ&shy;ект. Мы дол&shy;жны знать о су&shy;щест&shy;во&shy;ва&shy;нии ссыл&shy;ки с бо&shy;лее стар&shy;ше&shy;го по&shy;ко&shy;ле&shy;ния.</p>
 <div class="paragraph-right-side">41</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">42</div>
-<p>Третий вид ссылок  &mdash;  это ссылка из младшего в старшее поколение. Для нас она не важна. Если мы собираем нулевое поколение   &mdash;  она не имеет значение. При сборке более старших поколений, младшие тоже собираются. Почему? Если собираем, например, первое  &mdash;  оно больше, крупнее. И, поскольку, нулевое поколение собирается намного чаще, то есть высокая степень вероятности, что после сборки первого будет собрано и нулевое. И GC опять запустится. Для того, чтобы два раза не ходить за одним и тем же, пересобираются и более младшие поколения. В этом случае нам нужно знать ссылку из младшего в старшие? Нам это без разницы, она и так есть. При сборке второго поколения та же самая ситуация. С точки зрения фазы маркировки нам важны ссылки внутри поколения и ссылки с более старших на наше поколение.</p>
+<p >
+Тре&shy;тий вид ссы&shy;лок  &mdash;  это ссыл&shy;ка из млад&shy;ше&shy;го в стар&shy;шее по&shy;ко&shy;ле&shy;ние. Для нас она не важ&shy;на. Если мы со&shy;би&shy;ра&shy;ем ну&shy;ле&shy;вое по&shy;ко&shy;ле&shy;ние   &mdash;  она не име&shy;ет зна&shy;че&shy;ние. При сбор&shy;ке бо&shy;лее стар&shy;ших по&shy;ко&shy;ле&shy;ний, млад&shy;шие то&shy;же со&shy;би&shy;ра&shy;ют&shy;ся. По&shy;че&shy;му? Если со&shy;би&shy;ра&shy;ем, нап&shy;ри&shy;мер, пер&shy;вое  &mdash;  оно боль&shy;ше, круп&shy;нее. И, пос&shy;коль&shy;ку, ну&shy;ле&shy;вое по&shy;ко&shy;ле&shy;ние со&shy;би&shy;ра&shy;ет&shy;ся нам&shy;но&shy;го ча&shy;ще, то есть вы&shy;со&shy;кая сте&shy;пень ве&shy;ро&shy;ят&shy;нос&shy;ти, что пос&shy;ле сбор&shy;ки пер&shy;во&shy;го бу&shy;дет соб&shy;ра&shy;но и ну&shy;ле&shy;вое. И GC опять за&shy;пус&shy;тит&shy;ся. Для то&shy;го, что&shy;бы два ра&shy;за не хо&shy;дить за од&shy;ним и тем же, пе&shy;ре&shy;со&shy;би&shy;ра&shy;ют&shy;ся и бо&shy;лее млад&shy;шие по&shy;ко&shy;ле&shy;ния. В этом слу&shy;чае нам нуж&shy;но знать ссыл&shy;ку из млад&shy;ше&shy;го в стар&shy;шие? Нам это без раз&shy;ни&shy;цы, она и так есть. При сбор&shy;ке вто&shy;ро&shy;го по&shy;ко&shy;ле&shy;ния та же са&shy;мая си&shy;ту&shy;а&shy;ция. С точ&shy;ки зре&shy;ния фа&shy;зы мар&shy;ки&shy;ров&shy;ки нам важ&shy;ны ссыл&shy;ки внут&shy;ри по&shy;ко&shy;ле&shy;ния и ссыл&shy;ки с бо&shy;лее стар&shy;ших на на&shy;ше по&shy;ко&shy;ле&shy;ние.</p>
 <div class="paragraph-right-side">42</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">43</div>
-<p>Если мы находимся в нулевом поколении  &mdash;  как узнать о том, что на нас есть ссылка с более старшего поколения. Есть механизм, который в начале изучения начинает немного пугать. Есть такой код (см. слайд) 35:19.</p>
+<p >
+Если мы на&shy;хо&shy;дим&shy;ся в ну&shy;ле&shy;вом по&shy;ко&shy;ле&shy;нии  &mdash;  как уз&shy;нать о том, что на нас есть ссыл&shy;ка с бо&shy;лее стар&shy;ше&shy;го по&shy;ко&shy;ле&shy;ния. Есть ме&shy;ха&shy;низм, ко&shy;то&shy;рый в на&shy;ча&shy;ле изу&shy;че&shy;ния на&shy;чи&shy;на&shy;ет нем&shy;но&shy;го пу&shy;гать. Есть та&shy;кой код (см. слайд) 35:19.</p>
 <div class="paragraph-right-side">43</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">44</div>
-<p>Кстати, такие сценарии работы GC можно проверять таким способом: мы создаем объект, делаем GC.Collect(), отправляем его в первое поколение. Мы знаем, что он туда уйдет. Дальше создаем ссылку и тем самым фактически создаем ссылку из старшего поколения в младшее. Если дома захочется с чем-то поиграть, то с помощью метода GC.Collect() можно смоделировать такие ситуации.</p>
+<p >
+Кста&shy;ти, та&shy;кие сце&shy;на&shy;рии ра&shy;бо&shy;ты GC мож&shy;но про&shy;ве&shy;рять та&shy;ким спо&shy;со&shy;бом: мы соз&shy;да&shy;ем объ&shy;ект, де&shy;ла&shy;ем GC.Collect(), от&shy;прав&shy;ля&shy;ем его в пер&shy;вое по&shy;ко&shy;ле&shy;ние. Мы зна&shy;ем, что он ту&shy;да уй&shy;дет. Даль&shy;ше соз&shy;да&shy;ем ссыл&shy;ку и тем са&shy;мым фак&shy;ти&shy;чес&shy;ки соз&shy;да&shy;ем ссыл&shy;ку из стар&shy;ше&shy;го по&shy;ко&shy;ле&shy;ния в млад&shy;шее. Если до&shy;ма за&shy;хо&shy;чет&shy;ся с чем-то по&shy;иг&shy;рать, то с по&shy;мощью ме&shy;то&shy;да GC.Collect() мож&shy;но смо&shy;де&shy;ли&shy;ро&shy;вать та&shy;кие си&shy;ту&shy;а&shy;ции.</p>
 <div class="paragraph-right-side">44</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">45</div>
-<p>Что мы здесь видим? У нас есть x, GC.Collect(), инстанс класса Foo уходит в поколение один из нулевого. И дальше x.field присваиваем new Boo(). Это значит, что объект типа Foo начинает ссылаться на новый инстанс объекта типа Boo. То есть из первого в нулевого. Это у нас older-to-younger link.</p>
+<p >
+Что мы здесь ви&shy;дим? У нас есть x, GC.Collect(), ин&shy;с&shy;танс клас&shy;са Foo ухо&shy;дит в по&shy;ко&shy;ле&shy;ние один из ну&shy;ле&shy;во&shy;го. И даль&shy;ше x.field прис&shy;ва&shy;и&shy;ва&shy;ем new Boo(). Это зна&shy;чит, что объ&shy;ект ти&shy;па Foo на&shy;чи&shy;на&shy;ет ссы&shy;лать&shy;ся на но&shy;вый ин&shy;с&shy;танс объ&shy;ек&shy;та ти&shy;па Boo. То есть из пер&shy;во&shy;го в ну&shy;ле&shy;во&shy;го. Это у нас older-to-younger link.</p>
 <div class="paragraph-right-side">45</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">46</div>
-<p>Что происходит в .NET. В месте присваивания, джиттер, то есть там не просто присваивание, а присваивание с проверкой. Эта техника называется Write Barrier и Remembered Set. В .NET она называется немного по-другому. Если у нас звезды сошлись, что нужно запомнить эту ссылку, то мы запоминаем ее во внутренней структуре джита.</p>
+<p >
+Что про&shy;ис&shy;хо&shy;дит в .NET. В мес&shy;те прис&shy;ва&shy;и&shy;ва&shy;ния, джит&shy;тер, то есть там не прос&shy;то прис&shy;ва&shy;и&shy;ва&shy;ние, а прис&shy;ва&shy;и&shy;ва&shy;ние с про&shy;вер&shy;кой. Эта тех&shy;ни&shy;ка на&shy;зы&shy;ва&shy;ет&shy;ся Write Barrier и Remembered Set. В .NET она на&shy;зы&shy;ва&shy;ет&shy;ся нем&shy;но&shy;го по-дру&shy;го&shy;му. Если у нас звез&shy;ды сош&shy;лись, что нуж&shy;но за&shy;пом&shy;нить эту ссыл&shy;ку, то мы за&shy;по&shy;ми&shy;на&shy;ем ее во внут&shy;рен&shy;ней струк&shy;ту&shy;ре джи&shy;та.</p>
 <div class="paragraph-right-side">46</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">47</div>
-<p>Что это за условие? Значение  &mdash;  это ссылка на экземпляр .NET класса. Точка присваивания находится в управляемой куче и имеет более старшее поколение, чем адрес присваиваемого объекта. Когда мы делаем вот так (см. слайд 37:29), джиттер дополнительно проверяет, что слева поколение старше, чем справа. Если старше, то он запоминает адреса во внутренних структурах, убеждается, что с левой части на правую есть ссылка. Это нужно для дальнейшей сборки мусора. На фазе маркировки отмечается выбранное поколение и если у нас есть ссылки в Remembered Set, если мы запомнили, что где-то сохраняли ссылку из первого в нулевое поколение, они тоже становятся корнями, чтобы пройти маркировку. Но хип получается в итоге огромный и становится страшновато.</p>
+<p >
+Что это за ус&shy;ло&shy;вие? Зна&shy;че&shy;ние  &mdash;  это ссыл&shy;ка на эк&shy;земп&shy;ляр .NET клас&shy;са. Точ&shy;ка прис&shy;ва&shy;и&shy;ва&shy;ния на&shy;хо&shy;дит&shy;ся в уп&shy;рав&shy;ля&shy;е&shy;мой ку&shy;че и име&shy;ет бо&shy;лее стар&shy;шее по&shy;ко&shy;ле&shy;ние, чем ад&shy;рес прис&shy;ва&shy;и&shy;ва&shy;е&shy;мо&shy;го объ&shy;ек&shy;та. Ког&shy;да мы де&shy;ла&shy;ем вот так (см. слайд 37:29), джит&shy;тер до&shy;пол&shy;ни&shy;тель&shy;но про&shy;ве&shy;ря&shy;ет, что сле&shy;ва по&shy;ко&shy;ле&shy;ние стар&shy;ше, чем спра&shy;ва. Если стар&shy;ше, то он за&shy;по&shy;ми&shy;на&shy;ет ад&shy;ре&shy;са во внут&shy;рен&shy;них струк&shy;ту&shy;рах, убеж&shy;да&shy;ет&shy;ся, что с ле&shy;вой час&shy;ти на пра&shy;вую есть ссыл&shy;ка. Это нуж&shy;но для даль&shy;ней&shy;шей сбор&shy;ки му&shy;со&shy;ра. На фа&shy;зе мар&shy;ки&shy;ров&shy;ки от&shy;ме&shy;ча&shy;ет&shy;ся выб&shy;ран&shy;ное по&shy;ко&shy;ле&shy;ние и ес&shy;ли у нас есть ссыл&shy;ки в Remembered Set, ес&shy;ли мы за&shy;пом&shy;ни&shy;ли, что где-то сох&shy;ра&shy;ня&shy;ли ссыл&shy;ку из пер&shy;во&shy;го в ну&shy;ле&shy;вое по&shy;ко&shy;ле&shy;ние, они то&shy;же ста&shy;но&shy;вят&shy;ся кор&shy;ня&shy;ми, что&shy;бы прой&shy;ти мар&shy;ки&shy;ров&shy;ку. Но хип по&shy;лу&shy;ча&shy;ет&shy;ся в ито&shy;ге ог&shy;ром&shy;ный и ста&shy;но&shy;вит&shy;ся страш&shy;но&shy;ва&shy;то.</p>
 <div class="paragraph-right-side">47</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">48</div>
-<p>Поэтому используется более оптимизированный способ. Он называется механизм карточного стола. Знания об этом механизме не так распространены. Как он работает? Если взять адресное пространство всего огромного хипа, весь кусок памяти, то сбоку есть карточный стол. Это, грубо говоря, массив чисел. Где каждый бит массива отвечает за определенный диапазон памяти. Если бит выставлен в единицу, значит в этом диапазоне памяти есть ссылка на младшее поколение. То есть это массив признаков ссылок на младшее поколение. См. слайд  &mdash;  40:12</p>
+<p >
+По&shy;э&shy;то&shy;му ис&shy;поль&shy;зу&shy;ет&shy;ся бо&shy;лее оп&shy;ти&shy;ми&shy;зи&shy;ро&shy;ван&shy;ный спо&shy;соб. Он на&shy;зы&shy;ва&shy;ет&shy;ся ме&shy;ха&shy;низм кар&shy;точ&shy;но&shy;го сто&shy;ла. Зна&shy;ния об этом ме&shy;ха&shy;низ&shy;ме не так расп&shy;рост&shy;ра&shy;не&shy;ны. Как он ра&shy;бо&shy;та&shy;ет? Если взять ад&shy;рес&shy;ное прост&shy;ранство все&shy;го ог&shy;ром&shy;но&shy;го хи&shy;па, весь ку&shy;сок па&shy;мя&shy;ти, то сбо&shy;ку есть кар&shy;точ&shy;ный стол. Это, гру&shy;бо го&shy;во&shy;ря, мас&shy;сив чи&shy;сел. Где каж&shy;дый бит мас&shy;си&shy;ва от&shy;ве&shy;ча&shy;ет за оп&shy;ре&shy;де&shy;лен&shy;ный ди&shy;а&shy;па&shy;зон па&shy;мя&shy;ти. Если бит выс&shy;тав&shy;лен в еди&shy;ни&shy;цу, зна&shy;чит в этом ди&shy;а&shy;па&shy;зо&shy;не па&shy;мя&shy;ти есть ссыл&shy;ка на млад&shy;шее по&shy;ко&shy;ле&shy;ние. То есть это мас&shy;сив приз&shy;на&shy;ков ссы&shy;лок на млад&shy;шее по&shy;ко&shy;ле&shy;ние. См. слайд  &mdash;  40:12</p>
 <div class="paragraph-right-side">48</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">49</div>
-<p>У нас есть память, внизу карточный стол. У нас появилась ссылка, слева на право. Это значит, что бит должен быть выставлен в единицу. Потому что от более старшего поколения пошла ссылка в более младшее.   Каждый бит карточного стола отвечает за 128 байт в x86 и за 256 байт в x64. Это, по сути, 32 машинных слова. Машинное слово  &mdash;  это то, с чем работает процессор.</p>
+<p >
+У нас есть па&shy;мять, вни&shy;зу кар&shy;точ&shy;ный стол. У нас по&shy;я&shy;ви&shy;лась ссыл&shy;ка, сле&shy;ва на пра&shy;во. Это зна&shy;чит, что бит дол&shy;жен быть выс&shy;тав&shy;лен в еди&shy;ни&shy;цу. По&shy;то&shy;му что от бо&shy;лее стар&shy;ше&shy;го по&shy;ко&shy;ле&shy;ния пош&shy;ла ссыл&shy;ка в бо&shy;лее млад&shy;шее.   Каж&shy;дый бит кар&shy;точ&shy;но&shy;го сто&shy;ла от&shy;ве&shy;ча&shy;ет за 128 байт в x86 и за 256 байт в x64. Это, по су&shy;ти, 32 ма&shy;шин&shy;ных сло&shy;ва. Ма&shy;шин&shy;ное сло&shy;во  &mdash;  это то, с чем ра&shy;бо&shy;та&shy;ет про&shy;цес&shy;сор.</p>
 <div class="paragraph-right-side">49</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">50</div>
-<p>Если учесть, что каждый пустой объект, максимально маленький (например, new Object) занимает четыре машинных слова в среднем, то получается, что один бит карточного стола перекрывает десять объектов. И если хотя бы с одного из них есть ссылка в младшее поколение, то GC должен при обходе в фазе маркировки зайти по этому адресу и просмотреть все десять объектов и найти те, которые ссылаются на младшее поколение. Один байт перекрывает уже 1,2 КБ оперативной памяти. Или 80 объектов. Четыре байта  &mdash;  320 объектов. Это x86 архитектура. Получается жирновато, если ссылка появилась.</p>
+<p >
+Если учесть, что каж&shy;дый пус&shy;той объ&shy;ект, мак&shy;си&shy;маль&shy;но ма&shy;лень&shy;кий (нап&shy;ри&shy;мер, new Object) за&shy;ни&shy;ма&shy;ет че&shy;ты&shy;ре ма&shy;шин&shy;ных сло&shy;ва в сред&shy;нем, то по&shy;лу&shy;ча&shy;ет&shy;ся, что один бит кар&shy;точ&shy;но&shy;го сто&shy;ла пе&shy;рек&shy;ры&shy;ва&shy;ет де&shy;сять объ&shy;ек&shy;тов. И ес&shy;ли хо&shy;тя бы с од&shy;но&shy;го из них есть ссыл&shy;ка в млад&shy;шее по&shy;ко&shy;ле&shy;ние, то GC дол&shy;жен при об&shy;хо&shy;де в фа&shy;зе мар&shy;ки&shy;ров&shy;ки зай&shy;ти по это&shy;му ад&shy;ре&shy;су и прос&shy;мот&shy;реть все де&shy;сять объ&shy;ек&shy;тов и най&shy;ти те, ко&shy;то&shy;рые ссы&shy;ла&shy;ют&shy;ся на млад&shy;шее по&shy;ко&shy;ле&shy;ние. Один байт пе&shy;рек&shy;ры&shy;ва&shy;ет уже 1,2 КБ опе&shy;ра&shy;тив&shy;ной па&shy;мя&shy;ти. Или 80 объ&shy;ек&shy;тов. Че&shy;ты&shy;ре бай&shy;та  &mdash;  320 объ&shy;ек&shy;тов. Это x86 ар&shy;хи&shy;тек&shy;ту&shy;ра. По&shy;лу&shy;ча&shy;ет&shy;ся жир&shy;но&shy;ва&shy;то, ес&shy;ли ссыл&shy;ка по&shy;я&shy;ви&shy;лась.</p>
 <div class="paragraph-right-side">50</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">51</div>
-<p>Как это работает. Можно посмотреть код, который будет вызван при присваивании (см. слайд 43:24) по этому адресу на github. Там ассемблеровский код, он достаточно простой, разобраться в нем легко. Есть много комментариев, гораздо больше, чем кода.</p>
+<p >
+Как это ра&shy;бо&shy;та&shy;ет. Мож&shy;но пос&shy;мот&shy;реть код, ко&shy;то&shy;рый бу&shy;дет выз&shy;ван при прис&shy;ва&shy;и&shy;ва&shy;нии (см. слайд 43:24) по это&shy;му ад&shy;ре&shy;су на github. Там ас&shy;семб&shy;ле&shy;ровс&shy;кий код, он дос&shy;та&shy;точ&shy;но прос&shy;той, ра&shy;зоб&shy;рать&shy;ся в нем лег&shy;ко. Есть мно&shy;го ком&shy;мен&shy;та&shy;ри&shy;ев, го&shy;раз&shy;до боль&shy;ше, чем ко&shy;да.</p>
 <div class="paragraph-right-side">51</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">52</div>
-<p>Реализация сильно зависит от особенностей. У нас есть Workstation GC, есть серверный GC. У Workstation есть две версии: до и после роста кучи. Как следствие, перемещается gen_1 gen_0. И Server GC: есть несколько хипов для SOH и несколько для LOH. Там свои реализации этих методов присваивания, потому что придется параметризовать для какой кучи идет вызов. А так он просто генерирует ставку для новой кучи и все хорошо. Плюс две реализации под x64. Если смотреть базовую, то будет примерно так (см. слайд 44:36). Регистр RCX  &mdash;  это адрес filed. Адрес таргета, куда мы присваиваем. RDX  &mdash;  это ссылка на объект. Когда мы присваивали, должна быть составлена эта инструкция и больше ничего. Но на самом деле нет. Присвоили и дальше этим кодом мы проверяем, находится ли правая часть присваивания внутри эфемерного сегмента (gen_0, gen_1). И если находится, то мы берем карточный стол, делим на 2048, получаем адрес ячейки и если флаг не выставлен, то выставить.</p>
+<p >
+Ре&shy;а&shy;ли&shy;за&shy;ция силь&shy;но за&shy;ви&shy;сит от осо&shy;бен&shy;нос&shy;тей. У нас есть Workstation GC, есть сер&shy;вер&shy;ный GC. У Workstation есть две вер&shy;сии: до и пос&shy;ле рос&shy;та ку&shy;чи. Как след&shy;с&shy;твие, пе&shy;ре&shy;ме&shy;ща&shy;ет&shy;ся gen_1 gen_0. И Server GC: есть нес&shy;коль&shy;ко хи&shy;пов для SOH и нес&shy;коль&shy;ко для LOH. Там свои ре&shy;а&shy;ли&shy;за&shy;ции этих ме&shy;то&shy;дов прис&shy;ва&shy;и&shy;ва&shy;ния, по&shy;то&shy;му что при&shy;дет&shy;ся па&shy;ра&shy;мет&shy;ри&shy;зо&shy;вать для ка&shy;кой ку&shy;чи идет вы&shy;зов. А так он прос&shy;то ге&shy;не&shy;ри&shy;ру&shy;ет став&shy;ку для но&shy;вой ку&shy;чи и все хо&shy;ро&shy;шо. Плюс две ре&shy;а&shy;ли&shy;за&shy;ции под x64. Если смот&shy;реть ба&shy;зо&shy;вую, то бу&shy;дет при&shy;мер&shy;но так (см. слайд 44:36). Ре&shy;гистр RCX  &mdash;  это ад&shy;рес filed. Адрес тар&shy;ге&shy;та, ку&shy;да мы прис&shy;ва&shy;и&shy;ва&shy;ем. RDX  &mdash;  это ссыл&shy;ка на объ&shy;ект. Ког&shy;да мы прис&shy;ва&shy;и&shy;ва&shy;ли, дол&shy;жна быть сос&shy;тав&shy;ле&shy;на эта инстр&shy;укция и боль&shy;ше ни&shy;че&shy;го. Но на са&shy;мом де&shy;ле нет. Прис&shy;во&shy;или и даль&shy;ше этим ко&shy;дом мы про&shy;ве&shy;ря&shy;ем, на&shy;хо&shy;дит&shy;ся ли пра&shy;вая часть прис&shy;ва&shy;и&shy;ва&shy;ния внут&shy;ри эфе&shy;мер&shy;но&shy;го сег&shy;мен&shy;та (gen_0, gen_1). И ес&shy;ли на&shy;хо&shy;дит&shy;ся, то мы бе&shy;рем кар&shy;точ&shy;ный стол, де&shy;лим на 2048, по&shy;лу&shy;ча&shy;ем ад&shy;рес ячей&shy;ки и ес&shy;ли флаг не выс&shy;тав&shy;лен, то выс&shy;та&shy;вить.</p>
 <div class="paragraph-right-side">52</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">53</div>
-<p>Здесь есть две особенности. Первая   &mdash;  почему просто не выставить? Это будет очень долго. Операция записи намного дольше, чем чтения. Чтение происходит из кеша, а чтобы записать надо записать кроме кеша еще и в оперативную память. Поэтому их проверяем. Интересна процедура выставления флага. Он выставляется сразу же 0FF. То есть мы выставляем не один флаг, а сразу группой. Почему? Когда мы будем дальше проверять ссылку из старшего поколения в младшее, нам побитово будет долго проверять. Проще сразу словами делать проверку. Вместо того, чтобы смотреть, на каком бите ссылка и какие 2 КБ смотреть, все работает проще, система оперирует более значительными диапазонами.</p>
+<p >
+Здесь есть две осо&shy;бен&shy;нос&shy;ти. Пер&shy;вая   &mdash;  по&shy;че&shy;му прос&shy;то не выс&shy;та&shy;вить? Это бу&shy;дет очень дол&shy;го. Опе&shy;ра&shy;ция за&shy;пи&shy;си нам&shy;но&shy;го доль&shy;ше, чем чте&shy;ния. Чте&shy;ние про&shy;ис&shy;хо&shy;дит из ке&shy;ша, а что&shy;бы за&shy;пи&shy;сать на&shy;до за&shy;пи&shy;сать кро&shy;ме ке&shy;ша еще и в опе&shy;ра&shy;тив&shy;ную па&shy;мять. По&shy;э&shy;то&shy;му их про&shy;ве&shy;ря&shy;ем. Инте&shy;рес&shy;на про&shy;це&shy;ду&shy;ра выс&shy;тав&shy;ле&shy;ния фла&shy;га. Он выс&shy;тав&shy;ля&shy;ет&shy;ся сра&shy;зу же 0FF. То есть мы выс&shy;тав&shy;ля&shy;ем не один флаг, а сра&shy;зу груп&shy;пой. По&shy;че&shy;му? Ког&shy;да мы бу&shy;дем даль&shy;ше про&shy;ве&shy;рять ссыл&shy;ку из стар&shy;ше&shy;го по&shy;ко&shy;ле&shy;ния в млад&shy;шее, нам по&shy;би&shy;то&shy;во бу&shy;дет дол&shy;го про&shy;ве&shy;рять. Про&shy;ще сра&shy;зу сло&shy;ва&shy;ми де&shy;лать про&shy;вер&shy;ку. Вмес&shy;то то&shy;го, что&shy;бы смот&shy;реть, на ка&shy;ком би&shy;те ссыл&shy;ка и ка&shy;кие 2 КБ смот&shy;реть, все ра&shy;бо&shy;та&shy;ет про&shy;ще, сис&shy;те&shy;ма опе&shy;ри&shy;ру&shy;ет бо&shy;лее зна&shy;чи&shy;тель&shy;ны&shy;ми ди&shy;а&shy;па&shy;зо&shy;на&shy;ми.</p>
 <div class="paragraph-right-side">53</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">54</div>
-<p>Код, получается, проверяет только поколение object, но не target. Target не интересует. Мы проверяем только то, что мы попали в нулевое или первое поколение. В любом этом случае выставляется бит в карточном столе. Когда мы проверяем нулевое поколение, будем проходится по карточному столу, который относится и к первому, и ко второму поколению. Нас устроит, что биты выставлены. Если первое поколение будем просматривать с нулевым, собирать там мусор и у первого и второго, то мы будем просматривать карточный стол второго поколения. Там тоже эти биты будут выставлены. Поэтому мы левую часть смотрим, и не имеет значения первого или второго поколения. Дальше фильтрация уже идет на стадии проверки.</p>
+<p >
+Код, по&shy;лу&shy;ча&shy;ет&shy;ся, про&shy;ве&shy;ря&shy;ет толь&shy;ко по&shy;ко&shy;ле&shy;ние object, но не target. Target не ин&shy;те&shy;ре&shy;су&shy;ет. Мы про&shy;ве&shy;ря&shy;ем толь&shy;ко то, что мы по&shy;па&shy;ли в ну&shy;ле&shy;вое или пер&shy;вое по&shy;ко&shy;ле&shy;ние. В лю&shy;бом этом слу&shy;чае выс&shy;тав&shy;ля&shy;ет&shy;ся бит в кар&shy;точ&shy;ном сто&shy;ле. Ког&shy;да мы про&shy;ве&shy;ря&shy;ем ну&shy;ле&shy;вое по&shy;ко&shy;ле&shy;ние, бу&shy;дем про&shy;хо&shy;дит&shy;ся по кар&shy;точ&shy;но&shy;му сто&shy;лу, ко&shy;то&shy;рый от&shy;но&shy;сит&shy;ся и к пер&shy;во&shy;му, и ко вто&shy;ро&shy;му по&shy;ко&shy;ле&shy;нию. Нас ус&shy;тро&shy;ит, что би&shy;ты выс&shy;тав&shy;ле&shy;ны. Если пер&shy;вое по&shy;ко&shy;ле&shy;ние бу&shy;дем прос&shy;мат&shy;ри&shy;вать с ну&shy;ле&shy;вым, со&shy;би&shy;рать там му&shy;сор и у пер&shy;во&shy;го и вто&shy;ро&shy;го, то мы бу&shy;дем прос&shy;мат&shy;ри&shy;вать кар&shy;точ&shy;ный стол вто&shy;ро&shy;го по&shy;ко&shy;ле&shy;ния. Там то&shy;же эти би&shy;ты бу&shy;дут выс&shy;тав&shy;ле&shy;ны. По&shy;э&shy;то&shy;му мы ле&shy;вую часть смот&shy;рим, и не име&shy;ет зна&shy;че&shy;ния пер&shy;во&shy;го или вто&shy;ро&shy;го по&shy;ко&shy;ле&shy;ния. Даль&shy;ше фил&shy;ьтрация уже идет на ста&shy;дии про&shy;вер&shy;ки.</p>
 <div class="paragraph-right-side">54</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">55</div>
-<p>Однако, карточный стол в случае большого хипа (у LOH он может быть феерических размеров) тоже будет огромным. И по нему точно так же будет идти сканирование. Мы собираем нулевое поколение и должны уложиться в несколько миллисекунд, а у нас хип в несколько сотен ГБ. Например, это сервер. Карточный стол придется сканировать весь, а это долго. Выход  &mdash;  двухуровневый карточный стол. Называется это Cards Bundle Table. Это еще один массив, где бит отвечает за 32 слова карт. Этот массив оперирует огромными диапазонами. Получается, 1 бит Cards Bundle Table отвечает за 128 Кб на x86 и за 256 Кб на x64. Одна ячейка   &mdash;  4 байта, это 8 Мб карт целевой памяти.</p>
+<p >
+Одна&shy;ко, кар&shy;точ&shy;ный стол в слу&shy;чае боль&shy;шо&shy;го хи&shy;па (у LOH он мо&shy;жет быть фе&shy;е&shy;ри&shy;чес&shy;ких раз&shy;ме&shy;ров) то&shy;же бу&shy;дет ог&shy;ром&shy;ным. И по не&shy;му точ&shy;но так же бу&shy;дет ид&shy;ти ска&shy;ни&shy;ро&shy;ва&shy;ние. Мы со&shy;би&shy;ра&shy;ем ну&shy;ле&shy;вое по&shy;ко&shy;ле&shy;ние и дол&shy;жны уло&shy;жить&shy;ся в нес&shy;коль&shy;ко мил&shy;ли&shy;се&shy;кунд, а у нас хип в нес&shy;коль&shy;ко со&shy;тен ГБ. Нап&shy;ри&shy;мер, это сер&shy;вер. Кар&shy;точ&shy;ный стол при&shy;дет&shy;ся ска&shy;ни&shy;ро&shy;вать весь, а это дол&shy;го. Вы&shy;ход  &mdash;  дву&shy;ху&shy;ров&shy;не&shy;вый кар&shy;точ&shy;ный стол. На&shy;зы&shy;ва&shy;ет&shy;ся это Cards Bundle Table. Это еще один мас&shy;сив, где бит от&shy;ве&shy;ча&shy;ет за 32 сло&shy;ва карт. Этот мас&shy;сив опе&shy;ри&shy;ру&shy;ет ог&shy;ром&shy;ны&shy;ми ди&shy;а&shy;па&shy;зо&shy;на&shy;ми. По&shy;лу&shy;ча&shy;ет&shy;ся, 1 бит Cards Bundle Table от&shy;ве&shy;ча&shy;ет за 128 Кб на x86 и за 256 Кб на x64. Одна ячей&shy;ка   &mdash;  4 бай&shy;та, это 8 Мб карт це&shy;ле&shy;вой па&shy;мя&shy;ти.</p>
 <div class="paragraph-right-side">55</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">56</div>
-<p>Когда мы будем делать GC, собирая нулевое поколение, надо посмотреть, что с первого и второго есть что-то полезное и далее мы уходим в Cards Bundle Table. Сканируем, и если где-то не ноль, то переходим на карточный стол, в соответствующий его диапазон и ищем ненулевую ячейку. И потом уже переходим в нужный диапазон памяти и сканируем объекты, которые там находятся, в поисках ссылки со старшего на младшее поколение. И только тогда мы эту ссылку добавляем в руты и маркируем все объекты, на которые эта ссылка ведет.</p>
+<p >
+Ког&shy;да мы бу&shy;дем де&shy;лать GC, со&shy;би&shy;рая ну&shy;ле&shy;вое по&shy;ко&shy;ле&shy;ние, на&shy;до пос&shy;мот&shy;реть, что с пер&shy;во&shy;го и вто&shy;ро&shy;го есть что-то по&shy;лез&shy;ное и да&shy;лее мы ухо&shy;дим в Cards Bundle Table. Ска&shy;ни&shy;ру&shy;ем, и ес&shy;ли где-то не ноль, то пе&shy;ре&shy;хо&shy;дим на кар&shy;точ&shy;ный стол, в со&shy;от&shy;вет&shy;с&shy;твующий его ди&shy;а&shy;па&shy;зон и ищем не&shy;ну&shy;ле&shy;вую ячей&shy;ку. И по&shy;том уже пе&shy;ре&shy;хо&shy;дим в нуж&shy;ный ди&shy;а&shy;па&shy;зон па&shy;мя&shy;ти и ска&shy;ни&shy;ру&shy;ем объ&shy;ек&shy;ты, ко&shy;то&shy;рые там на&shy;хо&shy;дят&shy;ся, в по&shy;ис&shy;ках ссыл&shy;ки со стар&shy;ше&shy;го на млад&shy;шее по&shy;ко&shy;ле&shy;ние. И толь&shy;ко тог&shy;да мы эту ссыл&shy;ку до&shy;бав&shy;ля&shy;ем в ру&shy;ты и мар&shy;ки&shy;ру&shy;ем все объ&shy;ек&shy;ты, на ко&shy;то&shy;рые эта ссыл&shy;ка ве&shy;дет.</p>
 <div class="paragraph-right-side">56</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">57</div>
-<p>Есть маленькая оптимизация для Windows. Эта система построена, в первую очередь, на архитектуре x86, где используются механизмы виртуализации памяти процессора, которая основана на страницах памяти. Она поделена на зоны, на странички. Можно выставить флаг <code>MEM_WRITE_WATCH</code>. Это означает, что если кто-то будет писать по заданному диапазону, то можно подписаться на обновления. Мы сделали массив и если туда кто-то будет писать, у нас будет дергаться метод из <em>WinApi</em>. Почему мы не видим этого когда в ассемблеровском методе расстановки  карт? Когда мы записываем, выставляя карты, Windows получает нотификацию от страницы, куда мы пишем, и исходя из этого проставляет бит в <code>Cards Bundle Table</code>.</p>
+<p >
+Есть ма&shy;лень&shy;кая оп&shy;ти&shy;ми&shy;за&shy;ция для Windows. Эта сис&shy;те&shy;ма пос&shy;тро&shy;ена, в пер&shy;вую оче&shy;редь, на ар&shy;хи&shy;тек&shy;ту&shy;ре x86, где ис&shy;поль&shy;зу&shy;ют&shy;ся ме&shy;ха&shy;низ&shy;мы вир&shy;ту&shy;а&shy;ли&shy;за&shy;ции па&shy;мя&shy;ти про&shy;цес&shy;со&shy;ра, ко&shy;то&shy;рая ос&shy;но&shy;ва&shy;на на стра&shy;ни&shy;цах па&shy;мя&shy;ти. Она по&shy;де&shy;ле&shy;на на зо&shy;ны, на стра&shy;нич&shy;ки. Мож&shy;но выс&shy;та&shy;вить флаг <code>MEM_WRITE_WATCH</code>. Это оз&shy;на&shy;ча&shy;ет, что ес&shy;ли кто-то бу&shy;дет пи&shy;сать по за&shy;дан&shy;но&shy;му ди&shy;а&shy;па&shy;зо&shy;ну, то мож&shy;но под&shy;пи&shy;сать&shy;ся на об&shy;нов&shy;ле&shy;ния. Мы сде&shy;ла&shy;ли мас&shy;сив и ес&shy;ли ту&shy;да кто-то бу&shy;дет пи&shy;сать, у нас бу&shy;дет дер&shy;гать&shy;ся ме&shy;тод из <em>WinApi</em>. По&shy;че&shy;му мы не ви&shy;дим это&shy;го ког&shy;да в ас&shy;семб&shy;ле&shy;ровс&shy;ком ме&shy;то&shy;де расс&shy;та&shy;нов&shy;ки  карт? Ког&shy;да мы за&shy;пи&shy;сы&shy;ва&shy;ем, выс&shy;тав&shy;ляя кар&shy;ты, Windows по&shy;лу&shy;ча&shy;ет но&shy;ти&shy;фи&shy;ка&shy;цию от стра&shy;ни&shy;цы, ку&shy;да мы пи&shy;шем, и ис&shy;хо&shy;дя из это&shy;го прос&shy;тав&shy;ля&shy;ет бит в <code>Cards Bundle Table</code>.</p>
 <div class="paragraph-right-side">57</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">58</div>
-<p>Базовый вывод, который можно сделать уже сейчас, основываясь на карточных столах, что если вы хотите, чтобы GC протекал быстро и как по маслу, не стоит делать ссылок из старших поколений. Не надо делать вечно живущие массивы, выделять объекты и ссылки на них складывать в эти древние массивы. Но если вы так делаете, надо контролировать, чтобы эти массивы располагались рядом, чтобы их выделять друг за другом. Не распределять их по памяти. Самое неудачное, что можно сделать  &mdash;  это иметь кучу объектов старшего поколения и по какой-то причине выставить ссылки на младшее поколение, но не группой, а вразброс через всю память. Это самый тяжелый сценарий, потому что карточный стол будет забит единицами. А GC, собирая нулевое поколение, будет вынужден проходить все второе, все первое и искать, что там добавлено. Если вы делаете ссылку из старших поколений в младшие, то необходимо эти ссылки группировать: массив, который ссылается на объект младшего поколения. Поскольку это массив, который ссылается на объекты младшего поколения, все ячейки рядом и в карточном столе в идеале это будет просто единица. Дальше мы будем изучать более подробно.</p>
+<p >
+Ба&shy;зо&shy;вый вы&shy;вод, ко&shy;то&shy;рый мож&shy;но сде&shy;лать уже сей&shy;час, ос&shy;но&shy;вы&shy;ва&shy;ясь на кар&shy;точ&shy;ных сто&shy;лах, что ес&shy;ли вы хо&shy;ти&shy;те, что&shy;бы GC про&shy;те&shy;кал быс&shy;тро и как по мас&shy;лу, не сто&shy;ит де&shy;лать ссы&shy;лок из стар&shy;ших по&shy;ко&shy;ле&shy;ний. Не на&shy;до де&shy;лать веч&shy;но жи&shy;ву&shy;щие мас&shy;си&shy;вы, вы&shy;де&shy;лять объ&shy;ек&shy;ты и ссыл&shy;ки на них скла&shy;ды&shy;вать в эти древ&shy;ние мас&shy;си&shy;вы. Но ес&shy;ли вы так де&shy;ла&shy;ете, на&shy;до конт&shy;ро&shy;ли&shy;ро&shy;вать, что&shy;бы эти мас&shy;си&shy;вы рас&shy;по&shy;ла&shy;га&shy;лись ря&shy;дом, что&shy;бы их вы&shy;де&shy;лять друг за дру&shy;гом. Не расп&shy;ре&shy;де&shy;лять их по па&shy;мя&shy;ти. Са&shy;мое не&shy;удач&shy;ное, что мож&shy;но сде&shy;лать  &mdash;  это иметь ку&shy;чу объ&shy;ек&shy;тов стар&shy;ше&shy;го по&shy;ко&shy;ле&shy;ния и по ка&shy;кой-то при&shy;чи&shy;не выс&shy;та&shy;вить ссыл&shy;ки на млад&shy;шее по&shy;ко&shy;ле&shy;ние, но не груп&shy;пой, а вразб&shy;рос че&shy;рез всю па&shy;мять. Это са&shy;мый тя&shy;же&shy;лый сце&shy;на&shy;рий, по&shy;то&shy;му что кар&shy;точ&shy;ный стол бу&shy;дет за&shy;бит еди&shy;ни&shy;ца&shy;ми. А GC, со&shy;би&shy;рая ну&shy;ле&shy;вое по&shy;ко&shy;ле&shy;ние, бу&shy;дет вы&shy;нуж&shy;ден про&shy;хо&shy;дить все вто&shy;рое, все пер&shy;вое и ис&shy;кать, что там до&shy;бав&shy;ле&shy;но. Если вы де&shy;ла&shy;ете ссыл&shy;ку из стар&shy;ших по&shy;ко&shy;ле&shy;ний в млад&shy;шие, то не&shy;об&shy;хо&shy;ди&shy;мо эти ссыл&shy;ки груп&shy;пи&shy;ро&shy;вать: мас&shy;сив, ко&shy;то&shy;рый ссы&shy;ла&shy;ет&shy;ся на объ&shy;ект млад&shy;ше&shy;го по&shy;ко&shy;ле&shy;ния. Пос&shy;коль&shy;ку это мас&shy;сив, ко&shy;то&shy;рый ссы&shy;ла&shy;ет&shy;ся на объ&shy;ек&shy;ты млад&shy;ше&shy;го по&shy;ко&shy;ле&shy;ния, все ячей&shy;ки ря&shy;дом и в кар&shy;точ&shy;ном сто&shy;ле в иде&shy;але это бу&shy;дет прос&shy;то еди&shy;ни&shy;ца. Даль&shy;ше мы бу&shy;дем изу&shy;чать бо&shy;лее под&shy;роб&shy;но.</p>
 <div class="paragraph-right-side">58</div>
 </div>
 <blockquote class="breadcrumbs">
-<p> <a href="../readme.html">Содержание</a> / <a href="./01-00-MemoryManagement-Intro.html">Основы управления памятью</a></p>
+<p >
+ <a href="../readme.html">Содержание</a> / <a href="./01-00-MemoryManagement-Intro.html">Основы управления памятью</a></p>
 </blockquote>
 
 </div>

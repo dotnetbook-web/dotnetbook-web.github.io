@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>.NET Platform Architecture</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.NET Platform Architecture</title>
 </head>
 <body>
     <link rel="stylesheet" href="../../res/bootstrap.css">
@@ -57,27 +57,28 @@ strong {
 }
 
 p, li {
-    margin: 0 0 25px;
-    line-height: 32px;
+    margin: 0 0 1em;
+    line-height: 1.5em;
     font-family: inherit;
 }
 
 ol, li {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 ol {
-    padding-left: 1.2rem;
+    padding-left: 1.21em;
 }
 
 ul  {
-    padding-left: 35px;
+    padding-left: 1em;
 }
 
 ol li, ul li {
-    padding-left: 1rem;	
+    padding-left: 0.5em;	
     font-family: inherit;
+    text-align: justify;
 }
 
 table {
@@ -108,6 +109,7 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 *[class*='lang-'] {
     padding: 0px 0px 25px 0px;
+    font-size: 0.75em;
 }
 
 
@@ -126,11 +128,11 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 }
 
 p code:not(.highlight), li code:not(.highlight) {
-    font-size: 16px;
+    font-size: 0.7em;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
-    padding: 4px;
+    padding: 3px;
     color: darkslateblue;
 }
 
@@ -148,11 +150,6 @@ p code.highlight, li code.highlight {
 
 .wide {
     width:150%;
-}
-
-*[class*='lang-'] span, *[class*='lang-'] pre, pre > code {
-    font-size: 13px;
-    line-height: 20px;
 }
 
 p a, li a {
@@ -179,9 +176,9 @@ p img {
 
 blockquote 
 {
-    background-color: lavenderblush;
-    padding-left: 20px;
-    border-left: 1px solid rgba(0,0,0,.08);
+    padding-left: 0.4em;
+    border-left: 0.5em solid rgba(0,0,0,.08);
+    font-style: italic;
 }
 
 blockquote.big-quote, 
@@ -199,8 +196,7 @@ blockquote.breadcrumbs, blockquote.breadcrumbs  p
 }
 
 blockquote p {
-    margin: 16px 0;
-    padding: 12px 12px 13px;
+    padding: 1em 1em 1em 0.6em;
     font-family: inherit;
 }
 
@@ -210,11 +206,14 @@ blockquote p code {
     padding: 4px 6px;
 }
 
+blockquote p em {
+    font-weight: 400;
+}
+
 blockquote.big-quote > p {
     margin: 40px 0 60px 0;
     font-family: Charter;
     font-size: 55px;
-    line-height: 60px;
     padding: 0;
     width: 150%;
 }
@@ -227,31 +226,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 40px;
-    font-family: PF Regal,Georgia,serif;
+    font-size: 2.2em;
+    font-family: Charter,Georgia,serif;
     font-weight: 300;
-    margin: 40px 0 20px 0;
-    border-bottom-style: ridge;
-    padding-bottom: 10px;
-}
-
-h1 b {
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-weight: 700;
-    font-size: 37px;
-    line-height: 42px;
+    margin: 1.8em 0 1.8em 0;
+    text-align: center;
 }
 
 h2 {
-    margin-top: 35px;
-    margin-bottom: 10px;
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-    border-bottom-color: grey;
-    border-bottom-style: solid;
-    padding-bottom: 5px;
+    margin-top: 2em;
+    margin-left: 1.2em;
+    font-family: Charter,Arial,Helvetica Neue,sans-serif;
+    font-size: 1.25em;
+    width: 70%;
 }
 
 h3 {
@@ -293,27 +280,23 @@ h4 {
     line-height: 24px;
     font-size: 13pt;
     margin: 0 0 13px 0;
-    font-family: Charter;
-}
-
-.side-regular-block {
-    border-radius: 5px;
-    background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
-    padding: 22px;
 }
 
 .side-regular-block p {
     top: 0;
 }
-/* Music side player */
 
+/* Music side player */
 .aside-side-container .music-player {
     width: 100%;
     height: 400px;
 }
 
-.aside-side-container.side-media-block h2 {
-    margin-top: -12px;
+/* media block after h1 */
+.aside-container h1 + .aside-side-container.side-media-block h2 {
+    margin: 7em 0 1em 0;
+    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
+    font-weight: 600;
 }
 
 .aside-side-container > li {
@@ -323,8 +306,8 @@ h4 {
 
 .aside-side-container > li ul, .aside-side-container > li ol {
     padding-left: 30px;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 .aside-side-container > li li {
     padding-left: 6px;
@@ -353,6 +336,12 @@ h4 {
     position: relative;
     top: 9px;
 }
+
+.paragraph-container p, .aside-container > p {
+    text-align: justify;
+    text-indent: 1.5em;
+}
+
 .paragraph-container > .paragraph-left-side, .paragraph-container > .paragraph-right-side  {
     font-family: JB Mono, consolas;
     display: block;
@@ -364,12 +353,14 @@ h4 {
     z-index: 1000;
 }
 .paragraph-container > .paragraph-left-side {
-    left: -55px;
+    display: none;
+    left: -2.1cm;
     width: 35px;
     user-select: none;
 }
 
 .paragraph-container > .paragraph-right-side  {
+    display: none;
     left: 100%;
     width: 35px;
     padding-left: 45px;
@@ -400,8 +391,8 @@ h4 {
 
 
 /* MEDIA */
-/* XL */
-@media (min-width: 1400px) {
+/* XXL */
+@media (min-width: 1801px) {
     .book-container
     {
         max-width: 1200px;
@@ -410,12 +401,21 @@ h4 {
     }
 }
 
+/* XL */
+@media (max-width: 1800px) {
+    .book-container
+    {
+        margin-left: 4cm;
+        margin-right: 4cm;
+    }
+}
+
 /* LG */
 @media (max-width: 1400px) {
     .book-container
     {
-        margin-left: 70px;
-        margin-right: 70px;
+        margin-left: 4cm;
+        margin-right: 4cm;
     }
 
     blockquote.big-quote > p {
@@ -425,14 +425,23 @@ h4 {
         margin: 0;
         padding: 4px 0 30px 0;
     }
+}
 
-    .paragraph-container .paragraph-left-side {
-        left: -40px;
-    }
+@media (max-width: 1100px) {
 }
 
 /* MD */
 @media (max-width: 991px) {
+    
+    h2 {
+        width:80%;
+    }
+
+    .book-container
+    {
+        margin-left: 3cm;
+        margin-right: 3cm;
+    }
     
     .book-title-container {
         margin: 73px 0 110px 0;
@@ -453,26 +462,21 @@ h4 {
 
     .book-superheading-title {
         font-size: 15pt;
-    }
-    .book-container {
-        margin: 0 100px;
-    }
+    }                                     
     .article-container {
         width: 100%;
-    }
-    .aside-container > .aside-side-container
-    {
-        position: relative;
-        top: auto;
-        left: auto;
-        width: auto;
-        height: auto;
-        margin: 0;
-        padding: 17px;
     }
 
     .aside-container p {
         top: 0;
+    }
+
+    .aside-container h1 + .aside-side-container.side-media-block h2 {
+        display: none;
+    }
+
+    .wide {
+        width: 100%;     
     }
 
     .side-regular-block {
@@ -490,6 +494,17 @@ h4 {
         margin-top: 20px;
         font-size: 13pt;
         border: none;
+    }
+
+    .aside-container > .aside-side-container
+    {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 17px;
     }
 
     blockquote.big-quote > p {
@@ -519,6 +534,12 @@ h4 {
     li {
         margin: 0 0 10px 0;
     }
+
+    .side-regular-block {
+        border-radius: 5px;
+        background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
+        padding: 22px;
+    }    
 }
 
 /* Smartphone horizontal - SM */
@@ -545,7 +566,7 @@ h4 {
     }
 
     .book-container {
-        margin: 0 50px;
+        margin: 0 2.5cm;
     }
     ul {
         margin-left: 30px;
@@ -553,14 +574,29 @@ h4 {
         padding-left: 25px;
     }
     .paragraph-container > .paragraph-left-side {
-        top: 15px;
+	display: block;
+        top: 14px;
+        font-size: 9pt;
     }
     .paragraph-container > .paragraph-right-side {
-        padding-left: 20px;
-        top: 15px;
+	display: block;
+        padding-left: 40px;
+        top: 14px;
+        font-size: 9pt;
     }
 }
 
+@media (max-width: 630px) {
+    .book-container {
+        margin: 0 1.5cm;
+    }
+    .paragraph-container > .paragraph-left-side {
+        left: -33px;
+    }
+    .paragraph-container > .paragraph-right-side {
+        padding-left: 24px;
+    }
+}
 /* Smartphone - XS */
 @media (max-width: 575px) {
     .book-container {
@@ -581,15 +617,14 @@ h4 {
     }
    
     p, li {
-        line-height: 28px;
+        line-height: 24px;
     }    
     .paragraph-container .paragraph-left-side {
-        display: none;
-        top: 14px;
-    }
+        display: none;        }
     .paragraph-container .paragraph-right-side {
-        padding-left: 10px;
+        padding-left: 21px;
         top: 14px;
+	font-size: 8pt;
     }
 }
 
@@ -829,87 +864,139 @@ h4 {
     <p class="d-none d-lg-block d-xl-none">LG</p>
     <p class="d-none d-xl-block">XL</p> -->
     <blockquote class="breadcrumbs">
-<p> <a href="../readme.html">Содержание</a> / <a href="./01-00-MemoryManagement-Intro.html">Основы управления памятью</a></p>
+<p >
+ <a href="../readme.html">Содержание</a> / <a href="./01-00-MemoryManagement-Intro.html">Основы управления памятью</a></p>
 </blockquote>
 <h1 id="section">Время жизни сущностей</h1>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p>Один из вопросов, которые могут очень сильно влиять на производительность наших приложений - это политика выбора типа сущности: класс или структура, и контроль за их временем жизни. Ведь архитекторы платформы не просто так выделили для нас эти два типа данных. Это деление в первую очередь обусловлено возможностями оптимизации приложений, архитектура которых учитывает особенности обоих групп типов.</p>
+<p >
+Один из воп&shy;ро&shy;сов, ко&shy;то&shy;рые мо&shy;гут очень силь&shy;но вли&shy;ять на про&shy;из&shy;во&shy;ди&shy;тель&shy;ность на&shy;ших при&shy;ло&shy;же&shy;ний - это по&shy;ли&shy;ти&shy;ка вы&shy;бо&shy;ра ти&shy;па сущ&shy;нос&shy;ти: класс или струк&shy;ту&shy;ра, и конт&shy;роль за их вре&shy;ме&shy;нем жиз&shy;ни. Ведь ар&shy;хи&shy;тек&shy;то&shy;ры плат&shy;фор&shy;мы не прос&shy;то так вы&shy;де&shy;ли&shy;ли для нас эти два ти&shy;па дан&shy;ных. Это де&shy;ле&shy;ние в пер&shy;вую оче&shy;редь обус&shy;лов&shy;ле&shy;но воз&shy;мож&shy;нос&shy;тя&shy;ми оп&shy;ти&shy;ми&shy;за&shy;ции при&shy;ло&shy;же&shy;ний, ар&shy;хи&shy;тек&shy;ту&shy;ра ко&shy;то&shy;рых учи&shy;ты&shy;ва&shy;ет осо&shy;бен&shy;нос&shy;ти обо&shy;их групп ти&shy;пов.</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p>Как уже было сказано в главе <a href="../ReferenceTypesVsValueTypes.html">Ссылочные и значимые типы данных</a>, огромным преимуществом значимых типов данных является то, что их не надо аллоцировать. Т.е. другими словами если кто-то располагает экземпляр значимого типа в локальных переменных или параметрах метода, то расположение идёт на стеке (не выделяя дополнительной памяти в куче). Эта операция - та, о которой вам надо мечтать, т.к. именно она максимально быстра и эффективна. Если же структура располагается в полях ссылочного типа (класса), то под нее операция выделения памяти также не вызывается: ведь она является структурной частью этого ссылочного типа. Однако всё гораздо сложнее с ссылочными типами. Ведь, если речь идет о них, то мы имеем целый набор сложностей при выделении памяти под их экземпляры. Причём, что самое печальное, а может быть даже обидное - от нас почти никак не зависит, на какой из алгоритмов выделения памяти мы напоремся: на самый быстрый вариант из четырёх или же на самый тяжеловесный.</p>
+<p >
+Как уже бы&shy;ло ска&shy;за&shy;но в гла&shy;ве <a href="../ReferenceTypesVsValueTypes.html">Ссылочные и значимые типы данных</a>, ог&shy;ром&shy;ным пре&shy;и&shy;му&shy;щест&shy;вом зна&shy;чи&shy;мых ти&shy;пов дан&shy;ных яв&shy;ля&shy;ет&shy;ся то, что их не на&shy;до ал&shy;ло&shy;ци&shy;ро&shy;вать. Т.е. дру&shy;ги&shy;ми сло&shy;ва&shy;ми ес&shy;ли кто-то рас&shy;по&shy;ла&shy;га&shy;ет эк&shy;земп&shy;ляр зна&shy;чи&shy;мо&shy;го ти&shy;па в ло&shy;каль&shy;ных пе&shy;ре&shy;мен&shy;ных или па&shy;ра&shy;мет&shy;рах ме&shy;то&shy;да, то рас&shy;по&shy;ло&shy;же&shy;ние идёт на сте&shy;ке (не вы&shy;де&shy;ляя до&shy;пол&shy;ни&shy;тель&shy;ной па&shy;мя&shy;ти в ку&shy;че). Эта опе&shy;ра&shy;ция - та, о ко&shy;то&shy;рой вам на&shy;до меч&shy;тать, т.к. имен&shy;но она мак&shy;си&shy;маль&shy;но быс&shy;тра и эф&shy;фек&shy;тив&shy;на. Если же струк&shy;ту&shy;ра рас&shy;по&shy;ла&shy;га&shy;ет&shy;ся в по&shy;лях ссы&shy;лоч&shy;но&shy;го ти&shy;па (клас&shy;са), то под нее опе&shy;ра&shy;ция вы&shy;де&shy;ле&shy;ния па&shy;мя&shy;ти так&shy;же не вы&shy;зы&shy;ва&shy;ет&shy;ся: ведь она яв&shy;ля&shy;ет&shy;ся струк&shy;тур&shy;ной частью это&shy;го ссы&shy;лоч&shy;но&shy;го ти&shy;па. Одна&shy;ко всё го&shy;раз&shy;до слож&shy;нее с ссы&shy;лоч&shy;ны&shy;ми ти&shy;па&shy;ми. Ведь, ес&shy;ли речь идет о них, то мы име&shy;ем це&shy;лый на&shy;бор слож&shy;нос&shy;тей при вы&shy;де&shy;ле&shy;нии па&shy;мя&shy;ти под их эк&shy;земп&shy;ля&shy;ры. Причём, что са&shy;мое пе&shy;чаль&shy;ное, а мо&shy;жет быть да&shy;же обид&shy;ное - от нас поч&shy;ти ни&shy;как не за&shy;ви&shy;сит, на ка&shy;кой из ал&shy;го&shy;рит&shy;мов вы&shy;де&shy;ле&shy;ния па&shy;мя&shy;ти мы на&shy;по&shy;рем&shy;ся: на са&shy;мый быст&shy;рый ва&shy;ри&shy;ант из че&shy;тырёх или же на са&shy;мый тя&shy;же&shy;ло&shy;вес&shy;ный.</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <h2 id="section-1">Ссылочные типы</h2>
 <h3 id="section-2">Общий обзор</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p>Для целостности картины при дальнейшем чтении рассмотрим особенности времени жизни экземпляров ссылочных типов данных. Ссылочные типы обладают следующими свойствами в вопросе времени собственной жизни:</p>
+<p >
+Для це&shy;лост&shy;нос&shy;ти кар&shy;ти&shy;ны при даль&shy;ней&shy;шем чте&shy;нии расс&shy;мот&shy;рим осо&shy;бен&shy;нос&shy;ти вре&shy;ме&shy;ни жиз&shy;ни эк&shy;земп&shy;ля&shy;ров ссы&shy;лоч&shy;ных ти&shy;пов дан&shy;ных. Ссы&shy;лоч&shy;ные ти&shy;пы об&shy;ла&shy;да&shy;ют сле&shy;ду&shy;ю&shy;щи&shy;ми свой&shy;ства&shy;ми в воп&shy;ро&shy;се вре&shy;ме&shy;ни собст&shy;венной жиз&shy;ни:</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <ul>
-<li>У ссылочных типов в отличии от значимых детерменированное начало жизни. Другими словами они порождаются тогда и только тогда, когда кто-либо запросил их создание;</li>
-<li>Однако, они имеют недетерменированный освобождение: мы не знаем, когда произойдет освобождение памяти из под них. Мы не можем вызвать GC для конкретного экземпляра даже для случая с Large Objects Heap, где эта операция могла бы быть вполне уместна;</li>
+<li>
+<p >
+У ссы&shy;лоч&shy;ных ти&shy;пов в от&shy;ли&shy;чии от зна&shy;чи&shy;мых де&shy;тер&shy;ме&shy;ни&shy;ро&shy;ван&shy;ное на&shy;ча&shy;ло жиз&shy;ни. Дру&shy;ги&shy;ми сло&shy;ва&shy;ми они по&shy;рож&shy;да&shy;ют&shy;ся тог&shy;да и толь&shy;ко тог&shy;да, ког&shy;да кто-ли&shy;бо зап&shy;ро&shy;сил их соз&shy;да&shy;ние;</p>
+</li>
+<li>
+<p >
+Одна&shy;ко, они име&shy;ют не&shy;де&shy;тер&shy;ме&shy;ни&shy;ро&shy;ван&shy;ный ос&shy;во&shy;бож&shy;де&shy;ние: мы не зна&shy;ем, ког&shy;да про&shy;изой&shy;дет ос&shy;во&shy;бож&shy;де&shy;ние па&shy;мя&shy;ти из под них. Мы не мо&shy;жем выз&shy;вать GC для конк&shy;рет&shy;но&shy;го эк&shy;земп&shy;ля&shy;ра да&shy;же для слу&shy;чая с Large Objects Heap, где эта опе&shy;ра&shy;ция мог&shy;ла бы быть впол&shy;не умес&shy;тна;</p>
+</li>
 </ul>
-<p>Эти два свойства дают нам немного пищи для размышлений:</p>
+<p >
+Эти два свой&shy;ства да&shy;ют нам нем&shy;но&shy;го пи&shy;щи для раз&shy;мыш&shy;ле&shy;ний:</p>
 <ul>
-<li>экземпляры классов уничтожаются в случайное время в неопределенно отдаленном будущем;</li>
-<li>их уничтожение обуславливается утерей ссылок на них;</li>
-<li>поэтому с одной стороны это значит, что операция освобождения последней ссылки на объект превращается в детерменированную операцию &laquo;удаления&raquo; объекта из зоны видимости приложения. Он ещё есть, существует, но недосягаем для всего остального приложения;</li>
-<li>однако, с другой стороны мы далеко не всегда в курсе, какое именно обнуление ссылки будет последним, что лишает нас свойства детерменированности в обнулении последней ссылки.</li>
+<li>
+<p >
+эк&shy;земп&shy;ля&shy;ры клас&shy;сов унич&shy;то&shy;жа&shy;ют&shy;ся в слу&shy;чай&shy;ное вре&shy;мя в не&shy;оп&shy;ре&shy;де&shy;лен&shy;но от&shy;да&shy;лен&shy;ном бу&shy;ду&shy;щем;</p>
+</li>
+<li>
+<p >
+их унич&shy;то&shy;же&shy;ние обус&shy;лав&shy;ли&shy;ва&shy;ет&shy;ся уте&shy;рей ссы&shy;лок на них;</p>
+</li>
+<li>
+<p >
+по&shy;э&shy;то&shy;му с од&shy;ной сто&shy;ро&shy;ны это зна&shy;чит, что опе&shy;ра&shy;ция ос&shy;во&shy;бож&shy;де&shy;ния пос&shy;лед&shy;ней ссыл&shy;ки на объ&shy;ект прев&shy;ра&shy;ща&shy;ет&shy;ся в де&shy;тер&shy;ме&shy;ни&shy;ро&shy;ван&shy;ную опе&shy;ра&shy;цию &laquo;уда&shy;ле&shy;ния&raquo; объ&shy;ек&shy;та из зо&shy;ны ви&shy;ди&shy;мос&shy;ти при&shy;ло&shy;же&shy;ния. Он ещё есть, су&shy;щес&shy;тву&shy;ет, но не&shy;до&shy;ся&shy;га&shy;ем для все&shy;го ос&shy;таль&shy;но&shy;го при&shy;ло&shy;же&shy;ния;</p>
+</li>
+<li>
+<p >
+од&shy;на&shy;ко, с дру&shy;гой сто&shy;ро&shy;ны мы да&shy;ле&shy;ко не всег&shy;да в кур&shy;се, ка&shy;кое имен&shy;но об&shy;ну&shy;ле&shy;ние ссыл&shy;ки бу&shy;дет пос&shy;лед&shy;ним, что ли&shy;ша&shy;ет нас свой&shy;ства де&shy;тер&shy;ме&shy;ни&shy;ро&shy;ван&shy;нос&shy;ти в об&shy;ну&shy;ле&shy;нии пос&shy;лед&shy;ней ссыл&shy;ки.</p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p>Еще одним очень важным свойством является наличие виртуального метода финализации объекта. Этот метод вызывается во время срабатывания сборщика мусора: т.е. в неопределенном будущем. И необходим данный метод для одного: корректного закрытия неуправляемых ресурсов, которыми владеет объект в тех и только тех случаях, когда что-то пошло не так (например, было выброшено исключение) и программа более не сможет самостоятено это сделать (код, который отвечает за освобождение данных ресурсов никогда более не вызовется вследствие срабатывания исключительной ситуации). И, поскольку время вызова данного метода ровно как и освобождение памяти из под объекта от нас не зависят, его вызов также не является детерменированным. Мало того, он является асинхронным, т.к. осуществяется в отдельном потоке во время исполнения приложения. Это важно помнить, т.к. если, например, ваше приложение имеет логику повторной попытки работы с ресурсом и если произошла какая-то ошибка (например, <code>ThreadAbortException</code>), в результате которой ресурсы &laquo;повисли&raquo; в очереди на финализацию, то это значит, что вы не сможете открыть этот ресурс (например, файл), пока не отработает очередь на финализацию, в которой этот ресурс будет освобождён.</p>
+<p >
+Еще од&shy;ним очень важ&shy;ным свой&shy;с&shy;твом яв&shy;ля&shy;ет&shy;ся на&shy;ли&shy;чие вир&shy;ту&shy;ал&shy;ьного ме&shy;то&shy;да фи&shy;на&shy;ли&shy;за&shy;ции объ&shy;ек&shy;та. Этот ме&shy;тод вы&shy;зы&shy;ва&shy;ет&shy;ся во вре&shy;мя сра&shy;ба&shy;ты&shy;ва&shy;ния сбор&shy;щи&shy;ка му&shy;со&shy;ра: т.е. в не&shy;оп&shy;ре&shy;де&shy;лен&shy;ном бу&shy;ду&shy;щем. И не&shy;об&shy;хо&shy;дим дан&shy;ный ме&shy;тод для од&shy;но&shy;го: кор&shy;рект&shy;но&shy;го зак&shy;ры&shy;тия не&shy;уп&shy;рав&shy;ля&shy;е&shy;мых ре&shy;сур&shy;сов, ко&shy;то&shy;ры&shy;ми вла&shy;де&shy;ет объ&shy;ект в тех и толь&shy;ко тех слу&shy;ча&shy;ях, ког&shy;да что-то пош&shy;ло не так (нап&shy;ри&shy;мер, бы&shy;ло выб&shy;ро&shy;ше&shy;но ис&shy;клю&shy;че&shy;ние) и прог&shy;рам&shy;ма бо&shy;лее не смо&shy;жет са&shy;мос&shy;то&shy;я&shy;те&shy;но это сде&shy;лать (код, ко&shy;то&shy;рый от&shy;ве&shy;ча&shy;ет за ос&shy;во&shy;бож&shy;де&shy;ние дан&shy;ных ре&shy;сур&shy;сов ни&shy;ког&shy;да бо&shy;лее не вы&shy;зо&shy;вет&shy;ся всле&shy;д&shy;ствие сра&shy;ба&shy;ты&shy;ва&shy;ния ис&shy;клю&shy;чи&shy;тель&shy;ной си&shy;ту&shy;а&shy;ции). И, пос&shy;коль&shy;ку вре&shy;мя вы&shy;зо&shy;ва дан&shy;но&shy;го ме&shy;то&shy;да ров&shy;но как и ос&shy;во&shy;бож&shy;де&shy;ние па&shy;мя&shy;ти из под объ&shy;ек&shy;та от нас не за&shy;ви&shy;сят, его вы&shy;зов так&shy;же не яв&shy;ля&shy;ет&shy;ся де&shy;тер&shy;ме&shy;ни&shy;ро&shy;ван&shy;ным. Ма&shy;ло то&shy;го, он яв&shy;ля&shy;ет&shy;ся асинх&shy;рон&shy;ным, т.к. осу&shy;щес&shy;твя&shy;ет&shy;ся в от&shy;дель&shy;ном по&shy;то&shy;ке во вре&shy;мя ис&shy;пол&shy;не&shy;ния при&shy;ло&shy;же&shy;ния. Это важ&shy;но пом&shy;нить, т.к. ес&shy;ли, нап&shy;ри&shy;мер, ва&shy;ше при&shy;ло&shy;же&shy;ние име&shy;ет ло&shy;ги&shy;ку пов&shy;тор&shy;ной по&shy;пыт&shy;ки ра&shy;бо&shy;ты с ре&shy;сур&shy;сом и ес&shy;ли про&shy;изош&shy;ла ка&shy;кая-то ошиб&shy;ка (нап&shy;ри&shy;мер, <code>ThreadAbortException</code>), в ре&shy;зуль&shy;та&shy;те ко&shy;то&shy;рой ре&shy;сур&shy;сы &laquo;по&shy;вис&shy;ли&raquo; в оче&shy;ре&shy;ди на фи&shy;на&shy;ли&shy;за&shy;цию, то это зна&shy;чит, что вы не смо&shy;же&shy;те от&shy;к&shy;рыть этот ре&shy;сурс (нап&shy;ри&shy;мер, файл), по&shy;ка не от&shy;ра&shy;бо&shy;та&shy;ет оче&shy;редь на фи&shy;на&shy;ли&shy;за&shy;цию, в ко&shy;то&shy;рой этот ре&shy;сурс бу&shy;дет ос&shy;во&shy;бождён.</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <blockquote>
-<p>Однако, там где есть неопределенность, программисту всегда хочется внести определенность и как результат, возник интерфейс <code>IDisposable</code>, речь о котором пойдет чуть позже, в следующей главе. Я сейчас могу сказать лишь одно: он реализуется если необходимо, чтобы внешний код мог самостоятельно отдать команду на освобождение ресурсов объекта. Т.е. детерменированно сообщить объекту, что он более не нужен.</p>
+<p >
+Одна&shy;ко, там где есть не&shy;оп&shy;ре&shy;де&shy;лен&shy;ность, прог&shy;рам&shy;мис&shy;ту всег&shy;да хо&shy;чет&shy;ся внес&shy;ти оп&shy;ре&shy;де&shy;лен&shy;ность и как ре&shy;зуль&shy;тат, воз&shy;ник ин&shy;тер&shy;фейс <code>IDisposable</code>, речь о ко&shy;то&shy;ром пой&shy;дет чуть поз&shy;же, в сле&shy;ду&shy;ю&shy;щей гла&shy;ве. Я сей&shy;час мо&shy;гу ска&shy;зать лишь од&shy;но: он ре&shy;а&shy;ли&shy;зу&shy;ет&shy;ся ес&shy;ли не&shy;об&shy;хо&shy;ди&shy;мо, что&shy;бы внеш&shy;ний код мог са&shy;мос&shy;то&shy;я&shy;тель&shy;но от&shy;дать ко&shy;ман&shy;ду на ос&shy;во&shy;бож&shy;де&shy;ние ре&shy;сур&shy;сов объ&shy;ек&shy;та. Т.е. де&shy;тер&shy;ме&shy;ни&shy;ро&shy;ван&shy;но со&shy;об&shy;щить объ&shy;ек&shy;ту, что он бо&shy;лее не ну&shy;жен.</p>
 </blockquote>
 <h3 id="section-3">В защиту текущего подхода</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p>Мы никогда не задумывались (а может только я?) над тем, что было бы, будь всё по-другому: если бы память освобождалась детерменированно. Текущий подход с автоматической памятью, когда мы не задумываемся, где выделять объекты и когда их освобождать нам не всегда нравится: ведь бывают случаи, когда готовых к освобождению объектов накапливается слишком много и их освобождение тормозит всё приложение. Однако, в защиту текущего подхода давайте немного отвлечемся на сценарии, о которых иногда начинаешь задумываться, мечтая сменить текущий набор алгоритмов:</p>
+<p >
+Мы ни&shy;ког&shy;да не за&shy;ду&shy;мы&shy;ва&shy;лись (а мо&shy;жет толь&shy;ко я?) над тем, что бы&shy;ло бы, будь всё по-дру&shy;го&shy;му: ес&shy;ли бы па&shy;мять ос&shy;во&shy;бож&shy;да&shy;лась де&shy;тер&shy;ме&shy;ни&shy;ро&shy;ван&shy;но. Те&shy;ку&shy;щий под&shy;ход с ав&shy;то&shy;ма&shy;ти&shy;чес&shy;кой па&shy;мятью, ког&shy;да мы не за&shy;ду&shy;мы&shy;ва&shy;ем&shy;ся, где вы&shy;де&shy;лять объ&shy;ек&shy;ты и ког&shy;да их ос&shy;во&shy;бож&shy;дать нам не всег&shy;да нра&shy;вит&shy;ся: ведь бы&shy;ва&shy;ют слу&shy;чаи, ког&shy;да го&shy;то&shy;вых к ос&shy;во&shy;бож&shy;де&shy;нию объ&shy;ек&shy;тов на&shy;кап&shy;ли&shy;ва&shy;ет&shy;ся слиш&shy;ком мно&shy;го и их ос&shy;во&shy;бож&shy;де&shy;ние тор&shy;мо&shy;зит всё при&shy;ло&shy;же&shy;ние. Одна&shy;ко, в за&shy;щи&shy;ту те&shy;ку&shy;ще&shy;го под&shy;хо&shy;да да&shy;вай&shy;те нем&shy;но&shy;го от&shy;вле&shy;чем&shy;ся на сце&shy;на&shy;рии, о ко&shy;то&shy;рых иног&shy;да на&shy;чи&shy;на&shy;ешь за&shy;ду&shy;мы&shy;вать&shy;ся, меч&shy;тая сме&shy;нить те&shy;ку&shy;щий на&shy;бор ал&shy;го&shy;рит&shy;мов:</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <ul>
-<li>если вместо того чтобы освобождать объекты по срабатыванию GC мы будем освобождать их с потерей последней ссылки, что произойдёт? Вот наш код присваивает некоторой переменной <code>null</code>. Тогда получается, что на каждом присвоении необходимо проверять, идёт ли присвоение <code>null</code> или какой-либо другой рабочей ссылки. Если да, то надо понять, последняя ли это была ссылка. Каждый раз считать входящие с кучи ссылки, перебирая все объекты SOH/LOH - дорого. Значит, надо чтобы каждый объект считал все входящие ссылки сам: инкрементируя и декрементируя счётчик на каждой операции. Это - дополнительное место + дополнительные действия. Плюс ко всему получается, что мы уже не можем сжимать кучу: после каждого присваивания это делать слишком дорого: подходит только метод <code>Sweep</code>. Как мы видим, уже на поверхности всплывает очень много проблем, не говоря уже о подробностях;</li>
-<li>если ввести оператор <code>delete</code>, чтобы как в C++ освобождать объекты по требованию, дополнительно воскрешает деструктор, как средство детерменированного освобождения памяти: ведь если мы освобождаем объект оператором <code>delete</code>, необходимо таким же образом освобождать те объекты, которыми этот объект владеет. Значит, необходим метод, который будет вызываться при разрушении объекта: деструктор экземпляра типа. Это приведет к увеличению сложности разработки и удорожанию сопровождения программ: утечки будут постоянно. Плюс ко всему прочему возникнет путаница при освобождении памяти: мы лишаемся возможности освобождать её в последней точке использования. Т.е. теперь мы должны это делать в строго отведенном месте.</li>
-<li>если вводить смешанный алгоритм: в целом чтобы работало как сейчас, но чтобы был оператор <code>delete</code>. Например, вы мне скажете, вам захочется освобождать массивы данных, которые были использованы под скачивание изображений ровно в определенный момент. Потому что если наше приложение качает изображения друг за другом и при этом они достаточно быстро становятся не нужны, то мы вхолостую выделяем кучу памяти, которая быстро копится и приводит к вызову GC. Это особенно актуально для мобильных приложений на Xamarin и элемента управления &laquo;виртуальный список&raquo;, где при быстром скролле изображений они в больших количествах грузятся, а потом становятся ненужными. Если удалять их сразу, то не будет ситуации с большим GC, который испортит анимацию прокрутки. Однако, тут возникнут сложности для GC. При ручном освобождении памяти, последняя в свою очередь станет фрагментирована и может перестать вмещать в себя те массивы данных, которые вы запросите под следующие изображения. Как следствие - всё равно произойдет GC. Если блоки памяти с ручным управлением располагать в LOH, то ручное освобождение хорошо &laquo;ляжет&raquo; на его алгоритмы. Однако, всё также будет приводить к фрагментации и дальнейшему срабатыванию полного GC. Единственно верное решение - использовать пул массивов и Span/Memory для доступа к поддиапазону индексов. Но тогда зачем вводить <code>delete</code>?</li>
+<li>
+<p >
+ес&shy;ли вмес&shy;то то&shy;го что&shy;бы ос&shy;во&shy;бож&shy;дать объ&shy;ек&shy;ты по сра&shy;ба&shy;ты&shy;ва&shy;нию GC мы бу&shy;дем ос&shy;во&shy;бож&shy;дать их с по&shy;те&shy;рей пос&shy;лед&shy;ней ссыл&shy;ки, что про&shy;и&shy;зойдёт? Вот наш код прис&shy;ва&shy;и&shy;ва&shy;ет не&shy;ко&shy;то&shy;рой пе&shy;ре&shy;мен&shy;ной <code>null</code>. Тог&shy;да по&shy;лу&shy;ча&shy;ет&shy;ся, что на каж&shy;дом прис&shy;во&shy;е&shy;нии не&shy;об&shy;хо&shy;ди&shy;мо про&shy;ве&shy;рять, идёт ли прис&shy;во&shy;е&shy;ние <code>null</code> или ка&shy;кой-ли&shy;бо дру&shy;гой ра&shy;бо&shy;чей ссыл&shy;ки. Если да, то на&shy;до по&shy;нять, пос&shy;лед&shy;няя ли это бы&shy;ла ссыл&shy;ка. Каж&shy;дый раз счи&shy;тать вхо&shy;дя&shy;щие с ку&shy;чи ссыл&shy;ки, пе&shy;ре&shy;би&shy;рая все объ&shy;ек&shy;ты SOH/LOH - до&shy;ро&shy;го. Зна&shy;чит, на&shy;до что&shy;бы каж&shy;дый объ&shy;ект счи&shy;тал все вхо&shy;дя&shy;щие ссыл&shy;ки сам: ин&shy;кре&shy;мен&shy;ти&shy;руя и дек&shy;ре&shy;мен&shy;ти&shy;руя счётчик на каж&shy;дой опе&shy;ра&shy;ции. Это - до&shy;пол&shy;ни&shy;тель&shy;ное мес&shy;то + до&shy;пол&shy;ни&shy;тель&shy;ные действия. Плюс ко все&shy;му по&shy;лу&shy;ча&shy;ет&shy;ся, что мы уже не мо&shy;жем сжи&shy;мать ку&shy;чу: пос&shy;ле каж&shy;до&shy;го прис&shy;ва&shy;и&shy;ва&shy;ния это де&shy;лать слиш&shy;ком до&shy;ро&shy;го: под&shy;хо&shy;дит толь&shy;ко ме&shy;тод <code>Sweep</code>. Как мы ви&shy;дим, уже на по&shy;верх&shy;нос&shy;ти вспл&shy;ыв&shy;ает очень мно&shy;го проб&shy;лем, не го&shy;во&shy;ря уже о под&shy;роб&shy;нос&shy;тях;</p>
+</li>
+<li>
+<p >
+ес&shy;ли ввес&shy;ти опе&shy;ра&shy;тор <code>delete</code>, что&shy;бы как в C++ ос&shy;во&shy;бож&shy;дать объ&shy;ек&shy;ты по тре&shy;бо&shy;ва&shy;нию, до&shy;пол&shy;ни&shy;тель&shy;но воск&shy;ре&shy;ша&shy;ет дест&shy;рук&shy;тор, как сред&shy;ство де&shy;тер&shy;ме&shy;ни&shy;ро&shy;ван&shy;но&shy;го ос&shy;во&shy;бож&shy;де&shy;ния па&shy;мя&shy;ти: ведь ес&shy;ли мы ос&shy;во&shy;бож&shy;да&shy;ем объ&shy;ект опе&shy;ра&shy;то&shy;ром <code>delete</code>, не&shy;об&shy;хо&shy;ди&shy;мо та&shy;ким же об&shy;ра&shy;зом ос&shy;во&shy;бож&shy;дать те объ&shy;ек&shy;ты, ко&shy;то&shy;ры&shy;ми этот объ&shy;ект вла&shy;де&shy;ет. Зна&shy;чит, не&shy;об&shy;хо&shy;дим ме&shy;тод, ко&shy;то&shy;рый бу&shy;дет вы&shy;зы&shy;вать&shy;ся при раз&shy;ру&shy;ше&shy;нии объ&shy;ек&shy;та: дест&shy;рук&shy;тор эк&shy;земп&shy;ля&shy;ра ти&shy;па. Это при&shy;ве&shy;дет к уве&shy;ли&shy;че&shy;нию слож&shy;нос&shy;ти раз&shy;ра&shy;бот&shy;ки и удо&shy;ро&shy;жа&shy;нию соп&shy;ро&shy;вож&shy;де&shy;ния прог&shy;рамм: утеч&shy;ки бу&shy;дут пос&shy;то&shy;ян&shy;но. Плюс ко все&shy;му про&shy;че&shy;му воз&shy;ник&shy;нет пу&shy;та&shy;ни&shy;ца при ос&shy;во&shy;бож&shy;де&shy;нии па&shy;мя&shy;ти: мы ли&shy;ша&shy;ем&shy;ся воз&shy;мож&shy;нос&shy;ти ос&shy;во&shy;бож&shy;дать её в пос&shy;лед&shy;ней точ&shy;ке ис&shy;поль&shy;зо&shy;ва&shy;ния. Т.е. те&shy;перь мы дол&shy;жны это де&shy;лать в стро&shy;го от&shy;ве&shy;ден&shy;ном мес&shy;те.</p>
+</li>
+<li>
+<p >
+ес&shy;ли вво&shy;дить сме&shy;шан&shy;ный ал&shy;го&shy;ритм: в це&shy;лом что&shy;бы ра&shy;бо&shy;та&shy;ло как сей&shy;час, но что&shy;бы был опе&shy;ра&shy;тор <code>delete</code>. Нап&shy;ри&shy;мер, вы мне ска&shy;же&shy;те, вам за&shy;хо&shy;чет&shy;ся ос&shy;во&shy;бож&shy;дать мас&shy;си&shy;вы дан&shy;ных, ко&shy;то&shy;рые бы&shy;ли ис&shy;поль&shy;зо&shy;ва&shy;ны под ска&shy;чи&shy;ва&shy;ние изоб&shy;ра&shy;же&shy;ний ров&shy;но в оп&shy;ре&shy;де&shy;лен&shy;ный мо&shy;мент. По&shy;то&shy;му что ес&shy;ли на&shy;ше при&shy;ло&shy;же&shy;ние ка&shy;ча&shy;ет изоб&shy;ра&shy;же&shy;ния друг за дру&shy;гом и при этом они дос&shy;та&shy;точ&shy;но быс&shy;тро ста&shy;но&shy;вят&shy;ся не нуж&shy;ны, то мы вхо&shy;лос&shy;тую вы&shy;де&shy;ля&shy;ем ку&shy;чу па&shy;мя&shy;ти, ко&shy;то&shy;рая быс&shy;тро ко&shy;пит&shy;ся и при&shy;во&shy;дит к вы&shy;зо&shy;ву GC. Это осо&shy;бен&shy;но ак&shy;ту&shy;ально для мо&shy;биль&shy;ных при&shy;ло&shy;же&shy;ний на Xamarin и эле&shy;мен&shy;та уп&shy;рав&shy;ле&shy;ния &laquo;вир&shy;ту&shy;альный спи&shy;сок&raquo;, где при быст&shy;ром скрол&shy;ле изоб&shy;ра&shy;же&shy;ний они в боль&shy;ших ко&shy;ли&shy;чест&shy;вах гру&shy;зят&shy;ся, а по&shy;том ста&shy;но&shy;вят&shy;ся не&shy;нуж&shy;ны&shy;ми. Если уда&shy;лять их сра&shy;зу, то не бу&shy;дет си&shy;ту&shy;а&shy;ции с боль&shy;шим GC, ко&shy;то&shy;рый ис&shy;пор&shy;тит ани&shy;ма&shy;цию прок&shy;рут&shy;ки. Одна&shy;ко, тут воз&shy;ник&shy;нут слож&shy;нос&shy;ти для GC. При руч&shy;ном ос&shy;во&shy;бож&shy;де&shy;нии па&shy;мя&shy;ти, пос&shy;лед&shy;няя в свою оче&shy;редь ста&shy;нет фраг&shy;мен&shy;ти&shy;ро&shy;ва&shy;на и мо&shy;жет пе&shy;рес&shy;тать вме&shy;щать в се&shy;бя те мас&shy;си&shy;вы дан&shy;ных, ко&shy;то&shy;рые вы зап&shy;ро&shy;си&shy;те под сле&shy;ду&shy;ю&shy;щие изоб&shy;ра&shy;же&shy;ния. Как след&shy;с&shy;твие - всё рав&shy;но про&shy;изой&shy;дет GC. Если бло&shy;ки па&shy;мя&shy;ти с руч&shy;ным уп&shy;рав&shy;ле&shy;ни&shy;ем рас&shy;по&shy;ла&shy;гать в LOH, то руч&shy;ное ос&shy;во&shy;бож&shy;де&shy;ние хо&shy;ро&shy;шо &laquo;ля&shy;жет&raquo; на его ал&shy;го&shy;рит&shy;мы. Одна&shy;ко, всё так&shy;же бу&shy;дет при&shy;во&shy;дить к фраг&shy;мен&shy;та&shy;ции и даль&shy;ней&shy;ше&shy;му сра&shy;ба&shy;ты&shy;ва&shy;нию пол&shy;но&shy;го GC. Един&shy;ствен&shy;но вер&shy;ное ре&shy;ше&shy;ние - ис&shy;поль&shy;зо&shy;вать пул мас&shy;си&shy;вов и Span/Memory для дос&shy;ту&shy;па к под&shy;ди&shy;а&shy;па&shy;зо&shy;ну ин&shy;дек&shy;сов. Но тог&shy;да за&shy;чем вво&shy;дить <code>delete</code>?</p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p>Тогда получается, что текущее решение - прекрасно и надо просто научиться им правильно пользоваться. Этим мы чуть позже и займемся.</p>
+<p >
+Тог&shy;да по&shy;лу&shy;ча&shy;ет&shy;ся, что те&shy;ку&shy;щее ре&shy;ше&shy;ние - прек&shy;рас&shy;но и на&shy;до прос&shy;то на&shy;у&shy;чить&shy;ся им пра&shy;виль&shy;но поль&shy;зо&shy;вать&shy;ся. Этим мы чуть поз&shy;же и зай&shy;мем&shy;ся.</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <h3 id="section-4">Предварительные выводы</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p>Из всего сказанного можно увидеть, что у любого объекта есть некоторое время его существования. Это может показаться тривиальной мыслью, которая лежит на поверхности, но не все так однозначно:</p>
+<p >
+Из все&shy;го ска&shy;зан&shy;но&shy;го мож&shy;но уви&shy;деть, что у лю&shy;бо&shy;го объ&shy;ек&shy;та есть не&shy;ко&shy;то&shy;рое вре&shy;мя его су&shy;щест&shy;во&shy;ва&shy;ния. Это мо&shy;жет по&shy;ка&shy;зать&shy;ся три&shy;ви&shy;альной мыслью, ко&shy;то&shy;рая ле&shy;жит на по&shy;верх&shy;нос&shy;ти, но не все так од&shy;ноз&shy;нач&shy;но:</p>
 <div class="paragraph-right-side">07</div>
 </div>
 <ul>
-<li>важно понимать, как, когда и при каких иных условиях <em>объект создается</em>. Ведь его создание занимает некоторое не всегда короткое время. И вы не можете заранее угадать, по какому алгоритму он будет создан: простым переносом указателя в случае наличия места в allocation context, вследтвие необходимости расширения или переноса allocation context, необходимости сжатия эфимерного сегмента или же необходимости создания нового эфимерного сегмента с его полным структурированием;</li>
-<li>также стоит понимать, насколько &laquo;популярным&raquo; будет объект <em>во время его жизни</em> и как долго он будет существовать: какое количество иных объектов будет на него ссылаться и как долго. Этот фактор влияет как на сборку мусора, фрагментацию кучи, время создания других объектов и что самое интересное - на время обхода графа объектов в фазе маркировки достижимых объектов сборщиком мусора;</li>
-<li>а также, что логично и очень важно: как объект будет <em>достигать</em> состояния освобождения (состояние выброшенности звучит грустно). Это значит, будет ли осуществляться детерменированное его разрушение или нет. Например, при помощи <code>IDisposable.Dispose</code></li>
-<li>и освобождаться - быть подхваченным Garbage Collector'ом с дальнейшей возможностью вызова финализатора.</li>
+<li>
+<p >
+важ&shy;но по&shy;ни&shy;мать, как, ког&shy;да и при ка&shy;ких иных ус&shy;ло&shy;ви&shy;ях <em>объект создается</em>. Ведь его соз&shy;да&shy;ние за&shy;ни&shy;ма&shy;ет не&shy;ко&shy;то&shy;рое не всег&shy;да ко&shy;рот&shy;кое вре&shy;мя. И вы не мо&shy;же&shy;те за&shy;ра&shy;нее уга&shy;дать, по ка&shy;ко&shy;му ал&shy;го&shy;рит&shy;му он бу&shy;дет соз&shy;дан: прос&shy;тым пе&shy;ре&shy;но&shy;сом ука&shy;за&shy;те&shy;ля в слу&shy;чае на&shy;ли&shy;чия мес&shy;та в allocation context, всле&shy;д&shy;твие не&shy;об&shy;хо&shy;ди&shy;мос&shy;ти рас&shy;ши&shy;ре&shy;ния или пе&shy;ре&shy;но&shy;са allocation context, не&shy;об&shy;хо&shy;ди&shy;мос&shy;ти сжа&shy;тия эфи&shy;мер&shy;но&shy;го сег&shy;мен&shy;та или же не&shy;об&shy;хо&shy;ди&shy;мос&shy;ти соз&shy;да&shy;ния но&shy;во&shy;го эфи&shy;мер&shy;но&shy;го сег&shy;мен&shy;та с его пол&shy;ным струк&shy;ту&shy;ри&shy;ро&shy;ва&shy;ни&shy;ем;</p>
+</li>
+<li>
+<p >
+так&shy;же сто&shy;ит по&shy;ни&shy;мать, нас&shy;коль&shy;ко &laquo;по&shy;пу&shy;ляр&shy;ным&raquo; бу&shy;дет объ&shy;ект <em>во время его жизни</em> и как дол&shy;го он бу&shy;дет су&shy;щест&shy;во&shy;вать: ка&shy;кое ко&shy;ли&shy;чес&shy;тво иных объ&shy;ек&shy;тов бу&shy;дет на не&shy;го ссы&shy;лать&shy;ся и как дол&shy;го. Этот фак&shy;тор влияет как на сбор&shy;ку му&shy;со&shy;ра, фраг&shy;мен&shy;та&shy;цию ку&shy;чи, вре&shy;мя соз&shy;да&shy;ния дру&shy;гих объ&shy;ек&shy;тов и что са&shy;мое ин&shy;те&shy;рес&shy;ное - на вре&shy;мя об&shy;хо&shy;да гра&shy;фа объ&shy;ек&shy;тов в фа&shy;зе мар&shy;ки&shy;ров&shy;ки дос&shy;ти&shy;жи&shy;мых объ&shy;ек&shy;тов сбор&shy;щи&shy;ком му&shy;со&shy;ра;</p>
+</li>
+<li>
+<p >
+а так&shy;же, что ло&shy;гич&shy;но и очень важ&shy;но: как объ&shy;ект бу&shy;дет <em>достигать</em> сос&shy;то&shy;я&shy;ния ос&shy;во&shy;бож&shy;де&shy;ния (сос&shy;то&shy;я&shy;ние выб&shy;ро&shy;шен&shy;нос&shy;ти зву&shy;чит грус&shy;тно). Это зна&shy;чит, бу&shy;дет ли осу&shy;щ&shy;еств&shy;ляться де&shy;тер&shy;ме&shy;ни&shy;ро&shy;ван&shy;ное его раз&shy;ру&shy;ше&shy;ние или нет. Нап&shy;ри&shy;мер, при по&shy;мо&shy;щи <code>IDisposable.Dispose</code></p>
+</li>
+<li>
+<p >
+и ос&shy;во&shy;бож&shy;дать&shy;ся - быть подх&shy;ва&shy;чен&shy;ным Garbage Collector'ом с даль&shy;ней&shy;шей воз&shy;мож&shy;ностью вы&shy;зо&shy;ва фи&shy;на&shy;ли&shy;за&shy;то&shy;ра.</p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p>Каждый из этих этапов определяет производительность приложения и логичность его архитектуры. Рассмотрим каждый этап в отдельности.</p>
+<p >
+Каж&shy;дый из этих эта&shy;пов оп&shy;ре&shy;де&shy;ля&shy;ет про&shy;из&shy;во&shy;ди&shy;тель&shy;ность при&shy;ло&shy;же&shy;ния и ло&shy;гич&shy;ность его ар&shy;хи&shy;тек&shy;ту&shy;ры. Расс&shy;мот&shy;рим каж&shy;дый этап в от&shy;дель&shy;нос&shy;ти.</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <h2 id="section-5">Создание объекта</h2>
-<p>Все начинается с операции запроса памяти к подсистеме управления памятью:</p>
+<p >
+Все на&shy;чи&shy;на&shy;ет&shy;ся с опе&shy;ра&shy;ции зап&shy;ро&shy;са па&shy;мя&shy;ти к под&shy;сис&shy;те&shy;ме уп&shy;рав&shy;ле&shy;ния па&shy;мятью:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">var</span> x = <span style="color:Blue;">new</span> A();
 </pre></div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
-<p>Эта казалось бы самая простая операция платформы .NET кроет в себе огромный пласт работы, который будет описан в отдельной главе.</p>
+<p >
+Эта ка&shy;за&shy;лось бы са&shy;мая прос&shy;тая опе&shy;ра&shy;ция плат&shy;фор&shy;мы .NET кро&shy;ет в се&shy;бе ог&shy;ром&shy;ный пласт ра&shy;бо&shy;ты, ко&shy;то&shy;рый бу&shy;дет опи&shy;сан в от&shy;дель&shy;ной гла&shy;ве.</p>
 <div class="paragraph-right-side">09</div>
 </div>
 

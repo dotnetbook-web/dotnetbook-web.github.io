@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>.NET Platform Architecture</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.NET Platform Architecture</title>
 </head>
 <body>
     <link rel="stylesheet" href="../../res/bootstrap.css">
@@ -57,27 +57,28 @@ strong {
 }
 
 p, li {
-    margin: 0 0 25px;
-    line-height: 32px;
+    margin: 0 0 1em;
+    line-height: 1.5em;
     font-family: inherit;
 }
 
 ol, li {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 ol {
-    padding-left: 1.2rem;
+    padding-left: 1.21em;
 }
 
 ul  {
-    padding-left: 35px;
+    padding-left: 1em;
 }
 
 ol li, ul li {
-    padding-left: 1rem;	
+    padding-left: 0.5em;	
     font-family: inherit;
+    text-align: justify;
 }
 
 table {
@@ -108,6 +109,7 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 *[class*='lang-'] {
     padding: 0px 0px 25px 0px;
+    font-size: 0.75em;
 }
 
 
@@ -126,11 +128,11 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 }
 
 p code:not(.highlight), li code:not(.highlight) {
-    font-size: 16px;
+    font-size: 0.7em;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
-    padding: 4px;
+    padding: 3px;
     color: darkslateblue;
 }
 
@@ -148,11 +150,6 @@ p code.highlight, li code.highlight {
 
 .wide {
     width:150%;
-}
-
-*[class*='lang-'] span, *[class*='lang-'] pre, pre > code {
-    font-size: 13px;
-    line-height: 20px;
 }
 
 p a, li a {
@@ -179,9 +176,9 @@ p img {
 
 blockquote 
 {
-    background-color: lavenderblush;
-    padding-left: 20px;
-    border-left: 1px solid rgba(0,0,0,.08);
+    padding-left: 0.4em;
+    border-left: 0.5em solid rgba(0,0,0,.08);
+    font-style: italic;
 }
 
 blockquote.big-quote, 
@@ -199,8 +196,7 @@ blockquote.breadcrumbs, blockquote.breadcrumbs  p
 }
 
 blockquote p {
-    margin: 16px 0;
-    padding: 12px 12px 13px;
+    padding: 1em 1em 1em 0.6em;
     font-family: inherit;
 }
 
@@ -210,11 +206,14 @@ blockquote p code {
     padding: 4px 6px;
 }
 
+blockquote p em {
+    font-weight: 400;
+}
+
 blockquote.big-quote > p {
     margin: 40px 0 60px 0;
     font-family: Charter;
     font-size: 55px;
-    line-height: 60px;
     padding: 0;
     width: 150%;
 }
@@ -227,31 +226,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 40px;
-    font-family: PF Regal,Georgia,serif;
+    font-size: 2.2em;
+    font-family: Charter,Georgia,serif;
     font-weight: 300;
-    margin: 40px 0 20px 0;
-    border-bottom-style: ridge;
-    padding-bottom: 10px;
-}
-
-h1 b {
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-weight: 700;
-    font-size: 37px;
-    line-height: 42px;
+    margin: 1.8em 0 1.8em 0;
+    text-align: center;
 }
 
 h2 {
-    margin-top: 35px;
-    margin-bottom: 10px;
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-    border-bottom-color: grey;
-    border-bottom-style: solid;
-    padding-bottom: 5px;
+    margin-top: 2em;
+    margin-left: 1.2em;
+    font-family: Charter,Arial,Helvetica Neue,sans-serif;
+    font-size: 1.25em;
+    width: 70%;
 }
 
 h3 {
@@ -293,27 +280,23 @@ h4 {
     line-height: 24px;
     font-size: 13pt;
     margin: 0 0 13px 0;
-    font-family: Charter;
-}
-
-.side-regular-block {
-    border-radius: 5px;
-    background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
-    padding: 22px;
 }
 
 .side-regular-block p {
     top: 0;
 }
-/* Music side player */
 
+/* Music side player */
 .aside-side-container .music-player {
     width: 100%;
     height: 400px;
 }
 
-.aside-side-container.side-media-block h2 {
-    margin-top: -12px;
+/* media block after h1 */
+.aside-container h1 + .aside-side-container.side-media-block h2 {
+    margin: 7em 0 1em 0;
+    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
+    font-weight: 600;
 }
 
 .aside-side-container > li {
@@ -323,8 +306,8 @@ h4 {
 
 .aside-side-container > li ul, .aside-side-container > li ol {
     padding-left: 30px;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 .aside-side-container > li li {
     padding-left: 6px;
@@ -353,6 +336,12 @@ h4 {
     position: relative;
     top: 9px;
 }
+
+.paragraph-container p, .aside-container > p {
+    text-align: justify;
+    text-indent: 1.5em;
+}
+
 .paragraph-container > .paragraph-left-side, .paragraph-container > .paragraph-right-side  {
     font-family: JB Mono, consolas;
     display: block;
@@ -364,12 +353,14 @@ h4 {
     z-index: 1000;
 }
 .paragraph-container > .paragraph-left-side {
-    left: -55px;
+    display: none;
+    left: -2.1cm;
     width: 35px;
     user-select: none;
 }
 
 .paragraph-container > .paragraph-right-side  {
+    display: none;
     left: 100%;
     width: 35px;
     padding-left: 45px;
@@ -400,8 +391,8 @@ h4 {
 
 
 /* MEDIA */
-/* XL */
-@media (min-width: 1400px) {
+/* XXL */
+@media (min-width: 1801px) {
     .book-container
     {
         max-width: 1200px;
@@ -410,12 +401,21 @@ h4 {
     }
 }
 
+/* XL */
+@media (max-width: 1800px) {
+    .book-container
+    {
+        margin-left: 4cm;
+        margin-right: 4cm;
+    }
+}
+
 /* LG */
 @media (max-width: 1400px) {
     .book-container
     {
-        margin-left: 70px;
-        margin-right: 70px;
+        margin-left: 4cm;
+        margin-right: 4cm;
     }
 
     blockquote.big-quote > p {
@@ -425,14 +425,23 @@ h4 {
         margin: 0;
         padding: 4px 0 30px 0;
     }
+}
 
-    .paragraph-container .paragraph-left-side {
-        left: -40px;
-    }
+@media (max-width: 1100px) {
 }
 
 /* MD */
 @media (max-width: 991px) {
+    
+    h2 {
+        width:80%;
+    }
+
+    .book-container
+    {
+        margin-left: 3cm;
+        margin-right: 3cm;
+    }
     
     .book-title-container {
         margin: 73px 0 110px 0;
@@ -453,26 +462,21 @@ h4 {
 
     .book-superheading-title {
         font-size: 15pt;
-    }
-    .book-container {
-        margin: 0 100px;
-    }
+    }                                     
     .article-container {
         width: 100%;
-    }
-    .aside-container > .aside-side-container
-    {
-        position: relative;
-        top: auto;
-        left: auto;
-        width: auto;
-        height: auto;
-        margin: 0;
-        padding: 17px;
     }
 
     .aside-container p {
         top: 0;
+    }
+
+    .aside-container h1 + .aside-side-container.side-media-block h2 {
+        display: none;
+    }
+
+    .wide {
+        width: 100%;     
     }
 
     .side-regular-block {
@@ -490,6 +494,17 @@ h4 {
         margin-top: 20px;
         font-size: 13pt;
         border: none;
+    }
+
+    .aside-container > .aside-side-container
+    {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 17px;
     }
 
     blockquote.big-quote > p {
@@ -519,6 +534,12 @@ h4 {
     li {
         margin: 0 0 10px 0;
     }
+
+    .side-regular-block {
+        border-radius: 5px;
+        background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
+        padding: 22px;
+    }    
 }
 
 /* Smartphone horizontal - SM */
@@ -545,7 +566,7 @@ h4 {
     }
 
     .book-container {
-        margin: 0 50px;
+        margin: 0 2.5cm;
     }
     ul {
         margin-left: 30px;
@@ -553,14 +574,29 @@ h4 {
         padding-left: 25px;
     }
     .paragraph-container > .paragraph-left-side {
-        top: 15px;
+	display: block;
+        top: 14px;
+        font-size: 9pt;
     }
     .paragraph-container > .paragraph-right-side {
-        padding-left: 20px;
-        top: 15px;
+	display: block;
+        padding-left: 40px;
+        top: 14px;
+        font-size: 9pt;
     }
 }
 
+@media (max-width: 630px) {
+    .book-container {
+        margin: 0 1.5cm;
+    }
+    .paragraph-container > .paragraph-left-side {
+        left: -33px;
+    }
+    .paragraph-container > .paragraph-right-side {
+        padding-left: 24px;
+    }
+}
 /* Smartphone - XS */
 @media (max-width: 575px) {
     .book-container {
@@ -581,15 +617,14 @@ h4 {
     }
    
     p, li {
-        line-height: 28px;
+        line-height: 24px;
     }    
     .paragraph-container .paragraph-left-side {
-        display: none;
-        top: 14px;
-    }
+        display: none;        }
     .paragraph-container .paragraph-right-side {
-        padding-left: 10px;
+        padding-left: 21px;
         top: 14px;
+	font-size: 8pt;
     }
 }
 
@@ -829,47 +864,74 @@ h4 {
     <p class="d-none d-lg-block d-xl-none">LG</p>
     <p class="d-none d-xl-block">XL</p> -->
     <blockquote class="breadcrumbs">
-<p> <a href="../readme.html">Содержание</a> / <a href="./01-00-MemoryManagement-Intro.html">Основы управления памятью</a></p>
+<p >
+ <a href="../readme.html">Содержание</a> / <a href="./01-00-MemoryManagement-Intro.html">Основы управления памятью</a></p>
 </blockquote>
 <h1 id="section">Ссылочные и значимые типы данных</h1>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p>Теперь, когда мы укрепили свои знания основ в управлении памятью в .NET, давайте поговорим про Reference Types и Value Types. И если говорить про разницу между ними и про полезность каждого из типов, то первое, о чем я бы упомянул - так это о своих мыслях об их названии. На мой скромный взгляд, если бы в русскоязычном сегменте их назвали ссылочные и значимые типы вместо проговаривания Value Types и Reference Types, то с пониманием разницы между ними все бы встало на свои места.</p>
+<p >
+Те&shy;перь, ког&shy;да мы ук&shy;ре&shy;пи&shy;ли свои зна&shy;ния ос&shy;нов в уп&shy;рав&shy;ле&shy;нии па&shy;мятью в .NET, да&shy;вай&shy;те по&shy;го&shy;во&shy;рим про Reference Types и Value Types. И ес&shy;ли го&shy;во&shy;рить про раз&shy;ни&shy;цу меж&shy;ду ни&shy;ми и про по&shy;лез&shy;ность каж&shy;до&shy;го из ти&shy;пов, то пер&shy;вое, о чем я бы упо&shy;мя&shy;нул - так это о сво&shy;их мыс&shy;лях об их наз&shy;ва&shy;нии. На мой скром&shy;ный взгляд, ес&shy;ли бы в рус&shy;ско&shy;языч&shy;ном сег&shy;мен&shy;те их наз&shy;ва&shy;ли ссы&shy;лоч&shy;ные и зна&shy;чи&shy;мые ти&shy;пы вмес&shy;то про&shy;го&shy;ва&shy;ри&shy;ва&shy;ния Value Types и Reference Types, то с по&shy;ни&shy;ма&shy;ни&shy;ем раз&shy;ни&shy;цы меж&shy;ду ни&shy;ми все бы вста&shy;ло на свои мес&shy;та.</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <blockquote>
-<p>Очень часто при вопросе что такое ссылочные и значимые типы, люди отвечают, что ссылочные живут в куче, а значимые - в стеке. И это в корне неправильно. Это настолько маленькая часть правды, что правдой не может считаться в принципе</p>
+<p >
+Очень час&shy;то при воп&shy;ро&shy;се что та&shy;кое ссы&shy;лоч&shy;ные и зна&shy;чи&shy;мые ти&shy;пы, лю&shy;ди от&shy;ве&shy;ча&shy;ют, что ссы&shy;лоч&shy;ные жи&shy;вут в ку&shy;че, а зна&shy;чи&shy;мые - в сте&shy;ке. И это в кор&shy;не неп&shy;ра&shy;виль&shy;но. Это нас&shy;толь&shy;ко ма&shy;лень&shy;кая часть прав&shy;ды, что прав&shy;дой не мо&shy;жет счи&shy;тать&shy;ся в прин&shy;ци&shy;пе</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p>Также, чтобы понимать разницу между ними, давайте и будем изучать их с точки зрения разницы:</p>
+<p >
+Так&shy;же, что&shy;бы по&shy;ни&shy;мать раз&shy;ни&shy;цу меж&shy;ду ни&shy;ми, да&shy;вай&shy;те и бу&shy;дем изу&shy;чать их с точ&shy;ки зре&shy;ния раз&shy;ни&shy;цы:</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <ul>
-<li><em>Значимый тип</em>:  значением является <strong>вся структура целиком</strong>. Для <em>ссылочного типа</em> значением является <strong>ссылка</strong> на объект;</li>
-<li>По структуре в памяти: значимые типы содержат только те данные, которые вы указали. Ссылочные также содержат два системных поля. Первое необходимо для хранения <code>SyncBlockIndex</code>, второе - для хранения информации о типе: в том числе и о Virtual Methods Table (VMT)</li>
-<li>Однако, ссылочные типы можно наследовать, переопределяя методы. Значимые типы лишены такой возможности;</li>
-<li>Но, чтобы выделить ссылочный тип, надо аллоцировать место в куче. Значимый тип <em>может</em> работать на стеке, не уходя в кучу, а может стать частью ссылочного типа. Это свойство может значительно повысить производительность для некоторых алгоритмов;</li>
+<li>
+<p >
+<em>Значимый тип</em>:  зна&shy;че&shy;ни&shy;ем яв&shy;ля&shy;ет&shy;ся <strong>вся структура целиком</strong>. Для <em>ссылочного типа</em> зна&shy;че&shy;ни&shy;ем яв&shy;ля&shy;ет&shy;ся <strong>ссылка</strong> на объ&shy;ект;</p>
+</li>
+<li>
+<p >
+По струк&shy;ту&shy;ре в па&shy;мя&shy;ти: зна&shy;чи&shy;мые ти&shy;пы со&shy;дер&shy;жат толь&shy;ко те дан&shy;ные, ко&shy;то&shy;рые вы ука&shy;за&shy;ли. Ссы&shy;лоч&shy;ные так&shy;же со&shy;дер&shy;жат два сис&shy;тем&shy;ных по&shy;ля. Пер&shy;вое не&shy;об&shy;хо&shy;ди&shy;мо для хра&shy;не&shy;ния <code>SyncBlockIndex</code>, вто&shy;рое - для хра&shy;не&shy;ния ин&shy;фор&shy;ма&shy;ции о ти&shy;пе: в том чис&shy;ле и о Virtual Methods Table (VMT)</p>
+</li>
+<li>
+<p >
+Одна&shy;ко, ссы&shy;лоч&shy;ные ти&shy;пы мож&shy;но нас&shy;ле&shy;до&shy;вать, пе&shy;ре&shy;оп&shy;ре&shy;де&shy;ляя ме&shy;то&shy;ды. Зна&shy;чи&shy;мые ти&shy;пы ли&shy;ше&shy;ны та&shy;кой воз&shy;мож&shy;нос&shy;ти;</p>
+</li>
+<li>
+<p >
+Но, что&shy;бы вы&shy;де&shy;лить ссы&shy;лоч&shy;ный тип, на&shy;до ал&shy;ло&shy;ци&shy;ро&shy;вать мес&shy;то в ку&shy;че. Зна&shy;чи&shy;мый тип <em>может</em> ра&shy;бо&shy;тать на сте&shy;ке, не ухо&shy;дя в ку&shy;чу, а мо&shy;жет стать частью ссы&shy;лоч&shy;но&shy;го ти&shy;па. Это свой&shy;ство мо&shy;жет зна&shy;чи&shy;тель&shy;но по&shy;вы&shy;сить про&shy;из&shy;во&shy;ди&shy;тель&shy;ность для не&shy;ко&shy;то&shy;рых ал&shy;го&shy;рит&shy;мов;</p>
+</li>
 </ul>
-<p>Однако, есть и общие черты.</p>
+<p >
+Одна&shy;ко, есть и об&shy;щие чер&shy;ты.</p>
 <blockquote class="big-quote">
-<p>  Оба подкласса наследуют тип object. <br>
-А значит, могут выступать как его представители: на полных правах</p>
+<p >
+  Оба подк&shy;лас&shy;са нас&shy;ле&shy;ду&shy;ют тип object. <br>
+А зна&shy;чит, мо&shy;гут выс&shy;ту&shy;пать как его предс&shy;та&shy;ви&shy;те&shy;ли: на пол&shy;ных пра&shy;вах</p>
 </blockquote>
-<p>Рассмотрим каждую особенность в отдельности.</p>
+<p >
+Расс&shy;мот&shy;рим каж&shy;дую осо&shy;бен&shy;ность в от&shy;дель&shy;нос&shy;ти.</p>
 <h2 id="section-1">Копирование</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p>Самую главную и основополагающую разницу между типами можно описать примерно так:</p>
+<p >
+Са&shy;мую глав&shy;ную и ос&shy;но&shy;во&shy;по&shy;ла&shy;га&shy;ю&shy;щую раз&shy;ни&shy;цу меж&shy;ду ти&shy;па&shy;ми мож&shy;но опи&shy;сать при&shy;мер&shy;но так:</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <ul>
-<li>Любая переменная, поле класса/структуры или же параметр метода, которые принимают ссылочный тип, на самом деле хранят в себе <strong>ссылку</strong> на значение;</li>
-<li>Тогда как любая переменная, поле класса/структуры или же параметр метода, которые принимают значимый тип, на самом деле хранят в себе именно значение. Т.е. всю структуру целиком;</li>
+<li>
+<p >
+Лю&shy;бая пе&shy;ре&shy;мен&shy;ная, по&shy;ле клас&shy;са/струк&shy;ту&shy;ры или же па&shy;ра&shy;метр ме&shy;то&shy;да, ко&shy;то&shy;рые при&shy;ни&shy;ма&shy;ют ссы&shy;лоч&shy;ный тип, на са&shy;мом де&shy;ле хра&shy;нят в се&shy;бе <strong>ссылку</strong> на зна&shy;че&shy;ние;</p>
+</li>
+<li>
+<p >
+Тог&shy;да как лю&shy;бая пе&shy;ре&shy;мен&shy;ная, по&shy;ле клас&shy;са/струк&shy;ту&shy;ры или же па&shy;ра&shy;метр ме&shy;то&shy;да, ко&shy;то&shy;рые при&shy;ни&shy;ма&shy;ют зна&shy;чи&shy;мый тип, на са&shy;мом де&shy;ле хра&shy;нят в се&shy;бе имен&shy;но зна&shy;че&shy;ние. Т.е. всю струк&shy;ту&shy;ру це&shy;ли&shy;ком;</p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p>Что это значит для нас? Это в частности значит, что любое присваивание или прокидывание через параметр метода вызовет копирование значения. А поменяв копию, оригинал изменён не будет. При этом если вы меняете поля ссылочного типа, изменения &laquo;получают&raquo; все, кто имеют ссылку на экземпляр типа. Давайте рассмотрим это на примере:</p>
+<p >
+Что это зна&shy;чит для нас? Это в част&shy;нос&shy;ти зна&shy;чит, что лю&shy;бое прис&shy;ва&shy;и&shy;ва&shy;ние или про&shy;ки&shy;ды&shy;ва&shy;ние че&shy;рез па&shy;ра&shy;метр ме&shy;то&shy;да вы&shy;зо&shy;вет ко&shy;пи&shy;ро&shy;ва&shy;ние зна&shy;че&shy;ния. А по&shy;ме&shy;няв ко&shy;пию, ори&shy;ги&shy;нал из&shy;менён не бу&shy;дет. При этом ес&shy;ли вы ме&shy;ня&shy;ете по&shy;ля ссы&shy;лоч&shy;но&shy;го ти&shy;па, из&shy;ме&shy;не&shy;ния &laquo;по&shy;лу&shy;ча&shy;ют&raquo; все, кто име&shy;ют ссыл&shy;ку на эк&shy;земп&shy;ляр ти&shy;па. Да&shy;вай&shy;те расс&shy;мот&shy;рим это на при&shy;ме&shy;ре:</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <div class="wide lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -885,7 +947,8 @@ h4 {
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p>Это свойство рождает ряд двусмысленных на первый взгляд конструкций кода. Одна из них - изменение значений в коллекциях:</p>
+<p >
+Это свой&shy;ство рож&shy;да&shy;ет ряд двус&shy;мыс&shy;лен&shy;ных на пер&shy;вый взгляд конст&shy;рукций ко&shy;да. Одна из них - из&shy;ме&shy;не&shy;ние зна&shy;че&shy;ний в кол&shy;лек&shy;ци&shy;ях:</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -907,10 +970,12 @@ Console.WriteLine(array[0].Data);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p>В данном коде есть маленькая хитрость. Код выглядит так, будто мы сначала достаём экземпляр структуры, а затем у полученной копии выставляем поле Data в новое значение. А это значит, что при проверке мы снова должны получить <code>5</code>. Однако все совсем не так. Все дело в том, что в MSIL есть отдельная инструкция для выставления значения полей структур, находящихся в массивах. Она была введена для повышения производительности. И этот код отработает именно так, как и было задумано его автором: программа выведет в консоль число <code>4</code>.</p>
+<p >
+В дан&shy;ном ко&shy;де есть ма&shy;лень&shy;кая хит&shy;рость. Код выг&shy;ля&shy;дит так, буд&shy;то мы сна&shy;ча&shy;ла дос&shy;таём эк&shy;земп&shy;ляр струк&shy;ту&shy;ры, а за&shy;тем у по&shy;лу&shy;чен&shy;ной ко&shy;пии выс&shy;тав&shy;ля&shy;ем по&shy;ле Data в но&shy;вое зна&shy;че&shy;ние. А это зна&shy;чит, что при про&shy;вер&shy;ке мы сно&shy;ва дол&shy;жны по&shy;лу&shy;чить <code>5</code>. Одна&shy;ко все сов&shy;сем не так. Все де&shy;ло в том, что в MSIL есть от&shy;дель&shy;ная инстр&shy;укция для выс&shy;тав&shy;ле&shy;ния зна&shy;че&shy;ния по&shy;лей струк&shy;тур, на&shy;хо&shy;дя&shy;щих&shy;ся в мас&shy;си&shy;вах. Она бы&shy;ла вве&shy;де&shy;на для по&shy;вы&shy;ше&shy;ния про&shy;из&shy;во&shy;ди&shy;тель&shy;нос&shy;ти. И этот код от&shy;ра&shy;бо&shy;та&shy;ет имен&shy;но так, как и бы&shy;ло за&shy;ду&shy;ма&shy;но его ав&shy;то&shy;ром: прог&shy;рам&shy;ма вы&shy;ве&shy;дет в кон&shy;соль чис&shy;ло <code>4</code>.</p>
 <div class="paragraph-right-side">06</div>
 </div>
-<p>Однако стоит изменить пример так:</p>
+<p >
+Одна&shy;ко сто&shy;ит из&shy;ме&shy;нить при&shy;мер так:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Green;">// Объявим структуру</span>
 <span style="color:Blue;">struct</span> ValueHolder
@@ -930,7 +995,8 @@ Console.WriteLine(list[0].Data);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p>Так у нас ничего даже и не скомпилируется. А все потому, что когда вы пишете <code>list[0].Data = 4</code>, то сначала вы получаете именно копию структуры. Вы ведь на самом деле вызываете метод экземпляра типа <code>List&lt;T&gt;</code>, который скрывается за доступом по индексу. И который в свою очередь забирает копию структуры из внутреннего массива (<code>List&lt;T&gt;</code> хранит данные в массивах), которая возвращается из метода доступа по индексу - вам. После чего вы пытаетесь модифицировать копию, которая далее нигде не используется. Это - не то чтобы ошибка, но абсолютно бессмысленный код. А компилятор, зная, что люди путаются с Value Types, запрещает такое поведение. Поэтому пример должен быть переписан таким образом:</p>
+<p >
+Так у нас ни&shy;че&shy;го да&shy;же и не ском&shy;пи&shy;ли&shy;ру&shy;ет&shy;ся. А все по&shy;то&shy;му, что ког&shy;да вы пи&shy;ше&shy;те <code>list[0].Data = 4</code>, то сна&shy;ча&shy;ла вы по&shy;лу&shy;ча&shy;ете имен&shy;но ко&shy;пию струк&shy;ту&shy;ры. Вы ведь на са&shy;мом де&shy;ле вы&shy;зы&shy;ва&shy;ете ме&shy;тод эк&shy;земп&shy;ля&shy;ра ти&shy;па <code>List&lt;T&gt;</code>, ко&shy;то&shy;рый скры&shy;ва&shy;ет&shy;ся за дос&shy;ту&shy;пом по ин&shy;дек&shy;су. И ко&shy;то&shy;рый в свою оче&shy;редь за&shy;би&shy;ра&shy;ет ко&shy;пию струк&shy;ту&shy;ры из внут&shy;рен&shy;не&shy;го мас&shy;си&shy;ва (<code>List&lt;T&gt;</code> хра&shy;нит дан&shy;ные в мас&shy;си&shy;вах), ко&shy;то&shy;рая возв&shy;ра&shy;ща&shy;ет&shy;ся из ме&shy;то&shy;да дос&shy;ту&shy;па по ин&shy;дек&shy;су - вам. Пос&shy;ле че&shy;го вы пы&shy;та&shy;е&shy;тесь мо&shy;ди&shy;фи&shy;ци&shy;ро&shy;вать ко&shy;пию, ко&shy;то&shy;рая да&shy;лее ниг&shy;де не ис&shy;поль&shy;зу&shy;ет&shy;ся. Это - не то что&shy;бы ошиб&shy;ка, но аб&shy;со&shy;лют&shy;но бесс&shy;мыс&shy;лен&shy;ный код. А ком&shy;пи&shy;ля&shy;тор, зная, что лю&shy;ди пу&shy;та&shy;ют&shy;ся с Value Types, зап&shy;ре&shy;ща&shy;ет та&shy;кое по&shy;ве&shy;де&shy;ние. По&shy;э&shy;то&shy;му при&shy;мер дол&shy;жен быть пе&shy;ре&shy;пи&shy;сан та&shy;ким об&shy;ра&shy;зом:</p>
 <div class="paragraph-right-side">07</div>
 </div>
 <div class="wide lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -954,12 +1020,14 @@ Console.WriteLine(list[0].Data);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p>Несмотря на кажущееся многословие, он корректен. Когда программа отработает, в консоль выведется число <code>4</code>.</p>
+<p >
+Нес&shy;мот&shy;ря на ка&shy;жу&shy;ще&shy;еся мно&shy;гос&shy;ло&shy;вие, он кор&shy;рек&shy;тен. Ког&shy;да прог&shy;рам&shy;ма от&shy;ра&shy;бо&shy;та&shy;ет, в кон&shy;соль вы&shy;ве&shy;дет&shy;ся чис&shy;ло <code>4</code>.</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
-<p>Вторым примером я хочу показать вам, что вообще понимается под &laquo;значением структуры является вся структура целиком&raquo;</p>
+<p >
+Вто&shy;рым при&shy;ме&shy;ром я хо&shy;чу по&shy;ка&shy;зать вам, что во&shy;об&shy;ще по&shy;ни&shy;ма&shy;ет&shy;ся под &laquo;зна&shy;че&shy;ни&shy;ем струк&shy;ту&shy;ры яв&shy;ля&shy;ет&shy;ся вся струк&shy;ту&shy;ра це&shy;ли&shy;ком&raquo;</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -985,7 +1053,8 @@ PersonInfo person;
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
-<p>Фактически, по расположению данных в памяти оба примера идентичны. Потому как значением структуры является вся структура в целом. Куда она попала, там под себя память и определила.</p>
+<p >
+Фак&shy;ти&shy;чес&shy;ки, по рас&shy;по&shy;ло&shy;же&shy;нию дан&shy;ных в па&shy;мя&shy;ти оба при&shy;ме&shy;ра иден&shy;тич&shy;ны. По&shy;то&shy;му как зна&shy;че&shy;ни&shy;ем струк&shy;ту&shy;ры яв&shy;ля&shy;ет&shy;ся вся струк&shy;ту&shy;ра в це&shy;лом. Ку&shy;да она по&shy;па&shy;ла, там под се&shy;бя па&shy;мять и оп&shy;ре&shy;де&shy;ли&shy;ла.</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1017,17 +1086,20 @@ PersonInfo person;
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
-<p>Эти примеры также идентичны с точки зрения положения элементов в памяти, т.к. структура просто встаёт туда, где её определили: среди полей класса. Я не утверждаю, что это абсолютно идентично: ведь в структуре вы можете оперировать над её полями при помощи методов структуры.</p>
+<p >
+Эти при&shy;ме&shy;ры так&shy;же иден&shy;тич&shy;ны с точ&shy;ки зре&shy;ния по&shy;ло&shy;же&shy;ния эле&shy;мен&shy;тов в па&shy;мя&shy;ти, т.к. струк&shy;ту&shy;ра прос&shy;то встаёт ту&shy;да, где её оп&shy;ре&shy;де&shy;ли&shy;ли: сре&shy;ди по&shy;лей клас&shy;са. Я не ут&shy;вер&shy;ж&shy;даю, что это аб&shy;со&shy;лют&shy;но иден&shy;тич&shy;но: ведь в струк&shy;ту&shy;ре вы мо&shy;же&shy;те опе&shy;ри&shy;ро&shy;вать над её по&shy;ля&shy;ми при по&shy;мо&shy;щи ме&shy;то&shy;дов струк&shy;ту&shy;ры.</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
-<p>Если говорить про ссылочные типы, то, понятное дело, для них все обстоит иначе. Сам экземпляр находится в недосягаемом Small Object Heap (SOH) или же в Large Object Heap (LOH), а в поле класса запишется лишь значение указателя на экземпляр: 32-х или 64-разрядное число.</p>
+<p >
+Если го&shy;во&shy;рить про ссы&shy;лоч&shy;ные ти&shy;пы, то, по&shy;нят&shy;ное де&shy;ло, для них все об&shy;сто&shy;ит ина&shy;че. Сам эк&shy;земп&shy;ляр на&shy;хо&shy;дит&shy;ся в не&shy;до&shy;ся&shy;га&shy;е&shy;мом Small Object Heap (SOH) или же в Large Object Heap (LOH), а в по&shy;ле клас&shy;са за&shy;пи&shy;шет&shy;ся лишь зна&shy;че&shy;ние ука&shy;за&shy;те&shy;ля на эк&shy;земп&shy;ляр: 32-х или 64-раз&shy;ряд&shy;ное чис&shy;ло.</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
-<p>Последний пример, надеюсь, вас не запутает. Но мне хотелось поставить точку в этом вопросе.</p>
+<p >
+Пос&shy;лед&shy;ний при&shy;мер, на&shy;де&shy;юсь, вас не за&shy;пу&shy;та&shy;ет. Но мне хо&shy;те&shy;лось пос&shy;та&shy;вить точ&shy;ку в этом воп&shy;ро&shy;се.</p>
 <div class="paragraph-right-side">13</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1047,31 +1119,45 @@ PersonInfo person;
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
-<p>Вы меня поняли совершенно корректно: с точки зрения работы с памятью оба варианта будут работать одинаково (но не архитектурной! это вам не замена переменного числа аргументов!). Почему изменился порядок? Потому что параметры метода объявляются друг за другом и в этом порядке складываются в стек потока. Однако стек растёт от старших адресов к младшим, а это значит, что порядок складывания по очереди будет отличаться от порядка складывания структуры целиком.</p>
+<p >
+Вы ме&shy;ня по&shy;ня&shy;ли со&shy;вер&shy;шен&shy;но кор&shy;рек&shy;тно: с точ&shy;ки зре&shy;ния ра&shy;бо&shy;ты с па&shy;мятью оба ва&shy;ри&shy;ан&shy;та бу&shy;дут ра&shy;бо&shy;тать оди&shy;на&shy;ко&shy;во (но не ар&shy;хи&shy;тек&shy;тур&shy;ной! это вам не за&shy;ме&shy;на пе&shy;ре&shy;мен&shy;но&shy;го чис&shy;ла ар&shy;гу&shy;мен&shy;тов!). По&shy;че&shy;му из&shy;ме&shy;нил&shy;ся по&shy;ря&shy;док? По&shy;то&shy;му что па&shy;ра&shy;мет&shy;ры ме&shy;то&shy;да объ&shy;яв&shy;ля&shy;ют&shy;ся друг за дру&shy;гом и в этом по&shy;ряд&shy;ке скла&shy;ды&shy;ва&shy;ют&shy;ся в стек по&shy;то&shy;ка. Одна&shy;ко стек растёт от стар&shy;ших ад&shy;ре&shy;сов к млад&shy;шим, а это зна&shy;чит, что по&shy;ря&shy;док скла&shy;ды&shy;ва&shy;ния по оче&shy;ре&shy;ди бу&shy;дет от&shy;ли&shy;чать&shy;ся от по&shy;ряд&shy;ка скла&shy;ды&shy;ва&shy;ния струк&shy;ту&shy;ры це&shy;ли&shy;ком.</p>
 <div class="paragraph-right-side">14</div>
 </div>
 <h2 id="section-2">Переопределяемые методы и наследование</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
-<p>Вторая глобальная разница между ними - это отсутствие таблицы виртуальных методов в структурах. Это означает что:</p>
+<p >
+Вто&shy;рая гло&shy;баль&shy;ная раз&shy;ни&shy;ца меж&shy;ду ни&shy;ми - это от&shy;с&shy;утствие таб&shy;ли&shy;цы вир&shy;ту&shy;альных ме&shy;то&shy;дов в струк&shy;ту&shy;рах. Это оз&shy;на&shy;ча&shy;ет что:</p>
 <div class="paragraph-right-side">15</div>
 </div>
 <ol>
-<li>В структурах нельзя описать <code>virtual</code> методы, а также - переопределять их;</li>
-<li>Структуры в принципе нельзя наследовать друг от друга. Единственный способ сделать эмуляцию наследования - расположить структуру базового типа первым полем. Тогда по смещениям они будут совпадать, поля &laquo;унаследованной&raquo; структуры будут располагаться после полей &laquo;базовой&raquo;, и логически вы сделаете наследование;</li>
-<li>Структуры в отличии от классов можно передавать в unmanaged код. Я имею ввиду именно значение. Информация о методах, естественно, будет утеряна. Ведь структура - это просто отрезок памяти, заполненный данными без информации о типе. А это значит, что её можно без изменений отдавать в unmanaged методы, написанные, например, на C++.</li>
+<li>
+<p >
+В струк&shy;ту&shy;рах нель&shy;зя опи&shy;сать <code>virtual</code> ме&shy;то&shy;ды, а так&shy;же - пе&shy;ре&shy;оп&shy;ре&shy;де&shy;лять их;</p>
+</li>
+<li>
+<p >
+Струк&shy;ту&shy;ры в прин&shy;ци&shy;пе нель&shy;зя нас&shy;ле&shy;до&shy;вать друг от дру&shy;га. Един&shy;ствен&shy;ный спо&shy;соб сде&shy;лать эму&shy;ля&shy;цию нас&shy;ле&shy;до&shy;ва&shy;ния - рас&shy;по&shy;ло&shy;жить струк&shy;ту&shy;ру ба&shy;зо&shy;во&shy;го ти&shy;па пер&shy;вым по&shy;лем. Тог&shy;да по сме&shy;ще&shy;ни&shy;ям они бу&shy;дут сов&shy;па&shy;дать, по&shy;ля &laquo;унас&shy;ле&shy;до&shy;ван&shy;ной&raquo; струк&shy;ту&shy;ры бу&shy;дут рас&shy;по&shy;ла&shy;гать&shy;ся пос&shy;ле по&shy;лей &laquo;ба&shy;зо&shy;вой&raquo;, и ло&shy;ги&shy;чес&shy;ки вы сде&shy;ла&shy;ете нас&shy;ле&shy;до&shy;ва&shy;ние;</p>
+</li>
+<li>
+<p >
+Струк&shy;ту&shy;ры в от&shy;ли&shy;чии от клас&shy;сов мож&shy;но пе&shy;ре&shy;да&shy;вать в unmanaged код. Я имею вви&shy;ду имен&shy;но зна&shy;че&shy;ние. Инфор&shy;ма&shy;ция о ме&shy;то&shy;дах, ес&shy;тест&shy;вен&shy;но, бу&shy;дет уте&shy;ря&shy;на. Ведь струк&shy;ту&shy;ра - это прос&shy;то от&shy;ре&shy;зок па&shy;мя&shy;ти, за&shy;пол&shy;нен&shy;ный дан&shy;ны&shy;ми без ин&shy;фор&shy;ма&shy;ции о ти&shy;пе. А это зна&shy;чит, что её мож&shy;но без из&shy;ме&shy;не&shy;ний от&shy;да&shy;вать в unmanaged ме&shy;то&shy;ды, на&shy;пи&shy;сан&shy;ные, нап&shy;ри&shy;мер, на C++.</p>
+</li>
 </ol>
 <blockquote class="big-quote">
-<p>   Отсутствие таблицы виртуальных методов хоть и отнимает у структур часть &laquo;магии&raquo;, которую вносит понятие наследования, но и наделяет рядом преимуществ.</p>
+<p >
+   Отсу&shy;т&shy;ствие таб&shy;ли&shy;цы вир&shy;ту&shy;альных ме&shy;то&shy;дов хоть и от&shy;ни&shy;ма&shy;ет у струк&shy;тур часть &laquo;ма&shy;гии&raquo;, ко&shy;то&shy;рую вно&shy;сит по&shy;ня&shy;тие нас&shy;ле&shy;до&shy;ва&shy;ния, но и на&shy;де&shy;ля&shy;ет ря&shy;дом пре&shy;и&shy;му&shy;ществ.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
-<p>Первое и самое главное уже было оговорено: мы можем легко и просто отдать во внешний мир (за пределы .NET Framework) экземпляр такой структуры. Это ведь просто участок памяти! Либо мы можем принять из unmanaged кода некий участок памяти и сделать приведение типа к нашей структуре, чтобы сделать более удобный доступ к её полям. С классами такое поведение не пройдёт: у классов существует два поля, которые никому не доступны: это SyncBlockIndex и адрес таблицы виртуальных методов. Если эти два поля уйдут в unmanaged код, это станет очень опасным. Ведь с любой таблицей виртуальных методов можно умеючи достучаться до любого типа и поменять его, осуществив атаку на приложение.</p>
+<p >
+Пер&shy;вое и са&shy;мое глав&shy;ное уже бы&shy;ло ого&shy;во&shy;ре&shy;но: мы мо&shy;жем лег&shy;ко и прос&shy;то от&shy;дать во внеш&shy;ний мир (за пре&shy;де&shy;лы .NET Framework) эк&shy;земп&shy;ляр та&shy;кой струк&shy;ту&shy;ры. Это ведь прос&shy;то учас&shy;ток па&shy;мя&shy;ти! Ли&shy;бо мы мо&shy;жем при&shy;нять из unmanaged ко&shy;да не&shy;кий учас&shy;ток па&shy;мя&shy;ти и сде&shy;лать при&shy;ве&shy;де&shy;ние ти&shy;па к на&shy;шей струк&shy;ту&shy;ре, что&shy;бы сде&shy;лать бо&shy;лее удоб&shy;ный дос&shy;туп к её по&shy;лям. С клас&shy;са&shy;ми та&shy;кое по&shy;ве&shy;де&shy;ние не пройдёт: у клас&shy;сов су&shy;щес&shy;тву&shy;ет два по&shy;ля, ко&shy;то&shy;рые ни&shy;ко&shy;му не дос&shy;туп&shy;ны: это SyncBlockIndex и ад&shy;рес таб&shy;ли&shy;цы вир&shy;ту&shy;альных ме&shy;то&shy;дов. Если эти два по&shy;ля уй&shy;дут в unmanaged код, это ста&shy;нет очень опас&shy;ным. Ведь с лю&shy;бой таб&shy;ли&shy;цей вир&shy;ту&shy;альных ме&shy;то&shy;дов мож&shy;но уме&shy;ючи дос&shy;ту&shy;чать&shy;ся до лю&shy;бо&shy;го ти&shy;па и по&shy;ме&shy;нять его, осу&shy;щест&shy;вив ата&shy;ку на при&shy;ло&shy;же&shy;ние.</p>
 <div class="paragraph-right-side">16</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
-<p>Давайте докажем, что это просто участок памяти без какой-либо дополнительной логики:</p>
+<p >
+Да&shy;вай&shy;те до&shy;ка&shy;жем, что это прос&shy;то учас&shy;ток па&shy;мя&shy;ти без ка&shy;кой-ли&shy;бо до&shy;пол&shy;ни&shy;тель&shy;ной ло&shy;ги&shy;ки:</p>
 <div class="paragraph-right-side">17</div>
 </div>
 <div class="wide lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1108,13 +1194,15 @@ PersonInfo person;
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
-<p>В данном примере мы осуществляем недопустимую с точки зрения строгой типизации операцию: мы приводим один тип к несовместимому другому, который содержит одно лишнее поле. В методе <code>Main</code> мы вводим дополнительную переменную, значение которой по идее секретно и не должно быть считано. Однако это не так. Пример уверенно выводит на экран значение переменной метода Main(), которая не находится ни в одной из структур. Тут на вашем лице должна расплыться улыбка, а в голове промелькнуть фраза &quot;ну ни черта себе дыра в безопасности!!!&quot;&hellip; Но на самом деле все не так очевидно. Обезопасить свой код от вызываемого unmanaged практически невозможно. Все дело в первую очередь - в структуре стека потока, о котором мы поговорим чуть позже, и по которому можно легко уйти в вызываемый код, и похимичить с локальными переменными. Защита от такого рода атак строится другими путями. Например, на рандомизации размера кадра стека или на стирании информации о регистре EBP - для усложнения восстановления стекового кадра. Но не будем слишком углубляться: это тема отдельного разговора. Единственное, о чем стоит упомянуть в рамках этого примера, это почему же при том, что переменная <code>secret</code> находится <strong>перед</strong> определением переменной <code>hh</code>, а в структуре <code>WidthHolder</code> - <strong>после</strong> (т.е. по сути визуально - в разных местах), её значение прекрасно считалось. А все потому, что стек растёт не слева направо, а наоборот - справа налево. Т.е. переменные, объявленные первыми, будут находиться по более старшим адресам, а те, кто объявлены позднее - по более ранним.</p>
+<p >
+В дан&shy;ном при&shy;ме&shy;ре мы осу&shy;щес&shy;твляем не&shy;до&shy;пус&shy;ти&shy;мую с точ&shy;ки зре&shy;ния стро&shy;гой ти&shy;пи&shy;за&shy;ции опе&shy;ра&shy;цию: мы при&shy;во&shy;дим один тип к не&shy;сов&shy;мес&shy;ти&shy;мо&shy;му дру&shy;го&shy;му, ко&shy;то&shy;рый со&shy;дер&shy;жит од&shy;но лиш&shy;нее по&shy;ле. В ме&shy;то&shy;де <code>Main</code> мы вво&shy;дим до&shy;пол&shy;ни&shy;тель&shy;ную пе&shy;ре&shy;мен&shy;ную, зна&shy;че&shy;ние ко&shy;то&shy;рой по идее сек&shy;рет&shy;но и не дол&shy;жно быть счи&shy;та&shy;но. Одна&shy;ко это не так. При&shy;мер уве&shy;рен&shy;но вы&shy;во&shy;дит на эк&shy;ран зна&shy;че&shy;ние пе&shy;ре&shy;мен&shy;ной ме&shy;то&shy;да Main(), ко&shy;то&shy;рая не на&shy;хо&shy;дит&shy;ся ни в од&shy;ной из струк&shy;тур. Тут на ва&shy;шем ли&shy;це дол&shy;жна расп&shy;лыть&shy;ся улыб&shy;ка, а в го&shy;ло&shy;ве про&shy;м&shy;елькнуть фра&shy;за "ну ни чер&shy;та се&shy;бе ды&shy;ра в бе&shy;зо&shy;пас&shy;нос&shy;ти!!!"&hellip; Но на са&shy;мом де&shy;ле все не так оче&shy;вид&shy;но. Обе&shy;зо&shy;па&shy;сить свой код от вы&shy;зы&shy;ва&shy;е&shy;мо&shy;го unmanaged прак&shy;ти&shy;чес&shy;ки не&shy;воз&shy;мож&shy;но. Все де&shy;ло в пер&shy;вую оче&shy;редь - в струк&shy;ту&shy;ре сте&shy;ка по&shy;то&shy;ка, о ко&shy;то&shy;ром мы по&shy;го&shy;во&shy;рим чуть поз&shy;же, и по ко&shy;то&shy;ро&shy;му мож&shy;но лег&shy;ко уй&shy;ти в вы&shy;зы&shy;ва&shy;е&shy;мый код, и по&shy;хи&shy;ми&shy;чить с ло&shy;каль&shy;ны&shy;ми пе&shy;ре&shy;мен&shy;ны&shy;ми. За&shy;щи&shy;та от та&shy;ко&shy;го ро&shy;да атак стр&shy;ои&shy;тся дру&shy;ги&shy;ми пу&shy;тя&shy;ми. Нап&shy;ри&shy;мер, на ран&shy;до&shy;ми&shy;за&shy;ции раз&shy;ме&shy;ра кад&shy;ра сте&shy;ка или на сти&shy;ра&shy;нии ин&shy;фор&shy;ма&shy;ции о ре&shy;гис&shy;тре EBP - для ус&shy;лож&shy;не&shy;ния восс&shy;та&shy;нов&shy;ле&shy;ния сте&shy;ко&shy;во&shy;го кад&shy;ра. Но не бу&shy;дем слиш&shy;ком уг&shy;луб&shy;лять&shy;ся: это те&shy;ма от&shy;дель&shy;но&shy;го раз&shy;го&shy;во&shy;ра. Един&shy;ствен&shy;ное, о чем сто&shy;ит упо&shy;мя&shy;нуть в рам&shy;ках это&shy;го при&shy;ме&shy;ра, это по&shy;че&shy;му же при том, что пе&shy;ре&shy;мен&shy;ная <code>secret</code> на&shy;хо&shy;дит&shy;ся <strong>перед</strong> оп&shy;ре&shy;де&shy;ле&shy;ни&shy;ем пе&shy;ре&shy;мен&shy;ной <code>hh</code>, а в струк&shy;ту&shy;ре <code>WidthHolder</code> - <strong>после</strong> (т.е. по су&shy;ти ви&shy;зу&shy;ально - в раз&shy;ных мес&shy;тах), её зна&shy;че&shy;ние прек&shy;рас&shy;но счи&shy;та&shy;лось. А все по&shy;то&shy;му, что стек растёт не сле&shy;ва нап&shy;ра&shy;во, а на&shy;о&shy;бо&shy;рот - спра&shy;ва на&shy;ле&shy;во. Т.е. пе&shy;ре&shy;мен&shy;ные, объ&shy;яв&shy;лен&shy;ные пер&shy;вы&shy;ми, бу&shy;дут на&shy;хо&shy;дить&shy;ся по бо&shy;лее стар&shy;шим ад&shy;ре&shy;сам, а те, кто объ&shy;яв&shy;ле&shy;ны поз&shy;д&shy;нее - по бо&shy;лее ран&shy;ним.</p>
 <div class="paragraph-right-side">18</div>
 </div>
 <h2 id="section-3">Поведение при вызове экземплярных методов</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
-<p>Оба типа данных обладают ещё одной интересной особенностью, которая не лежит на поверхности, и которая может пролить ещё немного света в строение обоих типов. И эта особенность связана с вызовом экземплярных методов.</p>
+<p >
+Оба ти&shy;па дан&shy;ных об&shy;ла&shy;да&shy;ют ещё од&shy;ной ин&shy;те&shy;рес&shy;ной осо&shy;бен&shy;ностью, ко&shy;то&shy;рая не ле&shy;жит на по&shy;верх&shy;нос&shy;ти, и ко&shy;то&shy;рая мо&shy;жет про&shy;лить ещё нем&shy;но&shy;го све&shy;та в стр&shy;о&shy;ение обо&shy;их ти&shy;пов. И эта осо&shy;бен&shy;ность свя&shy;за&shy;на с вы&shy;зо&shy;вом эк&shy;земп&shy;ляр&shy;ных ме&shy;то&shy;дов.</p>
 <div class="paragraph-right-side">19</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1150,7 +1238,8 @@ strukt.ChangeTo(10);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
-<p>Если рассуждать логически, то можно легко и просто прийти к выводу, что тело у метода компилируется одно. Т.е. нет такого, что у каждого экземпляра типа компилируется свой набор методов, который при этом совершенно идентичен набору методов других экземпляров. Однако вызванный метод прекрасно знает, для какого экземпляра он вызван. Это достигается тем, что первым параметром передаётся ссылка на экземпляр типа. Можно наш пример легко переписать, и это будет совершенно идентично тому, что было написано выше (я намеренно не привожу пример с виртуальными методами. У них все по-другому):</p>
+<p >
+Если рас&shy;суж&shy;дать ло&shy;ги&shy;чес&shy;ки, то мож&shy;но лег&shy;ко и прос&shy;то прий&shy;ти к вы&shy;во&shy;ду, что те&shy;ло у ме&shy;то&shy;да ком&shy;пи&shy;ли&shy;ру&shy;ет&shy;ся од&shy;но. Т.е. нет та&shy;ко&shy;го, что у каж&shy;до&shy;го эк&shy;земп&shy;ля&shy;ра ти&shy;па ком&shy;пи&shy;ли&shy;ру&shy;ет&shy;ся свой на&shy;бор ме&shy;то&shy;дов, ко&shy;то&shy;рый при этом со&shy;вер&shy;шен&shy;но иден&shy;ти&shy;чен на&shy;бо&shy;ру ме&shy;то&shy;дов дру&shy;гих эк&shy;земп&shy;ля&shy;ров. Одна&shy;ко выз&shy;ван&shy;ный ме&shy;тод прек&shy;рас&shy;но зна&shy;ет, для ка&shy;ко&shy;го эк&shy;земп&shy;ля&shy;ра он выз&shy;ван. Это дос&shy;ти&shy;га&shy;ет&shy;ся тем, что пер&shy;вым па&shy;ра&shy;мет&shy;ром пе&shy;ре&shy;даётся ссыл&shy;ка на эк&shy;земп&shy;ляр ти&shy;па. Мож&shy;но наш при&shy;мер лег&shy;ко пе&shy;ре&shy;пи&shy;сать, и это бу&shy;дет со&shy;вер&shy;шен&shy;но иден&shy;тич&shy;но то&shy;му, что бы&shy;ло на&shy;пи&shy;са&shy;но вы&shy;ше (я на&shy;ме&shy;рен&shy;но не при&shy;во&shy;жу при&shy;мер с вир&shy;ту&shy;ал&shy;ьными ме&shy;то&shy;да&shy;ми. У них все по-дру&shy;го&shy;му):</p>
 <div class="paragraph-right-side">20</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1186,31 +1275,57 @@ ChangeTo(<span style="color:Blue;">ref</span> strukt, 10);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
-<p>Стоит пояснить, почему я использовал ключевое слово <code>ref</code>. Если бы я его не использовал, то получилась бы ситуация, в которой я получил параметром метода <strong>копию</strong> структуры вместо оригинала, поменял её, а оригинал бы остался неизменным. Мне бы пришлось возвращать изменённую копию из метода вызывающей стороне (ещё одно копирование), а вызывающая сторона сохранила бы это значение обратно в переменной (ещё одно копирование). Вместо этого в экземплярный метод отдаётся указатель на структуру, по которому она и меняется. Сразу оригинал. Заметьте, что передача по указателю никак не влияет на производительность, т.к. любые операции на уровне процессора итак происходят по указателям. Т.е. ref - это из мира C#, не более того.</p>
+<p >
+Сто&shy;ит по&shy;яс&shy;нить, по&shy;че&shy;му я ис&shy;поль&shy;зо&shy;вал клю&shy;че&shy;вое сло&shy;во <code>ref</code>. Если бы я его не ис&shy;поль&shy;зо&shy;вал, то по&shy;лу&shy;чи&shy;лась бы си&shy;ту&shy;а&shy;ция, в ко&shy;то&shy;рой я по&shy;лу&shy;чил па&shy;ра&shy;мет&shy;ром ме&shy;то&shy;да <strong>копию</strong> струк&shy;ту&shy;ры вмес&shy;то ори&shy;ги&shy;на&shy;ла, по&shy;ме&shy;нял её, а ори&shy;ги&shy;нал бы ос&shy;тал&shy;ся не&shy;из&shy;мен&shy;ным. Мне бы приш&shy;лось возв&shy;ра&shy;щать из&shy;менённую ко&shy;пию из ме&shy;то&shy;да вы&shy;зы&shy;ва&shy;ю&shy;щей сто&shy;ро&shy;не (ещё од&shy;но ко&shy;пи&shy;ро&shy;ва&shy;ние), а вы&shy;зы&shy;ва&shy;ю&shy;щая сто&shy;ро&shy;на сох&shy;ра&shy;ни&shy;ла бы это зна&shy;че&shy;ние об&shy;рат&shy;но в пе&shy;ре&shy;мен&shy;ной (ещё од&shy;но ко&shy;пи&shy;ро&shy;ва&shy;ние). Вмес&shy;то это&shy;го в эк&shy;земп&shy;ляр&shy;ный ме&shy;тод от&shy;даётся ука&shy;за&shy;тель на струк&shy;ту&shy;ру, по ко&shy;то&shy;ро&shy;му она и ме&shy;ня&shy;ет&shy;ся. Сра&shy;зу ори&shy;ги&shy;нал. За&shy;меть&shy;те, что пе&shy;ре&shy;да&shy;ча по ука&shy;за&shy;те&shy;лю ни&shy;как не влияет на про&shy;из&shy;во&shy;ди&shy;тель&shy;ность, т.к. лю&shy;бые опе&shy;ра&shy;ции на уров&shy;не про&shy;цес&shy;со&shy;ра итак про&shy;ис&shy;хо&shy;дят по ука&shy;за&shy;те&shy;лям. Т.е. ref - это из ми&shy;ра C#, не бо&shy;лее то&shy;го.</p>
 <div class="paragraph-right-side">21</div>
 </div>
 <h2 id="section-4">Возможность указать положение элементов</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
-<p>Ещё одной возможностью обоих классов типов является возможность точно указать, по какому смещению относительно начала структуры в памяти располагается то или иное поле. Это введено по нескольким причинам:</p>
+<p >
+Ещё од&shy;ной воз&shy;мож&shy;ностью обо&shy;их клас&shy;сов ти&shy;пов яв&shy;ля&shy;ет&shy;ся воз&shy;мож&shy;ность точ&shy;но ука&shy;зать, по ка&shy;ко&shy;му сме&shy;ще&shy;нию от&shy;но&shy;си&shy;тель&shy;но на&shy;ча&shy;ла струк&shy;ту&shy;ры в па&shy;мя&shy;ти рас&shy;по&shy;ла&shy;га&shy;ет&shy;ся то или иное по&shy;ле. Это вве&shy;де&shy;но по нес&shy;коль&shy;ким при&shy;чи&shy;нам:</p>
 <div class="paragraph-right-side">22</div>
 </div>
 <ul>
-<li>для работы с внешними API, которые располагаются в unmanaged world, чтобы не &laquo;отбивать&raquo; до нужного поля неиспользуемыми полями</li>
-<li>чтобы, например, приказать компилятору расположить некоторое поле точно в самом начале типа (<code>[FieldOffset(0)]</code>). Тогда это ускорит работу с ним. А если это поле очень часто используется, то на этом можно неплохо сэкономить. Отмечу только одну важную деталь. Указанное справедливо только для значимых типов. Ведь в ссылочных по нулевому смещению располагается адрес таблицы виртуальных методов, который занимает 1 процессорное слово. Т.е. даже если вы обращаетесь к самому первому полю класса, обращение все равно будет идти по более сложной адресации (адрес + смещение). Кстати это сделано не просто так: самым часто используемым полем класса является именно адрес таблицы виртуальных методов, т.к. именно через неё виртуальные методы и вызываются;</li>
-<li>вы можете установить несколько полей по одному адресу. Тогда одно и то же значение может быть интерпретировано как различные типы данных. В C++ такой тип данных называется <code>union</code>;</li>
-<li>также вы можете ничего не объявлять: компилятор будет размещать поля так, как ему покажется оптимальным. Т.е. конечный порядок полей может оказаться другим;</li>
+<li>
+<p >
+для ра&shy;бо&shy;ты с внеш&shy;ни&shy;ми API, ко&shy;то&shy;рые рас&shy;по&shy;ла&shy;га&shy;ют&shy;ся в unmanaged world, что&shy;бы не &laquo;от&shy;би&shy;вать&raquo; до нуж&shy;но&shy;го по&shy;ля не&shy;ис&shy;поль&shy;зу&shy;е&shy;мы&shy;ми по&shy;ля&shy;ми</p>
+</li>
+<li>
+<p >
+что&shy;бы, нап&shy;ри&shy;мер, при&shy;ка&shy;зать ком&shy;пи&shy;ля&shy;то&shy;ру рас&shy;по&shy;ло&shy;жить не&shy;ко&shy;то&shy;рое по&shy;ле точ&shy;но в са&shy;мом на&shy;ча&shy;ле ти&shy;па (<code>[FieldOffset(0)]</code>). Тог&shy;да это ус&shy;ко&shy;рит ра&shy;бо&shy;ту с ним. А ес&shy;ли это по&shy;ле очень час&shy;то ис&shy;поль&shy;зу&shy;ет&shy;ся, то на этом мож&shy;но неп&shy;ло&shy;хо сэ&shy;ко&shy;но&shy;мить. Отме&shy;чу толь&shy;ко од&shy;ну важ&shy;ную де&shy;таль. Ука&shy;зан&shy;ное спра&shy;вед&shy;ли&shy;во толь&shy;ко для зна&shy;чи&shy;мых ти&shy;пов. Ведь в ссы&shy;лоч&shy;ных по ну&shy;ле&shy;во&shy;му сме&shy;ще&shy;нию рас&shy;по&shy;ла&shy;га&shy;ет&shy;ся ад&shy;рес таб&shy;ли&shy;цы вир&shy;ту&shy;альных ме&shy;то&shy;дов, ко&shy;то&shy;рый за&shy;ни&shy;ма&shy;ет 1 про&shy;цес&shy;сор&shy;ное сло&shy;во. Т.е. да&shy;же ес&shy;ли вы об&shy;ра&shy;ща&shy;е&shy;тесь к са&shy;мо&shy;му пер&shy;во&shy;му по&shy;лю клас&shy;са, об&shy;ра&shy;ще&shy;ние все рав&shy;но бу&shy;дет ид&shy;ти по бо&shy;лее слож&shy;ной ад&shy;ре&shy;са&shy;ции (ад&shy;рес + сме&shy;ще&shy;ние). Кста&shy;ти это сде&shy;ла&shy;но не прос&shy;то так: са&shy;мым час&shy;то ис&shy;поль&shy;зу&shy;е&shy;мым по&shy;лем клас&shy;са яв&shy;ля&shy;ет&shy;ся имен&shy;но ад&shy;рес таб&shy;ли&shy;цы вир&shy;ту&shy;альных ме&shy;то&shy;дов, т.к. имен&shy;но че&shy;рез неё вир&shy;ту&shy;альные ме&shy;то&shy;ды и вы&shy;зы&shy;ва&shy;ют&shy;ся;</p>
+</li>
+<li>
+<p >
+вы мо&shy;же&shy;те ус&shy;та&shy;но&shy;вить нес&shy;коль&shy;ко по&shy;лей по од&shy;но&shy;му ад&shy;ре&shy;су. Тог&shy;да од&shy;но и то же зна&shy;че&shy;ние мо&shy;жет быть ин&shy;терп&shy;ре&shy;ти&shy;ро&shy;ва&shy;но как раз&shy;лич&shy;ные ти&shy;пы дан&shy;ных. В C++ та&shy;кой тип дан&shy;ных на&shy;зы&shy;ва&shy;ет&shy;ся <code>union</code>;</p>
+</li>
+<li>
+<p >
+так&shy;же вы мо&shy;же&shy;те ни&shy;че&shy;го не объ&shy;яв&shy;лять: ком&shy;пи&shy;ля&shy;тор бу&shy;дет раз&shy;ме&shy;щать по&shy;ля так, как ему по&shy;ка&shy;жет&shy;ся оп&shy;ти&shy;маль&shy;ным. Т.е. ко&shy;неч&shy;ный по&shy;ря&shy;док по&shy;лей мо&shy;жет ока&shy;зать&shy;ся дру&shy;гим;</p>
+</li>
 </ul>
-<p><strong>Общие положения</strong></p>
+<p >
+<strong>Общие положения</strong></p>
 <ul>
-<li><strong>Auto</strong>: Среда выполнения автоматически выбирает расположение и упаковку для всех полей класса или структуры. Структуры, определённые с помощью члена этого перечисления, не могут быть предоставлены за пределами управляемого кода. Попытка это сделать приводит к возникновению исключения;</li>
-<li><strong>Explicit</strong>: Программист явным образом контролирует точное положение каждого поля объекта. Каждое поле должно использовать FieldOffsetAttribute для указания его точного расположения;</li>
-<li><strong>Sequential</strong>: Члены объекта располагаются последовательно в порядке, указанном при проектировании типа. Также они располагаются в соответствии с указанным StructLayoutAttribute.Pack значением шага упаковки.</li>
+<li>
+<p >
+<strong>Auto</strong>: Сре&shy;да вы&shy;пол&shy;не&shy;ния ав&shy;то&shy;ма&shy;ти&shy;чес&shy;ки вы&shy;би&shy;ра&shy;ет рас&shy;по&shy;ло&shy;же&shy;ние и упа&shy;ков&shy;ку для всех по&shy;лей клас&shy;са или струк&shy;ту&shy;ры. Струк&shy;ту&shy;ры, оп&shy;ре&shy;делённые с по&shy;мощью чле&shy;на это&shy;го пе&shy;ре&shy;чис&shy;ле&shy;ния, не мо&shy;гут быть пре&shy;дос&shy;тав&shy;ле&shy;ны за пре&shy;де&shy;ла&shy;ми уп&shy;рав&shy;ля&shy;е&shy;мо&shy;го ко&shy;да. По&shy;пыт&shy;ка это сде&shy;лать при&shy;во&shy;дит к воз&shy;ник&shy;но&shy;ве&shy;нию ис&shy;клю&shy;че&shy;ния;</p>
+</li>
+<li>
+<p >
+<strong>Explicit</strong>: Прог&shy;рам&shy;мист яв&shy;ным об&shy;ра&shy;зом конт&shy;ро&shy;ли&shy;ру&shy;ет точ&shy;ное по&shy;ло&shy;же&shy;ние каж&shy;до&shy;го по&shy;ля объ&shy;ек&shy;та. Каж&shy;дое по&shy;ле дол&shy;жно ис&shy;поль&shy;зо&shy;вать FieldOffsetAttribute для ука&shy;за&shy;ния его точ&shy;но&shy;го рас&shy;по&shy;ло&shy;же&shy;ния;</p>
+</li>
+<li>
+<p >
+<strong>Sequential</strong>: Чле&shy;ны объ&shy;ек&shy;та рас&shy;по&shy;ла&shy;га&shy;ют&shy;ся пос&shy;ле&shy;до&shy;ва&shy;тель&shy;но в по&shy;ряд&shy;ке, ука&shy;зан&shy;ном при про&shy;ек&shy;ти&shy;ро&shy;ва&shy;нии ти&shy;па. Так&shy;же они рас&shy;по&shy;ла&shy;га&shy;ют&shy;ся в со&shy;от&shy;в&shy;етствии с ука&shy;зан&shy;ным StructLayoutAttribute.Pack зна&shy;че&shy;ни&shy;ем ша&shy;га упа&shy;ков&shy;ки.</p>
+</li>
 </ul>
-<p><strong>Использование FieldOffset для пропуска неиспользуемых областей структуры</strong></p>
+<p >
+<strong>Использование FieldOffset для пропуска неиспользуемых областей структуры</strong></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
-<p>Тут конечно же может возникнуть вопрос, почему вообще могут возникнуть поля, которые не используются вообще. Структуры, идущие из unmanaged мира, могут содержать резервные поля, которые могут быть использованы в будущих версиях библиотеки. Если в мире C/C++ принято отбивать такие пропуски путём добавления полей <code>reserved1, reserved2, ..</code>, то в .NET мы имеем прекрасную возможность просто задать смещение к началу поля при помощи атрибута <code>FieldOffsetAttribute</code> и <code>[StructLayout(LayoutKind.Explicit)]</code>:</p>
+<p >
+Тут ко&shy;неч&shy;но же мо&shy;жет воз&shy;ник&shy;нуть воп&shy;рос, по&shy;че&shy;му во&shy;об&shy;ще мо&shy;гут воз&shy;ник&shy;нуть по&shy;ля, ко&shy;то&shy;рые не ис&shy;поль&shy;зу&shy;ют&shy;ся во&shy;об&shy;ще. Струк&shy;ту&shy;ры, иду&shy;щие из unmanaged ми&shy;ра, мо&shy;гут со&shy;дер&shy;жать ре&shy;зер&shy;в&shy;ные по&shy;ля, ко&shy;то&shy;рые мо&shy;гут быть ис&shy;поль&shy;зо&shy;ва&shy;ны в бу&shy;ду&shy;щих вер&shy;си&shy;ях биб&shy;ли&shy;о&shy;те&shy;ки. Если в ми&shy;ре C/C++ при&shy;ня&shy;то от&shy;би&shy;вать та&shy;кие про&shy;пус&shy;ки путём до&shy;бав&shy;ле&shy;ния по&shy;лей <code>reserved1, reserved2, ..</code>, то в .NET мы име&shy;ем прек&shy;рас&shy;ную воз&shy;мож&shy;ность прос&shy;то за&shy;дать сме&shy;ще&shy;ние к на&shy;ча&shy;лу по&shy;ля при по&shy;мо&shy;щи ат&shy;ри&shy;бу&shy;та <code>FieldOffsetAttribute</code> и <code>[StructLayout(LayoutKind.Explicit)]</code>:</p>
 <div class="paragraph-right-side">23</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1228,13 +1343,16 @@ ChangeTo(<span style="color:Blue;">ref</span> strukt, 10);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">24</div>
-<p>Прошу заметить, что пропуск - это тоже занятое, но не используемое пространство. Размер структуры будет равен <code>132</code> байта, а не <code>40</code>, как может показаться изначально.</p>
+<p >
+Про&shy;шу за&shy;ме&shy;тить, что про&shy;пуск - это то&shy;же за&shy;ня&shy;тое, но не ис&shy;поль&shy;зу&shy;е&shy;мое прост&shy;ранство. Раз&shy;мер струк&shy;ту&shy;ры бу&shy;дет ра&shy;вен <code>132</code> бай&shy;та, а не <code>40</code>, как мо&shy;жет по&shy;ка&shy;зать&shy;ся из&shy;на&shy;чаль&shy;но.</p>
 <div class="paragraph-right-side">24</div>
 </div>
-<p><strong>Union</strong></p>
+<p >
+<strong>Union</strong></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
-<p>При помощи <code>FieldOffsetAttribute</code> вы можете эмулировать такой тип из мира C/C++ как <code>union</code>. <code>union</code> – это специальный тип, который позволяет обращаться к одним и тем же данным как к разнотипным сущностям. Давайте посмотрим на примере его эмуляцию:</p>
+<p >
+При по&shy;мо&shy;щи <code>FieldOffsetAttribute</code> вы мо&shy;же&shy;те эму&shy;ли&shy;ро&shy;вать та&shy;кой тип из ми&shy;ра C/C++ как <code>union</code>. <code>union</code> – это спе&shy;ци&shy;альный тип, ко&shy;то&shy;рый поз&shy;во&shy;ля&shy;ет об&shy;ра&shy;щать&shy;ся к од&shy;ним и тем же дан&shy;ным как к раз&shy;но&shy;тип&shy;ным сущ&shy;нос&shy;тям. Да&shy;вай&shy;те пос&shy;мот&shy;рим на при&shy;ме&shy;ре его эму&shy;ля&shy;цию:</p>
 <div class="paragraph-right-side">25</div>
 </div>
 <div class="wide lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1253,7 +1371,8 @@ ChangeTo(<span style="color:Blue;">ref</span> strukt, 10);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
-<p>Здесь вы могли бы задуматься и сказать, что такое поведение возможно только для значимых типов, однако это не так. Как бы странно это ни звучало, но такое поведение можно воспроизвести и для ссылочных типов, перекрыв по одному адресу два ссылочных типа или же ссылочный со значимым:</p>
+<p >
+Здесь вы мог&shy;ли бы за&shy;ду&shy;мать&shy;ся и ска&shy;зать, что та&shy;кое по&shy;ве&shy;де&shy;ние воз&shy;мож&shy;но толь&shy;ко для зна&shy;чи&shy;мых ти&shy;пов, од&shy;на&shy;ко это не так. Как бы стран&shy;но это ни зву&shy;ча&shy;ло, но та&shy;кое по&shy;ве&shy;де&shy;ние мож&shy;но вос&shy;про&shy;из&shy;вес&shy;ти и для ссы&shy;лоч&shy;ных ти&shy;пов, пе&shy;рек&shy;рыв по од&shy;но&shy;му ад&shy;ре&shy;су два ссы&shy;лоч&shy;ных ти&shy;па или же ссы&shy;лоч&shy;ный со зна&shy;чи&shy;мым:</p>
 <div class="paragraph-right-side">26</div>
 </div>
 <div class="wide lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1291,143 +1410,241 @@ ChangeTo(<span style="color:Blue;">ref</span> strukt, 10);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">27</div>
-<p>Заметьте, что я намеренно перекрыл через Generic тип: при обычном перекрытии в момент загрузки данного типа в домен приложения будет сгенерировано исключение <code>TypeLoadException</code>. На самом деле это только внешне выглядит как брешь в безопасности приложения (особенно со стороны &laquo;плагинов&raquo; к приложению), однако если мы попробуем запустить этот код из-под защищённого домена, то мы получим все тот же самый <code>TypeLoadException</code>.</p>
+<p >
+За&shy;меть&shy;те, что я на&shy;ме&shy;рен&shy;но пе&shy;рек&shy;рыл че&shy;рез Generic тип: при обыч&shy;ном пе&shy;рек&shy;ры&shy;тии в мо&shy;мент заг&shy;руз&shy;ки дан&shy;но&shy;го ти&shy;па в до&shy;мен при&shy;ло&shy;же&shy;ния бу&shy;дет сге&shy;не&shy;ри&shy;ро&shy;ва&shy;но ис&shy;клю&shy;че&shy;ние <code>TypeLoadException</code>. На са&shy;мом де&shy;ле это толь&shy;ко внеш&shy;не выг&shy;ля&shy;дит как брешь в бе&shy;зо&shy;пас&shy;нос&shy;ти при&shy;ло&shy;же&shy;ния (осо&shy;бен&shy;но со сто&shy;ро&shy;ны &laquo;пла&shy;ги&shy;нов&raquo; к при&shy;ло&shy;же&shy;нию), од&shy;на&shy;ко ес&shy;ли мы поп&shy;ро&shy;бу&shy;ем за&shy;пус&shy;тить этот код из-под за&shy;щищённо&shy;го до&shy;ме&shy;на, то мы по&shy;лу&shy;чим все тот же са&shy;мый <code>TypeLoadException</code>.</p>
 <div class="paragraph-right-side">27</div>
 </div>
 <h2 id="section-5">Разница в аллокации</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
-<p>Ещё одним важным свойством, кардинально различающимся для обоих типов, является выделение памяти под объект или структуру. Все дело в том, что для того чтобы выделить память под объект, CLR обязана для начала ответить себе на ряд вопросов. Первый, - какого размера объект? Меньше он или больше 85К байт? Если меньше, то является ли количество оставшегося места в Small Objects Heap достаточным, чтобы разместить объект? Если нет, запускается Garbage Collection, который для своей работы, по сути, должен сначала обойти граф объектов, а потом сжать их, переместив на освободившееся место. Если и после этой операции нет места в SOH (например, ничего не было освобождено), то инициируется процесс выделения дополнительных страниц виртуальной памяти, чтобы нарастить размер Small Objects Heap. И только после того как все срастётся, выделяется место под объект, а выделенный участок памяти очищается от мусора (обнуляется), размечается SyncBlockIndex и VirtualMethodsTable, после чего ссылка на объект возвращается пользователю.</p>
+<p >
+Ещё од&shy;ним важ&shy;ным свой&shy;с&shy;твом, кар&shy;ди&shy;наль&shy;но раз&shy;ли&shy;ча&shy;ющим&shy;ся для обо&shy;их ти&shy;пов, яв&shy;ля&shy;ет&shy;ся вы&shy;де&shy;ле&shy;ние па&shy;мя&shy;ти под объ&shy;ект или струк&shy;ту&shy;ру. Все де&shy;ло в том, что для то&shy;го что&shy;бы вы&shy;де&shy;лить па&shy;мять под объ&shy;ект, CLR обя&shy;за&shy;на для на&shy;ча&shy;ла от&shy;ве&shy;тить се&shy;бе на ряд воп&shy;ро&shy;сов. Пер&shy;вый, - ка&shy;ко&shy;го раз&shy;ме&shy;ра объ&shy;ект? Мень&shy;ше он или боль&shy;ше 85К байт? Если мень&shy;ше, то яв&shy;ля&shy;ет&shy;ся ли ко&shy;ли&shy;чес&shy;тво ос&shy;тав&shy;ше&shy;го&shy;ся мес&shy;та в Small Objects Heap дос&shy;та&shy;точ&shy;ным, что&shy;бы раз&shy;мес&shy;тить объ&shy;ект? Если нет, за&shy;пус&shy;ка&shy;ет&shy;ся Garbage Collection, ко&shy;то&shy;рый для сво&shy;ей ра&shy;бо&shy;ты, по су&shy;ти, дол&shy;жен сна&shy;ча&shy;ла обой&shy;ти граф объ&shy;ек&shy;тов, а по&shy;том сжать их, пе&shy;ре&shy;мес&shy;тив на ос&shy;во&shy;бо&shy;див&shy;ше&shy;еся мес&shy;то. Если и пос&shy;ле этой опе&shy;ра&shy;ции нет мес&shy;та в SOH (нап&shy;ри&shy;мер, ни&shy;че&shy;го не бы&shy;ло ос&shy;во&shy;бож&shy;де&shy;но), то ини&shy;ци&shy;и&shy;ру&shy;ет&shy;ся про&shy;цесс вы&shy;де&shy;ле&shy;ния до&shy;пол&shy;ни&shy;тель&shy;ных стра&shy;ниц вир&shy;ту&shy;альной па&shy;мя&shy;ти, что&shy;бы на&shy;рас&shy;тить раз&shy;мер Small Objects Heap. И толь&shy;ко пос&shy;ле то&shy;го как все срастётся, вы&shy;де&shy;ля&shy;ет&shy;ся мес&shy;то под объ&shy;ект, а вы&shy;де&shy;лен&shy;ный учас&shy;ток па&shy;мя&shy;ти очи&shy;ща&shy;ет&shy;ся от му&shy;со&shy;ра (об&shy;ну&shy;ля&shy;ет&shy;ся), раз&shy;ме&shy;ча&shy;ет&shy;ся SyncBlockIndex и VirtualMethodsTable, пос&shy;ле че&shy;го ссыл&shy;ка на объ&shy;ект возв&shy;ра&shy;ща&shy;ет&shy;ся поль&shy;зо&shy;ва&shy;те&shy;лю.</p>
 <div class="paragraph-right-side">28</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">29</div>
-<p>Если же выделяемый объект имеет размеры, превышающие 85K, то мы имеем дело с Large Objects Heap. Это, например, случай огромных строк и массивов. В этом случае мы должны найти максимально подходящий кусок памяти из списка освобождённых и, если таковых нет, выделить новый участок. Эти процедуры по умолчанию не быстрые, но мы предполагаем, что с объектами такого размера мы будем работать особенно осторожно и они вне контекста данной беседы</p>
+<p >
+Если же вы&shy;де&shy;ля&shy;е&shy;мый объ&shy;ект име&shy;ет раз&shy;ме&shy;ры, пре&shy;вы&shy;ша&shy;ю&shy;щие 85K, то мы име&shy;ем де&shy;ло с Large Objects Heap. Это, нап&shy;ри&shy;мер, слу&shy;чай ог&shy;ром&shy;ных строк и мас&shy;си&shy;вов. В этом слу&shy;чае мы дол&shy;жны най&shy;ти мак&shy;си&shy;маль&shy;но под&shy;хо&shy;дя&shy;щий ку&shy;сок па&shy;мя&shy;ти из спис&shy;ка ос&shy;во&shy;бождённых и, ес&shy;ли та&shy;ко&shy;вых нет, вы&shy;де&shy;лить но&shy;вый учас&shy;ток. Эти про&shy;це&shy;ду&shy;ры по умол&shy;ча&shy;нию не быс&shy;т&shy;рые, но мы пред&shy;по&shy;ла&shy;га&shy;ем, что с объ&shy;ек&shy;та&shy;ми та&shy;ко&shy;го раз&shy;ме&shy;ра мы бу&shy;дем ра&shy;бо&shy;тать осо&shy;бен&shy;но ос&shy;то&shy;рож&shy;но и они вне кон&shy;тек&shy;ста дан&shy;ной бе&shy;се&shy;ды</p>
 <div class="paragraph-right-side">29</div>
 </div>
-<p>Т.е. для RefTypes мы имеем несколько случаев:</p>
+<p >
+Т.е. для RefTypes мы име&shy;ем нес&shy;коль&shy;ко слу&shy;ча&shy;ев:</p>
 <ul>
-<li>Размер RefType &lt; 85K, место в SOH есть: выделение памяти идёт достаточно быстро;</li>
-<li>Размер RefType &lt; 85K, место в SOH заканчивается: выделение памяти идёт очень медленно;</li>
-<li>Размер RefType &gt; 85K, выделение памяти идёт относительно медленно. А с учётом того, что данные операции редки и не могут ввиду своих размеров конкурировать с ValTypes, нас это сейчас не сильно волнует.</li>
+<li>
+<p >
+Раз&shy;мер RefType < 85K, мес&shy;то в SOH есть: вы&shy;де&shy;ле&shy;ние па&shy;мя&shy;ти идёт дос&shy;та&shy;точ&shy;но быс&shy;тро;</p>
+</li>
+<li>
+<p >
+Раз&shy;мер RefType < 85K, мес&shy;то в SOH за&shy;кан&shy;чи&shy;ва&shy;ет&shy;ся: вы&shy;де&shy;ле&shy;ние па&shy;мя&shy;ти идёт очень мед&shy;лен&shy;но;</p>
+</li>
+<li>
+<p >
+Раз&shy;мер RefType > 85K, вы&shy;де&shy;ле&shy;ние па&shy;мя&shy;ти идёт от&shy;но&shy;си&shy;тель&shy;но мед&shy;лен&shy;но. А с учётом то&shy;го, что дан&shy;ные опе&shy;ра&shy;ции ред&shy;ки и не мо&shy;гут вви&shy;ду сво&shy;их раз&shy;ме&shy;ров кон&shy;ку&shy;ри&shy;ро&shy;вать с ValTypes, нас это сей&shy;час не силь&shy;но вол&shy;ну&shy;ет.</p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">30</div>
-<p>Каков же алгоритм выделения памяти под Value Types? А нет его. Выделение памяти под Value Types не стоит абсолютно ничего. Единственное, что происходит при его &laquo;выделении&raquo; - это обнуление полей. Давайте разберёмся, почему так происходит:</p>
+<p >
+Ка&shy;ков же ал&shy;го&shy;ритм вы&shy;де&shy;ле&shy;ния па&shy;мя&shy;ти под Value Types? А нет его. Вы&shy;де&shy;ле&shy;ние па&shy;мя&shy;ти под Value Types не сто&shy;ит аб&shy;со&shy;лют&shy;но ни&shy;че&shy;го. Един&shy;ствен&shy;ное, что про&shy;ис&shy;хо&shy;дит при его &laquo;вы&shy;де&shy;ле&shy;нии&raquo; - это об&shy;ну&shy;ле&shy;ние по&shy;лей. Да&shy;вай&shy;те раз&shy;берёмся, по&shy;че&shy;му так про&shy;ис&shy;хо&shy;дит:</p>
 <div class="paragraph-right-side">30</div>
 </div>
 <ol>
-<li>В случае объявления переменной в теле метода время на выделение места под структуру можно считать около нулевым. Ведь время на выделение места под локальные переменные почти не зависит от их количества;</li>
-<li>В случае размещения ValTypes в качестве полей RefTypes просто увеличит их размер. Значимый тип размещается целиком, становясь его частью;</li>
-<li>Если ValTypes передаются как параметры метода - тут, как и в случае копирования, возникнет некоторая разница - в зависимости от размера и положения параметра.</li>
+<li>
+<p >
+В слу&shy;чае объ&shy;яв&shy;ле&shy;ния пе&shy;ре&shy;мен&shy;ной в те&shy;ле ме&shy;то&shy;да вре&shy;мя на вы&shy;де&shy;ле&shy;ние мес&shy;та под струк&shy;ту&shy;ру мож&shy;но счи&shy;тать око&shy;ло ну&shy;ле&shy;вым. Ведь вре&shy;мя на вы&shy;де&shy;ле&shy;ние мес&shy;та под ло&shy;каль&shy;ные пе&shy;ре&shy;мен&shy;ные поч&shy;ти не за&shy;ви&shy;сит от их ко&shy;ли&shy;чес&shy;тва;</p>
+</li>
+<li>
+<p >
+В слу&shy;чае раз&shy;ме&shy;ще&shy;ния ValTypes в ка&shy;чес&shy;тве по&shy;лей RefTypes прос&shy;то уве&shy;ли&shy;чит их раз&shy;мер. Зна&shy;чи&shy;мый тип раз&shy;ме&shy;ща&shy;ет&shy;ся це&shy;ли&shy;ком, ста&shy;но&shy;вясь его частью;</p>
+</li>
+<li>
+<p >
+Если ValTypes пе&shy;ре&shy;да&shy;ют&shy;ся как па&shy;ра&shy;мет&shy;ры ме&shy;то&shy;да - тут, как и в слу&shy;чае ко&shy;пи&shy;ро&shy;ва&shy;ния, воз&shy;ник&shy;нет не&shy;ко&shy;то&shy;рая раз&shy;ни&shy;ца - в за&shy;ви&shy;си&shy;мос&shy;ти от раз&shy;ме&shy;ра и по&shy;ло&shy;же&shy;ния па&shy;ра&shy;мет&shy;ра.</p>
+</li>
 </ol>
-<p>Но в любом случае это не дольше копирования из одной переменной в другую.</p>
+<p >
+Но в лю&shy;бом слу&shy;чае это не доль&shy;ше ко&shy;пи&shy;ро&shy;ва&shy;ния из од&shy;ной пе&shy;ре&shy;мен&shy;ной в дру&shy;гую.</p>
 <h2 id="classstruct">Особенности выбора между class/struct</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">31</div>
-<p>Давайте подумаем об особенностях обоих типов, об их достоинствах и недостатках и решим, где ими лучше пользоваться. Тут, конечно же, стоит вспомнить классиков, дающих утверждение, что выбор в сторону значимых типов стоит сделать, если у нас тип не планирует быть наследуемым, он не станет меняться в течении своей жизни, а его размер не превышает 16 байт. Но не все так очевидно. Чтобы сделать полноценное сравнение, нам необходимо задуматься о выборе типа с разных сторон, мысленно продумав сценарии его будущего использования. Предлагаю разделить критерии выбора на три группы:</p>
+<p >
+Да&shy;вай&shy;те по&shy;ду&shy;ма&shy;ем об осо&shy;бен&shy;нос&shy;тях обо&shy;их ти&shy;пов, об их дос&shy;то&shy;и&shy;нствах и не&shy;дос&shy;тат&shy;ках и ре&shy;шим, где ими луч&shy;ше поль&shy;зо&shy;вать&shy;ся. Тут, ко&shy;неч&shy;но же, сто&shy;ит вспом&shy;нить клас&shy;си&shy;ков, да&shy;ю&shy;щих ут&shy;верж&shy;де&shy;ние, что вы&shy;бор в сто&shy;ро&shy;ну зна&shy;чи&shy;мых ти&shy;пов сто&shy;ит сде&shy;лать, ес&shy;ли у нас тип не пла&shy;ни&shy;ру&shy;ет быть нас&shy;ле&shy;ду&shy;е&shy;мым, он не ста&shy;нет ме&shy;нять&shy;ся в те&shy;че&shy;нии сво&shy;ей жиз&shy;ни, а его раз&shy;мер не пре&shy;вы&shy;ша&shy;ет 16 байт. Но не все так оче&shy;вид&shy;но. Что&shy;бы сде&shy;лать пол&shy;но&shy;цен&shy;ное срав&shy;не&shy;ние, нам не&shy;об&shy;хо&shy;ди&shy;мо за&shy;ду&shy;мать&shy;ся о вы&shy;бо&shy;ре ти&shy;па с раз&shy;ных сто&shy;рон, мыс&shy;лен&shy;но про&shy;ду&shy;мав сце&shy;на&shy;рии его бу&shy;ду&shy;ще&shy;го ис&shy;поль&shy;зо&shy;ва&shy;ния. Пред&shy;ла&shy;гаю раз&shy;де&shy;лить кри&shy;те&shy;рии вы&shy;бо&shy;ра на три груп&shy;пы:</p>
 <div class="paragraph-right-side">31</div>
 </div>
 <ul>
-<li>с точки зрения архитектуры системы типов, в которой ваш тип будет взаимодействовать;</li>
-<li>с точки зрения подхода вас как системного программиста: каков выбор будет оптимальным с точки зрения производительности;</li>
-<li>по-другому просто невозможно.</li>
+<li>
+<p >
+с точ&shy;ки зре&shy;ния ар&shy;хи&shy;тек&shy;ту&shy;ры сис&shy;те&shy;мы ти&shy;пов, в ко&shy;то&shy;рой ваш тип бу&shy;дет вза&shy;и&shy;мо&shy;дейс&shy;твовать;</p>
+</li>
+<li>
+<p >
+с точ&shy;ки зре&shy;ния под&shy;хо&shy;да вас как сис&shy;тем&shy;но&shy;го прог&shy;рам&shy;мис&shy;та: ка&shy;ков вы&shy;бор бу&shy;дет оп&shy;ти&shy;маль&shy;ным с точ&shy;ки зре&shy;ния про&shy;из&shy;во&shy;ди&shy;тель&shy;нос&shy;ти;</p>
+</li>
+<li>
+<p >
+по-дру&shy;го&shy;му прос&shy;то не&shy;воз&shy;мож&shy;но.</p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">32</div>
-<p>Каждая сущность, которая проектируется вами, должна в полной мере отражать её назначение. И это касается не только её названия или интерфейса взаимодействия (методы, свойства), но даже выбор между значимым и ссылочным типом может быть сделан из архитектурных соображений. Давайте порассуждаем, почему с точки зрения архитектуры системы типов может быть выбрана структура, а не класс:</p>
+<p >
+Каж&shy;дая сущ&shy;ность, ко&shy;то&shy;рая про&shy;ек&shy;ти&shy;ру&shy;ет&shy;ся ва&shy;ми, дол&shy;жна в пол&shy;ной ме&shy;ре от&shy;ра&shy;жать её наз&shy;на&shy;че&shy;ние. И это ка&shy;са&shy;ет&shy;ся не толь&shy;ко её наз&shy;ва&shy;ния или ин&shy;тер&shy;фей&shy;са вза&shy;и&shy;мо&shy;д&shy;ействия (ме&shy;то&shy;ды, свой&shy;ства), но да&shy;же вы&shy;бор меж&shy;ду зна&shy;чи&shy;мым и ссы&shy;лоч&shy;ным ти&shy;пом мо&shy;жет быть сде&shy;лан из ар&shy;хи&shy;тек&shy;тур&shy;ных со&shy;об&shy;ра&shy;же&shy;ний. Да&shy;вай&shy;те по&shy;рас&shy;суж&shy;да&shy;ем, по&shy;че&shy;му с точ&shy;ки зре&shy;ния ар&shy;хи&shy;тек&shy;ту&shy;ры сис&shy;те&shy;мы ти&shy;пов мо&shy;жет быть выб&shy;ра&shy;на струк&shy;ту&shy;ра, а не класс:</p>
 <div class="paragraph-right-side">32</div>
 </div>
 <ol>
-<li><p>Если наш проектируемый тип будет обладать инвариантностью по отношению к смысловой нагрузке своего состояния, то это будет значить, что его состояние полностью отражает некоторый процесс или является значением чего-либо. Другими словами, экземпляр типа полностью константен и не может быть изменён по своей сути. Мы можем создать на основе этой константы другой экземпляр типа, указав некоторое смещение, либо создать с нуля, указав его свойства. Но изменять его мы не имеем права. Я прошу заметить, что не подразумеваю структуру неизменяемым типом. Вы можете менять поля, как хотите. Мало того вы можете отдать ссылку на структуру в метод через <code>ref</code> параметр и получить изменённые поля по выходу из метода. Однако, я про смысл с точки зрения архитектуры. Поясню на примерах:</p>
+<li>
+<p >
+Если наш про&shy;ек&shy;ти&shy;ру&shy;е&shy;мый тип бу&shy;дет об&shy;ла&shy;дать ин&shy;ва&shy;ри&shy;ан&shy;т&shy;ностью по от&shy;но&shy;ше&shy;нию к смыс&shy;ло&shy;вой наг&shy;руз&shy;ке сво&shy;его сос&shy;то&shy;я&shy;ния, то это бу&shy;дет зна&shy;чить, что его сос&shy;то&shy;я&shy;ние пол&shy;ностью от&shy;ра&shy;жа&shy;ет не&shy;ко&shy;то&shy;рый про&shy;цесс или яв&shy;ля&shy;ет&shy;ся зна&shy;че&shy;ни&shy;ем че&shy;го-ли&shy;бо. Дру&shy;ги&shy;ми сло&shy;ва&shy;ми, эк&shy;земп&shy;ляр ти&shy;па пол&shy;ностью конс&shy;тан&shy;тен и не мо&shy;жет быть из&shy;менён по сво&shy;ей су&shy;ти. Мы мо&shy;жем соз&shy;дать на ос&shy;но&shy;ве этой конс&shy;тан&shy;ты дру&shy;гой эк&shy;земп&shy;ляр ти&shy;па, ука&shy;зав не&shy;ко&shy;то&shy;рое сме&shy;ще&shy;ние, ли&shy;бо соз&shy;дать с ну&shy;ля, ука&shy;зав его свой&shy;ства. Но из&shy;ме&shy;нять его мы не име&shy;ем пра&shy;ва. Я про&shy;шу за&shy;ме&shy;тить, что не под&shy;ра&shy;зу&shy;ме&shy;ваю струк&shy;ту&shy;ру не&shy;из&shy;ме&shy;ня&shy;е&shy;мым ти&shy;пом. Вы мо&shy;же&shy;те ме&shy;нять по&shy;ля, как хо&shy;ти&shy;те. Ма&shy;ло то&shy;го вы мо&shy;же&shy;те от&shy;дать ссыл&shy;ку на струк&shy;ту&shy;ру в ме&shy;тод че&shy;рез <code>ref</code> па&shy;ра&shy;метр и по&shy;лу&shy;чить из&shy;менённые по&shy;ля по вы&shy;хо&shy;ду из ме&shy;то&shy;да. Одна&shy;ко, я про смысл с точ&shy;ки зре&shy;ния ар&shy;хи&shy;тек&shy;ту&shy;ры. По&shy;яс&shy;ню на при&shy;ме&shy;рах:</p>
 <ul>
-<li>DateTime - это структура, которая инкапсулирует в себе понятие момента времени. Она хранит эти данные в виде <code>uint</code>, однако предоставляет доступ к отдельным характеристикам момента времени. Например: год, месяц, день, час, минуты, секунды, миллисекунды и даже процессорные тики. Однако, исходя из того что она инкапсулирует, она не может быть изменяемой по своей природе. Мы не можем изменить конкретный момент времени, чтобы он стал другим. Я не могу прожить следующую минуту своей жизни в лучший день рождения своего детства. Время неизменно. Именно поэтому выбор для типа данных может стать либо класс с readonly интерфейсом взаимодействия, который на каждое изменение свойств отдаёт новый экземпляр, либо структура, которая, несмотря на возможность изменения полей своих экземпляров делать этого не должна: описание момента времени является <em>значением</em>. Как число. Вы же не можете залезть в структуру числа и поменять его? Если вы хотите получить другой момент времени, который является смещением относительно оригинального на один день, вы просто получаете новый экземпляр структуры;</li>
-<li>KeyValuePair&lt;TKey, TValue&gt; - это структура, инкапсулирующая в себе понятие связной пары ключ-значение. Замечу, что эта структура используется только для выдачи пользователю при перечислении содержимого словаря. Почему выбрана структура с точки зрения архитектуры? Ответ прост: потому что в рамках Dictionary<T> ключ и значение, неразделимые понятия. Да, внутри все устроено иначе. Внутри мы имеем сложную структуру, где ключ лежит отдельно от значения. Однако для внешнего пользователя, с точки зрения интерфейса взаимодействия и смысла самой структуры данных, пара ключ-значение является неразделимым понятием. Является <em>значением</em> целиком. Если мы по этому ключу расположили другое значение, это значит, что изменилась вся пара. Для внешнего наблюдателя нет отдельно ключей, а отдельно - значений, они являются единым целым. Именно поэтому структура в данном случае - идеальный вариант.</li>
+<li>
+<p >
+DateTime - это струк&shy;ту&shy;ра, ко&shy;то&shy;рая ин&shy;кап&shy;су&shy;ли&shy;ру&shy;ет в се&shy;бе по&shy;ня&shy;тие мо&shy;мен&shy;та вре&shy;ме&shy;ни. Она хра&shy;нит эти дан&shy;ные в ви&shy;де <code>uint</code>, од&shy;на&shy;ко пре&shy;дос&shy;тав&shy;ля&shy;ет дос&shy;туп к от&shy;дель&shy;ным ха&shy;рак&shy;те&shy;рис&shy;ти&shy;кам мо&shy;мен&shy;та вре&shy;ме&shy;ни. Нап&shy;ри&shy;мер: год, ме&shy;сяц, день, час, ми&shy;ну&shy;ты, се&shy;кун&shy;ды, мил&shy;ли&shy;се&shy;кун&shy;ды и да&shy;же про&shy;цес&shy;сор&shy;ные ти&shy;ки. Одна&shy;ко, ис&shy;хо&shy;дя из то&shy;го что она ин&shy;кап&shy;су&shy;ли&shy;ру&shy;ет, она не мо&shy;жет быть из&shy;ме&shy;ня&shy;е&shy;мой по сво&shy;ей при&shy;ро&shy;де. Мы не мо&shy;жем из&shy;ме&shy;нить конк&shy;рет&shy;ный мо&shy;мент вре&shy;ме&shy;ни, что&shy;бы он стал дру&shy;гим. Я не мо&shy;гу про&shy;жить сле&shy;ду&shy;ю&shy;щую ми&shy;ну&shy;ту сво&shy;ей жиз&shy;ни в луч&shy;ший день рож&shy;де&shy;ния сво&shy;его детства. Вре&shy;мя не&shy;из&shy;мен&shy;но. Имен&shy;но по&shy;э&shy;то&shy;му вы&shy;бор для ти&shy;па дан&shy;ных мо&shy;жет стать ли&shy;бо класс с readonly ин&shy;тер&shy;фей&shy;сом вза&shy;и&shy;мо&shy;д&shy;ействия, ко&shy;то&shy;рый на каж&shy;дое из&shy;ме&shy;не&shy;ние свойств от&shy;даёт но&shy;вый эк&shy;земп&shy;ляр, ли&shy;бо струк&shy;ту&shy;ра, ко&shy;то&shy;рая, нес&shy;мот&shy;ря на воз&shy;мож&shy;ность из&shy;ме&shy;не&shy;ния по&shy;лей сво&shy;их эк&shy;земп&shy;ля&shy;ров де&shy;лать это&shy;го не дол&shy;жна: опи&shy;са&shy;ние мо&shy;мен&shy;та вре&shy;ме&shy;ни яв&shy;ля&shy;ет&shy;ся <em>значением</em>. Как чис&shy;ло. Вы же не мо&shy;же&shy;те за&shy;лезть в струк&shy;ту&shy;ру чис&shy;ла и по&shy;ме&shy;нять его? Если вы хо&shy;ти&shy;те по&shy;лу&shy;чить дру&shy;гой мо&shy;мент вре&shy;ме&shy;ни, ко&shy;то&shy;рый яв&shy;ля&shy;ет&shy;ся сме&shy;ще&shy;ни&shy;ем от&shy;но&shy;си&shy;тель&shy;но ори&shy;ги&shy;наль&shy;но&shy;го на один день, вы прос&shy;то по&shy;лу&shy;ча&shy;ете но&shy;вый эк&shy;земп&shy;ляр струк&shy;ту&shy;ры;</p>
+</li>
+<li>
+<p >
+KeyValuePair<TKey, TValue> - это струк&shy;ту&shy;ра, ин&shy;кап&shy;су&shy;ли&shy;ру&shy;ю&shy;щая в се&shy;бе по&shy;ня&shy;тие связ&shy;ной па&shy;ры ключ-зна&shy;че&shy;ние. За&shy;ме&shy;чу, что эта струк&shy;ту&shy;ра ис&shy;поль&shy;зу&shy;ет&shy;ся толь&shy;ко для вы&shy;да&shy;чи поль&shy;зо&shy;ва&shy;те&shy;лю при пе&shy;ре&shy;чис&shy;ле&shy;нии со&shy;дер&shy;жи&shy;мо&shy;го сло&shy;ва&shy;ря. По&shy;че&shy;му выб&shy;ра&shy;на струк&shy;ту&shy;ра с точ&shy;ки зре&shy;ния ар&shy;хи&shy;тек&shy;ту&shy;ры? Ответ прост: по&shy;то&shy;му что в рам&shy;ках Dictionary<T> ключ и зна&shy;че&shy;ние, не&shy;раз&shy;де&shy;ли&shy;мые по&shy;ня&shy;тия. Да, внут&shy;ри все ус&shy;тро&shy;ено ина&shy;че. Внут&shy;ри мы име&shy;ем слож&shy;ную струк&shy;ту&shy;ру, где ключ ле&shy;жит от&shy;дель&shy;но от зна&shy;че&shy;ния. Одна&shy;ко для внеш&shy;не&shy;го поль&shy;зо&shy;ва&shy;те&shy;ля, с точ&shy;ки зре&shy;ния ин&shy;тер&shy;фей&shy;са вза&shy;и&shy;мо&shy;д&shy;ействия и смыс&shy;ла са&shy;мой струк&shy;ту&shy;ры дан&shy;ных, па&shy;ра ключ-зна&shy;че&shy;ние яв&shy;ля&shy;ет&shy;ся не&shy;раз&shy;де&shy;ли&shy;мым по&shy;ня&shy;ти&shy;ем. Явл&shy;яе&shy;тся <em>значением</em> це&shy;ли&shy;ком. Если мы по это&shy;му клю&shy;чу рас&shy;по&shy;ло&shy;жи&shy;ли дру&shy;гое зна&shy;че&shy;ние, это зна&shy;чит, что из&shy;ме&shy;ни&shy;лась вся па&shy;ра. Для внеш&shy;не&shy;го наб&shy;лю&shy;да&shy;те&shy;ля нет от&shy;дель&shy;но клю&shy;чей, а от&shy;дель&shy;но - зна&shy;че&shy;ний, они яв&shy;ля&shy;ют&shy;ся еди&shy;ным це&shy;лым. Имен&shy;но по&shy;э&shy;то&shy;му струк&shy;ту&shy;ра в дан&shy;ном слу&shy;чае - иде&shy;альный ва&shy;ри&shy;ант.</p>
+</li>
 </ul>
 </li>
-<li><p>Если наш проектируемый тип является неотъемлемой частью внешнего типа. Но при этом он структурно неотъемлем. Т.е. было бы некорректным сказать, что внешний тип ссылается на экземпляр инкапсулируемого, но совершенно корректно - что инкапсулируемый является полноправной частью внешнего вместе со всеми своими свойствами. Как правило, это используется при проектировании структур, которые являются частью другой структуры.</p>
+<li>
+<p >
+Если наш про&shy;ек&shy;ти&shy;ру&shy;е&shy;мый тип яв&shy;ля&shy;ет&shy;ся не&shy;отъ&shy;ем&shy;ле&shy;мой частью внеш&shy;не&shy;го ти&shy;па. Но при этом он струк&shy;тур&shy;но не&shy;отъ&shy;ем&shy;лем. Т.е. бы&shy;ло бы не&shy;кор&shy;рект&shy;ным ска&shy;зать, что внеш&shy;ний тип ссы&shy;ла&shy;ет&shy;ся на эк&shy;земп&shy;ляр ин&shy;кап&shy;су&shy;ли&shy;ру&shy;е&shy;мо&shy;го, но со&shy;вер&shy;шен&shy;но кор&shy;рек&shy;тно - что ин&shy;кап&shy;су&shy;ли&shy;ру&shy;е&shy;мый яв&shy;ля&shy;ет&shy;ся пол&shy;ноп&shy;рав&shy;ной частью внеш&shy;не&shy;го вмес&shy;те со все&shy;ми сво&shy;ими свой&shy;ства&shy;ми. Как пра&shy;ви&shy;ло, это ис&shy;поль&shy;зу&shy;ет&shy;ся при про&shy;ек&shy;ти&shy;ро&shy;ва&shy;нии струк&shy;тур, ко&shy;то&shy;рые яв&shy;ля&shy;ют&shy;ся частью дру&shy;гой струк&shy;ту&shy;ры.</p>
 <ul>
-<li>Как, например, если взять структуру заголовка файла, было бы нечестно дать ссылку из одного файла в другой. Мол, заголовок находится в файле <code>header.txt</code>. Это было бы уместно при вставке документа в некий другой, но не вживанием файла, а по относительной ссылке на файловой системе. Хороший пример - файл ярлыка ОС Windows. Однако если мы говорим о заголовке файла (например, о заголовке JPEG файла, в котором указаны размер изображения, методика сжатия, параметры съёмки, координаты GPS и прочая метаинформация), то при проектировании типов, которые будут использованы для парсинга заголовка, будет крайне полезно использовать структуры. Ведь, описав все заголовки в структурах, вы получите в памяти абсолютно такое же положение всех полей как в файле. И через простое unsafe преобразование <code>*(Header *)readedBuffer</code> без каких-либо десериализаций - полностью заполненные структуры данных.</li>
+<li>
+<p >
+Как, нап&shy;ри&shy;мер, ес&shy;ли взять струк&shy;ту&shy;ру за&shy;го&shy;лов&shy;ка фай&shy;ла, бы&shy;ло бы не&shy;чес&shy;тно дать ссыл&shy;ку из од&shy;но&shy;го фай&shy;ла в дру&shy;гой. Мол, за&shy;го&shy;ло&shy;вок на&shy;хо&shy;дит&shy;ся в фай&shy;ле <code>header.txt</code>. Это бы&shy;ло бы умес&shy;тно при встав&shy;ке до&shy;ку&shy;мен&shy;та в не&shy;кий дру&shy;гой, но не вжи&shy;ва&shy;ни&shy;ем фай&shy;ла, а по от&shy;но&shy;си&shy;тель&shy;ной ссыл&shy;ке на фай&shy;ло&shy;вой сис&shy;те&shy;ме. Хо&shy;ро&shy;ший при&shy;мер - файл яр&shy;лы&shy;ка ОС Windows. Одна&shy;ко ес&shy;ли мы го&shy;во&shy;рим о за&shy;го&shy;лов&shy;ке фай&shy;ла (нап&shy;ри&shy;мер, о за&shy;го&shy;лов&shy;ке JPEG фай&shy;ла, в ко&shy;то&shy;ром ука&shy;за&shy;ны раз&shy;мер изоб&shy;ра&shy;же&shy;ния, ме&shy;то&shy;ди&shy;ка сжа&shy;тия, па&shy;ра&shy;мет&shy;ры съёмки, ко&shy;ор&shy;ди&shy;на&shy;ты GPS и про&shy;чая ме&shy;та&shy;ин&shy;фор&shy;ма&shy;ция), то при про&shy;ек&shy;ти&shy;ро&shy;ва&shy;нии ти&shy;пов, ко&shy;то&shy;рые бу&shy;дут ис&shy;поль&shy;зо&shy;ва&shy;ны для пар&shy;син&shy;га за&shy;го&shy;лов&shy;ка, бу&shy;дет край&shy;не по&shy;лез&shy;но ис&shy;поль&shy;зо&shy;вать струк&shy;ту&shy;ры. Ведь, опи&shy;сав все за&shy;го&shy;лов&shy;ки в струк&shy;ту&shy;рах, вы по&shy;лу&shy;чи&shy;те в па&shy;мя&shy;ти аб&shy;со&shy;лют&shy;но та&shy;кое же по&shy;ло&shy;же&shy;ние всех по&shy;лей как в фай&shy;ле. И че&shy;рез прос&shy;тое unsafe пре&shy;об&shy;ра&shy;зо&shy;ва&shy;ние <code>*(Header *)readedBuffer</code> без ка&shy;ких-ли&shy;бо де&shy;се&shy;ри&shy;а&shy;ли&shy;за&shy;ций - пол&shy;ностью за&shy;пол&shy;нен&shy;ные струк&shy;ту&shy;ры дан&shy;ных.</p>
+</li>
 </ul>
 </li>
-<li><p>При этом заметьте, ни один из примеров не обладает свойством наследования поведения чего-либо. Мало того все эти примеры также показывают, что нет абсолютно никакого смысла наследовать поведение этих сущностей. Они полностью самодостаточны, как единицы чего-либо.</p>
+<li>
+<p >
+При этом за&shy;меть&shy;те, ни один из при&shy;ме&shy;ров не об&shy;ла&shy;да&shy;ет свой&shy;с&shy;твом нас&shy;ле&shy;до&shy;ва&shy;ния по&shy;ве&shy;де&shy;ния че&shy;го-ли&shy;бо. Ма&shy;ло то&shy;го все эти при&shy;ме&shy;ры так&shy;же по&shy;ка&shy;зы&shy;ва&shy;ют, что нет аб&shy;со&shy;лют&shy;но ни&shy;ка&shy;ко&shy;го смыс&shy;ла нас&shy;ле&shy;до&shy;вать по&shy;ве&shy;де&shy;ние этих сущ&shy;нос&shy;тей. Они пол&shy;ностью са&shy;мо&shy;дос&shy;та&shy;точ&shy;ны, как еди&shy;ни&shy;цы че&shy;го-ли&shy;бо.</p>
 </li>
 </ol>
 <div class="paragraph-container">
 <div class="paragraph-left-side">33</div>
-<p>Если же мы взглянем на проблематику с точки зрения эффективности работы кода, то перед нами выбор предстанет с другой стороны:</p>
+<p >
+Если же мы взгл&shy;янем на проб&shy;ле&shy;ма&shy;ти&shy;ку с точ&shy;ки зре&shy;ния эф&shy;фек&shy;тив&shy;нос&shy;ти ра&shy;бо&shy;ты ко&shy;да, то пе&shy;ред на&shy;ми вы&shy;бор предс&shy;та&shy;нет с дру&shy;гой сто&shy;ро&shy;ны:</p>
 <div class="paragraph-right-side">33</div>
 </div>
 <ol>
-<li>Структуры необходимо выбирать, если необходимо забрать из неуправляемого кода какие-то структурированные данные. Либо отдать unsafe методу структуру данных. Ссылочный тип для этого совсем не подойдёт;</li>
-<li>Если тип будет часто использоваться для передачи данных в вызовах методов (пусть в качестве возвращаемых значений или как параметр метода), но при этом нет никакой необходимости ссылаться на одно значение с разных мест, то ваш выбор - структура. Как пример я могу привести кортежи. Если метод через кортеж возвращает вам несколько значений, это значит, что возвращать он будет ValueTuple, который объявлен как структура. Т.е. при возврате метод не будет выделять память в куче, а использовать он будет стек потока, выделение памяти в котором не стоит вам абсолютно ничего;</li>
-<li>Если вы проектируете систему, которая создаёт некий больший трафик экземпляров проектируемого типа. При этом сами экземпляры имеют достаточно малый размер, а время жизни экземпляров очень короткое, то использование ссылочных типов приведёт либо к использованию пула объектов, либо, если без пула, к неконтролируемому замусориванию кучи. При этом часть объектов перейдёт в старшие поколения, чем вызовет проседание на GC. Использование значимых типов в таких местах (если это возможно) даст прирост производительности просто потому, что в SOH ничего не уйдёт, а это разгрузит GC, и алгоритм отработает быстрее;</li>
+<li>
+<p >
+Струк&shy;ту&shy;ры не&shy;об&shy;хо&shy;ди&shy;мо вы&shy;би&shy;рать, ес&shy;ли не&shy;об&shy;хо&shy;ди&shy;мо заб&shy;рать из не&shy;уп&shy;рав&shy;ля&shy;е&shy;мо&shy;го ко&shy;да ка&shy;кие-то струк&shy;ту&shy;ри&shy;ро&shy;ван&shy;ные дан&shy;ные. Ли&shy;бо от&shy;дать unsafe ме&shy;то&shy;ду струк&shy;ту&shy;ру дан&shy;ных. Ссы&shy;лоч&shy;ный тип для это&shy;го сов&shy;сем не по&shy;дойдёт;</p>
+</li>
+<li>
+<p >
+Если тип бу&shy;дет час&shy;то ис&shy;поль&shy;зо&shy;вать&shy;ся для пе&shy;ре&shy;да&shy;чи дан&shy;ных в вы&shy;зо&shy;вах ме&shy;то&shy;дов (пусть в ка&shy;чес&shy;тве возв&shy;ра&shy;ща&shy;е&shy;мых зна&shy;че&shy;ний или как па&shy;ра&shy;метр ме&shy;то&shy;да), но при этом нет ни&shy;ка&shy;кой не&shy;об&shy;хо&shy;ди&shy;мос&shy;ти ссы&shy;лать&shy;ся на од&shy;но зна&shy;че&shy;ние с раз&shy;ных мест, то ваш вы&shy;бор - струк&shy;ту&shy;ра. Как при&shy;мер я мо&shy;гу при&shy;вес&shy;ти кор&shy;те&shy;жи. Если ме&shy;тод че&shy;рез кор&shy;теж возв&shy;ра&shy;ща&shy;ет вам нес&shy;коль&shy;ко зна&shy;че&shy;ний, это зна&shy;чит, что возв&shy;ра&shy;щать он бу&shy;дет ValueTuple, ко&shy;то&shy;рый объ&shy;яв&shy;лен как струк&shy;ту&shy;ра. Т.е. при возв&shy;ра&shy;те ме&shy;тод не бу&shy;дет вы&shy;де&shy;лять па&shy;мять в ку&shy;че, а ис&shy;поль&shy;зо&shy;вать он бу&shy;дет стек по&shy;то&shy;ка, вы&shy;де&shy;ле&shy;ние па&shy;мя&shy;ти в ко&shy;то&shy;ром не сто&shy;ит вам аб&shy;со&shy;лют&shy;но ни&shy;че&shy;го;</p>
+</li>
+<li>
+<p >
+Если вы про&shy;ек&shy;ти&shy;ру&shy;ете сис&shy;те&shy;му, ко&shy;то&shy;рая соз&shy;даёт не&shy;кий боль&shy;ший тра&shy;фик эк&shy;земп&shy;ля&shy;ров про&shy;ек&shy;ти&shy;ру&shy;е&shy;мо&shy;го ти&shy;па. При этом са&shy;ми эк&shy;земп&shy;ля&shy;ры име&shy;ют дос&shy;та&shy;точ&shy;но ма&shy;лый раз&shy;мер, а вре&shy;мя жиз&shy;ни эк&shy;земп&shy;ля&shy;ров очень ко&shy;рот&shy;кое, то ис&shy;поль&shy;зо&shy;ва&shy;ние ссы&shy;лоч&shy;ных ти&shy;пов при&shy;ведёт ли&shy;бо к ис&shy;поль&shy;зо&shy;ва&shy;нию пу&shy;ла объ&shy;ек&shy;тов, ли&shy;бо, ес&shy;ли без пу&shy;ла, к не&shy;конт&shy;ро&shy;ли&shy;ру&shy;е&shy;мо&shy;му за&shy;му&shy;со&shy;ри&shy;ва&shy;нию ку&shy;чи. При этом часть объ&shy;ек&shy;тов пе&shy;рейдёт в стар&shy;шие по&shy;ко&shy;ле&shy;ния, чем вы&shy;зо&shy;вет про&shy;се&shy;да&shy;ние на GC. Испол&shy;ьз&shy;ов&shy;ание зна&shy;чи&shy;мых ти&shy;пов в та&shy;ких мес&shy;тах (ес&shy;ли это воз&shy;мож&shy;но) даст при&shy;рост про&shy;из&shy;во&shy;ди&shy;тель&shy;нос&shy;ти прос&shy;то по&shy;то&shy;му, что в SOH ни&shy;че&shy;го не уйдёт, а это разг&shy;ру&shy;зит GC, и ал&shy;го&shy;ритм от&shy;ра&shy;бо&shy;та&shy;ет быс&shy;т&shy;рее;</p>
+</li>
 </ol>
 <div class="paragraph-container">
 <div class="paragraph-left-side">34</div>
-<p>Совмещая все вышесказанное, могу предложить некоторые советы и замечания в использовании структур:</p>
+<p >
+Сов&shy;ме&shy;щая все вы&shy;шес&shy;ка&shy;зан&shy;ное, мо&shy;гу пред&shy;ло&shy;жить не&shy;ко&shy;то&shy;рые со&shy;ве&shy;ты и за&shy;ме&shy;ча&shy;ния в ис&shy;поль&shy;зо&shy;ва&shy;нии струк&shy;тур:</p>
 <div class="paragraph-right-side">34</div>
 </div>
 <ol>
-<li>При выборе коллекций стоит избегать больших массивов, внутри которых находятся большие структуры. Это касается и тех структур данных, которые на массивах основаны (а их - большинство). Это может привести к уходу в Large Objects Heap и его фрагментации. Мало подсчитать, что, если у вашей структуры 4 поля типа byte, значит, займёт она 4 байта. Вовсе нет. Надо понимать, что для 32-разрядных систем каждое поле структуры будет выровнено по 4 байтам (адрес каждого поля должен делиться на 4 без остатка), а на 64-разрядных системах - по 8 байтам. Т.е. размер массива должен зависеть от размера структуры и от платформы, на которой запущено приложение. В нашем примере с 4 байтами - 85К / (от 4 до 8 байт на поле * количество полей = 4) минус размер заголовка массива: примерно до 2600 элементов на массив в зависимости от платформы (а брать понятное дело надо в меньшую сторону). Всего-то! Не так и много! А ведь могло показаться, что магическая константа в 20,000 элементов вполне могла подойти!</li>
-<li>Также стоит отдавать себе отчёт, что если вы используете структуру, которая имеет некоторый достаточно большой размер, как источник данных, и размещаете её в некотором классе как поле, и при этом, например, одна и та же копия растиражирована на тысячу экземпляров (просто потому, что вам удобно держать все под рукой), то вы тем самым увеличиваете каждый экземпляр класса на размер структуры, что в конечном счёте приведёт к распуханию 0-го поколения и уходу в поколение 1 или даже 2. При этом если на самом деле экземпляры класса короткоживущие, и вы рассчитываете на то, что они будут собраны GC в нулевом поколении - за 1 мс, то будете сильно разочарованы тем, что они на самом деле успели попасть в первое или даже во второе поколение. А какая, собственно, разница? Разница в том, что если поколение 0 собирается за 1 мс, то первое и второе - очень медленно, что приведёт к проседаниям на пустом месте;</li>
-<li>По примерно той же причине стоит избегать проброса больших структур через цепочку вызовов методов. Потому как если все начнёт друг друга вызывать, то такие вызовы займут намного больше места в стеке, подводя жизнь вашего приложения к смерти через <code>StackOverflowException</code>. Вторая причина - производительность. Чем больше копирований, тем медленнее все работает;</li>
+<li>
+<p >
+При вы&shy;бо&shy;ре кол&shy;лек&shy;ций сто&shy;ит из&shy;бе&shy;гать боль&shy;ших мас&shy;си&shy;вов, внут&shy;ри ко&shy;то&shy;рых на&shy;хо&shy;дят&shy;ся боль&shy;шие струк&shy;ту&shy;ры. Это ка&shy;са&shy;ет&shy;ся и тех струк&shy;тур дан&shy;ных, ко&shy;то&shy;рые на мас&shy;си&shy;вах ос&shy;но&shy;ва&shy;ны (а их - боль&shy;шинство). Это мо&shy;жет при&shy;вес&shy;ти к ухо&shy;ду в Large Objects Heap и его фраг&shy;мен&shy;та&shy;ции. Ма&shy;ло подс&shy;чи&shy;тать, что, ес&shy;ли у ва&shy;шей струк&shy;ту&shy;ры 4 по&shy;ля ти&shy;па byte, зна&shy;чит, займёт она 4 бай&shy;та. Вов&shy;се нет. На&shy;до по&shy;ни&shy;мать, что для 32-раз&shy;ряд&shy;ных сис&shy;тем каж&shy;дое по&shy;ле струк&shy;ту&shy;ры бу&shy;дет вы&shy;ров&shy;не&shy;но по 4 бай&shy;там (ад&shy;рес каж&shy;до&shy;го по&shy;ля дол&shy;жен де&shy;лить&shy;ся на 4 без ос&shy;тат&shy;ка), а на 64-раз&shy;ряд&shy;ных сис&shy;те&shy;мах - по 8 бай&shy;там. Т.е. раз&shy;мер мас&shy;си&shy;ва дол&shy;жен за&shy;ви&shy;сеть от раз&shy;ме&shy;ра струк&shy;ту&shy;ры и от плат&shy;фор&shy;мы, на ко&shy;то&shy;рой за&shy;пу&shy;ще&shy;но при&shy;ло&shy;же&shy;ние. В на&shy;шем при&shy;ме&shy;ре с 4 бай&shy;та&shy;ми - 85К / (от 4 до 8 байт на по&shy;ле * ко&shy;ли&shy;чес&shy;тво по&shy;лей = 4) ми&shy;нус раз&shy;мер за&shy;го&shy;лов&shy;ка мас&shy;си&shy;ва: при&shy;мер&shy;но до 2600 эле&shy;мен&shy;тов на мас&shy;сив в за&shy;ви&shy;си&shy;мос&shy;ти от плат&shy;фор&shy;мы (а брать по&shy;нят&shy;ное де&shy;ло на&shy;до в мень&shy;шую сто&shy;ро&shy;ну). Все&shy;го-то! Не так и мно&shy;го! А ведь мог&shy;ло по&shy;ка&shy;зать&shy;ся, что ма&shy;ги&shy;чес&shy;кая конс&shy;тан&shy;та в 20,000 эле&shy;мен&shy;тов впол&shy;не мог&shy;ла по&shy;дой&shy;ти!</p>
+</li>
+<li>
+<p >
+Так&shy;же сто&shy;ит от&shy;да&shy;вать се&shy;бе отчёт, что ес&shy;ли вы ис&shy;поль&shy;зу&shy;ете струк&shy;ту&shy;ру, ко&shy;то&shy;рая име&shy;ет не&shy;ко&shy;то&shy;рый дос&shy;та&shy;точ&shy;но боль&shy;шой раз&shy;мер, как ис&shy;точ&shy;ник дан&shy;ных, и раз&shy;ме&shy;ща&shy;ете её в не&shy;ко&shy;то&shy;ром клас&shy;се как по&shy;ле, и при этом, нап&shy;ри&shy;мер, од&shy;на и та же ко&shy;пия рас&shy;ти&shy;ра&shy;жи&shy;ро&shy;ва&shy;на на ты&shy;ся&shy;чу эк&shy;земп&shy;ля&shy;ров (прос&shy;то по&shy;то&shy;му, что вам удоб&shy;но дер&shy;жать все под ру&shy;кой), то вы тем са&shy;мым уве&shy;ли&shy;чи&shy;ва&shy;ете каж&shy;дый эк&shy;земп&shy;ляр клас&shy;са на раз&shy;мер струк&shy;ту&shy;ры, что в ко&shy;неч&shy;ном счёте при&shy;ведёт к рас&shy;пу&shy;ха&shy;нию 0-го по&shy;ко&shy;ле&shy;ния и ухо&shy;ду в по&shy;ко&shy;ле&shy;ние 1 или да&shy;же 2. При этом ес&shy;ли на са&shy;мом де&shy;ле эк&shy;земп&shy;ля&shy;ры клас&shy;са ко&shy;рот&shy;ко&shy;жи&shy;ву&shy;щие, и вы расс&shy;чи&shy;ты&shy;ва&shy;ете на то, что они бу&shy;дут соб&shy;ра&shy;ны GC в ну&shy;ле&shy;вом по&shy;ко&shy;ле&shy;нии - за 1 мс, то бу&shy;де&shy;те силь&shy;но ра&shy;зо&shy;ча&shy;ро&shy;ва&shy;ны тем, что они на са&shy;мом де&shy;ле ус&shy;пе&shy;ли по&shy;пасть в пер&shy;вое или да&shy;же во вто&shy;рое по&shy;ко&shy;ле&shy;ние. А ка&shy;кая, собст&shy;венно, раз&shy;ни&shy;ца? Раз&shy;ни&shy;ца в том, что ес&shy;ли по&shy;ко&shy;ле&shy;ние 0 со&shy;би&shy;ра&shy;ет&shy;ся за 1 мс, то пер&shy;вое и вто&shy;рое - очень мед&shy;лен&shy;но, что при&shy;ведёт к про&shy;се&shy;да&shy;ни&shy;ям на пус&shy;том мес&shy;те;</p>
+</li>
+<li>
+<p >
+По при&shy;мер&shy;но той же при&shy;чи&shy;не сто&shy;ит из&shy;бе&shy;гать проб&shy;ро&shy;са боль&shy;ших струк&shy;тур че&shy;рез це&shy;поч&shy;ку вы&shy;зо&shy;вов ме&shy;то&shy;дов. По&shy;то&shy;му как ес&shy;ли все начнёт друг дру&shy;га вы&shy;зы&shy;вать, то та&shy;кие вы&shy;зо&shy;вы зай&shy;мут нам&shy;но&shy;го боль&shy;ше мес&shy;та в сте&shy;ке, под&shy;во&shy;дя жизнь ва&shy;ше&shy;го при&shy;ло&shy;же&shy;ния к смер&shy;ти че&shy;рез <code>StackOverflowException</code>. Вто&shy;рая при&shy;чи&shy;на - про&shy;из&shy;во&shy;ди&shy;тель&shy;ность. Чем боль&shy;ше ко&shy;пи&shy;ро&shy;ва&shy;ний, тем мед&shy;лен&shy;нее все ра&shy;бо&shy;та&shy;ет;</p>
+</li>
 </ol>
 <div class="paragraph-container">
 <div class="paragraph-left-side">35</div>
-<p>Потому в целом выбор между типами данных - достаточно нетривиальный процесс. Зачастую это может относиться к преждевременной оптимизации, чего делать не рекомендуется. Однако, если вы знаете, что ваша ситуация попадает под выше изложенные принципы, то можете спокойно делать выбор в сторону значимого типа.</p>
+<p >
+По&shy;то&shy;му в це&shy;лом вы&shy;бор меж&shy;ду ти&shy;па&shy;ми дан&shy;ных - дос&shy;та&shy;точ&shy;но нет&shy;ри&shy;ви&shy;альный про&shy;цесс. За&shy;час&shy;тую это мо&shy;жет от&shy;но&shy;сить&shy;ся к преж&shy;дев&shy;ре&shy;мен&shy;ной оп&shy;ти&shy;ми&shy;за&shy;ции, че&shy;го де&shy;лать не ре&shy;ко&shy;мен&shy;ду&shy;ет&shy;ся. Одна&shy;ко, ес&shy;ли вы зна&shy;ете, что ва&shy;ша си&shy;ту&shy;а&shy;ция по&shy;па&shy;да&shy;ет под вы&shy;ше из&shy;ло&shy;жен&shy;ные прин&shy;ци&shy;пы, то мо&shy;же&shy;те спо&shy;кой&shy;но де&shy;лать вы&shy;бор в сто&shy;ро&shy;ну зна&shy;чи&shy;мо&shy;го ти&shy;па.</p>
 <div class="paragraph-right-side">35</div>
 </div>
 <h2 id="object.boxing">Базовый тип - Object и возможность реализации интерфейсов. Boxing.</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">36</div>
-<p>Мы с вами прошли, как может показаться и огонь, и воду и можем пройти любое собеседование. Возможно даже в команду .NET CLR. Но давайте не будем спешить набирать microsoft.com и искать там раздел вакансий: успеем. Давайте лучше ответим на такой вопрос. Если значимые типы не содержат ни ссылки на SyncBlockIndex, ни указателя на таблицу виртуальных методов&hellip; То, простите, как они наследуют тип <code>object</code>? Ведь по всем канонам любой тип наследует именно его. Ответ на этот вопрос к сожалению не будет вмещён в одно предложение, но даст такое понимание о нашей системе типов, что последние кусочки пазла наконец встанут на свои места.</p>
+<p >
+Мы с ва&shy;ми прош&shy;ли, как мо&shy;жет по&shy;ка&shy;зать&shy;ся и огонь, и во&shy;ду и мо&shy;жем прой&shy;ти лю&shy;бое со&shy;бе&shy;се&shy;до&shy;ва&shy;ние. Воз&shy;мож&shy;но да&shy;же в ко&shy;ман&shy;ду .NET CLR. Но да&shy;вай&shy;те не бу&shy;дем спе&shy;шить на&shy;би&shy;рать microsoft.com и ис&shy;кать там раз&shy;дел ва&shy;кан&shy;сий: ус&shy;пе&shy;ем. Да&shy;вай&shy;те луч&shy;ше от&shy;ве&shy;тим на та&shy;кой воп&shy;рос. Если зна&shy;чи&shy;мые ти&shy;пы не со&shy;дер&shy;жат ни ссыл&shy;ки на SyncBlockIndex, ни ука&shy;за&shy;те&shy;ля на таб&shy;ли&shy;цу вир&shy;ту&shy;альных ме&shy;то&shy;дов&hellip; То, прос&shy;ти&shy;те, как они нас&shy;ле&shy;ду&shy;ют тип <code>object</code>? Ведь по всем ка&shy;но&shy;нам лю&shy;бой тип нас&shy;ле&shy;ду&shy;ет имен&shy;но его. Ответ на этот воп&shy;рос к со&shy;жа&shy;ле&shy;нию не бу&shy;дет вмещён в од&shy;но пред&shy;ло&shy;же&shy;ние, но даст та&shy;кое по&shy;ни&shy;ма&shy;ние о на&shy;шей сис&shy;те&shy;ме ти&shy;пов, что пос&shy;лед&shy;ние ку&shy;соч&shy;ки паз&shy;ла на&shy;ко&shy;нец вста&shy;нут на свои мес&shy;та.</p>
 <div class="paragraph-right-side">36</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">37</div>
-<p>Итак, давайте ещё раз вспомним про размещение значимых типов в памяти. Везде, где бы они ни находились, они вживляются в то место, где находятся. Они становятся его частью. В отличии от ссылочных типов, для которых закон твердит быть в куче малых или больших объектов, а в место установки значения - всегда ставить ссылку на место в куче, где расположился наш объект.</p>
+<p >
+Итак, да&shy;вай&shy;те ещё раз вспом&shy;ним про раз&shy;ме&shy;ще&shy;ние зна&shy;чи&shy;мых ти&shy;пов в па&shy;мя&shy;ти. Вез&shy;де, где бы они ни на&shy;хо&shy;ди&shy;лись, они вжив&shy;ля&shy;ют&shy;ся в то мес&shy;то, где на&shy;хо&shy;дят&shy;ся. Они ста&shy;но&shy;вят&shy;ся его частью. В от&shy;ли&shy;чии от ссы&shy;лоч&shy;ных ти&shy;пов, для ко&shy;то&shy;рых за&shy;кон твер&shy;дит быть в ку&shy;че ма&shy;лых или боль&shy;ших объ&shy;ек&shy;тов, а в мес&shy;то ус&shy;та&shy;нов&shy;ки зна&shy;че&shy;ния - всег&shy;да ста&shy;вить ссыл&shy;ку на мес&shy;то в ку&shy;че, где рас&shy;по&shy;ло&shy;жил&shy;ся наш объ&shy;ект.</p>
 <div class="paragraph-right-side">37</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">38</div>
-<p>Так вот если задуматься, то у любого значимого типа есть методы <code>ToString</code>, <code>Equals</code> и <code>GetHashCode</code>, которые являются виртуальными, переопределяемыми, но нам не дают наследовать значимые типы, переопределяя методы. Почему? Потому что если значимые типы сделать с переопределяемыми методами, то им понадобится таблица виртуальных методов, через которую будет осуществляться роутинг вызовов. А это в свою очередь повлечёт за собой проблемы проброса структур в unmanaged мир: туда уйдут лишние поля. В итоге получается, что описание методов значимых типов где-то лежат, но к ним нет прямого доступа через таблицу виртуальных методов.</p>
+<p >
+Так вот ес&shy;ли за&shy;ду&shy;мать&shy;ся, то у лю&shy;бо&shy;го зна&shy;чи&shy;мо&shy;го ти&shy;па есть ме&shy;то&shy;ды <code>ToString</code>, <code>Equals</code> и <code>GetHashCode</code>, ко&shy;то&shy;рые яв&shy;ля&shy;ют&shy;ся вир&shy;ту&shy;ал&shy;ьными, пе&shy;ре&shy;оп&shy;ре&shy;де&shy;ля&shy;е&shy;мы&shy;ми, но нам не да&shy;ют нас&shy;ле&shy;до&shy;вать зна&shy;чи&shy;мые ти&shy;пы, пе&shy;ре&shy;оп&shy;ре&shy;де&shy;ляя ме&shy;то&shy;ды. По&shy;че&shy;му? По&shy;то&shy;му что ес&shy;ли зна&shy;чи&shy;мые ти&shy;пы сде&shy;лать с пе&shy;ре&shy;оп&shy;ре&shy;де&shy;ля&shy;е&shy;мы&shy;ми ме&shy;то&shy;да&shy;ми, то им по&shy;на&shy;до&shy;бит&shy;ся таб&shy;ли&shy;ца вир&shy;ту&shy;альных ме&shy;то&shy;дов, че&shy;рез ко&shy;то&shy;рую бу&shy;дет осу&shy;щ&shy;еств&shy;ляться ро&shy;у&shy;тинг вы&shy;зо&shy;вов. А это в свою оче&shy;редь пов&shy;лечёт за со&shy;бой проб&shy;ле&shy;мы проб&shy;ро&shy;са струк&shy;тур в unmanaged мир: ту&shy;да уй&shy;дут лиш&shy;ние по&shy;ля. В ито&shy;ге по&shy;лу&shy;ча&shy;ет&shy;ся, что опи&shy;са&shy;ние ме&shy;то&shy;дов зна&shy;чи&shy;мых ти&shy;пов где-то ле&shy;жат, но к ним нет пря&shy;мо&shy;го дос&shy;ту&shy;па че&shy;рез таб&shy;ли&shy;цу вир&shy;ту&shy;альных ме&shy;то&shy;дов.</p>
 <div class="paragraph-right-side">38</div>
 </div>
-<p>Это наводит на мысль что отсутствие наследования искусственно:</p>
+<p >
+Это на&shy;во&shy;дит на мысль что от&shy;с&shy;утствие нас&shy;ле&shy;до&shy;ва&shy;ния ис&shy;кусст&shy;венно:</p>
 <ul>
-<li>Наследование от object есть, хоть и не прямое;</li>
-<li>В базовом типе есть ToString, Equals и GetHashCode, которые по-своему работают в значимых типах: у этих методов своё поведение в каждом из них. А значит, что методы переопределены относительно object;</li>
-<li>более того, если вы сделаете приведение типа в <code>object</code>, вы все ещё можете на полных правах вызывать ToString, Equals и GetHashCode.</li>
-<li>При вызове экземплярного метода над значимым типом не происходит копирования в метод. Т.е. вызов экземплярного метода аналогичен вызову статического метода: <code>Method(ref structInstance, newInternalFieldValue)</code>. А это ведь, по сути, вызов с передачей <code>this</code> за одним исключением: JIT должен собрать тело метода так, чтобы не делать дополнительного смещения на поля структуры, перепрыгивая через указатель на таблицу виртуальных методов, которой в самой структуре нет. <em>Для значимых типов она находится в другом месте</em>.</li>
+<li>
+<p >
+Нас&shy;ле&shy;до&shy;ва&shy;ние от object есть, хоть и не пря&shy;мое;</p>
+</li>
+<li>
+<p >
+В ба&shy;зо&shy;вом ти&shy;пе есть ToString, Equals и GetHashCode, ко&shy;то&shy;рые по-сво&shy;ему ра&shy;бо&shy;та&shy;ют в зна&shy;чи&shy;мых ти&shy;пах: у этих ме&shy;то&shy;дов своё по&shy;ве&shy;де&shy;ние в каж&shy;дом из них. А зна&shy;чит, что ме&shy;то&shy;ды пе&shy;ре&shy;оп&shy;ре&shy;де&shy;ле&shy;ны от&shy;но&shy;си&shy;тель&shy;но object;</p>
+</li>
+<li>
+<p >
+бо&shy;лее то&shy;го, ес&shy;ли вы сде&shy;ла&shy;ете при&shy;ве&shy;де&shy;ние ти&shy;па в <code>object</code>, вы все ещё мо&shy;же&shy;те на пол&shy;ных пра&shy;вах вы&shy;зы&shy;вать ToString, Equals и GetHashCode.</p>
+</li>
+<li>
+<p >
+При вы&shy;зо&shy;ве эк&shy;земп&shy;ляр&shy;но&shy;го ме&shy;то&shy;да над зна&shy;чи&shy;мым ти&shy;пом не про&shy;ис&shy;хо&shy;дит ко&shy;пи&shy;ро&shy;ва&shy;ния в ме&shy;тод. Т.е. вы&shy;зов эк&shy;земп&shy;ляр&shy;но&shy;го ме&shy;то&shy;да ана&shy;ло&shy;ги&shy;чен вы&shy;зо&shy;ву ста&shy;ти&shy;чес&shy;ко&shy;го ме&shy;то&shy;да: <code>Method(ref structInstance, newInternalFieldValue)</code>. А это ведь, по су&shy;ти, вы&shy;зов с пе&shy;ре&shy;да&shy;чей <code>this</code> за од&shy;ним ис&shy;клю&shy;че&shy;ни&shy;ем: JIT дол&shy;жен соб&shy;рать те&shy;ло ме&shy;то&shy;да так, что&shy;бы не де&shy;лать до&shy;пол&shy;ни&shy;тель&shy;но&shy;го сме&shy;ще&shy;ния на по&shy;ля струк&shy;ту&shy;ры, пе&shy;реп&shy;ры&shy;ги&shy;вая че&shy;рез ука&shy;за&shy;тель на таб&shy;ли&shy;цу вир&shy;ту&shy;альных ме&shy;то&shy;дов, ко&shy;то&shy;рой в са&shy;мой струк&shy;ту&shy;ре нет. <em>Для значимых типов она находится в другом месте</em>.</p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">39</div>
-<p>Т.е. в некотором смысле нас не то чтобы обманывают, но недоговаривают: типы сильно отличаются поведенчески, но на уровне реализации в CLR разница между ними не столь существенна. Но об этом немного позже.</p>
+<p >
+Т.е. в не&shy;ко&shy;то&shy;ром смыс&shy;ле нас не то что&shy;бы об&shy;ма&shy;ны&shy;ва&shy;ют, но не&shy;до&shy;го&shy;ва&shy;ри&shy;ва&shy;ют: ти&shy;пы силь&shy;но от&shy;ли&shy;ча&shy;ют&shy;ся по&shy;ве&shy;ден&shy;чес&shy;ки, но на уров&shy;не ре&shy;а&shy;ли&shy;за&shy;ции в CLR раз&shy;ни&shy;ца меж&shy;ду ни&shy;ми не столь су&shy;щест&shy;вен&shy;на. Но об этом нем&shy;но&shy;го поз&shy;же.</p>
 <div class="paragraph-right-side">39</div>
 </div>
-<p>Если мы напишем следующую строчку в нашей программе:</p>
+<p >
+Если мы на&shy;пи&shy;шем сле&shy;ду&shy;ю&shy;щую строч&shy;ку в на&shy;шей прог&shy;рам&shy;ме:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">var</span> obj = (<span style="color:Blue;">object</span>)10;
 </pre></div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">40</div>
-<p>То мы перестанем иметь дело с числом <code>10</code>. Произойдёт так называемый boxing: упаковка. Т.е. мы начнём иметь возможность работать с ним через базовый класс. А если мы получили такие возможности, это значит, что нам стала доступна VMT, через которую можно спокойно вызывать виртуальные методы ToString(), Equals и GetHashCode. Причём поскольку оригинальное значение у нас может храниться где угодно: хоть на стеке, хоть как поле класса, а приводя к типу <code>object</code> мы получаем возможность хранить ссылку на это число веки вечные, то в реальности boxing создаёт копию значимого типа, а не делает указатель на оригинал. Т.е. когда происходит boxing, то:</p>
+<p >
+То мы пе&shy;рес&shy;та&shy;нем иметь де&shy;ло с чис&shy;лом <code>10</code>. Про&shy;и&shy;зойдёт так на&shy;зы&shy;ва&shy;е&shy;мый boxing: упа&shy;ков&shy;ка. Т.е. мы начнём иметь воз&shy;мож&shy;ность ра&shy;бо&shy;тать с ним че&shy;рез ба&shy;зо&shy;вый класс. А ес&shy;ли мы по&shy;лу&shy;чи&shy;ли та&shy;кие воз&shy;мож&shy;нос&shy;ти, это зна&shy;чит, что нам ста&shy;ла дос&shy;туп&shy;на VMT, че&shy;рез ко&shy;то&shy;рую мож&shy;но спо&shy;кой&shy;но вы&shy;зы&shy;вать вир&shy;ту&shy;альные ме&shy;то&shy;ды ToString(), Equals и GetHashCode. Причём пос&shy;коль&shy;ку ори&shy;ги&shy;наль&shy;ное зна&shy;че&shy;ние у нас мо&shy;жет хра&shy;нить&shy;ся где угод&shy;но: хоть на сте&shy;ке, хоть как по&shy;ле клас&shy;са, а при&shy;во&shy;дя к ти&shy;пу <code>object</code> мы по&shy;лу&shy;ча&shy;ем воз&shy;мож&shy;ность хра&shy;нить ссыл&shy;ку на это чис&shy;ло ве&shy;ки веч&shy;ные, то в ре&shy;аль&shy;ности boxing соз&shy;даёт ко&shy;пию зна&shy;чи&shy;мо&shy;го ти&shy;па, а не де&shy;ла&shy;ет ука&shy;за&shy;тель на ори&shy;ги&shy;нал. Т.е. ког&shy;да про&shy;ис&shy;хо&shy;дит boxing, то:</p>
 <div class="paragraph-right-side">40</div>
 </div>
 <ul>
-<li>CLR выделяет место в куче под структуру + SyncBlockIndex + VMT значимого типа (чтобы иметь возможность вызвать ToString, GetHashCode, Equals);</li>
-<li>копирует туда экземпляр значимого типа.</li>
+<li>
+<p >
+CLR вы&shy;де&shy;ля&shy;ет мес&shy;то в ку&shy;че под струк&shy;ту&shy;ру + SyncBlockIndex + VMT зна&shy;чи&shy;мо&shy;го ти&shy;па (что&shy;бы иметь воз&shy;мож&shy;ность выз&shy;вать ToString, GetHashCode, Equals);</p>
+</li>
+<li>
+<p >
+ко&shy;пи&shy;ру&shy;ет ту&shy;да эк&shy;земп&shy;ляр зна&shy;чи&shy;мо&shy;го ти&shy;па.</p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">41</div>
-<p>Дамы и господа. В приличном обществе такое не принято говорить, но мы получили ссылочный вариант значимого типа. Я повторю ещё раз: совершив boxing структура получила <strong>абсолютно такой же набор системных полей, что и ссылочный тип</strong>, став полноценным ссылочным типом. Структура стала классом. Давайте назовём это явление Кульбит Дотнетского. Мне кажется, это название будет достойным такого хитрого поворота дел.</p>
+<p >
+Да&shy;мы и гос&shy;по&shy;да. В при&shy;лич&shy;ном об&shy;щес&shy;тве та&shy;кое не при&shy;ня&shy;то го&shy;во&shy;рить, но мы по&shy;лу&shy;чи&shy;ли ссы&shy;лоч&shy;ный ва&shy;ри&shy;ант зна&shy;чи&shy;мо&shy;го ти&shy;па. Я пов&shy;то&shy;рю ещё раз: со&shy;вер&shy;шив boxing струк&shy;ту&shy;ра по&shy;лу&shy;чи&shy;ла <strong>абсолютно такой же набор системных полей, что и ссылочный тип</strong>, став пол&shy;но&shy;цен&shy;ным ссы&shy;лоч&shy;ным ти&shy;пом. Струк&shy;ту&shy;ра ста&shy;ла клас&shy;сом. Да&shy;вай&shy;те на&shy;зовём это яв&shy;ле&shy;ние Куль&shy;бит Дот&shy;нетс&shy;ко&shy;го. Мне ка&shy;жет&shy;ся, это наз&shy;ва&shy;ние бу&shy;дет дос&shy;той&shy;ным та&shy;ко&shy;го хит&shy;ро&shy;го по&shy;во&shy;ро&shy;та дел.</p>
 <div class="paragraph-right-side">41</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">42</div>
-<p>Кстати, чтобы вы поверили в честность моих слов, достаточно разобраться, что происходит если вы используете структуру, которая реализует некий интерфейс - по этому самому интерфейсу.</p>
+<p >
+Кста&shy;ти, что&shy;бы вы по&shy;ве&shy;ри&shy;ли в чест&shy;ность мо&shy;их слов, дос&shy;та&shy;точ&shy;но ра&shy;зоб&shy;рать&shy;ся, что про&shy;ис&shy;хо&shy;дит ес&shy;ли вы ис&shy;поль&shy;зу&shy;ете струк&shy;ту&shy;ру, ко&shy;то&shy;рая ре&shy;а&shy;ли&shy;зу&shy;ет не&shy;кий ин&shy;тер&shy;фейс - по это&shy;му са&shy;мо&shy;му ин&shy;тер&shy;фей&shy;су.</p>
 <div class="paragraph-right-side">42</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1449,7 +1666,8 @@ boo.Boo();
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">43</div>
-<p>Итак, когда создаётся экземпляр Foo, то его значение, по сути, находится на стеке. После чего мы кладём эту переменную в переменную интерфейсного типа. Структуру - в переменную ссылочного типа. Происходит <code>boxing</code>. Хорошо. На выходе мы получили тип <code>object</code>. Но переменная у нас - интерфейсного типа. А это значит, что необходимо преобразование типа. Т.е. вызов, скорее, происходит как-то так:</p>
+<p >
+Итак, ког&shy;да соз&shy;даётся эк&shy;земп&shy;ляр Foo, то его зна&shy;че&shy;ние, по су&shy;ти, на&shy;хо&shy;дит&shy;ся на сте&shy;ке. Пос&shy;ле че&shy;го мы кладём эту пе&shy;ре&shy;мен&shy;ную в пе&shy;ре&shy;мен&shy;ную ин&shy;тер&shy;фейс&shy;но&shy;го ти&shy;па. Струк&shy;ту&shy;ру - в пе&shy;ре&shy;мен&shy;ную ссы&shy;лоч&shy;но&shy;го ти&shy;па. Про&shy;ис&shy;хо&shy;дит <code>boxing</code>. Хо&shy;ро&shy;шо. На вы&shy;хо&shy;де мы по&shy;лу&shy;чи&shy;ли тип <code>object</code>. Но пе&shy;ре&shy;мен&shy;ная у нас - ин&shy;тер&shy;фейс&shy;но&shy;го ти&shy;па. А это зна&shy;чит, что не&shy;об&shy;хо&shy;ди&shy;мо пре&shy;об&shy;ра&shy;зо&shy;ва&shy;ние ти&shy;па. Т.е. вы&shy;зов, ско&shy;рее, про&shy;ис&shy;хо&shy;дит как-то так:</p>
 <div class="paragraph-right-side">43</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1461,7 +1679,8 @@ boo.Boo();
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">44</div>
-<p>Т.е. написание такого кода - это крайне не эффективно. Мало того что вы будете менять копию вместо оригинала:</p>
+<p >
+Т.е. на&shy;пи&shy;са&shy;ние та&shy;ко&shy;го ко&shy;да - это край&shy;не не эф&shy;фек&shy;тив&shy;но. Ма&shy;ло то&shy;го что вы бу&shy;де&shy;те ме&shy;нять ко&shy;пию вмес&shy;то ори&shy;ги&shy;на&shy;ла:</p>
 <div class="paragraph-right-side">44</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1493,17 +1712,20 @@ boo.Boo();
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">45</div>
-<p>Выглядит как обман дважды. Первый раз - глядя на код мы не обязаны знать, с чем имеем дело в <em>чужом</em> коде, и видим ниже приведение к интерфейсу <code>IBoo</code>. Что фактически гарантированно наводит нас на мысль, что Foo - класс, а не структура. Далее - полное отсутствие визуального разделения на структуры и классы даёт полное ощущение, что результаты модификации по интерфейсу обязаны попасть в foo, чего не происходит потому, что boo - копия foo. Что фактически вводит нас в заблуждение. На мой взгляд, такой код стоит снабжать комментариями, чтоб внешний разработчик смог бы в нем правильно разобраться.</p>
+<p >
+Выг&shy;ля&shy;дит как об&shy;ман дваж&shy;ды. Пер&shy;вый раз - гля&shy;дя на код мы не обя&shy;за&shy;ны знать, с чем име&shy;ем де&shy;ло в <em>чужом</em> ко&shy;де, и ви&shy;дим ни&shy;же при&shy;ве&shy;де&shy;ние к ин&shy;тер&shy;фей&shy;су <code>IBoo</code>. Что фак&shy;ти&shy;чес&shy;ки га&shy;ран&shy;ти&shy;ро&shy;ван&shy;но на&shy;во&shy;дит нас на мысль, что Foo - класс, а не струк&shy;ту&shy;ра. Да&shy;лее - пол&shy;ное от&shy;с&shy;утствие ви&shy;зу&shy;ал&shy;ьного раз&shy;де&shy;ле&shy;ния на струк&shy;ту&shy;ры и клас&shy;сы даёт пол&shy;ное ощу&shy;ще&shy;ние, что ре&shy;зуль&shy;та&shy;ты мо&shy;ди&shy;фи&shy;ка&shy;ции по ин&shy;тер&shy;фей&shy;су обя&shy;за&shy;ны по&shy;пасть в foo, че&shy;го не про&shy;ис&shy;хо&shy;дит по&shy;то&shy;му, что boo - ко&shy;пия foo. Что фак&shy;ти&shy;чес&shy;ки вво&shy;дит нас в заб&shy;луж&shy;де&shy;ние. На мой взгляд, та&shy;кой код сто&shy;ит снаб&shy;жать ком&shy;мен&shy;та&shy;ри&shy;ями, чтоб внеш&shy;ний раз&shy;ра&shy;бот&shy;чик смог бы в нем пра&shy;виль&shy;но ра&shy;зоб&shy;рать&shy;ся.</p>
 <div class="paragraph-right-side">45</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">46</div>
-<p>Второе наблюдение, связанное с нашими, более ранними рассуждениями, а именно с тем, что мы можем сделать приведение типа из <code>object</code> в <code>IBoo</code>. Это - ещё одно доказательство, что boxed значимый тип не что-то особенное, а на самом деле ссылочный вариант значимого типа. Либо если посмотреть с другого угла - все типы в системе типов являются ссылочными. Просто со структурами мы можем работать как со значимыми, &laquo;отгружая&raquo; их значение целиком. Как бы сказали в мире C++, разыменовывая указатель на объект.</p>
+<p >
+Вто&shy;рое наб&shy;лю&shy;де&shy;ние, свя&shy;зан&shy;ное с на&shy;ши&shy;ми, бо&shy;лее ран&shy;ни&shy;ми рас&shy;суж&shy;де&shy;ни&shy;ями, а имен&shy;но с тем, что мы мо&shy;жем сде&shy;лать при&shy;ве&shy;де&shy;ние ти&shy;па из <code>object</code> в <code>IBoo</code>. Это - ещё од&shy;но до&shy;ка&shy;за&shy;тельство, что boxed зна&shy;чи&shy;мый тип не что-то осо&shy;бен&shy;ное, а на са&shy;мом де&shy;ле ссы&shy;лоч&shy;ный ва&shy;ри&shy;ант зна&shy;чи&shy;мо&shy;го ти&shy;па. Ли&shy;бо ес&shy;ли пос&shy;мот&shy;реть с дру&shy;го&shy;го уг&shy;ла - все ти&shy;пы в сис&shy;те&shy;ме ти&shy;пов яв&shy;ля&shy;ют&shy;ся ссы&shy;лоч&shy;ны&shy;ми. Прос&shy;то со струк&shy;ту&shy;ра&shy;ми мы мо&shy;жем ра&shy;бо&shy;тать как со зна&shy;чи&shy;мы&shy;ми, &laquo;от&shy;гру&shy;жая&raquo; их зна&shy;че&shy;ние це&shy;ли&shy;ком. Как бы ска&shy;за&shy;ли в ми&shy;ре C++, ра&shy;зы&shy;ме&shy;но&shy;вы&shy;вая ука&shy;за&shy;тель на объ&shy;ект.</p>
 <div class="paragraph-right-side">46</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">47</div>
-<p>Но вы можете возразить: дескать, если бы все было именно так, как я говорю, то можно было бы написать как-то так:</p>
+<p >
+Но вы мо&shy;же&shy;те воз&shy;ра&shy;зить: дес&shy;кать, ес&shy;ли бы все бы&shy;ло имен&shy;но так, как я го&shy;во&shy;рю, то мож&shy;но бы&shy;ло бы на&shy;пи&shy;сать как-то так:</p>
 <div class="paragraph-right-side">47</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1512,7 +1734,8 @@ boo.Boo();
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">48</div>
-<p>И мы получили бы не просто <code>object</code>, а типизированную ссылку на упакованный значимый тип. Но тогда бы это разрушило всю идею значимых типов, друзья. А основная идея - это целостность их значения, позволяющее делать отличные оптимизации, основываясь на их свойствах. Так не будем сидеть сложа руки! Давайте разрушим эту идею!</p>
+<p >
+И мы по&shy;лу&shy;чи&shy;ли бы не прос&shy;то <code>object</code>, а ти&shy;пи&shy;зи&shy;ро&shy;ван&shy;ную ссыл&shy;ку на упа&shy;ко&shy;ван&shy;ный зна&shy;чи&shy;мый тип. Но тог&shy;да бы это раз&shy;ру&shy;ши&shy;ло всю идею зна&shy;чи&shy;мых ти&shy;пов, друзья. А ос&shy;нов&shy;ная идея - это це&shy;лост&shy;ность их зна&shy;че&shy;ния, поз&shy;во&shy;ля&shy;ю&shy;щее де&shy;лать от&shy;лич&shy;ные оп&shy;ти&shy;ми&shy;за&shy;ции, ос&shy;но&shy;вы&shy;ва&shy;ясь на их свой&shy;с&shy;твах. Так не бу&shy;дем си&shy;деть сло&shy;жа ру&shy;ки! Да&shy;вай&shy;те раз&shy;ру&shy;шим эту идею!</p>
 <div class="paragraph-right-side">48</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1542,7 +1765,8 @@ boo.Boo();
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">49</div>
-<p>Что мы только что получили? Мы получили абсолютно полный аналог боксинга. Но теперь у нас есть возможность менять его содержимое путём вызова его экземплярных методов. И эти изменения получат все, у кого будет ссылка на эту структуру данных.</p>
+<p >
+Что мы толь&shy;ко что по&shy;лу&shy;чи&shy;ли? Мы по&shy;лу&shy;чи&shy;ли аб&shy;со&shy;лют&shy;но пол&shy;ный ана&shy;лог бок&shy;син&shy;га. Но те&shy;перь у нас есть воз&shy;мож&shy;ность ме&shy;нять его со&shy;дер&shy;жи&shy;мое путём вы&shy;зо&shy;ва его эк&shy;земп&shy;ляр&shy;ных ме&shy;то&shy;дов. И эти из&shy;ме&shy;не&shy;ния по&shy;лу&shy;чат все, у ко&shy;го бу&shy;дет ссыл&shy;ка на эту струк&shy;ту&shy;ру дан&shy;ных.</p>
 <div class="paragraph-right-side">49</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1552,10 +1776,12 @@ boo.Boo();
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">50</div>
-<p>Первый вариант, согласитесь, выглядит несколько неуверенно. Вместо привычного приведения типа мы городим не пойми что. То ли дело вторая строчка. Лаконична как японский стих. Однако они на самом деле почти полностью идентичны. Разница состоит только в том, что во время обычной упаковки после выделения памяти в куче не происходит очистки памяти нулями: память сразу занимается необходимой структурой. Тогда как в первом варианте очистка есть. Только из-за этого наш вариант медленнее обычной упаковки на 10%.</p>
+<p >
+Пер&shy;вый ва&shy;ри&shy;ант, сог&shy;ла&shy;си&shy;тесь, выг&shy;ля&shy;дит нес&shy;коль&shy;ко не&shy;у&shy;ве&shy;рен&shy;но. Вмес&shy;то при&shy;выч&shy;но&shy;го при&shy;ве&shy;де&shy;ния ти&shy;па мы го&shy;ро&shy;дим не пой&shy;ми что. То ли де&shy;ло вто&shy;рая строч&shy;ка. Ла&shy;ко&shy;нич&shy;на как японс&shy;кий стих. Одна&shy;ко они на са&shy;мом де&shy;ле поч&shy;ти пол&shy;ностью иден&shy;тич&shy;ны. Раз&shy;ни&shy;ца сос&shy;то&shy;ит толь&shy;ко в том, что во вре&shy;мя обыч&shy;ной упа&shy;ков&shy;ки пос&shy;ле вы&shy;де&shy;ле&shy;ния па&shy;мя&shy;ти в ку&shy;че не про&shy;ис&shy;хо&shy;дит очис&shy;тки па&shy;мя&shy;ти ну&shy;ля&shy;ми: па&shy;мять сра&shy;зу за&shy;ни&shy;ма&shy;ет&shy;ся не&shy;об&shy;хо&shy;ди&shy;мой струк&shy;ту&shy;рой. Тог&shy;да как в пер&shy;вом ва&shy;ри&shy;ан&shy;те очис&shy;тка есть. Толь&shy;ко из-за это&shy;го наш ва&shy;ри&shy;ант мед&shy;лен&shy;нее обыч&shy;ной упа&shy;ков&shy;ки на 10%.</p>
 <div class="paragraph-right-side">50</div>
 </div>
-<p>Зато теперь мы можем вызывать у нашего упакованного значения какие-то методы:</p>
+<p >
+За&shy;то те&shy;перь мы мо&shy;жем вы&shy;зы&shy;вать у на&shy;ше&shy;го упа&shy;ко&shy;ван&shy;но&shy;го зна&shy;че&shy;ния ка&shy;кие-то ме&shy;то&shy;ды:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">struct</span> Foo
 {
@@ -1574,18 +1800,32 @@ boxed.Value.ChangeTo(10);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">51</div>
-<p>Мы получили новый инструмент, но пока не знаем, что с ним делать. Давайте добьёмся ответа рассуждениями:</p>
+<p >
+Мы по&shy;лу&shy;чи&shy;ли но&shy;вый инст&shy;румент, но по&shy;ка не зна&shy;ем, что с ним де&shy;лать. Да&shy;вай&shy;те добьёмся от&shy;ве&shy;та рас&shy;суж&shy;де&shy;ни&shy;ями:</p>
 <div class="paragraph-right-side">51</div>
 </div>
 <ul>
-<li>Наш тип <code>Boxed&lt;T&gt;</code> по сути, осуществляет все то же самое, что и обычный: выделяет память в куче, отдаёт туда значение и позволяет его забрать, выполнив своеобразный <code>unbox</code>;</li>
-<li>Точно также, если потерять ссылку на упакованную структуру, GC её соберёт;</li>
-<li>Однако у нас теперь есть возможность работы с упакованным типом: вызывать у него методы;</li>
-<li>Также теперь мы имеем возможность подменить экземпляр значимого типа в SOH/LOH на другой. Этого мы не могли сделать раньше: нам пришлось бы делать <code>unboxing</code>, менять структуру на другую и делать <code>boxing</code> обратно, раздав новую ссылку потребителям.</li>
+<li>
+<p >
+Наш тип <code>Boxed&lt;T&gt;</code> по су&shy;ти, осу&shy;щес&shy;твляет все то же са&shy;мое, что и обыч&shy;ный: вы&shy;де&shy;ля&shy;ет па&shy;мять в ку&shy;че, от&shy;даёт ту&shy;да зна&shy;че&shy;ние и поз&shy;во&shy;ля&shy;ет его заб&shy;рать, вы&shy;пол&shy;нив сво&shy;еоб&shy;разный <code>unbox</code>;</p>
+</li>
+<li>
+<p >
+Точ&shy;но так&shy;же, ес&shy;ли по&shy;те&shy;рять ссыл&shy;ку на упа&shy;ко&shy;ван&shy;ную струк&shy;ту&shy;ру, GC её со&shy;берёт;</p>
+</li>
+<li>
+<p >
+Одна&shy;ко у нас те&shy;перь есть воз&shy;мож&shy;ность ра&shy;бо&shy;ты с упа&shy;ко&shy;ван&shy;ным ти&shy;пом: вы&shy;зы&shy;вать у не&shy;го ме&shy;то&shy;ды;</p>
+</li>
+<li>
+<p >
+Так&shy;же те&shy;перь мы име&shy;ем воз&shy;мож&shy;ность под&shy;ме&shy;нить эк&shy;земп&shy;ляр зна&shy;чи&shy;мо&shy;го ти&shy;па в SOH/LOH на дру&shy;гой. Это&shy;го мы не мог&shy;ли сде&shy;лать рань&shy;ше: нам приш&shy;лось бы де&shy;лать <code>unboxing</code>, ме&shy;нять струк&shy;ту&shy;ру на дру&shy;гую и де&shy;лать <code>boxing</code> об&shy;рат&shy;но, раз&shy;дав но&shy;вую ссыл&shy;ку пот&shy;ре&shy;би&shy;те&shy;лям.</p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">52</div>
-<p>Также давайте подумаем, какая основная проблема у упаковки? Создание трафика в памяти. Трафика непонятного количества объектов, часть из которых может выжить до первого поколения, где мы получим проблемы со сборкой мусора: он там будет, его там будет много, и этого явно можно было избежать. А когда мы имеем трафик короткоживущих объектов, первое решение, которое приходит в голову, - пуллинг. Вот это будет отличным завершением Кульбита Дотнетского.</p>
+<p >
+Так&shy;же да&shy;вай&shy;те по&shy;ду&shy;ма&shy;ем, ка&shy;кая ос&shy;нов&shy;ная проб&shy;ле&shy;ма у упа&shy;ков&shy;ки? Соз&shy;да&shy;ние тра&shy;фи&shy;ка в па&shy;мя&shy;ти. Тра&shy;фи&shy;ка не&shy;по&shy;нят&shy;но&shy;го ко&shy;ли&shy;чес&shy;тва объ&shy;ек&shy;тов, часть из ко&shy;то&shy;рых мо&shy;жет вы&shy;жить до пер&shy;во&shy;го по&shy;ко&shy;ле&shy;ния, где мы по&shy;лу&shy;чим проб&shy;ле&shy;мы со сбор&shy;кой му&shy;со&shy;ра: он там бу&shy;дет, его там бу&shy;дет мно&shy;го, и это&shy;го яв&shy;но мож&shy;но бы&shy;ло из&shy;бе&shy;жать. А ког&shy;да мы име&shy;ем тра&shy;фик ко&shy;рот&shy;ко&shy;жи&shy;ву&shy;щих объ&shy;ек&shy;тов, пер&shy;вое ре&shy;ше&shy;ние, ко&shy;то&shy;рое при&shy;хо&shy;дит в го&shy;ло&shy;ву, - пул&shy;линг. Вот это бу&shy;дет от&shy;лич&shy;ным за&shy;вер&shy;ше&shy;ни&shy;ем Куль&shy;би&shy;та Дот&shy;нетс&shy;ко&shy;го.</p>
 <div class="paragraph-right-side">52</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1600,15 +1840,24 @@ pool.Free(boxed);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">53</div>
-<p>Т.е. мы получили возможность работы боксинга через пул, тем самым удалив трафик памяти по части боксинга до нуля. Шутки ради можно даже сделать, чтобы в методе финализации объекты воскрешали бы себя, засовывая обратно в пул объектов. Это пригодилось бы для ситуаций, когда <code>boxed</code> структура уходит в чужой асинхронный код и нет возможности понять, когда она стала не нужна. В этом случае она сама себя вернёт в пул во время GC.</p>
+<p >
+Т.е. мы по&shy;лу&shy;чи&shy;ли воз&shy;мож&shy;ность ра&shy;бо&shy;ты бок&shy;син&shy;га че&shy;рез пул, тем са&shy;мым уда&shy;лив тра&shy;фик па&shy;мя&shy;ти по час&shy;ти бок&shy;син&shy;га до ну&shy;ля. Шут&shy;ки ра&shy;ди мож&shy;но да&shy;же сде&shy;лать, что&shy;бы в ме&shy;то&shy;де фи&shy;на&shy;ли&shy;за&shy;ции объ&shy;ек&shy;ты воск&shy;ре&shy;ша&shy;ли бы се&shy;бя, за&shy;со&shy;вы&shy;вая об&shy;рат&shy;но в пул объ&shy;ек&shy;тов. Это при&shy;го&shy;ди&shy;лось бы для си&shy;ту&shy;а&shy;ций, ког&shy;да <code>boxed</code> струк&shy;ту&shy;ра ухо&shy;дит в чу&shy;жой асинх&shy;рон&shy;ный код и нет воз&shy;мож&shy;нос&shy;ти по&shy;нять, ког&shy;да она ста&shy;ла не нуж&shy;на. В этом слу&shy;чае она са&shy;ма се&shy;бя вернёт в пул во вре&shy;мя GC.</p>
 <div class="paragraph-right-side">53</div>
 </div>
-<p>А теперь давайте сделаем выводы:</p>
+<p >
+А те&shy;перь да&shy;вай&shy;те сде&shy;ла&shy;ем вы&shy;во&shy;ды:</p>
 <ul>
-<li>Если упаковка - случайна и такого не должно было произойти, будьте аккуратны и не допускайте её возникновения: она может привести к проблемам производительности;</li>
-<li>Если упаковка - дань требованиям архитектуры той системы, которую вы делаете, то тут могут возникнуть варианты: если трафик упакованных структур мал, и не заметен, можно не обращать никакого внимания и работать через упаковку. Если же трафик становится заметным, то возможно стоит сделать пуллинг боксинга через решение, указанное выше. Да, оно даёт некоторые расходы на производительности пуллинга, зато GC спокоен и не работает на износ;</li>
+<li>
+<p >
+Если упа&shy;ков&shy;ка - слу&shy;чай&shy;на и та&shy;ко&shy;го не дол&shy;жно бы&shy;ло про&shy;изой&shy;ти, будь&shy;те ак&shy;ку&shy;рат&shy;ны и не до&shy;пус&shy;кай&shy;те её воз&shy;ник&shy;но&shy;ве&shy;ния: она мо&shy;жет при&shy;вес&shy;ти к проб&shy;ле&shy;мам про&shy;из&shy;во&shy;ди&shy;тель&shy;нос&shy;ти;</p>
+</li>
+<li>
+<p >
+Если упа&shy;ков&shy;ка - дань тре&shy;бо&shy;ва&shy;ни&shy;ям ар&shy;хи&shy;тек&shy;ту&shy;ры той сис&shy;те&shy;мы, ко&shy;то&shy;рую вы де&shy;ла&shy;ете, то тут мо&shy;гут воз&shy;ник&shy;нуть ва&shy;ри&shy;ан&shy;ты: ес&shy;ли тра&shy;фик упа&shy;ко&shy;ван&shy;ных струк&shy;тур мал, и не за&shy;ме&shy;тен, мож&shy;но не об&shy;ра&shy;щать ни&shy;ка&shy;ко&shy;го вни&shy;ма&shy;ния и ра&shy;бо&shy;тать че&shy;рез упа&shy;ков&shy;ку. Если же тра&shy;фик ста&shy;но&shy;вит&shy;ся за&shy;мет&shy;ным, то воз&shy;мож&shy;но сто&shy;ит сде&shy;лать пул&shy;линг бок&shy;син&shy;га че&shy;рез ре&shy;ше&shy;ние, ука&shy;зан&shy;ное вы&shy;ше. Да, оно даёт не&shy;ко&shy;то&shy;рые рас&shy;хо&shy;ды на про&shy;из&shy;во&shy;ди&shy;тель&shy;нос&shy;ти пул&shy;лин&shy;га, за&shy;то GC спо&shy;ко&shy;ен и не ра&shy;бо&shy;та&shy;ет на из&shy;нос;</p>
+</li>
 </ul>
-<p>Напоследок, давайте рассмотрим пример из мира совершенно не практичного кода</p>
+<p >
+На&shy;пос&shy;ле&shy;док, да&shy;вай&shy;те расс&shy;мот&shy;рим при&shy;мер из ми&shy;ра со&shy;вер&shy;шен&shy;но не прак&shy;тич&shy;но&shy;го ко&shy;да</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">static</span> <span style="color:Blue;">unsafe</span> <span style="color:Blue;">void</span> Main()
 {
@@ -1650,26 +1899,47 @@ pool.Free(boxed);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">54</div>
-<p>Этот код написан при помощи маленькой функции, которая умеет получать указатель из ссылки на объект. Библиотека находится <a href="https://github.com/mumusan/dotnetex/blob/master/libs/">по адресу на github</a>. Этот код показывает, что обычный boxing превращает int в типизированный reference type. Рассмотрим его по шагам:</p>
+<p >
+Этот код на&shy;пи&shy;сан при по&shy;мо&shy;щи ма&shy;лень&shy;кой фун&shy;к&shy;ции, ко&shy;то&shy;рая уме&shy;ет по&shy;лу&shy;чать ука&shy;за&shy;тель из ссыл&shy;ки на объ&shy;ект. Биб&shy;ли&shy;о&shy;те&shy;ка на&shy;хо&shy;дит&shy;ся <a href="https://github.com/mumusan/dotnetex/blob/master/libs/">по адресу на github</a>. Этот код по&shy;ка&shy;зы&shy;ва&shy;ет, что обыч&shy;ный boxing прев&shy;ра&shy;ща&shy;ет int в ти&shy;пи&shy;зи&shy;ро&shy;ван&shy;ный reference type. Расс&shy;мот&shy;рим его по ша&shy;гам:</p>
 <div class="paragraph-right-side">54</div>
 </div>
 <ol>
-<li>Делаем boxing для целого числа</li>
-<li>Достаём адрес полученного объекта (по этому адресу находится VMT Int32)</li>
-<li>Получаем VMT структуры SimpleIntHolder</li>
-<li>Подменяем VMT запакованного целого числа на VMT структуры</li>
-<li>Делаем unbox в тип структуры</li>
-<li>Выводим значение поля - на экран, доставая тем самым тот Int32, который был изначально запакован.</li>
+<li>
+<p >
+Де&shy;ла&shy;ем boxing для це&shy;ло&shy;го чис&shy;ла</p>
+</li>
+<li>
+<p >
+Дос&shy;таём ад&shy;рес по&shy;лу&shy;чен&shy;но&shy;го объ&shy;ек&shy;та (по это&shy;му ад&shy;ре&shy;су на&shy;хо&shy;дит&shy;ся VMT Int32)</p>
+</li>
+<li>
+<p >
+По&shy;лу&shy;ча&shy;ем VMT струк&shy;ту&shy;ры SimpleIntHolder</p>
+</li>
+<li>
+<p >
+Под&shy;ме&shy;ня&shy;ем VMT за&shy;па&shy;ко&shy;ван&shy;но&shy;го це&shy;ло&shy;го чис&shy;ла на VMT струк&shy;ту&shy;ры</p>
+</li>
+<li>
+<p >
+Де&shy;ла&shy;ем unbox в тип струк&shy;ту&shy;ры</p>
+</li>
+<li>
+<p >
+Вы&shy;во&shy;дим зна&shy;че&shy;ние по&shy;ля - на эк&shy;ран, дос&shy;та&shy;вая тем са&shy;мым тот Int32, ко&shy;то&shy;рый был из&shy;на&shy;чаль&shy;но за&shy;па&shy;ко&shy;ван.</p>
+</li>
 </ol>
 <div class="paragraph-container">
 <div class="paragraph-left-side">55</div>
-<p>Причём заметьте, что делаю я это намеренно через интерфейс, показав, что так тоже будет работать.</p>
+<p >
+Причём за&shy;меть&shy;те, что де&shy;лаю я это на&shy;ме&shy;рен&shy;но че&shy;рез ин&shy;тер&shy;фейс, по&shy;ка&shy;зав, что так то&shy;же бу&shy;дет ра&shy;бо&shy;тать.</p>
 <div class="paragraph-right-side">55</div>
 </div>
 <h3 id="nullablet">Nullable&lt;T&gt;</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">56</div>
-<p>Также стоит сказать про то, как ведёт себя <code>boxing</code> для Nullable значимых типов. Это очень приятная особенность Nullable значимых типов, поскольку boxing значимого типа, который как бы null - просто возвратит null:</p>
+<p >
+Так&shy;же сто&shy;ит ска&shy;зать про то, как ведёт се&shy;бя <code>boxing</code> для Nullable зна&shy;чи&shy;мых ти&shy;пов. Это очень при&shy;ят&shy;ная осо&shy;бен&shy;ность Nullable зна&shy;чи&shy;мых ти&shy;пов, пос&shy;коль&shy;ку boxing зна&shy;чи&shy;мо&shy;го ти&shy;па, ко&shy;то&shy;рый как бы null - прос&shy;то возв&shy;ра&shy;тит null:</p>
 <div class="paragraph-right-side">56</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1682,7 +1952,8 @@ pool.Free(boxed);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">57</div>
-<p>Отсюда следует забавный вывод: т.к. null не имеет типа, то единственный вариант вытащить из boxing'a другой тип, нежели был запакован, такой:</p>
+<p >
+Отсю&shy;да сле&shy;ду&shy;ет за&shy;бав&shy;ный вы&shy;вод: т.к. null не име&shy;ет ти&shy;па, то единст&shy;венный ва&shy;ри&shy;ант вы&shy;та&shy;щить из boxing'a дру&shy;гой тип, не&shy;же&shy;ли был за&shy;па&shy;ко&shy;ван, та&shy;кой:</p>
 <div class="paragraph-right-side">57</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1693,13 +1964,15 @@ pool.Free(boxed);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">58</div>
-<p>Код рабочий просто потому, что с null можно сделать приведение типа куда угодно. Но зато таким кодом можно запросто удивить своих коллег и скрасить вечер забавным фактом.</p>
+<p >
+Код ра&shy;бо&shy;чий прос&shy;то по&shy;то&shy;му, что с null мож&shy;но сде&shy;лать при&shy;ве&shy;де&shy;ние ти&shy;па ку&shy;да угод&shy;но. Но за&shy;то та&shy;ким ко&shy;дом мож&shy;но зап&shy;рос&shy;то уди&shy;вить сво&shy;их кол&shy;лег и скра&shy;сить ве&shy;чер за&shy;бав&shy;ным фак&shy;том.</p>
 <div class="paragraph-right-side">58</div>
 </div>
 <h2 id="boxing">Погружаемся в boxing ещё глубже</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">59</div>
-<p>На закуску хочу вам рассказать про тип <a href="http://referencesource.microsoft.com/#mscorlib/system/enum.cs,36729210e317a805">System.Enum</a>. Не проходя по ссылке, скажите, пожалуйста, является ли тип Value Type или же Reference Type? По всем канонам и логике тип просто обязан быть значимым. Ведь это обычное перечисление: набор aliases с чисел на названия в языке программирования. И мы бы закончили этот разговор словами: &quot;вы все думаете абсолютно правильно! Так не будем терять времени и пойдём дальше!&quot;, - но нет. <code>System.Enum</code>, от которого наследуются все <code>enum</code> типы данных, определённых как в вашем коде, так и в .NET Framework, является ссылочным типом. Т.е. типом данных <code>class</code>. Мало того (!) класс этот абстрактный и наследуется от <code>System.ValueType</code>.</p>
+<p >
+На за&shy;кус&shy;ку хо&shy;чу вам расс&shy;ка&shy;зать про тип <a href="http://referencesource.microsoft.com/#mscorlib/system/enum.cs,36729210e317a805">System.Enum</a>. Не про&shy;хо&shy;дя по ссыл&shy;ке, ска&shy;жи&shy;те, по&shy;жа&shy;луй&shy;ста, яв&shy;ля&shy;ет&shy;ся ли тип Value Type или же Reference Type? По всем ка&shy;но&shy;нам и ло&shy;ги&shy;ке тип прос&shy;то обя&shy;зан быть зна&shy;чи&shy;мым. Ведь это обыч&shy;ное пе&shy;ре&shy;чис&shy;ле&shy;ние: на&shy;бор aliases с чи&shy;сел на наз&shy;ва&shy;ния в язы&shy;ке прог&shy;рам&shy;ми&shy;ро&shy;ва&shy;ния. И мы бы за&shy;кон&shy;чи&shy;ли этот раз&shy;го&shy;вор сло&shy;ва&shy;ми: "вы все ду&shy;ма&shy;ете аб&shy;со&shy;лют&shy;но пра&shy;виль&shy;но! Так не бу&shy;дем те&shy;рять вре&shy;ме&shy;ни и пойдём даль&shy;ше!", - но нет. <code>System.Enum</code>, от ко&shy;то&shy;ро&shy;го нас&shy;ле&shy;ду&shy;ют&shy;ся все <code>enum</code> ти&shy;пы дан&shy;ных, оп&shy;ре&shy;делённых как в ва&shy;шем ко&shy;де, так и в .NET Framework, яв&shy;ля&shy;ет&shy;ся ссы&shy;лоч&shy;ным ти&shy;пом. Т.е. ти&shy;пом дан&shy;ных <code>class</code>. Ма&shy;ло то&shy;го (!) класс этот абстр&shy;актный и нас&shy;ле&shy;ду&shy;ет&shy;ся от <code>System.ValueType</code>.</p>
 <div class="paragraph-right-side">59</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1713,12 +1986,14 @@ pool.Free(boxed);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">60</div>
-<p>Значит ли это, что все перечисления выделяются в куче SOH? Значит ли это, что, используя перечисления, мы забиваем кучу, а вместе и с ней - GC? Ведь мы просто используем их. Нет, такого не может быть. Тогда, получается, что есть где-то пул перечислений, в которых они лежат, и что нам отдаются их экземпляры. И снова нет: перечисления можно использовать в структурах при маршаллинге. Перечисления - обычные числа.</p>
+<p >
+Зна&shy;чит ли это, что все пе&shy;ре&shy;чис&shy;ле&shy;ния вы&shy;де&shy;ля&shy;ют&shy;ся в ку&shy;че SOH? Зна&shy;чит ли это, что, ис&shy;поль&shy;зуя пе&shy;ре&shy;чис&shy;ле&shy;ния, мы за&shy;би&shy;ва&shy;ем ку&shy;чу, а вмес&shy;те и с ней - GC? Ведь мы прос&shy;то ис&shy;поль&shy;зу&shy;ем их. Нет, та&shy;ко&shy;го не мо&shy;жет быть. Тог&shy;да, по&shy;лу&shy;ча&shy;ет&shy;ся, что есть где-то пул пе&shy;ре&shy;чис&shy;ле&shy;ний, в ко&shy;то&shy;рых они ле&shy;жат, и что нам от&shy;да&shy;ют&shy;ся их эк&shy;земп&shy;ля&shy;ры. И сно&shy;ва нет: пе&shy;ре&shy;чис&shy;ле&shy;ния мож&shy;но ис&shy;поль&shy;зо&shy;вать в струк&shy;ту&shy;рах при мар&shy;шал&shy;лин&shy;ге. Пе&shy;ре&shy;чис&shy;ле&shy;ния - обыч&shy;ные чис&shy;ла.</p>
 <div class="paragraph-right-side">60</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">61</div>
-<p>А правда заключается в том, что CLR при формировании структур типа данных прямо скажем подхачивает её, если встречается <code>enum</code> <a href="https://github.com/dotnet/coreclr/blob/4b49e4330441db903e6a5b6efab3e1dbb5b64ff3/src/vm/methodtablebuilder.cpp#L1425-L1445">превращая класс в значимый тип</a>:</p>
+<p >
+А прав&shy;да зак&shy;лю&shy;ча&shy;ет&shy;ся в том, что CLR при фор&shy;ми&shy;ро&shy;ва&shy;нии струк&shy;тур ти&shy;па дан&shy;ных пря&shy;мо ска&shy;жем под&shy;ха&shy;чи&shy;ва&shy;ет её, ес&shy;ли встр&shy;еч&shy;ае&shy;тся <code>enum</code> <a href="https://github.com/dotnet/coreclr/blob/4b49e4330441db903e6a5b6efab3e1dbb5b64ff3/src/vm/methodtablebuilder.cpp#L1425-L1445">превращая класс в значимый тип</a>:</p>
 <div class="paragraph-right-side">61</div>
 </div>
 <div class="wide lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1747,71 +2022,109 @@ pool.Free(boxed);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">62</div>
-<p>Зачем это делается? В частности из-за идеи наследования: чтобы сделать пользовательский <code>enum</code>, необходимо снабдить его информацией об именах его возможных значений, например. А как сделать наследование у значимых типов? Никак. Вот и придумали они сделать его ссылочным, но на этапе работы JIT превращать его в значимый. Чтобы никто не догадался.</p>
+<p >
+За&shy;чем это де&shy;ла&shy;ет&shy;ся? В част&shy;нос&shy;ти из-за идеи нас&shy;ле&shy;до&shy;ва&shy;ния: что&shy;бы сде&shy;лать поль&shy;зо&shy;ва&shy;т&shy;ельский <code>enum</code>, не&shy;об&shy;хо&shy;ди&shy;мо снаб&shy;дить его ин&shy;фор&shy;ма&shy;ци&shy;ей об име&shy;нах его воз&shy;мож&shy;ных зна&shy;че&shy;ний, нап&shy;ри&shy;мер. А как сде&shy;лать нас&shy;ле&shy;до&shy;ва&shy;ние у зна&shy;чи&shy;мых ти&shy;пов? Ни&shy;как. Вот и при&shy;ду&shy;ма&shy;ли они сде&shy;лать его ссы&shy;лоч&shy;ным, но на эта&shy;пе ра&shy;бо&shy;ты JIT прев&shy;ра&shy;щать его в зна&shy;чи&shy;мый. Что&shy;бы ник&shy;то не до&shy;га&shy;дал&shy;ся.</p>
 <div class="paragraph-right-side">62</div>
 </div>
 <h2 id="boxing-1">Что если хочется лично посмотреть как работает boxing?</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">63</div>
-<p>В наше время для того чтобы посмотреть на реализацию упаковки значимых типов, к счастью, нет необходимости загружать дизассемблер и лезть в самые дебри не пойми чего. В наше прекрасное время у нас есть исходные тексты всего ядра платформы .NET и многие его части абсолютно идентичны между .NET Framework CLR и CoreCLR. Вы можете пройти по ссылкам ниже и посмотреть на реализации упаковки прямо в исходных кодах:</p>
+<p >
+В на&shy;ше вре&shy;мя для то&shy;го что&shy;бы пос&shy;мот&shy;реть на ре&shy;а&shy;ли&shy;за&shy;цию упа&shy;ков&shy;ки зна&shy;чи&shy;мых ти&shy;пов, к счастью, нет не&shy;об&shy;хо&shy;ди&shy;мос&shy;ти заг&shy;ру&shy;жать ди&shy;зас&shy;семб&shy;лер и лезть в са&shy;мые деб&shy;ри не пой&shy;ми че&shy;го. В на&shy;ше прек&shy;рас&shy;ное вре&shy;мя у нас есть ис&shy;ход&shy;ные тек&shy;сты все&shy;го яд&shy;ра плат&shy;фор&shy;мы .NET и мно&shy;гие его час&shy;ти аб&shy;со&shy;лют&shy;но иден&shy;тич&shy;ны меж&shy;ду .NET Framework CLR и CoreCLR. Вы мо&shy;же&shy;те прой&shy;ти по ссыл&shy;кам ни&shy;же и пос&shy;мот&shy;реть на ре&shy;а&shy;ли&shy;за&shy;ции упа&shy;ков&shy;ки пря&shy;мо в ис&shy;ход&shy;ных ко&shy;дах:</p>
 <div class="paragraph-right-side">63</div>
 </div>
 <ul>
-<li>Существует отдельная группа оптимизаций, каждая из которых используется на отдельном типе процессора:
+<li>
+<p >
+Су&shy;щес&shy;тву&shy;ет от&shy;дель&shy;ная груп&shy;па оп&shy;ти&shy;ми&shy;за&shy;ций, каж&shy;дая из ко&shy;то&shy;рых ис&shy;поль&shy;зу&shy;ет&shy;ся на от&shy;дель&shy;ном ти&shy;пе про&shy;цес&shy;со&shy;ра:</p>
 <ul>
-<li><em><a href="https://github.com/dotnet/coreclr/blob/master/src/vm/amd64/JitHelpers_InlineGetThread.asm#L86-L148">JIT_BoxFastMP_InlineGetThread</a></em> (AMD64 - многопроцессорный или Server GC, implicit Thread Local Storage)</li>
-<li><em><a href="https://github.com/dotnet/coreclr/blob/8cc7e35dd0a625a3b883703387291739a148e8c8/src/vm/amd64/JitHelpers_Slow.asm#L201-L271">JIT_BoxFastMP</a></em> (AMD64 - многопроцессорный или Server GC)</li>
-<li><em><a href="https://github.com/dotnet/coreclr/blob/8cc7e35dd0a625a3b883703387291739a148e8c8/src/vm/amd64/JitHelpers_Slow.asm#L485-L554">JIT_BoxFastUP</a></em> (AMD64 - однопроцессорный или Workstation GC)</li>
-<li><em><a href="https://github.com/dotnet/coreclr/blob/38a2a69c786e4273eb1339d7a75f939c410afd69/src/vm/i386/jitinterfacex86.cpp#L756-L886">JIT_TrialAlloc::GenBox(..)</a></em> (x86), которая присоединяется через JitHelpers</li>
+<li>
+<p >
+<em><a href="https://github.com/dotnet/coreclr/blob/master/src/vm/amd64/JitHelpers_InlineGetThread.asm#L86-L148">JIT_BoxFastMP_InlineGetThread</a></em> (AMD64 - мно&shy;гоп&shy;ро&shy;цес&shy;сор&shy;ный или Server GC, implicit Thread Local Storage)</p>
+</li>
+<li>
+<p >
+<em><a href="https://github.com/dotnet/coreclr/blob/8cc7e35dd0a625a3b883703387291739a148e8c8/src/vm/amd64/JitHelpers_Slow.asm#L201-L271">JIT_BoxFastMP</a></em> (AMD64 - мно&shy;гоп&shy;ро&shy;цес&shy;сор&shy;ный или Server GC)</p>
+</li>
+<li>
+<p >
+<em><a href="https://github.com/dotnet/coreclr/blob/8cc7e35dd0a625a3b883703387291739a148e8c8/src/vm/amd64/JitHelpers_Slow.asm#L485-L554">JIT_BoxFastUP</a></em> (AMD64 - од&shy;ноп&shy;ро&shy;цес&shy;сор&shy;ный или Workstation GC)</p>
+</li>
+<li>
+<p >
+<em><a href="https://github.com/dotnet/coreclr/blob/38a2a69c786e4273eb1339d7a75f939c410afd69/src/vm/i386/jitinterfacex86.cpp#L756-L886">JIT_TrialAlloc::GenBox(..)</a></em> (x86), ко&shy;то&shy;рая при&shy;со&shy;е&shy;ди&shy;ня&shy;ет&shy;ся че&shy;рез JitHelpers</p>
+</li>
 </ul>
 </li>
-<li>В общем случае JIT инлайнит вызов вспомогательной функции <a href="https://github.com/dotnet/coreclr/blob/a14608efbad1bcb4e9d36a418e1e5ac267c083fb/src/jit/importer.cpp#L5212-L5221">Compiler::impImportAndPushBox(..)</a></li>
-<li>Generic-версия, использует менее оптимизированную <a href="https://github.com/dotnet/coreclr/blob/master/src/vm/methodtable.cpp#L3734-L3783">MethodTable::Box(..)</a>
+<li>
+<p >
+В об&shy;щем слу&shy;чае JIT ин&shy;лай&shy;нит вы&shy;зов вспо&shy;мо&shy;га&shy;тель&shy;ной фун&shy;к&shy;ции <a href="https://github.com/dotnet/coreclr/blob/a14608efbad1bcb4e9d36a418e1e5ac267c083fb/src/jit/importer.cpp#L5212-L5221">Compiler::impImportAndPushBox(..)</a></p>
+</li>
+<li>
+<p >
+Generic-вер&shy;сия, ис&shy;поль&shy;зу&shy;ет ме&shy;нее оп&shy;ти&shy;ми&shy;зи&shy;ро&shy;ван&shy;ную <a href="https://github.com/dotnet/coreclr/blob/master/src/vm/methodtable.cpp#L3734-L3783">MethodTable::Box(..)</a></p>
 <ul>
-<li>И наконец вызывается <a href="https://github.com/dotnet/coreclr/blob/master/src/vm/object.cpp#L1514-L1581">CopyValueClassUnchecked(..)</a>, по коду которой прекрасно видно, почему лучше всего выбирать размер структур до 8 байт включительно.</li>
+<li>
+<p >
+И на&shy;ко&shy;нец вы&shy;зы&shy;ва&shy;ет&shy;ся <a href="https://github.com/dotnet/coreclr/blob/master/src/vm/object.cpp#L1514-L1581">CopyValueClassUnchecked(..)</a>, по ко&shy;ду ко&shy;то&shy;рой прек&shy;рас&shy;но вид&shy;но, по&shy;че&shy;му луч&shy;ше все&shy;го вы&shy;би&shy;рать раз&shy;мер струк&shy;тур до 8 байт вклю&shy;чи&shy;тель&shy;но.</p>
+</li>
 </ul>
 </li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">64</div>
-<p>Для сравнения чтобы сделать распаковку реализован всего один метод: <em><a href="https://github.com/dotnet/coreclr/blob/03bec77fb4efaa397248a2b9a35c547522221447/src/vm/jithelpers.cpp#L3603-L3626">JIT_Unbox(..)</a></em>, который является обёрткой вокруг <em><a href="https://github.com/dotnet/coreclr/blob/03bec77fb4efaa397248a2b9a35c547522221447/src/vm/jithelpers.cpp#L3574-L3600">JIT_Unbox_Helper(..)</a></em>.</p>
+<p >
+Для срав&shy;не&shy;ния что&shy;бы сде&shy;лать рас&shy;па&shy;ков&shy;ку ре&shy;а&shy;ли&shy;зо&shy;ван все&shy;го один ме&shy;тод: <em><a href="https://github.com/dotnet/coreclr/blob/03bec77fb4efaa397248a2b9a35c547522221447/src/vm/jithelpers.cpp#L3603-L3626">JIT_Unbox(..)</a></em>, ко&shy;то&shy;рый яв&shy;ля&shy;ет&shy;ся обёрткой вок&shy;руг <em><a href="https://github.com/dotnet/coreclr/blob/03bec77fb4efaa397248a2b9a35c547522221447/src/vm/jithelpers.cpp#L3574-L3600">JIT_Unbox_Helper(..)</a></em>.</p>
 <div class="paragraph-right-side">64</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">65</div>
-<p>Также <a href="https://stackoverflow.com/questions/3743762/unboxing-does-not-create-a-copy-of-the-value-is-this-right">интересным фактом является то</a>, что сам процесс распаковки не является копированием данных из кучи: распаковка является передачей указателя на кучу с проверкой совместимости типов. А вот следующий за распаковкой опкод IL определит, что будет с этим адресом: возможно, данные будут скопированы в локальную переменную, а может быть - скопированы в стек для вызова метода. Ведь если бы это было не так, мы бы имели дело с двойным копированием: сначала при копировании куда-то из кучи, а затем - при копировании в место назначения.</p>
+<p >
+Так&shy;же <a href="https://stackoverflow.com/questions/3743762/unboxing-does-not-create-a-copy-of-the-value-is-this-right">интересным фактом является то</a>, что сам про&shy;цесс рас&shy;па&shy;ков&shy;ки не яв&shy;ля&shy;ет&shy;ся ко&shy;пи&shy;ро&shy;ва&shy;ни&shy;ем дан&shy;ных из ку&shy;чи: рас&shy;па&shy;ков&shy;ка яв&shy;ля&shy;ет&shy;ся пе&shy;ре&shy;да&shy;чей ука&shy;за&shy;те&shy;ля на ку&shy;чу с про&shy;вер&shy;кой сов&shy;мес&shy;ти&shy;мос&shy;ти ти&shy;пов. А вот сле&shy;ду&shy;ю&shy;щий за рас&shy;па&shy;ков&shy;кой оп&shy;код IL оп&shy;ре&shy;де&shy;лит, что бу&shy;дет с этим ад&shy;ре&shy;сом: воз&shy;мож&shy;но, дан&shy;ные бу&shy;дут ско&shy;пи&shy;ро&shy;ва&shy;ны в ло&shy;каль&shy;ную пе&shy;ре&shy;мен&shy;ную, а мо&shy;жет быть - ско&shy;пи&shy;ро&shy;ва&shy;ны в стек для вы&shy;зо&shy;ва ме&shy;то&shy;да. Ведь ес&shy;ли бы это бы&shy;ло не так, мы бы име&shy;ли де&shy;ло с двой&shy;ным ко&shy;пи&shy;ро&shy;ва&shy;ни&shy;ем: сна&shy;ча&shy;ла при ко&shy;пи&shy;ро&shy;ва&shy;нии ку&shy;да-то из ку&shy;чи, а за&shy;тем - при ко&shy;пи&shy;ро&shy;ва&shy;нии в мес&shy;то наз&shy;на&shy;че&shy;ния.</p>
 <div class="paragraph-right-side">65</div>
 </div>
 <h2 id="ref">Ключевое слово ref</h2>
 <blockquote>
-<p>TODO</p>
+<p >
+TODO</p>
 </blockquote>
 <h2 id="spant-memoryt">Span&lt;T&gt;, Memory&lt;T&gt;</h2>
 <blockquote>
-<p>TODO</p>
+<p >
+TODO</p>
 </blockquote>
 <h2 id="makeref_reftype_refvalue_arglist">__makeref, __reftype, __refvalue, __arglist</h2>
 <blockquote>
-<p>TODO</p>
+<p >
+TODO</p>
 </blockquote>
 <h2 id="boxing-2">Неявный Boxing</h2>
 <blockquote>
-<p>TODO</p>
+<p >
+TODO</p>
 </blockquote>
 <h3 id="section-6">Раздел вопросов по теме</h3>
 <h2 id="net-clr">Почему .NET CLR не делает пуллинга для боксинга самостоятельно?</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">66</div>
-<p>Если мы поговорим с любым Java разработчиком, то мы с удивлением узнаем две вещи:</p>
+<p >
+Если мы по&shy;го&shy;во&shy;рим с лю&shy;бым Java раз&shy;ра&shy;бот&shy;чи&shy;ком, то мы с удив&shy;ле&shy;ни&shy;ем уз&shy;на&shy;ем две ве&shy;щи:</p>
 <div class="paragraph-right-side">66</div>
 </div>
 <ul>
-<li>В Java все Value Types запакованы и по сути не являются значимыми. Т.е. целые числа - тоже запакованы;</li>
-<li>Для оптимизации числа от -128 до 127 берутся из пула объектов.</li>
+<li>
+<p >
+В Java все Value Types за&shy;па&shy;ко&shy;ва&shy;ны и по су&shy;ти не яв&shy;ля&shy;ют&shy;ся зна&shy;чи&shy;мы&shy;ми. Т.е. це&shy;лые чис&shy;ла - то&shy;же за&shy;па&shy;ко&shy;ва&shy;ны;</p>
+</li>
+<li>
+<p >
+Для оп&shy;ти&shy;ми&shy;за&shy;ции чис&shy;ла от -128 до 127 бе&shy;рут&shy;ся из пу&shy;ла объ&shy;ек&shy;тов.</p>
+</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">67</div>
-<p>Так почему же в .NET CLR во время упаковки не происходит того же самого? Ответ прост: потому что мы можем менять содержимое упакованного значимого типа. Т.е. другими словами, мы можем сделать так:</p>
+<p >
+Так по&shy;че&shy;му же в .NET CLR во вре&shy;мя упа&shy;ков&shy;ки не про&shy;ис&shy;хо&shy;дит то&shy;го же са&shy;мо&shy;го? Ответ прост: по&shy;то&shy;му что мы мо&shy;жем ме&shy;нять со&shy;дер&shy;жи&shy;мое упа&shy;ко&shy;ван&shy;но&shy;го зна&shy;чи&shy;мо&shy;го ти&shy;па. Т.е. дру&shy;ги&shy;ми сло&shy;ва&shy;ми, мы мо&shy;жем сде&shy;лать так:</p>
 <div class="paragraph-right-side">67</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1820,7 +2133,8 @@ x.GetType().GetField(<span style="color:#A31515;">&quot;m_value&quot;</span>, Bi
 Console.WriteLine(x); <span style="color:Green;">// -&gt; 138</span>
 </pre></div>
 </div>
-<p>или так (С++/CLI):</p>
+<p >
+или так (С++/CLI):</p>
 <div class="lang-cpp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">void</span> ChangeValue(Object^ obj)
 {
@@ -1831,24 +2145,28 @@ Console.WriteLine(x); <span style="color:Green;">// -&gt; 138</span>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">68</div>
-<p>Т.е. если бы мы имели дело с пуллингом, то мы бы поменяли все единицы в приложении на 138! Согласитесь, ситуация не из приятных.</p>
+<p >
+Т.е. ес&shy;ли бы мы име&shy;ли де&shy;ло с пул&shy;лин&shy;гом, то мы бы по&shy;ме&shy;ня&shy;ли все еди&shy;ни&shy;цы в при&shy;ло&shy;же&shy;нии на 138! Сог&shy;ла&shy;си&shy;тесь, си&shy;ту&shy;а&shy;ция не из при&shy;ят&shy;ных.</p>
 <div class="paragraph-right-side">68</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">69</div>
-<p>Вторая причина - это сама суть значимых типов в .NET. Они работают по значению, а значит - быстрее. Упаковка для нас - редкая операция и сложение упакованных чисел - это скорее что-то из фантастики и очень плохой архитектуры. Это просто не будет чем-то хоть как-то полезным, чтобы заниматься реализацией данного функционала.</p>
+<p >
+Вто&shy;рая при&shy;чи&shy;на - это са&shy;ма суть зна&shy;чи&shy;мых ти&shy;пов в .NET. Они ра&shy;бо&shy;та&shy;ют по зна&shy;че&shy;нию, а зна&shy;чит - быс&shy;т&shy;рее. Упа&shy;ков&shy;ка для нас - ред&shy;кая опе&shy;ра&shy;ция и сло&shy;же&shy;ние упа&shy;ко&shy;ван&shy;ных чи&shy;сел - это ско&shy;рее что-то из фан&shy;тас&shy;ти&shy;ки и очень пло&shy;хой ар&shy;хи&shy;тек&shy;ту&shy;ры. Это прос&shy;то не бу&shy;дет чем-то хоть как-то по&shy;лез&shy;ным, что&shy;бы за&shy;ни&shy;мать&shy;ся ре&shy;а&shy;ли&shy;за&shy;ци&shy;ей дан&shy;но&shy;го фун&shy;кци&shy;о&shy;на&shy;ла.</p>
 <div class="paragraph-right-side">69</div>
 </div>
 <h2 id="object-boxing">Почему при вызове метода, принимающего тип object, а по факту - значимый тип нет возможности сделать boxing на стеке, разгрузив кучу?</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">70</div>
-<p>Потому что если произойдёт упаковка значимого типа на стеке, после чего ссылка уйдёт в кучу, то внутри метода ссылка может уйти в какое-либо другое место, например метод может записать пришедшую ссылку в поле какого-либо класса. Далее метод завершит работу, после чего завершит работу метод, который сделал упаковку. Как результат - с внешнего класса ссылка будет указывать на &laquo;вымерший&raquo; участок стека.</p>
+<p >
+По&shy;то&shy;му что ес&shy;ли про&shy;и&shy;зойдёт упа&shy;ков&shy;ка зна&shy;чи&shy;мо&shy;го ти&shy;па на сте&shy;ке, пос&shy;ле че&shy;го ссыл&shy;ка уйдёт в ку&shy;чу, то внут&shy;ри ме&shy;то&shy;да ссыл&shy;ка мо&shy;жет уй&shy;ти в ка&shy;кое-ли&shy;бо дру&shy;гое мес&shy;то, нап&shy;ри&shy;мер ме&shy;тод мо&shy;жет за&shy;пи&shy;сать при&shy;шед&shy;шую ссыл&shy;ку в по&shy;ле ка&shy;ко&shy;го-ли&shy;бо клас&shy;са. Да&shy;лее ме&shy;тод за&shy;вер&shy;шит ра&shy;бо&shy;ту, пос&shy;ле че&shy;го за&shy;вер&shy;шит ра&shy;бо&shy;ту ме&shy;тод, ко&shy;то&shy;рый сде&shy;лал упа&shy;ков&shy;ку. Как ре&shy;зуль&shy;тат - с внеш&shy;не&shy;го клас&shy;са ссыл&shy;ка бу&shy;дет ука&shy;зы&shy;вать на &laquo;вы&shy;мер&shy;ший&raquo; учас&shy;ток сте&shy;ка.</p>
 <div class="paragraph-right-side">70</div>
 </div>
 <h2 id="value-type">Почему нельзя использовать в качестве поля Value Type его самого?</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">71</div>
-<p>Иногда возникает дерзкое желание в качестве поля структуры использовать другую структуру, которая использует первую. Или же ещё проще: В качестве поля структуры использовать её саму. Не задавайте мне вопросов, почему такое может понадобиться: на самом деле не может :) Но почему так сделать нельзя? Ответ прост: когда вы используете структуру в качестве поля её же самой либо через зависимость от другой структуры, то фактически создаёте рекурсию: вы создаёте структуру бесконечных размеров. Однако, в .NET Framework есть места, в которых так сделано. Примером может служить структура <code>System.Char</code>, <a href="http://referencesource.microsoft.com/#mscorlib/system/char.cs,02f2b1a33b09362d">которая содержит саму себя</a>:</p>
+<p >
+Иног&shy;да воз&shy;ни&shy;ка&shy;ет дер&shy;з&shy;кое же&shy;ла&shy;ние в ка&shy;чес&shy;тве по&shy;ля струк&shy;ту&shy;ры ис&shy;поль&shy;зо&shy;вать дру&shy;гую струк&shy;ту&shy;ру, ко&shy;то&shy;рая ис&shy;поль&shy;зу&shy;ет пер&shy;вую. Или же ещё про&shy;ще: В ка&shy;чес&shy;тве по&shy;ля струк&shy;ту&shy;ры ис&shy;поль&shy;зо&shy;вать её са&shy;му. Не за&shy;да&shy;вай&shy;те мне воп&shy;ро&shy;сов, по&shy;че&shy;му та&shy;кое мо&shy;жет по&shy;на&shy;до&shy;бить&shy;ся: на са&shy;мом де&shy;ле не мо&shy;жет :) Но по&shy;че&shy;му так сде&shy;лать нель&shy;зя? Ответ прост: ког&shy;да вы ис&shy;поль&shy;зу&shy;ете струк&shy;ту&shy;ру в ка&shy;чес&shy;тве по&shy;ля её же са&shy;мой ли&shy;бо че&shy;рез за&shy;ви&shy;си&shy;мость от дру&shy;гой струк&shy;ту&shy;ры, то фак&shy;ти&shy;чес&shy;ки соз&shy;даёте ре&shy;кур&shy;сию: вы соз&shy;даёте струк&shy;ту&shy;ру бес&shy;ко&shy;неч&shy;ных раз&shy;ме&shy;ров. Одна&shy;ко, в .NET Framework есть мес&shy;та, в ко&shy;то&shy;рых так сде&shy;ла&shy;но. При&shy;ме&shy;ром мо&shy;жет слу&shy;жить струк&shy;ту&shy;ра <code>System.Char</code>, <a href="http://referencesource.microsoft.com/#mscorlib/system/char.cs,02f2b1a33b09362d">которая содержит саму себя</a>:</p>
 <div class="paragraph-right-side">71</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1862,15 +2180,20 @@ Console.WriteLine(x); <span style="color:Green;">// -&gt; 138</span>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">72</div>
-<p>Кстати говоря, так сделаны практически все примитивные типы CLR. Нам смертным так сделать невозможно, да и нет никакой надобности: в CLR это сделано, чтобы добавить примитивным типам дух ООП.</p>
+<p >
+Кста&shy;ти го&shy;во&shy;ря, так сде&shy;ла&shy;ны прак&shy;ти&shy;чес&shy;ки все при&shy;ми&shy;тив&shy;ные ти&shy;пы CLR. Нам смерт&shy;ным так сде&shy;лать не&shy;воз&shy;мож&shy;но, да и нет ни&shy;ка&shy;кой на&shy;доб&shy;нос&shy;ти: в CLR это сде&shy;ла&shy;но, что&shy;бы до&shy;ба&shy;вить при&shy;ми&shy;тив&shy;ным ти&shy;пам дух ООП.</p>
 <div class="paragraph-right-side">72</div>
 </div>
 <h2 id="section-7">Ссылки</h2>
 <ul>
-<li><a href="https://github.com/mumusan/dotnetex/blob/master/libs/">Библиотечка для получения чистого указателя на объект</a></li>
+<li>
+<p >
+<a href="https://github.com/mumusan/dotnetex/blob/master/libs/">Библиотечка для получения чистого указателя на объект</a></p>
+</li>
 </ul>
 <blockquote>
-<p>Далее: <a href="./2-ObjectsStructure.html">Структура объектов в памяти</a></p>
+<p >
+Да&shy;лее: <a href="./2-ObjectsStructure.html">Структура объектов в памяти</a></p>
 </blockquote>
 
 </div>
