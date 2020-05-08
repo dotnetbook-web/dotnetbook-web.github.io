@@ -1,44 +1,8 @@
 body {
+    padding: 60px 60px 60px 100px;
     font-family: PF Regal,Georgia,serif;
     font-size: 16pt;
     font-weight: 300;
-    margin-top: 60px;
-}
-
-.book-title-container {
-    width: 100%;
-    text-align: center;
-    margin: 73px 0 110px 0;
-}
-
-.book-title {
-    font-size: 57pt;
-    margin: 50px 0 70px 0;
-    user-select: none;
-}
-.book-part-title-block {
-    display: inline-block;
-}
-.book-part-title {
-    font-size: 21pt;
-    color: #656ab6;
-    margin: 0 7px;
-}
-
-.book-part-title:hover {
-    box-shadow: inset 0 -1px #007bff;
-    text-decoration: none;
-}
-
-.book-superheading-title {
-    font-size: 15pt;
-    margin: 0 7px;
-    color: #656ab6;
-}
-
-.article-container
-{
-    width: 62%;
 }
 
 strong {
@@ -46,99 +10,55 @@ strong {
 }
 
 p, li {
-    margin: 0 0 1em;
-    line-height: 1.5em;
+    margin: 0 0 14px;
+    line-height: 32px;
     font-family: inherit;
 }
 
-ol, li {
-    margin-top: 1em;
-    margin-bottom: 1em;
+ol, ul {
+    padding-left: 35px;
+    margin-top: 1.1rem;
+    margin-bottom: 1.1rem;
 }
 
-ol {
-    padding-left: 1.21em;
-}
-
-ul  {
-    padding-left: 1em;
-}
-
-ol li, ul li {
-    padding-left: 0.5em;	
+ol li {
+    padding-left: 10px;	
     font-family: inherit;
-    text-align: justify;
 }
 
-table {
-    margin: 30px 0;
-    width: 100%;
+ul li {
+    padding-left: 5px;	
+    font-family: inherit;
 }
 
-thead {
-    background-color: aliceblue;
-}
-
-table th {
-    font-weight: 400;
-}
-
-table td, table th {
-    padding: 7px;
-    border-top: solid darkgrey 1px;
-    border-bottom: solid darkgrey 1px;
-    border-right: dotted darkgray 1px;
-    border-left: dotted darkgray 1px;
-    font-size: smaller;
-}
-
-code, *[class*='lang-'] span, *[class*='lang-'] pre {
+code, *[class^='lang-'] span, *[class^='lang-'] pre {
     font-family: JB Mono, monospace !important;
 }
 
-*[class*='lang-'] {
-    padding: 0px 0px 25px 0px;
-    font-size: 0.75em;
+*[class^='lang-'] {
+    padding: 4px 0px 14px 0px;
 }
 
 
-*[class*='lang-'] > div, pre > code {
+*[class^='lang-'] > div {
     border-left-color: #eee;
     border-left-style: dotted;
     border-left-width: 3px;
     padding-left: 25px;
-    display: block;
-    padding-top: 20px;
-    padding-bottom: 20px;
 }
 
-*[class*='lang-'] > div pre, pre > code pre {
-    margin-bottom: 0;
-}
-
-p code:not(.highlight), li code:not(.highlight) {
-    font-size: 0.7em;
+code {
+    font-size: 14px;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
-    padding: 3px;
+    padding: 2px;
     color: darkslateblue;
 }
 
-code.highlight {
-    font-family: inherit !important;
-    font-size: inherit;
-    font-weight: inherit;
-    color: inherit;
-}
-
-p code.highlight, li code.highlight {
-    padding: 4px;
-    background-color: #ffffa1;
-}
-
-.wide {
-    width:150%;
+*[class^='lang-'] span, *[class^='lang-'] pre {
+    font-size: 13px;
+    line-height: 20px;
 }
 
 p a, li a {
@@ -147,64 +67,31 @@ p a, li a {
     box-shadow: inset 0 -1px #b88b59;
 }
 
-p a:hover, li a:hover {
-    text-decoration: none;
-    color: inherit;
-    box-shadow: inset 0 -1px #0056b3;
-}
-
-blockquote h5 {
-    background-color: aquamarine;
-    margin: 16px 0 16px -20px;
-    padding: 15px 30px 15px;
-}
-
 p img {
     width: 95%;
 }
 
-blockquote 
-{
-    padding-left: 0.4em;
-    border-left: 0.5em solid rgba(0,0,0,.08);
-    font-style: italic;
+p (:has img) {
+    text-align: center;
 }
 
-blockquote.big-quote, 
-blockquote.breadcrumbs 
-{
-    background-color: transparent;
-    padding: 0;
-    border-left: none;
-}
-
-blockquote.breadcrumbs, blockquote.breadcrumbs  p
-{
-    margin: 0;
-    padding: 0;
+blockquote {
+    background-color: lavenderblush;
+    padding-left: 20px;
+    border-left: 1px solid rgba(0,0,0,.08);
 }
 
 blockquote p {
-    padding: 1em 1em 1em 0.6em;
+    margin: 16px 0;
+    padding: 12px 12px 13px;
     font-family: inherit;
 }
 
 blockquote p code {
     font-family: consolas, monospace;
     font-size: 17px;
+    background-color: aliceblue;
     padding: 4px 6px;
-}
-
-blockquote p em {
-    font-weight: 400;
-}
-
-blockquote.big-quote > p {
-    margin: 40px 0 60px 0;
-    font-family: Charter;
-    font-size: 55px;
-    padding: 0;
-    width: 150%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -215,458 +102,57 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 2.2em;
-    font-family: Charter,Georgia,serif;
+    font-size: 40px;
+    font-family: PF Regal,Georgia,serif;
     font-weight: 300;
-    margin: 1.8em 0 1.8em 0;
-    text-align: center;
+    margin: 40px 0 20px 0;
+    border-bottom-style: ridge;
+    padding-bottom: 10px;
+}
+
+h1 b {
+    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
+    font-weight: 700;
+    font-size: 37px;
+    line-height: 42px;
 }
 
 h2 {
-    margin-top: 2em;
-    margin-left: 1.2em;
-    font-family: Charter,Arial,Helvetica Neue,sans-serif;
-    font-size: 1.25em;
-    width: 70%;
+    margin-top: 35px;
+    margin-bottom: 10px;
+    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    border-bottom-color: grey;
+    border-bottom-style: solid;
+    padding-bottom: 5px;
 }
 
 h3 {
-    margin: 30px 0 15px 0;
+    margin: 30px 0 10px 0;
     font-size: 17pt;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 h4 {
     margin: 20px 0 10px 0;
     font-size: 16pt;
-    font-weight: 500;
-    font-style: italic;
-}
-
-/* Sidenotes */
-
-.aside-container {
-    position: relative;
-}
-.aside-container p {
-    position: relative;
-    top: 9px;
-}
-
-.aside-container > .aside-side-container {
-    display: block;
-    position: absolute;
-    top: 12px;
-    left: 100%;
-    width: 40%;
-    font-size: 12pt;
-    line-height: 20px;
-    margin-left: 100px;
-    z-index: 1000;
-}
-
-.aside-container > .aside-side-container p {
-    line-height: 24px;
-    font-size: 13pt;
-    margin: 0 0 13px 0;
-}
-
-.side-regular-block p {
-    top: 0;
-}
-
-/* Music side player */
-.aside-side-container .music-player {
-    width: 100%;
-    height: 400px;
-}
-
-/* media block after h1 */
-.aside-container h1 + .aside-side-container.side-media-block h2 {
-    margin: 7em 0 1em 0;
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-weight: 600;
-}
-
-.aside-side-container > li {
-    display: block;
-    font-family: Charter;
-}
-
-.aside-side-container > li ul, .aside-side-container > li ol {
-    padding-left: 30px;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-}
-.aside-side-container > li li {
-    padding-left: 6px;
-    margin: 0 0 6px;
-    line-height: 22px;
-
-    font-family: Charter;
-}
-
-.aside-side-container p {
-    line-height: 25px;
-    font-size: 13pt;
-    margin: 0 0 15px 0;
-}
-
-.aside-side-container blockquote {
-    border: aliceblue;
-    border-left-style: solid;
-}
-
-/* Paragraphs numbering */
-.paragraph-container {
-    position: relative;
-}
-.paragraph-container p {
-    position: relative;
-    top: 9px;
-}
-
-.paragraph-container p, .aside-container > p {
-    text-align: justify;
-    text-indent: 1.5em;
-}
-
-.paragraph-container > .paragraph-left-side, .paragraph-container > .paragraph-right-side  {
-    font-family: JB Mono, consolas;
-    display: block;
-    position: absolute;
-    top: 17px;
-    font-size: 10pt;
-    line-height: 20px;
-    color: #86abc473;
-    z-index: 1000;
-}
-.paragraph-container > .paragraph-left-side {
-    display: none;
-    left: -2.1cm;
-    width: 35px;
-    user-select: none;
-}
-
-.paragraph-container > .paragraph-right-side  {
-    display: none;
-    left: 100%;
-    width: 35px;
-    padding-left: 45px;
-    user-select: none;
-}
-
-.article-container
-{
-    width: 65%;
-}
-
-.menu-title {
-    text-align: center;
-    margin: 35px 50px 35px 50px;
-    font-size: 24pt;
-    font-family: Charter;
-}
-
-.menu-container ol {
-    margin: 0;
-    padding: 0;
-}
-
-.menu-container ol li {
-    margin: 0;
-    padding: 0;
-}
-
-footer {
-    background-color: black;
-    height: 4em;
-}
-
-.footer-container {
-    height: 100%;
-}
-
-.footer-wrap {
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 25px 0;
-}
-
-.footer-wrap p {
-    margin: 0;
-    padding: 0px;
-    line-height: 1em;
-}
-
-.footer-container img {
-    height: 1.6em;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-.footer-link {
-    color: white;
-    margin: 0 7px;
-    font-size: 1em;
-    box-shadow: none;
-}
-.footer-link:hover {
-    color: salmon;
-    box-shadow: none;
-}
-
-/* MEDIA */
-/* XXL */
-@media (min-width: 1801px) {
-    .book-container
-    {
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
-/* XL */
-@media (max-width: 1800px) {
-    .book-container
-    {
-        margin-left: 4cm;
-        margin-right: 4cm;
-    }
-}
-
-/* LG */
-@media (max-width: 1400px) {
-    .book-container
-    {
-        margin-left: 4cm;
-        margin-right: 4cm;
-    }
-
-    blockquote.big-quote > p {
-        width: 130%;
-        font-size: 30pt;
-        line-height: 45px;
-        margin: 0;
-        padding: 4px 0 30px 0;
-    }
-}
-
-@media (max-width: 1100px) {
-}
-
-/* MD */
-@media (max-width: 991px) {
-    
-    h2 {
-        width:80%;
-    }
-
-    .book-container
-    {
-        margin-left: 3cm;
-        margin-right: 3cm;
-    }
-    
-    .book-title-container {
-        margin: 73px 0 110px 0;
-    }
-
-    .book-title {
-        font-size: 50pt;
-        margin: 50px 0 70px 0;
-    }
-
-    .book-part-title {
-        font-size: 19pt;
-    }
-
-    .book-part-title:hover {
-        box-shadow: inset 0 -1px #007bff;
-    }
-
-    .book-superheading-title {
-        font-size: 15pt;
-    }                                     
-    .article-container {
-        width: 100%;
-    }
-
-    .aside-container p {
-        top: 0;
-    }
-
-    .aside-container h1 + .aside-side-container.side-media-block h2 {
-        display: none;
-    }
-
-    .wide {
-        width: 100%;     
-    }
-
-    .side-regular-block {
-        margin: 40px 10px;
-        padding-left: 100px;
-    }
-    .aside-side-container .music-player {
-        width: 100%;
-        height: 100px;
-    }
-    .aside-side-container.side-media-block {
-        padding: 17px 0;
-    }
-    .aside-side-container.side-media-block h2 {
-        margin-top: 20px;
-        font-size: 13pt;
-        border: none;
-    }
-
-    .aside-container > .aside-side-container
-    {
-        position: relative;
-        top: auto;
-        left: auto;
-        width: auto;
-        height: auto;
-        margin: 0;
-        padding: 17px;
-    }
-
-    blockquote.big-quote > p {
-        width: 100%;
-        font-size: 30pt;
-        line-height: 40px;
-        margin: 0;
-        padding: 4px 0 30px 0;
-    }
-
-    .paragraph-container .paragraph-left-side {
-        left: -55px;
-    }
-
-    body {
-        font-size: 15pt;
-    }
-
-    p code:not(.highlight), li code:not(.highlight) {
-        font-size: 11pt;
-    }
-
-    p, li {
-        line-height: 30px;
-    }
-    
-    li {
-        margin: 0 0 10px 0;
-    }
-
-    .side-regular-block {
-        border-radius: 5px;
-        background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
-        padding: 22px;
-    }    
-}
-
-/* Smartphone horizontal - SM */
-@media (max-width: 767px) {
-    .book-title-container {
-        margin: 73px 0 110px 0;
-    }
-
-    h1 {
-        margin: 1.8em 0em 1.8em 0.3em;
-    }
-
-    .book-title {
-        font-size: 40pt;
-        margin: 50px 0 70px 0;
-    }
-
-    .book-part-title {
-        font-size: 19pt;
-    }
-
-    .book-part-title:hover {
-        box-shadow: inset 0 -1px #007bff;
-    }
-
-    .book-superheading-title {
-        font-size: 17pt;
-    }
-
-    .book-container {
-        margin: 0 2.5cm;
-    }
-    ul {
-        margin-left: 30px;
-        margin-right: 30px;
-        padding-left: 25px;
-    }
-    .paragraph-container > .paragraph-left-side {
-	    display: block;
-        top: 14px;
-        font-size: 9pt;
-    }
-    .paragraph-container > .paragraph-right-side {
-    	display: block;
-        padding-left: 40px;
-        top: 14px;
-        font-size: 9pt;
-    }
-    .footer-container img {
-        height: 1.3em;
-    } 
-}
-
-@media (max-width: 630px) {
-    .book-container {
-        margin: 0 1.5cm;
-    }
-    .paragraph-container > .paragraph-left-side {
-        left: -33px;
-    }
-    .paragraph-container > .paragraph-right-side {
-        padding-left: 24px;
-    }
-}
-/* Smartphone - XS */
-@media (max-width: 575px) {
-    .book-container {
-        margin: 0 50px 0 30px;
-    }
-    ul {
-        margin: 0;
-        padding-left: 20px;
-    }
-
-    body {
-        font-size: 13pt;
-    }
-
-    p code:not(.highlight), li code:not(.highlight) {
-        font-size: 10pt;
-        padding: 3px;
-    }
-   
-    p, li {
-        line-height: 24px;
-    }    
-    .paragraph-container .paragraph-left-side {
-        display: none;        }
-    .paragraph-container .paragraph-right-side {
-        padding-left: 21px;
-        top: 14px;
-	font-size: 8pt;
-    }
-    .footer-container img {
-        height: 1em;
-    } 
+    font-weight: 400;
 }
 
 /* Fonts */
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('{RES_PATH}/fonts/PFRegalTextPro-RegularA.eot');
+    src: local('{RES_PATH}/fonts/PFRegalTextPro-RegularA'),
+        url('{RES_PATH}/fonts/PFRegalTextPro-RegularA.woff2') format('woff2'),
+        url('{RES_PATH}/fonts/PFRegalTextPro-RegularA.woff') format('woff'),
+        url('{RES_PATH}/fonts/PFRegalTextPro-RegularA.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
 
 @font-face {
     font-family: 'PF Regal';
@@ -768,77 +254,6 @@ footer {
 }
 
 @font-face {
-    font-family: 'Charter';
-    src: url('{RES_PATH}/fonts/charter-regular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/*  Regular B */
-@font-face {
-    font-family: 'PF Regal';
-    src: url('{RES_PATH}/fonts/PFRegalTextPro-RegularBItalic.eot');
-    src: local('{RES_PATH}/fonts/PFRegalTextPro-RegularBItalic'),
-        url('{RES_PATH}/fonts/PFRegalTextPro-RegularBItalic.woff2') format('woff2'),
-        url('{RES_PATH}/fonts/PFRegalTextPro-RegularBItalic.woff') format('woff'),
-        url('{RES_PATH}/fonts/PFRegalTextPro-RegularBItalic.ttf') format('truetype');
-    font-weight: 300;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'PF Regal';
-    src: url('{RES_PATH}/fonts/PFRegalTextPro-RegularB.eot');
-    src: local('{RES_PATH}/fonts/PFRegalTextPro-RegularB'),
-        url('{RES_PATH}/fonts/PFRegalTextPro-RegularB.woff2') format('woff2'),
-        url('{RES_PATH}/fonts/PFRegalTextPro-RegularB.woff') format('woff'),
-        url('{RES_PATH}/fonts/PFRegalTextPro-RegularB.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'JB Mono';
-    src: url('{RES_PATH}/fonts/JetBrainsMono-Regular.eot');
-    src: local('{RES_PATH}/fonts/JetBrainsMono-Regular'),
-        url('{RES_PATH}/fonts/JetBrainsMono-Regular.woff2') format('woff2'),
-        url('{RES_PATH}/fonts/JetBrainsMono-Regular.woff') format('woff'),
-        url('{RES_PATH}/fonts/JetBrainsMono-Regular.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'JB Mono';
-    src: url('{RES_PATH}/fonts/JetBrainsMono-Italic.eot');
-    src: local('{RES_PATH}/fonts/JetBrainsMono-Italic'),
-        url('{RES_PATH}/fonts/JetBrainsMono-Italic.woff2') format('woff2'),
-        url('{RES_PATH}/fonts/JetBrainsMono-Italic.woff') format('woff'),
-        url('{RES_PATH}/fonts/JetBrainsMono-Italic.ttf') format('truetype');
-    font-weight: 300;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'JB Mono';
-    src: url('{RES_PATH}/fonts/JetBrainsMono-Medium.eot');
-    src: local('{RES_PATH}/fonts/JetBrainsMono-Medium'),
-        url('{RES_PATH}/fonts/JetBrainsMono-Medium.woff2') format('woff2'),
-        url('{RES_PATH}/fonts/JetBrainsMono-Medium.woff') format('woff'),
-        url('{RES_PATH}/fonts/JetBrainsMono-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'JB Mono';
-    src: url('{RES_PATH}/fonts/JetBrainsMono-Medium-Italic.eot');
-    src: local('{RES_PATH}/fonts/JetBrainsMono-Medium-Italic'),
-        url('{RES_PATH}/fonts/JetBrainsMono-Medium-Italic.woff2') format('woff2'),
-        url('{RES_PATH}/fonts/JetBrainsMono-Medium-Italic.woff') format('woff'),
-        url('{RES_PATH}/fonts/JetBrainsMono-Medium-Italic.ttf') format('truetype');
-    font-weight: 500;
-    font-style: italic;
-}
-@font-face {
     font-family: 'Font Awesome 5 Free';
     font-style: normal;
     font-weight: 400;
@@ -851,19 +266,13 @@ footer {
          url("{RES_PATH}/fonts/webfonts/fa-regular-400.svg#fontawesome") format("svg"); 
     font-display: swap;
 }
-    
-.fa {
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 400;
-    font-display: swap;
-}
 @font-face {
   font-family: 'Font Awesome 5 Brands';
   font-style: normal;
   font-weight: 400;
   font-display: auto;
   src: url("{RES_PATH}/fonts/fa-brands-400.eot");
-  src: url("{RES_PATH}/fonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("{RES_PATH}/fonts/fa-brands-400.woff2") format("woff2"), url("{RES_PATH}/fonts/fa-brands-400.woff") format("woff"), url("{RES_PATH}/fonts/fa-brands-400.ttf") format("truetype"), url("{RES_PATH}/fonts/fa-brands-400.svg#fontawesome") format("svg"); 
+  src: url("{RES_PATH}/fonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-brands-400.woff2") format("woff2"), url("../webfonts/fa-brands-400.woff") format("woff"), url("../webfonts/fa-brands-400.ttf") format("truetype"), url("../webfonts/fa-brands-400.svg#fontawesome") format("svg"); 
 }
 
 .fab {
@@ -877,7 +286,7 @@ footer {
   font-weight: 400;
   font-display: auto;
   src: url("{RES_PATH}/fonts/fa-regular-400.eot");
-  src: url("{RES_PATH}/fonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("{RES_PATH}/fonts/fa-regular-400.woff2") format("woff2"), url("{RES_PATH}/fonts/fa-regular-400.woff") format("woff"), url("{RES_PATH}/fonts/fa-regular-400.ttf") format("truetype"), url("{RES_PATH}/fonts/fa-regular-400.svg#fontawesome") format("svg"); 
+  src: url("{RES_PATH}/fonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-regular-400.woff2") format("woff2"), url("../webfonts/fa-regular-400.woff") format("woff"), url("../webfonts/fa-regular-400.ttf") format("truetype"), url("../webfonts/fa-regular-400.svg#fontawesome") format("svg"); 
 }
 
 .far {
@@ -891,5 +300,34 @@ footer {
   font-weight: 900;
   font-display: auto;
   src: url("{RES_PATH}/fonts/fa-solid-900.eot");
-  src: url("{RES_PATH}/fonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("{RES_PATH}/fonts/fa-solid-900.woff2") format("woff2"), url("{RES_PATH}/fonts/fa-solid-900.woff") format("woff"), url("{RES_PATH}/fonts/fa-solid-900.ttf") format("truetype"), url("{RES_PATH}/fonts/fa-solid-900.svg#fontawesome") format("svg"); 
+  src: url("{RES_PATH}/fonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-solid-900.woff2") format("woff2"), url("../webfonts/fa-solid-900.woff") format("woff"), url("../webfonts/fa-solid-900.ttf") format("truetype"), url("../webfonts/fa-solid-900.svg#fontawesome") format("svg"); 
 }
+    
+.fa {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 400;
+    font-display: swap;
+}
+
+/*  Regular B *
+@font-face {
+    font-family: 'PF Regal';
+    src: url('{RES_PATH}/fonts/PFRegalTextPro-RegularBItalic.eot');
+    src: local('{RES_PATH}/fonts/PFRegalTextPro-RegularBItalic'),
+        url('{RES_PATH}/fonts/PFRegalTextPro-RegularBItalic.woff2') format('woff2'),
+        url('{RES_PATH}/fonts/PFRegalTextPro-RegularBItalic.woff') format('woff'),
+        url('{RES_PATH}/fonts/PFRegalTextPro-RegularBItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Regal';
+    src: url('{RES_PATH}/fonts/PFRegalTextPro-RegularB.eot');
+    src: local('{RES_PATH}/fonts/PFRegalTextPro-RegularB'),
+        url('{RES_PATH}/fonts/PFRegalTextPro-RegularB.woff2') format('woff2'),
+        url('{RES_PATH}/fonts/PFRegalTextPro-RegularB.woff') format('woff'),
+        url('{RES_PATH}/fonts/PFRegalTextPro-RegularB.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}              */

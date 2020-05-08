@@ -14,7 +14,7 @@
     font-family: PF Regal,Georgia,serif;
     font-size: 16pt;
     font-weight: 300;
-    margin-top: 60px;
+    padding-top: 4em;
 }
 
 .book-title-container {
@@ -150,7 +150,7 @@ p code.highlight, li code.highlight {
 }
 
 .wide {
-    width:150%;
+    width:140%;
 }
 
 p a, li a {
@@ -188,6 +188,7 @@ blockquote.breadcrumbs
     background-color: transparent;
     padding: 0;
     border-left: none;
+    font-style: normal;
 }
 
 blockquote.breadcrumbs, blockquote.breadcrumbs  p
@@ -212,11 +213,12 @@ blockquote p em {
 }
 
 blockquote.big-quote > p {
-    margin: 40px 0 60px 0;
+    margin: 0.7em 0 0.7em 0;
     font-family: Charter;
-    font-size: 55px;
+    font-size: 2.5em;
     padding: 0;
-    width: 150%;
+    width: 130%;
+    line-height: 1em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -232,11 +234,11 @@ h1 {
     font-weight: 300;
     margin: 1.8em 0 1.8em 0;
     text-align: center;
+    width: 140%;
 }
 
 h2 {
     margin-top: 2em;
-    margin-left: 1.2em;
     font-family: Charter,Arial,Helvetica Neue,sans-serif;
     font-size: 1.25em;
     width: 70%;
@@ -269,8 +271,8 @@ h4 {
     display: block;
     position: absolute;
     top: 12px;
-    left: 100%;
-    width: 40%;
+    left: 96%;
+    width: 34%;
     font-size: 12pt;
     line-height: 20px;
     margin-left: 100px;
@@ -340,7 +342,6 @@ h4 {
 
 .paragraph-container p, .aside-container > p {
     text-align: justify;
-    text-indent: 1.5em;
 }
 
 .paragraph-container > .paragraph-left-side, .paragraph-container > .paragraph-right-side  {
@@ -370,7 +371,7 @@ h4 {
 
 .article-container
 {
-    width: 65%;
+    width: 70%;
 }
 
 .menu-title {
@@ -390,7 +391,160 @@ h4 {
     padding: 0;
 }
 
+.header {
+    height: 4em;
+    background-color: white;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transition: all 1s;
+    top: 0;
+    box-shadow: 1px -4px 20px rgba(0, 0, 0, .1);
+}
+
+.fixed {
+    position: fixed !important;
+}
+
+.header > .menu {
+    pointer-events: auto;
+    float: right;
+    height: 40px;
+    font-family: Charter, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 1em;
+    color: #fff;
+    margin-top:40px;
+    margin-right:40px;
+}
+
+.menu a {
+    color: #fff;
+}
+.menu a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+#menu__toggle {
+    opacity: 0;
+}
+
+#menu__toggle:checked ~ .menu__btn > span {
+    transform: rotate(45deg);
+}
+#menu__toggle:checked ~ .menu__btn > span::before {
+    top: 0;
+    transform: rotate(0);
+    background-color: black
+}
+#menu__toggle:checked ~ .menu__btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+    background-color: black
+}
+#menu__toggle:checked ~ .menu__box {
+    visibility: visible;
+    right: 0;
+}
+
+.menu__btn {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 1.4em;
+    height: 1.0em;
+    cursor: pointer;
+    z-index: 1;
+    margin: 1.5em;
+}
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+    display: block;
+    position: absolute;
+
+    width: 100%;
+    height: 1px;
+
+    background-color: black;
+
+    transition-duration: .25s;
+}
+.menu__btn > span::before {
+    content: '';
+    top: -8px;
+}
+.menu__btn > span::after {
+    content: '';
+    top: 8px;
+}
+
+.menu__box {
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    right: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 80px 0;
+
+    list-style: none;
+
+    background-color: white;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+
+    transition-duration: .25s;
+}
+.menu__box li a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+.menu__item {
+    display: block;
+    padding: 12px 24px;
+
+    color: #333;
+
+    font-family: 'Gotham Pro','Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition-duration: .25s;
+}
+.menu__item:hover {
+    background-color: #CFD8DC;
+}
+
+
+.conflogo {
+    height: 1.2em;
+    margin-top: 1.4em;
+    margin-left: 1em;
+}
+
+.invisible {
+    display: none;
+}
+
+.header > .menu > div {
+    display: inline;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 footer {
+    margin-top: 2em;
     background-color: black;
     height: 4em;
 }
@@ -432,7 +586,7 @@ footer {
 
 /* MEDIA */
 /* XXL */
-@media (min-width: 1801px) {
+@media (min-width: 1601px) {
     .book-container
     {
         max-width: 1200px;
@@ -442,7 +596,7 @@ footer {
 }
 
 /* XL */
-@media (max-width: 1800px) {
+@media (max-width: 1600px) {
     .book-container
     {
         margin-left: 4cm;
@@ -459,15 +613,15 @@ footer {
     }
 
     blockquote.big-quote > p {
-        width: 130%;
-        font-size: 30pt;
-        line-height: 45px;
-        margin: 0;
-        padding: 4px 0 30px 0;
+        font-size: 2em;
     }
 }
 
-@media (max-width: 1100px) {
+/* > MD */
+@media (min-width: 992px) {
+    .hamburger-menu {
+        display: none;
+    }
 }
 
 /* MD */
@@ -503,7 +657,8 @@ footer {
     .book-superheading-title {
         font-size: 15pt;
     }                                     
-    .article-container {
+
+    .article-container, h1 {
         width: 100%;
     }
 
@@ -549,10 +704,7 @@ footer {
 
     blockquote.big-quote > p {
         width: 100%;
-        font-size: 30pt;
-        line-height: 40px;
-        margin: 0;
-        padding: 4px 0 30px 0;
+        font-size: 2em;
     }
 
     .paragraph-container .paragraph-left-side {
@@ -658,7 +810,8 @@ footer {
         font-size: 13pt;
     }
 
-    p code:not(.highlight), li code:not(.highlight) {
+    p code:not(.highlight), li code:not(.highlight) 
+    {
         font-size: 10pt;
         padding: 3px;
     }
@@ -666,12 +819,16 @@ footer {
     p, li {
         line-height: 24px;
     }    
-    .paragraph-container .paragraph-left-side {
-        display: none;        }
-    .paragraph-container .paragraph-right-side {
+    
+    .paragraph-container .paragraph-left-side 
+    {
+        display: none;        
+    }
+    .paragraph-container .paragraph-right-side 
+    {
         padding-left: 21px;
         top: 14px;
-	font-size: 8pt;
+	    font-size: 8pt;
     }
     .footer-container img {
         height: 1em;
@@ -907,7 +1064,7 @@ footer {
 }
   
     </style>
-    
+    <!--
     <div class="book-title-container d-none d-md-block">
         <div class="book-title">Knowledge Base</div>
         <div class="book-part-title-block">pt.1 <a href="../..//ru/Memory/01-00-MemoryManagement-Intro.html" class="book-part-title">Управление памятью</a></div>
@@ -916,6 +1073,36 @@ footer {
         / <a href="#" class="book-superheading-title">Упрощенное описание</a>
         / <a href="#" class="book-superheading-title">Подробное описание</a>
     </div>
+    -->
+    <header class="header fixed">
+        <a href="#">
+            <img class="conflogo" src="../../res/img/logo-b-noindex.svg"/> 
+        </a>
+        <div class="menu">
+            <div><a href="index.html">О конференции</a></div>
+            <div><a href="mentor.html">Ментор</a></div>
+            <div><a href="practice.html">Практика</a></div>
+            <div><a href="matrix.html">Доклады</a></div>
+            <a href="register.html" class="register_button">РЕГИСТРАЦИЯ</a>
+        </div>
+
+        <!-- mobile-menu -->
+
+        <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+              <span></span>
+            </label>
+        
+            <ul class="menu__box">
+                <li><a class="menu__item" href="index.html">О семинаре</a></li>
+                <li><a class="menu__item" href="mentor.html">Ментор</a></li>
+                <li><a class="menu__item" href="matrix.html">Доклады</a></li>
+                <li><a class="menu__item" href="practice.html">Практика</a></li>
+                <li><a class="menu__item" href="register.html">Регистрация</a></li>
+           </ul>
+        </div>
+    </header>
 
     <div class="book-container">
         <div class="article-container">
