@@ -395,7 +395,7 @@ h4 {
     height: 4em;
     background-color: white;
     position: relative;
-    z-index: 10;
+    z-index: 1500;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -529,8 +529,9 @@ h4 {
 
 .conflogo {
     height: 1.2em;
-    margin-top: 1.4em;
-    margin-left: 1em;
+    margin: 0.95em 0 0 1em;
+    font-size: 1.5em;
+    font-family: Charter;
 }
 
 .invisible {
@@ -1075,9 +1076,7 @@ footer {
     </div>
     -->
     <header class="header fixed">
-        <a href="#">
-            <img class="conflogo" src="../res/img/logo-b-noindex.svg"/> 
-        </a>
+        <p class="conflogo">KB</p> 
         <div class="menu">
             <div><a href="index.html">О конференции</a></div>
             <div><a href="mentor.html">Ментор</a></div>
@@ -1094,13 +1093,9 @@ footer {
               <span></span>
             </label>
         
-            <ul class="menu__box">
-                <li><a class="menu__item" href="index.html">О семинаре</a></li>
-                <li><a class="menu__item" href="mentor.html">Ментор</a></li>
-                <li><a class="menu__item" href="matrix.html">Доклады</a></li>
-                <li><a class="menu__item" href="practice.html">Практика</a></li>
-                <li><a class="menu__item" href="register.html">Регистрация</a></li>
-           </ul>
+            <div class="menu__box">
+                <!-- меню мобильного вида -->
+            </div>
         </div>
     </header>
 
