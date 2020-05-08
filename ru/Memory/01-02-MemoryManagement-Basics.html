@@ -8,6 +8,7 @@
 </head>
 <body>
     <link rel="stylesheet" href="../../res/bootstrap.css">
+    <link rel="stylesheet" href="../../res/awesome.css">
     <style>
         body {
     font-family: PF Regal,Georgia,serif;
@@ -389,6 +390,45 @@ h4 {
     padding: 0;
 }
 
+footer {
+    background-color: black;
+    height: 4em;
+}
+
+.footer-container {
+    height: 100%;
+}
+
+.footer-wrap {
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+}
+
+.footer-wrap p {
+    margin: 0;
+    padding: 0px;
+    line-height: 1em;
+}
+
+.footer-container img {
+    height: 1.6em;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.footer-link {
+    color: white;
+    margin: 0 7px;
+    font-size: 1em;
+    box-shadow: none;
+}
+.footer-link:hover {
+    color: salmon;
+    box-shadow: none;
+}
 
 /* MEDIA */
 /* XXL */
@@ -588,6 +628,9 @@ h4 {
         top: 14px;
         font-size: 9pt;
     }
+    .footer-container img {
+        height: 1.3em;
+    } 
 }
 
 @media (max-width: 630px) {
@@ -630,6 +673,9 @@ h4 {
         top: 14px;
 	font-size: 8pt;
     }
+    .footer-container img {
+        height: 1em;
+    } 
 }
 
 /* Fonts */
@@ -803,71 +849,82 @@ h4 {
         url('../../res/fonts/JetBrainsMono-Medium-Italic.ttf') format('truetype');
     font-weight: 500;
     font-style: italic;
-}  
+}
+@font-face {
+    font-family: 'Font Awesome 5 Free';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../../res/fonts/webfonts/fa-regular-400.eot");
+    src: url("../../res/fonts/webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), 
+         url("../../res/fonts/webfonts/fa-regular-400.woff2") format("woff2"), 
+         url("../../res/fonts/webfonts/fa-regular-400.woff") format("woff"), 
+         url("../../res/fonts/webfonts/fa-regular-400.ttf") format("truetype"), 
+         url("../../res/fonts/webfonts/fa-regular-400.svg#fontawesome") format("svg"); 
+    font-display: swap;
+}
+    
+.fa {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+  font-family: 'Font Awesome 5 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
+  src: url("../../res/fonts/fa-brands-400.eot");
+  src: url("../../res/fonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("../../res/fonts/fa-brands-400.woff2") format("woff2"), url("../../res/fonts/fa-brands-400.woff") format("woff"), url("../../res/fonts/fa-brands-400.ttf") format("truetype"), url("../../res/fonts/fa-brands-400.svg#fontawesome") format("svg"); 
+}
+
+.fab {
+  font-family: 'Font Awesome 5 Brands';
+  font-weight: 400; 
+}
+
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
+  src: url("../../res/fonts/fa-regular-400.eot");
+  src: url("../../res/fonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("../../res/fonts/fa-regular-400.woff2") format("woff2"), url("../../res/fonts/fa-regular-400.woff") format("woff"), url("../../res/fonts/fa-regular-400.ttf") format("truetype"), url("../../res/fonts/fa-regular-400.svg#fontawesome") format("svg"); 
+}
+
+.far {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 400; 
+}
+
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: auto;
+  src: url("../../res/fonts/fa-solid-900.eot");
+  src: url("../../res/fonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../../res/fonts/fa-solid-900.woff2") format("woff2"), url("../../res/fonts/fa-solid-900.woff") format("woff"), url("../../res/fonts/fa-solid-900.ttf") format("truetype"), url("../../res/fonts/fa-solid-900.svg#fontawesome") format("svg"); 
+}
+  
     </style>
     
-<div class="book-title-container d-none d-md-block">
-    <div class="book-title">Knowledge Base</div>
-    <div class="book-part-title-block">pt.1 <a href="../..//ru/Memory/01-00-MemoryManagement-Intro.html" class="book-part-title">Управление памятью</a></div>
-    <div class="book-part-title-block">pt.2 <a href="../..//ru/Execution/02-00-ExecutionFlow-Intro.html" class="book-part-title">Поток исполнения команд</a></div>
-    <br><a href="#" class="book-superheading-title">Обоснование выбора</a>
-    / <a href="#" class="book-superheading-title">Упрощенное описание</a>
-    / <a href="#" class="book-superheading-title">Подробное описание</a>
-</div>
-
-<!--
-<div style="
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 10000;
-    padding: 0px 50px 110px 50px;">
-<div style="
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: white;
-    box-shadow: 0 0 45px rgba(0,0,0,0.2);">
-
-    <div class="container">
-    <div class="row menu-container">
-        <div class="col-6">
-            <p class="menu-title">Введение в управление памятью</p>
-	        <ol>
-                <li><a href="./Memory/01-00-MemoryManagement-Intro.html">Общие слова</a></li>
-                <li><a href="./Memory/01-02-MemoryManagement-Basics.html">Введение в управление памятью</a></li>
-                <li><a href="./Memory/01-04-MemoryManagement-ThreadStack.html">Стек потока</a></li>
-                <li><a href="./Memory/01-06-MemoryManagement-EntitiesLifetime.html">Время жизни сущности</a></li>
-                <li><a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html">RefTypes, ValueTypes, Boxing &amp; Unboxing</a></li>
-                <li><a href="./Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></li>
-                <li><a href="./Memory/01-12-MemoryManagement-Finalizer.html">Финализация</a></li>
-                <li><a href="./Memory/01-14-MemoryManagement-Results.html">Выводы</a></li>
-            </ol>
-        </div>
-        <div class="col-6">
-            <p class="menu-title">Подробности<br> реализации GC</p>
-            <ol>
-                <li><a href="./Memory/03-02-MemoryManagement-Allocation.html">Выделение памяти под объект</a> <em>(Только наговорен текст)</em></li>
-                <li><a href="./Memory/03-04-MemoryManagement-GC-Intro.html">Введение в сборку мусора</a> <em>(Только наговорен текст)</em></li>
-                <li><a href="./Memory/03-06-MemoryManagement-GC-Mark-Phase.html">Фаза маркировки</a> <em>(Только наговорен текст)</em></li>
-                <li><a href="./Memory/03-08-MemoryManagement-GC-Planning-Phase.html">Фаза планирования</a> <em>(Только наговорен текст)</em></li>
-                <li><a href="./Memory/03-10-MemoryManagement-GC-Sweep-Collect.html">Фазы Sweep/Collect</a> <em>(Только наговорен текст)</em></li>
-                <li><a href="./Memory/03-12-MemoryMenegement-GC-Results.html">Выводы по менеджменту памяти и работе над производительностью</a> <em>(Только наговорен текст)</em></li>
-            </ol>
-        </div>
+    <div class="book-title-container d-none d-md-block">
+        <div class="book-title">Knowledge Base</div>
+        <div class="book-part-title-block">pt.1 <a href="../..//ru/Memory/01-00-MemoryManagement-Intro.html" class="book-part-title">Управление памятью</a></div>
+        <div class="book-part-title-block">pt.2 <a href="../..//ru/Execution/02-00-ExecutionFlow-Intro.html" class="book-part-title">Поток исполнения команд</a></div>
+        <br><a href="#" class="book-superheading-title">Обоснование выбора</a>
+        / <a href="#" class="book-superheading-title">Упрощенное описание</a>
+        / <a href="#" class="book-superheading-title">Подробное описание</a>
     </div>
-    </div>
-</div>
-</div>
--->
-<div class="book-container">
-<div class="article-container">
-    <!--<p class="d-xs-block d-sm-none">XS</p>
-    <p class="d-none d-xs-block d-sm-none">SM</p>
-    <p class="d-none d-sm-block d-md-none">MD</p>
-    <p class="d-none d-lg-block d-xl-none">LG</p>
-    <p class="d-none d-xl-block">XL</p> -->
-    <div class="aside-container"><h1 id="section" class="wide">Управление памятью</h1>
+
+    <div class="book-container">
+        <div class="article-container">
+            <!--<p class="d-xs-block d-sm-none">XS</p>
+            <p class="d-none d-xs-block d-sm-none">SM</p>
+            <p class="d-none d-sm-block d-md-none">MD</p>
+            <p class="d-none d-lg-block d-xl-none">LG</p>
+            <p class="d-none d-xl-block">XL</p> -->
+            <div class="aside-container"><h1 id="section" class="wide">Управление памятью</h1>
 <div class="aside-side-container side-media-block">
 <h2 id="section-1">Аудиокнига</h2>
 <p >
@@ -1293,12 +1350,23 @@ h4 {
 Ба&shy;зо&shy;вый вы&shy;вод, ко&shy;то&shy;рый мож&shy;но сде&shy;лать уже сей&shy;час, ос&shy;но&shy;вы&shy;ва&shy;ясь на кар&shy;точ&shy;ных сто&shy;лах, что ес&shy;ли вы хо&shy;ти&shy;те, что&shy;бы GC про&shy;те&shy;кал быс&shy;тро и как по мас&shy;лу, не сто&shy;ит де&shy;лать ссы&shy;лок из стар&shy;ших по&shy;ко&shy;ле&shy;ний. Не на&shy;до де&shy;лать веч&shy;но жи&shy;ву&shy;щие мас&shy;си&shy;вы, вы&shy;де&shy;лять объ&shy;ек&shy;ты и ссыл&shy;ки на них скла&shy;ды&shy;вать в эти древ&shy;ние мас&shy;си&shy;вы. Но ес&shy;ли вы так де&shy;ла&shy;ете, на&shy;до конт&shy;ро&shy;ли&shy;ро&shy;вать, что&shy;бы эти мас&shy;си&shy;вы рас&shy;по&shy;ла&shy;га&shy;лись ря&shy;дом, что&shy;бы их вы&shy;де&shy;лять друг за дру&shy;гом. Не расп&shy;ре&shy;де&shy;лять их по па&shy;мя&shy;ти. Са&shy;мое не&shy;удач&shy;ное, что мож&shy;но сде&shy;лать  &mdash;  это иметь ку&shy;чу объ&shy;ек&shy;тов стар&shy;ше&shy;го по&shy;ко&shy;ле&shy;ния и по ка&shy;кой-то при&shy;чи&shy;не выс&shy;та&shy;вить ссыл&shy;ки на млад&shy;шее по&shy;ко&shy;ле&shy;ние, но не груп&shy;пой, а вразб&shy;рос че&shy;рез всю па&shy;мять. Это са&shy;мый тя&shy;же&shy;лый сце&shy;на&shy;рий, по&shy;то&shy;му что кар&shy;точ&shy;ный стол бу&shy;дет за&shy;бит еди&shy;ни&shy;ца&shy;ми. А GC, со&shy;би&shy;рая ну&shy;ле&shy;вое по&shy;ко&shy;ле&shy;ние, бу&shy;дет вы&shy;нуж&shy;ден про&shy;хо&shy;дить все вто&shy;рое, все пер&shy;вое и ис&shy;кать, что там до&shy;бав&shy;ле&shy;но. Если вы де&shy;ла&shy;ете ссыл&shy;ку из стар&shy;ших по&shy;ко&shy;ле&shy;ний в млад&shy;шие, то не&shy;об&shy;хо&shy;ди&shy;мо эти ссыл&shy;ки груп&shy;пи&shy;ро&shy;вать: мас&shy;сив, ко&shy;то&shy;рый ссы&shy;ла&shy;ет&shy;ся на объ&shy;ект млад&shy;ше&shy;го по&shy;ко&shy;ле&shy;ния. Пос&shy;коль&shy;ку это мас&shy;сив, ко&shy;то&shy;рый ссы&shy;ла&shy;ет&shy;ся на объ&shy;ек&shy;ты млад&shy;ше&shy;го по&shy;ко&shy;ле&shy;ния, все ячей&shy;ки ря&shy;дом и в кар&shy;точ&shy;ном сто&shy;ле в иде&shy;але это бу&shy;дет прос&shy;то еди&shy;ни&shy;ца. Даль&shy;ше мы бу&shy;дем изу&shy;чать бо&shy;лее под&shy;роб&shy;но.</p>
 <div class="paragraph-right-side">58</div>
 </div>
-<blockquote class="breadcrumbs">
-<p >
- <a href="../readme.html">Содержание</a> / <a href="./01-00-MemoryManagement-Intro.html">Основы управления памятью</a></p>
-</blockquote>
 
-</div>
-</div>
+        </div>
+    </div>
+    <footer>
+        <div class="book-container footer-container">
+            <div class="footer-wrap">
+                <img src="../../res/img/logo-w-noindex.svg">
+                <p>
+                    <a class="footer-link" target="_blank" href="mailto:sidristij@clrium.ru"><i class="far fa-envelope" aria-hidden="true"></i></a>
+                    <a class="footer-link" target="_blank" href="https://vk.com/clrium"><i class="fab fa-vk" aria-hidden="true"></i></a>
+                    <a class="footer-link" target="_blank" href="https://youtube.com/clrium"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                    <a class="footer-link" target="_blank" href="https://github.com/clrium"><i class="fab fa-github" aria-hidden="true"></i></a>
+                    <a class="footer-link" target="_blank" href="skype:stanislav.sidristyi"><i class="fab fa-skype" aria-hidden="true"></i></a>
+                    <a class="footer-link" target="_blank" href="https://t.me/clrium_group"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+                </p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
