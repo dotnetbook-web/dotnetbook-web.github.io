@@ -10,11 +10,13 @@
     <link rel="stylesheet" href="../../res/bootstrap.css">
     <link rel="stylesheet" href="../../res/awesome.css">
     <style>
-        body {
+
+body {
     font-family: PF Regal,Georgia,serif;
     font-size: 16pt;
     font-weight: 300;
     padding-top: 4em;
+    background-color: #fdfdfd;
 }
 
 .book-title-container {
@@ -374,6 +376,7 @@ h4 {
     width: 70%;
 }
 
+/* X_MENU */
 .menu-title {
     text-align: center;
     margin: 35px 50px 35px 50px;
@@ -508,24 +511,14 @@ h4 {
     text-decoration: none;
     color: inherit;
 }
-.menu__item {
-    display: block;
-    padding: 12px 24px;
-
-    color: #333;
-
-    font-family: 'Gotham Pro','Roboto', sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-
-    text-decoration: none;
-
-    transition-duration: .25s;
+.menu__list {
+    margin: 0 2em 0 2em;
 }
-.menu__item:hover {
-    background-color: #CFD8DC;
+.menu__list li {
+    text-align: left;
 }
 
+/* X_HEADER */
 
 .conflogo {
     height: 1.2em;
@@ -543,6 +536,22 @@ h4 {
     margin-left: 10px;
     margin-right: 10px;
 }
+
+.menu__header_current
+{
+    text-align: center;
+    font-size: 2em;
+    margin: 1em 0 1em 0;
+}
+
+.menu__header_total
+{
+    text-align: center;
+    font-size: 2em;
+    margin: 1.5em 0 1em 0;
+}
+
+/* X_FOOTER */
 
 footer {
     margin-top: 2em;
@@ -580,6 +589,7 @@ footer {
     font-size: 1em;
     box-shadow: none;
 }
+
 .footer-link:hover {
     color: salmon;
     box-shadow: none;
@@ -834,6 +844,9 @@ footer {
     .footer-container img {
         height: 1em;
     } 
+    .menu__list {
+        margin: 0 1em 0 1em;
+    }
 }
 
 /* Fonts */
@@ -1063,8 +1076,7 @@ footer {
   src: url("../../res/fonts/fa-solid-900.eot");
   src: url("../../res/fonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../../res/fonts/fa-solid-900.woff2") format("woff2"), url("../../res/fonts/fa-solid-900.woff") format("woff"), url("../../res/fonts/fa-solid-900.ttf") format("truetype"), url("../../res/fonts/fa-solid-900.svg#fontawesome") format("svg"); 
 }
-  
-    </style>
+</style>  
     <!--
     <div class="book-title-container d-none d-md-block">
         <div class="book-title">Knowledge Base</div>
@@ -1094,7 +1106,57 @@ footer {
             </label>
         
             <div class="menu__box">
-                <!-- меню мобильного вида -->
+                <p class="menu__header_current">На странице</p>
+                <ol class="menu__list">
+                    <li><a href="#threadabortexception">
+ThreadAbortException</a></li>
+<li><a href="#executionengineexception">
+ExecutionEngineException</a></li>
+<li><a href="#nullreferenceexception">
+NullReferenceException</a></li>
+<li><a href="#securityexception">
+SecurityException</a></li>
+<li><a href="#outofmemoryexception">
+OutOfMemoryException</a></li>
+<li><a href="#accessviolationexception">
+AccessViolationException</a></li>
+<li><a href="#stackoverflowexception">
+StackOverflowException</a></li>
+
+                </ol>
+                <p class="menu__header_total">Содержание</p>
+                <ul style="padding: 0;">
+                    <li style="
+                        display: inline-block;
+                        width: 100%;
+                        margin: 0;
+                        text-align: center;
+                        font-size: 1.2em;
+                        font-family: charter;
+                        ">
+                        <p>Управление памятью</p>
+                        <ul>
+                            <li>A</li>
+                            <li>B</li>
+                            <li>C</li>
+                        </ul>
+                    </li>
+                    <li style="
+                        display: inline-block;
+                        width: 100%;
+                        margin: 0;
+                        text-align: center;
+                        font-family: charter;
+                        font-size: 1.2em;
+                        ">
+                        <p>Управление памятью</p>
+                        <ul>
+                            <li>A</li>
+                            <li>B</li>
+                            <li>C</li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
     </header>
