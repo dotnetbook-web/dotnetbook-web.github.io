@@ -1,19 +1,22 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>.NET Platform Architecture</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.NET Platform Architecture</title>
 </head>
 <body>
     <link rel="stylesheet" href="../../../../../res/bootstrap.css">
+    <link rel="stylesheet" href="../../../../../res/awesome.css">
     <style>
-        body {
+
+body {
     font-family: PF Regal,Georgia,serif;
     font-size: 16pt;
     font-weight: 300;
-    margin-top: 60px;
+    padding-top: 4em;
+    background-color: #fdfdfd;
 }
 
 .book-title-container {
@@ -57,27 +60,28 @@ strong {
 }
 
 p, li {
-    margin: 0 0 25px;
-    line-height: 32px;
+    margin: 0 0 1em;
+    line-height: 1.5em;
     font-family: inherit;
 }
 
 ol, li {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 ol {
-    padding-left: 1.2rem;
+    padding-left: 1.21em;
 }
 
 ul  {
-    padding-left: 35px;
+    padding-left: 1em;
 }
 
 ol li, ul li {
-    padding-left: 1rem;	
+    padding-left: 0.5em;	
     font-family: inherit;
+    text-align: justify;
 }
 
 table {
@@ -108,6 +112,7 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 *[class*='lang-'] {
     padding: 0px 0px 25px 0px;
+    font-size: 0.75em;
 }
 
 
@@ -126,11 +131,11 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 }
 
 p code:not(.highlight), li code:not(.highlight) {
-    font-size: 16px;
+    font-size: 0.7em;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
-    padding: 4px;
+    padding: 3px;
     color: darkslateblue;
 }
 
@@ -147,12 +152,7 @@ p code.highlight, li code.highlight {
 }
 
 .wide {
-    width:150%;
-}
-
-*[class*='lang-'] span, *[class*='lang-'] pre, pre > code {
-    font-size: 13px;
-    line-height: 20px;
+    width:140%;
 }
 
 p a, li a {
@@ -179,9 +179,9 @@ p img {
 
 blockquote 
 {
-    background-color: lavenderblush;
-    padding-left: 20px;
-    border-left: 1px solid rgba(0,0,0,.08);
+    padding-left: 0.4em;
+    border-left: 0.5em solid rgba(0,0,0,.08);
+    font-style: italic;
 }
 
 blockquote.big-quote, 
@@ -190,6 +190,7 @@ blockquote.breadcrumbs
     background-color: transparent;
     padding: 0;
     border-left: none;
+    font-style: normal;
 }
 
 blockquote.breadcrumbs, blockquote.breadcrumbs  p
@@ -199,8 +200,7 @@ blockquote.breadcrumbs, blockquote.breadcrumbs  p
 }
 
 blockquote p {
-    margin: 16px 0;
-    padding: 12px 12px 13px;
+    padding: 1em 1em 1em 0.6em;
     font-family: inherit;
 }
 
@@ -210,13 +210,17 @@ blockquote p code {
     padding: 4px 6px;
 }
 
+blockquote p em {
+    font-weight: 400;
+}
+
 blockquote.big-quote > p {
-    margin: 40px 0 60px 0;
+    margin: 0.7em 0 0.7em 0;
     font-family: Charter;
-    font-size: 55px;
-    line-height: 60px;
+    font-size: 2.5em;
     padding: 0;
-    width: 150%;
+    width: 130%;
+    line-height: 1em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -227,31 +231,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 40px;
-    font-family: PF Regal,Georgia,serif;
+    font-size: 2.2em;
+    font-family: Charter,Georgia,serif;
     font-weight: 300;
-    margin: 40px 0 20px 0;
-    border-bottom-style: ridge;
-    padding-bottom: 10px;
-}
-
-h1 b {
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-weight: 700;
-    font-size: 37px;
-    line-height: 42px;
+    margin: 1.8em 0 1.8em 0;
+    text-align: center;
+    width: 140%;
 }
 
 h2 {
-    margin-top: 35px;
-    margin-bottom: 10px;
-    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-    border-bottom-color: grey;
-    border-bottom-style: solid;
-    padding-bottom: 5px;
+    margin-top: 2em;
+    font-family: Charter,Arial,Helvetica Neue,sans-serif;
+    font-size: 1.25em;
+    width: 70%;
 }
 
 h3 {
@@ -281,8 +273,8 @@ h4 {
     display: block;
     position: absolute;
     top: 12px;
-    left: 100%;
-    width: 40%;
+    left: 96%;
+    width: 34%;
     font-size: 12pt;
     line-height: 20px;
     margin-left: 100px;
@@ -293,27 +285,23 @@ h4 {
     line-height: 24px;
     font-size: 13pt;
     margin: 0 0 13px 0;
-    font-family: Charter;
-}
-
-.side-regular-block {
-    border-radius: 5px;
-    background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
-    padding: 22px;
 }
 
 .side-regular-block p {
     top: 0;
 }
-/* Music side player */
 
+/* Music side player */
 .aside-side-container .music-player {
     width: 100%;
     height: 400px;
 }
 
-.aside-side-container.side-media-block h2 {
-    margin-top: -12px;
+/* media block after h1 */
+.aside-container h1 + .aside-side-container.side-media-block h2 {
+    margin: 7em 0 1em 0;
+    font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
+    font-weight: 600;
 }
 
 .aside-side-container > li {
@@ -323,8 +311,8 @@ h4 {
 
 .aside-side-container > li ul, .aside-side-container > li ol {
     padding-left: 30px;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 .aside-side-container > li li {
     padding-left: 6px;
@@ -353,6 +341,11 @@ h4 {
     position: relative;
     top: 9px;
 }
+
+.paragraph-container p, .aside-container > p {
+    text-align: justify;
+}
+
 .paragraph-container > .paragraph-left-side, .paragraph-container > .paragraph-right-side  {
     font-family: JB Mono, consolas;
     display: block;
@@ -364,12 +357,14 @@ h4 {
     z-index: 1000;
 }
 .paragraph-container > .paragraph-left-side {
-    left: -55px;
+    display: none;
+    left: -2.1cm;
     width: 35px;
     user-select: none;
 }
 
 .paragraph-container > .paragraph-right-side  {
+    display: none;
     left: 100%;
     width: 35px;
     padding-left: 45px;
@@ -378,9 +373,10 @@ h4 {
 
 .article-container
 {
-    width: 65%;
+    width: 70%;
 }
 
+/* X_MENU */
 .menu-title {
     text-align: center;
     margin: 35px 50px 35px 50px;
@@ -398,10 +394,210 @@ h4 {
     padding: 0;
 }
 
+.header {
+    height: 4em;
+    background-color: white;
+    position: relative;
+    z-index: 1500;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transition: all 1s;
+    top: 0;
+    box-shadow: 1px -4px 20px rgba(0, 0, 0, .1);
+}
+
+.fixed {
+    position: fixed !important;
+}
+
+.header > .menu {
+    pointer-events: auto;
+    float: right;
+    height: 40px;
+    font-family: Charter, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 1em;
+    color: #fff;
+    margin-top:40px;
+    margin-right:40px;
+}
+
+.menu a {
+    color: #fff;
+}
+.menu a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+#menu__toggle {
+    opacity: 0;
+}
+
+#menu__toggle:checked ~ .menu__btn > span {
+    transform: rotate(45deg);
+}
+#menu__toggle:checked ~ .menu__btn > span::before {
+    top: 0;
+    transform: rotate(0);
+    background-color: black
+}
+#menu__toggle:checked ~ .menu__btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+    background-color: black
+}
+#menu__toggle:checked ~ .menu__box {
+    visibility: visible;
+    right: 0;
+}
+
+.menu__btn {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 1.4em;
+    height: 1.0em;
+    cursor: pointer;
+    z-index: 1;
+    margin: 1.5em;
+}
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+    display: block;
+    position: absolute;
+
+    width: 100%;
+    height: 1px;
+
+    background-color: black;
+
+    transition-duration: .25s;
+}
+.menu__btn > span::before {
+    content: '';
+    top: -8px;
+}
+.menu__btn > span::after {
+    content: '';
+    top: 8px;
+}
+
+.menu__box {
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    right: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 80px 0;
+
+    list-style: none;
+
+    background-color: white;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+
+    transition-duration: .25s;
+}
+.menu__box li a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+.menu__list {
+    margin: 0 2em 0 2em;
+}
+.menu__list li {
+    text-align: left;
+}
+
+/* X_HEADER */
+
+.conflogo {
+    height: 1.2em;
+    margin: 0.95em 0 0 1em;
+    font-size: 1.5em;
+    font-family: Charter;
+}
+
+.invisible {
+    display: none;
+}
+
+.header > .menu > div {
+    display: inline;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.menu__header_current
+{
+    text-align: center;
+    font-size: 2em;
+    margin: 0 0 1em 0;
+}
+
+.menu__header_total
+{
+    text-align: center;
+    font-size: 2em;
+    margin: 1.5em 0 1em 0;
+}
+
+/* X_FOOTER */
+
+footer {
+    margin-top: 2em;
+    background-color: black;
+    height: 4em;
+}
+
+.footer-container {
+    height: 100%;
+}
+
+.footer-wrap {
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+}
+
+.footer-wrap p {
+    margin: 0;
+    padding: 0px;
+    line-height: 1em;
+}
+
+.footer-container img {
+    height: 1.6em;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.footer-link {
+    color: white;
+    margin: 0 7px;
+    font-size: 1em;
+    box-shadow: none;
+}
+
+.footer-link:hover {
+    color: salmon;
+    box-shadow: none;
+}
 
 /* MEDIA */
-/* XL */
-@media (min-width: 1400px) {
+/* XXL */
+@media (min-width: 1601px) {
     .book-container
     {
         max-width: 1200px;
@@ -410,29 +606,47 @@ h4 {
     }
 }
 
+/* XL */
+@media (max-width: 1600px) {
+    .book-container
+    {
+        margin-left: 4cm;
+        margin-right: 4cm;
+    }
+}
+
 /* LG */
 @media (max-width: 1400px) {
     .book-container
     {
-        margin-left: 70px;
-        margin-right: 70px;
+        margin-left: 4cm;
+        margin-right: 4cm;
     }
 
     blockquote.big-quote > p {
-        width: 130%;
-        font-size: 30pt;
-        line-height: 45px;
-        margin: 0;
-        padding: 4px 0 30px 0;
+        font-size: 2em;
     }
+}
 
-    .paragraph-container .paragraph-left-side {
-        left: -40px;
+/* > MD */
+@media (min-width: 992px) {
+    .hamburger-menu {
+        display: none;
     }
 }
 
 /* MD */
 @media (max-width: 991px) {
+    
+    h2 {
+        width:80%;
+    }
+
+    .book-container
+    {
+        margin-left: 3cm;
+        margin-right: 3cm;
+    }
     
     .book-title-container {
         margin: 73px 0 110px 0;
@@ -453,26 +667,22 @@ h4 {
 
     .book-superheading-title {
         font-size: 15pt;
-    }
-    .book-container {
-        margin: 0 100px;
-    }
-    .article-container {
+    }                                     
+
+    .article-container, h1 {
         width: 100%;
-    }
-    .aside-container > .aside-side-container
-    {
-        position: relative;
-        top: auto;
-        left: auto;
-        width: auto;
-        height: auto;
-        margin: 0;
-        padding: 17px;
     }
 
     .aside-container p {
         top: 0;
+    }
+
+    .aside-container h1 + .aside-side-container.side-media-block h2 {
+        display: none;
+    }
+
+    .wide {
+        width: 100%;     
     }
 
     .side-regular-block {
@@ -492,12 +702,20 @@ h4 {
         border: none;
     }
 
+    .aside-container > .aside-side-container
+    {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 17px;
+    }
+
     blockquote.big-quote > p {
         width: 100%;
-        font-size: 30pt;
-        line-height: 40px;
-        margin: 0;
-        padding: 4px 0 30px 0;
+        font-size: 2em;
     }
 
     .paragraph-container .paragraph-left-side {
@@ -519,12 +737,54 @@ h4 {
     li {
         margin: 0 0 10px 0;
     }
+
+    .side-regular-block {
+        border-radius: 5px;
+        background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
+        padding: 22px;
+    }    
+
+    .menu__list
+    {
+        margin: 0 auto 0 auto;
+        max-width: 800px;
+        width: 80%;
+    }
+
+    .book-container 
+    {
+        position: absolute;
+        padding: 0 3cm 0 3cm;
+        overflow: scroll;
+        overflow-x: auto;
+        top: 4em;
+        bottom: 0;
+        width: 100%;
+        margin: 0;
+    }
+
+    footer {
+        margin-top: 2em;
+        background-color: black;
+        height: 4em;
+    }
+
+    footer > div {
+        position: relative;
+        margin: 0 -3cm;
+        background: black;
+        padding: 0 3cm;
+    }
 }
 
 /* Smartphone horizontal - SM */
 @media (max-width: 767px) {
     .book-title-container {
         margin: 73px 0 110px 0;
+    }
+
+    h1 {
+        margin: 1.8em 0em 1.8em 0.3em;
     }
 
     .book-title {
@@ -545,7 +805,7 @@ h4 {
     }
 
     .book-container {
-        margin: 0 50px;
+        padding: 0 2.5cm;
     }
     ul {
         margin-left: 30px;
@@ -553,18 +813,36 @@ h4 {
         padding-left: 25px;
     }
     .paragraph-container > .paragraph-left-side {
-        top: 15px;
+	    display: block;
+        top: 14px;
+        font-size: 9pt;
     }
     .paragraph-container > .paragraph-right-side {
-        padding-left: 20px;
-        top: 15px;
+    	display: block;
+        padding-left: 40px;
+        top: 14px;
+        font-size: 9pt;
     }
+    .footer-container img {
+        height: 1.3em;
+    } 
 }
 
+@media (max-width: 630px) {
+    .book-container {
+        padding: 0 1.5cm;
+    }
+    .paragraph-container > .paragraph-left-side {
+        left: -33px;
+    }
+    .paragraph-container > .paragraph-right-side {
+        padding-left: 24px;
+    }
+}
 /* Smartphone - XS */
 @media (max-width: 575px) {
     .book-container {
-        margin: 0 50px 0 30px;
+        padding: 0 50px 0 30px;
     }
     ul {
         margin: 0;
@@ -575,21 +853,31 @@ h4 {
         font-size: 13pt;
     }
 
-    p code:not(.highlight), li code:not(.highlight) {
+    p code:not(.highlight), li code:not(.highlight) 
+    {
         font-size: 10pt;
         padding: 3px;
     }
    
     p, li {
-        line-height: 28px;
+        line-height: 24px;
     }    
-    .paragraph-container .paragraph-left-side {
-        display: none;
-        top: 14px;
+    
+    .paragraph-container .paragraph-left-side 
+    {
+        display: none;        
     }
-    .paragraph-container .paragraph-right-side {
-        padding-left: 10px;
+    .paragraph-container .paragraph-right-side 
+    {
+        padding-left: 21px;
         top: 14px;
+	    font-size: 8pt;
+    }
+    .footer-container img {
+        height: 1em;
+    } 
+    .menu__list {
+        margin: 0 1em 0 1em;
     }
 }
 
@@ -764,71 +1052,141 @@ h4 {
         url('../../../../../res/fonts/JetBrainsMono-Medium-Italic.ttf') format('truetype');
     font-weight: 500;
     font-style: italic;
-}  
-    </style>
+}
+@font-face {
+    font-family: 'Font Awesome 5 Free';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../../../../../res/fonts/webfonts/fa-regular-400.eot");
+    src: url("../../../../../res/fonts/webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), 
+         url("../../../../../res/fonts/webfonts/fa-regular-400.woff2") format("woff2"), 
+         url("../../../../../res/fonts/webfonts/fa-regular-400.woff") format("woff"), 
+         url("../../../../../res/fonts/webfonts/fa-regular-400.ttf") format("truetype"), 
+         url("../../../../../res/fonts/webfonts/fa-regular-400.svg#fontawesome") format("svg"); 
+    font-display: swap;
+}
     
-<div class="book-title-container d-none d-md-block">
-    <div class="book-title">Knowledge Base</div>
-    <div class="book-part-title-block">pt.1 <a href="../../../../..//ru/Memory/01-00-MemoryManagement-Intro.html" class="book-part-title">Управление памятью</a></div>
-    <div class="book-part-title-block">pt.2 <a href="../../../../..//ru/Execution/02-00-ExecutionFlow-Intro.html" class="book-part-title">Поток исполнения команд</a></div>
-    <br><a href="#" class="book-superheading-title">Обоснование выбора</a>
-    / <a href="#" class="book-superheading-title">Упрощенное описание</a>
-    / <a href="#" class="book-superheading-title">Подробное описание</a>
-</div>
+.fa {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+  font-family: 'Font Awesome 5 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
+  src: url("../../../../../res/fonts/fa-brands-400.eot");
+  src: url("../../../../../res/fonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("../../../../../res/fonts/fa-brands-400.woff2") format("woff2"), url("../../../../../res/fonts/fa-brands-400.woff") format("woff"), url("../../../../../res/fonts/fa-brands-400.ttf") format("truetype"), url("../../../../../res/fonts/fa-brands-400.svg#fontawesome") format("svg"); 
+}
 
-<!--
-<div style="
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 10000;
-    padding: 0px 50px 110px 50px;">
-<div style="
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: white;
-    box-shadow: 0 0 45px rgba(0,0,0,0.2);">
+.fab {
+  font-family: 'Font Awesome 5 Brands';
+  font-weight: 400; 
+}
 
-    <div class="container">
-    <div class="row menu-container">
-        <div class="col-6">
-            <p class="menu-title">Введение в управление памятью</p>
-	        <ol>
-                <li><a href="./Memory/01-00-MemoryManagement-Intro.html">Общие слова</a></li>
-                <li><a href="./Memory/01-02-MemoryManagement-Basics.html">Введение в управление памятью</a></li>
-                <li><a href="./Memory/01-04-MemoryManagement-ThreadStack.html">Стек потока</a></li>
-                <li><a href="./Memory/01-06-MemoryManagement-EntitiesLifetime.html">Время жизни сущности</a></li>
-                <li><a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html">RefTypes, ValueTypes, Boxing &amp; Unboxing</a></li>
-                <li><a href="./Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></li>
-                <li><a href="./Memory/01-12-MemoryManagement-Finalizer.html">Финализация</a></li>
-                <li><a href="./Memory/01-14-MemoryManagement-Results.html">Выводы</a></li>
-            </ol>
-        </div>
-        <div class="col-6">
-            <p class="menu-title">Подробности<br> реализации GC</p>
-            <ol>
-                <li><a href="./Memory/03-02-MemoryManagement-Allocation.html">Выделение памяти под объект</a> <em>(Только наговорен текст)</em></li>
-                <li><a href="./Memory/03-04-MemoryManagement-GC-Intro.html">Введение в сборку мусора</a> <em>(Только наговорен текст)</em></li>
-                <li><a href="./Memory/03-06-MemoryManagement-GC-Mark-Phase.html">Фаза маркировки</a> <em>(Только наговорен текст)</em></li>
-                <li><a href="./Memory/03-08-MemoryManagement-GC-Planning-Phase.html">Фаза планирования</a> <em>(Только наговорен текст)</em></li>
-                <li><a href="./Memory/03-10-MemoryManagement-GC-Sweep-Collect.html">Фазы Sweep/Collect</a> <em>(Только наговорен текст)</em></li>
-                <li><a href="./Memory/03-12-MemoryMenegement-GC-Results.html">Выводы по менеджменту памяти и работе над производительностью</a> <em>(Только наговорен текст)</em></li>
-            </ol>
-        </div>
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
+  src: url("../../../../../res/fonts/fa-regular-400.eot");
+  src: url("../../../../../res/fonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("../../../../../res/fonts/fa-regular-400.woff2") format("woff2"), url("../../../../../res/fonts/fa-regular-400.woff") format("woff"), url("../../../../../res/fonts/fa-regular-400.ttf") format("truetype"), url("../../../../../res/fonts/fa-regular-400.svg#fontawesome") format("svg"); 
+}
+
+.far {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 400; 
+}
+
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: auto;
+  src: url("../../../../../res/fonts/fa-solid-900.eot");
+  src: url("../../../../../res/fonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../../../../../res/fonts/fa-solid-900.woff2") format("woff2"), url("../../../../../res/fonts/fa-solid-900.woff") format("woff"), url("../../../../../res/fonts/fa-solid-900.ttf") format("truetype"), url("../../../../../res/fonts/fa-solid-900.svg#fontawesome") format("svg"); 
+}
+</style>  
+    <!--
+    <div class="book-title-container d-none d-md-block">
+        <div class="book-title">Knowledge Base</div>
+        <div class="book-part-title-block">pt.1 <a href="../../../../..//ru/Memory/01-00-MemoryManagement-Intro.html" class="book-part-title">Управление памятью</a></div>
+        <div class="book-part-title-block">pt.2 <a href="../../../../..//ru/Execution/02-00-ExecutionFlow-Intro.html" class="book-part-title">Поток исполнения команд</a></div>
+        <br><a href="#" class="book-superheading-title">Обоснование выбора</a>
+        / <a href="#" class="book-superheading-title">Упрощенное описание</a>
+        / <a href="#" class="book-superheading-title">Подробное описание</a>
     </div>
-    </div>
-</div>
-</div>
--->
-<div class="book-container">
-<div class="article-container">
-    <!--<p class="d-xs-block d-sm-none">XS</p>
-    <p class="d-none d-xs-block d-sm-none">SM</p>
-    <p class="d-none d-sm-block d-md-none">MD</p>
-    <p class="d-none d-lg-block d-xl-none">LG</p>
-    <p class="d-none d-xl-block">XL</p> -->
-    <div class="lang-ini editor-colors">
+    -->
+    <header class="header fixed">
+        <p class="conflogo">KB</p> 
+        <div class="menu">
+            <div><a href="index.html">О конференции</a></div>
+            <div><a href="mentor.html">Ментор</a></div>
+            <div><a href="practice.html">Практика</a></div>
+            <div><a href="matrix.html">Доклады</a></div>
+            <a href="register.html" class="register_button">РЕГИСТРАЦИЯ</a>
+        </div>
+
+        <!-- mobile-menu -->
+
+        <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+              <span></span>
+            </label>
+        
+            <div class="menu__box">
+                <p class="menu__header_current">На странице</p>
+                <ol class="menu__list">
+                    
+                </ol>
+                <p class="menu__header_total">Содержание</p>
+                <ul style="padding: 0;">
+                    <li style="
+                        display: inline-block;
+                        width: 100%;
+                        margin: 0;
+                        text-align: center;
+                        font-size: 1.2em;
+                        font-family: charter;
+                        ">
+                        <p>Управление памятью</p>
+                        <ul>
+                            <li>A</li>
+                            <li>B</li>
+                            <li>C</li>
+                        </ul>
+                    </li>
+                    <li style="
+                        display: inline-block;
+                        width: 100%;
+                        margin: 0;
+                        text-align: center;
+                        font-family: charter;
+                        font-size: 1.2em;
+                        ">
+                        <p>Поток исполнения команд</p>
+                        <ul>
+                            <li>A</li>
+                            <li>B</li>
+                            <li>C</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="book-container">
+        <div class="article-container">
+            <!--<p class="d-xs-block d-sm-none">XS</p>
+            <p class="d-none d-xs-block d-sm-none">SM</p>
+            <p class="d-none d-sm-block d-md-none">MD</p>
+            <p class="d-none d-lg-block d-xl-none">LG</p>
+            <p class="d-none d-xl-block">XL</p> -->
+            <div class="lang-ini editor-colors">
 BenchmarkDotNet=v0.11.0, OS=Windows 10.0.16299.611 (1709/FallCreatorsUpdate/Redstone3)
 Intel Core i7-6700 CPU 3.40GHz (Max: 3.41GHz) (Skylake), 1 CPU, 8 logical and 4 physical cores
 Frequency=3328124 Hz, Resolution=300.4696 ns, Timer=TSC
@@ -846,497 +1204,1700 @@ Frequency=3328124 Hz, Resolution=300.4696 ns, Timer=TSC
 <table>
 <thead>
 <tr>
-<th>Method</th>
-<th>Job</th>
-<th>Toolchain</th>
-<th style="text-align: right;">Mean</th>
-<th style="text-align: right;">Error</th>
-<th style="text-align: right;">StdDev</th>
-<th style="text-align: right;">Median</th>
-<th style="text-align: right;">Scaled</th>
-<th style="text-align: right;">ScaledSD</th>
+<th>
+<p >
+Method</p>
+</th>
+<th>
+<p >
+Job</p>
+</th>
+<th>
+<p >
+Toolchain</p>
+</th>
+<th style="text-align: right;">
+<p >
+Mean</p>
+</th>
+<th style="text-align: right;">
+<p >
+Error</p>
+</th>
+<th style="text-align: right;">
+<p >
+StdDev</p>
+</th>
+<th style="text-align: right;">
+<p >
+Median</p>
+</th>
+<th style="text-align: right;">
+<p >
+Scaled</p>
+</th>
+<th style="text-align: right;">
+<p >
+ScaledSD</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>ArrayIndexer_Get</td>
-<td>.NET 4.7</td>
-<td>CsProjnet47</td>
-<td style="text-align: right;">0.6067 ns</td>
-<td style="text-align: right;">0.0121 ns</td>
-<td style="text-align: right;">0.0149 ns</td>
-<td style="text-align: right;">0.6030 ns</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">0.00</td>
+<td>
+<p >
+ArrayIndexer_Get</p>
+</td>
+<td>
+<p >
+.NET 4.7</p>
+</td>
+<td>
+<p >
+CsProjnet47</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6067 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0121 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0149 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6030 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.00</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.00</p>
+</td>
 </tr>
 <tr>
-<td>ArrayIndexer_Set</td>
-<td>.NET 4.7</td>
-<td>CsProjnet47</td>
-<td style="text-align: right;">0.5861 ns</td>
-<td style="text-align: right;">0.0139 ns</td>
-<td style="text-align: right;">0.0130 ns</td>
-<td style="text-align: right;">0.5826 ns</td>
-<td style="text-align: right;">0.97</td>
-<td style="text-align: right;">0.03</td>
+<td>
+<p >
+ArrayIndexer_Set</p>
+</td>
+<td>
+<p >
+.NET 4.7</p>
+</td>
+<td>
+<p >
+CsProjnet47</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.5861 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0139 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0130 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.5826 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.97</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.03</p>
+</td>
 </tr>
 <tr>
-<td>ArraySegmentIndexer_Get</td>
-<td>.NET 4.7</td>
-<td>CsProjnet47</td>
-<td style="text-align: right;">4.1642 ns</td>
-<td style="text-align: right;">0.0896 ns</td>
-<td style="text-align: right;">0.1255 ns</td>
-<td style="text-align: right;">4.1172 ns</td>
-<td style="text-align: right;">6.87</td>
-<td style="text-align: right;">0.26</td>
+<td>
+<p >
+ArraySegmentIndexer_Get</p>
+</td>
+<td>
+<p >
+.NET 4.7</p>
+</td>
+<td>
+<p >
+CsProjnet47</p>
+</td>
+<td style="text-align: right;">
+<p >
+4.1642 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0896 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.1255 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+4.1172 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+6.87</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.26</p>
+</td>
 </tr>
 <tr>
-<td>ArraySegmentIndexer_Set</td>
-<td>.NET 4.7</td>
-<td>CsProjnet47</td>
-<td style="text-align: right;">3.7260 ns</td>
-<td style="text-align: right;">0.0716 ns</td>
-<td style="text-align: right;">0.0704 ns</td>
-<td style="text-align: right;">3.7229 ns</td>
-<td style="text-align: right;">6.15</td>
-<td style="text-align: right;">0.18</td>
+<td>
+<p >
+ArraySegmentIndexer_Set</p>
+</td>
+<td>
+<p >
+.NET 4.7</p>
+</td>
+<td>
+<p >
+CsProjnet47</p>
+</td>
+<td style="text-align: right;">
+<p >
+3.7260 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0716 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0704 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+3.7229 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+6.15</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.18</p>
+</td>
 </tr>
 <tr>
-<td>StringIndexer_Get</td>
-<td>.NET 4.7</td>
-<td>CsProjnet47</td>
-<td style="text-align: right;">0.6216 ns</td>
-<td style="text-align: right;">0.0128 ns</td>
-<td style="text-align: right;">0.0249 ns</td>
-<td style="text-align: right;">0.6185 ns</td>
-<td style="text-align: right;">1.03</td>
-<td style="text-align: right;">0.05</td>
+<td>
+<p >
+StringIndexer_Get</p>
+</td>
+<td>
+<p >
+.NET 4.7</p>
+</td>
+<td>
+<p >
+CsProjnet47</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6216 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0128 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0249 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6185 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.03</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.05</p>
+</td>
 </tr>
 <tr>
-<td>SpanArrayIndexer_Get</td>
-<td>.NET 4.7</td>
-<td>CsProjnet47</td>
-<td style="text-align: right;">1.0164 ns</td>
-<td style="text-align: right;">0.0206 ns</td>
-<td style="text-align: right;">0.0193 ns</td>
-<td style="text-align: right;">1.0113 ns</td>
-<td style="text-align: right;">1.68</td>
-<td style="text-align: right;">0.05</td>
+<td>
+<p >
+SpanArrayIndexer_Get</p>
+</td>
+<td>
+<p >
+.NET 4.7</p>
+</td>
+<td>
+<p >
+CsProjnet47</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.0164 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0206 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0193 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.0113 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.68</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.05</p>
+</td>
 </tr>
 <tr>
-<td>SpanArraySegmentIndexer_Get</td>
-<td>.NET 4.7</td>
-<td>CsProjnet47</td>
-<td style="text-align: right;">0.8996 ns</td>
-<td style="text-align: right;">0.0179 ns</td>
-<td style="text-align: right;">0.0167 ns</td>
-<td style="text-align: right;">0.9003 ns</td>
-<td style="text-align: right;">1.48</td>
-<td style="text-align: right;">0.04</td>
+<td>
+<p >
+SpanArraySegmentIndexer_Get</p>
+</td>
+<td>
+<p >
+.NET 4.7</p>
+</td>
+<td>
+<p >
+CsProjnet47</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.8996 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0179 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0167 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.9003 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.48</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.04</p>
+</td>
 </tr>
 <tr>
-<td>SpanStringIndexer_Get</td>
-<td>.NET 4.7</td>
-<td>CsProjnet47</td>
-<td style="text-align: right;">1.0267 ns</td>
-<td style="text-align: right;">0.0160 ns</td>
-<td style="text-align: right;">0.0202 ns</td>
-<td style="text-align: right;">1.0243 ns</td>
-<td style="text-align: right;">1.69</td>
-<td style="text-align: right;">0.05</td>
+<td>
+<p >
+SpanStringIndexer_Get</p>
+</td>
+<td>
+<p >
+.NET 4.7</p>
+</td>
+<td>
+<p >
+CsProjnet47</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.0267 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0160 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0202 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.0243 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.69</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.05</p>
+</td>
 </tr>
 <tr>
-<td>SpanArrayIndexer_Set</td>
-<td>.NET 4.7</td>
-<td>CsProjnet47</td>
-<td style="text-align: right;">1.0127 ns</td>
-<td style="text-align: right;">0.0200 ns</td>
-<td style="text-align: right;">0.0187 ns</td>
-<td style="text-align: right;">1.0094 ns</td>
-<td style="text-align: right;">1.67</td>
-<td style="text-align: right;">0.05</td>
+<td>
+<p >
+SpanArrayIndexer_Set</p>
+</td>
+<td>
+<p >
+.NET 4.7</p>
+</td>
+<td>
+<p >
+CsProjnet47</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.0127 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0200 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0187 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.0094 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.67</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.05</p>
+</td>
 </tr>
 <tr>
-<td>SpanArraySegmentIndexer_Set</td>
-<td>.NET 4.7</td>
-<td>CsProjnet47</td>
-<td style="text-align: right;">1.0722 ns</td>
-<td style="text-align: right;">0.0218 ns</td>
-<td style="text-align: right;">0.0491 ns</td>
-<td style="text-align: right;">1.0671 ns</td>
-<td style="text-align: right;">1.77</td>
-<td style="text-align: right;">0.09</td>
+<td>
+<p >
+SpanArraySegmentIndexer_Set</p>
+</td>
+<td>
+<p >
+.NET 4.7</p>
+</td>
+<td>
+<p >
+CsProjnet47</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.0722 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0218 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0491 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.0671 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.77</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.09</p>
+</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
+<td>
+<p >
+</p>
+</td>
+<td>
+<p >
+</p>
+</td>
+<td>
+<p >
+</p>
+</td>
+<td style="text-align: right;">
+<p >
+</p>
+</td>
+<td style="text-align: right;">
+<p >
+</p>
+</td>
+<td style="text-align: right;">
+<p >
+</p>
+</td>
+<td style="text-align: right;">
+<p >
+</p>
+</td>
+<td style="text-align: right;">
+<p >
+</p>
+</td>
+<td style="text-align: right;">
+<p >
+</p>
+</td>
 </tr>
 <tr>
-<td>ArrayIndexer_Get</td>
-<td>.NET 4.7.2</td>
-<td>CsProjnet472</td>
-<td style="text-align: right;">0.6072 ns</td>
-<td style="text-align: right;">0.0125 ns</td>
-<td style="text-align: right;">0.0149 ns</td>
-<td style="text-align: right;">0.6042 ns</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">0.00</td>
+<td>
+<p >
+ArrayIndexer_Get</p>
+</td>
+<td>
+<p >
+.NET 4.7.2</p>
+</td>
+<td>
+<p >
+CsProjnet472</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6072 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0125 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0149 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6042 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.00</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.00</p>
+</td>
 </tr>
 <tr>
-<td>ArrayIndexer_Set</td>
-<td>.NET 4.7.2</td>
-<td>CsProjnet472</td>
-<td style="text-align: right;">0.5849 ns</td>
-<td style="text-align: right;">0.0161 ns</td>
-<td style="text-align: right;">0.0192 ns</td>
-<td style="text-align: right;">0.5811 ns</td>
-<td style="text-align: right;">0.96</td>
-<td style="text-align: right;">0.04</td>
+<td>
+<p >
+ArrayIndexer_Set</p>
+</td>
+<td>
+<p >
+.NET 4.7.2</p>
+</td>
+<td>
+<p >
+CsProjnet472</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.5849 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0161 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0192 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.5811 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.96</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.04</p>
+</td>
 </tr>
 <tr>
-<td>ArraySegmentIndexer_Get</td>
-<td>.NET 4.7.2</td>
-<td>CsProjnet472</td>
-<td style="text-align: right;">4.1139 ns</td>
-<td style="text-align: right;">0.0823 ns</td>
-<td style="text-align: right;">0.1070 ns</td>
-<td style="text-align: right;">4.0840 ns</td>
-<td style="text-align: right;">6.78</td>
-<td style="text-align: right;">0.24</td>
+<td>
+<p >
+ArraySegmentIndexer_Get</p>
+</td>
+<td>
+<p >
+.NET 4.7.2</p>
+</td>
+<td>
+<p >
+CsProjnet472</p>
+</td>
+<td style="text-align: right;">
+<p >
+4.1139 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0823 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.1070 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+4.0840 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+6.78</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.24</p>
+</td>
 </tr>
 <tr>
-<td>ArraySegmentIndexer_Set</td>
-<td>.NET 4.7.2</td>
-<td>CsProjnet472</td>
-<td style="text-align: right;">3.7793 ns</td>
-<td style="text-align: right;">0.0747 ns</td>
-<td style="text-align: right;">0.1206 ns</td>
-<td style="text-align: right;">3.7473 ns</td>
-<td style="text-align: right;">6.23</td>
-<td style="text-align: right;">0.24</td>
+<td>
+<p >
+ArraySegmentIndexer_Set</p>
+</td>
+<td>
+<p >
+.NET 4.7.2</p>
+</td>
+<td>
+<p >
+CsProjnet472</p>
+</td>
+<td style="text-align: right;">
+<p >
+3.7793 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0747 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.1206 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+3.7473 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+6.23</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.24</p>
+</td>
 </tr>
 <tr>
-<td>StringIndexer_Get</td>
-<td>.NET 4.7.2</td>
-<td>CsProjnet472</td>
-<td style="text-align: right;">0.6090 ns</td>
-<td style="text-align: right;">0.0151 ns</td>
-<td style="text-align: right;">0.0141 ns</td>
-<td style="text-align: right;">0.6025 ns</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">0.03</td>
+<td>
+<p >
+StringIndexer_Get</p>
+</td>
+<td>
+<p >
+.NET 4.7.2</p>
+</td>
+<td>
+<p >
+CsProjnet472</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6090 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0151 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0141 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6025 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.00</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.03</p>
+</td>
 </tr>
 <tr>
-<td>SpanArrayIndexer_Get</td>
-<td>.NET 4.7.2</td>
-<td>CsProjnet472</td>
-<td style="text-align: right;">1.0338 ns</td>
-<td style="text-align: right;">0.0204 ns</td>
-<td style="text-align: right;">0.0362 ns</td>
-<td style="text-align: right;">1.0238 ns</td>
-<td style="text-align: right;">1.70</td>
-<td style="text-align: right;">0.07</td>
+<td>
+<p >
+SpanArrayIndexer_Get</p>
+</td>
+<td>
+<p >
+.NET 4.7.2</p>
+</td>
+<td>
+<p >
+CsProjnet472</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.0338 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0204 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0362 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.0238 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.70</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.07</p>
+</td>
 </tr>
 <tr>
-<td>SpanArraySegmentIndexer_Get</td>
-<td>.NET 4.7.2</td>
-<td>CsProjnet472</td>
-<td style="text-align: right;">0.9446 ns</td>
-<td style="text-align: right;">0.0193 ns</td>
-<td style="text-align: right;">0.0514 ns</td>
-<td style="text-align: right;">0.9431 ns</td>
-<td style="text-align: right;">1.56</td>
-<td style="text-align: right;">0.09</td>
+<td>
+<p >
+SpanArraySegmentIndexer_Get</p>
+</td>
+<td>
+<p >
+.NET 4.7.2</p>
+</td>
+<td>
+<p >
+CsProjnet472</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.9446 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0193 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0514 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.9431 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.56</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.09</p>
+</td>
 </tr>
 <tr>
-<td>SpanStringIndexer_Get</td>
-<td>.NET 4.7.2</td>
-<td>CsProjnet472</td>
-<td style="text-align: right;">1.0588 ns</td>
-<td style="text-align: right;">0.0214 ns</td>
-<td style="text-align: right;">0.0521 ns</td>
-<td style="text-align: right;">1.0430 ns</td>
-<td style="text-align: right;">1.74</td>
-<td style="text-align: right;">0.09</td>
+<td>
+<p >
+SpanStringIndexer_Get</p>
+</td>
+<td>
+<p >
+.NET 4.7.2</p>
+</td>
+<td>
+<p >
+CsProjnet472</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.0588 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0214 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0521 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.0430 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.74</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.09</p>
+</td>
 </tr>
 <tr>
-<td>SpanArrayIndexer_Set</td>
-<td>.NET 4.7.2</td>
-<td>CsProjnet472</td>
-<td style="text-align: right;">1.0172 ns</td>
-<td style="text-align: right;">0.0206 ns</td>
-<td style="text-align: right;">0.0361 ns</td>
-<td style="text-align: right;">1.0033 ns</td>
-<td style="text-align: right;">1.68</td>
-<td style="text-align: right;">0.07</td>
+<td>
+<p >
+SpanArrayIndexer_Set</p>
+</td>
+<td>
+<p >
+.NET 4.7.2</p>
+</td>
+<td>
+<p >
+CsProjnet472</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.0172 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0206 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0361 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.0033 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.68</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.07</p>
+</td>
 </tr>
 <tr>
-<td>SpanArraySegmentIndexer_Set</td>
-<td>.NET 4.7.2</td>
-<td>CsProjnet472</td>
-<td style="text-align: right;">1.0565 ns</td>
-<td style="text-align: right;">0.0215 ns</td>
-<td style="text-align: right;">0.0528 ns</td>
-<td style="text-align: right;">1.0353 ns</td>
-<td style="text-align: right;">1.74</td>
-<td style="text-align: right;">0.10</td>
+<td>
+<p >
+SpanArraySegmentIndexer_Set</p>
+</td>
+<td>
+<p >
+.NET 4.7.2</p>
+</td>
+<td>
+<p >
+CsProjnet472</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.0565 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0215 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0528 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.0353 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.74</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.10</p>
+</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
+<td>
+<p >
+</p>
+</td>
+<td>
+<p >
+</p>
+</td>
+<td>
+<p >
+</p>
+</td>
+<td style="text-align: right;">
+<p >
+</p>
+</td>
+<td style="text-align: right;">
+<p >
+</p>
+</td>
+<td style="text-align: right;">
+<p >
+</p>
+</td>
+<td style="text-align: right;">
+<p >
+</p>
+</td>
+<td style="text-align: right;">
+<p >
+</p>
+</td>
+<td style="text-align: right;">
+<p >
+</p>
+</td>
 </tr>
 <tr>
-<td>ArrayIndexer_Get</td>
-<td>.NET Core 2.1</td>
-<td>.NET Core 2.1</td>
-<td style="text-align: right;">0.7173 ns</td>
-<td style="text-align: right;">0.0144 ns</td>
-<td style="text-align: right;">0.0260 ns</td>
-<td style="text-align: right;">0.7185 ns</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">0.00</td>
+<td>
+<p >
+ArrayIndexer_Get</p>
+</td>
+<td>
+<p >
+.NET Core 2.1</p>
+</td>
+<td>
+<p >
+.NET Core 2.1</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.7173 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0144 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0260 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.7185 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.00</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.00</p>
+</td>
 </tr>
 <tr>
-<td>ArrayIndexer_Set</td>
-<td>.NET Core 2.1</td>
-<td>.NET Core 2.1</td>
-<td style="text-align: right;">0.5920 ns</td>
-<td style="text-align: right;">0.0122 ns</td>
-<td style="text-align: right;">0.0140 ns</td>
-<td style="text-align: right;">0.5942 ns</td>
-<td style="text-align: right;">0.83</td>
-<td style="text-align: right;">0.04</td>
+<td>
+<p >
+ArrayIndexer_Set</p>
+</td>
+<td>
+<p >
+.NET Core 2.1</p>
+</td>
+<td>
+<p >
+.NET Core 2.1</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.5920 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0122 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0140 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.5942 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.83</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.04</p>
+</td>
 </tr>
 <tr>
-<td>ArraySegmentIndexer_Get</td>
-<td>.NET Core 2.1</td>
-<td>.NET Core 2.1</td>
-<td style="text-align: right;">3.7554 ns</td>
-<td style="text-align: right;">0.0753 ns</td>
-<td style="text-align: right;">0.1653 ns</td>
-<td style="text-align: right;">3.7177 ns</td>
-<td style="text-align: right;">5.24</td>
-<td style="text-align: right;">0.30</td>
+<td>
+<p >
+ArraySegmentIndexer_Get</p>
+</td>
+<td>
+<p >
+.NET Core 2.1</p>
+</td>
+<td>
+<p >
+.NET Core 2.1</p>
+</td>
+<td style="text-align: right;">
+<p >
+3.7554 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0753 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.1653 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+3.7177 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+5.24</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.30</p>
+</td>
 </tr>
 <tr>
-<td>ArraySegmentIndexer_Set</td>
-<td>.NET Core 2.1</td>
-<td>.NET Core 2.1</td>
-<td style="text-align: right;">3.7553 ns</td>
-<td style="text-align: right;">0.0733 ns</td>
-<td style="text-align: right;">0.1265 ns</td>
-<td style="text-align: right;">3.7574 ns</td>
-<td style="text-align: right;">5.24</td>
-<td style="text-align: right;">0.26</td>
+<td>
+<p >
+ArraySegmentIndexer_Set</p>
+</td>
+<td>
+<p >
+.NET Core 2.1</p>
+</td>
+<td>
+<p >
+.NET Core 2.1</p>
+</td>
+<td style="text-align: right;">
+<p >
+3.7553 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0733 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.1265 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+3.7574 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+5.24</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.26</p>
+</td>
 </tr>
 <tr>
-<td>StringIndexer_Get</td>
-<td>.NET Core 2.1</td>
-<td>.NET Core 2.1</td>
-<td style="text-align: right;">0.6926 ns</td>
-<td style="text-align: right;">0.0140 ns</td>
-<td style="text-align: right;">0.0177 ns</td>
-<td style="text-align: right;">0.6920 ns</td>
-<td style="text-align: right;">0.97</td>
-<td style="text-align: right;">0.04</td>
+<td>
+<p >
+StringIndexer_Get</p>
+</td>
+<td>
+<p >
+.NET Core 2.1</p>
+</td>
+<td>
+<p >
+.NET Core 2.1</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6926 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0140 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0177 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6920 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.97</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.04</p>
+</td>
 </tr>
 <tr>
-<td>SpanArrayIndexer_Get</td>
-<td>.NET Core 2.1</td>
-<td>.NET Core 2.1</td>
-<td style="text-align: right;">0.6209 ns</td>
-<td style="text-align: right;">0.0127 ns</td>
-<td style="text-align: right;">0.0136 ns</td>
-<td style="text-align: right;">0.6228 ns</td>
-<td style="text-align: right;">0.87</td>
-<td style="text-align: right;">0.04</td>
+<td>
+<p >
+SpanArrayIndexer_Get</p>
+</td>
+<td>
+<p >
+.NET Core 2.1</p>
+</td>
+<td>
+<p >
+.NET Core 2.1</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6209 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0127 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0136 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6228 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.87</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.04</p>
+</td>
 </tr>
 <tr>
-<td>SpanArraySegmentIndexer_Get</td>
-<td>.NET Core 2.1</td>
-<td>.NET Core 2.1</td>
-<td style="text-align: right;">0.6320 ns</td>
-<td style="text-align: right;">0.0125 ns</td>
-<td style="text-align: right;">0.0139 ns</td>
-<td style="text-align: right;">0.6301 ns</td>
-<td style="text-align: right;">0.88</td>
-<td style="text-align: right;">0.04</td>
+<td>
+<p >
+SpanArraySegmentIndexer_Get</p>
+</td>
+<td>
+<p >
+.NET Core 2.1</p>
+</td>
+<td>
+<p >
+.NET Core 2.1</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6320 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0125 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0139 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6301 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.88</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.04</p>
+</td>
 </tr>
 <tr>
-<td>SpanStringIndexer_Get</td>
-<td>.NET Core 2.1</td>
-<td>.NET Core 2.1</td>
-<td style="text-align: right;">0.6363 ns</td>
-<td style="text-align: right;">0.0075 ns</td>
-<td style="text-align: right;">0.0070 ns</td>
-<td style="text-align: right;">0.6351 ns</td>
-<td style="text-align: right;">0.89</td>
-<td style="text-align: right;">0.03</td>
+<td>
+<p >
+SpanStringIndexer_Get</p>
+</td>
+<td>
+<p >
+.NET Core 2.1</p>
+</td>
+<td>
+<p >
+.NET Core 2.1</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6363 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0075 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0070 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6351 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.89</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.03</p>
+</td>
 </tr>
 <tr>
-<td>SpanArrayIndexer_Set</td>
-<td>.NET Core 2.1</td>
-<td>.NET Core 2.1</td>
-<td style="text-align: right;">0.7311 ns</td>
-<td style="text-align: right;">0.0150 ns</td>
-<td style="text-align: right;">0.0284 ns</td>
-<td style="text-align: right;">0.7311 ns</td>
-<td style="text-align: right;">1.02</td>
-<td style="text-align: right;">0.05</td>
+<td>
+<p >
+SpanArrayIndexer_Set</p>
+</td>
+<td>
+<p >
+.NET Core 2.1</p>
+</td>
+<td>
+<p >
+.NET Core 2.1</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.7311 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0150 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0284 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.7311 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.02</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.05</p>
+</td>
 </tr>
 <tr>
-<td>SpanArraySegmentIndexer_Set</td>
-<td>.NET Core 2.1</td>
-<td>.NET Core 2.1</td>
-<td style="text-align: right;">0.6564 ns</td>
-<td style="text-align: right;">0.0113 ns</td>
-<td style="text-align: right;">0.0105 ns</td>
-<td style="text-align: right;">0.6592 ns</td>
-<td style="text-align: right;">0.92</td>
-<td style="text-align: right;">0.04</td>
+<td>
+<p >
+SpanArraySegmentIndexer_Set</p>
+</td>
+<td>
+<p >
+.NET Core 2.1</p>
+</td>
+<td>
+<p >
+.NET Core 2.1</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6564 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0113 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0105 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6592 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.92</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.04</p>
+</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
+<td>
+<p >
+</p>
+</td>
+<td>
+<p >
+</p>
+</td>
+<td>
+<p >
+</p>
+</td>
+<td style="text-align: right;">
+<p >
+</p>
+</td>
+<td style="text-align: right;">
+<p >
+</p>
+</td>
+<td style="text-align: right;">
+<p >
+</p>
+</td>
+<td style="text-align: right;">
+<p >
+</p>
+</td>
+<td style="text-align: right;">
+<p >
+</p>
+</td>
+<td style="text-align: right;">
+<p >
+</p>
+</td>
 </tr>
 <tr>
-<td>ArrayIndexer_Get</td>
-<td>.NET Core 2.2</td>
-<td>.NET Core 2.2</td>
-<td style="text-align: right;">0.7160 ns</td>
-<td style="text-align: right;">0.0146 ns</td>
-<td style="text-align: right;">0.0353 ns</td>
-<td style="text-align: right;">0.7037 ns</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">0.00</td>
+<td>
+<p >
+ArrayIndexer_Get</p>
+</td>
+<td>
+<p >
+.NET Core 2.2</p>
+</td>
+<td>
+<p >
+.NET Core 2.2</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.7160 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0146 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0353 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.7037 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+1.00</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.00</p>
+</td>
 </tr>
 <tr>
-<td>ArrayIndexer_Set</td>
-<td>.NET Core 2.2</td>
-<td>.NET Core 2.2</td>
-<td style="text-align: right;">0.6066 ns</td>
-<td style="text-align: right;">0.0118 ns</td>
-<td style="text-align: right;">0.0105 ns</td>
-<td style="text-align: right;">0.6033 ns</td>
-<td style="text-align: right;">0.85</td>
-<td style="text-align: right;">0.04</td>
+<td>
+<p >
+ArrayIndexer_Set</p>
+</td>
+<td>
+<p >
+.NET Core 2.2</p>
+</td>
+<td>
+<p >
+.NET Core 2.2</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6066 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0118 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0105 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6033 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.85</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.04</p>
+</td>
 </tr>
 <tr>
-<td>ArraySegmentIndexer_Get</td>
-<td>.NET Core 2.2</td>
-<td>.NET Core 2.2</td>
-<td style="text-align: right;">3.5756 ns</td>
-<td style="text-align: right;">0.0898 ns</td>
-<td style="text-align: right;">0.0840 ns</td>
-<td style="text-align: right;">3.5657 ns</td>
-<td style="text-align: right;">5.01</td>
-<td style="text-align: right;">0.26</td>
+<td>
+<p >
+ArraySegmentIndexer_Get</p>
+</td>
+<td>
+<p >
+.NET Core 2.2</p>
+</td>
+<td>
+<p >
+.NET Core 2.2</p>
+</td>
+<td style="text-align: right;">
+<p >
+3.5756 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0898 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0840 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+3.5657 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+5.01</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.26</p>
+</td>
 </tr>
 <tr>
-<td>ArraySegmentIndexer_Set</td>
-<td>.NET Core 2.2</td>
-<td>.NET Core 2.2</td>
-<td style="text-align: right;">3.5116 ns</td>
-<td style="text-align: right;">0.0401 ns</td>
-<td style="text-align: right;">0.0375 ns</td>
-<td style="text-align: right;">3.5259 ns</td>
-<td style="text-align: right;">4.92</td>
-<td style="text-align: right;">0.24</td>
+<td>
+<p >
+ArraySegmentIndexer_Set</p>
+</td>
+<td>
+<p >
+.NET Core 2.2</p>
+</td>
+<td>
+<p >
+.NET Core 2.2</p>
+</td>
+<td style="text-align: right;">
+<p >
+3.5116 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0401 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0375 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+3.5259 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+4.92</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.24</p>
+</td>
 </tr>
 <tr>
-<td>StringIndexer_Get</td>
-<td>.NET Core 2.2</td>
-<td>.NET Core 2.2</td>
-<td style="text-align: right;">0.6785 ns</td>
-<td style="text-align: right;">0.0078 ns</td>
-<td style="text-align: right;">0.0073 ns</td>
-<td style="text-align: right;">0.6821 ns</td>
-<td style="text-align: right;">0.95</td>
-<td style="text-align: right;">0.05</td>
+<td>
+<p >
+StringIndexer_Get</p>
+</td>
+<td>
+<p >
+.NET Core 2.2</p>
+</td>
+<td>
+<p >
+.NET Core 2.2</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6785 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0078 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0073 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6821 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.95</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.05</p>
+</td>
 </tr>
 <tr>
-<td>SpanArrayIndexer_Get</td>
-<td>.NET Core 2.2</td>
-<td>.NET Core 2.2</td>
-<td style="text-align: right;">0.6331 ns</td>
-<td style="text-align: right;">0.0095 ns</td>
-<td style="text-align: right;">0.0089 ns</td>
-<td style="text-align: right;">0.6344 ns</td>
-<td style="text-align: right;">0.89</td>
-<td style="text-align: right;">0.04</td>
+<td>
+<p >
+SpanArrayIndexer_Get</p>
+</td>
+<td>
+<p >
+.NET Core 2.2</p>
+</td>
+<td>
+<p >
+.NET Core 2.2</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6331 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0095 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0089 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6344 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.89</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.04</p>
+</td>
 </tr>
 <tr>
-<td>SpanArraySegmentIndexer_Get</td>
-<td>.NET Core 2.2</td>
-<td>.NET Core 2.2</td>
-<td style="text-align: right;">0.6433 ns</td>
-<td style="text-align: right;">0.0138 ns</td>
-<td style="text-align: right;">0.0234 ns</td>
-<td style="text-align: right;">0.6345 ns</td>
-<td style="text-align: right;">0.90</td>
-<td style="text-align: right;">0.05</td>
+<td>
+<p >
+SpanArraySegmentIndexer_Get</p>
+</td>
+<td>
+<p >
+.NET Core 2.2</p>
+</td>
+<td>
+<p >
+.NET Core 2.2</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6433 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0138 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0234 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6345 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.90</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.05</p>
+</td>
 </tr>
 <tr>
-<td>SpanStringIndexer_Get</td>
-<td>.NET Core 2.2</td>
-<td>.NET Core 2.2</td>
-<td style="text-align: right;">0.6227 ns</td>
-<td style="text-align: right;">0.0109 ns</td>
-<td style="text-align: right;">0.0102 ns</td>
-<td style="text-align: right;">0.6243 ns</td>
-<td style="text-align: right;">0.87</td>
-<td style="text-align: right;">0.04</td>
+<td>
+<p >
+SpanStringIndexer_Get</p>
+</td>
+<td>
+<p >
+.NET Core 2.2</p>
+</td>
+<td>
+<p >
+.NET Core 2.2</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6227 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0109 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0102 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6243 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.87</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.04</p>
+</td>
 </tr>
 <tr>
-<td>SpanArrayIndexer_Set</td>
-<td>.NET Core 2.2</td>
-<td>.NET Core 2.2</td>
-<td style="text-align: right;">0.6631 ns</td>
-<td style="text-align: right;">0.0128 ns</td>
-<td style="text-align: right;">0.0119 ns</td>
-<td style="text-align: right;">0.6658 ns</td>
-<td style="text-align: right;">0.93</td>
-<td style="text-align: right;">0.05</td>
+<td>
+<p >
+SpanArrayIndexer_Set</p>
+</td>
+<td>
+<p >
+.NET Core 2.2</p>
+</td>
+<td>
+<p >
+.NET Core 2.2</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6631 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0128 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0119 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6658 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.93</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.05</p>
+</td>
 </tr>
 <tr>
-<td>SpanArraySegmentIndexer_Set</td>
-<td>.NET Core 2.2</td>
-<td>.NET Core 2.2</td>
-<td style="text-align: right;">0.6225 ns</td>
-<td style="text-align: right;">0.0128 ns</td>
-<td style="text-align: right;">0.0162 ns</td>
-<td style="text-align: right;">0.6201 ns</td>
-<td style="text-align: right;">0.87</td>
-<td style="text-align: right;">0.05</td>
+<td>
+<p >
+SpanArraySegmentIndexer_Set</p>
+</td>
+<td>
+<p >
+.NET Core 2.2</p>
+</td>
+<td>
+<p >
+.NET Core 2.2</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6225 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0128 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.0162 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.6201 ns</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.87</p>
+</td>
+<td style="text-align: right;">
+<p >
+0.05</p>
+</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-</div>
-</div>
+        </div>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-wrap">
+                    <img src="../../../../../res/img/logo-w-noindex.svg">
+                    <p>
+                        <a class="footer-link" target="_blank" href="mailto:sidristij@clrium.ru"><i class="far fa-envelope" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="https://vk.com/clrium"><i class="fab fa-vk" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="https://youtube.com/clrium"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="https://github.com/clrium"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="skype:stanislav.sidristyi"><i class="fab fa-skype" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="https://t.me/clrium_group"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

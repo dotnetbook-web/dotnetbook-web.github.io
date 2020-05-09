@@ -541,7 +541,7 @@ h4 {
 {
     text-align: center;
     font-size: 2em;
-    margin: 1em 0 1em 0;
+    margin: 0 0 1em 0;
 }
 
 .menu__header_total
@@ -743,6 +743,38 @@ footer {
         background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
         padding: 22px;
     }    
+
+    .menu__list
+    {
+        margin: 0 auto 0 auto;
+        max-width: 800px;
+        width: 80%;
+    }
+
+    .book-container 
+    {
+        position: absolute;
+        padding: 0 3cm 0 3cm;
+        overflow: scroll;
+        overflow-x: auto;
+        top: 4em;
+        bottom: 0;
+        width: 100%;
+        margin: 0;
+    }
+
+    footer {
+        margin-top: 2em;
+        background-color: black;
+        height: 4em;
+    }
+
+    footer > div {
+        position: relative;
+        margin: 0 -3cm;
+        background: black;
+        padding: 0 3cm;
+    }
 }
 
 /* Smartphone horizontal - SM */
@@ -773,7 +805,7 @@ footer {
     }
 
     .book-container {
-        margin: 0 2.5cm;
+        padding: 0 2.5cm;
     }
     ul {
         margin-left: 30px;
@@ -798,7 +830,7 @@ footer {
 
 @media (max-width: 630px) {
     .book-container {
-        margin: 0 1.5cm;
+        padding: 0 1.5cm;
     }
     .paragraph-container > .paragraph-left-side {
         left: -33px;
@@ -810,7 +842,7 @@ footer {
 /* Smartphone - XS */
 @media (max-width: 575px) {
     .book-container {
-        margin: 0 50px 0 30px;
+        padding: 0 50px 0 30px;
     }
     ul {
         margin: 0;
@@ -1135,7 +1167,7 @@ footer {
                         font-family: charter;
                         font-size: 1.2em;
                         ">
-                        <p>Управление памятью</p>
+                        <p>Поток исполнения команд</p>
                         <ul>
                             <li>A</li>
                             <li>B</li>
@@ -1175,21 +1207,21 @@ footer {
 </ol>
 
         </div>
-    </div>
-    <footer>
-        <div class="book-container footer-container">
-            <div class="footer-wrap">
-                <img src="../res/img/logo-w-noindex.svg">
-                <p>
-                    <a class="footer-link" target="_blank" href="mailto:sidristij@clrium.ru"><i class="far fa-envelope" aria-hidden="true"></i></a>
-                    <a class="footer-link" target="_blank" href="https://vk.com/clrium"><i class="fab fa-vk" aria-hidden="true"></i></a>
-                    <a class="footer-link" target="_blank" href="https://youtube.com/clrium"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-                    <a class="footer-link" target="_blank" href="https://github.com/clrium"><i class="fab fa-github" aria-hidden="true"></i></a>
-                    <a class="footer-link" target="_blank" href="skype:stanislav.sidristyi"><i class="fab fa-skype" aria-hidden="true"></i></a>
-                    <a class="footer-link" target="_blank" href="https://t.me/clrium_group"><i class="fab fa-telegram" aria-hidden="true"></i></a>
-                </p>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-wrap">
+                    <img src="../res/img/logo-w-noindex.svg">
+                    <p>
+                        <a class="footer-link" target="_blank" href="mailto:sidristij@clrium.ru"><i class="far fa-envelope" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="https://vk.com/clrium"><i class="fab fa-vk" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="https://youtube.com/clrium"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="https://github.com/clrium"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="skype:stanislav.sidristyi"><i class="fab fa-skype" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="https://t.me/clrium_group"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+                    </p>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 </body>
 </html>
