@@ -7,6 +7,7 @@
     <title>.NET Platform Architecture</title>
 </head>
 <body>
+    <script src="../../../../res/jquery.js"></script>
     <link rel="stylesheet" href="../../../../res/bootstrap.css">
     <link rel="stylesheet" href="../../../../res/awesome.css">
     <style>
@@ -247,9 +248,10 @@ h2 {
 }
 
 h3 {
-    margin: 30px 0 15px 0;
-    font-size: 17pt;
-    font-weight: 500;
+    margin: 1.5em 0 0 0;
+    font-size: 1.3em;
+    font-weight: 300;
+    font-style: italic;
 }
 
 h4 {
@@ -514,6 +516,7 @@ h4 {
     color: inherit;
 }
 .menu__list {
+    font-size: 0.9em;
     margin: 0 2em 0 2em;
 }
 .menu__list li {
@@ -553,7 +556,32 @@ h4 {
     font-size: 2.4em;
     margin: 1.7em 0 0.3em 0;
 }
-
+.menu__header_list 
+{
+    padding: 0;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+.menu__header_list > li 
+{
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    font-family: charter;
+}
+.menu__header_total_sub
+{
+    font-size: 1.4em;
+    margin: 2em 0 1em 0;
+}
+.menu__header_total_sub2
+{
+    font-size: 1.1em;
+    margin: 1.5em 0 0.6em 1em;
+    text-align: left;
+}
 /* X_FOOTER */
 
 footer {
@@ -753,7 +781,14 @@ footer > div {
 
     .menu__list
     {
-        margin: 0 auto 0 auto;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .menu__list, .menu__header_total_sub2
+    {
+        margin-left: auto;
+        margin-right: auto;
         max-width: 800px;
         width: 80%;
     }
@@ -1138,29 +1173,32 @@ footer > div {
             <div class="menu__box">
                 <p class="menu__header_current">На странице</p>
                 <ol class="menu__list">
-                    <li><a href="#section-3">
-Уровни приоритета</a></li>
-<li><a href="#section-8">
-Управление величиной кванта</a></li>
-<li><a href="#section-9">
-Переменные кванты</a></li>
+                    <li><a href="#section-1" onclick="$('#menu__toggle').click(); return true;">
+Поток в физическом понимании</a></li>
+<li><a href="#section-2" onclick="$('#menu__toggle').click(); return true;">
+Создание потоков</a></li>
+<li><a href="#section-3" onclick="$('#menu__toggle').click(); return true;">
+Планирование потоков</a></li>
+<li><a href="#windows-api" onclick="$('#menu__toggle').click(); return true;">
+Уровень приоритетов </a></li>
+<li><a href="#section-5" onclick="$('#menu__toggle').click(); return true;">
+Как рассчитываются уровни приоритета?</a></li>
+<li><a href="#section-6" onclick="$('#menu__toggle').click(); return true;">
+Состояние потока</a></li>
+<li><a href="#section-7" onclick="$('#menu__toggle').click(); return true;">
+Кванты времени</a></li>
+<li><a href="#section-10" onclick="$('#menu__toggle').click(); return true;">
+Выводы</a></li>
 
                 </ol>
                 <p class="menu__header_total">Содержание</p>
-                <ul style="padding: 0;">
-                    <li style="
-                        display: inline-block;
-                        width: 100%;
-                        margin: 0;
-                        text-align: center;
-                        font-family: charter;
-                        ">
-                        <p style="
-                            font-size: 1.4em;
-                            margin: 1em 0;">
-                            <span style="
-                                font-size: 0.75em;">ч.1 </span>&nbsp;
-                                Управление памятью
+                <ul class="menu__header_list">
+                    <li>
+                        <p class="menu__header_total_sub">
+                            Управление памятью
+                        </p>
+                        <p class="menu__header_total_sub2">
+                            Теоретические вопросы:
                         </p>
                         <ol class="menu__list">
                             <li><p><a href="../../../..//ru/Memory/01-00-MemoryManagement-Intro.html">
@@ -1195,71 +1233,43 @@ footer > div {
                                 <a href="../../../..//ru/Memory/01-14-MemoryManagement-Results.html">Выводы</a></p>
                             </li>
                         </ol>
-                    </li>
-                    <li style="
-                        display: inline-block;
-                        width: 100%;
-                        margin: 0;
-                        text-align: center;
-                        font-family: charter;
-                        ">
-                        <p style="
-                            font-size: 1.4em;
-                            margin: 1em 0;">
-                            <span style="
-                                font-size: 0.75em;">ч.2 </span>&nbsp;
-                                Практические вопросы
+                        <p class="menu__header_total_sub2">
+                            Практические вопросы:
                         </p>
-                        <ol class="menu__list">
+                        <ol class="menu__list" start="9">
                             <li><p><a href="../../../..//ru/Memory/02-02-MemoryManagement-MemorySpan.html">
                                 Memory&lt;T&gt;, Span&lt;T&gt;
                             </a></p></li>
-                        </ol>
+                        </ol> 
                     </li>
-                    <li style="
-                        display: inline-block;
-                        width: 100%;
-                        margin: 0;
-                        text-align: center;
-                        font-family: charter;
-                        ">
-                        <p style="
-                        font-size: 1.4em;
-                        margin: 1em 0;">
-                        <span style="
-                            font-size: 0.75em;">ч.3 </span>&nbsp;
+                    <li>
+                        <p class="menu__header_total_sub">
                             Поток исполнения команд
-                    </p>
+                        </p>
+                        <p class="menu__header_total_sub2">
+                            Многопоточность:
+                        </p>
                         <ol class="menu__list">
-                            <li>
-                                <p>
-                                    Раз­дел 1. Искл­юч­ител­ьные си­ту­а­ции
-                                </p>
-                                <ol style="margin-left:-1em;">
-                                    <li><p><a href="../../../..//ru/Execution/2-ExceptionalFlow/1-Exceptions-Intro.html">
-                                        Введение в исключительные ситуации
-                                    </a></p></li>
-                                    <li><p><a href="../../../..//ru/Execution/2-ExceptionalFlow/2-Exceptions-Architecture.html">
-                                        Архитектура исключительной ситуации
-                                    </a></p></li>
-                                    <li><p><a href="../../../..//ru/Execution/2-ExceptionalFlow/3-Exceptions-Events.html">
-                                        События об исключительных ситуациях
-                                    </a></p></li>
-                                    <li><p><a href="../../../..//ru/Execution/2-ExceptionalFlow/4-Exceptions-Types.html">
-                                        Виды исключительных ситуаций
-                                    </a></p></li>
-                                </ol>
-                            </li>
-                            <li>
-                                <p>
-                                    Раз­дел 2. Многопоточность
-                                </p>
-                                <ol style="margin-left:-1em;">
-                                    <li><p><a href="../../../..//ru/Execution/1-Threads/1-OS/1-threadsScheduling.html">
-                                        Потоки и планирование потоков
-                                    </a></p></li>
-                                </ol>
-                            </li>
+                            <li><p><a href="../../../..//ru/Execution/1-Threads/1-OS/1-threadsScheduling.html">
+                                Потоки и планирование потоков
+                            </a></p></li>
+                        </ol>
+                        <p class="menu__header_total_sub2">
+                            Искл­юч­ител­ьные си­ту­а­ции:
+                        </p>
+                        <ol class="menu__list" start="2">
+                            <li><p><a href="../../../..//ru/Execution/2-ExceptionalFlow/1-Exceptions-Intro.html">
+                                Введение в исключительные ситуации
+                            </a></p></li>
+                            <li><p><a href="../../../..//ru/Execution/2-ExceptionalFlow/2-Exceptions-Architecture.html">
+                                Архитектура исключительной ситуации
+                            </a></p></li>
+                            <li><p><a href="../../../..//ru/Execution/2-ExceptionalFlow/3-Exceptions-Events.html">
+                                События об исключительных ситуациях
+                            </a></p></li>
+                            <li><p><a href="../../../..//ru/Execution/2-ExceptionalFlow/4-Exceptions-Types.html">
+                                Виды исключительных ситуаций
+                            </a></p></li>
                         </ol>
                     </li>
                 </ul>
@@ -1274,7 +1284,7 @@ footer > div {
             <p class="d-none d-sm-block d-md-none">MD</p>
             <p class="d-none d-lg-block d-xl-none">LG</p>
             <p class="d-none d-xl-block">XL</p> -->
-            <h2 id="clrium-6">Потоки и планирование потоков [идёт адаптация курса по многопоточке CLRium #6]</h2>
+            <h1 id="section">Потоки и планирование потоков</h1>
 <p >
 Что та&shy;кое по&shy;ток? Да&shy;вай&shy;те да&shy;дим крат&shy;кое оп&shy;ре&shy;де&shy;ле&shy;ние. По сво&shy;ей су&shy;ти по&shy;ток это:</p>
 <ul>
@@ -1299,7 +1309,7 @@ footer > div {
 По су&shy;ти по&shy;ток — это сред&shy;ство эму&shy;ля&shy;ции па&shy;рал&shy;лель&shy;но&shy;го ис&shy;пол&shy;не&shy;ния от&shy;но&shy;си&shy;тель&shy;но дру&shy;гих по&shy;то&shy;ков. По&shy;че&shy;му эму&shy;ля&shy;ция? По&shy;то&shy;му, что по&shy;ток как бы стран&shy;но и сме&shy;ло это ни зву&shy;ча&shy;ло — это чис&shy;то прог&shy;рам&shy;м&shy;ная вещь, ко&shy;то&shy;рая идёт из опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы. А опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;те&shy;ма соз&shy;даёт этот слой эму&shy;ля&shy;ции для нас. Про&shy;цес&shy;сор при этом о по&shy;то&shy;ках ни&shy;че&shy;го не зна&shy;ет во&shy;об&shy;ще. За&shy;да&shy;ча про&shy;цес&shy;со&shy;ра — прос&shy;то ис&shy;пол&shy;нять код. По&shy;э&shy;то&shy;му с точ&shy;ки зре&shy;ния про&shy;цес&shy;со&shy;ра есть толь&shy;ко один по&shy;ток: пос&shy;ле&shy;до&shy;ва&shy;тель&shy;ное ис&shy;пол&shy;не&shy;ние ко&shy;манд. А за&shy;да&shy;ча опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы при на&shy;ли&shy;чии на од&shy;ном про&shy;цес&shy;сор&shy;ном яд&shy;ре нес&shy;коль&shy;ких по&shy;то&shy;ков ка&shy;ким-ли&shy;бо об&shy;ра&shy;зом под&shy;ме&shy;нять ак&shy;тив&shy;ный т.о. что&shy;бы эму&shy;ли&shy;ро&shy;вать нес&shy;коль&shy;ко по&shy;то&shy;ков, ра&shy;бо&shy;та&shy;ю&shy;щих па&shy;рал&shy;лель&shy;но. Если бы на каж&shy;дом яд&shy;ре бы&shy;ло по од&shy;но&shy;му по&shy;то&shy;ку, эму&shy;ля&shy;ции бы не бы&shy;ло.</p>
 <div class="paragraph-right-side">02</div>
 </div>
-<h2 id="section">Поток в физическом понимании</h2>
+<h2 id="section-1">Поток в физическом понимании</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
 <p >
@@ -1326,7 +1336,7 @@ footer > div {
 </div>
 <p >
 Так что по&shy;ка од&shy;ни по&shy;то&shy;ки в бло&shy;ки&shy;ров&shy;ке, дру&shy;гие - что-то де&shy;ла&shy;ют.</p>
-<h2 id="section-1">Создание потоков</h2>
+<h2 id="section-2">Создание потоков</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
 <p >
@@ -1387,7 +1397,7 @@ footer > div {
 Я бы ре&shy;ко&shy;мен&shy;до&shy;вал вам по&shy;иг&shy;рать&shy;ся с за&shy;дач&shy;кой та&shy;ко&shy;го ро&shy;да: вжить&shy;ся в код лю&shy;бо&shy;го .NET про&shy;цес&shy;са и вы&shy;вес&shy;ти ку&shy;да-ли&shy;бо со&shy;об&shy;ще&shy;ние об уда&shy;че внед&shy;ре&shy;ния (нап&shy;ри&shy;мер, в файл ло&shy;га).</p>
 <div class="paragraph-right-side">10</div>
 </div>
-<h2 id="section-2">Планирование потоков</h2>
+<h2 id="section-3">Планирование потоков</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
 <p >
@@ -1400,7 +1410,7 @@ footer > div {
 Итак, начнём. Орга&shy;ни&shy;за&shy;ция пла&shy;ни&shy;ро&shy;ва&shy;ния в опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;ме Windows яв&shy;ля&shy;ет&shy;ся гиб&shy;рид&shy;ной. С од&shy;ной сто&shy;ро&shy;ны - мо&shy;де&shy;ли&shy;ру&shy;ют&shy;ся ус&shy;ло&shy;вия вы&shy;тес&shy;ня&shy;ю&shy;щей мно&shy;го&shy;за&shy;дач&shy;нос&shy;ти, ког&shy;да опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;те&shy;ма са&shy;ма ре&shy;ша&shy;ет, ког&shy;да и на ос&shy;но&shy;ве ка&shy;ких ус&shy;ло&shy;вия вы&shy;тес&shy;нить по&shy;то&shy;ки (по&shy;ве&shy;де&shy;ние поч&shy;ти во всех при&shy;ло&shy;же&shy;ни&shy;ях). С дру&shy;гой сто&shy;ро&shy;ны - ко&shy;о&shy;пе&shy;ра&shy;тив&shy;ной мно&shy;го&shy;за&shy;дач&shy;нос&shy;ти, ког&shy;да по&shy;то&shy;ки са&shy;ми ре&shy;ша&shy;ют, ког&shy;да они всё сде&shy;ла&shy;ли и мож&shy;но пе&shy;рек&shy;лю&shy;чать&shy;ся на сле&shy;ду&shy;ю&shy;щий (UMS пла&shy;ни&shy;ров&shy;щик, соз&shy;да&shy;ва&shy;е&shy;мый поль&shy;зо&shy;ва&shy;т&shy;ельским ко&shy;дом вруч&shy;ную. Испол&shy;ьз&shy;уе&shy;тся край&shy;не ред&shy;ко). Ре&shy;жим вы&shy;тес&shy;ня&shy;ю&shy;щей мно&shy;го&shy;за&shy;дач&shy;нос&shy;ти ра&shy;бо&shy;та&shy;ет на ос&shy;но&shy;ве при&shy;о&shy;ри&shy;те&shy;тов: пла&shy;ни&shy;ров&shy;щик ре&shy;ша&shy;ет, ка&shy;кой сле&shy;ду&shy;ю&shy;щий по&shy;ток бу&shy;дет ис&shy;пол&shy;нять&shy;ся имен&shy;но на ос&shy;но&shy;ве их при&shy;о&shy;ри&shy;те&shy;тов. А вы&shy;тес&shy;ня&shy;ю&shy;щей по&shy;то&shy;му, что ес&shy;ли воз&shy;ни&shy;ка&shy;ет бо&shy;лее при&shy;о&shy;ри&shy;тет&shy;ный по&shy;ток, он вы&shy;тес&shy;ня&shy;ет тот, ко&shy;то&shy;рый сей&shy;час ис&shy;пол&shy;нял&shy;ся. Одна&shy;ко, за&shy;бе&shy;гая вперёд, мож&shy;но сде&shy;лать пос&shy;пеш&shy;ный вы&shy;вод, что во мно&shy;гих слу&shy;ча&shy;ях это бы оз&shy;на&shy;ча&shy;ло, что часть по&shy;то&shy;ков из-за их низ&shy;ких при&shy;о&shy;ри&shy;те&shy;тов ни&shy;ког&shy;да не до&shy;бе&shy;рет&shy;ся до ис&shy;пол&shy;не&shy;ния. По&shy;э&shy;то&shy;му в опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;ме есть мно&shy;го ме&shy;ха&shy;ник, поз&shy;во&shy;ля&shy;ю&shy;щих по&shy;то&shy;кам, ко&shy;то&shy;рым не&shy;об&shy;хо&shy;ди&shy;мо вре&shy;мя на ис&shy;пол&shy;не&shy;ние его по&shy;лу&shy;чить нес&shy;мот&shy;ря на свой бо&shy;лее низ&shy;кий по срав&shy;не&shy;нию с ос&shy;таль&shy;ны&shy;ми, при&shy;о&shy;ри&shy;тет.</p>
 <div class="paragraph-right-side">12</div>
 </div>
-<h3 id="section-3">Уровни приоритета</h3>
+<h3 id="section-4">Уровни приоритета</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
 <p >
@@ -1704,7 +1714,7 @@ Normal (Normal above), чуть по&shy;ни&shy;же Normal (Normal below). Т
 или на два вниз (Higest и Lowest). Нам, по&shy;верь&shy;те, нет ни&shy;ка&shy;кой не&shy;об&shy;хо&shy;ди&shy;мос&shy;ти в бо&shy;лее под&shy;роб&shy;ной гра&shy;да&shy;ции. Един&shy;ствен&shy;ное, очень ред&shy;ко, мо&shy;жет раз в жиз&shy;ни, нам по&shy;на&shy;до&shy;бит&shy;ся ска&shy;зать: вы&shy;ше чем лю&shy;бой при&shy;о&shy;ри&shy;тет в сис&shy;те&shy;ме. Тог&shy;да мы выс&shy;тав&shy;ля&shy;ем уро&shy;вень <code>Time Critical</code>. Ли&shy;бо на&shy;о&shy;бо&shy;рот: это на&shy;до де&shy;лать, ког&shy;да во всей сис&shy;те&shy;ме де&shy;лать не&shy;че&shy;го. Тог&shy;да мы выс&shy;тав&shy;ля&shy;ем уро&shy;вень <code>Idle</code>. Это зна&shy;че&shy;ния - так на&shy;зы&shy;ва&shy;е&shy;мые уров&shy;ни на&shy;сы&shy;ще&shy;ния.</p>
 <div class="paragraph-right-side">24</div>
 </div>
-<h2 id="section-4">Как рассчитываются уровни приоритета?</h2>
+<h2 id="section-5">Как рассчитываются уровни приоритета?</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
 <p >
@@ -2020,7 +2030,7 @@ Idle (-на&shy;сы&shy;ще&shy;ние)</p>
 По&shy;э&shy;то&shy;му, ког&shy;да про&shy;цес&shy;су вы&shy;даётся бо&shy;лее вы&shy;со&shy;кий класс при&shy;о&shy;ри&shy;те&shy;та, это по&shy;вы&shy;ша&shy;ет при&shy;о&shy;ри&shy;тет по&shy;то&shy;ков про&shy;цес&shy;са от&shy;но&shy;си&shy;тель&shy;но обыч&shy;ных – с клас&shy;сом Normal.</p>
 <div class="paragraph-right-side">32</div>
 </div>
-<h2 id="section-5">Состояние потока</h2>
+<h2 id="section-6">Состояние потока</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">33</div>
 <p >
@@ -2142,7 +2152,6 @@ Terminated. За&shy;вершён</p>
 <img src="./img/2.png" alt="Состояния потоков" /></p>
 <p >
 Ри&shy;су&shy;нок 2: Сос&shy;то&shy;я&shy;ние по&shy;то&shy;ков</p>
-<h2 id="section-6"><code>тут обработано</code></h2>
 <p >
 <code>тут пока НЕ обработано</code></p>
 <div class="paragraph-container">
@@ -2614,7 +2623,7 @@ lkd> dd nt!KiCyclesPerClockQuantum L1</p>
 0 - 2 – оп&shy;ре&shy;де&shy;ля&shy;ет при&shy;о&shy;ри&shy;тет&shy;ное раз&shy;де&shy;ле&shy;ние</p>
 </li>
 </ul>
-<h1 id="section-10">Выводы</h1>
+<h2 id="section-10">Выводы</h2>
 <ol>
 <li>
 <p >

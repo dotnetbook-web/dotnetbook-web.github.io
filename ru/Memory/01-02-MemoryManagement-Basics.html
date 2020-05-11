@@ -7,6 +7,7 @@
     <title>.NET Platform Architecture</title>
 </head>
 <body>
+    <script src="../../res/jquery.js"></script>
     <link rel="stylesheet" href="../../res/bootstrap.css">
     <link rel="stylesheet" href="../../res/awesome.css">
     <style>
@@ -247,9 +248,10 @@ h2 {
 }
 
 h3 {
-    margin: 30px 0 15px 0;
-    font-size: 17pt;
-    font-weight: 500;
+    margin: 1.5em 0 0 0;
+    font-size: 1.3em;
+    font-weight: 300;
+    font-style: italic;
 }
 
 h4 {
@@ -514,6 +516,7 @@ h4 {
     color: inherit;
 }
 .menu__list {
+    font-size: 0.9em;
     margin: 0 2em 0 2em;
 }
 .menu__list li {
@@ -553,7 +556,32 @@ h4 {
     font-size: 2.4em;
     margin: 1.7em 0 0.3em 0;
 }
-
+.menu__header_list 
+{
+    padding: 0;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+.menu__header_list > li 
+{
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    font-family: charter;
+}
+.menu__header_total_sub
+{
+    font-size: 1.4em;
+    margin: 2em 0 1em 0;
+}
+.menu__header_total_sub2
+{
+    font-size: 1.1em;
+    margin: 1.5em 0 0.6em 1em;
+    text-align: left;
+}
 /* X_FOOTER */
 
 footer {
@@ -753,7 +781,14 @@ footer > div {
 
     .menu__list
     {
-        margin: 0 auto 0 auto;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .menu__list, .menu__header_total_sub2
+    {
+        margin-left: auto;
+        margin-right: auto;
         max-width: 800px;
         width: 80%;
     }
@@ -1138,33 +1173,26 @@ footer > div {
             <div class="menu__box">
                 <p class="menu__header_current">На странице</p>
                 <ol class="menu__list">
-                    <li><a href="#section-1">
+                    <li><a href="#section-1" onclick="$('#menu__toggle').click(); return true;">
 Аудиокнига</a></li>
-<li><a href="#section-2">
+<li><a href="#section-2" onclick="$('#menu__toggle').click(); return true;">
 Введение в управление памятью</a></li>
-<li><a href="#section-3">
+<li><a href="#section-3" onclick="$('#menu__toggle').click(); return true;">
 Возможные классификации памяти исходя из логики</a></li>
-<li><a href="#section-4">
+<li><a href="#section-4" onclick="$('#menu__toggle').click(); return true;">
 Как это работает у нас. Обоснование выбора архитекторов</a></li>
-<li><a href="#section-5">
+<li><a href="#section-5" onclick="$('#menu__toggle').click(); return true;">
 Как это работает у нас</a></li>
 
                 </ol>
                 <p class="menu__header_total">Содержание</p>
-                <ul style="padding: 0;">
-                    <li style="
-                        display: inline-block;
-                        width: 100%;
-                        margin: 0;
-                        text-align: center;
-                        font-family: charter;
-                        ">
-                        <p style="
-                            font-size: 1.4em;
-                            margin: 1em 0;">
-                            <span style="
-                                font-size: 0.75em;">ч.1 </span>&nbsp;
-                                Управление памятью
+                <ul class="menu__header_list">
+                    <li>
+                        <p class="menu__header_total_sub">
+                            Управление памятью
+                        </p>
+                        <p class="menu__header_total_sub2">
+                            Теоретические вопросы:
                         </p>
                         <ol class="menu__list">
                             <li><p><a href="../..//ru/Memory/01-00-MemoryManagement-Intro.html">
@@ -1199,71 +1227,43 @@ footer > div {
                                 <a href="../..//ru/Memory/01-14-MemoryManagement-Results.html">Выводы</a></p>
                             </li>
                         </ol>
-                    </li>
-                    <li style="
-                        display: inline-block;
-                        width: 100%;
-                        margin: 0;
-                        text-align: center;
-                        font-family: charter;
-                        ">
-                        <p style="
-                            font-size: 1.4em;
-                            margin: 1em 0;">
-                            <span style="
-                                font-size: 0.75em;">ч.2 </span>&nbsp;
-                                Практические вопросы
+                        <p class="menu__header_total_sub2">
+                            Практические вопросы:
                         </p>
-                        <ol class="menu__list">
+                        <ol class="menu__list" start="9">
                             <li><p><a href="../..//ru/Memory/02-02-MemoryManagement-MemorySpan.html">
                                 Memory&lt;T&gt;, Span&lt;T&gt;
                             </a></p></li>
-                        </ol>
+                        </ol> 
                     </li>
-                    <li style="
-                        display: inline-block;
-                        width: 100%;
-                        margin: 0;
-                        text-align: center;
-                        font-family: charter;
-                        ">
-                        <p style="
-                        font-size: 1.4em;
-                        margin: 1em 0;">
-                        <span style="
-                            font-size: 0.75em;">ч.3 </span>&nbsp;
+                    <li>
+                        <p class="menu__header_total_sub">
                             Поток исполнения команд
-                    </p>
+                        </p>
+                        <p class="menu__header_total_sub2">
+                            Многопоточность:
+                        </p>
                         <ol class="menu__list">
-                            <li>
-                                <p>
-                                    Раз­дел 1. Искл­юч­ител­ьные си­ту­а­ции
-                                </p>
-                                <ol style="margin-left:-1em;">
-                                    <li><p><a href="../..//ru/Execution/2-ExceptionalFlow/1-Exceptions-Intro.html">
-                                        Введение в исключительные ситуации
-                                    </a></p></li>
-                                    <li><p><a href="../..//ru/Execution/2-ExceptionalFlow/2-Exceptions-Architecture.html">
-                                        Архитектура исключительной ситуации
-                                    </a></p></li>
-                                    <li><p><a href="../..//ru/Execution/2-ExceptionalFlow/3-Exceptions-Events.html">
-                                        События об исключительных ситуациях
-                                    </a></p></li>
-                                    <li><p><a href="../..//ru/Execution/2-ExceptionalFlow/4-Exceptions-Types.html">
-                                        Виды исключительных ситуаций
-                                    </a></p></li>
-                                </ol>
-                            </li>
-                            <li>
-                                <p>
-                                    Раз­дел 2. Многопоточность
-                                </p>
-                                <ol style="margin-left:-1em;">
-                                    <li><p><a href="../..//ru/Execution/1-Threads/1-OS/1-threadsScheduling.html">
-                                        Потоки и планирование потоков
-                                    </a></p></li>
-                                </ol>
-                            </li>
+                            <li><p><a href="../..//ru/Execution/1-Threads/1-OS/1-threadsScheduling.html">
+                                Потоки и планирование потоков
+                            </a></p></li>
+                        </ol>
+                        <p class="menu__header_total_sub2">
+                            Искл­юч­ител­ьные си­ту­а­ции:
+                        </p>
+                        <ol class="menu__list" start="2">
+                            <li><p><a href="../..//ru/Execution/2-ExceptionalFlow/1-Exceptions-Intro.html">
+                                Введение в исключительные ситуации
+                            </a></p></li>
+                            <li><p><a href="../..//ru/Execution/2-ExceptionalFlow/2-Exceptions-Architecture.html">
+                                Архитектура исключительной ситуации
+                            </a></p></li>
+                            <li><p><a href="../..//ru/Execution/2-ExceptionalFlow/3-Exceptions-Events.html">
+                                События об исключительных ситуациях
+                            </a></p></li>
+                            <li><p><a href="../..//ru/Execution/2-ExceptionalFlow/4-Exceptions-Types.html">
+                                Виды исключительных ситуаций
+                            </a></p></li>
                         </ol>
                     </li>
                 </ul>
