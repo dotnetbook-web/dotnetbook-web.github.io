@@ -133,11 +133,15 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 p code:not(.highlight), li code:not(.highlight) {
     font-size: 0.7em;
+    padding: 3px;
+    color: darkslateblue;
+}
+
+/* style for manual selecting */
+.box {
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
-    padding: 3px;
-    color: darkslateblue;
 }
 
 code.highlight {
@@ -241,14 +245,14 @@ h1 {
 }
 
 h2 {
-    margin-top: 2em;
+    padding-top: 1.5em;
     font-family: Charter, Arial, Helvetica Neue, sans-serif;
     font-size: 1.25em;
     width: 70%;
 }
 
 h3 {
-    margin: 1.5em 0 0 0;
+    padding-top: 1em;
     font-size: 1.3em;
     font-weight: 300;
     font-style: italic;
@@ -477,17 +481,17 @@ h4 {
     width: 1.1em;
     height: 1px;
 
-    background-color: black;
+    border-bottom: 1px black solid;
 
     transition-duration: .25s;
 }
 .menu__btn > span::before {
     content: '';
-    top: -8px;
+    top: -7px;
 }
 .menu__btn > span::after {
     content: '';
-    top: 8px;
+    top: 7px;
 }
 
 .menu__box {
@@ -1177,9 +1181,9 @@ footer > div {
             <div class="menu__box">
                 <p class="menu__header_current">На странице</p>
                 <ol class="menu__list">
-                    <li><a href="#idisposable" onclick="$('#menu__toggle').click(); return true;">
+                    <li><a href="#idisposable-1" onclick="$('#menu__toggle').click(); return true;">
 IDisposable</a></li>
-<li><a href="#idisposable-1" onclick="$('#menu__toggle').click(); return true;">
+<li><a href="#idisposable-2" onclick="$('#menu__toggle').click(); return true;">
 Вариации реализации IDisposable</a></li>
 <li><a href="#safehandle-criticalhandle-safebuffer" onclick="$('#menu__toggle').click(); return true;">
 SafeHandle / CriticalHandle / SafeBuffer / производные</a></li>
@@ -1292,20 +1296,14 @@ SafeHandle / CriticalHandle / SafeBuffer / производные</a></li>
             <p class="d-none d-sm-block d-md-none">MD</p>
             <p class="d-none d-lg-block d-xl-none">LG</p>
             <p class="d-none d-xl-block">XL</p> -->
-            <blockquote class="breadcrumbs">
-<p >
- <a href="../readme.html">Содержание</a> / <a href="./01-00-MemoryManagement-Intro.html">Основы управления памятью</a></p>
-</blockquote>
-<p >
-<img src="./imgs/Disposable-Cover.png" alt="" /></p>
-<h1 id="disposable-disposable-design-principle">Шаблон Disposable (Disposable Design Principle)</h1>
+            <h1 id="idisposable">Шаблон IDisposable</h1>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
 <p >
-Сей&shy;час, навер&shy;ное, прак&shy;ти&shy;чески любой прог&shy;рам&shy;мист, кото&shy;рый раз&shy;ра&shy;ба&shy;ты&shy;вает на плат&shy;форме .NET, ска&shy;жет, что ничего проще этого пат&shy;терна нет. Что это извест&shy;ный из извест&shy;ней&shy;ших шаб&shy;ло&shy;нов, кото&shy;рые при&shy;ме&shy;ня&shy;ются на плат&shy;форме. Однако даже в самой прос&shy;той и извест&shy;ней&shy;шей проб&shy;лем&shy;ной области всегда най&shy;дется вто&shy;рое дно, а за ним еще ряд скры&shy;тых кар&shy;маш&shy;ков, в кото&shy;рые вы никогда не заг&shy;ля&shy;ды&shy;вали. Однако, как для тех, кто смот&shy;рит тему впер&shy;вые, так и для всех про&shy;чих (просто для того, чтобы каж&shy;дый из вас вспом&shy;нил основы (не про&shy;пус&shy;кайте эти абзацы (я слежу!))) - опи&shy;шем всё от самого начала и до самого конца.</p>
+Сей&shy;час, навер&shy;ное, прак&shy;ти&shy;чески любой прог&shy;рам&shy;мист, кото&shy;рый раз&shy;ра&shy;ба&shy;ты&shy;вает на плат&shy;форме .NET, ска&shy;жет, что ничего проще этого пат&shy;терна нет. Что это извест&shy;ный из извест&shy;ней&shy;ших шаб&shy;ло&shy;нов, кото&shy;рые при&shy;ме&shy;ня&shy;ются на плат&shy;форме. Однако даже в самой прос&shy;той и извест&shy;ней&shy;шей проб&shy;лем&shy;ной области всегда най&shy;дется вто&shy;рое дно, а за ним еще ряд скры&shy;тых кар&shy;маш&shy;ков, в кото&shy;рые вы никогда не заг&shy;ля&shy;ды&shy;вали. Однако, как для тех, кто смот&shy;рит тему впер&shy;вые, так и для всех про&shy;чих (просто для того, чтобы каж&shy;дый из вас вспом&shy;нил основы (не про&shy;пус&shy;кайте эти абзацы (я слежу!)))  &mdash;  опи&shy;шем всё от самого начала и до самого конца.</p>
 <div class="paragraph-right-side">01</div>
 </div>
-<h2 id="idisposable">IDisposable</h2>
+<h2 id="idisposable-1">IDisposable</h2>
 <p >
 Если спро&shy;сить, что такое IDis&shy;po&shy;sable, вы навер&shy;няка отве&shy;тите, что это</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1318,7 +1316,7 @@ SafeHandle / CriticalHandle / SafeBuffer / производные</a></li>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
 <p >
-Для чего же соз&shy;дан интер&shy;фейс? Ведь если у нас есть умный Garbage Collector, кото&shy;рый за нас чис&shy;тит всю память и делает так, чтобы мы вообще не заду&shy;мы&shy;ва&shy;лись о том, как её чис&shy;тить, то ста&shy;но&shy;вится не сов&shy;сем понятно, зачем её вообще зани&shy;маться этим воп&shy;ро&shy;сом. Однако есть нюансы. Сущес&shy;твует неко&shy;то&shy;рое заб&shy;луж&shy;де&shy;ние, что <code>IDisposable</code> сде&shy;лан, чтобы осво&shy;бож&shy;дать неуп&shy;рав&shy;ля&shy;е&shy;мые ресурсы. И это только часть правды. Чтобы одно&shy;мо&shy;мен&shy;тно понять, что это не так, дос&shy;та&shy;точно вспом&shy;нить при&shy;меры неуп&shy;рав&shy;ля&shy;е&shy;мых ресур&shy;сов. Явл&shy;яе&shy;тся ли неуп&shy;рав&shy;ля&shy;е&shy;мым класс <code>File</code>? Нет. Может быть, <code>DbContext</code>? И опять же - нет. Неуп&shy;рав&shy;ля&shy;е&shy;мый ресурс - это то, что не вхо&shy;дит в сис&shy;тему типов .NET. То, что не было соз&shy;дано плат&shy;фор&shy;мой, и нахо&shy;дя&shy;ще&shy;еся вне её ско&shy;упа. Прос&shy;той при&shy;мер - это деск&shy;рип&shy;тор откры&shy;того файла в опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;теме. Деск&shy;рип&shy;тор - это неко&shy;то&shy;рое число, кото&shy;рое одноз&shy;начно иден&shy;ти&shy;фи&shy;ци&shy;рует откры&shy;тый опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мой файл. Не вами, а именно опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мой (вы только про&shy;сите, а откры&shy;вает его всё-таки опер&shy;ци&shy;он&shy;ная сис&shy;тема). Т.е. все управ&shy;ля&shy;ю&shy;щие струк&shy;туры (такие как коор&shy;ди&shy;наты файла на фай&shy;ло&shy;вой сис&shy;теме, его фраг&shy;менты в слу&shy;чае фраг&shy;мен&shy;та&shy;ции и про&shy;чая слу&shy;жеб&shy;ная инфор&shy;ма&shy;ция, номера цилин&shy;дра, головки, сек&shy;тора - в слу&shy;чае маг&shy;нит&shy;ного HDD) нахо&shy;дятся не внутри плат&shy;формы .NET, а внутри ОС. И единст&shy;венным неуп&shy;рав&shy;ля&shy;е&shy;мым ресур&shy;сом, кото&shy;рый ухо&shy;дит в плат&shy;форму .NET, явля&shy;ется Int&shy;Ptr - число. Это число в свою оче&shy;редь обо&shy;ра&shy;чи&shy;ва&shy;ется File&shy;Safe&shy;Handle, кото&shy;рый в свою оче&shy;редь обо&shy;ра&shy;чи&shy;ва&shy;ется клас&shy;сом File. Т.е. класс File сам по себе неуп&shy;рав&shy;ля&shy;е&shy;мым ресур&shy;сом не явля&shy;ется, но акку&shy;му&shy;ли&shy;рует в себе, исполь&shy;зуя допол&shy;ни&shy;тель&shy;ную прос&shy;лойку в виде Int&shy;Ptr, неуп&shy;рав&shy;ля&shy;е&shy;мый ресурс – деск&shy;рип&shy;тор откры&shy;того файла. Как про&shy;ис&shy;хо&shy;дит чте&shy;ние из такого файла? Через ряд мето&shy;дов Win&shy;API или ОС Linux.</p>
+Для чего же соз&shy;дан интер&shy;фейс? Ведь если у нас есть умный Garbage Collector, кото&shy;рый за нас чис&shy;тит всю память и делает так, чтобы мы вообще не заду&shy;мы&shy;ва&shy;лись о том, как её чис&shy;тить, то ста&shy;но&shy;вится не сов&shy;сем понятно, зачем её вообще зани&shy;маться этим воп&shy;ро&shy;сом. Однако есть нюансы. Сущес&shy;твует неко&shy;то&shy;рое заб&shy;луж&shy;де&shy;ние, что <code>IDisposable</code> сде&shy;лан, чтобы осво&shy;бож&shy;дать неуп&shy;рав&shy;ля&shy;е&shy;мые ресурсы. И это только часть правды. Чтобы одно&shy;мо&shy;мен&shy;тно понять, что это не так, дос&shy;та&shy;точно вспом&shy;нить при&shy;меры неуп&shy;рав&shy;ля&shy;е&shy;мых ресур&shy;сов. Явл&shy;яе&shy;тся ли неуп&shy;рав&shy;ля&shy;е&shy;мым класс <code>File</code>? Нет. Может быть, <code>DbContext</code>? И опять же  &mdash;  нет. Неуп&shy;рав&shy;ля&shy;е&shy;мый ресурс  &mdash;  это то, что не вхо&shy;дит в сис&shy;тему типов .NET. То, что не было соз&shy;дано плат&shy;фор&shy;мой, и нахо&shy;дя&shy;ще&shy;еся вне её ско&shy;упа. Прос&shy;той при&shy;мер  &mdash;  это деск&shy;рип&shy;тор откры&shy;того файла в опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;теме. Деск&shy;рип&shy;тор  &mdash;  это неко&shy;то&shy;рое число, кото&shy;рое одноз&shy;начно иден&shy;ти&shy;фи&shy;ци&shy;рует откры&shy;тый опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мой файл. Не вами, а именно опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мой (вы только про&shy;сите, а откры&shy;вает его всё-таки опер&shy;ци&shy;он&shy;ная сис&shy;тема). Т.е. все управ&shy;ля&shy;ю&shy;щие струк&shy;туры (такие как коор&shy;ди&shy;наты файла на фай&shy;ло&shy;вой сис&shy;теме, его фраг&shy;менты в слу&shy;чае фраг&shy;мен&shy;та&shy;ции и про&shy;чая слу&shy;жеб&shy;ная инфор&shy;ма&shy;ция, номера цилин&shy;дра, головки, сек&shy;тора  &mdash;  в слу&shy;чае маг&shy;нит&shy;ного HDD) нахо&shy;дятся не внутри плат&shy;формы .NET, а внутри ОС. И единст&shy;венным неуп&shy;рав&shy;ля&shy;е&shy;мым ресур&shy;сом, кото&shy;рый ухо&shy;дит в плат&shy;форму .NET, явля&shy;ется Int&shy;Ptr  &mdash;  число. Это число в свою оче&shy;редь обо&shy;ра&shy;чи&shy;ва&shy;ется File&shy;Safe&shy;Handle, кото&shy;рый в свою оче&shy;редь обо&shy;ра&shy;чи&shy;ва&shy;ется клас&shy;сом File. Т.е. класс File сам по себе неуп&shy;рав&shy;ля&shy;е&shy;мым ресур&shy;сом не явля&shy;ется, но акку&shy;му&shy;ли&shy;рует в себе, исполь&shy;зуя допол&shy;ни&shy;тель&shy;ную прос&shy;лойку в виде Int&shy;Ptr, неуп&shy;рав&shy;ля&shy;е&shy;мый ресурс – деск&shy;рип&shy;тор откры&shy;того файла. Как про&shy;ис&shy;хо&shy;дит чте&shy;ние из такого файла? Через ряд мето&shy;дов Win&shy;API или ОС Linux.</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <div class="paragraph-container">
@@ -1329,12 +1327,12 @@ SafeHandle / CriticalHandle / SafeBuffer / производные</a></li>
 </div>
 <blockquote>
 <p >
-Стоит заме&shy;тить, что ОС не просто передаёт при&shy;ло&shy;же&shy;нию деск&shy;рип&shy;тор неуп&shy;рав&shy;ля&shy;е&shy;мого ресурса, но допол&shy;ни&shy;тельно сох&shy;ра&shy;няет его в таб&shy;лице откры&shy;тых деск&shy;рип&shy;то&shy;ров про&shy;цесса. Cохра&shy;няя при этом за собой воз&shy;мож&shy;ность кор&shy;рект&shy;ного зак&shy;ры&shy;тия этих ресур&shy;сов при завер&shy;ше&shy;нии работы при&shy;ло&shy;же&shy;ния. Т.е. дру&shy;гими сло&shy;вами при выходе из при&shy;ло&shy;же&shy;ния ресурсы зак&shy;рыты будут в любом слу&shy;чае. Однако время работы при&shy;ло&shy;же&shy;ния может быть раз&shy;ным и как резуль&shy;тат - можно полу&shy;чить заб&shy;ло&shy;ки&shy;ро&shy;ван&shy;ный надолго ресурс.</p>
+Стоит заме&shy;тить, что ОС не просто передаёт при&shy;ло&shy;же&shy;нию деск&shy;рип&shy;тор неуп&shy;рав&shy;ля&shy;е&shy;мого ресурса, но допол&shy;ни&shy;тельно сох&shy;ра&shy;няет его в таб&shy;лице откры&shy;тых деск&shy;рип&shy;то&shy;ров про&shy;цесса. Cохра&shy;няя при этом за собой воз&shy;мож&shy;ность кор&shy;рект&shy;ного зак&shy;ры&shy;тия этих ресур&shy;сов при завер&shy;ше&shy;нии работы при&shy;ло&shy;же&shy;ния. Т.е. дру&shy;гими сло&shy;вами при выходе из при&shy;ло&shy;же&shy;ния ресурсы зак&shy;рыты будут в любом слу&shy;чае. Однако время работы при&shy;ло&shy;же&shy;ния может быть раз&shy;ным и как резуль&shy;тат  &mdash;  можно полу&shy;чить заб&shy;ло&shy;ки&shy;ро&shy;ван&shy;ный надолго ресурс.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
 <p >
-Хорошо. С неуп&shy;рав&shy;ля&shy;е&shy;мыми ресур&shy;сами разоб&shy;ра&shy;лись. Зачем же IDis&shy;po&shy;sable в этих слу&shy;чаях? Затем, что .NET Frame&shy;work поня&shy;тия не имеет о том, что про&shy;ис&shy;хо&shy;дит там, где его нет. Если вы откры&shy;ва&shy;ете файл при помощи функ&shy;ций ОС, .NET ничего об этом не узнаёт. Если вы выде&shy;лите учас&shy;ток памяти под собст&shy;венные нужды (нап&shy;ри&shy;мер, при помощи Virtual&shy;Alloc), .NET также ничего об этом не узнает. А если он ничего об этом не знает, он не осво&shy;бо&shy;дит память, кото&shy;рая была занята вызо&shy;вом Virtual&shy;Alloc. Или не зак&shy;роет файл, откры&shy;тый нап&shy;ря&shy;мую через вызов API ОС. Пос&shy;л&shy;едствия этого могут быть совер&shy;шенно раз&shy;ными и неп&shy;редс&shy;ка&shy;зу&shy;е&shy;мыми. Вы можете полу&shy;чить Out&shy;Of&shy;Memory, если выде&shy;ля&shy;ете слиш&shy;ком много памяти и не будете её осво&shy;бож&shy;дать (а, нап&shy;ри&shy;мер, по ста&shy;рой памяти будете просто обну&shy;лять ука&shy;за&shy;тель) либо заб&shy;ло&shy;ки&shy;ру&shy;ете на дол&shy;гое время файл на фай&shy;ло&shy;вой шаре, если он был отк&shy;рыт через сред&shy;ства ОС, но не был зак&shy;рыт. При&shy;мер с фай&shy;ло&shy;выми шарами осо&shy;бенно хорош, потому что бло&shy;ки&shy;ровка оста&shy;нется даже после зак&shy;ры&shy;тия сое&shy;ди&shy;не&shy;ния с сер&shy;ве&shy;ром - на сто&shy;роне IIS. А прав на осво&shy;бож&shy;де&shy;ние бло&shy;ки&shy;ровки у вас может не быть и придётся делать зап&shy;рос адми&shy;нист&shy;ра&shy;то&shy;рам на <code>iisreset</code> либо руч&shy;ное зак&shy;ры&shy;тие ресур&shy;сов при помощи спе&shy;ци&shy;а&shy;ли&shy;зи&shy;ро&shy;ван&shy;ного ПО. Таким обра&shy;зом, реше&shy;ние этой проб&shy;лемы может стать не три&shy;ви&shy;альной зада&shy;чей на удалённом сер&shy;вере.</p>
+Хорошо. С неуп&shy;рав&shy;ля&shy;е&shy;мыми ресур&shy;сами разоб&shy;ра&shy;лись. Зачем же IDis&shy;po&shy;sable в этих слу&shy;чаях? Затем, что .NET Frame&shy;work поня&shy;тия не имеет о том, что про&shy;ис&shy;хо&shy;дит там, где его нет. Если вы откры&shy;ва&shy;ете файл при помощи функ&shy;ций ОС, .NET ничего об этом не узнаёт. Если вы выде&shy;лите учас&shy;ток памяти под собст&shy;венные нужды (нап&shy;ри&shy;мер, при помощи Virtual&shy;Alloc), .NET также ничего об этом не узнает. А если он ничего об этом не знает, он не осво&shy;бо&shy;дит память, кото&shy;рая была занята вызо&shy;вом Virtual&shy;Alloc. Или не зак&shy;роет файл, откры&shy;тый нап&shy;ря&shy;мую через вызов API ОС. Пос&shy;л&shy;едствия этого могут быть совер&shy;шенно раз&shy;ными и неп&shy;редс&shy;ка&shy;зу&shy;е&shy;мыми. Вы можете полу&shy;чить Out&shy;Of&shy;Memory, если выде&shy;ля&shy;ете слиш&shy;ком много памяти и не будете её осво&shy;бож&shy;дать (а, нап&shy;ри&shy;мер, по ста&shy;рой памяти будете просто обну&shy;лять ука&shy;за&shy;тель) либо заб&shy;ло&shy;ки&shy;ру&shy;ете на дол&shy;гое время файл на фай&shy;ло&shy;вой шаре, если он был отк&shy;рыт через сред&shy;ства ОС, но не был зак&shy;рыт. При&shy;мер с фай&shy;ло&shy;выми шарами осо&shy;бенно хорош, потому что бло&shy;ки&shy;ровка оста&shy;нется даже после зак&shy;ры&shy;тия сое&shy;ди&shy;не&shy;ния с сер&shy;ве&shy;ром  &mdash;  на сто&shy;роне IIS. А прав на осво&shy;бож&shy;де&shy;ние бло&shy;ки&shy;ровки у вас может не быть и придётся делать зап&shy;рос адми&shy;нист&shy;ра&shy;то&shy;рам на <code>iisreset</code> либо руч&shy;ное зак&shy;ры&shy;тие ресур&shy;сов при помощи спе&shy;ци&shy;а&shy;ли&shy;зи&shy;ро&shy;ван&shy;ного ПО. Таким обра&shy;зом, реше&shy;ние этой проб&shy;лемы может стать не три&shy;ви&shy;альной зада&shy;чей на удалённом сер&shy;вере.</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <div class="paragraph-container">
@@ -1352,16 +1350,16 @@ SafeHandle / CriticalHandle / SafeBuffer / производные</a></li>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
 <p >
-Пер&shy;вый вари&shy;ант - это когда вы обо&shy;ра&shy;чи&shy;ва&shy;ете экземп&shy;ляр в <code>using(...){ ... }</code>. Т.е. вы прямо ука&shy;зы&shy;ва&shy;ете, что по окон&shy;ча&shy;нии блока using объ&shy;ект дол&shy;жен быть унич&shy;то&shy;жен. Т.е. дол&shy;жен быть выз&shy;ван Dispose(). Вто&shy;рой вари&shy;ант - унич&shy;то&shy;жить его по окон&shy;ча&shy;нии вре&shy;мени жизни объ&shy;екта, кото&shy;рый содер&shy;жит ссылку на тот, кото&shy;рый надо осво&shy;бо&shy;дить. Но ведь в .NET кроме метода фина&shy;ли&shy;за&shy;ции нет ничего, что наме&shy;кало бы на авто&shy;ма&shy;ти&shy;чес&shy;кое унич&shy;то&shy;же&shy;ние объ&shy;екта. Пра&shy;вильно? Но фина&shy;ли&shy;за&shy;ция нам сов&shy;сем не под&shy;хо&shy;дит по той при&shy;чине, что она будет неиз&shy;вес&shy;тно когда выз&shy;вана. А нам надо осво&shy;бож&shy;дать именно тогда, когда необ&shy;хо&shy;димо нам: сразу после того, как нам более не нужен, нап&shy;ри&shy;мер, откры&shy;тый файл. Именно поэ&shy;тому мы также дол&shy;жны реа&shy;ли&shy;зо&shy;вать IDis&shy;po&shy;sable у себя и в методе Dispose выз&shy;вать Dispose у всех, кем мы вла&shy;дели, чтобы осво&shy;бо&shy;дить и их тоже. Таким обра&shy;зом, мы соб&shy;лю&shy;даем <em>протокол</em>, и это очень важно. Ведь если кто-то начал соб&shy;лю&shy;дать некий про&shy;то&shy;кол, его дол&shy;жны соб&shy;лю&shy;дать все участ&shy;ники про&shy;цесса: иначе будут проб&shy;лемы.</p>
+Пер&shy;вый вари&shy;ант  &mdash;  это когда вы обо&shy;ра&shy;чи&shy;ва&shy;ете экземп&shy;ляр в <code>using(...){ ... }</code>. Т.е. вы прямо ука&shy;зы&shy;ва&shy;ете, что по окон&shy;ча&shy;нии блока using объ&shy;ект дол&shy;жен быть унич&shy;то&shy;жен. Т.е. дол&shy;жен быть выз&shy;ван Dispose(). Вто&shy;рой вари&shy;ант  &mdash;  унич&shy;то&shy;жить его по окон&shy;ча&shy;нии вре&shy;мени жизни объ&shy;екта, кото&shy;рый содер&shy;жит ссылку на тот, кото&shy;рый надо осво&shy;бо&shy;дить. Но ведь в .NET кроме метода фина&shy;ли&shy;за&shy;ции нет ничего, что наме&shy;кало бы на авто&shy;ма&shy;ти&shy;чес&shy;кое унич&shy;то&shy;же&shy;ние объ&shy;екта. Пра&shy;вильно? Но фина&shy;ли&shy;за&shy;ция нам сов&shy;сем не под&shy;хо&shy;дит по той при&shy;чине, что она будет неиз&shy;вес&shy;тно когда выз&shy;вана. А нам надо осво&shy;бож&shy;дать именно тогда, когда необ&shy;хо&shy;димо нам: сразу после того, как нам более не нужен, нап&shy;ри&shy;мер, откры&shy;тый файл. Именно поэ&shy;тому мы также дол&shy;жны реа&shy;ли&shy;зо&shy;вать IDis&shy;po&shy;sable у себя и в методе Dispose выз&shy;вать Dispose у всех, кем мы вла&shy;дели, чтобы осво&shy;бо&shy;дить и их тоже. Таким обра&shy;зом, мы соб&shy;лю&shy;даем <em>протокол</em>, и это очень важно. Ведь если кто-то начал соб&shy;лю&shy;дать некий про&shy;то&shy;кол, его дол&shy;жны соб&shy;лю&shy;дать все участ&shy;ники про&shy;цесса: иначе будут проб&shy;лемы.</p>
 <div class="paragraph-right-side">07</div>
 </div>
-<h2 id="idisposable-1">Вариации реализации IDisposable</h2>
+<h2 id="idisposable-2">Вариации реализации IDisposable</h2>
 <p >
 Давайте пойдём в реа&shy;ли&shy;за&shy;циях IDis&shy;po&shy;sable от прос&shy;того к слож&shy;ному.</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
 <p >
-Пер&shy;вая и самая прос&shy;тая реа&shy;ли&shy;за&shy;ция, кото&shy;рая только может прийти в голову, - это просто взять и реа&shy;ли&shy;зо&shy;вать IDis&shy;po&shy;sable:</p>
+Пер&shy;вая и самая прос&shy;тая реа&shy;ли&shy;за&shy;ция, кото&shy;рая только может прийти в голову,  &mdash;  это просто взять и реа&shy;ли&shy;зо&shy;вать IDis&shy;po&shy;sable:</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1379,7 +1377,7 @@ SafeHandle / CriticalHandle / SafeBuffer / производные</a></li>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
 <p >
-Т.е. для начала мы создаём экземп&shy;ляр неко&shy;то&shy;рого ресурса, кото&shy;рый дол&shy;жен быть осво&shy;бождён: этот ресурс и осво&shy;бож&shy;да&shy;ется в методе Dispose(). Един&shy;ствен&shy;ное, чего здесь нет и что делает реа&shy;ли&shy;за&shy;цию не кон&shy;сис&shy;тент&shy;ной, - это воз&shy;мож&shy;ность даль&shy;ней&shy;шей работы с экземп&shy;ля&shy;ром класса после его раз&shy;ру&shy;ше&shy;ния мето&shy;дом <code>Dispose()</code>:</p>
+Т.е. для начала мы создаём экземп&shy;ляр неко&shy;то&shy;рого ресурса, кото&shy;рый дол&shy;жен быть осво&shy;бождён: этот ресурс и осво&shy;бож&shy;да&shy;ется в методе Dispose(). Един&shy;ствен&shy;ное, чего здесь нет и что делает реа&shy;ли&shy;за&shy;цию не кон&shy;сис&shy;тент&shy;ной,  &mdash;  это воз&shy;мож&shy;ность даль&shy;ней&shy;шей работы с экземп&shy;ля&shy;ром класса после его раз&shy;ру&shy;ше&shy;ния мето&shy;дом <code>Dispose()</code>:</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1409,7 +1407,7 @@ SafeHandle / CriticalHandle / SafeBuffer / производные</a></li>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
 <p >
-Вызов Check&shy;Disposed() необ&shy;хо&shy;димо вызы&shy;вать пер&shy;вым выра&shy;же&shy;нием во всех пуб&shy;лич&shy;ных мето&shy;дах класса. Однако, если для раз&shy;ру&shy;ше&shy;ния управ&shy;ля&shy;е&shy;мого ресурса, коим явля&shy;ется <code>DisposableResource</code>, полу&shy;чен&shy;ная струк&shy;тура класса <code>ResourceHolder</code> выг&shy;ля&shy;дит нор&shy;мально, то для слу&shy;чай инкап&shy;су&shy;ли&shy;ро&shy;ва&shy;ния неуп&shy;рав&shy;ля&shy;е&shy;мого ресурса - нет.</p>
+Вызов Check&shy;Disposed() необ&shy;хо&shy;димо вызы&shy;вать пер&shy;вым выра&shy;же&shy;нием во всех пуб&shy;лич&shy;ных мето&shy;дах класса. Однако, если для раз&shy;ру&shy;ше&shy;ния управ&shy;ля&shy;е&shy;мого ресурса, коим явля&shy;ется <code>DisposableResource</code>, полу&shy;чен&shy;ная струк&shy;тура класса <code>ResourceHolder</code> выг&shy;ля&shy;дит нор&shy;мально, то для слу&shy;чай инкап&shy;су&shy;ли&shy;ро&shy;ва&shy;ния неуп&shy;рав&shy;ля&shy;е&shy;мого ресурса  &mdash;  нет.</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <p >
@@ -1444,7 +1442,7 @@ SafeHandle / CriticalHandle / SafeBuffer / производные</a></li>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
 <p >
-Так какая раз&shy;ница в пове&shy;де&shy;нии двух пос&shy;лед&shy;них при&shy;ме&shy;ров? В пер&shy;вом вари&shy;анте у нас опи&shy;сано вза&shy;и&shy;мо&shy;д&shy;ействие управ&shy;ля&shy;е&shy;мого ресурса с дру&shy;гим управ&shy;ля&shy;е&shy;мым. Это озна&shy;чает, что в слу&shy;чае кор&shy;рект&shy;ной работы прог&shy;раммы ресурс будет осво&shy;бождён в любом слу&shy;чае. Ведь <code>DisposableResource</code> у нас - управ&shy;ля&shy;е&shy;мый, а зна&shy;чит, .NET CLR о нём прек&shy;расно знает и, в слу&shy;чае некор&shy;рект&shy;ного пове&shy;де&shy;ния осво&shy;бо&shy;дит из-под него память. Заметьте, что я наме&shy;ренно не делаю ника&shy;ких пред&shy;по&shy;ло&shy;же&shy;ний о том, что тип <code>DisposableResource</code> инкап&shy;су&shy;ли&shy;рует. Там может быть какая угодно логика и струк&shy;тура. Она может содер&shy;жать как управ&shy;ля&shy;е&shy;мые, так и неуп&shy;рав&shy;ля&shy;е&shy;мые ресурсы. <em>Нас это волновать не должно</em>. Нас же не про&shy;сят каж&shy;дый раз деком&shy;пи&shy;ли&shy;ро&shy;вать чужие биб&shy;ли&shy;о&shy;теки и смот&shy;реть, какие типы что исполь&shy;зуют: управ&shy;ля&shy;е&shy;мые или неуп&shy;рав&shy;ля&shy;е&shy;мые ресурсы. А если <em>наш тип</em> исполь&shy;зует неуп&shy;рав&shy;ля&shy;е&shy;мый ресурс, мы не можем этого не знать. Это мы делаем в классе <code>FileWrapper</code>. Так что же про&shy;и&shy;зойдёт в этом слу&shy;чае?</p>
+Так какая раз&shy;ница в пове&shy;де&shy;нии двух пос&shy;лед&shy;них при&shy;ме&shy;ров? В пер&shy;вом вари&shy;анте у нас опи&shy;сано вза&shy;и&shy;мо&shy;д&shy;ействие управ&shy;ля&shy;е&shy;мого ресурса с дру&shy;гим управ&shy;ля&shy;е&shy;мым. Это озна&shy;чает, что в слу&shy;чае кор&shy;рект&shy;ной работы прог&shy;раммы ресурс будет осво&shy;бождён в любом слу&shy;чае. Ведь <code>DisposableResource</code> у нас  &mdash;  управ&shy;ля&shy;е&shy;мый, а зна&shy;чит, .NET CLR о нём прек&shy;расно знает и, в слу&shy;чае некор&shy;рект&shy;ного пове&shy;де&shy;ния осво&shy;бо&shy;дит из-под него память. Заметьте, что я наме&shy;ренно не делаю ника&shy;ких пред&shy;по&shy;ло&shy;же&shy;ний о том, что тип <code>DisposableResource</code> инкап&shy;су&shy;ли&shy;рует. Там может быть какая угодно логика и струк&shy;тура. Она может содер&shy;жать как управ&shy;ля&shy;е&shy;мые, так и неуп&shy;рав&shy;ля&shy;е&shy;мые ресурсы. <em>Нас это волновать не должно</em>. Нас же не про&shy;сят каж&shy;дый раз деком&shy;пи&shy;ли&shy;ро&shy;вать чужие биб&shy;ли&shy;о&shy;теки и смот&shy;реть, какие типы что исполь&shy;зуют: управ&shy;ля&shy;е&shy;мые или неуп&shy;рав&shy;ля&shy;е&shy;мые ресурсы. А если <em>наш тип</em> исполь&shy;зует неуп&shy;рав&shy;ля&shy;е&shy;мый ресурс, мы не можем этого не знать. Это мы делаем в классе <code>FileWrapper</code>. Так что же про&shy;и&shy;зойдёт в этом слу&shy;чае?</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="paragraph-container">
@@ -1466,7 +1464,7 @@ SafeHandle / CriticalHandle / SafeBuffer / производные</a></li>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
 <p >
-Во всех таких слу&shy;чаях воз&shy;ник&shy;нет ситу&shy;а&shy;ция под&shy;ве&shy;шен&shy;ных в воз&shy;духе неуп&shy;рав&shy;ля&shy;е&shy;мых ресур&shy;сов. Ведь Garbage Collector поня&shy;тия не имеет, что их нужно соб&shy;рать. Мак&shy;си&shy;мум что он сде&shy;лает - при оче&shy;ред&shy;ном про&shy;ходе поймёт, что на граф объ&shy;ек&shy;тов, содер&shy;жа&shy;щих наш объ&shy;ект типа <code>FileWrapper</code>, поте&shy;ряна пос&shy;лед&shy;няя ссылка и память перетрётся теми объ&shy;ек&shy;тами, на кото&shy;рые ссылки есть.</p>
+Во всех таких слу&shy;чаях воз&shy;ник&shy;нет ситу&shy;а&shy;ция под&shy;ве&shy;шен&shy;ных в воз&shy;духе неуп&shy;рав&shy;ля&shy;е&shy;мых ресур&shy;сов. Ведь Garbage Collector поня&shy;тия не имеет, что их нужно соб&shy;рать. Мак&shy;си&shy;мум что он сде&shy;лает  &mdash;  при оче&shy;ред&shy;ном про&shy;ходе поймёт, что на граф объ&shy;ек&shy;тов, содер&shy;жа&shy;щих наш объ&shy;ект типа <code>FileWrapper</code>, поте&shy;ряна пос&shy;лед&shy;няя ссылка и память перетрётся теми объ&shy;ек&shy;тами, на кото&shy;рые ссылки есть.</p>
 <div class="paragraph-right-side">13</div>
 </div>
 <div class="paragraph-container">
@@ -1567,7 +1565,7 @@ SafeHandle / CriticalHandle / SafeBuffer / производные</a></li>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
 <p >
-Однако в этом коде сущес&shy;твует очень серьёзная проб&shy;лема, кото&shy;рая не даст ему рабо&shy;тать так, как заду&shy;мали мы. Если мы вспом&shy;ним, как отра&shy;ба&shy;ты&shy;вает про&shy;цесс сборки мусора, то заме&shy;тим одну деталь. При сборке мусора GC <em>в первую очередь</em> фина&shy;ли&shy;зи&shy;рует всё, что нап&shy;ря&shy;мую унас&shy;ле&shy;до&shy;вано от <em>Object</em>, после чего при&shy;ни&shy;ма&shy;ется за те объ&shy;екты, кото&shy;рые реа&shy;ли&shy;зуют <em>CriticalFinalizerObject</em>. У нас же полу&shy;ча&shy;ется, что оба класса, кото&shy;рые мы спр&shy;ое&shy;кт&shy;ир&shy;ов&shy;али, нас&shy;ле&shy;дуют Object: и это проб&shy;лема. Мы поня&shy;тия не имеем, в каком порядке мы уйдём на &laquo;пос&shy;лед&shy;нюю милю&raquo;. Тем не менее, более высо&shy;ко&shy;уров&shy;не&shy;вый объ&shy;ект может пытаться рабо&shy;тать с объ&shy;ек&shy;том, кото&shy;рый хра&shy;нит неуп&shy;рав&shy;ля&shy;е&shy;мый ресурс - в своём фина&shy;ли&shy;за&shy;торе (хотя это уже зву&shy;чит как пло&shy;хая идея). Тут нам бы сильно при&shy;го&shy;дился поря&shy;док фина&shy;ли&shy;за&shy;ции. И для того чтобы его задать - мы дол&shy;жны унас&shy;ле&shy;до&shy;вать наш тип, инкап&shy;су&shy;ли&shy;ру&shy;ю&shy;щий unma&shy;naged ресурс, от <code>CriticalFinalizerObject</code>.</p>
+Однако в этом коде сущес&shy;твует очень серьёзная проб&shy;лема, кото&shy;рая не даст ему рабо&shy;тать так, как заду&shy;мали мы. Если мы вспом&shy;ним, как отра&shy;ба&shy;ты&shy;вает про&shy;цесс сборки мусора, то заме&shy;тим одну деталь. При сборке мусора GC <em>в первую очередь</em> фина&shy;ли&shy;зи&shy;рует всё, что нап&shy;ря&shy;мую унас&shy;ле&shy;до&shy;вано от <em>Object</em>, после чего при&shy;ни&shy;ма&shy;ется за те объ&shy;екты, кото&shy;рые реа&shy;ли&shy;зуют <em>CriticalFinalizerObject</em>. У нас же полу&shy;ча&shy;ется, что оба класса, кото&shy;рые мы спр&shy;ое&shy;кт&shy;ир&shy;ов&shy;али, нас&shy;ле&shy;дуют Object: и это проб&shy;лема. Мы поня&shy;тия не имеем, в каком порядке мы уйдём на &laquo;пос&shy;лед&shy;нюю милю&raquo;. Тем не менее, более высо&shy;ко&shy;уров&shy;не&shy;вый объ&shy;ект может пытаться рабо&shy;тать с объ&shy;ек&shy;том, кото&shy;рый хра&shy;нит неуп&shy;рав&shy;ля&shy;е&shy;мый ресурс  &mdash;  в своём фина&shy;ли&shy;за&shy;торе (хотя это уже зву&shy;чит как пло&shy;хая идея). Тут нам бы сильно при&shy;го&shy;дился поря&shy;док фина&shy;ли&shy;за&shy;ции. И для того чтобы его задать  &mdash;  мы дол&shy;жны унас&shy;ле&shy;до&shy;вать наш тип, инкап&shy;су&shy;ли&shy;ру&shy;ю&shy;щий unma&shy;naged ресурс, от <code>CriticalFinalizerObject</code>.</p>
 <div class="paragraph-right-side">17</div>
 </div>
 <div class="paragraph-container">
@@ -1579,7 +1577,7 @@ SafeHandle / CriticalHandle / SafeBuffer / производные</a></li>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
 <p >
-Почему это так важно? Зачем тра&shy;тить так много уси&shy;лий на тех, кто уйдёт в мир иной? А всё дело в том, что неуп&shy;рав&shy;ля&shy;е&shy;мые ресурсы могут повис&shy;нуть в сис&shy;теме очень надолго. Даже после того, как ваше при&shy;ло&shy;же&shy;ние завер&shy;шит работу. Даже после пере&shy;заг&shy;рузки ком&shy;пьютера: если поль&shy;зо&shy;ва&shy;тель отк&shy;рыл в вашем при&shy;ло&shy;же&shy;нии файл с сете&shy;вого диска, тот будет заб&shy;ло&shy;ки&shy;ро&shy;ван удалённым хос&shy;том и отпу&shy;щен либо по тайм-ауту, либо когда вы осво&shy;бо&shy;дите ресурс, зак&shy;рыв файл. Если ваше при&shy;ло&shy;же&shy;ние выле&shy;тит в момент откры&shy;того файла, то он не будет зак&shy;рыт даже после пере&shy;заг&shy;рузки. Придётся ждать дос&shy;та&shy;точно про&shy;дол&shy;жи&shy;тель&shy;ное время для того, чтобы удалённый хост отпус&shy;тил бы его. Плюс ко всему вам нельзя допус&shy;кать выб&shy;роса исклю&shy;че&shy;ний в фина&shy;ли&shy;за&shy;то&shy;рах - это при&shy;ведёт к уско&shy;рен&shy;ной гибели CLR и окон&shy;ча&shy;тель&shy;ному выб&shy;росу из при&shy;ло&shy;же&shy;ния: вызовы фина&shy;ли&shy;за&shy;то&shy;ров не обо&shy;ра&shy;чи&shy;ва&shy;ются <em>try .. catch</em>. Т.е. осво&shy;бож&shy;дая ресурс, вам надо быть уве&shy;рен&shy;ными в том, что он ещё может быть осво&shy;бождён. И пос&shy;лед&shy;ний не менее инте&shy;рес&shy;ный факт - если CLR осу&shy;щес&shy;твляет ава&shy;рий&shy;ную выг&shy;рузку домена, фина&shy;ли&shy;за&shy;торы типов, про&shy;из&shy;вод&shy;ных от <em>CriticalFinalizerObject</em>, также будут выз&shy;ваны, в отли&shy;чие от тех, кто нас&shy;ле&shy;до&shy;вался нап&shy;ря&shy;мую от <em>Object</em>.</p>
+Почему это так важно? Зачем тра&shy;тить так много уси&shy;лий на тех, кто уйдёт в мир иной? А всё дело в том, что неуп&shy;рав&shy;ля&shy;е&shy;мые ресурсы могут повис&shy;нуть в сис&shy;теме очень надолго. Даже после того, как ваше при&shy;ло&shy;же&shy;ние завер&shy;шит работу. Даже после пере&shy;заг&shy;рузки ком&shy;пьютера: если поль&shy;зо&shy;ва&shy;тель отк&shy;рыл в вашем при&shy;ло&shy;же&shy;нии файл с сете&shy;вого диска, тот будет заб&shy;ло&shy;ки&shy;ро&shy;ван удалённым хос&shy;том и отпу&shy;щен либо по тайм-ауту, либо когда вы осво&shy;бо&shy;дите ресурс, зак&shy;рыв файл. Если ваше при&shy;ло&shy;же&shy;ние выле&shy;тит в момент откры&shy;того файла, то он не будет зак&shy;рыт даже после пере&shy;заг&shy;рузки. Придётся ждать дос&shy;та&shy;точно про&shy;дол&shy;жи&shy;тель&shy;ное время для того, чтобы удалённый хост отпус&shy;тил бы его. Плюс ко всему вам нельзя допус&shy;кать выб&shy;роса исклю&shy;че&shy;ний в фина&shy;ли&shy;за&shy;то&shy;рах  &mdash;  это при&shy;ведёт к уско&shy;рен&shy;ной гибели CLR и окон&shy;ча&shy;тель&shy;ному выб&shy;росу из при&shy;ло&shy;же&shy;ния: вызовы фина&shy;ли&shy;за&shy;то&shy;ров не обо&shy;ра&shy;чи&shy;ва&shy;ются <em>try .. catch</em>. Т.е. осво&shy;бож&shy;дая ресурс, вам надо быть уве&shy;рен&shy;ными в том, что он ещё может быть осво&shy;бождён. И пос&shy;лед&shy;ний не менее инте&shy;рес&shy;ный факт  &mdash;  если CLR осу&shy;щес&shy;твляет ава&shy;рий&shy;ную выг&shy;рузку домена, фина&shy;ли&shy;за&shy;торы типов, про&shy;из&shy;вод&shy;ных от <em>CriticalFinalizerObject</em>, также будут выз&shy;ваны, в отли&shy;чие от тех, кто нас&shy;ле&shy;до&shy;вался нап&shy;ря&shy;мую от <em>Object</em>.</p>
 <div class="paragraph-right-side">19</div>
 </div>
 <h2 id="safehandle-criticalhandle-safebuffer">SafeHandle / CriticalHandle / SafeBuffer / производные</h2>
@@ -1592,15 +1590,15 @@ SafeHandle / CriticalHandle / SafeBuffer / производные</a></li>
 <ul>
 <li>
 <p >
-Пер&shy;вое и самое ожи&shy;да&shy;е&shy;мое, что оттуда обычно идёт, - это деск&shy;рип&shy;торы (han&shy;dles). Для раз&shy;ра&shy;бот&shy;чика .NET это может быть абсо&shy;лютно пус&shy;тым сло&shy;вом, но это очень важ&shy;ная сос&shy;тав&shy;ля&shy;ю&shy;щая мира опе&shy;ра&shy;ци&shy;он&shy;ных сис&shy;тем. По своей сути handle - это 32-х либо 64-х раз&shy;ряд&shy;ное число, опре&shy;де&shy;ля&shy;ю&shy;щее откры&shy;тую сес&shy;сию вза&shy;и&shy;мо&shy;д&shy;ействия с опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мой. Т.е., нап&shy;ри&shy;мер, откры&shy;ва&shy;ете вы файл, чтобы с ним пора&shy;бо&shy;тать, а в ответ от Win&shy;Api-фун&shy;к&shy;ции полу&shy;чили деск&shy;рип&shy;тор. После чего, исполь&shy;зуя его, можете про&shy;дол&shy;жать рабо&shy;тать именно с ним: дела&shy;ете <em>Seek</em>, <em>Read</em>, <em>Write</em> опе&shy;ра&shy;ции. Вто&shy;рой при&shy;мер: откры&shy;ва&shy;ете сокет для работы с сетью. И опять же: опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;тема отдаст вам деск&shy;рип&shy;тор. В мире .NET деск&shy;рип&shy;торы хра&shy;нятся в типе <em>IntPtr</em>;</p>
+Пер&shy;вое и самое ожи&shy;да&shy;е&shy;мое, что оттуда обычно идёт,  &mdash;  это деск&shy;рип&shy;торы (han&shy;dles). Для раз&shy;ра&shy;бот&shy;чика .NET это может быть абсо&shy;лютно пус&shy;тым сло&shy;вом, но это очень важ&shy;ная сос&shy;тав&shy;ля&shy;ю&shy;щая мира опе&shy;ра&shy;ци&shy;он&shy;ных сис&shy;тем. По своей сути handle  &mdash;  это 32-х либо 64-х раз&shy;ряд&shy;ное число, опре&shy;де&shy;ля&shy;ю&shy;щее откры&shy;тую сес&shy;сию вза&shy;и&shy;мо&shy;д&shy;ействия с опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мой. Т.е., нап&shy;ри&shy;мер, откры&shy;ва&shy;ете вы файл, чтобы с ним пора&shy;бо&shy;тать, а в ответ от Win&shy;Api-фун&shy;к&shy;ции полу&shy;чили деск&shy;рип&shy;тор. После чего, исполь&shy;зуя его, можете про&shy;дол&shy;жать рабо&shy;тать именно с ним: дела&shy;ете <em>Seek</em>, <em>Read</em>, <em>Write</em> опе&shy;ра&shy;ции. Вто&shy;рой при&shy;мер: откры&shy;ва&shy;ете сокет для работы с сетью. И опять же: опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;тема отдаст вам деск&shy;рип&shy;тор. В мире .NET деск&shy;рип&shy;торы хра&shy;нятся в типе <em>IntPtr</em>;</p>
 </li>
 <li>
 <p >
-Вто&shy;рое - это мас&shy;сивы дан&shy;ных. Сущес&shy;твует нес&shy;колько путей работы с неуп&shy;рав&shy;ля&shy;е&shy;мыми мас&shy;си&shy;вами: либо рабо&shy;тать с ним через unsafe код (клю&shy;че&shy;вое слово unsafe), либо исполь&shy;зо&shy;вать Safe&shy;Buffer, кото&shy;рый обернёт буфер дан&shy;ных удоб&shy;ным .NET-клас&shy;сом. Замечу, что хоть пер&shy;вый спо&shy;соб быс&shy;т&shy;рее (вы можете сильно опти&shy;ми&shy;зи&shy;ро&shy;вать циклы, нап&shy;ри&shy;мер), то вто&shy;рой спо&shy;соб - нам&shy;ного безо&shy;пас&shy;нее. Ведь он исполь&shy;зует Safe&shy;Handle как основу для работы;</p>
+Вто&shy;рое  &mdash;  это мас&shy;сивы дан&shy;ных. Сущес&shy;твует нес&shy;колько путей работы с неуп&shy;рав&shy;ля&shy;е&shy;мыми мас&shy;си&shy;вами: либо рабо&shy;тать с ним через unsafe код (клю&shy;че&shy;вое слово unsafe), либо исполь&shy;зо&shy;вать Safe&shy;Buffer, кото&shy;рый обернёт буфер дан&shy;ных удоб&shy;ным .NET-клас&shy;сом. Замечу, что хоть пер&shy;вый спо&shy;соб быс&shy;т&shy;рее (вы можете сильно опти&shy;ми&shy;зи&shy;ро&shy;вать циклы, нап&shy;ри&shy;мер), то вто&shy;рой спо&shy;соб  &mdash;  нам&shy;ного безо&shy;пас&shy;нее. Ведь он исполь&shy;зует Safe&shy;Handle как основу для работы;</p>
 </li>
 <li>
 <p >
-Строки. Со стро&shy;ками всё нес&shy;колько проще, потому что наша задача - опре&shy;де&shy;лить фор&shy;мат и коди&shy;ровку строки, кото&shy;рую мы заби&shy;раем. Далее строка копи&shy;ру&shy;ется к нам (класс string - immu&shy;table) и мы дальше ни о чём не думаем.</p>
+Строки. Со стро&shy;ками всё нес&shy;колько проще, потому что наша задача  &mdash;  опре&shy;де&shy;лить фор&shy;мат и коди&shy;ровку строки, кото&shy;рую мы заби&shy;раем. Далее строка копи&shy;ру&shy;ется к нам (класс string  &mdash;  immu&shy;table) и мы дальше ни о чём не думаем.</p>
 </li>
 <li>
 <p >
@@ -1610,7 +1608,7 @@ Value&shy;Types, кото&shy;рые заби&shy;ра&shy;ются копи&shy
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
 <p >
-Safe&shy;Handle - это спе&shy;ци&shy;альный класс .NET CLR, кото&shy;рый нас&shy;ле&shy;дует Critical&shy;Finalizer&shy;Object и кото&shy;рый приз&shy;ван обер&shy;нуть деск&shy;рип&shy;торы опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;темы мак&shy;си&shy;мально безо&shy;пасно и удобно.</p>
+Safe&shy;Handle  &mdash;  это спе&shy;ци&shy;альный класс .NET CLR, кото&shy;рый нас&shy;ле&shy;дует Critical&shy;Finalizer&shy;Object и кото&shy;рый приз&shy;ван обер&shy;нуть деск&shy;рип&shy;торы опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;темы мак&shy;си&shy;мально безо&shy;пасно и удобно.</p>
 <div class="paragraph-right-side">21</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1635,7 +1633,7 @@ Safe&shy;Handle - это спе&shy;ци&shy;альный класс .NET CLR, �
         Dispose(<span style="color:Blue;">false</span>);
     }
 
-    <span style="color:Green;">// Выставление hanlde может идти как вручную, так и при помощи p/invoke Marshal - автоматически</span>
+    <span style="color:Green;">// Выставление hanlde может идти как вручную, так и при помощи p/invoke Marshal -- автоматически</span>
     [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
     <span style="color:Blue;">protected</span> <span style="color:Blue;">void</span> SetHandle(IntPtr handle)
     {
@@ -1717,13 +1715,13 @@ Safe&shy;Handle - это спе&shy;ци&shy;альный класс .NET CLR, �
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
 <p >
-Чтобы оце&shy;нить полез&shy;ность группы клас&shy;сов, про&shy;из&shy;вод&shy;ных от Safe&shy;Handle, дос&shy;та&shy;точно вспом&shy;нить, чем хороши все .NET типы: авто&shy;ма&shy;ти&shy;зи&shy;ро&shy;ван&shy;ностью уборки мусора. Т.о., обо&shy;ра&shy;чи&shy;вая неуп&shy;рав&shy;ля&shy;е&shy;мый ресурс, Safe&shy;Handle наде&shy;ляет его такими же свой&shy;ствами, т.к. явля&shy;ется управ&shy;ля&shy;е&shy;мым. Плюс ко всему он содер&shy;жит внут&shy;рен&shy;ний счётчик внеш&shy;них ссы&shy;лок, кото&shy;рые не могут быть учтены CLR. Т.е. ссыл&shy;ками из unsafe кода. Вруч&shy;ную уве&shy;ли&shy;чи&shy;вать и умень&shy;шать счётчик нет почти ника&shy;кой необ&shy;хо&shy;ди&shy;мости: когда вы объ&shy;яв&shy;ля&shy;ете любой тип, про&shy;из&shy;вод&shy;ный от Safe&shy;Handle, как пара&shy;метр unsafe метода, то при входе в метод счётчик будет уве&shy;ли&shy;чен, а при выходе - уменьшён. Это свой&shy;ство вве&shy;дено по той при&shy;чине, что когда вы перешли в unsafe код, пере&shy;дав туда деск&shy;рип&shy;тор, то в дру&shy;гом потоке (если вы, конечно, рабо&shy;та&shy;ете с одним деск&shy;рип&shy;то&shy;ром из нес&shy;коль&shy;ких пото&shy;ков) обну&shy;лив ссылку на него, полу&shy;чите соб&shy;ран&shy;ный Safe&shy;Handle. Со счётчи&shy;ком же ссы&shy;лок всё проще: Safe&shy;Handle не будет соб&shy;ран, пока допол&shy;ни&shy;тельно не обну&shy;лится счётчик. Вот почему вруч&shy;ную менять счётчик не стоит. Либо это надо делать очень акку&shy;ратно: возв&shy;ра&shy;щая его, как только это ста&shy;но&shy;вится воз&shy;мож&shy;ным.</p>
+Чтобы оце&shy;нить полез&shy;ность группы клас&shy;сов, про&shy;из&shy;вод&shy;ных от Safe&shy;Handle, дос&shy;та&shy;точно вспом&shy;нить, чем хороши все .NET типы: авто&shy;ма&shy;ти&shy;зи&shy;ро&shy;ван&shy;ностью уборки мусора. Т.о., обо&shy;ра&shy;чи&shy;вая неуп&shy;рав&shy;ля&shy;е&shy;мый ресурс, Safe&shy;Handle наде&shy;ляет его такими же свой&shy;ствами, т.к. явля&shy;ется управ&shy;ля&shy;е&shy;мым. Плюс ко всему он содер&shy;жит внут&shy;рен&shy;ний счётчик внеш&shy;них ссы&shy;лок, кото&shy;рые не могут быть учтены CLR. Т.е. ссыл&shy;ками из unsafe кода. Вруч&shy;ную уве&shy;ли&shy;чи&shy;вать и умень&shy;шать счётчик нет почти ника&shy;кой необ&shy;хо&shy;ди&shy;мости: когда вы объ&shy;яв&shy;ля&shy;ете любой тип, про&shy;из&shy;вод&shy;ный от Safe&shy;Handle, как пара&shy;метр unsafe метода, то при входе в метод счётчик будет уве&shy;ли&shy;чен, а при выходе  &mdash;  уменьшён. Это свой&shy;ство вве&shy;дено по той при&shy;чине, что когда вы перешли в unsafe код, пере&shy;дав туда деск&shy;рип&shy;тор, то в дру&shy;гом потоке (если вы, конечно, рабо&shy;та&shy;ете с одним деск&shy;рип&shy;то&shy;ром из нес&shy;коль&shy;ких пото&shy;ков) обну&shy;лив ссылку на него, полу&shy;чите соб&shy;ран&shy;ный Safe&shy;Handle. Со счётчи&shy;ком же ссы&shy;лок всё проще: Safe&shy;Handle не будет соб&shy;ран, пока допол&shy;ни&shy;тельно не обну&shy;лится счётчик. Вот почему вруч&shy;ную менять счётчик не стоит. Либо это надо делать очень акку&shy;ратно: возв&shy;ра&shy;щая его, как только это ста&shy;но&shy;вится воз&shy;мож&shy;ным.</p>
 <div class="paragraph-right-side">22</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
 <p >
-Вто&shy;рое наз&shy;на&shy;че&shy;ние счётчика ссы&shy;лок - это зада&shy;ние порядка фина&shy;ли&shy;за&shy;ции <code>CriticalFinalizerObject</code>, кото&shy;рые друг на друга ссы&shy;ла&shy;ются. Если один Safe&shy;Handle-based тип ссы&shy;ла&shy;ется на дру&shy;гой Safe&shy;Handle-based тип, то в конст&shy;ру&shy;кторе ссы&shy;ла&shy;ю&shy;ще&shy;гося необ&shy;хо&shy;димо допол&shy;ни&shy;тельно уве&shy;ли&shy;чить счётчик ссы&shy;лок, а в методе Release&shy;Handle - умень&shy;шить. Таким обра&shy;зом, ваш объ&shy;ект не будет унич&shy;то&shy;жен, пока не будет унич&shy;то&shy;жен тот, на кото&shy;рый вы сос&shy;ла&shy;лись. Однако чтобы не путаться, стоит избе&shy;гать таких ситу&shy;а&shy;ций.</p>
+Вто&shy;рое наз&shy;на&shy;че&shy;ние счётчика ссы&shy;лок  &mdash;  это зада&shy;ние порядка фина&shy;ли&shy;за&shy;ции <code>CriticalFinalizerObject</code>, кото&shy;рые друг на друга ссы&shy;ла&shy;ются. Если один Safe&shy;Handle-based тип ссы&shy;ла&shy;ется на дру&shy;гой Safe&shy;Handle-based тип, то в конст&shy;ру&shy;кторе ссы&shy;ла&shy;ю&shy;ще&shy;гося необ&shy;хо&shy;димо допол&shy;ни&shy;тельно уве&shy;ли&shy;чить счётчик ссы&shy;лок, а в методе Release&shy;Handle  &mdash;  умень&shy;шить. Таким обра&shy;зом, ваш объ&shy;ект не будет унич&shy;то&shy;жен, пока не будет унич&shy;то&shy;жен тот, на кото&shy;рый вы сос&shy;ла&shy;лись. Однако чтобы не путаться, стоит избе&shy;гать таких ситу&shy;а&shy;ций.</p>
 <div class="paragraph-right-side">23</div>
 </div>
 <div class="paragraph-container">
@@ -1773,7 +1771,7 @@ Safe&shy;Handle - это спе&shy;ци&shy;альный класс .NET CLR, �
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
 <p >
-Что его отли&shy;чает? Зная, что если в Dll&shy;Import методе в качес&shy;тве возв&shy;ра&shy;ща&shy;е&shy;мого зна&shy;че&shy;ния уста&shy;но&shy;вить <strong>любой</strong> (в том числе и свой) Safe&shy;Handle-based тип, то Marshal его кор&shy;рек&shy;тно соз&shy;даст и про&shy;и&shy;ни&shy;ци&shy;а&shy;ли&shy;зи&shy;рует, уста&shy;но&shy;вив счётчик исполь&shy;зо&shy;ва&shy;ний в 1, мы ста&shy;вим тип Safe&shy;File&shy;Handle в качес&shy;тве возв&shy;ра&shy;ща&shy;е&shy;мого для фун&shy;к&shy;ции ядра Create&shy;File. Полу&shy;чив его, мы будем при вызове Read&shy;File и Write&shy;File исполь&shy;зо&shy;вать именно его (т.к. при вызове счётчик опять же уве&shy;ли&shy;чится, а при выходе - умень&shy;шится, что даст нам гаран&shy;тию сущест&shy;во&shy;ва&shy;ния handle на всё время чте&shy;ния и записи в файл). Тип этот спр&shy;ое&shy;кт&shy;ир&shy;ован кор&shy;рек&shy;тно, а это зна&shy;чит, что он гаран&shy;ти&shy;ро&shy;ванно зак&shy;роет фай&shy;ло&shy;вый деск&shy;рип&shy;тор, даже когда про&shy;цесс ава&shy;рийно завер&shy;шит свою работу. А это зна&shy;чит, что нам не надо реа&shy;ли&shy;зо&shy;вы&shy;вать свой fina&shy;lizer и всё, что с ним свя&shy;зано. Наш тип зна&shy;чи&shy;тельно упро&shy;ща&shy;ется.</p>
+Что его отли&shy;чает? Зная, что если в Dll&shy;Import методе в качес&shy;тве возв&shy;ра&shy;ща&shy;е&shy;мого зна&shy;че&shy;ния уста&shy;но&shy;вить <strong>любой</strong> (в том числе и свой) Safe&shy;Handle-based тип, то Marshal его кор&shy;рек&shy;тно соз&shy;даст и про&shy;и&shy;ни&shy;ци&shy;а&shy;ли&shy;зи&shy;рует, уста&shy;но&shy;вив счётчик исполь&shy;зо&shy;ва&shy;ний в 1, мы ста&shy;вим тип Safe&shy;File&shy;Handle в качес&shy;тве возв&shy;ра&shy;ща&shy;е&shy;мого для фун&shy;к&shy;ции ядра Create&shy;File. Полу&shy;чив его, мы будем при вызове Read&shy;File и Write&shy;File исполь&shy;зо&shy;вать именно его (т.к. при вызове счётчик опять же уве&shy;ли&shy;чится, а при выходе  &mdash;  умень&shy;шится, что даст нам гаран&shy;тию сущест&shy;во&shy;ва&shy;ния handle на всё время чте&shy;ния и записи в файл). Тип этот спр&shy;ое&shy;кт&shy;ир&shy;ован кор&shy;рек&shy;тно, а это зна&shy;чит, что он гаран&shy;ти&shy;ро&shy;ванно зак&shy;роет фай&shy;ло&shy;вый деск&shy;рип&shy;тор, даже когда про&shy;цесс ава&shy;рийно завер&shy;шит свою работу. А это зна&shy;чит, что нам не надо реа&shy;ли&shy;зо&shy;вы&shy;вать свой fina&shy;lizer и всё, что с ним свя&shy;зано. Наш тип зна&shy;чи&shy;тельно упро&shy;ща&shy;ется.</p>
 <div class="paragraph-right-side">25</div>
 </div>
 <h3 id="finalizer">Срабатывание finalizer во время работы экземплярных методов</h3>
@@ -1874,14 +1872,14 @@ Safe&shy;Handle - это спе&shy;ци&shy;альный класс .NET CLR, �
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
 <p >
-Сог&shy;ла&shy;си&shy;тесь: этот код выг&shy;ля&shy;дит более-менее при&shy;лично. Во вся&shy;ком слу&shy;чае, явно он никак не сооб&shy;щает, что есть какая-то проб&shy;лема. А проб&shy;лема есть и при том очень серьёзная. Воз&shy;можна попытка зак&shy;ры&shy;тия файла фина&shy;ли&shy;за&shy;то&shy;ром класса во время чте&shy;ния из файла. Что прак&shy;ти&shy;чески гаран&shy;ти&shy;ро&shy;ванно при&shy;ведёт к ошибке. Причём пос&shy;кольку в дан&shy;ном слу&shy;чае ошибка будет именно возв&shy;ра&shy;щена (<code>IntPtr == -1</code>), то мы этого не уви&shy;дим, <code>_handle</code> будет обнулён, даль&shy;ней&shy;ший <code>Dispose</code> не зак&shy;роет файл, а мы полу&shy;чим утечку ресурса. Для реше&shy;ния этой проб&shy;лемы необ&shy;хо&shy;димо поль&shy;зо&shy;ваться <code>SafeHandle</code>, <code>CriticalHandle</code>, <code>SafeBuffer</code> и их про&shy;из&shy;вод&shy;ными, кото&shy;рые кроме того, что имеют счётчики исполь&shy;зо&shy;ва&shy;ния в unma&shy;naged мире, так ещё и эти счётчики авто&shy;ма&shy;ти&shy;чески уве&shy;ли&shy;чи&shy;ва&shy;ются при пере&shy;даче в unma&shy;naged методы и умень&shy;ша&shy;ются - при выходе из него.</p>
+Сог&shy;ла&shy;си&shy;тесь: этот код выг&shy;ля&shy;дит более-менее при&shy;лично. Во вся&shy;ком слу&shy;чае, явно он никак не сооб&shy;щает, что есть какая-то проб&shy;лема. А проб&shy;лема есть и при том очень серьёзная. Воз&shy;можна попытка зак&shy;ры&shy;тия файла фина&shy;ли&shy;за&shy;то&shy;ром класса во время чте&shy;ния из файла. Что прак&shy;ти&shy;чески гаран&shy;ти&shy;ро&shy;ванно при&shy;ведёт к ошибке. Причём пос&shy;кольку в дан&shy;ном слу&shy;чае ошибка будет именно возв&shy;ра&shy;щена (<code>IntPtr == -1</code>), то мы этого не уви&shy;дим, <code>_handle</code> будет обнулён, даль&shy;ней&shy;ший <code>Dispose</code> не зак&shy;роет файл, а мы полу&shy;чим утечку ресурса. Для реше&shy;ния этой проб&shy;лемы необ&shy;хо&shy;димо поль&shy;зо&shy;ваться <code>SafeHandle</code>, <code>CriticalHandle</code>, <code>SafeBuffer</code> и их про&shy;из&shy;вод&shy;ными, кото&shy;рые кроме того, что имеют счётчики исполь&shy;зо&shy;ва&shy;ния в unma&shy;naged мире, так ещё и эти счётчики авто&shy;ма&shy;ти&shy;чески уве&shy;ли&shy;чи&shy;ва&shy;ются при пере&shy;даче в unma&shy;naged методы и умень&shy;ша&shy;ются  &mdash;  при выходе из него.</p>
 <div class="paragraph-right-side">28</div>
 </div>
 <h2 id="section">Многопоточность</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">29</div>
 <p >
-Теперь пого&shy;во&shy;рим про тон&shy;кий лёд. В пре&shy;ды&shy;ду&shy;щих час&shy;тях расс&shy;каза об IDis&shy;po&shy;sable мы про&shy;го&shy;во&shy;рили одну очень важ&shy;ную кон&shy;цеп&shy;цию, кото&shy;рая лежит не только в основе про&shy;ек&shy;ти&shy;ро&shy;ва&shy;ния Dispo&shy;sable типов, но и в про&shy;ек&shy;ти&shy;ро&shy;ва&shy;нии любого типа: кон&shy;цеп&shy;ция целост&shy;ности объ&shy;екта. Это зна&shy;чит, что в любой момент вре&shy;мени объ&shy;ект нахо&shy;дится в строго опре&shy;делённом сос&shy;то&shy;я&shy;нии, и любое действие над ним пере&shy;во&shy;дит его сос&shy;то&shy;я&shy;ние в одно из зара&shy;нее опре&shy;делённых - при про&shy;ек&shy;ти&shy;ро&shy;ва&shy;нии типа этого объ&shy;екта. Дру&shy;гими сло&shy;вами - ника&shy;кое действие над объ&shy;ек&shy;том не дол&shy;жно иметь воз&shy;мож&shy;ность пере&shy;вести его сос&shy;то&shy;я&shy;ние в то, кото&shy;рое не было опре&shy;де&shy;лено. Из этого выте&shy;кает проб&shy;лема в спр&shy;ое&shy;кт&shy;ир&shy;ова&shy;нных ранее типах: они не пото&shy;ко&shy;бе&shy;зо&shy;пас&shy;ный. Есть потен&shy;ци&shy;альная воз&shy;мож&shy;ность вызова пуб&shy;лич&shy;ных мето&shy;дов этих типов в то время, как идёт раз&shy;ру&shy;ше&shy;ние объ&shy;екта. Давайте решим эту проб&shy;лему и решим, стоит ли вообще её решать</p>
+Теперь пого&shy;во&shy;рим про тон&shy;кий лёд. В пре&shy;ды&shy;ду&shy;щих час&shy;тях расс&shy;каза об IDis&shy;po&shy;sable мы про&shy;го&shy;во&shy;рили одну очень важ&shy;ную кон&shy;цеп&shy;цию, кото&shy;рая лежит не только в основе про&shy;ек&shy;ти&shy;ро&shy;ва&shy;ния Dispo&shy;sable типов, но и в про&shy;ек&shy;ти&shy;ро&shy;ва&shy;нии любого типа: кон&shy;цеп&shy;ция целост&shy;ности объ&shy;екта. Это зна&shy;чит, что в любой момент вре&shy;мени объ&shy;ект нахо&shy;дится в строго опре&shy;делённом сос&shy;то&shy;я&shy;нии, и любое действие над ним пере&shy;во&shy;дит его сос&shy;то&shy;я&shy;ние в одно из зара&shy;нее опре&shy;делённых  &mdash;  при про&shy;ек&shy;ти&shy;ро&shy;ва&shy;нии типа этого объ&shy;екта. Дру&shy;гими сло&shy;вами  &mdash;  ника&shy;кое действие над объ&shy;ек&shy;том не дол&shy;жно иметь воз&shy;мож&shy;ность пере&shy;вести его сос&shy;то&shy;я&shy;ние в то, кото&shy;рое не было опре&shy;де&shy;лено. Из этого выте&shy;кает проб&shy;лема в спр&shy;ое&shy;кт&shy;ир&shy;ова&shy;нных ранее типах: они не пото&shy;ко&shy;бе&shy;зо&shy;пас&shy;ный. Есть потен&shy;ци&shy;альная воз&shy;мож&shy;ность вызова пуб&shy;лич&shy;ных мето&shy;дов этих типов в то время, как идёт раз&shy;ру&shy;ше&shy;ние объ&shy;екта. Давайте решим эту проб&shy;лему и решим, стоит ли вообще её решать</p>
 <div class="paragraph-right-side">29</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1945,13 +1943,13 @@ Safe&shy;Handle - это спе&shy;ци&shy;альный класс .NET CLR, �
 <div class="paragraph-container">
 <div class="paragraph-left-side">30</div>
 <p >
-Уста&shy;новка кри&shy;ти&shy;чес&shy;кой сек&shy;ции на код про&shy;верки <code>_disposed</code> в Dispose() и по факту - уста&shy;новка кри&shy;ти&shy;чес&shy;кой сек&shy;ции на весь код пуб&shy;лич&shy;ных мето&shy;дов. Это решит нашу проб&shy;лему однов&shy;ре&shy;мен&shy;ного входа в пуб&shy;лич&shy;ный метод экземп&shy;ляра типа и в метод его раз&shy;ру&shy;ше&shy;ния, однако соз&shy;даст тай&shy;мер замед&shy;лен&shy;ного действия для ряда дру&shy;гих проб&shy;лем:</p>
+Уста&shy;новка кри&shy;ти&shy;чес&shy;кой сек&shy;ции на код про&shy;верки <code>_disposed</code> в Dispose() и по факту  &mdash;  уста&shy;новка кри&shy;ти&shy;чес&shy;кой сек&shy;ции на весь код пуб&shy;лич&shy;ных мето&shy;дов. Это решит нашу проб&shy;лему однов&shy;ре&shy;мен&shy;ного входа в пуб&shy;лич&shy;ный метод экземп&shy;ляра типа и в метод его раз&shy;ру&shy;ше&shy;ния, однако соз&shy;даст тай&shy;мер замед&shy;лен&shy;ного действия для ряда дру&shy;гих проб&shy;лем:</p>
 <div class="paragraph-right-side">30</div>
 </div>
 <ul>
 <li>
 <p >
-Интен&shy;сив&shy;ная работа с мето&shy;дами экземп&shy;ляра типа, а также работа по соз&shy;да&shy;нию и раз&shy;ру&shy;ше&shy;нию объ&shy;ек&shy;тов при&shy;ведёт к силь&shy;ному про&shy;се&shy;да&shy;нию по про&shy;из&shy;во&shy;ди&shy;тель&shy;ности. Всё дело в том, что взя&shy;тие бло&shy;ки&shy;ровки зани&shy;мает неко&shy;то&shy;рое время. Это время необ&shy;хо&shy;димо для алло&shy;ка&shy;ции таб&shy;лиц Sync&shy;Block&shy;Index, про&shy;ве&shy;рок на теку&shy;щий поток и много чего ещё (мы расс&shy;мот&shy;рим всё это отдельно - в раз&shy;деле про мно&shy;го&shy;по&shy;точ&shy;ность). Т.е. полу&shy;ча&shy;ется, что ради &laquo;пос&shy;лед&shy;ней мили&raquo; жизни объ&shy;екта мы будем пла&shy;тить про&shy;из&shy;во&shy;ди&shy;тель&shy;ностью всё время его жизни!</p>
+Интен&shy;сив&shy;ная работа с мето&shy;дами экземп&shy;ляра типа, а также работа по соз&shy;да&shy;нию и раз&shy;ру&shy;ше&shy;нию объ&shy;ек&shy;тов при&shy;ведёт к силь&shy;ному про&shy;се&shy;да&shy;нию по про&shy;из&shy;во&shy;ди&shy;тель&shy;ности. Всё дело в том, что взя&shy;тие бло&shy;ки&shy;ровки зани&shy;мает неко&shy;то&shy;рое время. Это время необ&shy;хо&shy;димо для алло&shy;ка&shy;ции таб&shy;лиц Sync&shy;Block&shy;Index, про&shy;ве&shy;рок на теку&shy;щий поток и много чего ещё (мы расс&shy;мот&shy;рим всё это отдельно  &mdash;  в раз&shy;деле про мно&shy;го&shy;по&shy;точ&shy;ность). Т.е. полу&shy;ча&shy;ется, что ради &laquo;пос&shy;лед&shy;ней мили&raquo; жизни объ&shy;екта мы будем пла&shy;тить про&shy;из&shy;во&shy;ди&shy;тель&shy;ностью всё время его жизни!</p>
 </li>
 <li>
 <p >
@@ -2096,7 +2094,7 @@ Reliability&shy;Contract(Consis&shy;tency.Will&shy;Not&shy;Corrupt&shy;State, Ce
 </li>
 <li>
 <p >
-Т.к. они не имеют неуп&shy;рав&shy;ля&shy;е&shy;мых ресур&shy;сов - то не реа&shy;ли&shy;зуют fina&shy;lizer</p>
+Т.к. они не имеют неуп&shy;рав&shy;ля&shy;е&shy;мых ресур&shy;сов  &mdash;  то не реа&shy;ли&shy;зуют fina&shy;lizer</p>
 </li>
 <li>
 <p >
@@ -2115,7 +2113,7 @@ Reliability&shy;Contract(Consis&shy;tency.Will&shy;Not&shy;Corrupt&shy;State, Ce
 <div class="paragraph-container">
 <div class="paragraph-left-side">36</div>
 <p >
-Иде&shy;о&shy;ло&shy;ги&shy;чески IDis&shy;po&shy;sable был соз&shy;дан для осво&shy;бож&shy;де&shy;ния неуп&shy;рав&shy;ля&shy;е&shy;мых ресур&shy;сов. Но как и для мно&shy;гих дру&shy;гих шаб&shy;ло&shy;нов ока&shy;за&shy;лось, что он очень поле&shy;зен и для дру&shy;гих задач. Нап&shy;ри&shy;мер, для осво&shy;бож&shy;де&shy;ния ссы&shy;лок на управ&shy;ля&shy;е&shy;мые ресурсы. Зву&shy;чит как-то не очень полезно: осво&shy;бож&shy;дать управ&shy;ля&shy;е&shy;мые ресурсы. Ведь нам же объ&shy;яс&shy;нили, что управ&shy;ля&shy;е&shy;мые ресурсы - они на то и управ&shy;ля&shy;е&shy;мые, чтобы мы расс&shy;ла&shy;би&shy;лись и смот&shy;рели в сто&shy;рону раз&shy;ра&shy;бот&shy;чи&shy;ков C/C++ с едва замет&shy;ной ухмыл&shy;кой. Однако всё не сов&shy;сем так. Мы всегда можем полу&shy;чить ситу&shy;а&shy;цию, когда мы теряем ссылку на объ&shy;ект и думаем, что всё хорошо: GC соберёт мусор, а вместе с ним и наш объ&shy;ект. Однако, выяс&shy;ня&shy;ется, что память растёт, мы лезем в прог&shy;рамму ана&shy;лиза памяти и видим, что на самом деле этот объ&shy;ект удер&shy;жи&shy;ва&shy;ется чем-то ещё. Всё дело в том, что как в плат&shy;форме .NET, так и в архи&shy;тек&shy;туре внеш&shy;них клас&shy;сов может при&shy;сутс&shy;твовать логика неяв&shy;ного зах&shy;вата ссылки на вашу сущ&shy;ность. После чего, ввиду не явности зах&shy;вата, прог&shy;рам&shy;мист может про&shy;пус&shy;тить необ&shy;хо&shy;ди&shy;мость её осво&shy;бож&shy;де&shy;ния и полу&shy;чить на выходе утечку памяти.</p>
+Иде&shy;о&shy;ло&shy;ги&shy;чески IDis&shy;po&shy;sable был соз&shy;дан для осво&shy;бож&shy;де&shy;ния неуп&shy;рав&shy;ля&shy;е&shy;мых ресур&shy;сов. Но как и для мно&shy;гих дру&shy;гих шаб&shy;ло&shy;нов ока&shy;за&shy;лось, что он очень поле&shy;зен и для дру&shy;гих задач. Нап&shy;ри&shy;мер, для осво&shy;бож&shy;де&shy;ния ссы&shy;лок на управ&shy;ля&shy;е&shy;мые ресурсы. Зву&shy;чит как-то не очень полезно: осво&shy;бож&shy;дать управ&shy;ля&shy;е&shy;мые ресурсы. Ведь нам же объ&shy;яс&shy;нили, что управ&shy;ля&shy;е&shy;мые ресурсы  &mdash;  они на то и управ&shy;ля&shy;е&shy;мые, чтобы мы расс&shy;ла&shy;би&shy;лись и смот&shy;рели в сто&shy;рону раз&shy;ра&shy;бот&shy;чи&shy;ков C/C++ с едва замет&shy;ной ухмыл&shy;кой. Однако всё не сов&shy;сем так. Мы всегда можем полу&shy;чить ситу&shy;а&shy;цию, когда мы теряем ссылку на объ&shy;ект и думаем, что всё хорошо: GC соберёт мусор, а вместе с ним и наш объ&shy;ект. Однако, выяс&shy;ня&shy;ется, что память растёт, мы лезем в прог&shy;рамму ана&shy;лиза памяти и видим, что на самом деле этот объ&shy;ект удер&shy;жи&shy;ва&shy;ется чем-то ещё. Всё дело в том, что как в плат&shy;форме .NET, так и в архи&shy;тек&shy;туре внеш&shy;них клас&shy;сов может при&shy;сутс&shy;твовать логика неяв&shy;ного зах&shy;вата ссылки на вашу сущ&shy;ность. После чего, ввиду не явности зах&shy;вата, прог&shy;рам&shy;мист может про&shy;пус&shy;тить необ&shy;хо&shy;ди&shy;мость её осво&shy;бож&shy;де&shy;ния и полу&shy;чить на выходе утечку памяти.</p>
 <div class="paragraph-right-side">36</div>
 </div>
 <h3 id="events">Делегаты, events</h3>
@@ -2217,7 +2215,7 @@ Reliability&shy;Contract(Consis&shy;tency.Will&shy;Not&shy;Corrupt&shy;State, Ce
 <div class="paragraph-container">
 <div class="paragraph-left-side">40</div>
 <p >
-Меха&shy;низм сооб&shy;ще&shy;ний в C# скры&shy;вает внут&shy;рен&shy;нее устрой&shy;ство event'ов и удер&shy;жи&shy;вает все объ&shy;екты, кото&shy;рые под&shy;пи&shy;са&shy;лись на обнов&shy;ле&shy;ния через <code>event</code>. Если что-то пойдёт не так, ссылка на чужой объ&shy;ект оста&shy;нется в <code>OnDisposed</code> и будет его удер&shy;жи&shy;вать. Полу&shy;ча&shy;ется стран&shy;ная ситу&shy;а&shy;ция: архи&shy;тек&shy;турно мы имеем поня&shy;тие &laquo;источ&shy;ник собы&shy;тий&raquo;, кото&shy;рое по своей логике не дол&shy;жно что-либо удер&shy;жи&shy;вать. По факту мы имеем неяв&shy;ное удер&shy;жи&shy;ва&shy;ние объ&shy;ек&shy;тов, под&shy;пи&shy;сав&shy;шихся на обнов&shy;ле&shy;ния. При этом не имеем воз&shy;мож&shy;ности что-либо менять внутри этого мас&shy;сива деле&shy;га&shy;тов: хоть сущ&shy;ность и явля&shy;ется частью нас, нам на это прав не давали. Един&shy;ствен&shy;ное что мы можем - это зате&shy;реть весь спи&shy;сок пол&shy;ностью, прис&shy;воив источ&shy;нику собы&shy;тий null. Вто&shy;рой спо&shy;соб - явно реа&shy;ли&shy;зо&shy;вать методы <code>add</code>/<code>remove</code> чтобы ввести управ&shy;ле&shy;ние над кол&shy;лек&shy;цией деле&shy;га&shy;тов.</p>
+Меха&shy;низм сооб&shy;ще&shy;ний в C# скры&shy;вает внут&shy;рен&shy;нее устрой&shy;ство event'ов и удер&shy;жи&shy;вает все объ&shy;екты, кото&shy;рые под&shy;пи&shy;са&shy;лись на обнов&shy;ле&shy;ния через <code>event</code>. Если что-то пойдёт не так, ссылка на чужой объ&shy;ект оста&shy;нется в <code>OnDisposed</code> и будет его удер&shy;жи&shy;вать. Полу&shy;ча&shy;ется стран&shy;ная ситу&shy;а&shy;ция: архи&shy;тек&shy;турно мы имеем поня&shy;тие &laquo;источ&shy;ник собы&shy;тий&raquo;, кото&shy;рое по своей логике не дол&shy;жно что-либо удер&shy;жи&shy;вать. По факту мы имеем неяв&shy;ное удер&shy;жи&shy;ва&shy;ние объ&shy;ек&shy;тов, под&shy;пи&shy;сав&shy;шихся на обнов&shy;ле&shy;ния. При этом не имеем воз&shy;мож&shy;ности что-либо менять внутри этого мас&shy;сива деле&shy;га&shy;тов: хоть сущ&shy;ность и явля&shy;ется частью нас, нам на это прав не давали. Един&shy;ствен&shy;ное что мы можем  &mdash;  это зате&shy;реть весь спи&shy;сок пол&shy;ностью, прис&shy;воив источ&shy;нику собы&shy;тий null. Вто&shy;рой спо&shy;соб  &mdash;  явно реа&shy;ли&shy;зо&shy;вать методы <code>add</code>/<code>remove</code> чтобы ввести управ&shy;ле&shy;ние над кол&shy;лек&shy;цией деле&shy;га&shy;тов.</p>
 <div class="paragraph-right-side">40</div>
 </div>
 <blockquote>
@@ -2256,7 +2254,7 @@ button.Clicked += () =&gt; service.SendMessageAsync(MessageType.Deploy);
 <div class="paragraph-container">
 <div class="paragraph-left-side">44</div>
 <p >
-Один из путей реше&shy;ния - вос&shy;поль&shy;зо&shy;ваться шаб&shy;ло&shy;ном соз&shy;да&shy;ния <code>IDisposable</code> из любого <code>Action</code> (<code>System.Reactive.Disposables</code>):</p>
+Один из путей реше&shy;ния  &mdash;  вос&shy;поль&shy;зо&shy;ваться шаб&shy;ло&shy;ном соз&shy;да&shy;ния <code>IDisposable</code> из любого <code>Action</code> (<code>System.Reactive.Disposables</code>):</p>
 <div class="paragraph-right-side">44</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2283,7 +2281,7 @@ subscription.Dispose();
 <div class="paragraph-container">
 <div class="paragraph-left-side">46</div>
 <p >
-Когда раз&shy;ра&shy;ба&shy;ты&shy;ва&shy;ется биб&shy;ли&shy;о&shy;тека для внеш&shy;него раз&shy;ра&shy;бот&shy;чика, вы никак не можете гаран&shy;ти&shy;ро&shy;вать, как она себя поведёт в чужом при&shy;ло&shy;же&shy;нии. Иногда остаётся только дога&shy;ды&shy;ваться, что такого с нашей биб&shy;ли&shy;о&shy;те&shy;кой сде&shy;лал чужой прог&shy;рам&shy;мист, что появился тот или иной резуль&shy;тат её работы. Один из при&shy;ме&shy;ров - работа в мно&shy;го&shy;по&shy;точ&shy;ной среде, когда воп&shy;рос целост&shy;ности очис&shy;тки ресур&shy;сов может встать дос&shy;та&shy;точно остро. Причём, если при напи&shy;са&shy;нии кода <code>Dispose()</code> метода сами мы можем дать гаран&shy;тии на отс&shy;утствие исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций, то мы не можем гаран&shy;ти&shy;ро&shy;вать, что прямо во время работы метода <code>Dispose()</code> не выле&shy;тит <code>ThreadAbortException</code>, кото&shy;рый отклю&shy;чит наш поток испол&shy;не&shy;ния. Тут стоит вспом&shy;нить тот факт, что когда бро&shy;са&shy;ется <code>ThreadAbortException</code>, то в любом слу&shy;чае выпол&shy;ня&shy;ются все catch/finally блоки (в конце catch/finally Thread&shy;Abort бро&shy;са&shy;ется дальше). Таким обра&shy;зом, чтобы что-то сде&shy;лать гаран&shy;ти&shy;ро&shy;ванно (гаран&shy;ти&shy;ро&shy;вав нераз&shy;рыв&shy;ность при помощи Thread.Abort), надо обер&shy;нуть кри&shy;тич&shy;ный учас&shy;ток в <code>try { ... } finally { ... }</code>. В этом слу&shy;чае даже если бро&shy;сят Thread&shy;Abort, код будет выпол&shy;нен.</p>
+Когда раз&shy;ра&shy;ба&shy;ты&shy;ва&shy;ется биб&shy;ли&shy;о&shy;тека для внеш&shy;него раз&shy;ра&shy;бот&shy;чика, вы никак не можете гаран&shy;ти&shy;ро&shy;вать, как она себя поведёт в чужом при&shy;ло&shy;же&shy;нии. Иногда остаётся только дога&shy;ды&shy;ваться, что такого с нашей биб&shy;ли&shy;о&shy;те&shy;кой сде&shy;лал чужой прог&shy;рам&shy;мист, что появился тот или иной резуль&shy;тат её работы. Один из при&shy;ме&shy;ров  &mdash;  работа в мно&shy;го&shy;по&shy;точ&shy;ной среде, когда воп&shy;рос целост&shy;ности очис&shy;тки ресур&shy;сов может встать дос&shy;та&shy;точно остро. Причём, если при напи&shy;са&shy;нии кода <code>Dispose()</code> метода сами мы можем дать гаран&shy;тии на отс&shy;утствие исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций, то мы не можем гаран&shy;ти&shy;ро&shy;вать, что прямо во время работы метода <code>Dispose()</code> не выле&shy;тит <code>ThreadAbortException</code>, кото&shy;рый отклю&shy;чит наш поток испол&shy;не&shy;ния. Тут стоит вспом&shy;нить тот факт, что когда бро&shy;са&shy;ется <code>ThreadAbortException</code>, то в любом слу&shy;чае выпол&shy;ня&shy;ются все catch/finally блоки (в конце catch/finally Thread&shy;Abort бро&shy;са&shy;ется дальше). Таким обра&shy;зом, чтобы что-то сде&shy;лать гаран&shy;ти&shy;ро&shy;ванно (гаран&shy;ти&shy;ро&shy;вав нераз&shy;рыв&shy;ность при помощи Thread.Abort), надо обер&shy;нуть кри&shy;тич&shy;ный учас&shy;ток в <code>try { ... } finally { ... }</code>. В этом слу&shy;чае даже если бро&shy;сят Thread&shy;Abort, код будет выпол&shy;нен.</p>
 <div class="paragraph-right-side">46</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2355,7 +2353,7 @@ subscription.Dispose();
 </li>
 <li>
 <p >
-Зачас&shy;тую, когда про&shy;ек&shy;ти&shy;ру&shy;ется некий интер&shy;фейс, встаёт необ&shy;хо&shy;ди&shy;мость вставки IDis&shy;po&shy;sable в сис&shy;тему интер&shy;фей&shy;сов типа: когда один из интер&shy;фей&shy;сов вынуж&shy;ден нас&shy;ле&shy;до&shy;вать IDis&shy;po&shy;sable. На мой взгляд, это вно&shy;сит &laquo;кривь&raquo; в те интер&shy;фейсы, кото&shy;рые мы спр&shy;ое&shy;кт&shy;ир&shy;ов&shy;али. Ведь когда про&shy;ек&shy;ти&shy;ру&shy;ется интер&shy;фейс, вы прежде всего про&shy;ек&shy;ти&shy;ру&shy;ете некий про&shy;то&shy;кол вза&shy;и&shy;мо&shy;д&shy;ействия. Тот набор действий, кото&shy;рые можно сде&shy;лать <em>с чем-либо</em>, скры&shy;ва&shy;ющимся под интер&shy;фей&shy;сом. Метод Dispose() - метод раз&shy;ру&shy;ше&shy;ния экземп&shy;ляра класса. Это вхо&shy;дит в раз&shy;рез с сущ&shy;ностью <em>протокол взаимодействия</em>. Это по сути - под&shy;роб&shy;ности реа&shy;ли&shy;за&shy;ции, кото&shy;рые про&shy;со&shy;чи&shy;лись в интер&shy;фейс;</p>
+Зачас&shy;тую, когда про&shy;ек&shy;ти&shy;ру&shy;ется некий интер&shy;фейс, встаёт необ&shy;хо&shy;ди&shy;мость вставки IDis&shy;po&shy;sable в сис&shy;тему интер&shy;фей&shy;сов типа: когда один из интер&shy;фей&shy;сов вынуж&shy;ден нас&shy;ле&shy;до&shy;вать IDis&shy;po&shy;sable. На мой взгляд, это вно&shy;сит &laquo;кривь&raquo; в те интер&shy;фейсы, кото&shy;рые мы спр&shy;ое&shy;кт&shy;ир&shy;ов&shy;али. Ведь когда про&shy;ек&shy;ти&shy;ру&shy;ется интер&shy;фейс, вы прежде всего про&shy;ек&shy;ти&shy;ру&shy;ете некий про&shy;то&shy;кол вза&shy;и&shy;мо&shy;д&shy;ействия. Тот набор действий, кото&shy;рые можно сде&shy;лать <em>с чем-либо</em>, скры&shy;ва&shy;ющимся под интер&shy;фей&shy;сом. Метод Dispose()  &mdash;  метод раз&shy;ру&shy;ше&shy;ния экземп&shy;ляра класса. Это вхо&shy;дит в раз&shy;рез с сущ&shy;ностью <em>протокол взаимодействия</em>. Это по сути  &mdash;  под&shy;роб&shy;ности реа&shy;ли&shy;за&shy;ции, кото&shy;рые про&shy;со&shy;чи&shy;лись в интер&shy;фейс;</p>
 </li>
 <li>
 <p >
@@ -2375,7 +2373,7 @@ subscription.Dispose();
 </li>
 <li>
 <p >
-Нако&shy;нец, исполь&shy;зо&shy;ва&shy;ние шаб&shy;лона на гра&shy;фах объ&shy;ек&shy;тов, кото&shy;рые пол&shy;ностью либо час&shy;тично его реа&shy;ли&shy;зуют, - та ещё морока в опре&shy;де&shy;ле&shy;нии порядка <em>разрушения</em> в мно&shy;го&shy;по&shy;точ&shy;ной среде. Я прежде всего имею ввиду ситу&shy;а&shy;ции, когда Dispose() может начаться с раз&shy;ных кон&shy;цов графа. И в таких ситу&shy;а&shy;циях лучше всего вос&shy;поль&shy;зо&shy;ваться дру&shy;гими шаб&shy;ло&shy;нами. Нап&shy;ри&shy;мер, шаб&shy;ло&shy;ном Life&shy;time.</p>
+Нако&shy;нец, исполь&shy;зо&shy;ва&shy;ние шаб&shy;лона на гра&shy;фах объ&shy;ек&shy;тов, кото&shy;рые пол&shy;ностью либо час&shy;тично его реа&shy;ли&shy;зуют,  &mdash;  та ещё морока в опре&shy;де&shy;ле&shy;нии порядка <em>разрушения</em> в мно&shy;го&shy;по&shy;точ&shy;ной среде. Я прежде всего имею ввиду ситу&shy;а&shy;ции, когда Dispose() может начаться с раз&shy;ных кон&shy;цов графа. И в таких ситу&shy;а&shy;циях лучше всего вос&shy;поль&shy;зо&shy;ваться дру&shy;гими шаб&shy;ло&shy;нами. Нап&shy;ри&shy;мер, шаб&shy;ло&shy;ном Life&shy;time.</p>
 </li>
 <li>
 <p >
@@ -2491,7 +2489,7 @@ subscription.Dispose();
 {
     Dispose(<span style="color:Blue;">true</span>);
 
-    <span style="color:Green;">// У класса нет финализатора - нет никакой необходимости в GC.SuppressFinalize</span>
+    <span style="color:Green;">// У класса нет финализатора -- нет никакой необходимости в GC.SuppressFinalize</span>
     GC.SuppressFinalize(<span style="color:Blue;">this</span>);
 }
 
@@ -2521,7 +2519,7 @@ subscription.Dispose();
 </div>
 <blockquote>
 <p >
-Иногда люди вызы&shy;вают и Close, и Dispose. Но это не явля&shy;ется пра&shy;виль&shy;ным (хотя ошибка не вызо&shy;вется, так как пов&shy;тор&shy;ный Dispose не при&shy;во&shy;дит к гене&shy;ра&shy;ции исклю&shy;че&shy;ния). Воп&shy;рос в том, что Close - это ещё один шаб&shy;лон, и введён для того, чтобы людям было понят&shy;нее. Но стало непо&shy;нят&shy;нее.</p>
+Иногда люди вызы&shy;вают и Close, и Dispose. Но это не явля&shy;ется пра&shy;виль&shy;ным (хотя ошибка не вызо&shy;вется, так как пов&shy;тор&shy;ный Dispose не при&shy;во&shy;дит к гене&shy;ра&shy;ции исклю&shy;че&shy;ния). Воп&shy;рос в том, что Close  &mdash;  это ещё один шаб&shy;лон, и введён для того, чтобы людям было понят&shy;нее. Но стало непо&shy;нят&shy;нее.</p>
 </blockquote>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">void</span> Dispose()
