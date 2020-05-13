@@ -1279,170 +1279,170 @@ footer > div {
 <h2 id="section">Фаза планирования</h2>
 <blockquote class="big-quote">
 <p >
- Адап&shy;та&shy;ция кур&shy;са в про&shy;цес&shy;се</p>
+ Адап&shy;та&shy;ция курса в про&shy;цессе</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
 <p >
-Сле&shy;ду&shy;ю&shy;щая фа&shy;за, о ко&shy;то&shy;рой хо&shy;чет&shy;ся по&shy;го&shy;во&shy;рить - это фа&shy;за пла&shy;ни&shy;ро&shy;ва&shy;ния. Са&shy;мая ин&shy;те&shy;рес&shy;ная фа&shy;за из всех. В ее хо&shy;де про&shy;ис&shy;хо&shy;дит вир&shy;ту&shy;альный GC, без фи&shy;зи&shy;чес&shy;ко&shy;го. А фи&shy;зи&shy;чес&shy;кий это прос&shy;то ком&shy;мит&shy;мент ре&shy;зуль&shy;та&shy;тов вы&shy;чис&shy;ле&shy;ний на фа&shy;зе пла&shy;ни&shy;ро&shy;ва&shy;ния.</p>
+Сле&shy;ду&shy;ю&shy;щая фаза, о кото&shy;рой хочется пого&shy;во&shy;рить - это фаза пла&shy;ни&shy;ро&shy;ва&shy;ния. Самая инте&shy;рес&shy;ная фаза из всех. В ее ходе про&shy;ис&shy;хо&shy;дит вир&shy;ту&shy;альный GC, без физи&shy;чес&shy;кого. А физи&shy;чес&shy;кий это просто ком&shy;мит&shy;мент резуль&shy;та&shy;тов вычис&shy;ле&shy;ний на фазе пла&shy;ни&shy;ро&shy;ва&shy;ния.</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
 <p >
-Пос&shy;ле фа&shy;зы мар&shy;ки&shy;ров&shy;ки у нас нет ни&shy;ка&shy;кой яс&shy;нос&shy;ти, ка&shy;кой тип GC дол&shy;жен сра&shy;бо&shy;тать: sweep или collection (?compacting). Что&shy;бы по&shy;нять, бу&shy;дет ли ре&shy;зуль&shy;ти&shy;ру&shy;ю&shy;щая фраг&shy;мен&shy;та&shy;ция слиш&shy;ком вы&shy;со&shy;кой, на&shy;до, во-пер&shy;вых, сде&shy;лать и sweep, и сжа&shy;тие ку&shy;чи, но в вир&shy;ту&shy;альном ре&shy;жи&shy;ме. Ина&shy;че не по&shy;нять, ка&shy;кой про&shy;цесс бу&shy;дет луч&shy;ше. Если мы мо&shy;жем при&shy;мер&shy;но при&shy;ки&shy;нуть, то ме&shy;ха&shy;низ&shy;мы пин&shy;нинг а мо&shy;гут по&shy;ме&shy;шать этим при&shy;кид&shy;кам и ис&shy;пор&shy;тить ко&shy;неч&shy;ный ре&shy;зуль&shy;тат GC.  Во вре&shy;мя фа&shy;зы пла&shy;ни&shy;ро&shy;ва&shy;ния со&shy;би&shy;ра&shy;ет&shy;ся ин&shy;фор&shy;ма&shy;ция, ко&shy;то&shy;рая од&shy;нов&shy;ре&shy;мен&shy;но под&shy;хо&shy;дит для обо&shy;их ал&shy;го&shy;рит&shy;мов, что&shy;бы все сде&shy;лать мак&shy;си&shy;маль&shy;но быс&shy;тро и выб&shy;рать луч&shy;ший путь. Пос&shy;ле то&shy;го, как GC по&shy;ни&shy;ма&shy;ет, что compacting, нап&shy;ри&shy;мер, - это луч&shy;шее, что мож&shy;но сде&shy;лать, он его и де&shy;ла&shy;ет. Но ал&shy;го&shy;рит&shy;ма, на са&shy;мом де&shy;ле, два. Я не слы&shy;шал, что&shy;бы бы&shy;ли раз&shy;го&shy;во&shy;ры, что&shy;бы в SOH ра&shy;бо&shy;та&shy;ли оба ал&shy;го&shy;рит&shy;ма. До сих пор в мо&shy;ем предс&shy;тав&shy;ле&shy;нии все выг&shy;ля&shy;де&shy;ло так: в SOH идет сбор&shy;ка му&shy;со&shy;ра пу&shy;тем сжа&shy;тия ку&shy;ча, а в LOH - клас&shy;си&shy;чес&shy;кий C++ ал&shy;го&shy;ритм со сво&shy;бод&shy;ны&shy;ми участ&shy;ка&shy;ми.</p>
+После фазы мар&shy;ки&shy;ровки у нас нет ника&shy;кой ясности, какой тип GC дол&shy;жен сра&shy;бо&shy;тать: sweep или collec&shy;tion (?compac&shy;ting). Чтобы понять, будет ли резуль&shy;ти&shy;ру&shy;ю&shy;щая фраг&shy;мен&shy;та&shy;ция слиш&shy;ком высо&shy;кой, надо, во-пер&shy;вых, сде&shy;лать и sweep, и сжа&shy;тие кучи, но в вир&shy;ту&shy;альном режиме. Иначе не понять, какой про&shy;цесс будет лучше. Если мы можем при&shy;мерно при&shy;ки&shy;нуть, то меха&shy;низмы пин&shy;нинг а могут поме&shy;шать этим при&shy;кид&shy;кам и испор&shy;тить конеч&shy;ный резуль&shy;тат GC.  Во время фазы пла&shy;ни&shy;ро&shy;ва&shy;ния соби&shy;ра&shy;ется инфор&shy;ма&shy;ция, кото&shy;рая однов&shy;ре&shy;менно под&shy;хо&shy;дит для обоих алго&shy;рит&shy;мов, чтобы все сде&shy;лать мак&shy;си&shy;мально быс&shy;тро и выб&shy;рать луч&shy;ший путь. После того, как GC пони&shy;мает, что compac&shy;ting, нап&shy;ри&shy;мер, - это луч&shy;шее, что можно сде&shy;лать, он его и делает. Но алго&shy;ритма, на самом деле, два. Я не слы&shy;шал, чтобы были раз&shy;го&shy;воры, чтобы в SOH рабо&shy;тали оба алго&shy;ритма. До сих пор в моем предс&shy;тав&shy;ле&shy;нии все выг&shy;ля&shy;дело так: в SOH идет сборка мусора путем сжа&shy;тия куча, а в LOH - клас&shy;си&shy;чес&shy;кий C++ алго&shy;ритм со сво&shy;бод&shy;ными участ&shy;ками.</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <p >
-В ре&shy;аль&shy;ности в SOH ра&shy;бо&shy;та&shy;ют оба ал&shy;го&shy;рит&shy;ма, как и в LOH.</p>
+В реаль&shy;ности в SOH рабо&shy;тают оба алго&shy;ритма, как и в LOH.</p>
 <p >
 SOH.</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
 <p >
-Испол&shy;ьзуя ин&shy;фор&shy;ма&shy;цию о раз&shy;ме&shy;рах объ&shy;ек&shy;тов мы идем друг за дру&shy;гом и со&shy;би&shy;ра&shy;ем груп&shy;пы сво&shy;бод&shy;ных объ&shy;ек&shy;тов - это plugs, и груп&shy;пы про&shy;пус&shy;ков - gaps. То есть, ког&shy;да мы про&shy;бе&shy;га&shy;ем по хи&shy;пу, то мо&shy;жем лег&shy;ко ите&shy;ри&shy;ро&shy;вать&shy;ся. В са&shy;мом на&shy;ча&shy;ле хи&shy;па ле&shy;жит пер&shy;вый объ&shy;ект. Мы пе&shy;ре&shy;хо&shy;дим в таб&shy;ли&shy;цу вир&shy;ту&shy;альных ме&shy;то&shy;дов, про&shy;хо&shy;дим по ука&shy;за&shy;те&shy;лю и по не&shy;му, сре&shy;ди про&shy;чих по&shy;лей, ле&shy;жит раз&shy;мер reference type. Я не очень по&shy;ни&shy;маю, по&shy;че&shy;му sizeof() ра&shy;бо&shy;та&shy;ет толь&shy;ко для value type, по&shy;то&shy;му что что&shy;бы сде&shy;лать sizeof() reference type дос&shy;та&shy;точ&shy;но прос&shy;то прой&shy;ти по ука&shy;за&shy;те&shy;лю и счи&shy;тать этот раз&shy;мер. Есть толь&shy;ко од&shy;на раз&shy;ни&shy;ца - для мас&shy;си&shy;вов и для строк. По&shy;то&shy;му что для строк мас&shy;си&shy;вов на&shy;до этот sizeof пос&shy;чи&shy;тать, прос&shy;то так не уга&shy;да&shy;ешь. А для всех ос&shy;таль&shy;ных обыч&shy;ных ти&shy;пов проб&shy;лем ни&shy;ка&shy;ких нет.</p>
+Испол&shy;ьзуя инфор&shy;ма&shy;цию о раз&shy;ме&shy;рах объ&shy;ек&shy;тов мы идем друг за дру&shy;гом и соби&shy;раем группы сво&shy;бод&shy;ных объ&shy;ек&shy;тов - это plugs, и группы про&shy;пус&shy;ков - gaps. То есть, когда мы про&shy;бе&shy;гаем по хипу, то можем легко ите&shy;ри&shy;ро&shy;ваться. В самом начале хипа лежит пер&shy;вый объ&shy;ект. Мы пере&shy;хо&shy;дим в таб&shy;лицу вир&shy;ту&shy;альных мето&shy;дов, про&shy;хо&shy;дим по ука&shy;за&shy;телю и по нему, среди про&shy;чих полей, лежит раз&shy;мер refe&shy;rence type. Я не очень пони&shy;маю, почему sizeof() рабо&shy;тает только для value type, потому что чтобы сде&shy;лать sizeof() refe&shy;rence type дос&shy;та&shy;точно просто пройти по ука&shy;за&shy;телю и счи&shy;тать этот раз&shy;мер. Есть только одна раз&shy;ница - для мас&shy;си&shy;вов и для строк. Потому что для строк мас&shy;си&shy;вов надо этот sizeof пос&shy;чи&shy;тать, просто так не уга&shy;да&shy;ешь. А для всех осталь&shy;ных обыч&shy;ных типов проб&shy;лем ника&shy;ких нет.</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
 <p >
-И вот так, друг за дру&shy;гом, мы по всем объ&shy;ек&shy;там про&shy;бе&shy;га&shy;ем&shy;ся. По&shy;ни&shy;ма&shy;ем, ка&shy;кие из них про&shy;мар&shy;ки&shy;ро&shy;ва&shy;ны, по&shy;э&shy;то&shy;му лег&shy;ко мо&shy;жем по&shy;нять, что яв&shy;ля&shy;ет&shy;ся plug, за&shy;ня&shy;тым кус&shy;ком, что яв&shy;ля&shy;ет&shy;ся gap, про&shy;пус&shy;ком. Это вы&shy;чис&shy;ля&shy;ет&shy;ся эле&shy;мен&shy;тар&shy;но, так как на фа&shy;зе мар&shy;ки&shy;ров&shy;ки мы там га&shy;лоч&shy;ку пос&shy;та&shy;ви&shy;ли. Все друг за дру&shy;гом иду&shy;щие про&shy;пус&shy;ки мы мар&shy;ки&shy;ру&shy;ем  как еди&shy;ны про&shy;пуск - груп&shy;пу. Все друг за дру&shy;гом иду&shy;щие за&shy;ня&shy;тые учас&shy;тки мы мар&shy;ки&shy;ру&shy;ем как один за&shy;ня&shy;тый учас&shy;ток.</p>
+И вот так, друг за дру&shy;гом, мы по всем объ&shy;ек&shy;там про&shy;бе&shy;га&shy;емся. Пони&shy;маем, какие из них про&shy;мар&shy;ки&shy;ро&shy;ваны, поэ&shy;тому легко можем понять, что явля&shy;ется plug, заня&shy;тым кус&shy;ком, что явля&shy;ется gap, про&shy;пус&shy;ком. Это вычис&shy;ля&shy;ется эле&shy;мен&shy;тарно, так как на фазе мар&shy;ки&shy;ровки мы там галочку пос&shy;та&shy;вили. Все друг за дру&shy;гом иду&shy;щие про&shy;пуски мы мар&shy;ки&shy;руем  как едины про&shy;пуск - группу. Все друг за дру&shy;гом иду&shy;щие заня&shy;тые учас&shy;тки мы мар&shy;ки&shy;руем как один заня&shy;тый учас&shy;ток.</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
 <p >
-Раз&shy;мер и по&shy;ло&shy;же&shy;ние каж&shy;до&shy;го про&shy;пус&shy;ка мо&shy;гут быть сох&shy;ра&shy;не&shy;ны. Дл каж&shy;до&shy;го за&shy;пол&shy;нен&shy;но&shy;го бло&shy;ка мо&shy;жет быть сох&shy;ра&shy;не&shy;но его по&shy;ло&shy;же&shy;ние и фи&shy;наль&shy;ное сме&shy;ще&shy;ние. Это зна&shy;чит, что для каж&shy;до&shy;го gap мы счи&shy;та&shy;ем его раз&shy;мер: нап&shy;рми&shy;ер пер&shy;вый 32 бай&shy;та. Для plug счи&shy;та&shy;ем offset, это то зна&shy;че&shy;ние, ко&shy;то&shy;рое бы&shy;ло бы при за&shy;пус&shy;ке сжа&shy;тия. Если бы мы сжи&shy;ма&shy;ли, то offset - это то мес&shy;то, ку&shy;да те&shy;ку&shy;щий plug пе&shy;ре&shy;мес&shy;тил&shy;ся бы, нас&shy;коль&shy;ко байт на&shy;зад. Gap - это gap, тут по&shy;нят&shy;но. И уже на этой ста&shy;дии, ес&shy;ли мы го&shy;во&shy;рим о двух ал&shy;го&shy;рит&shy;мах - sweep и collection (compacting?), мож&shy;но уви&shy;деть всю ин&shy;фор&shy;ма&shy;цию, ко&shy;то&shy;рая нам нуж&shy;на. В слу&shy;чае sweep нам нуж&shy;ны раз&shy;ме&shy;ры про&shy;пус&shy;ков, так как мы бу&shy;дем фор&shy;ми&shy;ро&shy;вать спис&shy;ки сво&shy;бод&shy;ных участ&shy;ков. Если мы де&shy;ла&shy;ем сжа&shy;тие ку&shy;чи, нам нуж&shy;ны толь&shy;ко оф&shy;се&shy;ты. На слад&shy;йде 07:10 это вид&shy;но: вот он оф&shy;сет -32, по&shy;том 32+64-96, сле&shy;ду&shy;ю&shy;щий оф&shy;сет -96+64-160. Так лег&shy;ко это все счи&shy;та&shy;ет&shy;ся, по&shy;э&shy;то&shy;му все ра&shy;бо&shy;та&shy;ет быс&shy;тро. Что&shy;бы это все про&shy;изош&shy;ло ис&shy;поль&shy;зу&shy;ет&shy;ся не&shy;кий вир&shy;ту&shy;альный внут&shy;рен&shy;ний ал&shy;ло&shy;ка&shy;тор. Он ите&shy;ри&shy;ру&shy;ет по объ&shy;ек&shy;там и на&shy;ра&shy;щи&shy;ва&shy;ет эту вир&shy;ту&shy;альную дель&shy;ту, сра&shy;зу же де&shy;лая вир&shy;ту&shy;альный compaction этой ку&shy;чи.</p>
+Раз&shy;мер и поло&shy;же&shy;ние каж&shy;дого про&shy;пуска могут быть сох&shy;ра&shy;нены. Дл каж&shy;дого запол&shy;нен&shy;ного блока может быть сох&shy;ра&shy;нено его поло&shy;же&shy;ние и финаль&shy;ное сме&shy;ще&shy;ние. Это зна&shy;чит, что для каж&shy;дого gap мы счи&shy;таем его раз&shy;мер: нап&shy;рмиер пер&shy;вый 32 байта. Для plug счи&shy;таем offset, это то зна&shy;че&shy;ние, кото&shy;рое было бы при запуске сжа&shy;тия. Если бы мы сжи&shy;мали, то offset - это то место, куда теку&shy;щий plug пере&shy;мес&shy;тился бы, нас&shy;колько байт назад. Gap - это gap, тут понятно. И уже на этой ста&shy;дии, если мы гово&shy;рим о двух алго&shy;рит&shy;мах - sweep и collec&shy;tion (compac&shy;ting?), можно уви&shy;деть всю инфор&shy;ма&shy;цию, кото&shy;рая нам нужна. В слу&shy;чае sweep нам нужны раз&shy;меры про&shy;пус&shy;ков, так как мы будем фор&shy;ми&shy;ро&shy;вать списки сво&shy;бод&shy;ных участ&shy;ков. Если мы делаем сжа&shy;тие кучи, нам нужны только офсеты. На слад&shy;йде 07:10 это видно: вот он офсет -32, потом 32+64-96, сле&shy;ду&shy;ю&shy;щий офсет -96+64-160. Так легко это все счи&shy;та&shy;ется, поэ&shy;тому все рабо&shy;тает быс&shy;тро. Чтобы это все про&shy;изошло исполь&shy;зу&shy;ется некий вир&shy;ту&shy;альный внут&shy;рен&shy;ний алло&shy;ка&shy;тор. Он ите&shy;ри&shy;рует по объ&shy;ек&shy;там и нара&shy;щи&shy;вает эту вир&shy;ту&shy;альную дельту, сразу же делая вир&shy;ту&shy;альный compac&shy;tion этой кучи.</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
 <p >
-По&shy;лу&shy;чен&shy;ную ин&shy;фор&shy;ма&shy;цию GC хра&shy;нит в пос&shy;лед&shy;них бай&shy;тах пред&shy;шес&shy;тву&shy;ю&shy;ще&shy;го за&shy;пол&shy;нен&shy;ной час&shy;ти gap.</p>
+Полу&shy;чен&shy;ную инфор&shy;ма&shy;цию GC хра&shy;нит в пос&shy;лед&shy;них бай&shy;тах пред&shy;шес&shy;тву&shy;ю&shy;щего запол&shy;нен&shy;ной части gap.</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
 <p >
-Был ка&shy;кой-то объ&shy;ект, на не&shy;го ис&shy;чез&shy;ла пос&shy;лед&shy;няя ссыл&shy;ка, про&shy;шел GC, ин&shy;фор&shy;ма&shy;ция в gap нам боль&shy;ше не нуж&shy;на, зна&shy;чит мы его мо&shy;жем спо&shy;кой&shy;но пор&shy;тить - пи&shy;сать ту&shy;да то, что хо&shy;тим, в том чис&shy;ле и ре&shy;зуль&shy;та&shy;ты вы&shy;чис&shy;ле&shy;ний. Если у нас есть не&shy;кий plug, то ин&shy;фор&shy;ма&shy;цию мы за&shy;пи&shy;шем в пре&shy;ды&shy;ду&shy;щий gap.</p>
+Был какой-то объ&shy;ект, на него исчезла пос&shy;лед&shy;няя ссылка, про&shy;шел GC, инфор&shy;ма&shy;ция в gap нам больше не нужна, зна&shy;чит мы его можем спо&shy;койно пор&shy;тить - писать туда то, что хотим, в том числе и резуль&shy;таты вычис&shy;ле&shy;ний. Если у нас есть некий plug, то инфор&shy;ма&shy;цию мы запи&shy;шем в пре&shy;ды&shy;ду&shy;щий gap.</p>
 <div class="paragraph-right-side">07</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
 <p >
-На слай&shy;де 08:33 есть не&shy;кие plugs и gaps и не&shy;кий ди&shy;а&shy;па&shy;зон по цен&shy;тру. Мы его уве&shy;ли&shy;чи&shy;ли. По&shy;лу&shy;чи&shy;лось, что там три про&shy;цес&shy;сор&shy;ных сло&shy;ва. Даль&shy;ше нес&shy;коль&shy;ко слов - это plug. И пос&shy;лед&shy;ние три сло&shy;ва сво&shy;бод&shy;ные. И пе&shy;ред plug, пе&shy;ред за&shy;ня&shy;тым участ&shy;ком, этот gap в три бай&shy;та мы опять уве&shy;ли&shy;чи&shy;ли. Пер&shy;вый байт - это gapsize, вто&shy;рой - relocation offset. Тре&shy;тий раз&shy;де&shy;лен на две час&shy;ти, пер&shy;вую мы не расс&shy;мат&shy;ри&shy;ва&shy;ем, а вто&shy;рая - это left и right offset, ко&shy;то&shy;рые мы расс&shy;мот&shy;рим чуть поз&shy;же.</p>
+На слайде 08:33 есть некие plugs и gaps и некий диа&shy;па&shy;зон по цен&shy;тру. Мы его уве&shy;ли&shy;чили. Полу&shy;чи&shy;лось, что там три про&shy;цес&shy;сор&shy;ных слова. Дальше нес&shy;колько слов - это plug. И пос&shy;лед&shy;ние три слова сво&shy;бод&shy;ные. И перед plug, перед заня&shy;тым участ&shy;ком, этот gap в три байта мы опять уве&shy;ли&shy;чили. Пер&shy;вый байт - это gapsize, вто&shy;рой - relo&shy;ca&shy;tion offset. Тре&shy;тий раз&shy;де&shy;лен на две части, пер&shy;вую мы не расс&shy;мат&shy;ри&shy;ваем, а вто&shy;рая - это left и right offset, кото&shy;рые мы расс&shy;мот&shy;рим чуть позже.</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
 <p >
-Раз&shy;ме&shy;ры, ко&shy;то&shy;рые мы счи&shy;та&shy;ли, кла&shy;дут&shy;ся в gapsize. А relocation offset ук&shy;ла&shy;ды&shy;ва&shy;ют&shy;ся вто&shy;рым бай&shy;том. Вся эта ин&shy;фор&shy;ма&shy;ция, ко&shy;то&shy;рая раз&shy;ме&shy;ще&shy;на над кус&shy;ком па&shy;мя&shy;ти, впи&shy;са&shy;на на мес&shy;та в на&shy;шем гра&shy;фи&shy;ке.</p>
+Раз&shy;меры, кото&shy;рые мы счи&shy;тали, кла&shy;дутся в gapsize. А relo&shy;ca&shy;tion offset укла&shy;ды&shy;ва&shy;ются вто&shy;рым бай&shy;том. Вся эта инфор&shy;ма&shy;ция, кото&shy;рая раз&shy;ме&shy;щена над кус&shy;ком памяти, впи&shy;сана на места в нашем гра&shy;фике.</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
 <p >
-Что же та&shy;кое left и right? С по&shy;мощью этих двух по&shy;лей об&shy;ра&shy;зу&shy;ет&shy;ся дво&shy;ич&shy;ное де&shy;ре&shy;во по&shy;ис&shy;ка. У нас есть plugs и gaps. Если расс&shy;мат&shy;ри&shy;вать их как еди&shy;ную сущ&shy;ность, как на слай&shy;де 10:30, то  left/right offset - это offset до ле&shy;вой и пра&shy;вой но&shy;ды в дво&shy;ич&shy;ном де&shy;ре&shy;ве по&shy;ис&shy;ка нуж&shy;ных plugs.</p>
+Что же такое left и right? С помощью этих двух полей обра&shy;зу&shy;ется дво&shy;ич&shy;ное дерево поиска. У нас есть plugs и gaps. Если расс&shy;мат&shy;ри&shy;вать их как еди&shy;ную сущ&shy;ность, как на слайде 10:30, то  left/right offset - это offset до левой и пра&shy;вой ноды в дво&shy;ич&shy;ном дереве поиска нуж&shy;ных plugs.</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
 <p >
-Дво&shy;ич&shy;ное де&shy;ре&shy;во по&shy;ис&shy;ка стр&shy;ои&shy;тся для то&shy;го, что&shy;бы пос&shy;ле фа&shy;зы пла&shy;ни&shy;ро&shy;ва&shy;ния, в хо&shy;де фа&shy;зы сжа&shy;тия нам все ад&shy;ре&shy;са по&shy;ме&shy;нять: ку&shy;ча сжи&shy;ма&shy;ет&shy;ся, ад&shy;ре&shy;са объ&shy;ек&shy;тов ме&shy;ня&shy;ют&shy;ся. У всех объ&shy;ек&shy;тов, ко&shy;то&shy;рые ссы&shy;ла&shy;лись на на&shy;ши, на&shy;до за&shy;ме&shy;нить ад&shy;ре&shy;са в ис&shy;хо&shy;дя&shy;щих по&shy;лях, ло&shy;каль&shy;ных пе&shy;ре&shy;мен&shy;ных, во всех ру&shy;тах - вез&shy;де, где бы&shy;ли ссыл&shy;ки на груп&shy;пу, ко&shy;то&shy;рая сжи&shy;ма&shy;ет&shy;ся. Что&shy;бы это сде&shy;лать быс&shy;тро и стр&shy;ои&shy;тся би&shy;нар&shy;ное де&shy;ре&shy;во по&shy;ис&shy;ка сба&shy;лан&shy;си&shy;ро&shy;ван&shy;ное.</p>
+Дво&shy;ич&shy;ное дерево поиска стр&shy;ои&shy;тся для того, чтобы после фазы пла&shy;ни&shy;ро&shy;ва&shy;ния, в ходе фазы сжа&shy;тия нам все адреса поме&shy;нять: куча сжи&shy;ма&shy;ется, адреса объ&shy;ек&shy;тов меня&shy;ются. У всех объ&shy;ек&shy;тов, кото&shy;рые ссы&shy;ла&shy;лись на наши, надо заме&shy;нить адреса в исхо&shy;дя&shy;щих полях, локаль&shy;ных пере&shy;мен&shy;ных, во всех рутах - везде, где были ссылки на группу, кото&shy;рая сжи&shy;ма&shy;ется. Чтобы это сде&shy;лать быс&shy;тро и стр&shy;ои&shy;тся бинар&shy;ное дерево поиска сба&shy;лан&shy;си&shy;ро&shy;ван&shy;ное.</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
 <p >
-Ку&shy;ча мо&shy;жет быть ог&shy;ром&shy;ная, по&shy;э&shy;то&shy;му ис&shy;поль&shy;зу&shy;ет&shy;ся струк&shy;ту&shy;ра, на&shy;зы&shy;ва&shy;е&shy;мая Brick Table. Что&shy;бы не ис&shy;кать по все&shy;му де&shy;ре&shy;ву, ис&shy;поль&shy;зу&shy;ет&shy;ся струк&shy;ту&shy;ра, схо&shy;жая с кар&shy;точ&shy;ным сто&shy;лом. Весь учас&shy;ток па&shy;мя&shy;ти при&shy;ло&shy;же&shy;ния де&shy;лит&shy;ся на боль&shy;шие ре&shy;ги&shy;оны. Ячей&shy;ка Brick Table - это ссыл&shy;ка на ко&shy;рень де&shy;ре&shy;ва дво&shy;ич&shy;но&shy;го по&shy;ис&shy;ка, ко&shy;то&shy;рая опи&shy;сы&shy;ва&shy;ет plugs и gaps внут&shy;ри это&shy;го ди&shy;а&shy;па&shy;зо&shy;на па&shy;мя&shy;ти.</p>
+Куча может быть огром&shy;ная, поэ&shy;тому исполь&shy;зу&shy;ется струк&shy;тура, назы&shy;ва&shy;е&shy;мая Brick Table. Чтобы не искать по всему дереву, исполь&shy;зу&shy;ется струк&shy;тура, схо&shy;жая с кар&shy;точ&shy;ным сто&shy;лом. Весь учас&shy;ток памяти при&shy;ло&shy;же&shy;ния делится на боль&shy;шие реги&shy;оны. Ячейка Brick Table - это ссылка на корень дерева дво&shy;ич&shy;ного поиска, кото&shy;рая опи&shy;сы&shy;вает plugs и gaps внутри этого диа&shy;па&shy;зона памяти.</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
 <p >
-Если у нас на слай&shy;де 13:00  ди&shy;а&shy;па&shy;зон па&shy;мя&shy;ти от 1000 до 2000, вто&shy;рая ячей&shy;ка Brick Table от&shy;ве&shy;ча&shy;ет имен&shy;но за не&shy;го. Она ука&shy;зы&shy;ва&shy;ет на не&shy;кий plug в цен&shy;тре, ко&shy;то&shy;рый яв&shy;ля&shy;ет&shy;ся кор&shy;нем дво&shy;ич&shy;но&shy;го де&shy;ре&shy;ва по&shy;ис&shy;ка дру&shy;гих plugs.</p>
+Если у нас на слайде 13:00  диа&shy;па&shy;зон памяти от 1000 до 2000, вто&shy;рая ячейка Brick Table отве&shy;чает именно за него. Она ука&shy;зы&shy;вает на некий plug в цен&shy;тре, кото&shy;рый явля&shy;ется кор&shy;нем дво&shy;ич&shy;ного дерева поиска дру&shy;гих plugs.</p>
 <div class="paragraph-right-side">13</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
 <p >
-Если зна&shy;че&shy;ние ноль, то в этом ди&shy;а&shy;па&shy;зо&shy;не нет ни&shy;ка&shy;ких дан&shy;ных. Если зна&shy;че&shy;ние по&shy;ло&shy;жи&shy;тель&shy;ное - то это ад&shy;рес не&shy;ко&shy;его кор&shy;ня. Если зна&shy;че&shy;ние от&shy;ри&shy;ца&shy;тель&shy;ное, то этот ди&shy;а&shy;па&shy;зон яв&shy;ля&shy;ет&shy;ся про&shy;дол&shy;же&shy;ни&shy;ем пре&shy;ды&shy;ду&shy;ще&shy;го ди&shy;а&shy;па&shy;зо&shy;на. В про&shy;цес&shy;се по&shy;ис&shy;ка нуж&shy;но&shy;го ад&shy;ре&shy;са мы де&shy;лим на 0x1000, что&shy;бы по&shy;лу&shy;чить но&shy;мер ячей&shy;ки. Вст&shy;аем на ячей&shy;ку, даль&shy;ше смот&shy;рим, что там за зна&shy;че&shy;ние. И ес&shy;ли ноль - то нет дан&shy;ных, ес&shy;ли боль&shy;ше еди&shy;ни&shy;цы - ко&shy;рень, мень&shy;ше ну&shy;ля - то там оф&shy;сет на ту ячей&shy;ку Brick Table, в ко&shy;то&shy;рой за&shy;пи&shy;сан ко&shy;рень.</p>
+Если зна&shy;че&shy;ние ноль, то в этом диа&shy;па&shy;зоне нет ника&shy;ких дан&shy;ных. Если зна&shy;че&shy;ние поло&shy;жи&shy;тель&shy;ное - то это адрес неко&shy;его корня. Если зна&shy;че&shy;ние отри&shy;ца&shy;тель&shy;ное, то этот диа&shy;па&shy;зон явля&shy;ется про&shy;дол&shy;же&shy;нием пре&shy;ды&shy;ду&shy;щего диа&shy;па&shy;зона. В про&shy;цессе поиска нуж&shy;ного адреса мы делим на 0x1000, чтобы полу&shy;чить номер ячейки. Вст&shy;аем на ячейку, дальше смот&shy;рим, что там за зна&shy;че&shy;ние. И если ноль - то нет дан&shy;ных, если больше еди&shy;ницы - корень, меньше нуля - то там офсет на ту ячейку Brick Table, в кото&shy;рой запи&shy;сан корень.</p>
 <div class="paragraph-right-side">14</div>
 </div>
 <p >
 Pinned Objects.</p>
 <p >
-Чем пло&shy;хи за&shy;пи&shy;не&shy;ные объ&shy;ек&shy;ты?</p>
+Чем плохи запи&shy;не&shy;ные объ&shy;екты?</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
 <p >
-По&shy;сомт&shy;рим на слайд 14:34. Тут есть ку&shy;сок па&shy;мя&shy;ти, на нем - plugs, блед&shy;ные учас&shy;тки, а яр&shy;кий ку&shy;сок - это за&shy;пи&shy;не&shy;ный объ&shy;ект. Что про&shy;изой&shy;дет во вре&shy;мя GC? Plug сож&shy;мет&shy;ся и все. А за&shy;пи&shy;не&shy;ный ку&shy;сок ос&shy;та&shy;нет&shy;ся на мес&shy;те. Что про&shy;изой&shy;дет, ес&shy;ли сле&shy;ва от за&shy;пи&shy;не&shy;но&shy;го кус&shy;ка есть учас&shy;ток па&shy;мя&shy;ти, на ко&shy;то&shy;рый есть ссыл&shy;ка?</p>
+Посомт&shy;рим на слайд 14:34. Тут есть кусок памяти, на нем - plugs, блед&shy;ные учас&shy;тки, а яркий кусок - это запи&shy;не&shy;ный объ&shy;ект. Что про&shy;изой&shy;дет во время GC? Plug сож&shy;мется и все. А запи&shy;не&shy;ный кусок оста&shy;нется на месте. Что про&shy;изой&shy;дет, если слева от запи&shy;не&shy;ного куска есть учас&shy;ток памяти, на кото&shy;рый есть ссылка?</p>
 <div class="paragraph-right-side">15</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
 <p >
-Да&shy;вай&shy;те вспом&shy;ним, что же де&shy;ла&shy;ет фа&shy;за пла&shy;ни&shy;ро&shy;ва&shy;ния? Она вы&shy;чис&shy;ля&shy;ет plugs и gaps. И в зо&shy;не, ко&shy;то&shy;рая пред&shy;шес&shy;тву&shy;ет plug в gap пла&shy;ни&shy;ро&shy;ва&shy;ние за&shy;пи&shy;сы&shy;ва&shy;ет раз&shy;мер gap и сме&shy;ще&shy;ние. Вот здесь воз&shy;ни&shy;ка&shy;ет неп&shy;ри&shy;ят&shy;ная си&shy;ту&shy;а&shy;ция. У нас два за&shy;ня&shy;тых учас&shy;тка. Пер&shy;вый - обыч&shy;ный plug, а вто&shy;рой - за&shy;пи&shy;не&shy;ный. Мы не мо&shy;жем расс&shy;мат&shy;ри&shy;вать их как еди&shy;ный ку&shy;сок. По&shy;то&shy;му что пер&shy;вый бу&shy;дет дви&shy;гать&shy;ся, а вто&shy;рой нет. По&shy;э&shy;то&shy;му вы&shy;де&shy;ля&shy;ют plugs и pinned plugs.</p>
+Давайте вспом&shy;ним, что же делает фаза пла&shy;ни&shy;ро&shy;ва&shy;ния? Она вычис&shy;ляет plugs и gaps. И в зоне, кото&shy;рая пред&shy;шес&shy;твует plug в gap пла&shy;ни&shy;ро&shy;ва&shy;ние запи&shy;сы&shy;вает раз&shy;мер gap и сме&shy;ще&shy;ние. Вот здесь воз&shy;ни&shy;кает неп&shy;ри&shy;ят&shy;ная ситу&shy;а&shy;ция. У нас два заня&shy;тых учас&shy;тка. Пер&shy;вый - обыч&shy;ный plug, а вто&shy;рой - запи&shy;не&shy;ный. Мы не можем расс&shy;мат&shy;ри&shy;вать их как еди&shy;ный кусок. Потому что пер&shy;вый будет дви&shy;гаться, а вто&shy;рой нет. Поэ&shy;тому выде&shy;ляют plugs и pinned plugs.</p>
 <div class="paragraph-right-side">16</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
 <p >
-В дан&shy;ном слу&shy;чае мож&shy;но вык&shy;ру&shy;тить&shy;ся. Пос&shy;коль&shy;ку у нас все по&shy;то&shy;ки сто&shy;ят, мы мо&shy;жем ис&shy;пор&shy;тить дан&shy;ные, а по&shy;том вер&shy;нуть все на&shy;зад. Па&shy;мять пе&shy;ред за&shy;пи&shy;не&shy;ным участ&shy;ком ин&shy;терп&shy;ре&shy;ти&shy;ру&shy;ет&shy;ся как ку&shy;сок, в ко&shy;то&shy;рый мож&shy;но что-то за&shy;пи&shy;сать. Но пе&shy;ред тем, как этот учас&shy;ток пор&shy;тить, дан&shy;ные нуж&shy;но ку&shy;да-то сох&shy;ра&shy;нить, что&shy;бы вер&shy;нуть все об&shy;рат&shy;но.</p>
+В дан&shy;ном слу&shy;чае можно вык&shy;ру&shy;титься. Пос&shy;кольку у нас все потоки стоят, мы можем испор&shy;тить дан&shy;ные, а потом вер&shy;нуть все назад. Память перед запи&shy;не&shy;ным участ&shy;ком интерп&shy;ре&shy;ти&shy;ру&shy;ется как кусок, в кото&shy;рый можно что-то запи&shy;сать. Но перед тем, как этот учас&shy;ток пор&shy;тить, дан&shy;ные нужно куда-то сох&shy;ра&shy;нить, чтобы вер&shy;нуть все обратно.</p>
 <div class="paragraph-right-side">17</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
 <p >
-Этот учас&shy;ток в 4 бай&shy;та сох&shy;ра&shy;ня&shy;ет&shy;ся в pinned plug queue. Это оче&shy;редь на возв&shy;рат. Мы сох&shy;ра&shy;ня&shy;ем учас&shy;ток, что&shy;бы по&shy;том его вер&shy;нуть об&shy;рат&shy;но. Учас&shy;ток на&shy;зы&shy;ва&shy;ет&shy;ся saved_pre_plug. Ту&shy;да сох&shy;ра&shy;ня&shy;ет&shy;ся ин&shy;фор&shy;ма&shy;ция о ти&shy;пе ин&shy;фор&shy;ма&shy;ции и к че&shy;му она от&shy;но&shy;сит&shy;ся. Пос&shy;ле это&shy;го все сжи&shy;ма&shy;ет&shy;ся и этот учас&shy;ток возв&shy;ра&shy;ща&shy;ет&shy;ся на свое мес&shy;то.То есть по&shy;яв&shy;ля&shy;ет&shy;ся до&shy;пол&shy;ни&shy;тель&shy;ное действие.</p>
+Этот учас&shy;ток в 4 байта сох&shy;ра&shy;ня&shy;ется в pinned plug queue. Это оче&shy;редь на возв&shy;рат. Мы сох&shy;ра&shy;няем учас&shy;ток, чтобы потом его вер&shy;нуть обратно. Учас&shy;ток назы&shy;ва&shy;ется saved_pre_plug. Туда сох&shy;ра&shy;ня&shy;ется инфор&shy;ма&shy;ция о типе инфор&shy;ма&shy;ции и к чему она отно&shy;сится. После этого все сжи&shy;ма&shy;ется и этот учас&shy;ток возв&shy;ра&shy;ща&shy;ется на свое место.То есть появ&shy;ля&shy;ется допол&shy;ни&shy;тель&shy;ное действие.</p>
 <div class="paragraph-right-side">18</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
 <p >
-А что, ес&shy;ли на&shy;о&shy;бо&shy;рот? Сна&shy;ча&shy;ла идет за&shy;пи&shy;не&shy;ный объ&shy;ект, а по&shy;том обыч&shy;ный объ&shy;ект, на ко&shy;то&shy;рый есть ссыл&shy;ка. С за&shy;пи&shy;не&shy;ным объ&shy;ек&shy;том все хо&shy;ро&shy;шо, он мо&shy;жет свои дан&shy;ные хра&shy;нить в gap. Где же хра&shy;нить дан&shy;ные обыч&shy;но&shy;му объ&shy;ек&shy;ту? Пе&shy;ред ним за&shy;пи&shy;нен&shy;ный.</p>
+А что, если нао&shy;бо&shy;рот? Сна&shy;чала идет запи&shy;не&shy;ный объ&shy;ект, а потом обыч&shy;ный объ&shy;ект, на кото&shy;рый есть ссылка. С запи&shy;не&shy;ным объ&shy;ек&shy;том все хорошо, он может свои дан&shy;ные хра&shy;нить в gap. Где же хра&shy;нить дан&shy;ные обыч&shy;ному объ&shy;екту? Перед ним запи&shy;нен&shy;ный.</p>
 <div class="paragraph-right-side">19</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
 <p >
-По&shy;че&shy;му пи&shy;нят? По&shy;то&shy;му что бу&shy;фер ухо&shy;дит в unmanaged па&shy;мять. Если GC, пе&shy;ред тем как на&shy;чать ра&shy;бо&shy;ту, сас&shy;пен&shy;дит по&shy;то&shy;ки - managed. То про обыч&shy;ные по&shy;то&shy;ки он ни&shy;че&shy;го не зна&shy;ет. Он не мо&shy;жет их за&shy;са&shy;пен&shy;дить. А ес&shy;ли бу&shy;фер ушел в unmanaged па&shy;мять, то лю&shy;бой мо&shy;жет с ним в па&shy;рал&shy;ле&shy;ли ра&shy;бо&shy;тать из unmanaged ко&shy;да. Ту&shy;да нель&shy;зя ни&shy;че&shy;го за&shy;пи&shy;сы&shy;вать, в том чис&shy;ле и ин&shy;фор&shy;ма&shy;ций plugs&gaps. В этом слу&shy;чае весь этот ку&shy;сок по&shy;ме&shy;ча&shy;ет&shy;ся как pinned plug: и за&shy;пи&shy;не&shy;ный объ&shy;ект, и тот, ко&shy;то&shy;рый за ним сле&shy;ду&shy;ет. Они оба пи&shy;ну&shy;ют&shy;ся.  Пос&shy;ле GC они в та&shy;кой же пос&shy;ле&shy;до&shy;ва&shy;тель&shy;нос&shy;ти и ос&shy;та&shy;ют&shy;ся.</p>
+Почему пинят? Потому что буфер ухо&shy;дит в unma&shy;naged память. Если GC, перед тем как начать работу, сас&shy;пен&shy;дит потоки - managed. То про обыч&shy;ные потоки он ничего не знает. Он не может их заса&shy;пен&shy;дить. А если буфер ушел в unma&shy;naged память, то любой может с ним в парал&shy;лели рабо&shy;тать из unma&shy;naged кода. Туда нельзя ничего запи&shy;сы&shy;вать, в том числе и инфор&shy;ма&shy;ций plugs&gaps. В этом слу&shy;чае весь этот кусок поме&shy;ча&shy;ется как pinned plug: и запи&shy;не&shy;ный объ&shy;ект, и тот, кото&shy;рый за ним сле&shy;дует. Они оба пину&shy;ются.  После GC они в такой же пос&shy;ле&shy;до&shy;ва&shy;тель&shy;ности и оста&shy;ются.</p>
 <div class="paragraph-right-side">20</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
 <p >
-Еще од&shy;на си&shy;ту&shy;а&shy;ция. Сна&shy;ча&shy;ла у нас идет за&shy;пи&shy;не&shy;ный, по&shy;том два не&shy;за&shy;пи&shy;не&shy;ных объ&shy;ек&shy;та. Пе&shy;ред трет&shy;ьим объ&shy;ек&shy;том есть вто&shy;рой обыч&shy;ный объ&shy;ект. То есть, ког&shy;да pinned plug объ&shy;е&shy;ди&shy;ня&shy;ет&shy;ся для GC, в даль&shy;ней&shy;шем все рав&shy;но восп&shy;ри&shy;ни&shy;ма&shy;ет&shy;ся раз&shy;дель&shy;но. Пос&shy;лед&shy;ний plug зна&shy;ет, что пред&shy;шес&shy;тву&shy;ю&shy;щий объ&shy;ект не за&shy;пи&shy;нен и ту&shy;да мож&shy;но пи&shy;сать ин&shy;фор&shy;ма&shy;цию о gaps и plugs. Но та&shy;кой ку&shy;сок то&shy;же ухо&shy;дит в оче&shy;редь pinned plug queue как saved_post_plug объ&shy;ект.</p>
+Еще одна ситу&shy;а&shy;ция. Сна&shy;чала у нас идет запи&shy;не&shy;ный, потом два неза&shy;пи&shy;не&shy;ных объ&shy;екта. Перед трет&shy;ьим объ&shy;ек&shy;том есть вто&shy;рой обыч&shy;ный объ&shy;ект. То есть, когда pinned plug объ&shy;е&shy;ди&shy;ня&shy;ется для GC, в даль&shy;ней&shy;шем все равно восп&shy;ри&shy;ни&shy;ма&shy;ется раз&shy;дельно. Пос&shy;лед&shy;ний plug знает, что пред&shy;шес&shy;тву&shy;ю&shy;щий объ&shy;ект не запи&shy;нен и туда можно писать инфор&shy;ма&shy;цию о gaps и plugs. Но такой кусок тоже ухо&shy;дит в оче&shy;редь pinned plug queue как saved_post_plug объ&shy;ект.</p>
 <div class="paragraph-right-side">21</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
 <p >
-И сов&shy;сем нез&shy;до&shy;ро&shy;вая си&shy;ту&shy;а&shy;ция воз&shy;ни&shy;ка&shy;ет, ког&shy;да у нас идет нес&shy;коль&shy;ко объ&shy;ек&shy;тов под&shy;ряд и один из них за&shy;пи&shy;не&shy;ный. Это од&shy;на из час&shy;тых си&shy;ту&shy;а&shy;ций.  В этом слу&shy;чае про&shy;ис&shy;хо&shy;дит сов&shy;ме&shy;ще&shy;ние обо&shy;их объ&shy;ек&shy;тов. Для то&shy;го, что&shy;бы за&shy;пи&shy;сать gaps и offsets, нам не&shy;об&shy;хо&shy;ди&shy;мо ис&shy;пор&shy;тить и пре&shy;ды&shy;ду&shy;щий объ&shy;ект, и сле&shy;ду&shy;ю&shy;щий. А что&shy;бы восс&shy;та&shy;но&shy;вить, мы дол&shy;жны эти кус&shy;ки уло&shy;жить в оче&shy;редь на восс&shy;та&shy;нов&shy;ле&shy;ние.</p>
+И сов&shy;сем нез&shy;до&shy;ро&shy;вая ситу&shy;а&shy;ция воз&shy;ни&shy;кает, когда у нас идет нес&shy;колько объ&shy;ек&shy;тов под&shy;ряд и один из них запи&shy;не&shy;ный. Это одна из час&shy;тых ситу&shy;а&shy;ций.  В этом слу&shy;чае про&shy;ис&shy;хо&shy;дит сов&shy;ме&shy;ще&shy;ние обоих объ&shy;ек&shy;тов. Для того, чтобы запи&shy;сать gaps и off&shy;sets, нам необ&shy;хо&shy;димо испор&shy;тить и пре&shy;ды&shy;ду&shy;щий объ&shy;ект, и сле&shy;ду&shy;ю&shy;щий. А чтобы восс&shy;та&shy;но&shy;вить, мы дол&shy;жны эти куски уло&shy;жить в оче&shy;редь на восс&shy;та&shy;нов&shy;ле&shy;ние.</p>
 <div class="paragraph-right-side">22</div>
 </div>
 <p >
-Demotion.</p>
+Demo&shy;tion.</p>
 <p >
-Есть та&shy;кие по&shy;ня&shy;тия, как Promotion и Demotion.</p>
+Есть такие поня&shy;тия, как Promo&shy;tion и Demo&shy;tion.</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
 <p >
-Promotion: GC дер&shy;ну&shy;ли на ну&shy;ле&shy;вом по&shy;ко&shy;ле&shy;нии и пос&shy;ле это&shy;го но&shy;мер по&shy;ко&shy;ле&shy;ния вы&shy;рос. Demotion ра&shy;бо&shy;та&shy;ет на&shy;о&shy;бо&shy;рот. Ког&shy;да у нас бы&shy;ло пер&shy;вое по&shy;ко&shy;ле&shy;ние, мы сде&shy;ла&shy;ли GC, и по ка&shy;кой-то при&shy;чи&shy;не оно ста&shy;ло ну&shy;ле&shy;вым.</p>
+Promo&shy;tion: GC дер&shy;нули на нуле&shy;вом поко&shy;ле&shy;нии и после этого номер поко&shy;ле&shy;ния вырос. Demo&shy;tion рабо&shy;тает нао&shy;бо&shy;рот. Когда у нас было пер&shy;вое поко&shy;ле&shy;ние, мы сде&shy;лали GC, и по какой-то при&shy;чине оно стало нуле&shy;вым.</p>
 <div class="paragraph-right-side">23</div>
 </div>
 <p >
-Пос&shy;ле GC за&shy;пи&shy;не&shy;ный объ&shy;ект ос&shy;тал&shy;ся в по&shy;ко&shy;ле&shy;нии ноль - это суть Demotion.</p>
+После GC запи&shy;не&shy;ный объ&shy;ект остался в поко&shy;ле&shy;нии ноль - это суть Demo&shy;tion.</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">24</div>
 <p >
-Дру&shy;гая си&shy;ту&shy;а&shy;ция: есть по&shy;ко&shy;ле&shy;ние один и по&shy;ко&shy;ле&shy;ние ноль. На слай&shy;де 21:52 пос&shy;ле GC сле&shy;ва ос&shy;та&shy;лось ма&shy;ло мес&shy;та, а под gen_0  - по&shy;хо&shy;дит. И они оба пе&shy;рес&shy;ко&shy;чи&shy;ли на gen_0. Это&shy;му удив&shy;лять&shy;ся не сто&shy;ит. Если та&shy;кое про&shy;изош&shy;ло, на&shy;до прос&shy;то ис&shy;кать, кто за&shy;пи&shy;нил объ&shy;ект и ос&shy;во&shy;бож&shy;дать его.</p>
+Дру&shy;гая ситу&shy;а&shy;ция: есть поко&shy;ле&shy;ние один и поко&shy;ле&shy;ние ноль. На слайде 21:52 после GC слева оста&shy;лось мало места, а под gen_0  - похо&shy;дит. И они оба перес&shy;ко&shy;чили на gen_0. Этому удив&shy;ляться не стоит. Если такое про&shy;изошло, надо просто искать, кто запи&shy;нил объ&shy;ект и осво&shy;бож&shy;дать его.</p>
 <div class="paragraph-right-side">24</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
 <p >
-Еще од&shy;на си&shy;ту&shy;а&shy;ция на слай&shy;де 22:56. Объект мо&shy;жет сва&shy;лит&shy;ся во вто&shy;рое по&shy;ко&shy;ле&shy;ние, ес&shy;ли сле&shy;ва мес&shy;та ма&shy;ло и там нет смыс&shy;ла раз&shy;ме&shy;щать что-то еще. С за&shy;пи&shy;не&shy;ны&shy;ми объ&shy;ек&shy;та&shy;ми мо&shy;жет про&shy;ис&shy;хо&shy;дить все, что угод&shy;но.</p>
+Еще одна ситу&shy;а&shy;ция на слайде 22:56. Объект может сва&shy;лится во вто&shy;рое поко&shy;ле&shy;ние, если слева места мало и там нет смысла раз&shy;ме&shy;щать что-то еще. С запи&shy;не&shy;ными объ&shy;ек&shy;тами может про&shy;ис&shy;хо&shy;дить все, что угодно.</p>
 <div class="paragraph-right-side">25</div>
 </div>
 <p >
@@ -1450,73 +1450,73 @@ LOH.</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
 <p >
-Фа&shy;за пла&shy;ни&shy;ро&shy;ва&shy;ния в LOH име&shy;ет смысл толь&shy;ко для compacting, что&shy;бы по&shy;нять даль&shy;ней&shy;шие действия. В обыч&shy;ных сце&shy;на&shy;ри&shy;ях сбор&shy;ки му&shy;со&shy;ра у нас толь&shy;ко sweep, а compacting нет. И фа&shy;за пла&shy;ни&shy;ро&shy;ва&shy;ния в та&shy;ких слу&shy;ча&shy;ях от&shy;сут&shy;ствует. Sweep не ис&shy;поль&shy;зу&shy;ет plug&gap, пла&shy;ни&shy;ро&shy;ва&shy;ние ему не нуж&shy;но. Он прос&shy;то идет и сос&shy;тав&shy;ля&shy;ет спис&shy;ки сво&shy;бод&shy;ных участ&shy;ков. В этом пла&shy;не sweep го&shy;раз&shy;до при&shy;ят&shy;нее compacting.</p>
+Фаза пла&shy;ни&shy;ро&shy;ва&shy;ния в LOH имеет смысл только для compac&shy;ting, чтобы понять даль&shy;ней&shy;шие действия. В обыч&shy;ных сце&shy;на&shy;риях сборки мусора у нас только sweep, а compac&shy;ting нет. И фаза пла&shy;ни&shy;ро&shy;ва&shy;ния в таких слу&shy;чаях отсут&shy;ствует. Sweep не исполь&shy;зует plug&gap, пла&shy;ни&shy;ро&shy;ва&shy;ние ему не нужно. Он просто идет и сос&shy;тав&shy;ляет списки сво&shy;бод&shy;ных участ&shy;ков. В этом плане sweep гораздо при&shy;ят&shy;нее compac&shy;ting.</p>
 <div class="paragraph-right-side">26</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">27</div>
 <p >
-В обыч&shy;ном ре&shy;жи&shy;ме LOH не осу&shy;щес&shy;твляет compacting, толь&shy;ко по при&shy;нуж&shy;де&shy;нию. Но в этом слу&shy;чае то&shy;же без пла&shy;ни&shy;ро&shy;ва&shy;ния. По&shy;то&shy;му что вы поп&shy;ро&shy;си&shy;ли конк&shy;рет&shy;ную и у не&shy;го вся ин&shy;фор&shy;ма&shy;ция бу&shy;дет пос&shy;тро&shy;ена на мес&shy;те, со все&shy;ми оф&shy;се&shy;та&shy;ми. Бу&shy;дут пос&shy;тро&shy;ены оф&shy;се&shy;ты, plugs&gaps толь&shy;ко для то&shy;го, что&shy;бы по&shy;нять, мо&shy;жет ли он обой&shy;тись обыч&shy;ным sweep. И ес&shy;ли это воз&shy;мож&shy;но, то он его и сде&shy;ла&shy;ет в хи&shy;пе ма&shy;лень&shy;ких объ&shy;ек&shy;тов. А в ку&shy;че боль&shy;ших вы&shy;чис&shy;лять ни&shy;че&shy;го не на&shy;до: что его поп&shy;ро&shy;сят, то он и сде&shy;ла&shy;ет. По&shy;э&shy;то&shy;му фа&shy;зы пла&shy;ни&shy;ро&shy;ва&shy;ния там нет.</p>
+В обыч&shy;ном режиме LOH не осу&shy;щес&shy;твляет compac&shy;ting, только по при&shy;нуж&shy;де&shy;нию. Но в этом слу&shy;чае тоже без пла&shy;ни&shy;ро&shy;ва&shy;ния. Потому что вы поп&shy;ро&shy;сили конк&shy;рет&shy;ную и у него вся инфор&shy;ма&shy;ция будет пос&shy;тро&shy;ена на месте, со всеми офсе&shy;тами. Будут пос&shy;тро&shy;ены офсеты, plugs&gaps только для того, чтобы понять, может ли он обой&shy;тись обыч&shy;ным sweep. И если это воз&shy;можно, то он его и сде&shy;лает в хипе малень&shy;ких объ&shy;ек&shy;тов. А в куче боль&shy;ших вычис&shy;лять ничего не надо: что его поп&shy;ро&shy;сят, то он и сде&shy;лает. Поэ&shy;тому фазы пла&shy;ни&shy;ро&shy;ва&shy;ния там нет.</p>
 <div class="paragraph-right-side">27</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
 <p >
-Так как LOH сде&shy;лан ис&shy;клю&shy;чи&shy;тель&shy;но для хра&shy;не&shy;ния боль&shy;ших дан&shy;ных, это поз&shy;во&shy;ля&shy;ет уп&shy;рос&shy;тить не&shy;ко&shy;то&shy;рые воп&shy;ро&shy;сы. Нет не&shy;об&shy;хо&shy;ди&shy;мос&shy;ти груп&shy;пи&shy;ро&shy;вать объ&shy;ек&shy;ты в plugs. В SOH это про&shy;ис&shy;хо&shy;дит ис&shy;клю&shy;чи&shy;тель&shy;но ра&shy;ди про&shy;из&shy;во&shy;ди&shy;тель&shy;нос&shy;ти. Если у нас ку&shy;ча объ&shy;ек&shy;тов по 32 бай&shy;та, то нет смыс&shy;ла их расс&shy;мат&shy;ри&shy;вать от&shy;дель&shy;но. С точ&shy;ки зре&shy;ния GC их на&shy;до расс&shy;мат&shy;ри&shy;вать как еди&shy;ное це&shy;лое. По&shy;э&shy;то&shy;му каж&shy;дый объ&shy;ект в LOH - это plug.</p>
+Так как LOH сде&shy;лан исклю&shy;чи&shy;тельно для хра&shy;не&shy;ния боль&shy;ших дан&shy;ных, это поз&shy;во&shy;ляет упрос&shy;тить неко&shy;то&shy;рые воп&shy;росы. Нет необ&shy;хо&shy;ди&shy;мости груп&shy;пи&shy;ро&shy;вать объ&shy;екты в plugs. В SOH это про&shy;ис&shy;хо&shy;дит исклю&shy;чи&shy;тельно ради про&shy;из&shy;во&shy;ди&shy;тель&shy;ности. Если у нас куча объ&shy;ек&shy;тов по 32 байта, то нет смысла их расс&shy;мат&shy;ри&shy;вать отдельно. С точки зре&shy;ния GC их надо расс&shy;мат&shy;ри&shy;вать как еди&shy;ное целое. Поэ&shy;тому каж&shy;дый объ&shy;ект в LOH - это plug.</p>
 <div class="paragraph-right-side">28</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">29</div>
 <p >
-Плот&shy;ность объ&shy;ек&shy;тов в нем нам&shy;но&shy;го ни&shy;же, зна&shy;чит эф&shy;фек&shy;тив&shy;нее транс&shy;ля&shy;ция ад&shy;ре&shy;сов - эф&shy;фек&shy;тив&shy;нее ра&shy;бо&shy;та&shy;ет де&shy;ре&shy;во. Лег&shy;че пе&shy;ре&shy;нес&shy;ти боль&shy;шой объ&shy;ект, чем plug, груп&shy;пу боль&shy;ших объ&shy;ек&shy;тов. Что&shy;бы обес&shy;пе&shy;чить хра&shy;не&shy;ние plugs&gaps ин&shy;фор&shy;ма&shy;ции меж&shy;ду объ&shy;ек&shy;та&shy;ми в LOH ре&shy;зер&shy;ви&shy;ру&shy;ет&shy;ся до&shy;пол&shy;ни&shy;тель&shy;ное мес&shy;то. Мы не мо&shy;жем се&shy;бе поз&shy;во&shy;лить ре&shy;зер&shy;ви&shy;ро&shy;вать до&shy;пол&shy;ни&shy;тель&shy;ное мес&shy;то под ин&shy;фор&shy;ма&shy;цию по раз&shy;ме&shy;рам gap и relocation offset в ку&shy;че ма&shy;лень&shy;ких объ&shy;ек&shy;тов. Это бу&shy;дет слиш&shy;ком жир&shy;но. Пос&shy;коль&shy;ку у нас ад&shy;ре&shy;са всех объ&shy;ек&shy;тов дол&shy;жны быть вы&shy;ров&shy;не&shy;ны по раз&shy;ме&shy;ру про&shy;цес&shy;сор&shy;но&shy;го сло&shy;ва, по 8 или по 4 бай&shy;там, а ин&shy;фор&shy;ма&shy;ция по plugs и relocation offset за&shy;ни&shy;ма&shy;ет все&shy;го 3 бай&shy;та, то мы не мо&shy;жем эти&shy;ми тре&shy;мя бай&shy;та&shy;ми ма&shy;ни&shy;пу&shy;ли&shy;ро&shy;вать. Мы ли&shy;бо 4 бу&shy;дем ис&shy;поль&shy;зо&shy;вать, ли&shy;бо 8. По&shy;э&shy;то&shy;му в LOH ис&shy;поль&shy;зу&shy;ем оп&shy;ти&shy;ми&shy;за&shy;цию, хра&shy;ним эту ин&shy;фор&shy;ма&shy;цию в gap. А в LOH мы мо&shy;жем се&shy;бе поз&shy;во&shy;лить до&shy;пол&shy;ни&shy;тель&shy;ную ин&shy;фор&shy;ма&shy;цию сле&shy;ва по&shy;ло&shy;жить, не пе&shy;ре&shy;ти&shy;рая при пи&shy;нин&shy;ге пре&shy;ды&shy;ду&shy;щие объ&shy;ек&shy;ты.</p>
+Плот&shy;ность объ&shy;ек&shy;тов в нем нам&shy;ного ниже, зна&shy;чит эффек&shy;тив&shy;нее транс&shy;ля&shy;ция адре&shy;сов - эффек&shy;тив&shy;нее рабо&shy;тает дерево. Легче пере&shy;нести боль&shy;шой объ&shy;ект, чем plug, группу боль&shy;ших объ&shy;ек&shy;тов. Чтобы обес&shy;пе&shy;чить хра&shy;не&shy;ние plugs&gaps инфор&shy;ма&shy;ции между объ&shy;ек&shy;тами в LOH резер&shy;ви&shy;ру&shy;ется допол&shy;ни&shy;тель&shy;ное место. Мы не можем себе поз&shy;во&shy;лить резер&shy;ви&shy;ро&shy;вать допол&shy;ни&shy;тель&shy;ное место под инфор&shy;ма&shy;цию по раз&shy;ме&shy;рам gap и relo&shy;ca&shy;tion offset в куче малень&shy;ких объ&shy;ек&shy;тов. Это будет слиш&shy;ком жирно. Пос&shy;кольку у нас адреса всех объ&shy;ек&shy;тов дол&shy;жны быть выров&shy;нены по раз&shy;меру про&shy;цес&shy;сор&shy;ного слова, по 8 или по 4 бай&shy;там, а инфор&shy;ма&shy;ция по plugs и relo&shy;ca&shy;tion offset зани&shy;мает всего 3 байта, то мы не можем этими тремя бай&shy;тами мани&shy;пу&shy;ли&shy;ро&shy;вать. Мы либо 4 будем исполь&shy;зо&shy;вать, либо 8. Поэ&shy;тому в LOH исполь&shy;зуем опти&shy;ми&shy;за&shy;цию, хра&shy;ним эту инфор&shy;ма&shy;цию в gap. А в LOH мы можем себе поз&shy;во&shy;лить допол&shy;ни&shy;тель&shy;ную инфор&shy;ма&shy;цию слева поло&shy;жить, не пере&shy;ти&shy;рая при пининге пре&shy;ды&shy;ду&shy;щие объ&shy;екты.</p>
 <div class="paragraph-right-side">29</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">30</div>
 <p >
-Ког&shy;да стр&shy;ои&shy;тся compacting в LOH, мы прос&shy;то до&shy;пол&shy;ни&shy;тель&shy;но ре&shy;зер&shy;ви&shy;ру&shy;ем меж&shy;ду все&shy;ми объ&shy;ек&shy;та&shy;ми нем&shy;но&shy;го мес&shy;та для то&shy;го, что&shy;бы по&shy;ло&shy;жить ту&shy;да оф&shy;сет. Ког&shy;да мы зап&shy;ра&shy;ши&shy;ва&shy;ем compacting вруч&shy;ную, мы прос&shy;чи&shy;ты&shy;ва&shy;ем эти оф&shy;се&shy;ты и все сжи&shy;ма&shy;ет&shy;ся.</p>
+Когда стр&shy;ои&shy;тся compac&shy;ting в LOH, мы просто допол&shy;ни&shy;тельно резер&shy;ви&shy;руем между всеми объ&shy;ек&shy;тами нем&shy;ного места для того, чтобы поло&shy;жить туда офсет. Когда мы зап&shy;ра&shy;ши&shy;ваем compac&shy;ting вруч&shy;ную, мы прос&shy;чи&shy;ты&shy;ваем эти офсеты и все сжи&shy;ма&shy;ется.</p>
 <div class="paragraph-right-side">30</div>
 </div>
 <p >
-По&shy;че&shy;му в SOH вмес&shy;то sweep мо&shy;жет быть выб&shy;ран compacting.</p>
+Почему в SOH вместо sweep может быть выб&shy;ран compac&shy;ting.</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">31</div>
 <p >
-Нап&shy;ри&shy;мер, это пос&shy;лед&shy;ний GC пе&shy;ред OutOfMEmoryException. Пос&shy;лед&shy;няя на&shy;деж&shy;да, что по&shy;лу&shy;чит&shy;ся най&shy;ти нем&shy;но&shy;го па&shy;мя&shy;ти.</p>
+Нап&shy;ри&shy;мер, это пос&shy;лед&shy;ний GC перед Out&shy;Of&shy;MEmory&shy;Exception. Пос&shy;лед&shy;няя надежда, что полу&shy;чится найти нем&shy;ного памяти.</p>
 <div class="paragraph-right-side">31</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">32</div>
 <p >
-Compacting мо&shy;жет быть поп&shy;ро&shy;шен прог&shy;рам&shy;мис&shy;том на&shy;ме&shy;ре&shy;но. Или бы&shy;ло выб&shy;ра&shy;но все мес&shy;то в эфе&shy;мер&shy;ном сег&shy;мен&shy;те. Если у нас в эфе&shy;мер&shy;ном сег&shy;мен&shy;те ну&shy;ле&shy;во&shy;го и пер&shy;во&shy;го по&shy;ко&shy;ле&shy;ния выб&shy;ра&shy;но вес мес&shy;то и все за&shy;ком&shy;ми&shy;че&shy;но, то не&shy;об&shy;хо&shy;ди&shy;мо ал&shy;ло&shy;ци&shy;ро&shy;вать но&shy;вый сег&shy;мент. Это до&shy;ро&shy;го по вре&shy;ме&shy;ни. По&shy;э&shy;то&shy;му пер&shy;вое, что пы&shy;та&shy;ет&shy;ся GC сде&shy;лать, это сжать.</p>
+Compac&shy;ting может быть поп&shy;ро&shy;шен прог&shy;рам&shy;мис&shy;том наме&shy;рено. Или было выб&shy;рано все место в эфе&shy;мер&shy;ном сег&shy;менте. Если у нас в эфе&shy;мер&shy;ном сег&shy;менте нуле&shy;вого и пер&shy;вого поко&shy;ле&shy;ния выб&shy;рано вес место и все заком&shy;ми&shy;чено, то необ&shy;хо&shy;димо алло&shy;ци&shy;ро&shy;вать новый сег&shy;мент. Это дорого по вре&shy;мени. Поэ&shy;тому пер&shy;вое, что пыта&shy;ется GC сде&shy;лать, это сжать.</p>
 <div class="paragraph-right-side">32</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">33</div>
 <p >
-Вы&shy;со&shy;кая сте&shy;пень фраг&shy;мен&shy;та&shy;ции по&shy;ко&shy;ле&shy;ния так же мо&shy;жет спро&shy;во&shy;ци&shy;ро&shy;вать compacing. Это один из ос&shy;нов&shy;ных слу&shy;ча&shy;ев. Если фраг&shy;мен&shy;та&shy;ция слиш&shy;ком вы&shy;со&shy;кая и нет ни&shy;ка&shy;кой воз&shy;мож&shy;нос&shy;ти раз&shy;мес&shy;тить allocation context в ка&shy;ких-то сво&shy;бод&shy;ных про&shy;ме&shy;жут&shy;ках па&shy;мя&shy;ти, то за&shy;пус&shy;ка&shy;ет&shy;ся сжа&shy;тие.</p>
+Высо&shy;кая сте&shy;пень фраг&shy;мен&shy;та&shy;ции поко&shy;ле&shy;ния так же может спро&shy;во&shy;ци&shy;ро&shy;вать compa&shy;cing. Это один из основ&shy;ных слу&shy;чаев. Если фраг&shy;мен&shy;та&shy;ция слиш&shy;ком высо&shy;кая и нет ника&shy;кой воз&shy;мож&shy;ности раз&shy;мес&shy;тить allo&shy;ca&shy;tion context в каких-то сво&shy;бод&shy;ных про&shy;ме&shy;жут&shy;ках памяти, то запус&shy;ка&shy;ется сжа&shy;тие.</p>
 <div class="paragraph-right-side">33</div>
 </div>
 <p >
-Еще один ва&shy;ри&shy;ант - про&shy;цесс за&shy;нял слиш&shy;ком мно&shy;го па&shy;мя&shy;ти. Это, в це&shy;лом, по&shy;нят&shy;но.</p>
+Еще один вари&shy;ант - про&shy;цесс занял слиш&shy;ком много памяти. Это, в целом, понятно.</p>
 <p >
 Расс&shy;мот&shy;рим фраг&shy;мен&shy;та&shy;цию.</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">34</div>
 <p >
-Это по&shy;ня&shy;тие дос&shy;та&shy;точ&shy;но вир&shy;ту&shy;альное. Что зна&shy;чит &laquo;слиш&shy;ком фраг&shy;мен&shy;ти&shy;ро&shy;ва&shy;но&raquo;? Ответ на воп&shy;рос прос&shy;той. Если взять не&shy;кий total fragmentation, ко&shy;то&shy;рый со&shy;би&shy;ра&shy;ет&shy;ся во вре&shy;мя фа&shy;зы пла&shy;ни&shy;ро&shy;ва&shy;ния (это сум&shy;мар&shy;ное ко&shy;ли&shy;чес&shy;тво па&shy;мя&shy;ти, ко&shy;то&shy;рое за&shy;ни&shy;ма&shy;ют gaps) и по&shy;де&shy;лить на раз&shy;мер по&shy;ко&shy;ле&shy;ния, то мы по&shy;лу&shy;чим от&shy;но&shy;ше&shy;ние. При fragmentation size в 40 ты&shy;сяч байт на ну&shy;ле&shy;вом по&shy;ко&shy;ле&shy;нии fragmentation ratio это 50%. Это триг&shy;гер. Если фраг&shy;мен&shy;та&shy;ция вы&shy;рас&shy;та&shy;ет, то мы де&shy;ла&shy;ем сжа&shy;тие ку&shy;чи.</p>
+Это поня&shy;тие дос&shy;та&shy;точно вир&shy;ту&shy;альное. Что зна&shy;чит &laquo;слиш&shy;ком фраг&shy;мен&shy;ти&shy;ро&shy;вано&raquo;? Ответ на воп&shy;рос прос&shy;той. Если взять некий total frag&shy;men&shy;ta&shy;tion, кото&shy;рый соби&shy;ра&shy;ется во время фазы пла&shy;ни&shy;ро&shy;ва&shy;ния (это сум&shy;мар&shy;ное коли&shy;чес&shy;тво памяти, кото&shy;рое зани&shy;мают gaps) и поде&shy;лить на раз&shy;мер поко&shy;ле&shy;ния, то мы полу&shy;чим отно&shy;ше&shy;ние. При frag&shy;men&shy;ta&shy;tion size в 40 тысяч байт на нуле&shy;вом поко&shy;ле&shy;нии frag&shy;men&shy;ta&shy;tion ratio это 50%. Это триг&shy;гер. Если фраг&shy;мен&shy;та&shy;ция вырас&shy;тает, то мы делаем сжа&shy;тие кучи.</p>
 <div class="paragraph-right-side">34</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">35</div>
 <p >
-Мы по&shy;лу&shy;чи&shy;ли но&shy;вую ин&shy;фор&shy;ма&shy;цию, что ес&shy;ли у нас есть фраг&shy;мен&shy;та&shy;ция бо&shy;лее 50% при оп&shy;ре&shy;де&shy;лен&shy;ном раз&shy;ме&shy;ре хи&shy;па, то за&shy;пус&shy;ка&shy;ет&shy;ся не очень при&shy;ят&shy;ная про&shy;це&shy;ду&shy;ра сжа&shy;тия, ко&shy;то&shy;ро&shy;го мы хо&shy;тим из&shy;бе&shy;гать.</p>
+Мы полу&shy;чили новую инфор&shy;ма&shy;цию, что если у нас есть фраг&shy;мен&shy;та&shy;ция более 50% при опре&shy;де&shy;лен&shy;ном раз&shy;мере хипа, то запус&shy;ка&shy;ется не очень при&shy;ят&shy;ная про&shy;це&shy;дура сжа&shy;тия, кото&shy;рого мы хотим избе&shy;гать.</p>
 <div class="paragraph-right-side">35</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">36</div>
 <p >
-Избе&shy;гать про&shy;цес&shy;са сжа&shy;тия от&shy;но&shy;си&shy;тель&shy;но прос&shy;то. У нас час&shy;то воз&shy;ни&shy;ка&shy;ет си&shy;ту&shy;а&shy;ция, ког&shy;да мы соз&shy;да&shy;ем объ&shy;ек&shy;ты од&shy;но&shy;го ти&shy;па, при этом соз&shy;да&shy;ем мы их не сра&shy;зу друг за дру&shy;гом, а на всем про&shy;тя&shy;же&shy;нии жиз&shy;ни прог&shy;рам&shy;мы, зная о том, что эти объ&shy;ек&shy;ты бу&shy;дут уда&shy;ле&shy;ны вмес&shy;те. Это при&shy;ве&shy;дет к фраг&shy;мен&shy;та&shy;ции. Что&shy;бы так не слу&shy;чи&shy;лось, мож&shy;но, нап&shy;ри&shy;мер, сде&shy;лать пул этих объ&shy;ек&shy;тов. В нем объ&shy;ек&shy;ты соз&shy;да&shy;ют&shy;ся друг за дру&shy;гом, груп&shy;пой. И ког&shy;да бу&shy;дет по&shy;те&shy;ря&shy;на ссыл&shy;ка на пул, они вмес&shy;те унич&shy;то&shy;жать&shy;ся, тем са&shy;мым соз&shy;дав еди&shy;ный gap. Я в це&shy;лом при&shy;хо&shy;дил к вы&shy;во&shy;дам, что пу&shy;лы ис&shy;поль&shy;зо&shy;вать очень хо&shy;ро&shy;шо. Они мо&shy;гут по&shy;мочь во мно&shy;гих си&shy;ту&shy;а&shy;ци&shy;ях. Спа&shy;са&shy;ют от фраг&shy;мен&shy;та&shy;ции, от по&shy;па&shy;да&shy;ния на кар&shy;точ&shy;ный стол (вы дос&shy;та&shy;ете объ&shy;ект из пу&shy;ла уже вто&shy;ро&shy;го по&shy;ко&shy;ле&shy;ния). Пул - ме&shy;тод ини&shy;ци&shy;а&shy;ли&shy;за&shy;ции. Ту&shy;да же мож&shy;но от&shy;нес&shy;ти бок&shy;синг, ко&shy;то&shy;рый мож&shy;но ре&shy;шить че&shy;рез эму&shy;ля&shy;цию бок&shy;син&shy;га или да&shy;же пул эму&shy;ля&shy;ции бок&shy;син&shy;га. Если есть ка&shy;кой-то ме&shy;тод, ко&shy;то&shy;рый при&shy;ни&shy;ма&shy;ет object, вы из&shy;ме&shy;нить это&shy;го не мо&shy;же&shy;те и вы&shy;нуж&shy;де&shy;ны бок&shy;сить, то мож&shy;но это&shy;го из&shy;бе&shy;жать. Фа&shy;за пла&shy;ни&shy;ро&shy;ва&shy;ния на этом за&shy;вер&shy;ше&shy;на.</p>
+Избе&shy;гать про&shy;цесса сжа&shy;тия отно&shy;си&shy;тельно просто. У нас часто воз&shy;ни&shy;кает ситу&shy;а&shy;ция, когда мы соз&shy;даем объ&shy;екты одного типа, при этом соз&shy;даем мы их не сразу друг за дру&shy;гом, а на всем про&shy;тя&shy;же&shy;нии жизни прог&shy;раммы, зная о том, что эти объ&shy;екты будут уда&shy;лены вместе. Это при&shy;ве&shy;дет к фраг&shy;мен&shy;та&shy;ции. Чтобы так не слу&shy;чи&shy;лось, можно, нап&shy;ри&shy;мер, сде&shy;лать пул этих объ&shy;ек&shy;тов. В нем объ&shy;екты соз&shy;да&shy;ются друг за дру&shy;гом, груп&shy;пой. И когда будет поте&shy;ряна ссылка на пул, они вместе унич&shy;то&shy;жаться, тем самым соз&shy;дав еди&shy;ный gap. Я в целом при&shy;хо&shy;дил к выво&shy;дам, что пулы исполь&shy;зо&shy;вать очень хорошо. Они могут помочь во мно&shy;гих ситу&shy;а&shy;циях. Спа&shy;сают от фраг&shy;мен&shy;та&shy;ции, от попа&shy;да&shy;ния на кар&shy;точ&shy;ный стол (вы дос&shy;та&shy;ете объ&shy;ект из пула уже вто&shy;рого поко&shy;ле&shy;ния). Пул - метод ини&shy;ци&shy;а&shy;ли&shy;за&shy;ции. Туда же можно отнести бок&shy;синг, кото&shy;рый можно решить через эму&shy;ля&shy;цию бок&shy;синга или даже пул эму&shy;ля&shy;ции бок&shy;синга. Если есть какой-то метод, кото&shy;рый при&shy;ни&shy;мает object, вы изме&shy;нить этого не можете и вынуж&shy;дены бок&shy;сить, то можно этого избе&shy;жать. Фаза пла&shy;ни&shy;ро&shy;ва&shy;ния на этом завер&shy;шена.</p>
 <div class="paragraph-right-side">36</div>
 </div>
 

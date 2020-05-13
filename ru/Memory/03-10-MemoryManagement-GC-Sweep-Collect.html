@@ -1279,94 +1279,94 @@ footer > div {
 <h2 id="sweep-collect">Sweep &amp; Collect</h2>
 <blockquote class="big-quote">
 <p >
- Адап&shy;та&shy;ция кур&shy;са в про&shy;цес&shy;се</p>
+ Адап&shy;та&shy;ция курса в про&shy;цессе</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
 <p >
-Мы расс&shy;мот&shy;ре&shy;ли прак&shy;ти&shy;чес&shy;ки все ста&shy;дии, кро&shy;ме пос&shy;лед&shy;ней. Эта фа&shy;за за&shy;чис&shy;тки и сжа&shy;тия.</p>
+Мы расс&shy;мот&shy;рели прак&shy;ти&shy;чески все ста&shy;дии, кроме пос&shy;лед&shy;ней. Эта фаза зачис&shy;тки и сжа&shy;тия.</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
 <p >
-Если на фа&shy;зе пла&shy;ни&shy;ро&shy;ва&shy;ния бы&shy;ло ре&shy;ше&shy;но ис&shy;поль&shy;зо&shy;вать sweep, мы дол&shy;жны осу&shy;щест&shy;вить GC пу&shy;тем от&shy;да&shy;чи всех не&shy;ис&shy;поль&shy;зу&shy;е&shy;мых участ&shy;ков на пе&shy;ре&shy;ис&shy;поль&shy;зо&shy;ва&shy;ние. Ког&shy;да на&shy;ши allocation context, ко&shy;то&shy;рые су&shy;щес&shy;тву&shy;ют от раз&shy;ных по&shy;то&shy;ков, нач&shy;нут за&shy;кан&shy;чи&shy;вать&shy;ся, они бу&shy;дут за&shy;ни&shy;мать эти сво&shy;бод&shy;ные учас&shy;тки меж&shy;ду дру&shy;ги&shy;ми объ&shy;ек&shy;та&shy;ми, та&shy;ким об&shy;ра&shy;зом ис&shy;клю&shy;чая фа&shy;зу сжа&shy;тия. Фа&shy;за сжа&shy;тия ра&shy;бо&shy;та&shy;ет доль&shy;ше. Пос&shy;ле это&shy;го эта&shy;па мы име&shy;ем та&shy;кую таб&shy;ли&shy;цу 01:27. У нас есть по&shy;ко&shy;ле&shy;ния с ба&shy;ке&shy;та&shy;ми, ко&shy;то&shy;рые ука&shy;зы&shy;ва&shy;ют на од&shy;нос&shy;вя&shy;за&shy;ный спи&shy;сок сво&shy;бод&shy;ных участ&shy;ков. Ба&shy;ке&shy;ты сгруп&shy;пи&shy;ро&shy;ва&shy;ны по раз&shy;ме&shy;рам. Внут&shy;ри од&shy;но&shy;го ба&shy;ке&shy;та идет спи&shy;сок участ&shy;ков при&shy;мер&shy;но од&shy;но&shy;го раз&shy;ме&shy;ра. Мы мо&shy;жем поп&shy;ро&shy;сить у ба&shy;ке&shy;тов учас&shy;ток нуж&shy;но&shy;го раз&shy;ме&shy;ра, и он по прин&shy;ци&shy;пу first fit най&shy;дет нуж&shy;ный ба&shy;кет и че&shy;рез best fit най&shy;дет под&shy;хо&shy;дя&shy;щий учас&shy;ток внут&shy;ри ба&shy;ке&shy;та.</p>
+Если на фазе пла&shy;ни&shy;ро&shy;ва&shy;ния было решено исполь&shy;зо&shy;вать sweep, мы дол&shy;жны осу&shy;щест&shy;вить GC путем отдачи всех неис&shy;поль&shy;зу&shy;е&shy;мых участ&shy;ков на пере&shy;ис&shy;поль&shy;зо&shy;ва&shy;ние. Когда наши allo&shy;ca&shy;tion context, кото&shy;рые сущес&shy;твуют от раз&shy;ных пото&shy;ков, нач&shy;нут закан&shy;чи&shy;ваться, они будут зани&shy;мать эти сво&shy;бод&shy;ные учас&shy;тки между дру&shy;гими объ&shy;ек&shy;тами, таким обра&shy;зом исклю&shy;чая фазу сжа&shy;тия. Фаза сжа&shy;тия рабо&shy;тает дольше. После этого этапа мы имеем такую таб&shy;лицу 01:27. У нас есть поко&shy;ле&shy;ния с баке&shy;тами, кото&shy;рые ука&shy;зы&shy;вают на однос&shy;вя&shy;за&shy;ный спи&shy;сок сво&shy;бод&shy;ных участ&shy;ков. Бакеты сгруп&shy;пи&shy;ро&shy;ваны по раз&shy;ме&shy;рам. Внутри одного бакета идет спи&shy;сок участ&shy;ков при&shy;мерно одного раз&shy;мера. Мы можем поп&shy;ро&shy;сить у баке&shy;тов учас&shy;ток нуж&shy;ного раз&shy;мера, и он по прин&shy;ципу first fit най&shy;дет нуж&shy;ный бакет и через best fit най&shy;дет под&shy;хо&shy;дя&shy;щий учас&shy;ток внутри бакета.</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <p >
-Gaps, ко&shy;то&shy;рые мень&shy;ше раз&shy;ме&shy;ра объ&shy;ек&shy;та иг&shy;но&shy;ри&shy;ру&shy;ют&shy;ся.</p>
+Gaps, кото&shy;рые меньше раз&shy;мера объ&shy;екта игно&shy;ри&shy;ру&shy;ются.</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
 <p >
-Пос&shy;ле это&shy;го saved_pre_plug и saved_post_plugs расс&shy;тав&shy;ля&shy;ют&shy;ся по мес&shy;там. По&shy;том вы&shy;пол&shy;ня&shy;ет&shy;ся ра&shy;бо&shy;та по об&shy;нов&shy;ле&shy;нию оче&shy;ре&shy;ди на фи&shy;на&shy;ли&shy;за&shy;цию. И за&shy;тем - пе&shy;рес&shy;тро&shy;е&shy;ние сег&shy;мен&shy;тов па&shy;мя&shy;ти.</p>
+После этого saved_pre_plug и saved_post_plugs расс&shy;тав&shy;ля&shy;ются по мес&shy;там. Потом выпол&shy;ня&shy;ется работа по обнов&shy;ле&shy;нию оче&shy;реди на фина&shy;ли&shy;за&shy;цию. И затем - перес&shy;тро&shy;е&shy;ние сег&shy;мен&shy;тов памяти.</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
 <p >
-Нап&shy;ри&shy;мер, мо&shy;жет так слу&shy;чит&shy;ся, что пос&shy;ле GC у нас часть стра&shy;ниц или сег&shy;мен&shy;тов боль&shy;ше не нуж&shy;ны. За&shy;чем их дер&shy;жать, ес&shy;ли мож&shy;но от&shy;дать ко&shy;му-то еще? Опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;те&shy;ма боль&shy;шая. Если не от&shy;дать, то все со&shy;сед&shy;ние при&shy;ло&shy;же&shy;ния бу&shy;дут ру&shy;гать&shy;ся, что ра&shy;бо&shy;та&shy;ют мед&shy;лен&shy;но. Так и есть: по&shy;то&shy;му что на&shy;ше при&shy;ло&shy;же&shy;ние не ос&shy;во&shy;бо&shy;ди&shy;ло опе&shy;ра&shy;тив&shy;ную па&shy;мять под со&shy;се&shy;дей.</p>
+Нап&shy;ри&shy;мер, может так слу&shy;чится, что после GC у нас часть стра&shy;ниц или сег&shy;мен&shy;тов больше не нужны. Зачем их дер&shy;жать, если можно отдать кому-то еще? Опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;тема боль&shy;шая. Если не отдать, то все сосед&shy;ние при&shy;ло&shy;же&shy;ния будут ругаться, что рабо&shy;тают мед&shy;ленно. Так и есть: потому что наше при&shy;ло&shy;же&shy;ние не осво&shy;бо&shy;дило опе&shy;ра&shy;тив&shy;ную память под сосе&shy;дей.</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
 <p >
-Sweep на LOH ра&shy;бо&shy;та&shy;ет по-дру&shy;го&shy;му. Он не ис&shy;поль&shy;зу&shy;ет пла&shy;ни&shy;ро&shy;ва&shy;ние, он об&shy;хо&shy;дит ку&shy;чу. Сво&shy;бод&shy;ные учас&shy;тки объ&shy;е&shy;ди&shy;ня&shy;ет с сос&shy;ты&shy;ко&shy;ван&shy;ны&shy;ми в один. Осво&shy;бо&shy;див&shy;ши&shy;еся учас&shy;тки меж&shy;ду за&shy;ня&shy;ты&shy;ми до&shy;бав&shy;ля&shy;ют&shy;ся в спи&shy;сок сво&shy;бод&shy;ных участ&shy;ков.</p>
+Sweep на LOH рабо&shy;тает по-дру&shy;гому. Он не исполь&shy;зует пла&shy;ни&shy;ро&shy;ва&shy;ние, он обхо&shy;дит кучу. Сво&shy;бод&shy;ные учас&shy;тки объ&shy;е&shy;ди&shy;няет с сос&shy;ты&shy;ко&shy;ван&shy;ными в один. Осво&shy;бо&shy;див&shy;ши&shy;еся учас&shy;тки между заня&shy;тыми добав&shy;ля&shy;ются в спи&shy;сок сво&shy;бод&shy;ных участ&shy;ков.</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
 <p >
-Для ме&shy;ня бы&shy;ло от&shy;кро&shy;ве&shy;ни&shy;ем, что в обо&shy;их хи&shy;пах ме&shy;ха&shy;низ&shy;мы од&shy;ни и те же. Прос&shy;то в од&shy;ном хи&shy;пе у них раз&shy;ные при&shy;о&shy;ри&shy;те&shy;ты. В LOH compacting в нас&shy;толь&shy;ко низ&shy;ком при&shy;о&shy;ри&shy;те&shy;те, что часть ал&shy;го&shy;рит&shy;ма прос&shy;то от&shy;клю&shy;че&shy;на. Но в це&shy;лом SOH и LOH ис&shy;поль&shy;зу&shy;ет од&shy;ни и те же ал&shy;го&shy;рит&shy;мы.</p>
+Для меня было откро&shy;ве&shy;нием, что в обоих хипах меха&shy;низмы одни и те же. Просто в одном хипе у них раз&shy;ные при&shy;о&shy;ри&shy;теты. В LOH compac&shy;ting в нас&shy;только низ&shy;ком при&shy;о&shy;ри&shy;тете, что часть алго&shy;ритма просто отклю&shy;чена. Но в целом SOH и LOH исполь&shy;зует одни и те же алго&shy;ритмы.</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <p >
-Compacting.</p>
+Compac&shy;ting.</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
 <p >
-Если не&shy;об&shy;хо&shy;ди&shy;мо соз&shy;да&shy;ет&shy;ся но&shy;вый эфе&shy;мер&shy;ный сег&shy;мент. Если фа&shy;за пла&shy;ни&shy;ро&shy;ва&shy;ния ре&shy;ши&shy;ла, что пос&shy;ле сжа&shy;тия мес&shy;та под gen_0 бу&shy;дет ма&shy;ло - соз&shy;да&shy;ем но&shy;вый сег&shy;мент. За&shy;ме&shy;ня&shy;ем все ссыл&shy;ки на кор&shy;рек&shy;т&shy;ные. Для это&shy;го у нас есть ин&shy;фор&shy;ма&shy;ция по gaps&plugs, по ко&shy;то&shy;рым лег&shy;ко пос&shy;чи&shy;тать все сме&shy;ще&shy;ния. Пе&shy;ред тем, как сжи&shy;мать, мы дол&shy;жны все ссыл&shy;ки по&shy;ме&shy;нять. Со&shy;би&shy;рая gen_0 мы прос&shy;мат&shy;ри&shy;ва&shy;ем его и кар&shy;точ&shy;ный стол стар&shy;ше&shy;го по&shy;ко&shy;ле&shy;ния. Ког&shy;да это сде&shy;ла&shy;но - на&shy;чи&shy;на&shy;ем ме&shy;нять ссыл&shy;ки в фа&shy;зе сжа&shy;тия до са&shy;мо&shy;го сжа&shy;тия, что&shy;бы не по&shy;те&shy;рять ин&shy;фор&shy;ма&shy;ция по gaps и оф&shy;се&shy;там. Ска&shy;ни&shy;ру&shy;ем все мес&shy;та, про&shy;из&shy;во&shy;дя за&shy;ме&shy;ну. Сна&shy;ча&shy;ла ссыл&shy;ки со сте&shy;ка, ко&shy;то&shy;рые вклю&shy;ча&shy;ют в се&shy;бя все ло&shy;каль&shy;ные пе&shy;ре&shy;мен&shy;ные и па&shy;ра&shy;мет&shy;ры ме&shy;то&shy;дов, пе&shy;ре&shy;дан&shy;ные че&shy;рез стек, а так же eager roots collection. По&shy;том ссыл&shy;ки с по&shy;лей объ&shy;ек&shy;тов, по&shy;лу&shy;чен&shy;ные че&shy;рез кар&shy;точ&shy;ный стол. За&shy;тем ссыл&shy;ки с по&shy;лей объ&shy;ек&shy;тов SOH и LOH с эта&shy;па об&shy;хо&shy;да гра&shy;фа. Так&shy;же ссыл&shy;ки с pre и post plugs, по&shy;то&shy;му что при сох&shy;ра&shy;не&shy;нии ту&shy;да мог&shy;ли по&shy;пасть и ссыл&shy;ки. Pinned plugs queue. Ссыл&shy;ки с по&shy;лей объ&shy;ек&shy;тов, на&shy;хо&shy;дя&shy;щих&shy;ся в finalization queue. Ссыл&shy;ки с handle tables.</p>
+Если необ&shy;хо&shy;димо соз&shy;да&shy;ется новый эфе&shy;мер&shy;ный сег&shy;мент. Если фаза пла&shy;ни&shy;ро&shy;ва&shy;ния решила, что после сжа&shy;тия места под gen_0 будет мало - соз&shy;даем новый сег&shy;мент. Заме&shy;няем все ссылки на кор&shy;рек&shy;т&shy;ные. Для этого у нас есть инфор&shy;ма&shy;ция по gaps&plugs, по кото&shy;рым легко пос&shy;чи&shy;тать все сме&shy;ще&shy;ния. Перед тем, как сжи&shy;мать, мы дол&shy;жны все ссылки поме&shy;нять. Соби&shy;рая gen_0 мы прос&shy;мат&shy;ри&shy;ваем его и кар&shy;точ&shy;ный стол стар&shy;шего поко&shy;ле&shy;ния. Когда это сде&shy;лано - начи&shy;наем менять ссылки в фазе сжа&shy;тия до самого сжа&shy;тия, чтобы не поте&shy;рять инфор&shy;ма&shy;ция по gaps и офсе&shy;там. Ска&shy;ни&shy;руем все места, про&shy;из&shy;водя замену. Сна&shy;чала ссылки со стека, кото&shy;рые вклю&shy;чают в себя все локаль&shy;ные пере&shy;мен&shy;ные и пара&shy;метры мето&shy;дов, пере&shy;дан&shy;ные через стек, а так же eager roots collec&shy;tion. Потом ссылки с полей объ&shy;ек&shy;тов, полу&shy;чен&shy;ные через кар&shy;точ&shy;ный стол. Затем ссылки с полей объ&shy;ек&shy;тов SOH и LOH с этапа обхода графа. Также ссылки с pre и post plugs, потому что при сох&shy;ра&shy;не&shy;нии туда могли попасть и ссылки. Pinned plugs queue. Ссылки с полей объ&shy;ек&shy;тов, нахо&shy;дя&shy;щихся в fina&shy;li&shy;za&shy;tion queue. Ссылки с handle tables.</p>
 <div class="paragraph-right-side">07</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
 <p >
-Мы дол&shy;жны вы&shy;пол&shy;нить все эти шесть ша&shy;гов. Вы&shy;вод - чем силь&shy;нее свя&shy;зан&shy;ность гра&shy;фа, тем доль&shy;ше ра&shy;бо&shy;та&shy;ет этот шаг. Нуж&shy;но обой&shy;ти все это очень ак&shy;ку&shy;рат&shy;но, что&shy;бы не про&shy;ма&shy;хи&shy;вать&shy;ся по ке&shy;шу в рам&shy;ках од&shy;но&shy;го учас&shy;тка па&shy;мя&shy;ти.</p>
+Мы дол&shy;жны выпол&shy;нить все эти шесть шагов. Вывод - чем силь&shy;нее свя&shy;зан&shy;ность графа, тем дольше рабо&shy;тает этот шаг. Нужно обойти все это очень акку&shy;ратно, чтобы не про&shy;ма&shy;хи&shy;ваться по кешу в рам&shy;ках одного учас&shy;тка памяти.</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
 <p >
-Да&shy;лее вы&shy;пол&shy;ня&shy;ет&shy;ся ко&shy;пи&shy;ро&shy;ва&shy;ние объ&shy;ек&shy;тов на их но&shy;вые мес&shy;та. Пос&shy;ле то&shy;го, как мы по&shy;ме&shy;ня&shy;ли все ад&shy;ре&shy;са, про&shy;ис&shy;хо&shy;дит са&shy;ма фа&shy;за сжа&shy;тия. Из пос&shy;лед&shy;них байт gaps бе&shy;рет&shy;ся зна&shy;че&shy;ние оф&shy;се&shy;та, и на не&shy;го сме&shy;ща&shy;ют&shy;ся все вы&shy;жив&shy;шие объ&shy;ек&shy;ты, что&shy;бы сжать ку&shy;чу. Естес&shy;тве&shy;нно, кро&shy;ме за&shy;пи&shy;не&shy;ных объ&shy;ек&shy;тов и тех, ко&shy;то&shy;рые раз&shy;ме&shy;ще&shy;ны пос&shy;ле них.</p>
+Далее выпол&shy;ня&shy;ется копи&shy;ро&shy;ва&shy;ние объ&shy;ек&shy;тов на их новые места. После того, как мы поме&shy;няли все адреса, про&shy;ис&shy;хо&shy;дит сама фаза сжа&shy;тия. Из пос&shy;лед&shy;них байт gaps берется зна&shy;че&shy;ние офсета, и на него сме&shy;ща&shy;ются все выжив&shy;шие объ&shy;екты, чтобы сжать кучу. Естес&shy;тве&shy;нно, кроме запи&shy;не&shy;ных объ&shy;ек&shy;тов и тех, кото&shy;рые раз&shy;ме&shy;щены после них.</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
 <p >
-Пос&shy;ле это&shy;го восс&shy;та&shy;нав&shy;ли&shy;ва&shy;ют&shy;ся все pre и post plugs учас&shy;тки и ис&shy;прав&shy;ля&shy;ем по&shy;ло&shy;же&shy;ние по&shy;ко&shy;ле&shy;ний (пос&shy;ле GC ну&shy;ле&shy;вое по&shy;ко&shy;ле&shy;ние ста&shy;но&shy;вит&shy;ся пер&shy;вым, пер&shy;вое - вто&shy;рым и ну&shy;ле&shy;вое сдви&shy;га&shy;ет&shy;ся так, что&shy;бы мож&shy;но бы&shy;ло вы&shy;де&shy;лять па&shy;мять даль&shy;ше).</p>
+После этого восс&shy;та&shy;нав&shy;ли&shy;ва&shy;ются все pre и post plugs учас&shy;тки и исправ&shy;ляем поло&shy;же&shy;ние поко&shy;ле&shy;ний (после GC нуле&shy;вое поко&shy;ле&shy;ние ста&shy;но&shy;вится пер&shy;вым, пер&shy;вое - вто&shy;рым и нуле&shy;вое сдви&shy;га&shy;ется так, чтобы можно было выде&shy;лять память дальше).</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
 <p >
-Пос&shy;ле это&shy;го уда&shy;ля&shy;ет&shy;ся и раз&shy;ком&shy;ми&shy;че&shy;и&shy;ва&shy;ет&shy;ся па&shy;мять из-под пол&shy;ностью ос&shy;во&shy;бо&shy;див&shy;ших&shy;ся сег&shy;мен&shy;тов.</p>
+После этого уда&shy;ля&shy;ется и раз&shy;ком&shy;ми&shy;че&shy;и&shy;ва&shy;ется память из-под пол&shy;ностью осво&shy;бо&shy;див&shy;шихся сег&shy;мен&shy;тов.</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
 <p >
-Пе&shy;ред каж&shy;дым за&shy;пи&shy;не&shy;ным объ&shy;ек&shy;том об&shy;ра&shy;зу&shy;ет&shy;ся сво&shy;бод&shy;ный учас&shy;ток. Его на&shy;до сох&shy;ра&shy;нить для даль&shy;ней&shy;ше&shy;го вы&shy;де&shy;ле&shy;ния па&shy;мя&shy;ти. То есть объ&shy;ект за&shy;пи&shy;нен. Сле&shy;ва от не&shy;го за&shy;ня&shy;тое мес&shy;то. И меж&shy;ду за&shy;ня&shy;тым мес&shy;том и за&shy;пи&shy;не&shy;ным объ&shy;ек&shy;том  - сво&shy;бод&shy;ные учас&shy;тки. Что&shy;бы их по&shy;том пе&shy;ре&shy;ис&shy;поль&shy;зо&shy;вать, они сох&shy;ра&shy;ня&shy;ют&shy;ся в спи&shy;сок сво&shy;бод&shy;ных участ&shy;ков. Что&shy;бы это сде&shy;лать нуж&shy;но убе&shy;дить&shy;ся, что есть нуж&shy;ный ба&shy;кет, ли&shy;бо соз&shy;дать но&shy;вый, и уже от&shy;ту&shy;да спус&shy;тить ссыл&shy;ку на од&shy;нос&shy;вя&shy;за&shy;ный спи&shy;сок за&shy;ня&shy;тых участ&shy;ков оп&shy;ре&shy;де&shy;лен&shy;но&shy;го раз&shy;ме&shy;ра.</p>
+Перед каж&shy;дым запи&shy;не&shy;ным объ&shy;ек&shy;том обра&shy;зу&shy;ется сво&shy;бод&shy;ный учас&shy;ток. Его надо сох&shy;ра&shy;нить для даль&shy;ней&shy;шего выде&shy;ле&shy;ния памяти. То есть объ&shy;ект запи&shy;нен. Слева от него заня&shy;тое место. И между заня&shy;тым мес&shy;том и запи&shy;не&shy;ным объ&shy;ек&shy;том  - сво&shy;бод&shy;ные учас&shy;тки. Чтобы их потом пере&shy;ис&shy;поль&shy;зо&shy;вать, они сох&shy;ра&shy;ня&shy;ются в спи&shy;сок сво&shy;бод&shy;ных участ&shy;ков. Чтобы это сде&shy;лать нужно убе&shy;диться, что есть нуж&shy;ный бакет, либо соз&shy;дать новый, и уже оттуда спус&shy;тить ссылку на однос&shy;вя&shy;за&shy;ный спи&shy;сок заня&shy;тых участ&shy;ков опре&shy;де&shy;лен&shy;ного раз&shy;мера.</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
 <p >
-По&shy;лу&shy;ча&shy;ет&shy;ся, что за&shy;да&shy;ча sweep - соз&shy;дать од&shy;нос&shy;вя&shy;за&shy;ный спи&shy;сок на сво&shy;бод&shy;ных участ&shy;ках. Сжа&shy;тие - это доль&shy;ше. Что&shy;бы сра&shy;бо&shy;тал sweep, на&shy;до груп&shy;пи&shy;ро&shy;вать объ&shy;ек&shy;ты, срок жиз&shy;ни ко&shy;то&shy;рых сов&shy;па&shy;да&shy;ет.  Это мак&shy;си&shy;мум, что мы мо&shy;жем сде&shy;лать.</p>
+Полу&shy;ча&shy;ется, что задача sweep - соз&shy;дать однос&shy;вя&shy;за&shy;ный спи&shy;сок на сво&shy;бод&shy;ных участ&shy;ках. Сжа&shy;тие - это дольше. Чтобы сра&shy;бо&shy;тал sweep, надо груп&shy;пи&shy;ро&shy;вать объ&shy;екты, срок жизни кото&shy;рых сов&shy;па&shy;дает.  Это мак&shy;си&shy;мум, что мы можем сде&shy;лать.</p>
 <div class="paragraph-right-side">13</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
 <p >
-Что&shy;бы не ме&shy;шать GC, мы не ис&shy;поль&shy;зу&shy;ем GCHandle bind. По воз&shy;мож&shy;нос&shy;ти, мы ис&shy;поль&shy;зу&shy;ем толь&shy;ко fixed. В этом слу&shy;чае мы мо&shy;жем из&shy;бе&shy;жать пи&shy;нин&shy;га, по&shy;то&shy;му что fixed - это прос&shy;то на&shy;по&shy;ми&shy;на&shy;ние GC, что ес&shy;ли он здесь очу&shy;тил&shy;ся, то пи&shy;нить на&shy;до.</p>
+Чтобы не мешать GC, мы не исполь&shy;зуем GCHa&shy;ndle bind. По воз&shy;мож&shy;ности, мы исполь&shy;зуем только fixed. В этом слу&shy;чае мы можем избе&shy;жать пининга, потому что fixed - это просто напо&shy;ми&shy;на&shy;ние GC, что если он здесь очу&shy;тился, то пинить надо.</p>
 <div class="paragraph-right-side">14</div>
 </div>
 

@@ -1527,8 +1527,8 @@ PersonInfo person;
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
 <p >
-缺少虚拟方法表会从结构中减去继承“魔法”的某一部分，但会给它们带来其他优势。第一个是我们可以将这种结构的实例传递给外部环境(.NET Framework之外)。记住，这只是一个记忆
-范围！我们还可以从非托管代码中获取内存范围，并将类型转换为我们的结构，以使其字段更易于访问。您不能对类执行此操作，因为它们有两个不可访问的字段。这些是SyncBlockIndex和虚方法表地址。如果这两个字段传递给非托管代码，那将是危险的。使用虚拟方法表，可以访问任何类型并更改它以攻击应用程序。</p>
+缺少虚拟方法表会从结构中减去继承“魔法”的某一部分，但会给它们带来其他优势。第一个是我们可以将这种结构的实例传递给外部环境(.NET Frame&shy;work之外)。记住，这只是一个记忆
+范围！我们还可以从非托管代码中获取内存范围，并将类型转换为我们的结构，以使其字段更易于访问。您不能对类执行此操作，因为它们有两个不可访问的字段。这些是Sync&shy;Block&shy;Index和虚方法表地址。如果这两个字段传递给非托管代码，那将是危险的。使用虚拟方法表，可以访问任何类型并更改它以攻击应用程序。</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <p >
@@ -1567,7 +1567,7 @@ PersonInfo person;
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
 <p >
-在这里，我们执行强类型中不可能执行的操作。我们将一种类型转换为另一种包含一个额外字段的不兼容类型。我们在Main方法中引入了一个额外的变量。从理论上讲，它的价值是秘密的。但是，示例代码将输出变量的值，而不是在<code>Main()</code>方法中的任何结构中找到的。您可能会认为这是安全漏洞，但事情并非如此简单。你无法摆脱程序中的非托管代码。主要原因是线程堆栈的结构。可以使用它来访问非托管代码并使用局部变量。您可以通过随机化堆栈帧的大小来保护代码免受这些攻击。或者，您可以删除有关<code>EBP</code>寄存器的信息，以使堆栈帧的返回复杂化。但是，这对我们来说无关紧要。我们对这个例子感兴趣的是以下内容。“秘密”变量在<strong>之前变为</strong> hh变量的定义，<strong>在</strong> WidthHolder结构之后**(实际上在不同的地方)。那么为什么我们很容易获得它的价值呢？答案是堆栈从右向左增长。首先声明的变量将具有更高的地址，而稍后声明的变量将具有更低的地址。</p>
+在这里，我们执行强类型中不可能执行的操作。我们将一种类型转换为另一种包含一个额外字段的不兼容类型。我们在Main方法中引入了一个额外的变量。从理论上讲，它的价值是秘密的。但是，示例代码将输出变量的值，而不是在<code>Main()</code>方法中的任何结构中找到的。您可能会认为这是安全漏洞，但事情并非如此简单。你无法摆脱程序中的非托管代码。主要原因是线程堆栈的结构。可以使用它来访问非托管代码并使用局部变量。您可以通过随机化堆栈帧的大小来保护代码免受这些攻击。或者，您可以删除有关<code>EBP</code>寄存器的信息，以使堆栈帧的返回复杂化。但是，这对我们来说无关紧要。我们对这个例子感兴趣的是以下内容。“秘密”变量在<strong>之前变为</strong> hh变量的定义，<strong>在</strong> Width&shy;Holder结构之后**(实际上在不同的地方)。那么为什么我们很容易获得它的价值呢？答案是堆栈从右向左增长。首先声明的变量将具有更高的地址，而稍后声明的变量将具有更低的地址。</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <p >
@@ -1676,11 +1676,11 @@ ChangeTo(<span style="color:Blue;">ref</span> strukt, 10);
 </li>
 <li>
 <p >
-<strong>显式</strong>：程序员使用FieldOffsetAttribute显式控制类型的每个字段的确切位置;</p>
+<strong>显式</strong>：程序员使用Field&shy;Offset&shy;Attribute显式控制类型的每个字段的确切位置;</p>
 </li>
 <li>
 <p >
-<strong>顺序</strong>：类型成员按顺序排列，在类型设计期间定义。打包步骤的StructLayoutAttribute.Pack值表示其位置。</p>
+<strong>顺序</strong>：类型成员按顺序排列，在类型设计期间定义。打包步骤的Struct&shy;Layout&shy;Attribute.Pack值表示其位置。</p>
 </li>
 </ul>
 <p >
@@ -1688,7 +1688,7 @@ ChangeTo(<span style="color:Blue;">ref</span> strukt, 10);
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
 <p >
-来自非托管世界的结构可以包含保留字段。可以在未来版本的库中使用它们。在C/C++中，我们通过添加字段来填充这些空白，例如reserved1，reserved2，...但是，在.NET中，我们只是通过使用FieldOffsetAttribute属性和<code>[StructLayout(LayoutKind.Explicit)]</code>来偏移到字段的开头。</p>
+来自非托管世界的结构可以包含保留字段。可以在未来版本的库中使用它们。在C/C++中，我们通过添加字段来填充这些空白，例如reserved1，reserved2，...但是，在.NET中，我们只是通过使用Field&shy;Offset&shy;Attribute属性和<code>[StructLayout(LayoutKind.Explicit)]</code>来偏移到字段的开头。</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1710,7 +1710,7 @@ ChangeTo(<span style="color:Blue;">ref</span> strukt, 10);
 <p >
 <strong>联盟</strong></p>
 <p >
-使用FieldOffsetAttribute可以模拟称为union的C/C++类型。它允许访问与实体相同的数据
+使用Field&shy;Offset&shy;Attribute可以模拟称为union的C/C++类型。它允许访问与实体相同的数据
 不同种类。我们来看看这个例子：</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Green;">// 如果我们读取RGBA.Value，我们将得到一个积累所有的Int32值</span>
@@ -1767,14 +1767,14 @@ ChangeTo(<span style="color:Blue;">ref</span> strukt, 10);
 <div class="paragraph-left-side">09</div>
 <p >
 我故意使用泛型类型进行重叠。如果我平常使用
-重叠，此类型将在应用程序域中加载时导致TypeLoadException。理论上它可能看起来像安全漏洞(特别是在讨论应用程序**插件时)，但如果我们尝试使用受保护的域运行此代码，我们将得到相同的<code>TypeLoadException</code>。</p>
+重叠，此类型将在应用程序域中加载时导致Type&shy;Load&shy;Exception。理论上它可能看起来像安全漏洞(特别是在讨论应用程序**插件时)，但如果我们尝试使用受保护的域运行此代码，我们将得到相同的<code>TypeLoadException</code>。</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <h2 id="section-2">分配的差异</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
 <p >
-区分这两种类型的另一个特征是对象或结构的内存分配。在为对象分配内存之前，CLR必须决定几件事。物体的大小是多少？是或多于或少于85K？如果它更少，那么SOH上是否有足够的可用空间来分配这个对象？如果更多，CLR将激活垃圾收集器。它通过一个对象图，通过将对象移动到已清除的空间来压缩对象。如果SOH上仍然没有空间，则将开始分配额外的虚拟内存页面。只有这样，一个对象才能获得分配的空间，从垃圾中清除。之后，CLR列出了SyncBlockIndex和VirtualMethodsTable。最后，对对象的引用返回给用户。</p>
+区分这两种类型的另一个特征是对象或结构的内存分配。在为对象分配内存之前，CLR必须决定几件事。物体的大小是多少？是或多于或少于85K？如果它更少，那么SOH上是否有足够的可用空间来分配这个对象？如果更多，CLR将激活垃圾收集器。它通过一个对象图，通过将对象移动到已清除的空间来压缩对象。如果SOH上仍然没有空间，则将开始分配额外的虚拟内存页面。只有这样，一个对象才能获得分配的空间，从垃圾中清除。之后，CLR列出了Sync&shy;Block&shy;Index和Virtual&shy;Methods&shy;Table。最后，对对象的引用返回给用户。</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="paragraph-container">
@@ -1784,25 +1784,25 @@ ChangeTo(<span style="color:Blue;">ref</span> strukt, 10);
 <div class="paragraph-right-side">11</div>
 </div>
 <p >
-RefTypes有几种可能的场景：</p>
+Ref&shy;Types有几种可能的场景：</p>
 <ul>
 <li>
 <p >
-RefType <85K，SOH上有空间：快速内存分配;</p>
+Ref&shy;Type <85K，SOH上有空间：快速内存分配;</p>
 </li>
 <li>
 <p >
-RefType <85K，SOH上的空间不足：内存分配很慢;</p>
+Ref&shy;Type <85K，SOH上的空间不足：内存分配很慢;</p>
 </li>
 <li>
 <p >
-RefType> 85K，内存分配缓慢。</p>
+Ref&shy;Type> 85K，内存分配缓慢。</p>
 </li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
 <p >
-此类操作很少见，无法与ValTypes竞争。值类型的内存分配算法不存在。为值类型分配内存不需要任何费用。为此类型分配内存时唯一发生的事情是将字段设置为null。让我们看看为什么会发生这种情况：1。当一个人在方法体中声明一个变量时，结构的内存分配时间接近于零。那是因为局部变量的分配时间并不取决于它们的数量; 2.如果ValTypes被分配为字段，Reftypes将增加字段的大小。价值类型完全分配，成为其中的一部分; 3.如同复制一样，如果ValTypes作为方法参数传递，则会出现差异，具体取决于参数的大小和位置。</p>
+此类操作很少见，无法与Val&shy;Types竞争。值类型的内存分配算法不存在。为值类型分配内存不需要任何费用。为此类型分配内存时唯一发生的事情是将字段设置为null。让我们看看为什么会发生这种情况：1。当一个人在方法体中声明一个变量时，结构的内存分配时间接近于零。那是因为局部变量的分配时间并不取决于它们的数量; 2.如果Val&shy;Types被分配为字段，Reftypes将增加字段的大小。价值类型完全分配，成为其中的一部分; 3.如同复制一样，如果Val&shy;Types作为方法参数传递，则会出现差异，具体取决于参数的大小和位置。</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <p >
@@ -1864,7 +1864,7 @@ RefType> 85K，内存分配缓慢。</p>
 </li>
 <li>
 <p >
-如果类型在方法调用中传递数据(作为返回值或作为方法参数)，并且不需要从不同位置引用相同的值，则可以选择结构。完美的例子是元组。如果方法使用元组返回多个值，它将返回一个声明为结构的ValueTuple。该方法不会在堆上分配空间，但会使用线程的堆栈，其中内存分配不需要任何费用。</p>
+如果类型在方法调用中传递数据(作为返回值或作为方法参数)，并且不需要从不同位置引用相同的值，则可以选择结构。完美的例子是元组。如果方法使用元组返回多个值，它将返回一个声明为结构的Value&shy;Tuple。该方法不会在堆上分配空间，但会使用线程的堆栈，其中内存分配不需要任何费用。</p>
 </li>
 <li>
 <p >
@@ -1884,7 +1884,7 @@ RefType> 85K，内存分配缓慢。</p>
 </li>
 <li>
 <p >
-出于同样的原因，你应该避免通过一系列方法调用传递大型结构。如果所有元素互相调用，这些调用将占用堆栈上的更多空间，并通过StackOverflowException使应用程序死机。下一个原因是表现。副本越多，一切都越慢。</p>
+出于同样的原因，你应该避免通过一系列方法调用传递大型结构。如果所有元素互相调用，这些调用将占用堆栈上的更多空间，并通过Stack&shy;Overflow&shy;Exception使应用程序死机。下一个原因是表现。副本越多，一切都越慢。</p>
 </li>
 </ol>
 <p >
@@ -1893,13 +1893,13 @@ RefType> 85K，内存分配缓慢。</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
 <p >
-看起来我们来自地狱和高水，并且可以指出任何采访，甚至是.NET CLR团队的采访。但是，我们不要急于访问microsoft.com并寻找空缺。现在，我们需要了解值类型如果它们既不包含对SyncBlockIndex的引用，又不包含指向虚方法表的指针，那么它是如何继承对象的。这将完全解释我们的类型系统和拼图的所有部分将找到他们的位置。但是，我们需要不止一个句子。</p>
+看起来我们来自地狱和高水，并且可以指出任何采访，甚至是.NET CLR团队的采访。但是，我们不要急于访问micro&shy;soft.com并寻找空缺。现在，我们需要了解值类型如果它们既不包含对Sync&shy;Block&shy;Index的引用，又不包含指向虚方法表的指针，那么它是如何继承对象的。这将完全解释我们的类型系统和拼图的所有部分将找到他们的位置。但是，我们需要不止一个句子。</p>
 <div class="paragraph-right-side">15</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
 <p >
-现在，让我们再次记住如何在内存中分配值类型。他们在记忆中占有一席之地。引用类型在小型和大型对象的堆上进行分配。它们总是引用对象所在堆上的位置。每种值类型都有ToString，Equals和GetHashCode等方法。它们是虚拟和可覆盖的，但不允许通过重写方法继承值类型。如果值类型使用了可覆盖的方法，则它们需要一个虚拟方法表来路由调用。这将导致将结构传递到非托管世界的问题：额外的字段会去那里。因此，某些地方存在值类型方法的描述，但您无法通过虚拟方法表直接访问它们。</p>
+现在，让我们再次记住如何在内存中分配值类型。他们在记忆中占有一席之地。引用类型在小型和大型对象的堆上进行分配。它们总是引用对象所在堆上的位置。每种值类型都有To&shy;String，Equals和Get&shy;Hash&shy;Code等方法。它们是虚拟和可覆盖的，但不允许通过重写方法继承值类型。如果值类型使用了可覆盖的方法，则它们需要一个虚拟方法表来路由调用。这将导致将结构传递到非托管世界的问题：额外的字段会去那里。因此，某些地方存在值类型方法的描述，但您无法通过虚拟方法表直接访问它们。</p>
 <div class="paragraph-right-side">16</div>
 </div>
 <p >
@@ -1911,11 +1911,11 @@ RefType> 85K，内存分配缓慢。</p>
 </li>
 <li>
 <p >
-基类型中有ToString，Equals和GetHashCode。在值类型中，这些方法有自己的行为。这意味着，相对于<code>object</code>重写了这些方法;</p>
+基类型中有To&shy;String，Equals和Get&shy;Hash&shy;Code。在值类型中，这些方法有自己的行为。这意味着，相对于<code>object</code>重写了这些方法;</p>
 </li>
 <li>
 <p >
-此外，如果将类型转换为<code>object</code>，则可以完全调用ToString，Equals和GetHashCode;</p>
+此外，如果将类型转换为<code>object</code>，则可以完全调用To&shy;String，Equals和Get&shy;Hash&shy;Code;</p>
 </li>
 <li>
 <p >
@@ -1933,13 +1933,13 @@ RefType> 85K，内存分配缓慢。</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
 <p >
-它允许我们使用基类处理数字10。这叫拳击。这意味着我们有一个VMT来调用ToString()，Equals和GetHashCode等虚拟方法。实际上，boxing会创建值类型的副本，但不会创建指向原始的指针。这是因为我们可以在任何地方存储原始值：在堆栈上或作为类的字段。如果我们将它转​​换为对象类型，我们可以根据需要存储对该值的引用。拳击发生时：</p>
+它允许我们使用基类处理数字10。这叫拳击。这意味着我们有一个VMT来调用To&shy;String()，Equals和Get&shy;Hash&shy;Code等虚拟方法。实际上，boxing会创建值类型的副本，但不会创建指向原始的指针。这是因为我们可以在任何地方存储原始值：在堆栈上或作为类的字段。如果我们将它转​​换为对象类型，我们可以根据需要存储对该值的引用。拳击发生时：</p>
 <div class="paragraph-right-side">17</div>
 </div>
 <ul>
 <li>
 <p >
-CLR在堆上为结构+ SyncBlockIndex + VMT分配值类型的空间(调用ToString，GetHashCode，Equals);</p>
+CLR在堆上为结构+ Sync&shy;Block&shy;Index + VMT分配值类型的空间(调用To&shy;String，Get&shy;Hash&shy;Code，Equals);</p>
 </li>
 <li>
 <p >
@@ -2200,7 +2200,7 @@ pool.Free(boxed);
 </li>
 <li>
 <p >
-获取SimpleIntHolder的VMT</p>
+获取Simple&shy;Int&shy;Holder的VMT</p>
 </li>
 <li>
 <p >
@@ -2242,7 +2242,7 @@ pool.Free(boxed);
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
 <p >
-最后一点，我想告诉你<a href="http://referencesource.microsoft.com/#mscorlib/system/enum.cs,36729210e317a805">System.Enum type</a>。从逻辑上讲，这应该是一个值类型，因为它是通常的枚举：在编程语言中将数字别名化为名称。但是，System.Enum是一种引用类型。在您的字段和.NET Framework中定义的所有枚举数据类型都继承自System.Enum。它是一种类数据类型。而且，它是一个抽象类，继承自<code>System.ValueType</code>。</p>
+最后一点，我想告诉你<a href="http://referencesource.microsoft.com/#mscorlib/system/enum.cs,36729210e317a805">System.Enum type</a>。从逻辑上讲，这应该是一个值类型，因为它是通常的枚举：在编程语言中将数字别名化为名称。但是，System.Enum是一种引用类型。在您的字段和.NET Frame&shy;work中定义的所有枚举数据类型都继承自System.Enum。它是一种类数据类型。而且，它是一个抽象类，继承自<code>System.ValueType</code>。</p>
 <div class="paragraph-right-side">26</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2300,7 +2300,7 @@ pool.Free(boxed);
 <div class="paragraph-container">
 <div class="paragraph-left-side">30</div>
 <p >
-幸运的是，您不必使用反汇编程序进入代码丛林。我们有整个.NET平台核心的文本，其中许多在.NET Framework CLR和CoreCLR方面是相同的。您可以点击下面的链接，立即查看拳击的实施：</p>
+幸运的是，您不必使用反汇编程序进入代码丛林。我们有整个.NET平台核心的文本，其中许多在.NET Frame&shy;work CLR和Core&shy;CLR方面是相同的。您可以点击下面的链接，立即查看拳击的实施：</p>
 <div class="paragraph-right-side">30</div>
 </div>
 <ul>
@@ -2312,22 +2312,22 @@ pool.Free(boxed);
 <li>
 <p >
 <em><a href="https://github.com/dotnet/coreclr/blob/master/src/vm/amd64/JitHelpers_InlineGetThread.asm#L86-L148">JIT_BoxFastMP_InlineGetThread</a></em>
-(AMD64 - multiprocessor or Server GC, implicit Thread Local Storage)</p>
+(AMD64 - multip&shy;ro&shy;cessor or Server GC, implicit Thread Local Storage)</p>
 </li>
 <li>
 <p >
 <em><a href="https://github.com/dotnet/coreclr/blob/8cc7e35dd0a625a3b883703387291739a148e8c8/src/vm/amd64/JitHelpers_Slow.asm#L201-L271">JIT_BoxFastMP</a></em>
-(AMD64 - multiprocessor or Server GC)</p>
+(AMD64 - multip&shy;ro&shy;cessor or Server GC)</p>
 </li>
 <li>
 <p >
 <em><a href="https://github.com/dotnet/coreclr/blob/8cc7e35dd0a625a3b883703387291739a148e8c8/src/vm/amd64/JitHelpers_Slow.asm#L485-L554">JIT_BoxFastUP</a></em>
-(AMD64 - single processor or Workstation GC)</p>
+(AMD64 - single processor or Work&shy;st&shy;ation GC)</p>
 </li>
 <li>
 <p >
 <em><a href="https://github.com/dotnet/coreclr/blob/38a2a69c786e4273eb1339d7a75f939c410afd69/src/vm/i386/jitinterfacex86.cpp#L756-L886">JIT_TrialAlloc::GenBox(..)</a></em>
-(x86) connected through JitHelpers</p>
+(x86) connected through Jit&shy;Helpers</p>
 </li>
 </ul>
 </li>
@@ -2343,7 +2343,7 @@ pool.Free(boxed);
 <ul>
 <li>
 <p >
-Finally, [CopyValueClassUnchecked(..)] is called
+Finally, [Copy&shy;Value&shy;Class&shy;Unchecked(..)] is called
 (<a href="https://github.com/dotnet/coreclr/blob/master/src/vm/object.cpp#L1514-L1581">https://github.com/dotnet/coreclr/blob/master/src/vm/object.cpp#L1514-L1581</a>).
 它的代码显示了为什么最好选择包含8字节大小的结构。</p>
 </li>
@@ -2425,7 +2425,7 @@ Or like this (С++/CLI):</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">34</div>
 <p >
-有时我们希望将结构用作使用第一个结构的另一个结构的字段。或者更简单：使用结构作为结构域。不要问我为什么这有用。这不可以。如果使用结构作为其字段或通过依赖于另一个结构，则创建递归，这意味着无限大小结构。但是，.NET Framework在某些地方可以执行此操作。一个例子是<code>System.Char</code>，<a href="http://referencesource.microsoft.com/#mscorlib/system/char.cs,02f2b1a33b09362d">包含它自己</a>:</p>
+有时我们希望将结构用作使用第一个结构的另一个结构的字段。或者更简单：使用结构作为结构域。不要问我为什么这有用。这不可以。如果使用结构作为其字段或通过依赖于另一个结构，则创建递归，这意味着无限大小结构。但是，.NET Frame&shy;work在某些地方可以执行此操作。一个例子是<code>System.Char</code>，<a href="http://referencesource.microsoft.com/#mscorlib/system/char.cs,02f2b1a33b09362d">包含它自己</a>:</p>
 <div class="paragraph-right-side">34</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>

@@ -1279,455 +1279,455 @@ footer > div {
 <h2 id="section">Выделение памяти под объект</h2>
 <blockquote class="big-quote">
 <p >
- Адап&shy;та&shy;ция кур&shy;са в про&shy;цес&shy;се</p>
+ Адап&shy;та&shy;ция курса в про&shy;цессе</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
 <p >
-Мы толь&shy;ко что по&shy;го&shy;во&shy;ри&shy;ли про GC с вы&shy;со&shy;ты птич&shy;ьего по&shy;ле&shy;та. Сей&shy;час бу&shy;дем ухо&shy;дить в под&shy;роб&shy;нос&shy;ти. В пер&shy;вую оче&shy;редь, хо&shy;чет&shy;ся по&shy;об&shy;щать&shy;ся про ал&shy;го&shy;ритм вы&shy;де&shy;ле&shy;ния па&shy;мя&shy;ти.</p>
+Мы только что пого&shy;во&shy;рили про GC с высоты птич&shy;ьего полета. Сей&shy;час будем ухо&shy;дить в под&shy;роб&shy;ности. В пер&shy;вую оче&shy;редь, хочется пооб&shy;щаться про алго&shy;ритм выде&shy;ле&shy;ния памяти.</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
 <p >
-Управ&shy;ле&shy;ние па&shy;мятью .NET раз&shy;ра&shy;бот&shy;чи&shy;ка ин&shy;те&shy;ре&shy;су&shy;ет со сто&shy;ро&shy;ны двух ос&shy;нов&shy;ных про&shy;цес&shy;сов: пер&shy;вое  - это вы&shy;де&shy;лить па&shy;мять, вто&shy;рое - ос&shy;во&shy;бо&shy;дить. Про вы&shy;де&shy;ле&shy;ние па&shy;мя&shy;ти мы сей&shy;час и по&shy;го&shy;во&shy;рим.</p>
+Управ&shy;ле&shy;ние памятью .NET раз&shy;ра&shy;бот&shy;чика инте&shy;ре&shy;сует со сто&shy;роны двух основ&shy;ных про&shy;цес&shy;сов: пер&shy;вое  - это выде&shy;лить память, вто&shy;рое - осво&shy;бо&shy;дить. Про выде&shy;ле&shy;ние памяти мы сей&shy;час и пого&shy;во&shy;рим.</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
 <p >
-С точ&shy;ки зре&shy;ния про&shy;цес&shy;со&shy;ра па&shy;мять выг&shy;ля&shy;дит нес&shy;коль&shy;ко слож&shy;нее. Если го&shy;во&shy;рит про ар&shy;хи&shy;тек&shy;ту&shy;ру уп&shy;рав&shy;ле&shy;ния па&shy;мя&shy;ти, я бы ска&shy;зал, что она раз&shy;де&shy;ле&shy;на на слои. Пер&shy;вый слой, ко&shy;то&shy;рый ви&shy;дим мы, слой .NET дос&shy;та&shy;точ&shy;но слож&shy;ный, но вер&shy;хо&shy;уров&shy;не&shy;вый. То есть он в лю&shy;бом слу&shy;чае опи&shy;ра&shy;ет&shy;ся на что-то дру&shy;гое, а имен&shy;но на слои уп&shy;рав&shy;ле&shy;ния па&shy;мятью Windows, ко&shy;то&shy;рый в свою оче&shy;редь за&shy;пу&shy;щен на ка&shy;ком-то про&shy;цес&shy;со&shy;ре. Про&shy;цес&shy;сор по-сво&shy;ему ин&shy;терп&shy;ре&shy;ти&shy;ру&shy;ет эту па&shy;мять. Та&shy;ким об&shy;ра&shy;зом, у нас фак&shy;ти&shy;чес&shy;ки су&shy;щес&shy;тву&shy;ет три слоя уп&shy;рав&shy;ле&shy;ния па&shy;мятью.</p>
+С точки зре&shy;ния про&shy;цес&shy;сора память выг&shy;ля&shy;дит нес&shy;колько слож&shy;нее. Если гово&shy;рит про архи&shy;тек&shy;туру управ&shy;ле&shy;ния памяти, я бы ска&shy;зал, что она раз&shy;де&shy;лена на слои. Пер&shy;вый слой, кото&shy;рый видим мы, слой .NET дос&shy;та&shy;точно слож&shy;ный, но вер&shy;хо&shy;уров&shy;не&shy;вый. То есть он в любом слу&shy;чае опи&shy;ра&shy;ется на что-то дру&shy;гое, а именно на слои управ&shy;ле&shy;ния памятью Windows, кото&shy;рый в свою оче&shy;редь запу&shy;щен на каком-то про&shy;цес&shy;соре. Про&shy;цес&shy;сор по-сво&shy;ему интерп&shy;ре&shy;ти&shy;рует эту память. Таким обра&shy;зом, у нас фак&shy;ти&shy;чески сущес&shy;твует три слоя управ&shy;ле&shy;ния памятью.</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
 <p >
-Па&shy;мять с точ&shy;ки зре&shy;ния про&shy;цес&shy;со&shy;ра - это план&shy;ка, фи&shy;зи&shy;чес&shy;кая па&shy;мять, RAM. Сколь&shy;ко пла&shy;нок мы пос&shy;та&shy;ви&shy;ли, столь&shy;ко он и ви&shy;дит. Но у нас есть зна&shy;ния, что каж&shy;дый за&shy;пу&shy;щен&shy;ный в сис&shy;те&shy;ме Windows про&shy;цесс изо&shy;ли&shy;ро&shy;ван. И кро&shy;ме се&shy;бя он боль&shy;ше ни&shy;че&shy;го не ви&shy;дит. Есть сам про&shy;цесс, winapi и боль&shy;ше ни&shy;че&shy;го во&shy;об&shy;ще. Word не ви&shy;дит Exel. Exel не ви&shy;дит каль&shy;ку&shy;ля&shy;тор. Все они изо&shy;ли&shy;ро&shy;ва&shy;ны пол&shy;ностью. По&shy;то&shy;му что на ар&shy;хи&shy;тек&shy;ту&shy;ре Intel сде&shy;ла&shy;на вир&shy;ту&shy;а&shy;ли&shy;за&shy;ция па&shy;мя&shy;ти.</p>
+Память с точки зре&shy;ния про&shy;цес&shy;сора - это планка, физи&shy;чес&shy;кая память, RAM. Сколько пла&shy;нок мы пос&shy;та&shy;вили, столько он и видит. Но у нас есть зна&shy;ния, что каж&shy;дый запу&shy;щен&shy;ный в сис&shy;теме Windows про&shy;цесс изо&shy;ли&shy;ро&shy;ван. И кроме себя он больше ничего не видит. Есть сам про&shy;цесс, winapi и больше ничего вообще. Word не видит Exel. Exel не видит каль&shy;ку&shy;ля&shy;тор. Все они изо&shy;ли&shy;ро&shy;ваны пол&shy;ностью. Потому что на архи&shy;тек&shy;туре Intel сде&shy;лана вир&shy;ту&shy;а&shy;ли&shy;за&shy;ция памяти.</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
 <p >
-Как она ра&shy;бо&shy;та&shy;ет. Есть таб&shy;ли&shy;цы гло&shy;баль&shy;ных деск&shy;рип&shy;то&shy;ров, ко&shy;то&shy;рые мы не ви&shy;дим, есть таб&shy;ли&shy;цы ло&shy;каль&shy;ных деск&shy;рип&shy;то&shy;ров, ко&shy;то&shy;рые ку&shy;да-то от&shy;сы&shy;ла&shy;ют&shy;ся. И все вмес&shy;те это ссы&shy;ла&shy;ет&shy;ся на Page Frame.</p>
+Как она рабо&shy;тает. Есть таб&shy;лицы гло&shy;баль&shy;ных деск&shy;рип&shy;то&shy;ров, кото&shy;рые мы не видим, есть таб&shy;лицы локаль&shy;ных деск&shy;рип&shy;то&shy;ров, кото&shy;рые куда-то отсы&shy;ла&shy;ются. И все вместе это ссы&shy;ла&shy;ется на Page Frame.</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
 <p >
-У лю&shy;бо&shy;го про&shy;цес&shy;са есть не&shy;кий ди&shy;а&shy;па&shy;зон па&shy;мя&shy;ти от ну&shy;ля и до, нап&shy;ри&shy;мер, 4Гб на x32 сис&shy;те&shy;ме и до ус&shy;лов&shy;ной бес&shy;ко&shy;неч&shy;нос&shy;ти на x64. Это ди&shy;а&shy;па&shy;зон вир&shy;ту&shy;альной па&shy;мя&shy;ти. Про&shy;цес&shy;сор соз&shy;да&shy;ет для конк&shy;рет&shy;ной прог&shy;рам&shy;мы не&shy;кий вир&shy;ту&shy;альный ку&shy;сок, где есть толь&shy;ко она. Эта об&shy;ласть по&shy;де&shy;ле&shy;на на стра&shy;ни&shy;цы: на ку&shy;соч&shy;ки по 4Кб. Каж&shy;дый их них оз&shy;на&shy;ча&shy;ет, что па&shy;мять в этом мес&shy;те ли&shy;бо су&shy;щес&shy;тву&shy;ет, ли&shy;бо ее там не су&shy;щес&shy;тву&shy;ет, т.е. она фи&shy;зи&shy;чес&shy;ки в этом мес&shy;те от&shy;сут&shy;ствует пол&shy;ностью. Адрес есть, а па&shy;мя&shy;ти там нет. Это воз&shy;ни&shy;ка&shy;ет в си&shy;ту&shy;а&shy;ци&shy;ях, ког&shy;да план&shy;ка, нап&shy;ри&shy;мер на 4Гб, встав&shy;ле&shy;на в ма&shy;те&shy;рин&shy;с&shy;кую пла&shy;ту, а про&shy;цес&shy;сов у нас за&shy;пу&shy;ще&shy;на сот&shy;ня и Windows 32х раз&shy;ряд&shy;ный. Зна&shy;чит, что у каж&shy;дой прог&shy;рам&shy;мы 4Гб па&shy;мя&shy;ти, но при этом они друг от дру&shy;га изо&shy;ли&shy;ро&shy;ва&shy;ны.</p>
+У любого про&shy;цесса есть некий диа&shy;па&shy;зон памяти от нуля и до, нап&shy;ри&shy;мер, 4Гб на x32 сис&shy;теме и до услов&shy;ной бес&shy;ко&shy;неч&shy;ности на x64. Это диа&shy;па&shy;зон вир&shy;ту&shy;альной памяти. Про&shy;цес&shy;сор соз&shy;дает для конк&shy;рет&shy;ной прог&shy;раммы некий вир&shy;ту&shy;альный кусок, где есть только она. Эта область поде&shy;лена на стра&shy;ницы: на кусочки по 4Кб. Каж&shy;дый их них озна&shy;чает, что память в этом месте либо сущес&shy;твует, либо ее там не сущес&shy;твует, т.е. она физи&shy;чески в этом месте отсут&shy;ствует пол&shy;ностью. Адрес есть, а памяти там нет. Это воз&shy;ни&shy;кает в ситу&shy;а&shy;циях, когда планка, нап&shy;ри&shy;мер на 4Гб, встав&shy;лена в мате&shy;рин&shy;с&shy;кую плату, а про&shy;цес&shy;сов у нас запу&shy;щена сотня и Windows 32х раз&shy;ряд&shy;ный. Зна&shy;чит, что у каж&shy;дой прог&shy;раммы 4Гб памяти, но при этом они друг от друга изо&shy;ли&shy;ро&shy;ваны.</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
 <p >
-Как 4 Гб  по&shy;де&shy;лить на сто и по&shy;лу&shy;чить 4 каж&shy;до&shy;му? Ни&shy;как. Это зна&shy;чит, что у каж&shy;дой прог&shy;рам&shy;мы на че&shy;ты&shy;рех&shy;ги&shy;га&shy;байт&shy;ном учас&shy;тке есть мес&shy;та, где па&shy;мя&shy;ти не во&shy;об&shy;ще, там толь&shy;ко вы&shy;де&shy;ле&shy;ны ку&shy;соч&shy;ки ад&shy;ре&shy;сов. Но где-то па&shy;мять есть и она за&shy;мап&shy;ле&shy;на на план&shy;ку фи&shy;зи&shy;чес&shy;кую. А ес&shy;ли не за&shy;мап&shy;ле&shy;на - па&shy;мя&shy;ти нет. Если ту&shy;да об&shy;ра&shy;тить&shy;ся, что-то по&shy;пы&shy;тать&shy;ся счи&shy;тать, вы по&shy;лу&shy;чи&shy;те не ноль, а AccessViolationException. Искл&shy;юч&shy;ение, ко&shy;то&shy;рое го&shy;во&shy;рит о том, что вы пы&shy;та&shy;е&shy;тесь ра&shy;бо&shy;тать с кус&shy;ком, ко&shy;то&shy;рый не су&shy;щес&shy;тву&shy;ет, ли&shy;бо на ко&shy;то&shy;рый у вас нет прав. На дан&shy;ном уров&shy;не ис&shy;клю&shy;че&shy;ние раз&shy;ли&shy;чий не де&shy;ла&shy;ет.</p>
+Как 4 Гб  поде&shy;лить на сто и полу&shy;чить 4 каж&shy;дому? Никак. Это зна&shy;чит, что у каж&shy;дой прог&shy;раммы на четы&shy;рех&shy;ги&shy;га&shy;байт&shy;ном учас&shy;тке есть места, где памяти не вообще, там только выде&shy;лены кусочки адре&shy;сов. Но где-то память есть и она замап&shy;лена на планку физи&shy;чес&shy;кую. А если не замап&shy;лена - памяти нет. Если туда обра&shy;титься, что-то попы&shy;таться счи&shy;тать, вы полу&shy;чите не ноль, а Access&shy;Violation&shy;Exception. Искл&shy;юч&shy;ение, кото&shy;рое гово&shy;рит о том, что вы пыта&shy;е&shy;тесь рабо&shy;тать с кус&shy;ком, кото&shy;рый не сущес&shy;твует, либо на кото&shy;рый у вас нет прав. На дан&shy;ном уровне исклю&shy;че&shy;ние раз&shy;ли&shy;чий не делает.</p>
 <div class="paragraph-right-side">07</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
 <p >
-Точ&shy;но так&shy;же ра&shy;бо&shy;тать с Wap. (см. слайд 06:30). На изоб&shy;ра&shy;же&shy;нии вы&shy;де&shy;ле&shy;ны про&shy;цес&shy;сы в ви&shy;де стол&shy;би&shy;ков. Там, где бе&shy;лый шум - па&shy;мять вы&shy;де&shy;ле&shy;на и за&shy;пол&shy;не&shy;на. А там, где про&shy;пус&shy;ки - па&shy;мя&shy;ти нет. Вы&shy;де&shy;лен&shy;ные об&shy;лас&shy;ти мо&shy;гут быть за&shy;мап&shy;ле&shy;ны как на фи&shy;зи&shy;чес&shy;кую па&shy;мять, так и на жест&shy;кий диск.</p>
+Точно также рабо&shy;тать с Wap. (см. слайд 06:30). На изоб&shy;ра&shy;же&shy;нии выде&shy;лены про&shy;цессы в виде стол&shy;би&shy;ков. Там, где белый шум - память выде&shy;лена и запол&shy;нена. А там, где про&shy;пуски - памяти нет. Выде&shy;лен&shy;ные области могут быть замап&shy;лены как на физи&shy;чес&shy;кую память, так и на жест&shy;кий диск.</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
 <p >
-Если, нап&shy;ри&shy;мер, прог&shy;рам&shy;ма мно&shy;го па&shy;мя&shy;ти вы&shy;де&shy;ли&shy;ла, но ей не поль&shy;зу&shy;ет&shy;ся, а со&shy;сед&shy;ней прог&shy;рам&shy;ме па&shy;мять нуж&shy;на, при этом план&shy;ка ма&shy;лень&shy;кая, то Windows не&shy;ис&shy;поль&shy;зу&shy;е&shy;мую па&shy;мять от&shy;гру&shy;жа&shy;ет на жест&shy;кий диск, а этот ку&shy;сок от&shy;да&shy;ет ко&shy;му-то дру&shy;го&shy;му.</p>
+Если, нап&shy;ри&shy;мер, прог&shy;рамма много памяти выде&shy;лила, но ей не поль&shy;зу&shy;ется, а сосед&shy;ней прог&shy;рамме память нужна, при этом планка малень&shy;кая, то Windows неис&shy;поль&shy;зу&shy;е&shy;мую память отгру&shy;жает на жест&shy;кий диск, а этот кусок отдает кому-то дру&shy;гому.</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
 <p >
-Итак, в на&shy;шем .NET при&shy;ло&shy;же&shy;нии часть па&shy;мя&shy;ти ис&shy;поль&shy;зу&shy;ет&shy;ся, а часть - нет. Как это мож&shy;но пос&shy;мот&shy;реть? Мож&shy;но за&shy;пус&shy;тить ути&shy;ли&shy;ту, нап&shy;ри&shy;мер есть Procmon. Они по&shy;ка&shy;зы&shy;ва&shy;ют, как при&shy;ло&shy;же&shy;ние рас&shy;хо&shy;ду&shy;ет па&shy;мять. Там вид&shy;но строч&shy;ки - это как раз вы&shy;де&shy;лен&shy;ные учас&shy;тки. Пер&shy;вый стол&shy;бец - это ад&shy;рес учас&shy;тка, вто&shy;рой ука&shy;зы&shy;ва&shy;ет хип, тре&shy;тий - раз&shy;мер учас&shy;тка. И еще один стол&shy;бик - это commited. Что это зна&shy;чит? Если прог&shy;рам&shy;ма ре&shy;ши&shy;ла, что ей ну&shy;жен хип, и пы&shy;та&shy;ет&shy;ся оп&shy;ре&shy;де&shy;лить ка&shy;кой имен&shy;но ей соз&shy;да&shy;вать. Она ре&shy;зер&shy;ви&shy;ру&shy;ет па&shy;мять под хип, и часть ее ре&shy;ша&shy;ет за&shy;ком&shy;ми&shy;тить. Вир&shy;ту&shy;альное ад&shy;рес&shy;ное прост&shy;ранство раз&shy;де&shy;ле&shy;но на стра&shy;ни&shy;цы. У стра&shy;ниц есть три ста&shy;ту&shy;са. Пер&shy;вый - сво&shy;бод&shy;ная стра&shy;ни&shy;ца, на ко&shy;то&shy;рой ни&shy;че&shy;го нет. Ее мож&shy;но брать и ис&shy;поль&shy;зо&shy;вать как нуж&shy;но. Вто&shy;рой ста&shy;тус - стра&shy;ни&shy;ца за&shy;ре&shy;зер&shy;ви&shy;ро&shy;ва&shy;на. Это зна&shy;чит, что ка&shy;кая-то часть прог&shy;рам&shy;мы под се&shy;бя эту стра&shy;ни&shy;цу за&shy;ре&shy;зер&shy;ви&shy;ро&shy;ва&shy;ла, но там все еще нет па&shy;мя&shy;ти, она там от&shy;сут&shy;ствует. Но стра&shy;ни&shy;ца за&shy;ре&shy;зер&shy;ви&shy;ро&shy;ва&shy;на для бу&shy;ду&shy;щих нужд. Это де&shy;ла&shy;ет&shy;ся для то&shy;го, что&shy;бы в ал&shy;ло&shy;ци&shy;ро&shy;ва&shy;ном хи&shy;пе ник&shy;то дру&shy;гой по се&shy;ре&shy;ди&shy;не се&shy;бе ни&shy;че&shy;го не вы&shy;де&shy;лил.</p>
+Итак, в нашем .NET при&shy;ло&shy;же&shy;нии часть памяти исполь&shy;зу&shy;ется, а часть - нет. Как это можно пос&shy;мот&shy;реть? Можно запус&shy;тить ути&shy;литу, нап&shy;ри&shy;мер есть Procmon. Они пока&shy;зы&shy;вают, как при&shy;ло&shy;же&shy;ние рас&shy;хо&shy;дует память. Там видно строчки - это как раз выде&shy;лен&shy;ные учас&shy;тки. Пер&shy;вый стол&shy;бец - это адрес учас&shy;тка, вто&shy;рой ука&shy;зы&shy;вает хип, тре&shy;тий - раз&shy;мер учас&shy;тка. И еще один стол&shy;бик - это commited. Что это зна&shy;чит? Если прог&shy;рамма решила, что ей нужен хип, и пыта&shy;ется опре&shy;де&shy;лить какой именно ей соз&shy;да&shy;вать. Она резер&shy;ви&shy;рует память под хип, и часть ее решает заком&shy;ми&shy;тить. Вир&shy;ту&shy;альное адрес&shy;ное прост&shy;ранство раз&shy;де&shy;лено на стра&shy;ницы. У стра&shy;ниц есть три ста&shy;туса. Пер&shy;вый - сво&shy;бод&shy;ная стра&shy;ница, на кото&shy;рой ничего нет. Ее можно брать и исполь&shy;зо&shy;вать как нужно. Вто&shy;рой ста&shy;тус - стра&shy;ница заре&shy;зер&shy;ви&shy;ро&shy;вана. Это зна&shy;чит, что какая-то часть прог&shy;раммы под себя эту стра&shy;ницу заре&shy;зер&shy;ви&shy;ро&shy;вала, но там все еще нет памяти, она там отсут&shy;ствует. Но стра&shy;ница заре&shy;зер&shy;ви&shy;ро&shy;вана для буду&shy;щих нужд. Это дела&shy;ется для того, чтобы в алло&shy;ци&shy;ро&shy;ва&shy;ном хипе никто дру&shy;гой по сере&shy;дине себе ничего не выде&shy;лил.</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
 <p >
-Мо&shy;жет по&shy;ка&shy;зать&shy;ся, что вы как хо&shy;зя&shy;ин сво&shy;его при&shy;ло&shy;же&shy;ния, как хо&shy;ти&shy;те, так и  вы&shy;де&shy;ля&shy;ете па&shy;мять. На са&shy;мом де&shy;ле нет. Если вы чис&shy;то в .NET - то мо&shy;жет быть да. А во&shy;об&shy;ще го&shy;во&shy;ря, .NET час&shy;то вы&shy;зы&shy;ва&shy;ет Managed code, ко&shy;то&shy;ро&shy;му в свою оче&shy;редь то&shy;же нуж&shy;на па&shy;мять. И он не бу&shy;дет вы&shy;де&shy;лять па&shy;мять в хи&shy;пах от .NET - SOH и LOH. Он о них не име&shy;ет по&shy;ня&shy;тия.</p>
+Может пока&shy;заться, что вы как хозяин сво&shy;его при&shy;ло&shy;же&shy;ния, как хотите, так и  выде&shy;ля&shy;ете память. На самом деле нет. Если вы чисто в .NET - то может быть да. А вообще говоря, .NET часто вызы&shy;вает Managed code, кото&shy;рому в свою оче&shy;редь тоже нужна память. И он не будет выде&shy;лять память в хипах от .NET - SOH и LOH. Он о них не имеет поня&shy;тия.</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
 <p >
-Он вы&shy;де&shy;ля&shy;ет па&shy;мять в сво&shy;их хи&shy;пах. Если это С++, то это C++ Runtime Library. Но там есть свои ме&shy;ха&shy;низ&shy;мы пос&shy;тро&shy;е&shy;ния хи&shy;пов. По&shy;лу&shy;ча&shy;ет&shy;ся, что вы не пол&shy;ностью конт&shy;ро&shy;ли&shy;ру&shy;ете вир&shy;ту&shy;альный ад&shy;рес&shy;ный ди&shy;а&shy;па&shy;зон, ко&shy;то&shy;рый вам вы&shy;да&shy;ли. Что&shy;бы обе&shy;зо&shy;па&shy;сить се&shy;бя, вы сра&shy;зу ре&shy;зер&shy;ви&shy;ру&shy;ете ад&shy;рес&shy;ное прост&shy;ранство и внут&shy;ри не&shy;го уже на&shy;чи&shy;на&shy;ете ал&shy;ло&shy;ци&shy;ро&shy;вать па&shy;мять - ком&shy;ми&shy;тить ее, что&shy;бы она ста&shy;ла су&shy;щест&shy;во&shy;вать, что&shy;бы ту&shy;да мож&shy;но бы&shy;ло что-то пи&shy;сать.</p>
+Он выде&shy;ляет память в своих хипах. Если это С++, то это C++ Runtime Library. Но там есть свои меха&shy;низмы пос&shy;тро&shy;е&shy;ния хипов. Полу&shy;ча&shy;ется, что вы не пол&shy;ностью конт&shy;ро&shy;ли&shy;ру&shy;ете вир&shy;ту&shy;альный адрес&shy;ный диа&shy;па&shy;зон, кото&shy;рый вам выдали. Чтобы обе&shy;зо&shy;па&shy;сить себя, вы сразу резер&shy;ви&shy;ру&shy;ете адрес&shy;ное прост&shy;ранство и внутри него уже начи&shy;на&shy;ете алло&shy;ци&shy;ро&shy;вать память - ком&shy;ми&shy;тить ее, чтобы она стала сущест&shy;во&shy;вать, чтобы туда можно было что-то писать.</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
 <p >
-На слай&shy;де 11:50 вид&shy;ны сво&shy;бод&shy;ные мес&shy;та и есть неп&shy;ре&shy;рыв&shy;ный учас&shy;ток, час&shy;тич&shy;но за&shy;ре&shy;зер&shy;ви&shy;ро&shy;ван&shy;ный, час&shy;тич&shy;но - за&shy;ком&shy;ми&shy;чен&shy;ный. Это мес&shy;то мо&shy;жет быть в опе&shy;ра&shy;тив&shy;ной па&shy;мя&shy;ти, ли&shy;бо на&shy;хо&shy;дит&shy;ся на жест&shy;ком диск, по&shy;то&shy;му что им дав&shy;но не поль&shy;зо&shy;ва&shy;лись. Если вы об&shy;ра&shy;ща&shy;е&shy;тесь к кус&shy;ку, ко&shy;то&shy;рый на&shy;хо&shy;дит&shy;ся на жест&shy;ком дис&shy;ке, то он ав&shy;то&shy;ма&shy;ти&shy;чес&shy;ки подг&shy;ру&shy;жа&shy;ет&shy;ся и ста&shy;но&shy;вит&shy;ся кус&shy;ком из опе&shy;ра&shy;тив&shy;ной па&shy;мя&shy;ти. Но вам это знать уже не на&shy;до.</p>
+На слайде 11:50 видны сво&shy;бод&shy;ные места и есть неп&shy;ре&shy;рыв&shy;ный учас&shy;ток, час&shy;тично заре&shy;зер&shy;ви&shy;ро&shy;ван&shy;ный, час&shy;тично - заком&shy;ми&shy;чен&shy;ный. Это место может быть в опе&shy;ра&shy;тив&shy;ной памяти, либо нахо&shy;дится на жест&shy;ком диск, потому что им давно не поль&shy;зо&shy;ва&shy;лись. Если вы обра&shy;ща&shy;е&shy;тесь к куску, кото&shy;рый нахо&shy;дится на жест&shy;ком диске, то он авто&shy;ма&shy;ти&shy;чески подг&shy;ру&shy;жа&shy;ется и ста&shy;но&shy;вится кус&shy;ком из опе&shy;ра&shy;тив&shy;ной памяти. Но вам это знать уже не надо.</p>
 <div class="paragraph-right-side">13</div>
 </div>
 <p >
-Зная все это, раз&shy;бе&shy;рем как ра&shy;бо&shy;та&shy;ет <code>var x = new A();</code></p>
+Зная все это, раз&shy;бе&shy;рем как рабо&shy;тает <code>var x = new A();</code></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
 <p >
-Вер&shy;нем&shy;ся к ба&shy;зо&shy;вым зна&shy;ни&shy;ям, то, что мы обыч&shy;но расс&shy;ка&shy;зы&shy;ва&shy;ем на со&shy;бе&shy;се&shy;до&shy;ва&shy;ни&shy;ях. Ког&shy;да мы об&shy;ща&shy;ем&shy;ся с прог&shy;рам&shy;мис&shy;та&shy;ми, нас спра&shy;ши&shy;ва&shy;ют, как все ра&shy;бо&shy;та&shy;ет. Мы расс&shy;ка&shy;зы&shy;ва&shy;ем, что есть три по&shy;ко&shy;ле&shy;ния. Как па&shy;мять вы&shy;де&shy;ля&shy;ет&shy;ся? Ука&shy;за&shy;тель смот&shy;рит на сво&shy;бод&shy;ный учас&shy;ток и ког&shy;да де&shy;ла&shy;ет&shy;ся опе&shy;ра&shy;ция new, то мы этот ад&shy;рес от&shy;да&shy;ем а ука&shy;за&shy;тель пе&shy;ре&shy;ме&shy;ща&shy;ем на раз&shy;мер вы&shy;де&shy;лен&shy;но&shy;го бло&shy;ка. А ког&shy;да про&shy;ис&shy;хо&shy;дит GC, ку&shy;ча сжи&shy;ма&shy;ет&shy;ся и этот ука&shy;за&shy;тель ока&shy;зы&shy;ва&shy;ет&shy;ся рань&shy;ше, по&shy;то&shy;му что ку&shy;ча сжа&shy;лась. При&shy;мер&shy;но так и про&shy;ис&shy;хо&shy;дит. На слай&shy;де 13:31 у нас есть за&shy;ком&shy;ми&shy;чен&shy;ная часть - сле&shy;ва до вер&shy;ти&shy;каль&shy;ной чер&shy;ты. Эта па&shy;мять су&shy;щес&shy;тву&shy;ет фи&shy;зи&shy;чес&shy;ки. Спра&shy;ва от чер&shy;ты - это за&shy;ре&shy;зер&shy;ви&shy;ро&shy;ван&shy;ная за хи&shy;пом часть, но ее по&shy;ка не су&shy;щес&shy;тву&shy;ет. Даль&shy;ше мы дол&shy;жны вспом&shy;нить о та&shy;ком по&shy;ня&shy;тии как allocation context. Это не&shy;кое сколь&shy;зя&shy;щее ок&shy;но, внут&shy;ри ко&shy;то&shy;ро&shy;го в дан&shy;ный мо&shy;мент ме&shy;нед&shy;жер па&shy;мя&shy;ти вы&shy;де&shy;ля&shy;ет па&shy;мять под объ&shy;ек&shy;ты. И уже внут&shy;ри не&shy;го у нас есть ука&shy;за&shy;те&shy;ли на на&shy;ча&shy;ло сво&shy;бод&shy;но&shy;го мес&shy;та. Сле&shy;ва уже пош&shy;ли объ&shy;ек&shy;ты.</p>
+Вер&shy;немся к базо&shy;вым зна&shy;ниям, то, что мы обычно расс&shy;ка&shy;зы&shy;ваем на собе&shy;се&shy;до&shy;ва&shy;ниях. Когда мы обща&shy;емся с прог&shy;рам&shy;мис&shy;тами, нас спра&shy;ши&shy;вают, как все рабо&shy;тает. Мы расс&shy;ка&shy;зы&shy;ваем, что есть три поко&shy;ле&shy;ния. Как память выде&shy;ля&shy;ется? Ука&shy;за&shy;тель смот&shy;рит на сво&shy;бод&shy;ный учас&shy;ток и когда дела&shy;ется опе&shy;ра&shy;ция new, то мы этот адрес отдаем а ука&shy;за&shy;тель пере&shy;ме&shy;щаем на раз&shy;мер выде&shy;лен&shy;ного блока. А когда про&shy;ис&shy;хо&shy;дит GC, куча сжи&shy;ма&shy;ется и этот ука&shy;за&shy;тель ока&shy;зы&shy;ва&shy;ется раньше, потому что куча сжа&shy;лась. При&shy;мерно так и про&shy;ис&shy;хо&shy;дит. На слайде 13:31 у нас есть заком&shy;ми&shy;чен&shy;ная часть - слева до вер&shy;ти&shy;каль&shy;ной черты. Эта память сущес&shy;твует физи&shy;чески. Справа от черты - это заре&shy;зер&shy;ви&shy;ро&shy;ван&shy;ная за хипом часть, но ее пока не сущес&shy;твует. Дальше мы дол&shy;жны вспом&shy;нить о таком поня&shy;тии как allo&shy;ca&shy;tion context. Это некое сколь&shy;зя&shy;щее окно, внутри кото&shy;рого в дан&shy;ный момент менед&shy;жер памяти выде&shy;ляет память под объ&shy;екты. И уже внутри него у нас есть ука&shy;за&shy;тели на начало сво&shy;бод&shy;ного места. Слева уже пошли объ&shy;екты.</p>
 <div class="paragraph-right-side">14</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
 <p >
-Ког&shy;да идет опе&shy;ра&shy;ция new A(), мы за&shy;по&shy;ми&shy;на&shy;ем этот ад&shy;рес, раз&shy;ме&shy;ща&shy;ем там объ&shy;ект и пе&shy;ред&shy;ви&shy;га&shy;ем ад&shy;рес на&shy;ча&shy;ла сво&shy;бод&shy;но&shy;го мес&shy;та, от&shy;да&shy;вая ад&shy;рес в пе&shy;ре&shy;мен&shy;ную x. Наш код выг&shy;ля&shy;дит при&shy;мер&shy;но сле&shy;ду&shy;ю&shy;щим об&shy;ра&shy;зом (см.слайд 14:39). У нас есть ме&shy;тод Allocate(), мы поп&shy;ро&shy;си&shy;ли у не&shy;го не&shy;кий amount па&shy;мя&shy;ти. Он про&shy;ве&shy;ря&shy;ет, есть ли у нас бу&shy;ду&shy;щий ад&shy;рес сво&shy;бод&shy;но&shy;го мес&shy;та (ад&shy;рес на&shy;ча&shy;ла мес&shy;та плюс этот amount). Если он пре&shy;вы&shy;сит heap size, у нас ни&shy;как не по&shy;лу&shy;чит&shy;ся но&shy;вую па&shy;мять вы&shy;де&shy;лить, то мы бро&shy;са&shy;ем OutOfMemoryException. Ина&shy;че мы спо&shy;кой&shy;но от&shy;да&shy;ем этот ад&shy;рес зап&shy;ра&shy;ши&shy;ва&shy;ю&shy;щей сто&shy;ро&shy;не, об&shy;нов&shy;ляя весь ди&shy;а&shy;па&shy;зон па&shy;мя&shy;ти, что&shy;бы  там не бы&shy;ло лиш&shy;них дан&shy;ных.</p>
+Когда идет опе&shy;ра&shy;ция new A(), мы запо&shy;ми&shy;наем этот адрес, раз&shy;ме&shy;щаем там объ&shy;ект и перед&shy;ви&shy;гаем адрес начала сво&shy;бод&shy;ного места, отда&shy;вая адрес в пере&shy;мен&shy;ную x. Наш код выг&shy;ля&shy;дит при&shy;мерно сле&shy;ду&shy;ю&shy;щим обра&shy;зом (см.слайд 14:39). У нас есть метод Allo&shy;cate(), мы поп&shy;ро&shy;сили у него некий amount памяти. Он про&shy;ве&shy;ряет, есть ли у нас буду&shy;щий адрес сво&shy;бод&shy;ного места (адрес начала места плюс этот amount). Если он пре&shy;вы&shy;сит heap size, у нас никак не полу&shy;чится новую память выде&shy;лить, то мы бро&shy;саем Out&shy;Of&shy;Memory&shy;Exception. Иначе мы спо&shy;койно отдаем этот адрес зап&shy;ра&shy;ши&shy;ва&shy;ю&shy;щей сто&shy;роне, обнов&shy;ляя весь диа&shy;па&shy;зон памяти, чтобы  там не было лиш&shy;них дан&shy;ных.</p>
 <div class="paragraph-right-side">15</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
 <p >
-Но мо&shy;жет быть так, что allocation context у нас уже кон&shy;ча&shy;ет&shy;ся. Тог&shy;да бу&shy;дет про&shy;мах ми&shy;мо это&shy;го кон&shy;тек&shy;ста. Как дейс&shy;твовать в этом слу&shy;чае? Алло&shy;ка&shy;тор мо&shy;жет дейс&shy;твовать дву&shy;мя пу&shy;тя&shy;ми. Пер&shy;вый - это вы&shy;де&shy;лить, нап&shy;ри&shy;мер, по-ми&shy;ни&shy;му&shy;му, вто&shy;рой - вы&shy;де&shy;лить сколь&shy;ко-то до не&shy;ко&shy;его мак&shy;си&shy;му&shy;ма. Этот раз&shy;мер мо&shy;жет быть от 1 до 8Кб. И вы&shy;би&shy;ра&shy;ет&shy;ся он ис&shy;хо&shy;дя из ин&shy;тен&shy;сив&shy;нос&shy;ти вы&shy;де&shy;ле&shy;ния па&shy;мя&shy;ти. Если на дан&shy;ном по&shy;то&shy;ке вы&shy;де&shy;ля&shy;ет&shy;ся мно&shy;го па&shy;мя&shy;ти, то нам нет ни&shy;ка&shy;ко&shy;го смыс&shy;ла вы&shy;де&shy;лять ма&shy;лень&shy;кий ку&shy;сок. То есть allocation context рас&shy;ши&shy;ря&shy;ет&shy;ся ис&shy;хо&shy;дя из те&shy;ку&shy;щих зап&shy;ро&shy;сов.</p>
+Но может быть так, что allo&shy;ca&shy;tion context у нас уже кон&shy;ча&shy;ется. Тогда будет про&shy;мах мимо этого кон&shy;тек&shy;ста. Как дейс&shy;твовать в этом слу&shy;чае? Алло&shy;ка&shy;тор может дейс&shy;твовать двумя путями. Пер&shy;вый - это выде&shy;лить, нап&shy;ри&shy;мер, по-мини&shy;муму, вто&shy;рой - выде&shy;лить сколько-то до неко&shy;его мак&shy;си&shy;мума. Этот раз&shy;мер может быть от 1 до 8Кб. И выби&shy;ра&shy;ется он исходя из интен&shy;сив&shy;ности выде&shy;ле&shy;ния памяти. Если на дан&shy;ном потоке выде&shy;ля&shy;ется много памяти, то нам нет ника&shy;кого смысла выде&shy;лять малень&shy;кий кусок. То есть allo&shy;ca&shy;tion context рас&shy;ши&shy;ря&shy;ется исходя из теку&shy;щих зап&shy;ро&shy;сов.</p>
 <div class="paragraph-right-side">16</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
 <p >
-Но су&shy;щес&shy;тву&shy;ет еще и мно&shy;го&shy;по&shy;точ&shy;ность. Если она при&shy;сут&shy;ствует, мо&shy;жет так по&shy;лу&shy;чит&shy;ся, что нес&shy;коль&shy;ко по&shy;то&shy;ков од&shy;нов&shy;ре&shy;мен&shy;но на&shy;чи&shy;на&shy;ют зап&shy;ра&shy;ши&shy;вать вы&shy;де&shy;ле&shy;ния па&shy;мя&shy;ти. Зна&shy;чит, опе&shy;ра&shy;тор new у нас дол&shy;жен быть по&shy;то&shy;ко-бе&shy;зо&shy;пас&shy;ным, а зна&shy;чит и мед&shy;лен&shy;ным. Сам по се&shy;бе он быст&shy;рый, но ес&shy;ли он вы&shy;де&shy;ля&shy;ет&shy;ся без кон&shy;ку&shy;рен&shy;ции с дру&shy;ги&shy;ми по&shy;то&shy;ка&shy;ми, то по&shy;лу&shy;ча&shy;ет&shy;ся, что он ра&shy;бо&shy;та&shy;ет не&shy;оп&shy;рав&shy;дан&shy;но мед&shy;лен&shy;но. Что&shy;бы сде&shy;лать new  по&shy;то&shy;ко-бе&shy;зо&shy;пас&shy;ным, на&shy;до что&shy;бы каж&shy;дый по&shy;ток вы&shy;де&shy;лял па&shy;мять в ка&shy;ком-то сво&shy;ем мес&shy;те. По&shy;э&shy;то&shy;му в .NET су&shy;щес&shy;тву&shy;ет по од&shy;но&shy;му allocation context на каж&shy;дый по&shy;ток.</p>
+Но сущес&shy;твует еще и мно&shy;го&shy;по&shy;точ&shy;ность. Если она при&shy;сут&shy;ствует, может так полу&shy;чится, что нес&shy;колько пото&shy;ков однов&shy;ре&shy;менно начи&shy;нают зап&shy;ра&shy;ши&shy;вать выде&shy;ле&shy;ния памяти. Зна&shy;чит, опе&shy;ра&shy;тор new у нас дол&shy;жен быть потоко-безо&shy;пас&shy;ным, а зна&shy;чит и мед&shy;лен&shy;ным. Сам по себе он быст&shy;рый, но если он выде&shy;ля&shy;ется без кон&shy;ку&shy;рен&shy;ции с дру&shy;гими пото&shy;ками, то полу&shy;ча&shy;ется, что он рабо&shy;тает неоп&shy;рав&shy;данно мед&shy;ленно. Чтобы сде&shy;лать new  потоко-безо&shy;пас&shy;ным, надо чтобы каж&shy;дый поток выде&shy;лял память в каком-то своем месте. Поэ&shy;тому в .NET сущес&shy;твует по одному allo&shy;ca&shy;tion context на каж&shy;дый поток.</p>
 <div class="paragraph-right-side">17</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
 <p >
-Отсю&shy;да мож&shy;но сде&shy;лать еще один вы&shy;вод - не сто&shy;ит де&shy;лать мно&shy;го лиш&shy;них по&shy;то&shy;ков. Вы де&shy;ла&shy;ете очень жир&shy;ный хип ну&shy;ле&shy;во&shy;го по&shy;ко&shy;ле&shy;ния бла&shy;го&shy;да&shy;ря это&shy;му.</p>
+Отсюда можно сде&shy;лать еще один вывод - не стоит делать много лиш&shy;них пото&shy;ков. Вы дела&shy;ете очень жир&shy;ный хип нуле&shy;вого поко&shy;ле&shy;ния бла&shy;го&shy;даря этому.</p>
 <div class="paragraph-right-side">18</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
 <p >
-Итак, мно&shy;го по&shy;то&shy;ков у нас уже су&shy;щес&shy;тву&shy;ет и каж&shy;дый из них что-то вы&shy;де&shy;ля&shy;ет. А еще у нас есть три по&shy;ко&shy;ле&shy;ния. По&shy;лу&shy;ча&shy;ет&shy;ся, что ну&shy;ле&shy;вое по&shy;ко&shy;ле&shy;ние, в ко&shy;то&shy;ром идет вы&shy;де&shy;ле&shy;ние, на&shy;чи&shy;на&shy;ет рас&shy;ти бла&shy;го&shy;да&shy;ря то&shy;му, что у нас рас&shy;тет ко&shy;ли&shy;чес&shy;тво по&shy;то&shy;ков. Это пло&shy;хо.</p>
+Итак, много пото&shy;ков у нас уже сущес&shy;твует и каж&shy;дый из них что-то выде&shy;ляет. А еще у нас есть три поко&shy;ле&shy;ния. Полу&shy;ча&shy;ется, что нуле&shy;вое поко&shy;ле&shy;ние, в кото&shy;ром идет выде&shy;ле&shy;ние, начи&shy;нает расти бла&shy;го&shy;даря тому, что у нас рас&shy;тет коли&shy;чес&shy;тво пото&shy;ков. Это плохо.</p>
 <div class="paragraph-right-side">19</div>
 </div>
 <p >
-Обра&shy;тим&shy;ся к идее спис&shy;ка сво&shy;бод&shy;ных участ&shy;ков.</p>
+Обра&shy;тимся к идее списка сво&shy;бод&shy;ных участ&shy;ков.</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
 <p >
-Если мы го&shy;во&shy;рим про клас&shy;си&shy;ку, как вез&shy;де heap ус&shy;тро&shy;ен, то .NET - не ис&shy;клю&shy;че&shy;ние. Ког&shy;да про&shy;ис&shy;хо&shy;дит sweep collection вмес&shy;то сжа&shy;тия ку&shy;чи, у нас по&shy;яв&shy;ля&shy;ют&shy;ся сво&shy;бод&shy;ные учас&shy;тки. Ими на&shy;до как-то уп&shy;рав&shy;лять.</p>
+Если мы гово&shy;рим про клас&shy;сику, как везде heap устроен, то .NET - не исклю&shy;че&shy;ние. Когда про&shy;ис&shy;хо&shy;дит sweep collec&shy;tion вместо сжа&shy;тия кучи, у нас появ&shy;ля&shy;ются сво&shy;бод&shy;ные учас&shy;тки. Ими надо как-то управ&shy;лять.</p>
 <div class="paragraph-right-side">20</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
 <p >
-Есть два ал&shy;го&shy;рит&shy;ма ме&shy;недж&shy;мен&shy;та сво&shy;бод&shy;ных участ&shy;ков. Пер&shy;вый - best-fit. Ког&shy;да вы&shy;де&shy;ля&shy;ет&shy;ся па&shy;мять, сре&shy;ди всех сво&shy;бод&shy;ных участ&shy;ков вы&shy;де&shy;ля&shy;ет&shy;ся тот, ко&shy;то&shy;рый име&shy;ет ли&shy;бо та&shy;кой же раз&shy;мер, ли&shy;бо мак&shy;си&shy;маль&shy;но приб&shy;ли&shy;жен&shy;ный по раз&shy;ме&shy;ру к то&shy;му, ко&shy;то&shy;рый про&shy;си&shy;ли. Это best-fit.</p>
+Есть два алго&shy;ритма менедж&shy;мента сво&shy;бод&shy;ных участ&shy;ков. Пер&shy;вый - best-fit. Когда выде&shy;ля&shy;ется память, среди всех сво&shy;бод&shy;ных участ&shy;ков выде&shy;ля&shy;ется тот, кото&shy;рый имеет либо такой же раз&shy;мер, либо мак&shy;си&shy;мально приб&shy;ли&shy;жен&shy;ный по раз&shy;меру к тому, кото&shy;рый про&shy;сили. Это best-fit.</p>
 <div class="paragraph-right-side">21</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
 <p >
-Ког&shy;да мы ис&shy;поль&shy;зу&shy;ем best-fit, нам нуж&shy;но най&shy;ти на&shy;илуч&shy;ший учас&shy;ток. Мы про&shy;бе&shy;га&shy;ем по всем участ&shy;кам, и за&shy;по&shy;ми&shy;на&shy;ем то, что мы прош&shy;ли. Вы&shy;пол&shy;ня&shy;ет&shy;ся ли&shy;ней&shy;ный по&shy;иск и наш учас&shy;ток мо&shy;жет ока&shy;зать&shy;ся в кон&shy;це. Но за&shy;то на вы&shy;хо&shy;де мы по&shy;лу&shy;ча&shy;ем ми&shy;ни&shy;маль&shy;ную фраг&shy;мен&shy;та&shy;цию - это здо&shy;ро&shy;во. Вто&shy;рой ал&shy;го&shy;ритм - это first-fit. Это аль&shy;те&shy;рн&shy;атива. Мы идем впе&shy;ред по спис&shy;ку и бе&shy;рем пер&shy;вый же учас&shy;ток, ко&shy;то&shy;рый нам по&shy;до&shy;шел. Он мо&shy;жет быть та&shy;ким же по раз&shy;ме&shy;ру, ли&shy;бо боль&shy;ше или су&shy;щест&shy;вен&shy;но боль&shy;ше тре&shy;бу&shy;е&shy;мо&shy;го. Ра&shy;бо&shy;та&shy;ет это быс&shy;тро, но мо&shy;жет силь&shy;но фраг&shy;мен&shy;ти&shy;ро&shy;вать па&shy;мять. В .NET ис&shy;поль&shy;зу&shy;ет&shy;ся смесь этих под&shy;хо&shy;дов, ор&shy;га&shy;ни&shy;зу&shy;ет&shy;ся спи&shy;сок сво&shy;бод&shy;ных участ&shy;ков че&shy;рез кор&shy;зи&shy;ны - ба&shy;ке&shy;ты. У каж&shy;до&shy;го по&shy;ко&shy;ле&shy;ния есть спи&shy;сок ба&shy;ке&shy;тов. Они груп&shy;пи&shy;ру&shy;ют па&shy;мять по раз&shy;ме&shy;ру от ма&shy;ло&shy;го к боль&shy;шо&shy;му. Ба&shy;кет ссы&shy;ла&shy;ет&shy;ся на од&shy;нос&shy;вя&shy;за&shy;ный спи&shy;сок сво&shy;бод&shy;ных участ&shy;ков. Если пос&shy;мот&shy;реть вниз, то от Head на сво&shy;бод&shy;ный учас&shy;ток вста&shy;ли и даль&shy;ше по од&shy;нос&shy;вяз&shy;но&shy;му спис&shy;ку мо&shy;жем ид&shy;ти даль&shy;ше, пе&shy;ре&shy;чис&shy;ляя все сво&shy;бод&shy;ные учас&shy;тки, ко&shy;то&shy;рые от&shy;но&shy;сят&shy;ся к это&shy;му ба&shy;ке&shy;ту. На&shy;пом&shy;ню, они ор&shy;га&shy;ни&shy;зо&shy;ва&shy;ны по раз&shy;ме&shy;ру. И в дан&shy;ном ба&shy;ке&shy;те на&shy;хо&shy;дят&shy;ся учас&shy;тки с оп&shy;ре&shy;де&shy;лен&shy;ным ди&shy;а&shy;па&shy;зо&shy;ном раз&shy;ме&shy;ров. В сле&shy;ду&shy;ю&shy;щем ба&shy;ке&shy;те бу&shy;дут свои ди&shy;а&shy;па&shy;зо&shy;ны.</p>
+Когда мы исполь&shy;зуем best-fit, нам нужно найти наилуч&shy;ший учас&shy;ток. Мы про&shy;бе&shy;гаем по всем участ&shy;кам, и запо&shy;ми&shy;наем то, что мы прошли. Выпол&shy;ня&shy;ется линей&shy;ный поиск и наш учас&shy;ток может ока&shy;заться в конце. Но зато на выходе мы полу&shy;чаем мини&shy;маль&shy;ную фраг&shy;мен&shy;та&shy;цию - это здо&shy;рово. Вто&shy;рой алго&shy;ритм - это first-fit. Это аль&shy;те&shy;рн&shy;атива. Мы идем впе&shy;ред по списку и берем пер&shy;вый же учас&shy;ток, кото&shy;рый нам подо&shy;шел. Он может быть таким же по раз&shy;меру, либо больше или сущест&shy;венно больше тре&shy;бу&shy;е&shy;мого. Рабо&shy;тает это быс&shy;тро, но может сильно фраг&shy;мен&shy;ти&shy;ро&shy;вать память. В .NET исполь&shy;зу&shy;ется смесь этих под&shy;хо&shy;дов, орга&shy;ни&shy;зу&shy;ется спи&shy;сок сво&shy;бод&shy;ных участ&shy;ков через кор&shy;зины - бакеты. У каж&shy;дого поко&shy;ле&shy;ния есть спи&shy;сок баке&shy;тов. Они груп&shy;пи&shy;руют память по раз&shy;меру от малого к боль&shy;шому. Бакет ссы&shy;ла&shy;ется на однос&shy;вя&shy;за&shy;ный спи&shy;сок сво&shy;бод&shy;ных участ&shy;ков. Если пос&shy;мот&shy;реть вниз, то от Head на сво&shy;бод&shy;ный учас&shy;ток встали и дальше по однос&shy;вяз&shy;ному списку можем идти дальше, пере&shy;чис&shy;ляя все сво&shy;бод&shy;ные учас&shy;тки, кото&shy;рые отно&shy;сятся к этому бакету. Напомню, они орга&shy;ни&shy;зо&shy;ваны по раз&shy;меру. И в дан&shy;ном бакете нахо&shy;дятся учас&shy;тки с опре&shy;де&shy;лен&shy;ным диа&shy;па&shy;зо&shy;ном раз&shy;ме&shy;ров. В сле&shy;ду&shy;ю&shy;щем бакете будут свои диа&shy;па&shy;зоны.</p>
 <div class="paragraph-right-side">22</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
 <p >
-Ба&shy;кет - это first-fit, сре&shy;ди ба&shy;ке&shy;тов вы&shy;би&shy;ра&shy;ем пер&shy;вый, ко&shy;то&shy;рый под&shy;хо&shy;дит, ухо&shy;дим внутрь этой кор&shy;зи&shy;ны и там, по од&shy;ноз&shy;вяз&shy;но&shy;му спис&shy;ку мы идем по best-fit. Та&shy;ким об&shy;ра&shy;зом мы де&shy;ла&shy;ем очень хо&shy;ро&shy;шую оп&shy;ти&shy;ми&shy;за&shy;цию.</p>
+Бакет - это first-fit, среди баке&shy;тов выби&shy;раем пер&shy;вый, кото&shy;рый под&shy;хо&shy;дит, ухо&shy;дим внутрь этой кор&shy;зины и там, по одноз&shy;вяз&shy;ному списку мы идем по best-fit. Таким обра&shy;зом мы делаем очень хоро&shy;шую опти&shy;ми&shy;за&shy;цию.</p>
 <div class="paragraph-right-side">23</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">24</div>
 <p >
-Что та&shy;кое ба&shy;ке&shy;ты? Эта таб&shy;лич&shy;ка (см. слайд 22:05) нам раск&shy;ры&shy;ва&shy;ет гла&shy;за. Тут вспом&shy;ним раз&shy;ни&shy;цу меж&shy;ду SOH и LOH: LOH ор&shy;га&shy;ни&shy;зо&shy;ван толь&shy;ко по прин&shy;ци&shy;пу sweep collection, сжа&shy;тие ку&shy;чи там про&shy;ис&shy;хо&shy;дит толь&shy;ко по зап&shy;ро&shy;су. Са&shy;мо по се&shy;бе сжа&shy;тие ку&shy;чи там не за&shy;пус&shy;тит&shy;ся ни&shy;ког&shy;да. В SOH идет смесь.</p>
+Что такое бакеты? Эта таб&shy;личка (см. слайд 22:05) нам раск&shy;ры&shy;вает глаза. Тут вспом&shy;ним раз&shy;ницу между SOH и LOH: LOH орга&shy;ни&shy;зо&shy;ван только по прин&shy;ципу sweep collec&shy;tion, сжа&shy;тие кучи там про&shy;ис&shy;хо&shy;дит только по зап&shy;росу. Само по себе сжа&shy;тие кучи там не запус&shy;тится никогда. В SOH идет смесь.</p>
 <div class="paragraph-right-side">24</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
 <p >
-Пос&shy;мот&shy;рим на LOH и вто&shy;рое по&shy;ко&shy;ле&shy;ние, ко&shy;то&shy;рое яв&shy;ля&shy;ет&shy;ся са&shy;мым боль&shy;шим. Исхо&shy;дя из это&shy;го мож&shy;но лег&shy;ко по&shy;нять со&shy;дер&shy;жи&shy;мое таб&shy;ли&shy;цы. Ну&shy;ле&shy;вое и пер&shy;вое по&shy;ко&shy;ле&shy;ние име&shy;ют ко&shy;ли&shy;чес&shy;тво ба&shy;ке&shy;тов -  1. По&shy;то&shy;му что в ну&shy;ле&shy;вом и пер&shy;вом по&shy;ко&shy;ле&shy;нии у нас нет та&shy;ко&shy;го, что при sweep об&shy;ра&shy;зу&shy;ет&shy;ся ку&shy;ча сво&shy;бод&shy;ных боль&shy;ших участ&shy;ков, ку&shy;да мож&shy;но раз&shy;мес&shy;тить но&shy;вые кон&shy;тек&shy;сты. Нам этот фун&shy;кци&shy;о&shy;нал ба&shy;ке&shy;тов там не ну&shy;жен, по&shy;э&shy;то&shy;му ба&shy;кет там один.</p>
+Пос&shy;мот&shy;рим на LOH и вто&shy;рое поко&shy;ле&shy;ние, кото&shy;рое явля&shy;ется самым боль&shy;шим. Исходя из этого можно легко понять содер&shy;жи&shy;мое таб&shy;лицы. Нуле&shy;вое и пер&shy;вое поко&shy;ле&shy;ние имеют коли&shy;чес&shy;тво баке&shy;тов -  1. Потому что в нуле&shy;вом и пер&shy;вом поко&shy;ле&shy;нии у нас нет такого, что при sweep обра&shy;зу&shy;ется куча сво&shy;бод&shy;ных боль&shy;ших участ&shy;ков, куда можно раз&shy;мес&shy;тить новые кон&shy;тек&shy;сты. Нам этот фун&shy;кци&shy;о&shy;нал баке&shy;тов там не нужен, поэ&shy;тому бакет там один.</p>
 <div class="paragraph-right-side">25</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
 <p >
-А во вто&shy;ром по&shy;ко&shy;ле&shy;нии, ко&shy;то&shy;рое мо&shy;жет за&shy;ни&shy;мать ги&shy;га&shy;бай&shy;ты мел&shy;ких объ&shy;ек&shy;тов и в LOH,  ба&shy;ке&shy;ты уже при&shy;сут&shy;ствуют, бла&shy;го&shy;да&shy;ря че&shy;му па&shy;мять там ор&shy;га&shy;ни&shy;зо&shy;ва&shy;на по расс&shy;ка&shy;зан&shy;ной ра&shy;нее струк&shy;ту&shy;ре.</p>
+А во вто&shy;ром поко&shy;ле&shy;нии, кото&shy;рое может зани&shy;мать гига&shy;байты мел&shy;ких объ&shy;ек&shy;тов и в LOH,  бакеты уже при&shy;сут&shy;ствуют, бла&shy;го&shy;даря чему память там орга&shy;ни&shy;зо&shy;вана по расс&shy;ка&shy;зан&shy;ной ранее струк&shy;туре.</p>
 <div class="paragraph-right-side">26</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">27</div>
 <p >
-Как про&shy;ис&shy;хо&shy;дит вы&shy;де&shy;ле&shy;ние па&shy;мя&shy;ти в этом слу&shy;чае? Сна&shy;ча&shy;ла мы ска&shy;ни&shy;ру&shy;ем ба&shy;ке&shy;ты, в по&shy;ис&shy;ках пер&shy;во&shy;го, ко&shy;то&shy;рый под&shy;хо&shy;дит по раз&shy;ме&shy;ру участ&shy;ков, на&shy;хо&shy;дя&shy;щих&shy;ся внут&shy;ри не&shy;го. Ког&shy;да мы выб&shy;ра&shy;ли ба&shy;кет, идем по од&shy;нос&shy;вяз&shy;но&shy;му спис&shy;ку и в нем ищем луч&shy;ший из тех, ко&shy;то&shy;рые там при&shy;сут&shy;ствуют - тот, ко&shy;то&shy;рый луч&shy;ше всех по&shy;дой&shy;дет нам по раз&shy;ме&shy;ру. Но есть од&shy;на осо&shy;бен&shy;ность. Мо&shy;жет так по&shy;лу&shy;чит&shy;ся, что мы про&shy;си&shy;ли не так мно&shy;го мес&shy;та, а име&shy;ю&shy;щи&shy;еся учас&shy;тки слиш&shy;ком боль&shy;шие. В этом слу&shy;чае мы вы&shy;де&shy;лим сколь&shy;ко не&shy;об&shy;хо&shy;ди&shy;мо, а ос&shy;та&shy;ток вер&shy;нем в спи&shy;сок сво&shy;бод&shy;ных участ&shy;ков.</p>
+Как про&shy;ис&shy;хо&shy;дит выде&shy;ле&shy;ние памяти в этом слу&shy;чае? Сна&shy;чала мы ска&shy;ни&shy;руем бакеты, в поис&shy;ках пер&shy;вого, кото&shy;рый под&shy;хо&shy;дит по раз&shy;меру участ&shy;ков, нахо&shy;дя&shy;щихся внутри него. Когда мы выб&shy;рали бакет, идем по однос&shy;вяз&shy;ному списку и в нем ищем луч&shy;ший из тех, кото&shy;рые там при&shy;сут&shy;ствуют - тот, кото&shy;рый лучше всех подой&shy;дет нам по раз&shy;меру. Но есть одна осо&shy;бен&shy;ность. Может так полу&shy;чится, что мы про&shy;сили не так много места, а име&shy;ю&shy;щи&shy;еся учас&shy;тки слиш&shy;ком боль&shy;шие. В этом слу&shy;чае мы выде&shy;лим сколько необ&shy;хо&shy;димо, а оста&shy;ток вер&shy;нем в спи&shy;сок сво&shy;бод&shy;ных участ&shy;ков.</p>
 <div class="paragraph-right-side">27</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
 <p >
-Итак, мы наш&shy;ли нуж&shy;ный учас&shy;ток. В этом мес&shy;те ле&shy;жит эму&shy;ля&shy;ция объ&shy;ек&shy;та. Пер&shy;вое по&shy;ле - это по&shy;ле undo. Это - ос&shy;во&shy;бо&shy;див&shy;ший&shy;ся учас&shy;ток, там ле&shy;жал объ&shy;ект или груп&shy;па объ&shy;ек&shy;тов. Со&shy;от&shy;ветст&shy;венно, пер&shy;вое по&shy;ле это aSyncBlockIndex, по&shy;том - таб&shy;ли&shy;ца вир&shy;ту&shy;альных ме&shy;то&shy;дов, по&shy;том дан&shy;ные. Ког&shy;да этот учас&shy;ток стал участ&shy;ком сво&shy;бод&shy;ной па&shy;мя&shy;ти, то пер&shy;вое по&shy;ле ста&shy;ло опе&shy;ра&shy;ци&shy;ей undo. Ког&shy;да мы этот учас&shy;ток от&shy;лин&shy;ку&shy;ем и сох&shy;ра&shy;ним ссыл&shy;ку на сле&shy;ду&shy;ю&shy;щий учас&shy;ток в опе&shy;ра&shy;ции undo, что&shy;бы мож&shy;но бы&shy;ло от&shy;ме&shy;нить, ес&shy;ли что-то пой&shy;дет не так.</p>
+Итак, мы нашли нуж&shy;ный учас&shy;ток. В этом месте лежит эму&shy;ля&shy;ция объ&shy;екта. Пер&shy;вое поле - это поле undo. Это - осво&shy;бо&shy;див&shy;шийся учас&shy;ток, там лежал объ&shy;ект или группа объ&shy;ек&shy;тов. Соот&shy;ветст&shy;венно, пер&shy;вое поле это aS&shy;yncBlockIndex, потом - таб&shy;лица вир&shy;ту&shy;альных мето&shy;дов, потом дан&shy;ные. Когда этот учас&shy;ток стал участ&shy;ком сво&shy;бод&shy;ной памяти, то пер&shy;вое поле стало опе&shy;ра&shy;цией undo. Когда мы этот учас&shy;ток отлин&shy;куем и сох&shy;ра&shy;ним ссылку на сле&shy;ду&shy;ю&shy;щий учас&shy;ток в опе&shy;ра&shy;ции undo, чтобы можно было отме&shy;нить, если что-то пой&shy;дет не так.</p>
 <div class="paragraph-right-side">28</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">29</div>
 <p >
-Даль&shy;ше таб&shy;ли&shy;ца вир&shy;ту&shy;альных ме&shy;то&shy;дов сво&shy;бод&shy;но&shy;го учас&shy;тка, что&shy;бы GC по&shy;ни&shy;мал, с чем он име&shy;ет де&shy;ло и size - раз&shy;мер сво&shy;бод&shy;но&shy;го учас&shy;тка.</p>
+Дальше таб&shy;лица вир&shy;ту&shy;альных мето&shy;дов сво&shy;бод&shy;ного учас&shy;тка, чтобы GC пони&shy;мал, с чем он имеет дело и size - раз&shy;мер сво&shy;бод&shy;ного учас&shy;тка.</p>
 <div class="paragraph-right-side">29</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">30</div>
 <p >
-Пос&shy;ле это&shy;го вы&shy;де&shy;ле&shy;ния мы прос&shy;тав&shy;ля&shy;ем aSyncBlockIndex. Таб&shy;ли&shy;ца вир&shy;ту&shy;альных ме&shy;то&shy;дов ста&shy;но&shy;вит&shy;ся та, что на&shy;до и вы&shy;зы&shy;ва&shy;ет&shy;ся конст&shy;руктор. Все. Вот так ра&shy;бо&shy;та&shy;ет вы&shy;де&shy;ле&shy;ние па&shy;мя&shy;ти. \</p>
+После этого выде&shy;ле&shy;ния мы прос&shy;тав&shy;ляем aS&shy;yncBlockIndex. Таб&shy;лица вир&shy;ту&shy;альных мето&shy;дов ста&shy;но&shy;вится та, что надо и вызы&shy;ва&shy;ется конст&shy;руктор. Все. Вот так рабо&shy;тает выде&shy;ле&shy;ние памяти. \</p>
 <div class="paragraph-right-side">30</div>
 </div>
 <h2 id="soh">Выделение памяти в SOH</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">31</div>
 <p >
-По&shy;лу&shy;ча&shy;ет&shy;ся, что для то&shy;го, что&shy;бы вы&shy;де&shy;лить па&shy;мять сна&shy;ча&shy;ла от&shy;ра&shy;ба&shy;ты&shy;ва&shy;ет са&shy;мый прос&shy;той спо&shy;соб. Если объ&shy;ект вле&shy;за&shy;ет в allocation context, мы вы&shy;де&shy;ля&shy;ем и от&shy;да&shy;ем. Это са&shy;мый быст&shy;рый спо&shy;соб. Мы вы&shy;хо&shy;дим мо&shy;мен&shy;таль&shy;но, у нас нет ни&shy;ка&shy;ких до&shy;пол&shy;ни&shy;тель&shy;ных действий: вош&shy;ли и выш&shy;ли, и пе&shy;ред&shy;ви&shy;нуть ука&shy;за&shy;тель нам ни&shy;че&shy;го не сто&shy;ит.</p>
+Полу&shy;ча&shy;ется, что для того, чтобы выде&shy;лить память сна&shy;чала отра&shy;ба&shy;ты&shy;вает самый прос&shy;той спо&shy;соб. Если объ&shy;ект вле&shy;зает в allo&shy;ca&shy;tion context, мы выде&shy;ляем и отдаем. Это самый быст&shy;рый спо&shy;соб. Мы выхо&shy;дим момен&shy;тально, у нас нет ника&shy;ких допол&shy;ни&shy;тель&shy;ных действий: вошли и вышли, и перед&shy;ви&shy;нуть ука&shy;за&shy;тель нам ничего не стоит.</p>
 <div class="paragraph-right-side">31</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">32</div>
 <p >
-Если не вле&shy;за&shy;ем в кон&shy;текст, то идет пер&shy;вое ус&shy;лож&shy;не&shy;ние. Кон&shy;текст не&shy;об&shy;хо&shy;ди&shy;мо уве&shy;ли&shy;чить. Что&shy;бы уве&shy;ли&shy;чить, мы ис&shy;поль&shy;зу&shy;ем бо&shy;лее прод&shy;ви&shy;ну&shy;тый спо&shy;соб, он на&shy;хо&shy;дит&shy;ся в JIT_NEW helper.</p>
+Если не вле&shy;заем в кон&shy;текст, то идет пер&shy;вое услож&shy;не&shy;ние. Кон&shy;текст необ&shy;хо&shy;димо уве&shy;ли&shy;чить. Чтобы уве&shy;ли&shy;чить, мы исполь&shy;зуем более прод&shy;ви&shy;ну&shy;тый спо&shy;соб, он нахо&shy;дится в JIT_NEW helper.</p>
 <div class="paragraph-right-side">32</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">33</div>
 <p >
-Мы пы&shy;та&shy;ем&shy;ся най&shy;ти не&shy;ис&shy;поль&shy;зу&shy;е&shy;мую часть в эфе&shy;мер&shy;ном сег&shy;мен&shy;те. Ког&shy;да у нас allocation context за&shy;кан&shy;чи&shy;ва&shy;ет&shy;ся, мы дол&shy;жны его ку&shy;да-то пе&shy;ре&shy;та&shy;щить. Это до&shy;ро&shy;го. По&shy;э&shy;то&shy;му мы сна&shy;ча&shy;ла пы&shy;та&shy;ем&shy;ся его уве&shy;ли&shy;чить, на&shy;рас&shy;тить. Если это не по&shy;лу&shy;чи&shy;лось, то на&shy;до пе&shy;ре&shy;та&shy;щить.</p>
+Мы пыта&shy;емся найти неис&shy;поль&shy;зу&shy;е&shy;мую часть в эфе&shy;мер&shy;ном сег&shy;менте. Когда у нас allo&shy;ca&shy;tion context закан&shy;чи&shy;ва&shy;ется, мы дол&shy;жны его куда-то пере&shy;та&shy;щить. Это дорого. Поэ&shy;тому мы сна&shy;чала пыта&shy;емся его уве&shy;ли&shy;чить, нарас&shy;тить. Если это не полу&shy;чи&shy;лось, то надо пере&shy;та&shy;щить.</p>
 <div class="paragraph-right-side">33</div>
 </div>
 <p >
-Ку&shy;да мы дол&shy;жны его пе&shy;ре&shy;мес&shy;тить и ка&shy;кие дан&shy;ные у нас для это&shy;го есть?</p>
+Куда мы дол&shy;жны его пере&shy;мес&shy;тить и какие дан&shy;ные у нас для этого есть?</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">34</div>
 <p >
-Нуж&shy;но по&shy;ис&shy;кать сво&shy;бод&shy;ный учас&shy;ток в спис&shy;ке че&shy;рез ба&shy;ке&shy;ты, ку&shy;да вле&shy;зет наш кон&shy;текст. Если учас&shy;ток есть, мы его пе&shy;ред&shy;ви&shy;га&shy;ем ту&shy;да и пы&shy;та&shy;ем&shy;ся пер&shy;вым спо&shy;со&shy;бом вы&shy;де&shy;лить там па&shy;мять.</p>
+Нужно поис&shy;кать сво&shy;бод&shy;ный учас&shy;ток в списке через бакеты, куда вле&shy;зет наш кон&shy;текст. Если учас&shy;ток есть, мы его перед&shy;ви&shy;гаем туда и пыта&shy;емся пер&shy;вым спо&shy;со&shy;бом выде&shy;лить там память.</p>
 <div class="paragraph-right-side">34</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">35</div>
 <p >
-Если по&shy;лу&shy;чи&shy;лось - за&shy;ме&shy;ча&shy;тель&shy;но. Если не влез, мы пы&shy;та&shy;ем&shy;ся под&shy;ком&shy;ми&shy;тить боль&shy;ше за&shy;ре&shy;зер&shy;ви&shy;ро&shy;ван&shy;ной па&shy;мя&shy;ти: сдви&shy;нуть вер&shy;ти&shy;каль&shy;ную чер&shy;ту впра&shy;во. Мес&shy;то за&shy;ре&shy;зер&shy;ви&shy;ро&shy;ва&shy;но, но па&shy;мя&shy;ти там еще не су&shy;щес&shy;тву&shy;ет. Нам нуж&shy;но рас&shy;ши&shy;рить ку&shy;чу и мы ком&shy;ми&shy;тим па&shy;мять. Сра&shy;зу же мы не де&shy;ла&shy;ем это&shy;го, по&shy;то&shy;му что commitment - опе&shy;ра&shy;ция дос&shy;та&shy;точ&shy;но дол&shy;гая, как и ре&shy;зер&shy;ви&shy;ро&shy;ва&shy;ние. Она мо&shy;жет за&shy;ни&shy;мать сот&shy;ню мил&shy;ли&shy;се&shy;кунд. Это про&shy;ис&shy;хо&shy;дит по&shy;то&shy;му, что для ее осу&shy;щест&shy;вления, не&shy;об&shy;хо&shy;ди&shy;мо об&shy;ра&shy;тить&shy;ся к Windows. А опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;те&shy;ма мак&shy;си&shy;маль&shy;но не до&shy;ве&shy;ря&shy;ет то&shy;му, что в ней на&shy;хо&shy;дит&shy;ся. Он от&shy;го&shy;ра&shy;жи&shy;ва&shy;ет для нас пе&shy;соч&shy;ни&shy;цу, и ког&shy;да мы вы&shy;зы&shy;ва&shy;ем winapi ме&shy;тод, то мы не прос&shy;то его вы&shy;зы&shy;ва&shy;ем, а с по&shy;вы&shy;ше&shy;ни&shy;ем уров&shy;ня при&shy;ви&shy;ле&shy;гий. Что&shy;бы это бе&shy;зо&shy;пас&shy;но это сде&shy;лать, не&shy;об&shy;хо&shy;ди&shy;мо, что&shy;бы Windows ско&shy;пи&shy;ро&shy;вал фрейм ме&shy;то&shy;да, ко&shy;то&shy;рый вы&shy;зы&shy;ва&shy;ет&shy;ся из уров&shy;ня при&shy;ло&shy;же&shy;ния в уро&shy;вень яд&shy;ра, что&shy;бы слу&shy;чай&shy;но не подх&shy;ва&shy;тить чу&shy;жие ин&shy;фи&shy;ци&shy;ро&shy;ван&shy;ные дан&shy;ные. По&shy;том winapi фун&shy;к&shy;ция от&shy;ра&shy;ба&shy;ты&shy;ва&shy;ет и про&shy;ис&shy;хо&shy;дит возв&shy;рат. В этот мо&shy;мент идет об&shy;рат&shy;ное ко&shy;пи&shy;ро&shy;ва&shy;ние ку&shy;соч&shy;ка сте&shy;ка и идет пе&shy;ре&shy;ход из kernel час&shy;ти в user space. Вся эта опе&shy;ра&shy;ция за&shy;ни&shy;ма&shy;ет мно&shy;го вре&shy;ме&shy;ни, по&shy;э&shy;то&shy;му GC мак&shy;си&shy;маль&shy;но ста&shy;ра&shy;ет&shy;ся ис&shy;поль&shy;зо&shy;вать те&shy;ку&shy;щее прост&shy;ранство. И на каж&shy;дом эта&shy;пе он де&shy;ла&shy;ет GC ну&shy;ле&shy;во&shy;го по&shy;ко&shy;ле&shy;ния: ес&shy;ли что-то подс&shy;жи&shy;мать, воз&shy;мож&shy;но, allocation context об&shy;рат&shy;но вы&shy;рас&shy;тет. Ког&shy;да кон&shy;текст кон&shy;чил&shy;ся, GC пы&shy;та&shy;ет&shy;ся его разд&shy;ви&shy;нуть впра&shy;во, а там уже что-то есть, зна&shy;чит на&shy;до по&shy;ис&shy;кать сво&shy;бод&shy;ные учас&shy;тки. Если не по&shy;лу&shy;чи&shy;лось, де&shy;ла&shy;ет&shy;ся сбор&shy;ка му&shy;со&shy;ра, мо&shy;жет быть сво&shy;бод&shy;ные учас&shy;тки все же по&shy;явят&shy;ся и по&shy;лу&shy;чит&shy;ся раз&shy;мес&shy;тить сре&shy;ди них но&shy;вые дан&shy;ные. Ког&shy;да ни&shy;че&shy;го не по&shy;лу&shy;чи&shy;лось и все за&shy;би&shy;то, то при&shy;хо&shy;дит&shy;ся ком&shy;ми&shy;тить даль&shy;ше па&shy;мять. А ес&shy;ли па&shy;мять кон&shy;чи&shy;лась, то вы&shy;ле&shy;та&shy;ет OutOfMemoryException.</p>
+Если полу&shy;чи&shy;лось - заме&shy;ча&shy;тельно. Если не влез, мы пыта&shy;емся под&shy;ком&shy;ми&shy;тить больше заре&shy;зер&shy;ви&shy;ро&shy;ван&shy;ной памяти: сдви&shy;нуть вер&shy;ти&shy;каль&shy;ную черту вправо. Место заре&shy;зер&shy;ви&shy;ро&shy;вано, но памяти там еще не сущес&shy;твует. Нам нужно рас&shy;ши&shy;рить кучу и мы ком&shy;ми&shy;тим память. Сразу же мы не делаем этого, потому что commit&shy;ment - опе&shy;ра&shy;ция дос&shy;та&shy;точно дол&shy;гая, как и резер&shy;ви&shy;ро&shy;ва&shy;ние. Она может зани&shy;мать сотню мил&shy;ли&shy;се&shy;кунд. Это про&shy;ис&shy;хо&shy;дит потому, что для ее осу&shy;щест&shy;вления, необ&shy;хо&shy;димо обра&shy;титься к Windows. А опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;тема мак&shy;си&shy;мально не дове&shy;ряет тому, что в ней нахо&shy;дится. Он отго&shy;ра&shy;жи&shy;вает для нас песоч&shy;ницу, и когда мы вызы&shy;ваем winapi метод, то мы не просто его вызы&shy;ваем, а с повы&shy;ше&shy;нием уровня при&shy;ви&shy;ле&shy;гий. Чтобы это безо&shy;пасно это сде&shy;лать, необ&shy;хо&shy;димо, чтобы Windows ско&shy;пи&shy;ро&shy;вал фрейм метода, кото&shy;рый вызы&shy;ва&shy;ется из уровня при&shy;ло&shy;же&shy;ния в уро&shy;вень ядра, чтобы слу&shy;чайно не подх&shy;ва&shy;тить чужие инфи&shy;ци&shy;ро&shy;ван&shy;ные дан&shy;ные. Потом winapi фун&shy;к&shy;ция отра&shy;ба&shy;ты&shy;вает и про&shy;ис&shy;хо&shy;дит возв&shy;рат. В этот момент идет обрат&shy;ное копи&shy;ро&shy;ва&shy;ние кусочка стека и идет пере&shy;ход из kernel части в user space. Вся эта опе&shy;ра&shy;ция зани&shy;мает много вре&shy;мени, поэ&shy;тому GC мак&shy;си&shy;мально ста&shy;ра&shy;ется исполь&shy;зо&shy;вать теку&shy;щее прост&shy;ранство. И на каж&shy;дом этапе он делает GC нуле&shy;вого поко&shy;ле&shy;ния: если что-то подс&shy;жи&shy;мать, воз&shy;можно, allo&shy;ca&shy;tion context обратно вырас&shy;тет. Когда кон&shy;текст кон&shy;чился, GC пыта&shy;ется его разд&shy;ви&shy;нуть вправо, а там уже что-то есть, зна&shy;чит надо поис&shy;кать сво&shy;бод&shy;ные учас&shy;тки. Если не полу&shy;чи&shy;лось, дела&shy;ется сборка мусора, может быть сво&shy;бод&shy;ные учас&shy;тки все же появятся и полу&shy;чится раз&shy;мес&shy;тить среди них новые дан&shy;ные. Когда ничего не полу&shy;чи&shy;лось и все забито, то при&shy;хо&shy;дится ком&shy;ми&shy;тить дальше память. А если память кон&shy;чи&shy;лась, то выле&shy;тает Out&shy;Of&shy;Memory&shy;Exception.</p>
 <div class="paragraph-right-side">35</div>
 </div>
 <h2 id="loh">Выделение памяти в LOH</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">36</div>
 <p >
-В хи&shy;пе боль&shy;ших объ&shy;ек&shy;тов мы пы&shy;та&shy;ем&shy;ся най&shy;ти не&shy;ис&shy;поль&shy;зу&shy;е&shy;мую па&shy;мять, пов&shy;то&shy;ряя для каж&shy;до&shy;го эфе&shy;мер&shy;но&shy;го сег&shy;мен&shy;та LOH, по&shy;то&shy;му что тут их мо&shy;жет быть нес&shy;коль&shy;ко, в за&shy;ви&shy;си&shy;мос&shy;ти от то&shy;го, в ка&shy;ком ре&shy;жи&shy;ме ра&shy;бо&shy;та&shy;ет пла&shy;то&shy;фор&shy;ма .NET. Пос&shy;коль&shy;ку в LOH по умол&shy;ча&shy;нию у нас нет сжа&shy;тия ку&shy;чи, то уп&shy;рав&shy;ле&shy;ние па&shy;мятью тут уп&shy;ро&shy;ще&shy;но. Сжа&shy;тие ку&shy;чи - это очень жир&shy;ная опе&shy;ра&shy;ция, ко&shy;то&shy;рая тре&shy;бу&shy;ет боль&shy;ших вы&shy;чис&shy;ли&shy;тель&shy;ных про&shy;цес&shy;сов. Но в LOH эта опе&shy;ра&shy;ция про&shy;во&shy;дит&shy;ся толь&shy;ко по зап&shy;ро&shy;су, а зна&shy;чит прог&shy;рам&shy;мист ис&shy;хо&shy;дя из зна&shy;ний о ра&shy;бо&shy;те ал&shy;го&shy;рит&shy;мов собст&shy;венной прог&shy;рам&shy;мы, ре&shy;шил, что в дан&shy;ное вре&shy;мя он го&shy;тов пот&shy;ра&shy;тить не&shy;из&shy;вес&shy;тно сколь&shy;ко вре&shy;ме&shy;ни на сжа&shy;тие ог&shy;ром&shy;но&shy;го прост&shy;ранства. А зна&shy;чит, мож&shy;но силь&shy;но уп&shy;рос&shy;тить ал&shy;го&shy;рит&shy;мы по ра&shy;бо&shy;те с LOH.</p>
+В хипе боль&shy;ших объ&shy;ек&shy;тов мы пыта&shy;емся найти неис&shy;поль&shy;зу&shy;е&shy;мую память, пов&shy;то&shy;ряя для каж&shy;дого эфе&shy;мер&shy;ного сег&shy;мента LOH, потому что тут их может быть нес&shy;колько, в зави&shy;си&shy;мости от того, в каком режиме рабо&shy;тает пла&shy;то&shy;форма .NET. Пос&shy;кольку в LOH по умол&shy;ча&shy;нию у нас нет сжа&shy;тия кучи, то управ&shy;ле&shy;ние памятью тут упро&shy;щено. Сжа&shy;тие кучи - это очень жир&shy;ная опе&shy;ра&shy;ция, кото&shy;рая тре&shy;бует боль&shy;ших вычис&shy;ли&shy;тель&shy;ных про&shy;цес&shy;сов. Но в LOH эта опе&shy;ра&shy;ция про&shy;во&shy;дится только по зап&shy;росу, а зна&shy;чит прог&shy;рам&shy;мист исходя из зна&shy;ний о работе алго&shy;рит&shy;мов собст&shy;венной прог&shy;раммы, решил, что в дан&shy;ное время он готов пот&shy;ра&shy;тить неиз&shy;вес&shy;тно сколько вре&shy;мени на сжа&shy;тие огром&shy;ного прост&shy;ранства. А зна&shy;чит, можно сильно упрос&shy;тить алго&shy;ритмы по работе с LOH.</p>
 <div class="paragraph-right-side">36</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">37</div>
 <p >
-Для каж&shy;до&shy;го эфе&shy;мер&shy;но&shy;го сег&shy;мен&shy;та мы ищем учас&shy;ток па&shy;мя&shy;ти в спис&shy;ке сво&shy;бод&shy;ных, пы&shy;та&shy;ем&shy;ся уве&shy;ли&shy;чить, ес&shy;ли не по&shy;лу&shy;чи&shy;лось най&shy;ти. Если не по&shy;лу&shy;чи&shy;лось уве&shy;ли&shy;чить - пы&shy;та&shy;ем&shy;ся под&shy;ком&shy;ми&shy;тить за&shy;ре&shy;зер&shy;ви&shy;ро&shy;ван&shy;ную часть. Сле&shy;ду&shy;ю&shy;щим ша&shy;гом за&shy;пус&shy;ка&shy;ем GC, воз&shy;мож&shy;но нес&shy;коль&shy;ко раз. И ес&shy;ли сов&shy;сем ни&shy;че&shy;го не вы&shy;хо&shy;дит - дер&shy;га&shy;ем OutOfMemoryException. В дан&shy;ном под&shy;хо&shy;де нет сло&shy;ва &laquo;сжа&shy;тие&raquo;, мы идем по прос&shy;то&shy;му пу&shy;ти.</p>
+Для каж&shy;дого эфе&shy;мер&shy;ного сег&shy;мента мы ищем учас&shy;ток памяти в списке сво&shy;бод&shy;ных, пыта&shy;емся уве&shy;ли&shy;чить, если не полу&shy;чи&shy;лось найти. Если не полу&shy;чи&shy;лось уве&shy;ли&shy;чить - пыта&shy;емся под&shy;ком&shy;ми&shy;тить заре&shy;зер&shy;ви&shy;ро&shy;ван&shy;ную часть. Сле&shy;ду&shy;ю&shy;щим шагом запус&shy;каем GC, воз&shy;можно нес&shy;колько раз. И если сов&shy;сем ничего не выхо&shy;дит - дер&shy;гаем Out&shy;Of&shy;Memory&shy;Exception. В дан&shy;ном под&shy;ходе нет слова &laquo;сжа&shy;тие&raquo;, мы идем по прос&shy;тому пути.</p>
 <div class="paragraph-right-side">37</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">38</div>
 <p >
-Мно&shy;го&shy;по&shy;точ&shy;ность. Есть та&shy;кое по&shy;ня&shy;тие как ба&shy;ланс хи&shy;пов. Нап&shy;ри&shy;мер, GC за&shy;пу&shy;щен в сер&shy;вер&shy;ном ре&shy;жи&shy;ме. Это зна&shy;чит, что у не&shy;го по нес&shy;коль&shy;ко SOH и LOH и эти па&shy;ры наз&shy;на&shy;че&shy;ны к конк&shy;рет&shy;но&shy;му про&shy;цес&shy;сор&shy;но&shy;му яд&shy;ру. У каж&shy;до&shy;го яд&shy;ра есть своя па&shy;ра хи&shy;пов и свои тре&shy;ды.</p>
+Мно&shy;го&shy;по&shy;точ&shy;ность. Есть такое поня&shy;тие как баланс хипов. Нап&shy;ри&shy;мер, GC запу&shy;щен в сер&shy;вер&shy;ном режиме. Это зна&shy;чит, что у него по нес&shy;колько SOH и LOH и эти пары наз&shy;на&shy;чены к конк&shy;рет&shy;ному про&shy;цес&shy;сор&shy;ному ядру. У каж&shy;дого ядра есть своя пара хипов и свои треды.</p>
 <div class="paragraph-right-side">38</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">39</div>
 <p >
-Предс&shy;та&shy;вим, что на ка&shy;ком-то яд&shy;ре ба&shy;ланс на&shy;ру&shy;шил&shy;ся. Оно на&shy;ча&shy;ло ал&shy;ло&shy;ци&shy;ро&shy;вать слиш&shy;ком мно&shy;го па&shy;мя&shy;ти и пе&shy;рес&shy;та&shy;ло по&shy;ме&shy;щать&shy;ся в те&shy;ку&shy;щие сег&shy;мен&shy;ты. Расс&shy;мот&shy;рим, что мо&shy;жет сде&shy;лать сис&shy;те&shy;ма уп&shy;рав&shy;ле&shy;ния па&shy;мятью в дан&shy;ном слу&shy;чае.</p>
+Предс&shy;та&shy;вим, что на каком-то ядре баланс нару&shy;шился. Оно начало алло&shy;ци&shy;ро&shy;вать слиш&shy;ком много памяти и перес&shy;тало поме&shy;щаться в теку&shy;щие сег&shy;менты. Расс&shy;мот&shy;рим, что может сде&shy;лать сис&shy;тема управ&shy;ле&shy;ния памятью в дан&shy;ном слу&shy;чае.</p>
 <div class="paragraph-right-side">39</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">40</div>
 <p >
-Ей мо&shy;жет по&shy;ка&shy;зать&shy;ся, что ес&shy;ли дан&shy;ное яд&shy;ро за&shy;ни&shy;ма&shy;ет&shy;ся очень плот&shy;ной ал&shy;ло&shy;ка&shy;ци&shy;ей, то мож&shy;но взять и пе&shy;ре&shy;ки&shy;нуть кон&shy;текст на со&shy;сед&shy;нее яд&shy;ро и ал&shy;ло&shy;ци&shy;ро&shy;вать там. Одно яд&shy;ро сто&shy;ит, а дру&shy;гое вы&shy;жа&shy;то по мак&shy;си&shy;му&shy;му. Это по&shy;мо&shy;жет из&shy;бе&shy;жать та&shy;ких до&shy;ро&shy;гих опе&shy;ра&shy;ций, как ком&shy;мит&shy;мент па&shy;мя&shy;ти. Но при из&shy;ме&shy;не&shy;нии кон&shy;тек&shy;ста, вмес&shy;те с этим участ&shy;ком, в дру&shy;гое яд&shy;ро пе&shy;ре&shy;но&shy;сит&shy;ся и по&shy;ток.</p>
+Ей может пока&shy;заться, что если дан&shy;ное ядро зани&shy;ма&shy;ется очень плот&shy;ной алло&shy;ка&shy;цией, то можно взять и пере&shy;ки&shy;нуть кон&shy;текст на сосед&shy;нее ядро и алло&shy;ци&shy;ро&shy;вать там. Одно ядро стоит, а дру&shy;гое выжато по мак&shy;си&shy;муму. Это помо&shy;жет избе&shy;жать таких доро&shy;гих опе&shy;ра&shy;ций, как ком&shy;мит&shy;мент памяти. Но при изме&shy;не&shy;нии кон&shy;тек&shy;ста, вместе с этим участ&shy;ком, в дру&shy;гое ядро пере&shy;но&shy;сится и поток.</p>
 <div class="paragraph-right-side">40</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">41</div>
 <p >
-Это де&shy;ла&shy;ет&shy;ся не толь&shy;ко по&shy;то&shy;му, что за&shy;кон&shy;чи&shy;лась па&shy;мять. Есть и дру&shy;гая при&shy;чи&shy;на. У каж&shy;до&shy;го про&shy;цес&shy;со&shy;ра есть кеш яд&shy;ра. Ког&shy;да при&shy;ло&shy;же&shy;ние от&shy;ра&shy;ба&shy;ты&shy;ва&shy;ет на ка&shy;ком-то учас&shy;тке па&shy;мя&shy;ти, весь он на&shy;хо&shy;дит&shy;ся в этом ке&shy;ше. Ког&shy;да вы на&shy;чи&shy;на&shy;ете ра&shy;бо&shy;тать с дру&shy;гим участ&shy;ком и про&shy;ма&shy;хи&shy;ва&shy;е&shy;тесь ми&shy;мо ке&shy;ша, при&shy;хо&shy;дит&shy;ся вы&shy;ка&shy;чи&shy;вать дру&shy;гой учас&shy;ток па&shy;мя&shy;ти под кеш. Если пе&shy;рек&shy;лю&shy;чать&shy;ся ту&shy;да-сю&shy;да, бу&shy;дет са&shy;мая худ&shy;шая си&shy;ту&shy;а&shy;ция. Все бу&shy;дет ра&shy;бо&shy;тать очень-очень дол&shy;го.</p>
+Это дела&shy;ется не только потому, что закон&shy;чи&shy;лась память. Есть и дру&shy;гая при&shy;чина. У каж&shy;дого про&shy;цес&shy;сора есть кеш ядра. Когда при&shy;ло&shy;же&shy;ние отра&shy;ба&shy;ты&shy;вает на каком-то учас&shy;тке памяти, весь он нахо&shy;дится в этом кеше. Когда вы начи&shy;на&shy;ете рабо&shy;тать с дру&shy;гим участ&shy;ком и про&shy;ма&shy;хи&shy;ва&shy;е&shy;тесь мимо кеша, при&shy;хо&shy;дится выка&shy;чи&shy;вать дру&shy;гой учас&shy;ток памяти под кеш. Если перек&shy;лю&shy;чаться туда-сюда, будет самая худ&shy;шая ситу&shy;а&shy;ция. Все будет рабо&shy;тать очень-очень долго.</p>
 <div class="paragraph-right-side">41</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">42</div>
 <p >
-Ког&shy;да те&shy;ку&shy;щий allocation context яд&shy;ра за&shy;кан&shy;чи&shy;ва&shy;ет&shy;ся, а на со&shy;сед&shy;нем яд&shy;ре ни&shy;че&shy;го в это вре&shy;мя не про&shy;ис&shy;хо&shy;дит и про&shy;ще ту&shy;да пе&shy;ре&shy;ки&shy;нуть кон&shy;текст, чем ал&shy;ло&shy;ци&shy;ро&shy;вать но&shy;вый ку&shy;сок па&shy;мя&shy;ти, то он вмес&shy;те с этим кон&shy;текс&shy;том вы&shy;нуж&shy;ден ту&shy;да пе&shy;ре&shy;ки&shy;нуть те&shy;ку&shy;щий по&shy;ток. Те&shy;перь он бу&shy;дет ра&shy;бо&shy;тать на дру&shy;гом ди&shy;а&shy;па&shy;зо&shy;не па&shy;мя&shy;ти. Ему нуж&shy;но, что&shy;бы дру&shy;гой ди&shy;а&shy;па&shy;зон па&shy;мя&shy;ти на&shy;хо&shy;дил&shy;ся в его ке&shy;ше. По&shy;э&shy;то&shy;му вмес&shy;те с кон&shy;текс&shy;том пе&shy;ре&shy;ме&shy;ща&shy;ет&shy;ся и те&shy;ку&shy;щий по&shy;ток.</p>
+Когда теку&shy;щий allo&shy;ca&shy;tion context ядра закан&shy;чи&shy;ва&shy;ется, а на сосед&shy;нем ядре ничего в это время не про&shy;ис&shy;хо&shy;дит и проще туда пере&shy;ки&shy;нуть кон&shy;текст, чем алло&shy;ци&shy;ро&shy;вать новый кусок памяти, то он вместе с этим кон&shy;текс&shy;том вынуж&shy;ден туда пере&shy;ки&shy;нуть теку&shy;щий поток. Теперь он будет рабо&shy;тать на дру&shy;гом диа&shy;па&shy;зоне памяти. Ему нужно, чтобы дру&shy;гой диа&shy;па&shy;зон памяти нахо&shy;дился в его кеше. Поэ&shy;тому вместе с кон&shy;текс&shy;том пере&shy;ме&shy;ща&shy;ется и теку&shy;щий поток.</p>
 <div class="paragraph-right-side">42</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">43</div>
 <p >
-Ка&shy;кие вы&shy;во&shy;ды мож&shy;но тут сде&shy;лать. Во-пер&shy;вых, на&shy;до пом&shy;нить как вы&shy;де&shy;ля&shy;ет&shy;ся па&shy;мять.  Во-вто&shy;рых, что&shy;бы оп&shy;ти&shy;ми&shy;зи&shy;ро&shy;вать ра&shy;бо&shy;ту GC, на&shy;до по&shy;ни&shy;мать, что вам по&shy;на&shy;до&shy;бить&shy;ся сколь&shy;ко-то объ&shy;ек&shy;тов оп&shy;ре&shy;де&shy;лен&shy;но&shy;го ти&shy;па. И пос&shy;ле вы&shy;зо&shy;ва new, за&shy;пол&shy;ни&shy;ли па&shy;мять, ал&shy;го&shy;ритм у вас от&shy;ра&shy;бо&shy;тал. А по&shy;том у вас соз&shy;да&shy;ет&shy;ся еще один объ&shy;ект та&shy;ко&shy;го ти&shy;па, нап&shy;ри&shy;мер уже в цик&shy;ле. И это пло&shy;хо. Алго&shy;ритм от&shy;ра&shy;ба&shy;ты&shy;ва&shy;ет не&shy;ко&shy;то&shy;рое вре&shy;мя, в па&shy;рал&shy;лель&shy;ных по&shy;то&shy;ках в это вре&shy;мя мо&shy;жет быть про&shy;из&shy;ве&shy;де&shy;на и дру&shy;гая ал&shy;ло&shy;ка&shy;ция. И в том же ал&shy;го&shy;рит&shy;ме вы мо&shy;же&shy;те вы&shy;де&shy;лять дру&shy;гую па&shy;мять. Со&shy;от&shy;ветст&shy;венно, вы фраг&shy;мен&shy;ти&shy;ру&shy;ете па&shy;мять по ти&shy;пу. Во вре&shy;мя GC вам нуж&shy;ны объ&shy;ек&shy;ты пер&shy;во&shy;го ти&shy;па как объ&shy;ек&shy;ты ну&shy;ле&shy;во&shy;го по&shy;ко&shy;ле&shy;ния, ко&shy;то&shy;рые быс&shy;тро ис&shy;чез&shy;нут. Но в ал&shy;го&shy;рит&shy;ме вы ал&shy;ло&shy;ци&shy;ру&shy;ете веч&shy;ные объ&shy;ек&shy;ты. GC вы&shy;нуж&shy;ден про&shy;во&shy;дить фа&shy;зу сжа&shy;тия ку&shy;чи, т.к. эти са&shy;мые объ&shy;ек&shy;ты, ко&shy;то&shy;рые быс&shy;тро уш&shy;ли на по&shy;кой, об&shy;ра&shy;зо&shy;ва&shy;ли ма&shy;лень&shy;кие учас&shy;тки сво&shy;бод&shy;ной па&shy;мя&shy;ти, ку&shy;да боль&shy;ше ни&shy;че&shy;го не раз&shy;мес&shy;тить. В про&shy;тив&shy;ном слу&shy;чае GC мог бы обой&shy;тись обыч&shy;ным sweep: ес&shy;ли бы учас&shy;ток был боль&shy;шой, он бы по&shy;пал в спи&shy;сок сво&shy;бод&shy;ных участ&shy;ков.</p>
+Какие выводы можно тут сде&shy;лать. Во-пер&shy;вых, надо пом&shy;нить как выде&shy;ля&shy;ется память.  Во-вто&shy;рых, чтобы опти&shy;ми&shy;зи&shy;ро&shy;вать работу GC, надо пони&shy;мать, что вам пона&shy;до&shy;биться сколько-то объ&shy;ек&shy;тов опре&shy;де&shy;лен&shy;ного типа. И после вызова new, запол&shy;нили память, алго&shy;ритм у вас отра&shy;бо&shy;тал. А потом у вас соз&shy;да&shy;ется еще один объ&shy;ект такого типа, нап&shy;ри&shy;мер уже в цикле. И это плохо. Алго&shy;ритм отра&shy;ба&shy;ты&shy;вает неко&shy;то&shy;рое время, в парал&shy;лель&shy;ных пото&shy;ках в это время может быть про&shy;из&shy;ве&shy;дена и дру&shy;гая алло&shy;ка&shy;ция. И в том же алго&shy;ритме вы можете выде&shy;лять дру&shy;гую память. Соот&shy;ветст&shy;венно, вы фраг&shy;мен&shy;ти&shy;ру&shy;ете память по типу. Во время GC вам нужны объ&shy;екты пер&shy;вого типа как объ&shy;екты нуле&shy;вого поко&shy;ле&shy;ния, кото&shy;рые быс&shy;тро исчез&shy;нут. Но в алго&shy;ритме вы алло&shy;ци&shy;ру&shy;ете веч&shy;ные объ&shy;екты. GC вынуж&shy;ден про&shy;во&shy;дить фазу сжа&shy;тия кучи, т.к. эти самые объ&shy;екты, кото&shy;рые быс&shy;тро ушли на покой, обра&shy;зо&shy;вали малень&shy;кие учас&shy;тки сво&shy;бод&shy;ной памяти, куда больше ничего не раз&shy;мес&shy;тить. В про&shy;тив&shy;ном слу&shy;чае GC мог бы обой&shy;тись обыч&shy;ным sweep: если бы учас&shy;ток был боль&shy;шой, он бы попал в спи&shy;сок сво&shy;бод&shy;ных участ&shy;ков.</p>
 <div class="paragraph-right-side">43</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">44</div>
 <p >
-Как луч&shy;ше сде&shy;лать. Если есть ал&shy;го&shy;ритм на де&shy;сять ты&shy;сяч ите&shy;ра&shy;ций, и там нуж&shy;ны объ&shy;ек&shy;ты ти&shy;па A, луч&shy;ше вы&shy;де&shy;лить их сра&shy;зу груп&shy;пой, а по&shy;том ис&shy;поль&shy;зо&shy;вать. И ког&shy;да GC от&shy;ра&shy;бо&shy;та&shy;ет, у не&shy;го по&shy;лу&shy;чит&shy;ся ог&shy;ром&shy;ный учас&shy;ток, где эти объ&shy;ек&shy;ты бы&shy;ли вы&shy;де&shy;ле&shy;ны. И он весь его от&shy;даст в спи&shy;сок сво&shy;бод&shy;ных участ&shy;ков. Если же в ва&shy;шем ал&shy;го&shy;рит&shy;ме вам каж&shy;дый раз ну&shy;жен все&shy;го лишь один эк&shy;земп&shy;ляр объ&shy;ек&shy;та ти&shy;па A, то пе&shy;ре&shy;ис&shy;поль&shy;зуй&shy;те его, сде&shy;лай&shy;те ме&shy;тод init вмес&shy;то конст&shy;ру&shy;ктора. По&shy;лу&shy;чит&shy;ся, что вы во&shy;об&shy;ще не фраг&shy;мен&shy;ти&shy;ру&shy;ете па&shy;мять, а ра&shy;бо&shy;та&shy;ете на од&shy;ном объ&shy;ек&shy;те.</p>
+Как лучше сде&shy;лать. Если есть алго&shy;ритм на десять тысяч ите&shy;ра&shy;ций, и там нужны объ&shy;екты типа A, лучше выде&shy;лить их сразу груп&shy;пой, а потом исполь&shy;зо&shy;вать. И когда GC отра&shy;бо&shy;тает, у него полу&shy;чится огром&shy;ный учас&shy;ток, где эти объ&shy;екты были выде&shy;лены. И он весь его отдаст в спи&shy;сок сво&shy;бод&shy;ных участ&shy;ков. Если же в вашем алго&shy;ритме вам каж&shy;дый раз нужен всего лишь один экземп&shy;ляр объ&shy;екта типа A, то пере&shy;ис&shy;поль&shy;зуйте его, сде&shy;лайте метод init вместо конст&shy;ру&shy;ктора. Полу&shy;чится, что вы вообще не фраг&shy;мен&shy;ти&shy;ру&shy;ете память, а рабо&shy;та&shy;ете на одном объ&shy;екте.</p>
 <div class="paragraph-right-side">44</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">45</div>
 <p >
-Если вам нуж&shy;но од&shy;нов&shy;ре&shy;мен&shy;но сто объ&shy;ек&shy;тов де&shy;лай&shy;те пул объ&shy;ек&shy;тов, и дос&shy;та&shy;вай&shy;те их от&shy;ту&shy;да, что&shy;бы не фраг&shy;мен&shy;ти&shy;ро&shy;вать па&shy;мять ко&shy;рот&shy;ко&shy;жи&shy;ву&shy;щи&shy;ми объ&shy;ек&shy;та&shy;ми внут&shy;ри ал&shy;го&shy;рит&shy;ма, что&shy;бы не де&shy;лать дли&shy;тель&shy;ное сжа&shy;тие ку&shy;чи.</p>
+Если вам нужно однов&shy;ре&shy;менно сто объ&shy;ек&shy;тов делайте пул объ&shy;ек&shy;тов, и дос&shy;та&shy;вайте их оттуда, чтобы не фраг&shy;мен&shy;ти&shy;ро&shy;вать память корот&shy;ко&shy;жи&shy;ву&shy;щими объ&shy;ек&shy;тами внутри алго&shy;ритма, чтобы не делать дли&shy;тель&shy;ное сжа&shy;тие кучи.</p>
 <div class="paragraph-right-side">45</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">46</div>
 <p >
-Пер&shy;вая кни&shy;га выш&shy;ла не&shy;дав&shy;но. Ее на&shy;пи&shy;сал Кон&shy;рад Ко&shy;ко&shy;са. Кни&shy;га о ме&shy;недж&shy;мен&shy;те па&shy;мя&shy;ти объ&shy;е&shy;мом в ты&shy;ся&shy;чу стра&shy;ниц. Ког&shy;да я ее в пер&shy;вый раз по&shy;лу&shy;чил, я ожи&shy;дал уви&shy;деть неч&shy;то дру&shy;гое. От раз&shy;ме&shy;ра то&shy;ма у ме&shy;ня был шок. На са&shy;мом де&shy;ле ав&shy;тор мо&shy;ло&shy;дец. Он на&shy;пи&shy;сал ее для лю&shy;бо&shy;го уров&shy;ня под&shy;го&shy;тов&shy;ки. Это зна&shy;чит, мож&shy;но вы&shy;ре&shy;зать во&shy;об&shy;ще все, что лиш&shy;нее. Нап&shy;ри&shy;мер, уро&shy;вень уп&shy;рав&shy;ле&shy;ния па&shy;мятью про&shy;цес&shy;со&shy;ром, Windows, спи&shy;сок инст&shy;рум&shy;ентов, ко&shy;то&shy;ры&shy;ми удоб&shy;но поль&shy;зо&shy;вать&shy;ся для ди&shy;аг&shy;нос&shy;ти&shy;ки - ес&shy;ли вы хо&shy;ти&shy;те по&shy;чи&shy;тать прос&shy;то про ме&shy;недж&shy;мент па&shy;мя&shy;ти, то мож&shy;но взять вто&shy;рую по&shy;ло&shy;ви&shy;ну кни&shy;ги. Пер&shy;вая по&shy;ло&shy;ви&shy;на кни&shy;ги - это прос&shy;то под&shy;го&shy;тов&shy;ка ко вто&shy;рой. А вто&shy;рая по&shy;ло&shy;ви&shy;на - как раз ме&shy;недж&shy;мент па&shy;мя&shy;ти. Взять этот ме&shy;недж&shy;мент па&shy;мя&shy;ти. Там очень лег&shy;ким язы&shy;ком все на&shy;пи&shy;са&shy;но, пос&shy;то&shy;ян&shy;но де&shy;ла&shy;ют&shy;ся от&shy;сыл&shy;ки к пре&shy;ды&shy;ду&shy;щим гла&shy;вам.</p>
+Пер&shy;вая книга вышла недавно. Ее напи&shy;сал Кон&shy;рад Кокоса. Книга о менедж&shy;менте памяти объ&shy;е&shy;мом в тысячу стра&shy;ниц. Когда я ее в пер&shy;вый раз полу&shy;чил, я ожи&shy;дал уви&shy;деть нечто дру&shy;гое. От раз&shy;мера тома у меня был шок. На самом деле автор моло&shy;дец. Он напи&shy;сал ее для любого уровня под&shy;го&shy;товки. Это зна&shy;чит, можно выре&shy;зать вообще все, что лиш&shy;нее. Нап&shy;ри&shy;мер, уро&shy;вень управ&shy;ле&shy;ния памятью про&shy;цес&shy;со&shy;ром, Windows, спи&shy;сок инст&shy;рум&shy;ентов, кото&shy;рыми удобно поль&shy;зо&shy;ваться для диаг&shy;нос&shy;тики - если вы хотите почи&shy;тать просто про менедж&shy;мент памяти, то можно взять вто&shy;рую поло&shy;вину книги. Пер&shy;вая поло&shy;вина книги - это просто под&shy;го&shy;товка ко вто&shy;рой. А вто&shy;рая поло&shy;вина - как раз менедж&shy;мент памяти. Взять этот менедж&shy;мент памяти. Там очень лег&shy;ким язы&shy;ком все напи&shy;сано, пос&shy;то&shy;янно дела&shy;ются отсылки к пре&shy;ды&shy;ду&shy;щим гла&shy;вам.</p>
 <div class="paragraph-right-side">46</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">47</div>
 <p >
-Если кни&shy;гу ужать, по&shy;лу&shy;чит&shy;ся стра&shy;ниц 300. А это уже подъ&shy;ем&shy;ный объ&shy;ем, то, что воз&shy;мож&shy;но про&shy;чи&shy;тать.</p>
+Если книгу ужать, полу&shy;чится стра&shy;ниц 300. А это уже подъ&shy;ем&shy;ный объем, то, что воз&shy;можно про&shy;чи&shy;тать.</p>
 <div class="paragraph-right-side">47</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">48</div>
 <p >
-Вто&shy;рая кни&shy;га - Under the Hood of .NET Memory Management  - для ме&shy;ня уже клас&shy;си&shy;ка. Она не пе&shy;ре&shy;ве&shy;де&shy;на на русс&shy;кий и расп&shy;рост&shy;ра&shy;ня&shy;ет&shy;ся толь&shy;ко че&shy;рез сайт Red Gate, ко&shy;то&shy;рый де&shy;ла&shy;ет раз&shy;ные инст&shy;рум&shy;енты для ре&shy;фак&shy;то&shy;рин&shy;га и ра&shy;бо&shy;ты с ба&shy;за&shy;ми дан&shy;ных. В том чис&shy;ле у них есть тул&shy;за для ана&shy;ли&shy;за па&shy;мя&shy;ти, они бы&shy;ли вы&shy;нуж&shy;де&shy;ны ис&shy;сле&shy;до&shy;вать как эта па&shy;мять ра&shy;бо&shy;та&shy;ет. Там в очень ко&shy;рот&shy;ком сти&shy;ле, дос&shy;та&shy;точ&shy;ном для то&shy;го, что&shy;бы при&shy;ят&shy;но уди&shy;вить лю&shy;дей на со&shy;бе&shy;се&shy;до&shy;ва&shy;нии в ком&shy;па&shy;нию, это все опи&shy;са&shy;но. В ра&shy;йо&shy;не 200 стра&shy;ниц за&shy;ни&shy;ма&shy;ет. И моя кни&shy;га.</p>
+Вто&shy;рая книга - Under the Hood of .NET Memory Mana&shy;ge&shy;ment  - для меня уже клас&shy;сика. Она не пере&shy;ве&shy;дена на русс&shy;кий и расп&shy;рост&shy;ра&shy;ня&shy;ется только через сайт Red Gate, кото&shy;рый делает раз&shy;ные инст&shy;рум&shy;енты для рефак&shy;то&shy;ринга и работы с базами дан&shy;ных. В том числе у них есть тулза для ана&shy;лиза памяти, они были вынуж&shy;дены иссле&shy;до&shy;вать как эта память рабо&shy;тает. Там в очень корот&shy;ком стиле, дос&shy;та&shy;точ&shy;ном для того, чтобы при&shy;ятно уди&shy;вить людей на собе&shy;се&shy;до&shy;ва&shy;нии в ком&shy;па&shy;нию, это все опи&shy;сано. В районе 200 стра&shy;ниц зани&shy;мает. И моя книга.</p>
 <div class="paragraph-right-side">48</div>
 </div>
 <p >
-Ка&shy;кие у вас воп&shy;ро&shy;сы воз&shy;ник&shy;ли?</p>
+Какие у вас воп&shy;росы воз&shy;никли?</p>
 <ul>
 <li>
 <p >
-.&hellip; (воп&shy;рос не слы&shy;шен на за&shy;пи&shy;си)</p>
+.&hellip; (воп&shy;рос не слы&shy;шен на записи)</p>
 </li>
 <li>
 <p >
-По&shy;лу&shy;ча&shy;ет&shy;ся на&shy;до. По кар&shy;тин&shy;кам час&shy;тич&shy;но На&shy;талья от&shy;ве&shy;тит на этот воп&shy;рос, как пра&shy;виль&shy;но вы&shy;ка&shy;чи&shy;вать это, что&shy;бы лиш&shy;нее не рас&shy;хо&shy;до&shy;вать и что&shy;бы все бы&shy;ло удоб&shy;но. Испол&shy;ьз&shy;овать на&shy;до в лю&shy;бом слу&shy;чае од&shy;ни и те же мас&shy;си&shy;вы, ис&shy;поль&shy;зо&shy;вать пу&shy;лы, ко&shy;то&shy;рые по&shy;я&shy;ви&shy;лись. Мож&shy;но на&shy;пи&shy;сать свои или но&shy;вые, ко&shy;то&shy;рые по&shy;я&shy;ви&shy;лись. Что&shy;бы с этим гра&shy;мот&shy;но ра&shy;бо&shy;тать мож&shy;но ис&shy;поль&shy;зо&shy;вать то, о чем расс&shy;ка&shy;жет На&shy;талья.</p>
+Полу&shy;ча&shy;ется надо. По кар&shy;тин&shy;кам час&shy;тично Наталья отве&shy;тит на этот воп&shy;рос, как пра&shy;вильно выка&shy;чи&shy;вать это, чтобы лиш&shy;нее не рас&shy;хо&shy;до&shy;вать и чтобы все было удобно. Испол&shy;ьз&shy;овать надо в любом слу&shy;чае одни и те же мас&shy;сивы, исполь&shy;зо&shy;вать пулы, кото&shy;рые поя&shy;ви&shy;лись. Можно напи&shy;сать свои или новые, кото&shy;рые поя&shy;ви&shy;лись. Чтобы с этим гра&shy;мотно рабо&shy;тать можно исполь&shy;зо&shy;вать то, о чем расс&shy;ка&shy;жет Наталья.</p>
 </li>
 <li>
 <p >
-... (воп&shy;рос не слы&shy;шен на за&shy;пи&shy;си)</p>
+... (воп&shy;рос не слы&shy;шен на записи)</p>
 </li>
 <li>
 <p >
-Мас&shy;сив - это мас&shy;сив ссы&shy;лок. Вы не мо&shy;же&shy;те сде&shy;лать мас&shy;сив кар&shy;ти&shy;нок. Мас&shy;сив ссы&shy;лок на кар&shy;тин&shy;ки.</p>
+Мас&shy;сив - это мас&shy;сив ссы&shy;лок. Вы не можете сде&shy;лать мас&shy;сив кар&shy;ти&shy;нок. Мас&shy;сив ссы&shy;лок на кар&shy;тинки.</p>
 </li>
 <li>
 <p >
-... (воп&shy;рос не слы&shy;шен на за&shy;пи&shy;си)</p>
+... (воп&shy;рос не слы&shy;шен на записи)</p>
 </li>
 <li>
 <p >
-Испол&shy;ьзу&shy;йте это в ка&shy;чес&shy;тве клю&shy;ча GUI.</p>
+Испол&shy;ьзу&shy;йте это в качес&shy;тве ключа GUI.</p>
 </li>
 <li>
 <p >
-... (воп&shy;рос не слы&shy;шен на за&shy;пи&shy;си)</p>
+... (воп&shy;рос не слы&shy;шен на записи)</p>
 </li>
 <li>
 <p >
-Воп&shy;рос о том, нас&shy;коль&shy;ко ло&shy;гич&shy;но пе&shy;ре&shy;ки&shy;ды&shy;вать по&shy;ток с яд&shy;ра на яд&shy;ро без уче&shy;та ис&shy;поль&shy;зо&shy;ва&shy;ния па&shy;мя&shy;ти конк&shy;рет&shy;ным яд&shy;ром. Ка&shy;кая по&shy;лу&shy;ча&shy;ет&shy;ся клас&shy;си&shy;фи&shy;ка&shy;ция в дан&shy;ном слу&shy;чае.</p>
+Воп&shy;рос о том, нас&shy;колько логично пере&shy;ки&shy;ды&shy;вать поток с ядра на ядро без учета исполь&shy;зо&shy;ва&shy;ния памяти конк&shy;рет&shy;ным ядром. Какая полу&shy;ча&shy;ется клас&shy;си&shy;фи&shy;ка&shy;ция в дан&shy;ном слу&shy;чае.</p>
 </li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">49</div>
 <p >
-У нас есть пер&shy;вое яд&shy;ро. Оно что-то де&shy;ла&shy;ет, за ним за&shy;би&shy;то два по&shy;то&shy;ка. Ког&shy;да на не&shy;го пе&shy;ре&shy;ки&shy;ды&shy;ва&shy;ет&shy;ся со вто&shy;ро&shy;го яд&shy;ра, то в рам&shy;ках пер&shy;во&shy;го яд&shy;ра все в по&shy;ряд&shy;ке: оно как ра&shy;бо&shy;та&shy;ло со сво&shy;ей па&shy;мятью, так и ра&shy;бо&shy;та&shy;ет. Это сце&shy;на&shy;рий один. Сце&shy;на&shy;рий но&shy;мер два. Пе&shy;ре&shy;ки&shy;ды&shy;ва&shy;е&shy;мый по&shy;ток, со вто&shy;ро&shy;го на пер&shy;вое. Ког&shy;да мы это де&shy;ла&shy;ем, то мы его пе&shy;ре&shy;но&shy;сим не прос&shy;то так, а по&shy;то&shy;му, что он в дан&shy;ный мо&shy;мент ак&shy;тив&shy;но ал&shy;ло&shy;ци&shy;ру&shy;ет па&shy;мять. Все это де&shy;ла&shy;ет&shy;ся ис&shy;хо&shy;дя из ста&shy;тис&shy;ти&shy;ки. Из ста&shy;тис&shy;ти&shy;ки, ви&shy;ди&shy;мо, де&shy;ла&shy;ет&shy;ся сле&shy;ду&shy;ю&shy;щий вы&shy;вод: при&shy;ло&shy;же&shy;ние  ча&shy;ще ра&shy;бо&shy;та&shy;ет с па&shy;мятью, ко&shy;то&shy;рую оно толь&shy;ко что вы&shy;де&shy;ли&shy;ло.</p>
+У нас есть пер&shy;вое ядро. Оно что-то делает, за ним забито два потока. Когда на него пере&shy;ки&shy;ды&shy;ва&shy;ется со вто&shy;рого ядра, то в рам&shy;ках пер&shy;вого ядра все в порядке: оно как рабо&shy;тало со своей памятью, так и рабо&shy;тает. Это сце&shy;на&shy;рий один. Сце&shy;на&shy;рий номер два. Пере&shy;ки&shy;ды&shy;ва&shy;е&shy;мый поток, со вто&shy;рого на пер&shy;вое. Когда мы это делаем, то мы его пере&shy;но&shy;сим не просто так, а потому, что он в дан&shy;ный момент активно алло&shy;ци&shy;рует память. Все это дела&shy;ется исходя из ста&shy;тис&shy;тики. Из ста&shy;тис&shy;тики, видимо, дела&shy;ется сле&shy;ду&shy;ю&shy;щий вывод: при&shy;ло&shy;же&shy;ние  чаще рабо&shy;тает с памятью, кото&shy;рую оно только что выде&shy;лило.</p>
 <div class="paragraph-right-side">49</div>
 </div>
 <ul>
 <li>
 <p >
-... (воп&shy;рос не слы&shy;шен на за&shy;пи&shy;си)</p>
+... (воп&shy;рос не слы&shy;шен на записи)</p>
 </li>
 <li>
 <p >
-На це&shy;ле&shy;вом яд&shy;ре?</p>
+На целе&shy;вом ядре?</p>
 </li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">50</div>
 <p >
-•	... (воп&shy;рос не слы&shy;шен на за&shy;пи&shy;си)
-•	Ни&shy;че&shy;го не ля&shy;жет, там все в по&shy;ряд&shy;ке бу&shy;дет. Они что-то счи&shy;та&shy;ют, па&shy;мять не вы&shy;де&shy;ля&shy;ют, кон&shy;текст им не ну&shy;жен. У пер&shy;во&shy;го яд&shy;ра как бы&shy;ли па&shy;ра хи&shy;пов, так они там и ос&shy;та&shy;нут&shy;ся. Они на&shy;хо&shy;дят&shy;ся в про&shy;цес&shy;сор&shy;ном ке&shy;ше. И ког&shy;да ту&shy;да пе&shy;ре&shy;ез&shy;жа&shy;ет тред с дру&shy;го&shy;го яд&shy;ра и на&shy;чи&shy;на&shy;ет ал&shy;ло&shy;ци&shy;ро&shy;вать, кеш не зат&shy;ро&shy;нут. И с ра&shy;бо&shy;той то&shy;же са&shy;мое.</p>
+•	... (воп&shy;рос не слы&shy;шен на записи)
+•	Ничего не ляжет, там все в порядке будет. Они что-то счи&shy;тают, память не выде&shy;ляют, кон&shy;текст им не нужен. У пер&shy;вого ядра как были пара хипов, так они там и оста&shy;нутся. Они нахо&shy;дятся в про&shy;цес&shy;сор&shy;ном кеше. И когда туда пере&shy;ез&shy;жает тред с дру&shy;гого ядра и начи&shy;нает алло&shy;ци&shy;ро&shy;вать, кеш не зат&shy;ро&shy;нут. И с рабо&shy;той тоже самое.</p>
 <div class="paragraph-right-side">50</div>
 </div>
 <p >
-•	 ... (воп&shy;рос не слы&shy;шен на за&shy;пи&shy;си)</p>
+•	 ... (воп&shy;рос не слы&shy;шен на записи)</p>
 <ul>
 <li>
 <p >
-Воз&shy;мож&shy;но, там нес&shy;коль&shy;ко все слож&shy;нее. Но на уров&shy;не, ко&shy;то&shy;рый нам дос&shy;ту&shy;пен на дан&shy;ный мо&shy;мент, объ&shy;яс&shy;не&shy;ние та&shy;кое.</p>
+Воз&shy;можно, там нес&shy;колько все слож&shy;нее. Но на уровне, кото&shy;рый нам дос&shy;ту&shy;пен на дан&shy;ный момент, объ&shy;яс&shy;не&shy;ние такое.</p>
 </li>
 <li>
 <p >
-...(воп&shy;рос не слы&shy;шен на за&shy;пи&shy;си)</p>
+...(воп&shy;рос не слы&shy;шен на записи)</p>
 </li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">51</div>
 <p >
-•	Где пос&shy;мот&shy;реть, как жи&shy;вет Linux?  Если вы хо&shy;ти&shy;те пос&shy;мот&shy;реть, как все то&shy;же са&shy;мое про&shy;ис&shy;хо&shy;дит в Linux, то мож&shy;но об&shy;ра&shy;тить&shy;ся к ре&shy;пор&shy;зи&shy;то&shy;рию CoreCLR, там в раз&shy;де&shy;ле до&shy;ку&shy;мен&shy;та&shy;ции есть botr - Book of the Runtime. Это веб-кни&shy;га, где раз&shy;ра&shy;бот&shy;чи&shy;ки яд&shy;ра пи&shy;шут до&shy;ку&shy;мен&shy;та&shy;цию, как это ра&shy;бо&shy;та&shy;ет. Это пер&shy;вый путь. Вто&shy;рой путь - это ис&shy;ход&shy;ни&shy;ки. Но я не со&shy;ве&shy;тую ту&shy;да смот&shy;реть, ес&shy;ли не хо&shy;ти&shy;те ужас&shy;нуть&shy;ся. Тре&shy;тий путь - это зай&shy;ти в Book of the Runtime, пос&shy;мот&shy;реть, кто  ту&shy;да пи&shy;шет текст и свя&shy;зать&shy;ся.</p>
+•	Где пос&shy;мот&shy;реть, как живет Linux?  Если вы хотите пос&shy;мот&shy;реть, как все тоже самое про&shy;ис&shy;хо&shy;дит в Linux, то можно обра&shy;титься к репор&shy;зи&shy;то&shy;рию Core&shy;CLR, там в раз&shy;деле доку&shy;мен&shy;та&shy;ции есть botr - Book of the Runtime. Это веб-книга, где раз&shy;ра&shy;бот&shy;чики ядра пишут доку&shy;мен&shy;та&shy;цию, как это рабо&shy;тает. Это пер&shy;вый путь. Вто&shy;рой путь - это исход&shy;ники. Но я не сове&shy;тую туда смот&shy;реть, если не хотите ужас&shy;нуться. Тре&shy;тий путь - это зайти в Book of the Runtime, пос&shy;мот&shy;реть, кто  туда пишет текст и свя&shy;заться.</p>
 <div class="paragraph-right-side">51</div>
 </div>
 <p >
-•	 ...(воп&shy;рос не слы&shy;шен на за&shy;пи&shy;си)</p>
+•	 ...(воп&shy;рос не слы&shy;шен на записи)</p>
 <ul>
 <li>
 <p >
-Есть .NET стан&shy;дарт, есть раз&shy;ные плат&shy;фор&shy;мы. Как пи&shy;сать, что&shy;бы все ра&shy;бо&shy;та&shy;ло хо&shy;ро&shy;шо вез&shy;де. Ответ та&shy;кой. И .NET Core, и .NET framework ра&shy;бо&shy;та&shy;ют на ос&shy;но&shy;ве RED  JIT 57:05. Это не&shy;кая сис&shy;те&shy;ма джит&shy;тин&shy;га и GC. Ко&shy;до&shy;вая ба&shy;за у них од&shy;на. Отли&shy;чий ма&shy;ло. Нап&shy;ри&shy;мер, в ме&shy;то&shy;де кар&shy;точ&shy;но&shy;го сто&shy;ла есть от&shy;ли&shy;чия. В Windows прос&shy;тав&shy;ле&shy;ние фла&shy;гов как Bundle Table идет ав&shy;то&shy;ма&shy;ти&shy;чес&shy;ки на ос&shy;но&shy;ве триг&shy;ге&shy;ра и со стра&shy;ни&shy;цы па&shy;мя&shy;ти. В Linux это бу&shy;дет руч&shy;ная прос&shy;та&shy;нов&shy;ка. Но вас это вол&shy;но&shy;вать не дол&shy;жно, это низ&shy;ко&shy;уров&shy;не&shy;вая под&shy;роб&shy;ность, ко&shy;то&shy;рая ни на что не влияет. Основ&shy;ной слой, ко&shy;то&shy;рый влияет - уни&shy;фи&shy;ци&shy;ро&shy;ван, а дру&shy;гих осо&shy;бен&shy;нос&shy;тей я по&shy;ка не встр&shy;ечал.</p>
+Есть .NET стан&shy;дарт, есть раз&shy;ные плат&shy;формы. Как писать, чтобы все рабо&shy;тало хорошо везде. Ответ такой. И .NET Core, и .NET frame&shy;work рабо&shy;тают на основе RED  JIT 57:05. Это некая сис&shy;тема джит&shy;тинга и GC. Кодо&shy;вая база у них одна. Отли&shy;чий мало. Нап&shy;ри&shy;мер, в методе кар&shy;точ&shy;ного стола есть отли&shy;чия. В Windows прос&shy;тав&shy;ле&shy;ние фла&shy;гов как Bundle Table идет авто&shy;ма&shy;ти&shy;чески на основе триг&shy;гера и со стра&shy;ницы памяти. В Linux это будет руч&shy;ная прос&shy;та&shy;новка. Но вас это вол&shy;но&shy;вать не дол&shy;жно, это низ&shy;ко&shy;уров&shy;не&shy;вая под&shy;роб&shy;ность, кото&shy;рая ни на что не влияет. Основ&shy;ной слой, кото&shy;рый влияет - уни&shy;фи&shy;ци&shy;ро&shy;ван, а дру&shy;гих осо&shy;бен&shy;нос&shy;тей я пока не встр&shy;ечал.</p>
 </li>
 <li>
 <p >
-...(воп&shy;рос не слы&shy;шен на за&shy;пи&shy;си)</p>
+...(воп&shy;рос не слы&shy;шен на записи)</p>
 </li>
 <li>
 <p >
-Да, этой ли&shy;те&shy;ра&shy;ту&shy;ры впол&shy;не дос&shy;та&shy;точ&shy;но.</p>
+Да, этой лите&shy;ра&shy;туры вполне дос&shy;та&shy;точно.</p>
 </li>
 </ul>
 <p >
--&hellip; (воп&shy;рос не слы&shy;шен на за&shy;пи&shy;си)</p>
+-&hellip; (воп&shy;рос не слы&shy;шен на записи)</p>
 <ul>
 <li>
 <p >
-Тут есть ба&shy;ланс. На счет то&shy;го, что есть кеш.</p>
+Тут есть баланс. На счет того, что есть кеш.</p>
 </li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">52</div>
 <p >
-Кеш - это цент&shy;ра&shy;ли&shy;зо&shy;ван&shy;ное хра&shy;не&shy;ние. В том пла&shy;не, что все ссыл&shy;ки на млад&shy;шее по&shy;ко&shy;ле&shy;ние там бу&shy;дут хра&shy;нит&shy;ся ря&shy;дом - это клю&shy;че&shy;вое. В этом слу&shy;чае есть стоп&shy;ро&shy;цен&shy;т&shy;ная ве&shy;ро&shy;ят&shy;ность, что од&shy;но ма&shy;шин&shy;ное сло&shy;во в 32 би&shy;та пе&shy;рек&shy;ро&shy;ет весь кеш. Там не важ&shy;но, сколь&shy;ко ссы&shy;лок, бу&shy;дет выс&shy;тав&shy;ле&shy;на прос&shy;то од&shy;на еди&shy;ни&shy;ца.</p>
+Кеш - это цент&shy;ра&shy;ли&shy;зо&shy;ван&shy;ное хра&shy;не&shy;ние. В том плане, что все ссылки на млад&shy;шее поко&shy;ле&shy;ние там будут хра&shy;нится рядом - это клю&shy;че&shy;вое. В этом слу&shy;чае есть стоп&shy;ро&shy;цен&shy;т&shy;ная веро&shy;ят&shy;ность, что одно машин&shy;ное слово в 32 бита перек&shy;роет весь кеш. Там не важно, сколько ссы&shy;лок, будет выс&shy;тав&shy;лена просто одна еди&shy;ница.</p>
 <div class="paragraph-right-side">52</div>
 </div>
 <ul>
 <li>
 <p >
-... (воп&shy;рос не слы&shy;шен на за&shy;пи&shy;си)</p>
+... (воп&shy;рос не слы&shy;шен на записи)</p>
 </li>
 <li>
 <p >
-Если они ря&shy;дом хра&shy;нят&shy;ся, то это хо&shy;ро&shy;шо. Пло&shy;хая си&shy;ту&shy;а&shy;ция, ес&shy;ли у вас вто&shy;рое по&shy;ко&shy;ле&shy;ние боль&shy;шое и вы в разб&shy;рос по все&shy;му по&shy;ко&shy;ле&shy;нию в ка&shy;ком-то ал&shy;го&shy;рит&shy;ме пос&shy;то&shy;ян&shy;но прос&shy;тав&shy;ля&shy;ете ссыл&shy;ки на млад&shy;шее. Это ред&shy;кая си&shy;ту&shy;а&shy;ция. По&shy;э&shy;то&shy;му кар&shy;точ&shy;ный стол и при&shy;ду&shy;ман. При&shy;ло&shy;же&shy;ние бу&shy;дет прос&shy;тав&shy;лять ссыл&shy;ки на млад&shy;шее по&shy;ко&shy;ле&shy;ние из стар&shy;ше&shy;го в разб&shy;рос по всей па&shy;мя&shy;ти. Если та&shy;кое про&shy;ис&shy;хо&shy;дит - это очень пло&shy;хо, по&shy;то&shy;му что ему при&shy;дет&shy;ся прос&shy;мат&shy;ри&shy;вать ме&shy;га&shy;бай&shy;ты объ&shy;ек&shy;тов, в ка&shy;ких из них по&shy;ля ухо&shy;дят на млад&shy;шее по&shy;ко&shy;ле&shy;ние.</p>
+Если они рядом хра&shy;нятся, то это хорошо. Пло&shy;хая ситу&shy;а&shy;ция, если у вас вто&shy;рое поко&shy;ле&shy;ние боль&shy;шое и вы в разб&shy;рос по всему поко&shy;ле&shy;нию в каком-то алго&shy;ритме пос&shy;то&shy;янно прос&shy;тав&shy;ля&shy;ете ссылки на млад&shy;шее. Это ред&shy;кая ситу&shy;а&shy;ция. Поэ&shy;тому кар&shy;точ&shy;ный стол и при&shy;ду&shy;ман. При&shy;ло&shy;же&shy;ние будет прос&shy;тав&shy;лять ссылки на млад&shy;шее поко&shy;ле&shy;ние из стар&shy;шего в разб&shy;рос по всей памяти. Если такое про&shy;ис&shy;хо&shy;дит - это очень плохо, потому что ему при&shy;дется прос&shy;мат&shy;ри&shy;вать мега&shy;байты объ&shy;ек&shy;тов, в каких из них поля ухо&shy;дят на млад&shy;шее поко&shy;ле&shy;ние.</p>
 </li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">53</div>
 <p >
-Все мес&shy;та, ко&shy;то&shy;рые ссы&shy;ла&shy;ют&shy;ся на бо&shy;лее млад&shy;шее по&shy;ко&shy;ле&shy;ние, по воз&shy;мож&shy;нос&shy;ти дол&shy;жны быть сгруп&shy;пи&shy;ро&shy;ва&shy;ны.</p>
+Все места, кото&shy;рые ссы&shy;ла&shy;ются на более млад&shy;шее поко&shy;ле&shy;ние, по воз&shy;мож&shy;ности дол&shy;жны быть сгруп&shy;пи&shy;ро&shy;ваны.</p>
 <div class="paragraph-right-side">53</div>
 </div>
 <ul>
 <li>
 <p >
-... (воп&shy;рос не слы&shy;шен на за&shy;пи&shy;си)</p>
+... (воп&shy;рос не слы&shy;шен на записи)</p>
 </li>
 <li>
 <p >
-Груп&shy;пи&shy;руя мес&shy;та ссы&shy;лок на млад&shy;шее по&shy;ко&shy;ле&shy;ние, вы уп&shy;ро&shy;ща&shy;ете ра&shy;бо&shy;ту GC. Если на&shy;об&shy;рорт, то он, встр&shy;ечая кар&shy;ту с еди&shy;ни&shy;цей, вы&shy;нуж&shy;ден прос&shy;мот&shy;реть ог&shy;ром&shy;ный ди&shy;а&shy;па&shy;зон па&shy;мя&shy;ти, ко&shy;то&shy;рая вся не ссы&shy;ла&shy;ет&shy;ся в млад&shy;шее по&shy;ко&shy;ле&shy;ние кро&shy;ме од&shy;но&shy;го по&shy;ля. Если раз&shy;ре&shy;же&shy;но ссы&shy;лать&shy;ся на млад&shy;шее по&shy;ко&shy;ле&shy;ние - это худ&shy;шая си&shy;ту&shy;а&shy;ция. Если все это раз&shy;мес&shy;тить ря&shy;дом, то он схо&shy;дит по кар&shy;точ&shy;но&shy;му сто&shy;лу один раз. Кеш - это хо&shy;ро&shy;шо.</p>
+Груп&shy;пи&shy;руя места ссы&shy;лок на млад&shy;шее поко&shy;ле&shy;ние, вы упро&shy;ща&shy;ете работу GC. Если наоб&shy;рорт, то он, встр&shy;ечая карту с еди&shy;ни&shy;цей, вынуж&shy;ден прос&shy;мот&shy;реть огром&shy;ный диа&shy;па&shy;зон памяти, кото&shy;рая вся не ссы&shy;ла&shy;ется в млад&shy;шее поко&shy;ле&shy;ние кроме одного поля. Если раз&shy;ре&shy;жено ссы&shy;латься на млад&shy;шее поко&shy;ле&shy;ние - это худ&shy;шая ситу&shy;а&shy;ция. Если все это раз&shy;мес&shy;тить рядом, то он схо&shy;дит по кар&shy;точ&shy;ному столу один раз. Кеш - это хорошо.</p>
 </li>
 <li>
 <p >
-... (воп&shy;рос не слы&shy;шен на за&shy;пи&shy;си)</p>
+... (воп&shy;рос не слы&shy;шен на записи)</p>
 </li>
 <li>
 <p >
-Если мно&shy;го ке&shy;шей, то бу&shy;дет, ско&shy;рее все&shy;го, нес&shy;коль&shy;ко кар&shy;точ&shy;ных сто&shy;лов. Ког&shy;да у вас мно&shy;го не ке&shy;ши&shy;ро&shy;ва&shy;но, а прос&shy;то раз&shy;ре&shy;жен&shy;ная па&shy;мять и есть еди&shy;нич&shy;ные ссыл&shy;ки, ко&shy;то&shy;рые пос&shy;то&shy;ян&shy;но выс&shy;тав&shy;ля&shy;ют&shy;ся - это пло&shy;хо. - ... (воп&shy;рос не слы&shy;шен на за&shy;пи&shy;си)</p>
+Если много кешей, то будет, ско&shy;рее всего, нес&shy;колько кар&shy;точ&shy;ных сто&shy;лов. Когда у вас много не кеши&shy;ро&shy;вано, а просто раз&shy;ре&shy;жен&shy;ная память и есть еди&shy;нич&shy;ные ссылки, кото&shy;рые пос&shy;то&shy;янно выс&shy;тав&shy;ля&shy;ются - это плохо. - ... (воп&shy;рос не слы&shy;шен на записи)</p>
 </li>
 <li>
 <p >
-Async/await во&shy;об&shy;ще не пред&shy;по&shy;ла&shy;га&shy;ет зна&shy;ний о том, на ка&shy;ких по&shy;то&shy;ках это вы&shy;пол&shy;ня&shy;ет&shy;ся. Это син&shy;так&shy;си&shy;чес&shy;кий са&shy;хар. На счет син&shy;так&shy;си&shy;чес&shy;ко&shy;го са&shy;ха&shy;ра в даль&shy;ней&shy;ших док&shy;ла&shy;дах сде&shy;лан вы&shy;вод, что в наг&shy;ру&shy;жен&shy;ных участ&shy;ках при&shy;ло&shy;же&shy;ния, его ис&shy;поль&shy;зо&shy;вать нель&shy;зя. По&shy;то&shy;му что син&shy;так&shy;си&shy;чес&shy;кий са&shy;хар по&shy;рож&shy;да&shy;ет час&shy;то ал&shy;ло&shy;ци&shy;ро&shy;ва&shy;ние объ&shy;ек&shy;тов там, где вы не уви&shy;ди&shy;те это&shy;го по тек&shy;сту прог&shy;рам&shy;мы, это бу&shy;дет соп&shy;ро&shy;вож&shy;дать&shy;ся тра&shy;фи&shy;ком па&shy;мя&shy;ти, тра&shy;фи&shy;ком GC. По&shy;э&shy;то&shy;му ес&shy;ли у вас есть учас&shy;тки па&shy;мя&shy;ти, ко&shy;то&shy;рые ра&shy;бо&shy;та&shy;ют наг&shy;ру&shy;же&shy;но, там от син&shy;так&shy;си&shy;чес&shy;ко&shy;го са&shy;ха&shy;ра при&shy;дет&shy;ся от&shy;ка&shy;зать&shy;ся.</p>
+Async/await вообще не пред&shy;по&shy;ла&shy;гает зна&shy;ний о том, на каких пото&shy;ках это выпол&shy;ня&shy;ется. Это син&shy;так&shy;си&shy;чес&shy;кий сахар. На счет син&shy;так&shy;си&shy;чес&shy;кого сахара в даль&shy;ней&shy;ших док&shy;ла&shy;дах сде&shy;лан вывод, что в наг&shy;ру&shy;жен&shy;ных участ&shy;ках при&shy;ло&shy;же&shy;ния, его исполь&shy;зо&shy;вать нельзя. Потому что син&shy;так&shy;си&shy;чес&shy;кий сахар порож&shy;дает часто алло&shy;ци&shy;ро&shy;ва&shy;ние объ&shy;ек&shy;тов там, где вы не уви&shy;дите этого по тек&shy;сту прог&shy;раммы, это будет соп&shy;ро&shy;вож&shy;даться тра&shy;фи&shy;ком памяти, тра&shy;фи&shy;ком GC. Поэ&shy;тому если у вас есть учас&shy;тки памяти, кото&shy;рые рабо&shy;тают наг&shy;ру&shy;жено, там от син&shy;так&shy;си&shy;чес&shy;кого сахара при&shy;дется отка&shy;заться.</p>
 </li>
 <li>
 <p >
-... (воп&shy;рос не слы&shy;шен на за&shy;пи&shy;си)</p>
+... (воп&shy;рос не слы&shy;шен на записи)</p>
 </li>
 <li>
 <p >
-А это яв&shy;ля&shy;ет&shy;ся ре&shy;зуль&shy;та&shy;том син&shy;так&shy;си&shy;чес&shy;ко&shy;го са&shy;ха&shy;ра. По&shy;то&shy;му что async/await, это все та&shy;ки по&shy;мощь нам пи&shy;сать код удоб&shy;но. На&shy;до что&shy;бы наг&shy;ру&shy;жен&shy;ный код, ког&shy;да что-то вы&shy;де&shy;ля&shy;ет, де&shy;лал это в од&shy;ном конк&shy;рет&shy;ном по&shy;нят&shy;ном мес&shy;те, без ис&shy;поль&shy;зо&shy;ва&shy;ния до&shy;пол&shy;ни&shy;тель&shy;ных конст&shy;рукций. Тог&shy;да вы конт&shy;ро&shy;ли&shy;ру&shy;ете си&shy;ту&shy;а&shy;цию. Ког&shy;да вы де&shy;ла&shy;ете async/await, forEach, лям&shy;бды, вы на&shy;чи&shy;на&shy;ете ис&shy;поль&shy;зо&shy;вать до&shy;пол&shy;ни&shy;тель&shy;ные ал&shy;ло&shy;ка&shy;ции. Так соз&shy;да&shy;ет&shy;ся до&shy;пол&shy;ни&shy;тель&shy;ный тра&shy;фик. Это удоб&shy;но, но в пра&shy;виль&shy;ных про&shy;пор&shy;ци&shy;ях.</p>
+А это явля&shy;ется резуль&shy;та&shy;том син&shy;так&shy;си&shy;чес&shy;кого сахара. Потому что async/await, это все таки помощь нам писать код удобно. Надо чтобы наг&shy;ру&shy;жен&shy;ный код, когда что-то выде&shy;ляет, делал это в одном конк&shy;рет&shy;ном понят&shy;ном месте, без исполь&shy;зо&shy;ва&shy;ния допол&shy;ни&shy;тель&shy;ных конст&shy;рукций. Тогда вы конт&shy;ро&shy;ли&shy;ру&shy;ете ситу&shy;а&shy;цию. Когда вы дела&shy;ете async/await, forEach, лям&shy;бды, вы начи&shy;на&shy;ете исполь&shy;зо&shy;вать допол&shy;ни&shy;тель&shy;ные алло&shy;ка&shy;ции. Так соз&shy;да&shy;ется допол&shy;ни&shy;тель&shy;ный тра&shy;фик. Это удобно, но в пра&shy;виль&shy;ных про&shy;пор&shy;циях.</p>
 </li>
 </ul>
 

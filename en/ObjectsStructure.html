@@ -1290,14 +1290,14 @@ Why are implicit and multiple implementations of interfaces bad?</a></li>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
 <p >
-In previous chapters, we talked about the difference between value and reference types from a developer’s point of view. We have never looked at how they are designed in reality and what techniques are implemented in them at the level of the CLR. In fact, we were looking at the final result and described the work of these types in terms of a black box. However, to get a deeper insight and to reject any idea about any magic inside the CLR, we should look into its internals and study the algorithms that rule the work of the type system.</p>
+In previous chapters, we talked about the diffe&shy;rence between value and refe&shy;rence types from a deve&shy;loper’s point of view. We have never looked at how they are designed in rea&shy;lity and what tech&shy;ni&shy;ques are imple&shy;mented in them at the level of the CLR. In fact, we were loo&shy;king at the final result and desc&shy;ribed the work of these types in terms of a black box. However, to get a deeper insight and to reject any idea about any magic inside the CLR, we should look into its inter&shy;nals and study the algo&shy;rithms that rule the work of the type system.</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <h2 id="the-internal-structure-of-the-type-instances">The internal structure of the type instances</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
 <p >
-Before we start talking about the structure of control blocks in the type system, let’s look at an object itself, i.e. an instance of any class. If we create an instance of any reference type in memory, whether it is a class, or a encapsulated structure, it will consist of three fields: <code>SyncBlockIndex</code> (which is in fact not only it), a pointer to a type descriptor and data. The data region can contain a lot of fields. That said, we however give the below examples as if they have only one field in data. So, this is how our visualization of this structure would look like:</p>
+Before we start talking about the struc&shy;ture of control blocks in the type system, let’s look at an object itself, i.e. an instance of any class. If we create an instance of any refe&shy;rence type in memory, whether it is a class, or a encap&shy;su&shy;lated struc&shy;ture, it will consist of three fields: <code>SyncBlockIndex</code> (which is in fact not only it), a pointer to a type desc&shy;riptor and data. The data region can contain a lot of fields. That said, we how&shy;ever give the below examples as if they have only one field in data. So, this is how our visu&shy;a&shy;li&shy;za&shy;tion of this struc&shy;ture would look like:</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <p >
@@ -1318,25 +1318,25 @@ Before we start talking about the structure of control blocks in the type system
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
 <p >
-Thus, the size of type instances in fact depends on the platform an app will work on.</p>
+Thus, the size of type instances in fact depends on the plat&shy;form an app will work on.</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
 <p >
-Next, let’s follow the <code>VMT_Ptr</code> and see what kind of data structure is at this address. This pointer is the most important for the whole type system as it is used for the inheritance, interface implementation, type casting and so on. This pointer is a reference to the .NET CLR type system, a kind of type ID used by CLR to cast types or to measure the size of memory allocated to an object. It is this pointer that allows GC to go through an object graph so swiftly and to determine which addresses are owned by the pointers to objects and which – by values. Also, with this pointer you can learn everything about an object and make the CLR handle it differently. That’s why we will study this pointer in detail.</p>
+Next, let’s follow the <code>VMT_Ptr</code> and see what kind of data struc&shy;ture is at this add&shy;ress. This pointer is the most impor&shy;tant for the whole type system as it is used for the inhe&shy;ri&shy;tance, inter&shy;face imple&shy;men&shy;ta&shy;tion, type casting and so on. This pointer is a refe&shy;rence to the .NET CLR type system, a kind of type ID used by CLR to cast types or to mea&shy;sure the size of memory allo&shy;cated to an object. It is this pointer that allows GC to go through an object graph so swiftly and to deter&shy;mine which addresses are owned by the poin&shy;ters to objects and which – by values. Also, with this pointer you can learn everything about an object and make the CLR handle it diffe&shy;rently. That’s why we will study this pointer in detail.</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <h3 id="virtual-method-table-structure">Virtual Method Table structure</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
 <p >
-The description of the table itself is available at <a href="https://github.com/dotnet/coreclr/blob/master/src/vm/methodtable.h">GitHub CoreCLR</a>. Leaving aside unnecessary details (and there are 4,381 lines there), <a href="https://github.com/dotnet/coreclr/blob/master/src/vm/methodtable.h#L4099-L4114">it looks this way</a>:</p>
+The desc&shy;rip&shy;tion of the table itself is ava&shy;ilable at <a href="https://github.com/dotnet/coreclr/blob/master/src/vm/methodtable.h">GitHub CoreCLR</a>. Lea&shy;ving aside unne&shy;ces&shy;sary details (and there are 4,381 lines there), <a href="https://github.com/dotnet/coreclr/blob/master/src/vm/methodtable.h#L4099-L4114">it looks this way</a>:</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <blockquote>
 <p >
-This is the version from CoreCLR. If we look at the structure of fields in .NET Framework, it will be different in the order of fields and the order of system information bits from <code>m_wFlags</code> and <code>m_wFlags2</code> bit fields.</p>
+This is the version from Core&shy;CLR. If we look at the struc&shy;ture of fields in .NET Frame&shy;work, it will be diffe&shy;rent in the order of fields and the order of system infor&shy;ma&shy;tion bits from <code>m_wFlags</code> and <code>m_wFlags2</code> bit fields.</p>
 </blockquote>
 <div class="lang-cpp editor-colors"><div style="color:Black;background-color:White;"><pre>
    <span style="color:Green;">// Low WORD is component size for array and string types (HasComponentSize() returns true).</span>
@@ -1359,13 +1359,13 @@ This is the version from CoreCLR. If we look at the structure of fields in .NET 
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
 <p >
-Admit, this looks somewhat scary. However, it is scary not because we see here 6 fields only (where are the rest?), but because you need to skip 4,100 lines of code to get to these fields. Personally, I expected to see here something ready-made that you don’t need to calculate additionally. However, it is nowhere near as easy: since any type can contain a different number of methods and interfaces, the VMT can have a variable size. It means that to fill it you need to calculate where the rest of the fields are. However, let’s stay positive and try to benefit from what we already have: we still don’t know what is meant by other fields (except the last two), but the <code>m_BaseSize</code> field looks interesting. As a commentary suggests, this is the actual size of an instance of a type. We have just found <code>sizeof</code> for classes! It is time to try it in practice.</p>
+Admit, this looks somewhat scary. However, it is scary not because we see here 6 fields only (where are the rest?), but because you need to skip 4,100 lines of code to get to these fields. Perso&shy;nally, I expected to see here something ready-made that you don’t need to calcu&shy;late addi&shy;ti&shy;o&shy;nally. However, it is nowhere near as easy: since any type can contain a diffe&shy;rent number of methods and inter&shy;faces, the VMT can have a vari&shy;able size. It means that to fill it you need to calcu&shy;late where the rest of the fields are. However, let’s stay posi&shy;tive and try to benefit from what we already have: we still don’t know what is meant by other fields (except the last two), but the <code>m_BaseSize</code> field looks inte&shy;res&shy;ting. As a commen&shy;tary suggests, this is the actual size of an instance of a type. We have just found <code>sizeof</code> for classes! It is time to try it in prac&shy;tice.</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
 <p >
-We can follow two ways to get a VMT address. The difficult one is to obtain an address of an object and hence the VMT:</p>
+We can follow two ways to get a VMT add&shy;ress. The diffi&shy;cult one is to obtain an add&shy;ress of an object and hence the VMT:</p>
 <div class="paragraph-right-side">07</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1418,23 +1418,23 @@ Or, we can follow the simple way and use .NET FCL API:</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
 <p >
-The second way is simpler (though works slower). However, knowing the first one is very important to understand the structure of a type instance. Using the second way provides the sense of confidence: we comply with documented approach of handling VMT by calling an API method, and we are incompliant by using a pointer. However, we shouldn't forget that storing a <code>VMT *</code> is generally a standard in practically every OOP language and .NET platform: the reference is always at the same place as it is the most frequently used field of a class. And this most frequently used field of a class should go first, so that addressing would take place without offsetting and, as a result, quicker. Thus, we make a conclusion that for classes the order of fields will not impact the speed. However in structures the most frequently used field should go first. Although this mostly won’t influence .NET applications as this platform was developed for other tasks in mind.</p>
+The second way is simpler (though works slower). However, knowing the first one is very impor&shy;tant to unders&shy;tand the struc&shy;ture of a type instance. Using the second way provides the sense of confi&shy;dence: we comply with docu&shy;mented approach of han&shy;dling VMT by calling an API method, and we are incom&shy;pliant by using a pointer. However, we shouldn't forget that storing a <code>VMT *</code> is gene&shy;rally a stan&shy;dard in prac&shy;ti&shy;cally every OOP language and .NET plat&shy;form: the refe&shy;rence is always at the same place as it is the most frequ&shy;ently used field of a class. And this most frequ&shy;ently used field of a class should go first, so that addres&shy;sing would take place without offset&shy;ting and, as a result, quicker. Thus, we make a conc&shy;lu&shy;sion that for classes the order of fields will not impact the speed. However in struc&shy;tures the most frequ&shy;ently used field should go first. Although this mostly won’t influ&shy;ence .NET appli&shy;ca&shy;tions as this plat&shy;form was deve&shy;loped for other tasks in mind.</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
 <p >
-Let’s study the structure of types with respect to the size of their instances. We won’t learn them in theory (it is boring), instead we will try to get the benefits that we will be unable to get in a usual way.</p>
+Let’s study the struc&shy;ture of types with respect to the size of their instances. We won’t learn them in theory (it is boring), instead we will try to get the bene&shy;fits that we will be unable to get in a usual way.</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <blockquote>
 <p >
-<strong>Why there is sizeof for a Value Type, but not for a Reference Type?</strong> Actually, this is an open question as no one stops you from calculating the size of a reference type. The only thing you can stumble on is the variable size of two reference types: <code>Array</code> and <code>String</code>. As well as <code>Generic</code> group, that fully depends on particular variants. That means we cannot do without the <code>sizeof(..)</code> operator as we need to work with particular instances. However, no one stops the CLR team from implementing the method like <code>static int System.Object.SizeOf(object obj)</code> form that would return us what we need in a simple way. Why haven’t Microsoft implemented this method? I guess they think the .NET is not the platform where a developer will worry much about particular bytes. If necessary, you can always add more memory modules to your mother board. Especially, since most data types we implement, don’t take such big volumes of memory.</p>
+<strong>Why there is sizeof for a Value Type, but not for a Reference Type?</strong> Actually, this is an open ques&shy;tion as no one stops you from calcu&shy;la&shy;ting the size of a refe&shy;rence type. The only thing you can stumble on is the vari&shy;able size of two refe&shy;rence types: <code>Array</code> and <code>String</code>. As well as <code>Generic</code> group, that fully depends on parti&shy;cular vari&shy;ants. That means we cannot do without the <code>sizeof(..)</code> ope&shy;rator as we need to work with parti&shy;cular instances. However, no one stops the CLR team from imple&shy;men&shy;ting the method like <code>static int System.Object.SizeOf(object obj)</code> form that would return us what we need in a simple way. Why haven’t Micro&shy;soft imple&shy;mented this method? I guess they think the .NET is not the plat&shy;form where a deve&shy;loper will worry much about parti&shy;cular bytes. If neces&shy;sary, you can always add more memory modules to your mother board. Espe&shy;ci&shy;ally, since most data types we imple&shy;ment, don’t take such big volumes of memory.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
 <p >
-However, let’s go back to our issue. So, to get the size of a class instance (with a fixed size), you just need to write the following code:</p>
+However, let’s go back to our issue. So, to get the size of a class instance (with a fixed size), you just need to write the follo&shy;wing code:</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1464,7 +1464,7 @@ Console.WriteLine(SizeOf(<span style="color:Blue;">typeof</span>(Sample)));
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
 <p >
-So, what have we done? Initially, we got the pointer to the VMT. Next, we read the size and get <code>12</code> that is the aggregate size of <code>SyncBlockIndex + VMT_Ptr + x</code> fields for a 32-bit platform. If we play with different types, we will get something like the following table for x86:</p>
+So, what have we done? Initi&shy;ally, we got the pointer to the VMT. Next, we read the size and get <code>12</code> that is the aggre&shy;gate size of <code>SyncBlockIndex + VMT_Ptr + x</code> fields for a 32-bit plat&shy;form. If we play with diffe&shy;rent types, we will get something like the follo&shy;wing table for x86:</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="row">
@@ -1474,7 +1474,7 @@ So, what have we done? Initially, we got the pointer to the VMT. Next, we read t
 <tr>
 <th>
 <p >
-A type or its definition</p>
+A type or its defi&shy;ni&shy;tion</p>
 </th>
 <th>
 <p >
@@ -1498,7 +1498,7 @@ Object</p>
 </td>
 <td>
 <p >
-SyncBlk + VMT + empty field</p>
+Sync&shy;Blk + VMT + empty field</p>
 </td>
 </tr>
 <tr>
@@ -1512,7 +1512,7 @@ Int16</p>
 </td>
 <td>
 <p >
-Boxed Int16: SyncBlk + VMT + data (4 bytes aligned)</p>
+Boxed Int16: Sync&shy;Blk + VMT + data (4 bytes aligned)</p>
 </td>
 </tr>
 <tr>
@@ -1526,7 +1526,7 @@ Int32</p>
 </td>
 <td>
 <p >
-Boxed Int32: SyncBlk + VMT + data</p>
+Boxed Int32: Sync&shy;Blk + VMT + data</p>
 </td>
 </tr>
 <tr>
@@ -1540,7 +1540,7 @@ Int64</p>
 </td>
 <td>
 <p >
-Boxed Int64: SyncBlk + VMT + data</p>
+Boxed Int64: Sync&shy;Blk + VMT + data</p>
 </td>
 </tr>
 <tr>
@@ -1554,7 +1554,7 @@ Char</p>
 </td>
 <td>
 <p >
-Boxed Char: SyncBlk + VMT + data (4 bytes aligned)</p>
+Boxed Char: Sync&shy;Blk + VMT + data (4 bytes aligned)</p>
 </td>
 </tr>
 <tr>
@@ -1568,13 +1568,13 @@ Double</p>
 </td>
 <td>
 <p >
-Boxed Double: SyncBlk + VMT + data</p>
+Boxed Double: Sync&shy;Blk + VMT + data</p>
 </td>
 </tr>
 <tr>
 <td>
 <p >
-IEnumerable</p>
+IEnu&shy;me&shy;rable</p>
 </td>
 <td>
 <p >
@@ -1582,7 +1582,7 @@ IEnumerable</p>
 </td>
 <td>
 <p >
-The interface doesn’t have a size: we should use obj.GetType()</p>
+The inter&shy;face doesn’t have a size: we should use obj.Get&shy;Type()</p>
 </td>
 </tr>
 <tr>
@@ -1596,13 +1596,13 @@ List<T></p>
 </td>
 <td>
 <p >
-It doesn’t matter how many elements are there in List<T>. It will require the same size of memory as it stores data in the array that is not counted.</p>
+It doesn’t matter how many ele&shy;ments are there in List<T>. It will require the same size of memory as it stores data in the array that is not counted.</p>
 </td>
 </tr>
 <tr>
 <td>
 <p >
-GenericSample<int></p>
+Generic&shy;Sample<int></p>
 </td>
 <td>
 <p >
@@ -1610,13 +1610,13 @@ GenericSample<int></p>
 </td>
 <td>
 <p >
-As you see, generics are perfectly counted. The size hasn’t changed as the data is in the same place as in case of <code>boxed int</code>. The result: SyncBlk + VMT + data</p>
+As you see, gene&shy;rics are perfectly counted. The size hasn’t changed as the data is in the same place as in case of <code>boxed int</code>. The result: Sync&shy;Blk + VMT + data</p>
 </td>
 </tr>
 <tr>
 <td>
 <p >
-GenericSample<Int64></p>
+Generic&shy;Sample<Int64></p>
 </td>
 <td>
 <p >
@@ -1624,13 +1624,13 @@ GenericSample<Int64></p>
 </td>
 <td>
 <p >
-Likewise</p>
+Like&shy;wise</p>
 </td>
 </tr>
 <tr>
 <td>
 <p >
-GenericSample<IEnumerable></p>
+Generic&shy;Sample<IEnu&shy;me&shy;rable></p>
 </td>
 <td>
 <p >
@@ -1638,13 +1638,13 @@ GenericSample<IEnumerable></p>
 </td>
 <td>
 <p >
-Likewise</p>
+Like&shy;wise</p>
 </td>
 </tr>
 <tr>
 <td>
 <p >
-GenericSample<DateTime></p>
+Generic&shy;Sample<Date&shy;Time></p>
 </td>
 <td>
 <p >
@@ -1652,7 +1652,7 @@ GenericSample<DateTime></p>
 </td>
 <td>
 <p >
-Likewise</p>
+Like&shy;wise</p>
 </td>
 </tr>
 <tr>
@@ -1666,7 +1666,7 @@ string</p>
 </td>
 <td>
 <p >
-This value will be returned for any string as the real size should be calculated dynamically. However, it is suitable for the empty string size. Note that the size is not aligned with number of bits: in fact this field is not intended for use.</p>
+This value will be returned for any string as the real size should be calcu&shy;lated dyna&shy;mi&shy;cally. However, it is suitable for the empty string size. Note that the size is not aligned with number of bits: in fact this field is not intended for use.</p>
 </td>
 </tr>
 <tr>
@@ -1680,7 +1680,7 @@ int[]{1}</p>
 </td>
 <td>
 <p >
-For arrays, completely different data is stored here. In addition, their size is not fixed and should be calculated separately.</p>
+For arrays, comp&shy;le&shy;tely diffe&shy;rent data is stored here. In addi&shy;tion, their size is not fixed and should be calcu&shy;lated sepa&shy;ra&shy;tely.</p>
 </td>
 </tr>
 </tbody>
@@ -1690,7 +1690,7 @@ For arrays, completely different data is stored here. In addition, their size is
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
 <p >
-As you see, when the system stores data about the size of an instance, in fact it stores data for a reference version of this type (i.e. including the reference version of a value type). Let’s make some conclusions:</p>
+As you see, when the system stores data about the size of an instance, in fact it stores data for a refe&shy;rence version of this type (i.e. inclu&shy;ding the refe&shy;rence version of a value type). Let’s make some conc&shy;lu&shy;sions:</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <ol>
@@ -1700,23 +1700,23 @@ If you want to know how much memory a value type will take as a value, use <code
 </li>
 <li>
 <p >
-If you want to calculate the cost of boxing, you can round <code>sizeof(TType)</code> up to the size of a processor word (4 or 8 bytes) and add 2 more words (<code>2 * sizeof(IntPtr)</code>). Or, you can get this value from the <code>VMT</code> of a type.</p>
+If you want to calcu&shy;late the cost of boxing, you can round <code>sizeof(TType)</code> up to the size of a processor word (4 or 8 bytes) and add 2 more words (<code>2 * sizeof(IntPtr)</code>). Or, you can get this value from the <code>VMT</code> of a type.</p>
 </li>
 <li>
 <p >
-The calculation of the memory amount allocated on the heap is represented for the following types:</p>
+The calcu&shy;la&shy;tion of the memory amount allo&shy;cated on the heap is repre&shy;sented for the follo&shy;wing types:</p>
 <ol>
 <li>
 <p >
-The usual fixed size reference type: we can get the size of an instance from a <code>VMT</code>;</p>
+The usual fixed size refe&shy;rence type: we can get the size of an instance from a <code>VMT</code>;</p>
 </li>
 <li>
 <p >
-For a string, you should calculate its size manually (it is rarely required, but, you should admit, it is interesting).</p>
+For a string, you should calcu&shy;late its size manu&shy;ally (it is rarely requ&shy;ired, but, you should admit, it is inte&shy;res&shy;ting).</p>
 </li>
 <li>
 <p >
-The size of an array is calculated separately based on the size and quantity of its elements. This task could be more useful as arrays are most likely to get into <code>LOH</code>.</p>
+The size of an array is calcu&shy;lated sepa&shy;ra&shy;tely based on the size and quan&shy;tity of its ele&shy;ments. This task could be more useful as arrays are most likely to get into <code>LOH</code>.</p>
 </li>
 </ol>
 </li>
@@ -1725,7 +1725,7 @@ The size of an array is calculated separately based on the size and quantity of 
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
 <p >
-We will talk about strings in terms of practice separately: this relatively small class is worth a whole chapter. And in the chapter about the design of a VMT we will talk about the low-level design of strings. Strings are stored based on UTF16. It means that each character takes 2 bytes. Additionally each string ends with a null terminator — a special value that indicates the end of a string. An instance also stores the length of a string as a <code>Int32</code> number to avoid counting the length each time when necessary (we will talk about encoding separately). The diagram below represents the information about memory allocated for a string:</p>
+We will talk about strings in terms of prac&shy;tice sepa&shy;ra&shy;tely: this rela&shy;ti&shy;vely small class is worth a whole chapter. And in the chapter about the design of a VMT we will talk about the low-level design of strings. Strings are stored based on UTF16. It means that each char&shy;acter takes 2 bytes. Addi&shy;ti&shy;o&shy;nally each string ends with a null termi&shy;nator — a special value that indi&shy;cates the end of a string. An instance also stores the length of a string as a <code>Int32</code> number to avoid coun&shy;ting the length each time when neces&shy;sary (we will talk about enco&shy;ding sepa&shy;ra&shy;tely). The diagram below repre&shy;sents the infor&shy;ma&shy;tion about memory allo&shy;cated for a string:</p>
 <div class="paragraph-right-side">13</div>
 </div>
 <pre><code>  // For.NET Framework 3.5 and earlier
@@ -1754,7 +1754,7 @@ We will talk about strings in terms of practice separately: this relatively smal
   Count is the number of characters in a string, excluding a terminator character.
 </code></pre>
 <p >
-Let’s rewrite our method so it could calculate the size of strings:</p>
+Let’s rewrite our method so it could calcu&shy;late the size of strings:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">unsafe</span> <span style="color:Blue;">int</span> SizeOf(<span style="color:Blue;">object</span> obj)
 {
@@ -1791,11 +1791,11 @@ Let’s rewrite our method so it could calculate the size of strings:</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
 <p >
-Where <code>SizeOf(type)</code> will call the previous implementation for fixed size reference types.</p>
+Where <code>SizeOf(type)</code> will call the previous imple&shy;men&shy;ta&shy;tion for fixed size refe&shy;rence types.</p>
 <div class="paragraph-right-side">14</div>
 </div>
 <p >
-Let’s check the code in practice.</p>
+Let’s check the code in prac&shy;tice.</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
     Action&lt;<span style="color:Blue;">string</span>&gt; stringWriter = (arg) =&gt;
     {
@@ -1823,30 +1823,30 @@ Length of `abcdef` <span style="color:Blue;">string</span>: 28
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
 <p >
-Calculations indicate that the size of a string increases not at a linear rate but incrementally, by every two characters. This happens because the size of each character is 2 bytes and the ultimate size of string should be aligned by bytes according to CPU architecture (x86 in this case). That is why a string is aligned by 2 bytes. The result of our work is excellent: we can calculate the cost of any string. The last thing we need to know is how to calculate the size of arrays in memory.</p>
+Calcu&shy;la&shy;tions indi&shy;cate that the size of a string incre&shy;ases not at a linear rate but incre&shy;men&shy;tally, by every two char&shy;acters. This happens because the size of each char&shy;acter is 2 bytes and the ulti&shy;mate size of string should be aligned by bytes accor&shy;ding to CPU arch&shy;it&shy;ecture (x86 in this case). That is why a string is aligned by 2 bytes. The result of our work is excel&shy;lent: we can calcu&shy;late the cost of any string. The last thing we need to know is how to calcu&shy;late the size of arrays in memory.</p>
 <div class="paragraph-right-side">15</div>
 </div>
 <h3 id="arrays">Arrays</h3>
 <p >
-The structure of arrays is a little more complicated as it has several variants:</p>
+The struc&shy;ture of arrays is a little more comp&shy;li&shy;cated as it has several vari&shy;ants:</p>
 <ol>
 <li>
 <p >
-They can store both value and reference types.</p>
+They can store both value and refe&shy;rence types.</p>
 </li>
 <li>
 <p >
-They can be both single-dimensional and multi-dimensional.</p>
+They can be both single-dimen&shy;si&shy;onal and multi-dimen&shy;si&shy;onal.</p>
 </li>
 <li>
 <p >
-Each dimension can start with <code>0</code> as well as with any other number (which is, in my opinion, a very questionable option designed to eliminate the need to write <code>arr[i - startIndex]</code> at FCL level). This is done for a sort of compatibility with other languages. For example in Pascal array indexing can start with any number and not only from <code>0</code>. However, I think it is unnecessary.</p>
+Each dimen&shy;sion can start with <code>0</code> as well as with any other number (which is, in my opi&shy;nion, a very ques&shy;ti&shy;onable option designed to eli&shy;mi&shy;nate the need to write <code>arr[i - startIndex]</code> at FCL level). This is done for a sort of compa&shy;ti&shy;bi&shy;lity with other langu&shy;ages. For example in Pascal array inde&shy;xing can start with any number and not only from <code>0</code>. However, I think it is unne&shy;ces&shy;sary.</p>
 </li>
 </ol>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
 <p >
-It produces some confusion in the implementation of arrays and inability to predict the size of a resulting array exactly: it is not enough to multiply the number of elements by their sizes. However for the majority of cases that will be enough, of course. The size becomes important if we afraid of getting into LOH. But even here we have some variants: we can add some constant value (for example 100) to a size that we calculated in a quick way to understand whether we have passed the threshold of 85,000 or not. However, in terms of this chapter our task is different — to understand the structure of types. Let’s go to it:</p>
+It produces some confu&shy;sion in the imple&shy;men&shy;ta&shy;tion of arrays and ina&shy;bi&shy;lity to predict the size of a resul&shy;ting array exactly: it is not enough to multiply the number of ele&shy;ments by their sizes. However for the majo&shy;rity of cases that will be enough, of course. The size becomes impor&shy;tant if we afraid of getting into LOH. But even here we have some vari&shy;ants: we can add some cons&shy;tant value (for example 100) to a size that we calcu&shy;lated in a quick way to unders&shy;tand whether we have passed the thre&shy;shold of 85,000 or not. However, in terms of this chapter our task is diffe&shy;rent — to unders&shy;tand the struc&shy;ture of types. Let’s go to it:</p>
 <div class="paragraph-right-side">16</div>
 </div>
 <pre><code>  // Header
@@ -1867,7 +1867,7 @@ It produces some confusion in the implementation of arrays and inability to pred
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
 <p >
-As we can see, the header of a type contains the information about array dimensions the number of which can be from 1 to many. In fact, their size is limited only by a null terminator, meaning that enumeration is over. The following example is fully available at <a href="./samples/GettingInstanceSize.linq">GettingInstanceSize</a>. Below, I will put only its most important part:</p>
+As we can see, the header of a type contains the infor&shy;ma&shy;tion about array dimen&shy;sions the number of which can be from 1 to many. In fact, their size is limited only by a null termi&shy;nator, mea&shy;ning that enu&shy;me&shy;ra&shy;tion is over. The follo&shy;wing example is fully ava&shy;ilable at <a href="./samples/GettingInstanceSize.linq">GettingInstanceSize</a>. Below, I will put only its most impor&shy;tant part:</p>
 <div class="paragraph-right-side">17</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1942,7 +1942,7 @@ As we can see, the header of a type contains the information about array dimensi
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
 <p >
-This code takes into account all the variants of array types and can be used to calculate the size of an array:</p>
+This code takes into account all the vari&shy;ants of array types and can be used to calcu&shy;late the size of an array:</p>
 <div class="paragraph-right-side">18</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1960,24 +1960,24 @@ size of <span style="color:Blue;">int</span>[2,3,4,5]{...}: 512
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
 <p >
-At this point we have learned important things. Firstly, we divided reference types into three groups: fixed size, variable size and generic ones. We also learned the way to understand the structure of a final instance of any type (I’m not talking about the structure of a VMT now. For now, we have entirely understood just one field, a big achievement, by the way). It can be a fixed size reference type (everything is pretty simple there) or a reference type with an undefined size: an array or a string. I mean undefined because its size will be defined once this type is created. Generic types are quite simple: each particular generic type has its own VMT, generated for this type, indicating its particular size.</p>
+At this point we have learned impor&shy;tant things. Firstly, we divided refe&shy;rence types into three groups: fixed size, vari&shy;able size and generic ones. We also learned the way to unders&shy;tand the struc&shy;ture of a final instance of any type (I’m not talking about the struc&shy;ture of a VMT now. For now, we have enti&shy;rely under&shy;stood just one field, a big ach&shy;ievement, by the way). It can be a fixed size refe&shy;rence type (everything is pretty simple there) or a refe&shy;rence type with an unde&shy;fined size: an array or a string. I mean unde&shy;fined because its size will be defined once this type is created. Generic types are quite simple: each parti&shy;cular generic type has its own VMT, gene&shy;rated for this type, indi&shy;ca&shy;ting its parti&shy;cular size.</p>
 <div class="paragraph-right-side">19</div>
 </div>
 <h2 id="design-of-virtual-method-table-vmt">Design of Virtual Method Table (VMT)</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
 <p >
-Explaining how a Method Table works is mainly a academic exercise: stepping in that maze is like digging your own grave. On the one hand, this labyrinth contains something exciting and interesting, some data that reveal even more about what is going on. However, on the other hand we understand that Microsoft doesn’t guarantee they will keep the runtime without changes and, for example, will not move the method table one field forward. That’s why let’s make things clear:</p>
+Expl&shy;aining how a Method Table works is mainly a aca&shy;demic exer&shy;cise: step&shy;ping in that maze is like digging your own grave. On the one hand, this laby&shy;rinth contains something exci&shy;ting and inte&shy;res&shy;ting, some data that reveal even more about what is going on. However, on the other hand we unders&shy;tand that Micro&shy;soft doesn’t guarantee they will keep the runtime without changes and, for example, will not move the method table one field forward. That’s why let’s make things clear:</p>
 <div class="paragraph-right-side">20</div>
 </div>
 <blockquote>
 <p >
-the information presented in this section is given only for you to understand how a CLR-based application works and that manual interference with its work doesn’t guarantee anything. However, it is so interesting, that I cannot talk you out. On the contrary, I suggest playing with these data structures and maybe you will get one of the most memorable experiences in software development.</p>
+the infor&shy;ma&shy;tion presented in this section is given only for you to unders&shy;tand how a CLR-based appli&shy;ca&shy;tion works and that manual inter&shy;fe&shy;rence with its work doesn’t guarantee anything. However, it is so inte&shy;res&shy;ting, that I cannot talk you out. On the cont&shy;rary, I suggest playing with these data struc&shy;tures and maybe you will get one of the most memo&shy;rable expe&shy;ri&shy;ences in soft&shy;ware deve&shy;lop&shy;ment.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
 <p >
-OK, I warned you. Now, let’s plunge into the mirror world. Because, until now stepping into the mirror world meant knowing the structure of objects, which we are supposed to now at least approximately. This knowledge is not a mirror-world itself, but the entrance into it. That’s why let’s get back to the structure of a <code>MethodTable</code>, <a href="https://github.com/dotnet/coreclr/blob/master/src/vm/methodtable.h#L4099-L4114">described in CoreCLR</a>:</p>
+OK, I warned you. Now, let’s plunge into the mirror world. Because, until now step&shy;ping into the mirror world meant knowing the struc&shy;ture of objects, which we are supposed to now at least appro&shy;xi&shy;ma&shy;tely. This know&shy;ledge is not a mirror-world itself, but the entrance into it. That’s why let’s get back to the struc&shy;ture of a <code>MethodTable</code>, <a href="https://github.com/dotnet/coreclr/blob/master/src/vm/methodtable.h#L4099-L4114">described in CoreCLR</a>:</p>
 <div class="paragraph-right-side">21</div>
 </div>
 <div class="lang-cpp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2001,7 +2001,7 @@ OK, I warned you. Now, let’s plunge into the mirror world. Because, until now 
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
 <p >
-In particular, let’s turn to <code>m_wNumVirtuals</code> and <code>m_wNumInterfaces</code> fields. They define the answer to the question "How many virtual methods and interfaces does a type have?". This structure doesn’t contain any information about usual methods, fields and properties (which unite methods). I mean this structure <strong>has nothing to do with reflection</strong>. In its sense and purpose this structure is made to provide functioning of method calls in the CLR (in any OOP actually, whether it is Java, C++, Ruby or something else, however the arrangement of fields will be different). Let’s examine some code:</p>
+In parti&shy;cular, let’s turn to <code>m_wNumVirtuals</code> and <code>m_wNumInterfaces</code> fields. They define the answer to the ques&shy;tion "How many virtual methods and inter&shy;faces does a type have?". This struc&shy;ture doesn’t contain any infor&shy;ma&shy;tion about usual methods, fields and proper&shy;ties (which unite methods). I mean this struc&shy;ture <strong>has nothing to do with reflection</strong>. In its sense and purpose this struc&shy;ture is made to provide functi&shy;o&shy;ning of method calls in the CLR (in any OOP actu&shy;ally, whether it is Java, C++, Ruby or something else, how&shy;ever the arran&shy;ge&shy;ment of fields will be diffe&shy;rent). Let’s exa&shy;mine some code:</p>
 <div class="paragraph-right-side">22</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2033,13 +2033,13 @@ In particular, let’s turn to <code>m_wNumVirtuals</code> and <code>m_wNumInter
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
 <p >
-No matter how meaningless these classes seems to be, they are fit for a description in a VMT. And for that, we should understand what’s the difference between a base type and an inherited type in terms of <code>ChangeTo</code> and <code>GetValue</code> methods.</p>
+No matter how mea&shy;ning&shy;less these classes seems to be, they are fit for a desc&shy;rip&shy;tion in a VMT. And for that, we should unders&shy;tand what’s the diffe&shy;rence between a base type and an inhe&shy;rited type in terms of <code>ChangeTo</code> and <code>GetValue</code> methods.</p>
 <div class="paragraph-right-side">23</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">24</div>
 <p >
-The <code>ChangeTo</code> method is present in both types and cannot be overridden. That means we can rewrite it in the following way and nothing will change:</p>
+The <code>ChangeTo</code> method is present in both types and cannot be over&shy;ridden. That means we can rewrite it in the follo&shy;wing way and nothing will change:</p>
 <div class="paragraph-right-side">24</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2072,17 +2072,17 @@ The <code>ChangeTo</code> method is present in both types and cannot be overridd
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
 <p >
-This code will change only in terms of architecture. Trust me, when compiled both variants will work in the same way as <code>this</code> in instance methods is just the first method parameter, that is passed to us implicitly.</p>
+This code will change only in terms of arch&shy;it&shy;ecture. Trust me, when compiled both vari&shy;ants will work in the same way as <code>this</code> in instance methods is just the first method para&shy;meter, that is passed to us impli&shy;citly.</p>
 <div class="paragraph-right-side">25</div>
 </div>
 <blockquote>
 <p >
-I should explain in advance why all considerations are based on examples with static methods: all methods are static in their essence,  including instance ones. Memory doesn’t contain compiled methods for every single instance of a class. This would need a huge amount of memory: it is much easier that a reference to an instance of a structure or a class is passed each time to a method that works with that structure or the class.</p>
+I should explain in advance why all consi&shy;de&shy;ra&shy;tions are based on examples with static methods: all methods are static in their essence,  inclu&shy;ding instance ones. Memory doesn’t contain compiled methods for every single instance of a class. This would need a huge amount of memory: it is much easier that a refe&shy;rence to an instance of a struc&shy;ture or a class is passed each time to a method that works with that struc&shy;ture or the class.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
 <p >
-Things work different for the <code>GetValue</code> method. We cannot just override a method by overriding <em>static</em> <code>GetValue</code> in an inherited type: a new method will get only those regions of code, that deal with a variable as with <code>OverriddenSample</code>. If you work with a variable as with <code>Sample</code> base type variable, you can only call <code>GetValue</code> of a base type, as you don’t know the ultimate type of an object. To understand the type of a variable and which method is called, we can do the following:</p>
+Things work diffe&shy;rent for the <code>GetValue</code> method. We cannot just over&shy;ride a method by over&shy;ri&shy;ding <em>static</em> <code>GetValue</code> in an inhe&shy;rited type: a new method will get only those regions of code, that deal with a vari&shy;able as with <code>OverriddenSample</code>. If you work with a vari&shy;able as with <code>Sample</code> base type vari&shy;able, you can only call <code>GetValue</code> of a base type, as you don’t know the ulti&shy;mate type of an object. To unders&shy;tand the type of a vari&shy;able and which method is called, we can do the follo&shy;wing:</p>
 <div class="paragraph-right-side">26</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2138,24 +2138,24 @@ Things work different for the <code>GetValue</code> method. We cannot just overr
 <div class="paragraph-container">
 <div class="paragraph-left-side">27</div>
 <p >
-In this example we, in fact, build a VMT manually and call methods based on their position in this table. If you got the idea of this example, you in fact got the idea of how inheritance is built at the level of compiled code: methods are called based on their indexes in a VMT. Just when you create an instance of an inherited type, the places in its VMT, where a base type has virtual methods, will be filled by a compiler with pointers to overridden methods. To do this, the compiler copies pointers to methods which weren’t overridden from the base type. Thus, the only difference between our example and a real VMT is that when a compiler builds this table, it preemptively knows the right size and contents of that table. In our example, we will have to struggle a lot to build a table for types, that will make it larger by adding new methods. But we our goal is different, so we won’t deal with such a nonsense.</p>
+In this example we, in fact, build a VMT manu&shy;ally and call methods based on their posi&shy;tion in this table. If you got the idea of this example, you in fact got the idea of how inhe&shy;ri&shy;tance is built at the level of compiled code: methods are called based on their indexes in a VMT. Just when you create an instance of an inhe&shy;rited type, the places in its VMT, where a base type has virtual methods, will be filled by a compiler with poin&shy;ters to over&shy;ridden methods. To do this, the compiler copies poin&shy;ters to methods which weren’t over&shy;ridden from the base type. Thus, the only diffe&shy;rence between our example and a real VMT is that when a compiler builds this table, it preem&shy;pti&shy;vely knows the right size and contents of that table. In our example, we will have to stru&shy;ggle a lot to build a table for types, that will make it larger by adding new methods. But we our goal is diffe&shy;rent, so we won’t deal with such a nonsense.</p>
 <div class="paragraph-right-side">27</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
 <p >
-The second question is why there are interfaces in a <code>VMT</code> when it is all clear with methods. If we think logically, interfaces are not included in the structure of direct inheritance. They are something on the side, indicating that some types must implement a certain set of methods, i.e. must have a protocol for interaction. Although these interfaces are <em>on the side</em> of direct inheritance, you still can call methods. Note, that if you use a variable of an interface type, beyond this variable there may be any classes; and in some cases the only common base class of these classes may be <code>System.Object</code> only. That means that methods in a virtual method table that implement an interface can be located anywhere. So how do method calls work in this case?</p>
+The second ques&shy;tion is why there are inter&shy;faces in a <code>VMT</code> when it is all clear with methods. If we think logi&shy;cally, inter&shy;faces are not included in the struc&shy;ture of direct inhe&shy;ri&shy;tance. They are something on the side, indi&shy;ca&shy;ting that some types must imple&shy;ment a certain set of methods, i.e. must have a protocol for inte&shy;rac&shy;tion. Although these inter&shy;faces are <em>on the side</em> of direct inhe&shy;ri&shy;tance, you still can call methods. Note, that if you use a vari&shy;able of an inter&shy;face type, beyond this vari&shy;able there may be any classes; and in some cases the only common base class of these classes may be <code>System.Object</code> only. That means that methods in a virtual method table that imple&shy;ment an inter&shy;face can be located anywhere. So how do method calls work in this case?</p>
 <div class="paragraph-right-side">28</div>
 </div>
 <h2 id="virtual-stub-dispatch-vsd-in-progress">Virtual Stub Dispatch (VSD) [In Progress]</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">29</div>
 <p >
-To address this issue, it is necessary to remember that we can implement an interface in two ways: we can choose either <code>implicit</code> or <code>explicit</code> implementation. Moreover, you can do it partially: some methods will be <code>implicit</code>, the other – <code>explicit</code>. In fact, this opportunity is the consequence of implementation and probably wasn’t initially planned: by implementing an interface you explicitly or implicitly show what’s inside that interface. Some class methods may not be included into an interface, some methods within an interface may not exist in a class (of course they exist in a class, but syntax shows that they don’t belong to that class architecturally): a class and an interface are parallel hierarchies of types in some sense. Also, an interface is a separate type. It means that every interface has its own VMT so that anybody could call the methods of an interface.</p>
+To add&shy;ress this issue, it is neces&shy;sary to remember that we can imple&shy;ment an inter&shy;face in two ways: we can choose either <code>implicit</code> or <code>explicit</code> imple&shy;men&shy;ta&shy;tion. More&shy;over, you can do it parti&shy;ally: some methods will be <code>implicit</code>, the other – <code>explicit</code>. In fact, this oppor&shy;tu&shy;nity is the conse&shy;qu&shy;ence of imple&shy;men&shy;ta&shy;tion and probably wasn’t ini&shy;ti&shy;ally planned: by imple&shy;men&shy;ting an inter&shy;face you expli&shy;citly or impli&shy;citly show what’s inside that inter&shy;face. Some class methods may not be included into an inter&shy;face, some methods within an inter&shy;face may not exist in a class (of course they exist in a class, but syntax shows that they don’t belong to that class arch&shy;it&shy;ecturally): a class and an inter&shy;face are parallel hierarchies of types in some sense. Also, an inter&shy;face is a sepa&shy;rate type. It means that every inter&shy;face has its own VMT so that any&shy;body could call the methods of an inter&shy;face.</p>
 <div class="paragraph-right-side">29</div>
 </div>
 <p >
-Let’s look at the table to see how VMTs of different types could be like:</p>
+Let’s look at the table to see how VMTs of diffe&shy;rent types could be like:</p>
 <div class="row">
 <div class="offset-3 col-6">
 <table>
@@ -2163,7 +2163,7 @@ Let’s look at the table to see how VMTs of different types could be like:</p>
 <tr>
 <th>
 <p >
-interface IFoo</p>
+inter&shy;face IFoo</p>
 </th>
 <th>
 <p >
@@ -2179,21 +2179,21 @@ class B : IFoo</p>
 <tr>
 <td>
 <p >
--> GetValue()</p>
+-> Get&shy;Value()</p>
 </td>
 <td>
 <p >
-SampleMethod()</p>
+Sample&shy;Method()</p>
 </td>
 <td>
 <p >
-RunProcess()</p>
+Run&shy;Process()</p>
 </td>
 </tr>
 <tr>
 <td>
 <p >
--> SetValue()</p>
+-> Set&shy;Value()</p>
 </td>
 <td>
 <p >
@@ -2201,7 +2201,7 @@ Go()</p>
 </td>
 <td>
 <p >
--> GetValue()</p>
+-> Get&shy;Value()</p>
 </td>
 </tr>
 <tr>
@@ -2211,11 +2211,11 @@ Go()</p>
 </td>
 <td>
 <p >
--> GetValue()</p>
+-> Get&shy;Value()</p>
 </td>
 <td>
 <p >
--> SetValue()</p>
+-> Set&shy;Value()</p>
 </td>
 </tr>
 <tr>
@@ -2225,11 +2225,11 @@ Go()</p>
 </td>
 <td>
 <p >
--> SetValue()</p>
+-> Set&shy;Value()</p>
 </td>
 <td>
 <p >
-LookToMoon()</p>
+Look&shy;To&shy;Moon()</p>
 </td>
 </tr>
 </tbody>
@@ -2239,45 +2239,45 @@ LookToMoon()</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">30</div>
 <p >
-The VMTs of all three types contain the necessary <code>GetValue</code> and <code>SetValue</code> methods. However, they are located at different indexes: their index cannot be the same globally as it would cause a collision between indexes of other interfaces of a class. Actually, every interface duplicated each time it’s implemented by a class. So, if we have 633 implementations of <code>IDisposable</code> in FCL/BCL classes,  we also have 633 duplicates of <code>IDisposable</code> interfaces to support the VMT to VMT translation across every class + a entry in each class with a reference to its interface implementation. We will call such interfaces <strong>private interfaces</strong>. That is each class has its own <strong>private interfaces</strong> that are "system” and act as proxy types to non-virtual interfaces.</p>
+The VMTs of all three types contain the neces&shy;sary <code>GetValue</code> and <code>SetValue</code> methods. However, they are located at diffe&shy;rent indexes: their index cannot be the same globally as it would cause a colli&shy;sion between indexes of other inter&shy;faces of a class. Actually, every inter&shy;face dupli&shy;cated each time it’s imple&shy;mented by a class. So, if we have 633 imple&shy;men&shy;ta&shy;tions of <code>IDisposable</code> in FCL/BCL classes,  we also have 633 dupli&shy;cates of <code>IDisposable</code> inter&shy;faces to support the VMT to VMT trans&shy;la&shy;tion across every class + a entry in each class with a refe&shy;rence to its inter&shy;face imple&shy;men&shy;ta&shy;tion. We will call such inter&shy;faces <strong>private interfaces</strong>. That is each class has its own <strong>private interfaces</strong> that are "system” and act as proxy types to non-virtual inter&shy;faces.</p>
 <div class="paragraph-right-side">30</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">31</div>
 <p >
-Thus, interfaces, just like classes, inherit virtual <em>interface</em> methods. However, this inheritance works not only when we inherit one interface from an other but also when a class implements an interface. When a class implements an interface, an additional interface is created that specifies which methods of a parent interface should be inherited from and referenced to in the target class. By calling a method through an interface identifier, you similarly call a method through the index from a VMT as it was in case of classes. However, for this interface implementation you use a slot ID to choose a slot from an <em>inherited</em> private interface, through which the original <code>IDisposable</code> interface is connected with our class that implements the interface.</p>
+Thus, inter&shy;faces, just like classes, inherit virtual <em>interface</em> methods. However, this inhe&shy;ri&shy;tance works not only when we inherit one inter&shy;face from an other but also when a class imple&shy;ments an inter&shy;face. When a class imple&shy;ments an inter&shy;face, an addi&shy;ti&shy;onal inter&shy;face is created that speci&shy;fies which methods of a parent inter&shy;face should be inhe&shy;rited from and refe&shy;renced to in the target class. By calling a method through an inter&shy;face iden&shy;ti&shy;fier, you simi&shy;larly call a method through the index from a VMT as it was in case of classes. However, for this inter&shy;face imple&shy;men&shy;ta&shy;tion you use a slot ID to choose a slot from an <em>inherited</em> private inter&shy;face, through which the ori&shy;ginal <code>IDisposable</code> inter&shy;face is connected with our class that imple&shy;ments the inter&shy;face.</p>
 <div class="paragraph-right-side">31</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">32</div>
 <p >
-The dispatch of virtual methods by stubs or <strong>Virtual Stub Dispatch (VSD)</strong> was developed in 2006 as a replacement for VMTs, specifically in interfaces. This approach simplifies generation of code and method calls as the initial implementation of interfaces with VMT would be very cumbersome and need a huge amount of time and working set to build all structures of all interfaces. The code of dispatching is in four files containing 6,400 lines, and we don’t intend to understand the whole thing. We will try to understand the process in this code in general terms.</p>
+The dispatch of virtual methods by stubs or <strong>Virtual Stub Dispatch (VSD)</strong> was deve&shy;loped in 2006 as a repla&shy;ce&shy;ment for VMTs, speci&shy;fi&shy;cally in inter&shy;faces. This approach simp&shy;li&shy;fies gene&shy;ra&shy;tion of code and method calls as the ini&shy;tial imple&shy;men&shy;ta&shy;tion of inter&shy;faces with VMT would be very cumber&shy;some and need a huge amount of time and working set to build all struc&shy;tures of all inter&shy;faces. The code of dispatching is in four files conta&shy;i&shy;ning 6,400 lines, and we don’t intend to unders&shy;tand the whole thing. We will try to unders&shy;tand the process in this code in general terms.</p>
 <div class="paragraph-right-side">32</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">33</div>
 <p >
-The whole logic of VSD can be divided into two big sections: dispatch and the mechanism of stubs that caches the addresses of called methods based on a key pair — [typeID; slot No] — that identifies them.</p>
+The whole logic of VSD can be divided into two big sections: dispatch and the mech&shy;anism of stubs that caches the addresses of called methods based on a key pair — [typeID; slot No] — that iden&shy;ti&shy;fies them.</p>
 <div class="paragraph-right-side">33</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">34</div>
 <p >
-To fully understand the design of VSD processes, let’s look at them at a very high level first, and then go into the depth. The dispatch mechanism postpones building of methods because of:</p>
+To fully unders&shy;tand the design of VSD processes, let’s look at them at a very high level first, and then go into the depth. The dispatch mech&shy;anism post&shy;pones buil&shy;ding of methods because of:</p>
 <div class="paragraph-right-side">34</div>
 </div>
 <ul>
 <li>
 <p >
-logical parallelism in the hierarchy of interface types,</p>
+logical paral&shy;le&shy;lism in the hierarchy of inter&shy;face types,</p>
 </li>
 <li>
 <p >
-eventual multitude of methods,</p>
+even&shy;tual multi&shy;tude of methods,</p>
 </li>
 <li>
 <p >
-most methods will never be compiled by JIT (because if types are designed in Framework it doesn’t mean their instances will be required). On the other hand, using traditional VMTs for <em>private interfaces</em> would cause VMT compilation by JIT for every <em>private interface</em> from startup. That means the creation of each type would double degradation. The main class that provides dispatching is <code>DispatchMap</code>. It encapsulates a table of interface types, each of which consists of a method table, included in these interfaces. Each method can have one of the four states based on the stage in its life cycle:</p>
+most methods will never be compiled by JIT (because if types are designed in Frame&shy;work it doesn’t mean their instances will be requ&shy;ired). On the other hand, using tradi&shy;ti&shy;onal VMTs for <em>private interfaces</em> would cause VMT compi&shy;la&shy;tion by JIT for every <em>private interface</em> from startup. That means the crea&shy;tion of each type would double degra&shy;da&shy;tion. The main class that provides dispatching is <code>DispatchMap</code>. It encap&shy;su&shy;lates a table of inter&shy;face types, each of which consists of a method table, included in these inter&shy;faces. Each method can have one of the four states based on the stage in its life cycle:</p>
 </li>
 <li>
 <p >
@@ -2285,11 +2285,11 @@ a stub in the state of “the method has never been called, so it should be comp
 </li>
 <li>
 <p >
-a stub in the state of &laquo;the method should be found dynamically each time, as it cannot be uniformly defined&raquo;,</p>
+a stub in the state of &laquo;the method should be found dyna&shy;mi&shy;cally each time, as it cannot be uni&shy;formly defined&raquo;,</p>
 </li>
 <li>
 <p >
-a stub in the state of &laquo;the method is available at known address and can be called without lookup&raquo;, or</p>
+a stub in the state of &laquo;the method is ava&shy;ilable at known add&shy;ress and can be called without lookup&raquo;, or</p>
 </li>
 <li>
 <p >
@@ -2299,14 +2299,14 @@ a fully-fledged body of the method.</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">35</div>
 <p >
-Let’s revise these structures in respect to their evolution and required the data structures.</p>
+Let’s revise these struc&shy;tures in respect to their evo&shy;lu&shy;tion and requ&shy;ired the data struc&shy;tures.</p>
 <div class="paragraph-right-side">35</div>
 </div>
 <h3 id="dispatchmap">DispatchMap</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">36</div>
 <p >
-DispatchMap is a dynamically built main data structure that on which the work of interfaces in the CLR is built. Its structure is the following:</p>
+Dispatch&shy;Map is a dyna&shy;mi&shy;cally built main data struc&shy;ture that on which the work of inter&shy;faces in the CLR is built. Its struc&shy;ture is the follo&shy;wing:</p>
 <div class="paragraph-right-side">36</div>
 </div>
 <pre><code>    DWORD: The number of types = N
@@ -2331,13 +2331,13 @@ DispatchMap is a dynamically built main data structure that on which the work of
 <div class="paragraph-container">
 <div class="paragraph-left-side">37</div>
 <p >
-Thus, initially, the VSD mechanism writes the number of interfaces implemented by certain types. Then, it writes for every interface the corresponding type, the quantity of slots implemented by that type (for navigation in a table), and then, the information about every slot, including corresponding target slot in a <em>private interface</em> that contains the method implementations of a current type.</p>
+Thus, ini&shy;ti&shy;ally, the VSD mech&shy;anism writes the number of inter&shy;faces imple&shy;mented by certain types. Then, it writes for every inter&shy;face the corres&shy;pon&shy;ding type, the quan&shy;tity of slots imple&shy;mented by that type (for navi&shy;ga&shy;tion in a table), and then, the infor&shy;ma&shy;tion about every slot, inclu&shy;ding corres&shy;pon&shy;ding target slot in a <em>private interface</em> that contains the method imple&shy;men&shy;ta&shy;tions of a current type.</p>
 <div class="paragraph-right-side">37</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">38</div>
 <p >
-For iterative navigation in this data structure there is the <code>EncodedMapIterator</code> class,  so this <code>DispatchMap</code> may be handled via <code>foreach</code> only. Moreover, the slot No’s. are returned as the delta between the non-virtual slot No. and the previously encoded virtual slot No. It means you can get the slot No. in the middle of a table only by looking through the whole structure from the beginning. This raises a lot of performance issues on method calls via interfaces — if we have an array of objects implementing an interface, we will have to look through the whole table of implementations to understand which method to call  or, essentially, to find the necessary one. Each iteration will result in <code>DispatchMapEntry</code> that will show where the target method is located: in this type or not, and if not, what slot No. must be returned to get the target method.</p>
+For ite&shy;ra&shy;tive navi&shy;ga&shy;tion in this data struc&shy;ture there is the <code>EncodedMapIterator</code> class,  so this <code>DispatchMap</code> may be han&shy;dled via <code>foreach</code> only. More&shy;over, the slot No’s. are returned as the delta between the non-virtual slot No. and the previously encoded virtual slot No. It means you can get the slot No. in the middle of a table only by loo&shy;king through the whole struc&shy;ture from the begin&shy;ning. This raises a lot of perfor&shy;mance issues on method calls via inter&shy;faces — if we have an array of objects imple&shy;men&shy;ting an inter&shy;face, we will have to look through the whole table of imple&shy;men&shy;ta&shy;tions to unders&shy;tand which method to call  or, essen&shy;ti&shy;ally, to find the neces&shy;sary one. Each ite&shy;ra&shy;tion will result in <code>DispatchMapEntry</code> that will show where the target method is located: in this type or not, and if not, what slot No. must be returned to get the target method.</p>
 <div class="paragraph-right-side">38</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2380,13 +2380,13 @@ For iterative navigation in this data structure there is the <code>EncodedMapIte
 <div class="paragraph-container">
 <div class="paragraph-left-side">39</div>
 <p >
-Any method in the interface-based addressing is coded by the <TypeId; Slot No> pair. TypeId is obviously the type identifier. This field indicates where this identifier comes from and how it relates to a non-virtual type.
-The <code>TypeIDMap</code> class stores a map of types as a representation of specific TypeID’s in <code>MethodTable</code>, and works visa versa.  This is solely for the performance. These HashMaps are built dynamically: once invoked, FatId or plain Id is returned in response to query for TypeID from PTR_MethodTable. You should just remember: FatId and Id are just two kinds of TypeId. To some extent, it is a "pointer” to MethodTable as it uniquely identifies.</p>
+Any method in the inter&shy;face-based addres&shy;sing is coded by the <Type&shy;Id; Slot No> pair. Type&shy;Id is obviously the type iden&shy;ti&shy;fier. This field indi&shy;cates where this iden&shy;ti&shy;fier comes from and how it relates to a non-virtual type.
+The <code>TypeIDMap</code> class stores a map of types as a repre&shy;sen&shy;ta&shy;tion of specific Type&shy;ID’s in <code>MethodTable</code>, and works visa versa.  This is solely for the perfor&shy;mance. These Hash&shy;Maps are built dyna&shy;mi&shy;cally: once invoked, Fat&shy;Id or plain Id is returned in response to query for Type&shy;ID from PTR_Method&shy;Table. You should just remember: Fat&shy;Id and Id are just two kinds of Type&shy;Id. To some extent, it is a "pointer” to Method&shy;Table as it uni&shy;quely iden&shy;ti&shy;fies.</p>
 <div class="paragraph-right-side">39</div>
 </div>
 <blockquote>
 <p >
-<strong>TypeId is an identifier of MethodTable</strong>. It can have two variants: Id and FatId. It is a usual number in its essence.</p>
+<strong>TypeId is an identifier of MethodTable</strong>. It can have two vari&shy;ants: Id and Fat&shy;Id. It is a usual number in its essence.</p>
 </blockquote>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">class</span> TypeIDMap
@@ -2406,51 +2406,51 @@ The <code>TypeIDMap</code> class stores a map of types as a representation of sp
 <div class="paragraph-container">
 <div class="paragraph-left-side">40</div>
 <p >
-However, JIT easily handles all these challenges by inserting method calls when possible into the interface dispatch call sites. If JIT understands that nothing else can be called, it just puts in the call of a particular method. This is a very strong capability of the JIT compiler implementing this wonderful optimization for us.</p>
+However, JIT easily han&shy;dles all these chall&shy;enges by inser&shy;ting method calls when possible into the inter&shy;face dispatch call sites. If JIT unders&shy;tands that nothing else can be called, it just puts in the call of a parti&shy;cular method. This is a very strong capa&shy;bi&shy;lity of the JIT compiler imple&shy;men&shy;ting this wonderful opti&shy;mi&shy;za&shy;tion for us.</p>
 <div class="paragraph-right-side">40</div>
 </div>
 <h3 id="conclusions">Conclusions</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">41</div>
 <p >
-The thing that became natural for C# developers and rooted in our minds so deeply that we don’t even understand how to split an application into classes and interfaces is sometimes implemented so intricately that we need weeks for source texts analyses to determine all the dependencies and logic of what is going on. Something that is so trivial in use and produces no doubts during implementation can actually hide these difficulties of implementation. This means the engineers that put these ideas in action approached these problems with a lot of intelligence, by analyzing each step carefully.</p>
+The thing that became natural for C# deve&shy;lo&shy;pers and rooted in our minds so deeply that we don’t even unders&shy;tand how to split an appli&shy;ca&shy;tion into classes and inter&shy;faces is some&shy;times imple&shy;mented so intri&shy;ca&shy;tely that we need weeks for source texts analyses to deter&shy;mine all the depen&shy;den&shy;cies and logic of what is going on. Something that is so trivial in use and produces no doubts during imple&shy;men&shy;ta&shy;tion can actu&shy;ally hide these diffi&shy;cul&shy;ties of imple&shy;men&shy;ta&shy;tion. This means the engi&shy;neers that put these ideas in action appro&shy;ached these prob&shy;lems with a lot of intel&shy;li&shy;gence, by analy&shy;zing each step care&shy;fully.</p>
 <div class="paragraph-right-side">41</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">42</div>
 <p >
-The description given here is actually quite short and superficial: it is very high-level. In comparison with any .NET book we have gone very deep into the description of VSD and VMT design, but the description is still very high-level. Indeed, the amount of code in the files describing these two structures takes about 20,000 lines. This doesn’t take into account some parts about Generics.</p>
+The desc&shy;rip&shy;tion given here is actu&shy;ally quite short and super&shy;fi&shy;cial: it is very high-level. In compa&shy;rison with any .NET book we have gone very deep into the desc&shy;rip&shy;tion of VSD and VMT design, but the desc&shy;rip&shy;tion is still very high-level. Indeed, the amount of code in the files desc&shy;ri&shy;bing these two struc&shy;tures takes about 20,000 lines. This doesn’t take into account some parts about Gene&shy;rics.</p>
 <div class="paragraph-right-side">42</div>
 </div>
 <p >
-However, this lets us make some conclusions:</p>
+However, this lets us make some conc&shy;lu&shy;sions:</p>
 <ul>
 <li>
 <p >
-There is almost no difference between calling static and instance methods. This means we shouldn’t worry that the work with instance methods will somehow affect the performance. The performance of both methods is absolutely identical in equal conditions.</p>
+There is almost no diffe&shy;rence between calling static and instance methods. This means we shouldn’t worry that the work with instance methods will somehow affect the perfor&shy;mance. The perfor&shy;mance of both methods is abso&shy;lu&shy;tely iden&shy;tical in equal condi&shy;tions.</p>
 </li>
 <li>
 <p >
-Though virtual methods are called via a VMT, there is only one additional pointer dereference for each call, as indexes are known in advance. In most cases this doesn’t affect anything: the decrease in performance (if I can say like this) will be so insignificant that it can be neglected.</p>
+Though virtual methods are called via a VMT, there is only one addi&shy;ti&shy;onal pointer dere&shy;fe&shy;rence for each call, as indexes are known in advance. In most cases this doesn’t affect anything: the decrease in perfor&shy;mance (if I can say like this) will be so insig&shy;ni&shy;fi&shy;cant that it can be neglected.</p>
 </li>
 <li>
 <p >
-Talking about interfaces we should remember about dispatch and understand that working via interfaces hugely complicates the implementation of type subsystem at a low level bringing <em><strong>possible</strong></em> decreases in performance when there is often no certainty which method of which class should be called with an interface identifier. However, in many cases the "intelligence” of the JIT compiler allows to call an interface method directly rather than through a dispatch.</p>
+Talking about inter&shy;faces we should remember about dispatch and unders&shy;tand that working via inter&shy;faces hugely comp&shy;li&shy;cates the imple&shy;men&shy;ta&shy;tion of type subsystem at a low level brin&shy;ging <em><strong>possible</strong></em> decre&shy;ases in perfor&shy;mance when there is often no certa&shy;inty which method of which class should be called with an inter&shy;face iden&shy;ti&shy;fier. However, in many cases the "intel&shy;li&shy;gence” of the JIT compiler allows to call an inter&shy;face method directly rather than through a dispatch.</p>
 </li>
 <li>
 <p >
-For generic types, there appears another layer of abstraction which makes the method lookup more complicated for generic interfaces.</p>
+For generic types, there appears another layer of abstr&shy;ac&shy;tion which makes the method lookup more comp&shy;li&shy;cated for generic inter&shy;faces.</p>
 </li>
 </ul>
 <h2 id="questions-related-to-the-topic">Questions related to the topic.</h2>
 <blockquote>
 <p >
-Question: if every class can implement an interface, why cannot we get a particular implementation of an interface from an object?</p>
+Ques&shy;tion: if every class can imple&shy;ment an inter&shy;face, why cannot we get a parti&shy;cular imple&shy;men&shy;ta&shy;tion of an inter&shy;face from an object?</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">43</div>
 <p >
-The answer is simple: this opportunity wasn’t covered in the CLR during the language design. However, the CLR doesn’t restrict this.  Moreover, this function will likely be added in future versions of C#, which are released quite often. Let’s have a look at the example.</p>
+The answer is simple: this oppor&shy;tu&shy;nity wasn’t covered in the CLR during the language design. However, the CLR doesn’t rest&shy;rict this.  More&shy;over, this function will likely be added in future versions of C#, which are rele&shy;ased quite often. Let’s have a look at the example.</p>
 <div class="paragraph-right-side">43</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2493,7 +2493,7 @@ The answer is simple: this opportunity wasn’t covered in the CLR during the la
 </pre></div>
 </div>
 <p >
-Here we call four different methods and the result will be the following:</p>
+Here we call four diffe&shy;rent methods and the result will be the follo&shy;wing:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 Foo.IDisposable::Dispose
 Foo::Dispose()
@@ -2504,7 +2504,7 @@ Boo::Dispose()
 <div class="paragraph-container">
 <div class="paragraph-left-side">44</div>
 <p >
-Despite we have the <em>explicit</em> implementation of an interface in both classes, you cannot get the implementation of the <code>IDisposable</code> interface for <code>Foo</code> in the <code>Boo</code> class. Even if we write it the following way:</p>
+Despite we have the <em>explicit</em> imple&shy;men&shy;ta&shy;tion of an inter&shy;face in both classes, you cannot get the imple&shy;men&shy;ta&shy;tion of the <code>IDisposable</code> inter&shy;face for <code>Foo</code> in the <code>Boo</code> class. Even if we write it the follo&shy;wing way:</p>
 <div class="paragraph-right-side">44</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2521,7 +2521,7 @@ Boo.IDisposable::Dispose
 <div class="paragraph-container">
 <div class="paragraph-left-side">45</div>
 <p >
-We can demonstrate the following code as the example of "interface inheritance” which is similar to the inheritance of classes.</p>
+We can demons&shy;trate the follo&shy;wing code as the example of "inter&shy;face inhe&shy;ri&shy;tance” which is similar to the inhe&shy;ri&shy;tance of classes.</p>
 <div class="paragraph-right-side">45</div>
 </div>
 <div class="lang-vb editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2591,13 +2591,13 @@ We can demonstrate the following code as the example of "interface inheritance�
 <div class="paragraph-container">
 <div class="paragraph-left-side">46</div>
 <p >
-We can see that <code>Doo</code>, inherited from <code>Foo</code>, implicitly implement <code>IDisposable</code>, while overriding explicit implementation of <code>IDisposable.Dispose</code>, that leads to a call of overriding when calling via an interface, indicating the "inheritance of interfaces” of <code>Foo</code> and <code>Doo</code> classes.</p>
+We can see that <code>Doo</code>, inhe&shy;rited from <code>Foo</code>, impli&shy;citly imple&shy;ment <code>IDisposable</code>, while over&shy;ri&shy;ding explicit imple&shy;men&shy;ta&shy;tion of <code>IDisposable.Dispose</code>, that leads to a call of over&shy;ri&shy;ding when calling via an inter&shy;face, indi&shy;ca&shy;ting the "inhe&shy;ri&shy;tance of inter&shy;faces” of <code>Foo</code> and <code>Doo</code> classes.</p>
 <div class="paragraph-right-side">46</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">47</div>
 <p >
-On the one hand it is not a problem: if C# + CLR allowed such tricks it would break the consistency in type structure. Just think, you’ve created a wonderful architecture and everything is cool. But somebody calls methods in the way you didn’t plan. This would be horrible. However a similar opportunity exists in C++ and nobody really complains. Why this can be added to C#? Because the functionality that is not less horrible <a href="https://github.com/dotnet/csharplang/issues/52">is already being discussed</a> and should look something like this:</p>
+On the one hand it is not a problem: if C# + CLR allowed such tricks it would break the consis&shy;tency in type struc&shy;ture. Just think, you’ve created a wonderful arch&shy;it&shy;ecture and everything is cool. But some&shy;body calls methods in the way you didn’t plan. This would be horrible. However a similar oppor&shy;tu&shy;nity exists in C++ and nobody really complains. Why this can be added to C#? Because the functi&shy;o&shy;na&shy;lity that is not less horrible <a href="https://github.com/dotnet/csharplang/issues/52">is already being discussed</a> and should look something like this:</p>
 <div class="paragraph-right-side">47</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2620,7 +2620,7 @@ On the one hand it is not a problem: if C# + CLR allowed such tricks it would br
 <div class="paragraph-container">
 <div class="paragraph-left-side">48</div>
 <p >
-Why is it horrible? This actually brings a whole new class of opportunities. Now we don’t need to implement each time some interface methods that were implemented similarly everywhere. Sounds great. However, not. Because an interface is actually a protocol for interaction. Protocol means a set of rules, some limits. It shouldn’t allow implementations. Here we deal with the direct infringement of this principle and introduction of another one: multiple inheritance. In fact, I object to such refinements a lot, but&hellip; I think I got carried away.</p>
+Why is it horrible? This actu&shy;ally brings a whole new class of oppor&shy;tu&shy;ni&shy;ties. Now we don’t need to imple&shy;ment each time some inter&shy;face methods that were imple&shy;mented simi&shy;larly everywhere. Sounds great. However, not. Because an inter&shy;face is actu&shy;ally a protocol for inte&shy;rac&shy;tion. Protocol means a set of rules, some limits. It shouldn’t allow imple&shy;men&shy;ta&shy;tions. Here we deal with the direct infrin&shy;ge&shy;ment of this prin&shy;ciple and intro&shy;duc&shy;tion of another one: multiple inhe&shy;ri&shy;tance. In fact, I object to such refi&shy;ne&shy;ments a lot, but&hellip; I think I got carried away.</p>
 <div class="paragraph-right-side">48</div>
 </div>
 <div class="paragraph-container">

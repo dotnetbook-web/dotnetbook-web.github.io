@@ -1294,7 +1294,7 @@ StackOverflowException</a></li>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
 <p >
-There are some exceptional situations that, let’s say, more exceptional than others. In terms of classification, as it was said at the beginning of this chapter, we can divide them into ones that belong to a .NET application and others that belong to the unsafe world. The latter group consists of two subcategories: the exceptions of the CLR core (which is essentially unsafe) and any unsafe code of external libraries.</p>
+There are some excep&shy;ti&shy;onal situ&shy;a&shy;tions that, let’s say, more excep&shy;ti&shy;onal than others. In terms of clas&shy;si&shy;fi&shy;ca&shy;tion, as it was said at the begin&shy;ning of this chapter, we can divide them into ones that belong to a .NET appli&shy;ca&shy;tion and others that belong to the unsafe world. The latter group consists of two subca&shy;te&shy;go&shy;ries: the excep&shy;tions of the CLR core (which is essen&shy;ti&shy;ally unsafe) and any unsafe code of external libra&shy;ries.</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <p >
@@ -1305,7 +1305,7 @@ Although it may seem not so obvious, there are four types of Thread Abort.</p>
 <ul>
 <li>
 <p >
-Rough <code>ThreadAbort</code> which gets unstoppable when activated and which doesn’t call exception handlers at all, including <code>finally</code> sections.</p>
+Rough <code>ThreadAbort</code> which gets unstop&shy;pable when acti&shy;vated and which doesn’t call excep&shy;tion han&shy;dlers at all, inclu&shy;ding <code>finally</code> sections.</p>
 </li>
 <li>
 <p >
@@ -1313,21 +1313,21 @@ Rough <code>ThreadAbort</code> which gets unstoppable when activated and which d
 </li>
 <li>
 <p >
-Asynchronous <code>ThreadAbortException</code> which is thrown from some other thread.</p>
+Asyn&shy;chronous <code>ThreadAbortException</code> which is thrown from some other thread.</p>
 </li>
 <li>
 <p >
-<code>ThreadAbort</code> invoked on the threads which are initiated when the <code>AppDomain</code> is being unloaded and which contains running methods compiled for this domain.</p>
+<code>ThreadAbort</code> invoked on the threads which are ini&shy;ti&shy;ated when the <code>AppDomain</code> is being unlo&shy;aded and which contains running methods compiled for this domain.</p>
 </li>
 </ul>
 <blockquote>
 <p >
-It should be noted that <code>ThreadAbortException</code> is often used in <em>big</em> .NET Framework, yet doesn’t exist for CoreCLR, .NET Core or for Windows 8 &laquo;Modern app profile&raquo;. Let’s figure out why.</p>
+It should be noted that <code>ThreadAbortException</code> is often used in <em>big</em> .NET Frame&shy;work, yet doesn’t exist for Core&shy;CLR, .NET Core or for Windows 8 &laquo;Modern app profile&raquo;. Let’s figure out why.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
 <p >
-For the second, third or fourth variant of a thread abort, when we are still able to do something, a virtual machine starts going through all exception handlers and look up those that correspond to the type of a thrown exception or for a higher exception level. In our case these are: <code>ThreadAbortException</code>, <code>Exception</code> and <code>object</code> (don’t forget that Exception is essentially a data set and our search may end up with any type of exception, even with <code>int</code>). By handling <em>all</em> suitable <code>catch</code> blocks, the virtual machine successively forwards <code>ThreadAbortException</code> along the entire chain of exception handling and enters all <code>finally</code> blocks. In general, the situations described below are identical:</p>
+For the second, third or fourth variant of a thread abort, when we are still able to do something, a virtual machine starts going through all excep&shy;tion han&shy;dlers and look up those that corres&shy;pond to the type of a thrown excep&shy;tion or for a higher excep&shy;tion level. In our case these are: <code>ThreadAbortException</code>, <code>Exception</code> and <code>object</code> (don’t forget that Excep&shy;tion is essen&shy;ti&shy;ally a data set and our search may end up with any type of excep&shy;tion, even with <code>int</code>). By han&shy;dling <em>all</em> suitable <code>catch</code> blocks, the virtual machine succes&shy;si&shy;vely forwards <code>ThreadAbortException</code> along the entire chain of excep&shy;tion han&shy;dling and enters all <code>finally</code> blocks. In general, the situ&shy;a&shy;tions desc&shy;ribed below are iden&shy;tical:</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1365,7 +1365,7 @@ thread.Abort();
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
 <p >
-Sometimes, we definitely may expect <code>ThreadAbort</code> and  have an understandable desire to handle it. For these cases there is <code>Thread.ResetAbort()</code> method which does what we need: stops forwarding an exception through the chain of handlers, thus making this exception handled:</p>
+Some&shy;times, we defi&shy;ni&shy;tely may expect <code>ThreadAbort</code> and  have an unders&shy;tan&shy;dable desire to handle it. For these cases there is <code>Thread.ResetAbort()</code> method which does what we need: stops forwar&shy;ding an excep&shy;tion through the chain of han&shy;dlers, thus making this excep&shy;tion han&shy;dled:</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1404,19 +1404,19 @@ Catched successfully
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
 <p >
-But should we really use it? And should we be mad at CoreCLR developers because they got rid of this code? Assume you are a user of code and you think it is &laquo;stuck&raquo;. You have a sharp desire to call <code>ThreadAbortException</code>. When you want to terminate a thread, all you really want is that this thread really stops running. Moreover, it rarely happens when an algorithm aborts the thread and leaves it. Normally, it waits for correct termination of operations. Alternatively, it decides that the thread is dead, decrements some internal counters and forgets that there is some multithread processing of some code. You’ll never know which one is worse. Moreover, after many years of being a programmer I still can’t offer a great way to call and handle it. Imagine—you throw <code>ThreadAbort</code> not <em>right away</em> but in any case some time after having understood that the situation is hopeless. So sometimes you hit <code>ThreadAbortException</code> handler and sometimes you miss it: &laquo;stuck code&raquo; may be in fact not stuck but a too long executed one. And in that very moment you wanted to kill it, this code could have started working correctly again,  i.e. exited <code>try-catch(ThreadAbortException) { Thread.ResetAbort(); }</code> block. What will we get in this case? An aborted thread that happened to stuck through no fault of its own. For example, a janitor could have passed by, unplugged the cable and brought the network down. A method was waiting for a timeout and when the janitor has plugged the cable back, everything started working again, but your controlling code had already killed the thread. Is it OK? No. Can we safeguard from this? No. But let’s get back to our idea of legalizing <code>Thread.Abort()</code>: we have thrown a hammer at the thread and now expect the latter to be inevitably aborted, but it may never happen. Firstly, it is not clear how to abort it in this case. Things may be more complicated here: a stuck thread can have logic inside which catches <code>ThreadAbortException</code>, terminates it using <code>ResetAbort</code>, but remains stuck because of broken logic. What’s then? Should we use <code>thread.Interrupt()</code>? It seems like an attempt to bypass a program logic error using brute force methods. Also, I guarantee you will get resource leaks: <code>thread.Interrupt()</code> won’t call <code>catch</code> and <code>finally</code> which means you can’t clean up resources. Your thread will simply disappear and if you are in an adjacent thread you won’t know the references to all resources, allocated to the aborted thread. Also, note that if <code>ThreadAbortException</code> misses <code>catch(ThreadAbortException) { Thread.ResetAbort(); }</code> you will get resource leaks too.</p>
+But should we really use it? And should we be mad at Core&shy;CLR deve&shy;lo&shy;pers because they got rid of this code? Assume you are a user of code and you think it is &laquo;stuck&raquo;. You have a sharp desire to call <code>ThreadAbortException</code>. When you want to termi&shy;nate a thread, all you really want is that this thread really stops running. More&shy;over, it rarely happens when an algo&shy;rithm aborts the thread and leaves it. Normally, it waits for correct termi&shy;na&shy;tion of ope&shy;ra&shy;tions. Alter&shy;na&shy;ti&shy;vely, it decides that the thread is dead, decre&shy;ments some internal coun&shy;ters and forgets that there is some multith&shy;read proces&shy;sing of some code. You’ll never know which one is worse. More&shy;over, after many years of being a prog&shy;rammer I still can’t offer a great way to call and handle it. Imagine—you throw <code>ThreadAbort</code> not <em>right away</em> but in any case some time after having under&shy;stood that the situ&shy;a&shy;tion is hop&shy;eless. So some&shy;times you hit <code>ThreadAbortException</code> han&shy;dler and some&shy;times you miss it: &laquo;stuck code&raquo; may be in fact not stuck but a too long exe&shy;cuted one. And in that very moment you wanted to kill it, this code could have started working correctly again,  i.e. exited <code>try-catch(ThreadAbortException) { Thread.ResetAbort(); }</code> block. What will we get in this case? An aborted thread that happ&shy;ened to stuck through no fault of its own. For example, a janitor could have passed by, unplugged the cable and brought the network down. A method was wai&shy;ting for a timeout and when the janitor has plugged the cable back, everything started working again, but your cont&shy;rol&shy;ling code had already killed the thread. Is it OK? No. Can we safe&shy;guard from this? No. But let’s get back to our idea of lega&shy;li&shy;zing <code>Thread.Abort()</code>: we have thrown a hammer at the thread and now expect the latter to be ine&shy;vi&shy;tably aborted, but it may never happen. Firstly, it is not clear how to abort it in this case. Things may be more comp&shy;li&shy;cated here: a stuck thread can have logic inside which catches <code>ThreadAbortException</code>, termi&shy;nates it using <code>ResetAbort</code>, but remains stuck because of broken logic. What’s then? Should we use <code>thread.Interrupt()</code>? It seems like an attempt to bypass a program logic error using brute force methods. Also, I guarantee you will get reso&shy;urce leaks: <code>thread.Interrupt()</code> won’t call <code>catch</code> and <code>finally</code> which means you can’t clean up reso&shy;urces. Your thread will simply disap&shy;pear and if you are in an adja&shy;cent thread you won’t know the refe&shy;rences to all reso&shy;urces, allo&shy;cated to the aborted thread. Also, note that if <code>ThreadAbortException</code> misses <code>catch(ThreadAbortException) { Thread.ResetAbort(); }</code> you will get reso&shy;urce leaks too.</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
 <p >
-I hope that after having read the information above you will feel some confusion and intention to reread the paragraph. And this would be a good idea that proves you mustn’t use <code>Thread.Abort()</code>  as well as <code>thread.Interrupt();</code>. Both methods make the behavior of your application uncontrolled. They violate the integrity principle, which is the main principle of the .NET Framework.</p>
+I hope that after having read the infor&shy;ma&shy;tion above you will feel some confu&shy;sion and inten&shy;tion to reread the parag&shy;raph. And this would be a good idea that proves you mustn’t use <code>Thread.Abort()</code>  as well as <code>thread.Interrupt();</code>. Both methods make the beh&shy;avior of your appli&shy;ca&shy;tion uncont&shy;rolled. They vio&shy;late the integ&shy;rity prin&shy;ciple, which is the main prin&shy;ciple of the .NET Frame&shy;work.</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
 <p >
-However, to understand why developers introduced this method you should have a look at the .NET Framework source code and find where <code>Thread.ResetAbort()</code> is invoked. Because this method makes <code>thread.Abort()</code> legitimate.</p>
+However, to unders&shy;tand why deve&shy;lo&shy;pers intro&shy;duced this method you should have a look at the .NET Frame&shy;work source code and find where <code>Thread.ResetAbort()</code> is invoked. Because this method makes <code>thread.Abort()</code> legi&shy;ti&shy;mate.</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <div class="paragraph-container">
@@ -1460,7 +1460,7 @@ However, to understand why developers introduced this method you should have a l
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
 <p >
-This example calls some external code and if it was terminated incorrectly with <code>ThreadAbortException</code>, we mark the thread under certain circumstances as non-abortable anymore. In fact, we handle <code>ThreadAbort</code>. Why do we abort <code>Thread.Abort</code> in this case? Because here, we deal with server code which must return correct error codes to a calling party regardless of our errors. A thread abort would prevent a server to return a necessary error code to user, which is absolutely inappropriate. Also, there is a comment about <code>Thread.Abort()</code> during <code>AppDomain.Unload()</code> which is an extreme situation for <code>Thread.Abort</code> as you can’t stop such a process even if you use <code>Thread.ResetAbort</code>. Though it will stop abort handling, it won’t stop the unloading of a thread inside a domain: a thread can’t execute code instructions from the domain being currently unloaded.</p>
+This example calls some external code and if it was termi&shy;nated incor&shy;rectly with <code>ThreadAbortException</code>, we mark the thread under certain circums&shy;tances as non-abor&shy;table anymore. In fact, we handle <code>ThreadAbort</code>. Why do we abort <code>Thread.Abort</code> in this case? Because here, we deal with server code which must return correct error codes to a calling party regard&shy;less of our errors. A thread abort would prevent a server to return a neces&shy;sary error code to user, which is abso&shy;lu&shy;tely inapp&shy;rop&shy;riate. Also, there is a comment about <code>Thread.Abort()</code> during <code>AppDomain.Unload()</code> which is an extreme situ&shy;a&shy;tion for <code>Thread.Abort</code> as you can’t stop such a process even if you use <code>Thread.ResetAbort</code>. Though it will stop abort han&shy;dling, it won’t stop the unlo&shy;a&shy;ding of a thread inside a domain: a thread can’t exe&shy;cute code instr&shy;uc&shy;tions from the domain being currently unlo&shy;aded.</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="paragraph-container">
@@ -1501,7 +1501,7 @@ This example calls some external code and if it was terminated incorrectly with 
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
 <p >
-This is a great example of transfer from unmanaged asynchronous <code>ThreadAbortException</code> to managed <code>HttpException</code> with recording the case to the Performance Counters Log.</p>
+This is a great example of transfer from unma&shy;naged asyn&shy;chronous <code>ThreadAbortException</code> to managed <code>HttpException</code> with recor&shy;ding the case to the Perfor&shy;mance Coun&shy;ters Log.</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="paragraph-container">
@@ -1562,13 +1562,13 @@ This is a great example of transfer from unmanaged asynchronous <code>ThreadAbor
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
 <p >
-You can see an interesting scenario here—to expect a false <code>ThreadAbort</code> (I feel sympathy with CLR and .NET Framework team in  how unbelievably many unusual scenarios they have to handle). This time a scenario is handled in two stages: initially, using an internal handler, we catch <code>ThreadAbortException</code> and then check whether our thread is marked for abort.  If it is not, the <code>ThreadAbortException</code> is false. We should address these scenarios accordingly: catch an exception and handle it. If we get a true <code>ThreadAbort</code>, it will go to an external <code>catch</code> because <code>ThreadAbortException</code> should enter all suitable handlers. If it meets necessary conditions, it will also be handled by removing the <code>ThreadState.AbortRequested</code> flag using the <code>Thread.ResetAbort()</code>.</p>
+You can see an inte&shy;res&shy;ting scenario here—to expect a false <code>ThreadAbort</code> (I feel sympathy with CLR and .NET Frame&shy;work team in  how unbe&shy;li&shy;e&shy;vably many unu&shy;sual scena&shy;rios they have to handle). This time a scenario is han&shy;dled in two stages: ini&shy;ti&shy;ally, using an internal han&shy;dler, we catch <code>ThreadAbortException</code> and then check whether our thread is marked for abort.  If it is not, the <code>ThreadAbortException</code> is false. We should add&shy;ress these scena&shy;rios accor&shy;dingly: catch an excep&shy;tion and handle it. If we get a true <code>ThreadAbort</code>, it will go to an external <code>catch</code> because <code>ThreadAbortException</code> should enter all suitable han&shy;dlers. If it meets neces&shy;sary condi&shy;tions, it will also be han&shy;dled by remo&shy;ving the <code>ThreadState.AbortRequested</code> flag using the <code>Thread.ResetAbort()</code>.</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
 <p >
-In terms of <code>Thread.Abort()</code> calls, all the examples of code in .NET Framework may be rewritten without using it. Just one example for clarity:</p>
+In terms of <code>Thread.Abort()</code> calls, all the examples of code in .NET Frame&shy;work may be rewritten without using it. Just one example for clarity:</p>
 <div class="paragraph-right-side">13</div>
 </div>
 <div class="paragraph-container">
@@ -1629,7 +1629,7 @@ In terms of <code>Thread.Abort()</code> calls, all the examples of code in .NET 
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
 <p >
-Let’s unload AppDomain while executing code that is loaded into it. To do this we create an unnatural, yet interesting situation in terms of running code. Here we have two threads: one is <code>main</code> and the other one is created to get <code>ThreadAbortException</code>. In the <code>main</code> thread, we create a new domain and start a new thread in it. This thread must go to the <code>main</code> domain, so that child domain methods remain just in Stack Trace. Then, the <code>main</code> domain unloads the child one:</p>
+Let’s unload App&shy;Domain while exe&shy;cu&shy;ting code that is loaded into it. To do this we create an unna&shy;tural, yet inte&shy;res&shy;ting situ&shy;a&shy;tion in terms of running code. Here we have two threads: one is <code>main</code> and the other one is created to get <code>ThreadAbortException</code>. In the <code>main</code> thread, we create a new domain and start a new thread in it. This thread must go to the <code>main</code> domain, so that child domain methods remain just in Stack Trace. Then, the <code>main</code> domain unloads the child one:</p>
 <div class="paragraph-right-side">15</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1698,43 +1698,43 @@ Let’s unload AppDomain while executing code that is loaded into it. To do this
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
 <p >
-Exciting things happen here. The code that unloads a domain also looks up methods called in this domain that didn’t finish their work yet, including those in the depth of the method call stack, and invokes <code>ThreadAbortException</code> on these threads. This is important, yet not obvious. If a domain is unloaded, it’s impossible to return to a method from which the main domain method is called, but which exists in the unloaded domain. In other words, <code>AppDomain.Unload</code> may get rid of those threads that run code from other domains. In this case, it is not possible to abort <code>Thread.Abort</code>: you can’t execute the code of an unloaded domain which means <code>Thread.Abort</code> will finish its work even if you call <code>Thread.ResetAbort</code>.</p>
+Exci&shy;ting things happen here. The code that unloads a domain also looks up methods called in this domain that didn’t finish their work yet, inclu&shy;ding those in the depth of the method call stack, and invokes <code>ThreadAbortException</code> on these threads. This is impor&shy;tant, yet not obvious. If a domain is unlo&shy;aded, it’s impos&shy;sible to return to a method from which the main domain method is called, but which exists in the unlo&shy;aded domain. In other words, <code>AppDomain.Unload</code> may get rid of those threads that run code from other domains. In this case, it is not possible to abort <code>Thread.Abort</code>: you can’t exe&shy;cute the code of an unlo&shy;aded domain which means <code>Thread.Abort</code> will finish its work even if you call <code>Thread.ResetAbort</code>.</p>
 <div class="paragraph-right-side">16</div>
 </div>
 <h5 id="conclusions-on-threadabortexception">Conclusions on ThreadAbortException</h5>
 <ul>
 <li>
 <p >
-It’s an asynchronous exception, therefore it can appear anywhere in your code (though you should make efforts for it).</p>
+It’s an asyn&shy;chronous excep&shy;tion, the&shy;re&shy;fore it can appear anywhere in your code (though you should make efforts for it).</p>
 </li>
 <li>
 <p >
-Normally, code handles only expected errors, such as a file access error, a string parsing error, etc. An asynchronous exception (which can appear anywhere) creates a scenario when <code>try-catch</code> may not be handled: you can’t be ready for ThreadAbort at every place in an application. It turns out this exception will cause resource leaks, anyway.</p>
+Normally, code han&shy;dles only expected errors, such as a file access error, a string parsing error, etc. An asyn&shy;chronous excep&shy;tion (which can appear anywhere) creates a scenario when <code>try-catch</code> may not be han&shy;dled: you can’t be ready for Thread&shy;Abort at every place in an appli&shy;ca&shy;tion. It turns out this excep&shy;tion will cause reso&shy;urce leaks, anyway.</p>
 </li>
 <li>
 <p >
-A thread may be aborted because of some domain unloading. If there are calls of unloaded domain methods in Stack Trace of a thread, this thread will get <code>ThreadAbortException</code> without <code>ResetAbort</code>.</p>
+A thread may be aborted because of some domain unlo&shy;a&shy;ding. If there are calls of unlo&shy;aded domain methods in Stack Trace of a thread, this thread will get <code>ThreadAbortException</code> without <code>ResetAbort</code>.</p>
 </li>
 <li>
 <p >
-In general, there shouldn’t be situations when you need to call <code>Thread.Abort()</code> as the result is almost always unpredictable.</p>
+In general, there shouldn’t be situ&shy;a&shy;tions when you need to call <code>Thread.Abort()</code> as the result is almost always unpre&shy;dic&shy;table.</p>
 </li>
 <li>
 <p >
-CoreCLR doesn’t have a <code>Thread.Abort()</code> manual call option: it was eliminated from the class. But it doesn’t mean you can’t get it.</p>
+Core&shy;CLR doesn’t have a <code>Thread.Abort()</code> manual call option: it was eli&shy;mi&shy;nated from the class. But it doesn’t mean you can’t get it.</p>
 </li>
 </ul>
 <h4 id="executionengineexception">ExecutionEngineException</h4>
 <p >
-This exception is marked as <code>Obsolete</code> and has the following comment:</p>
+This excep&shy;tion is marked as <code>Obsolete</code> and has the follo&shy;wing comment:</p>
 <blockquote>
 <p >
-This type previously indicated an unspecified fatal error in the runtime. The runtime no longer raises this exception so this type is obsolete</p>
+This type previously indi&shy;cated an unspe&shy;ci&shy;fied fatal error in the runtime. The runtime no longer raises this excep&shy;tion so this type is obso&shy;lete</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
 <p >
-And this is not true. I guess the author of this comment would really want this to become true. However, let’s get back to the example of an exception in <code>FirstChanceException</code> and see it’s not true:</p>
+And this is not true. I guess the author of this comment would really want this to become true. However, let’s get back to the example of an excep&shy;tion in <code>FirstChanceException</code> and see it’s not true:</p>
 <div class="paragraph-right-side">17</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1756,43 +1756,43 @@ And this is not true. I guess the author of this comment would really want this 
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
 <p >
-The execution of this code will cause <code>ExecutionEngineException</code>, though I would expect the <code>ArgumentOutOfRangeException</code> by Unhandled Exception from the <code>throw new Exception(&quot;Hello!&quot;)</code> instruction.  Maybe this seemed strange to the core developers, and they thought it would be more correct to throw <code>ExecutionEngineException</code>.</p>
+The exe&shy;cu&shy;tion of this code will cause <code>ExecutionEngineException</code>, though I would expect the <code>ArgumentOutOfRangeException</code> by Unh&shy;andled Excep&shy;tion from the <code>throw new Exception(&quot;Hello!&quot;)</code> instr&shy;uc&shy;tion.  Maybe this seemed strange to the core deve&shy;lo&shy;pers, and they thought it would be more correct to throw <code>ExecutionEngineException</code>.</p>
 <div class="paragraph-right-side">18</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
 <p >
-Another simple way to get <code>ExecutionEngineException</code> is to  customize marshaling to the unsafe world incorrectly. If you get wrong sizes of types or pass more than it is necessary, ruining, for example, the stack of a thread, you will get <code>ExecutionEngineException</code>. This is expectable, as here the CLR entered the state which it finds inconsistent. And it doesn’t know how to recover consistency. As a result, you get <code>ExecutionEngineException</code>.</p>
+Another simple way to get <code>ExecutionEngineException</code> is to  custo&shy;mize marshaling to the unsafe world incor&shy;rectly. If you get wrong sizes of types or pass more than it is neces&shy;sary, rui&shy;ning, for example, the stack of a thread, you will get <code>ExecutionEngineException</code>. This is expec&shy;table, as here the CLR entered the state which it finds incon&shy;sis&shy;tent. And it doesn’t know how to recover consis&shy;tency. As a result, you get <code>ExecutionEngineException</code>.</p>
 <div class="paragraph-right-side">19</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
 <p >
-Another thing that needs special attention is the diagnostics of <code>ExecutionEngineException</code>. Why is this exception thrown? If it suddenly appeared in your code, answer several questions.</p>
+Another thing that needs special atten&shy;tion is the diag&shy;nos&shy;tics of <code>ExecutionEngineException</code>. Why is this excep&shy;tion thrown? If it suddenly appe&shy;ared in your code, answer several ques&shy;tions.</p>
 <div class="paragraph-right-side">20</div>
 </div>
 <ul>
 <li>
 <p >
-Does your application use unsafe libraries? Is it you or third-party who use them? First, try to find where this error occurs in the application. If the code goes to the unsafe world and gets <code>ExecutionEngineException</code> there, carefully check the convergence of methods signatures both in your code and in imported one. Remember that if modules written in Delphi or other variants of Pascal are imported, arguments should be reversed (configured in <code>DllImport</code>: <code>CallingConvention.StdCall</code>).</p>
+Does your appli&shy;ca&shy;tion use unsafe libra&shy;ries? Is it you or third-party who use them? First, try to find where this error occurs in the appli&shy;ca&shy;tion. If the code goes to the unsafe world and gets <code>ExecutionEngineException</code> there, care&shy;fully check the conver&shy;gence of methods signa&shy;tures both in your code and in imported one. Remember that if modules written in Delphi or other vari&shy;ants of Pascal are imported, argu&shy;ments should be reversed (confi&shy;gured in <code>DllImport</code>: <code>CallingConvention.StdCall</code>).</p>
 </li>
 <li>
 <p >
-Are you subscribed to <code>FirstChanceException</code>? Its code might cause an exception. In this case, just wrap a handler in <code>try-catch(Exception)</code> and write events to the error log.</p>
+Are you subs&shy;cribed to <code>FirstChanceException</code>? Its code might cause an excep&shy;tion. In this case, just wrap a han&shy;dler in <code>try-catch(Exception)</code> and write events to the error log.</p>
 </li>
 <li>
 <p >
-Is it possible that your application is built partially for one platform and partially for another? Try to clear the nuget packages cache and rebuild the application from scratch with obj/bin folders emptied manually.</p>
+Is it possible that your appli&shy;ca&shy;tion is built parti&shy;ally for one plat&shy;form and parti&shy;ally for another? Try to clear the nuget packages cache and rebuild the appli&shy;ca&shy;tion from scratch with obj/bin folders emptied manu&shy;ally.</p>
 </li>
 <li>
 <p >
-Is there a problem with the framework itself? This may happen in the early versions of .NET Framework 4.0.  In this case, test a separate piece of code that causes an error in a newer version of the framework.</p>
+Is there a problem with the frame&shy;work itself? This may happen in the early versions of .NET Frame&shy;work 4.0.  In this case, test a sepa&shy;rate piece of code that causes an error in a newer version of the frame&shy;work.</p>
 </li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
 <p >
-In general, don’t be afraid of this exception: it’s so rare that you may even forget about it till you meet it next time.</p>
+In general, don’t be afraid of this excep&shy;tion: it’s so rare that you may even forget about it till you meet it next time.</p>
 <div class="paragraph-right-side">21</div>
 </div>
 <h4 id="nullreferenceexception">NullReferenceException</h4>
@@ -1814,13 +1814,13 @@ TODO</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
 <p >
-Once the platform was established and gets popular, programmers started massively migrating from C/C++ and MFC (Microsoft Foundation Classes) to more easy-to-develop environments. Besides .NET Framework, those environments included Qt, Java and С++ Builder—the mainstream was a movement towards virtualized execution of application code. Eventually, the thoughtfully designed .NET Framework started filling up its niche. Matured over the years, the platform turned from a shy newcomer into a key player. If previously we mostly had to deal with far too many components written in COM/ATL/ActiveX (Do you remember dragging COM/ActiveX components onto icon forms in Borland C++ Builder?), now life became much easier. Today the corresponding technologies are <em>quite</em> rare to worry about and there is a chance to make them slightly uncomfortable so that people get rid of them and use state-of-the-art .NET Framework. We perceive old technologies that still exist and do well as archaic, forgotten, "faulty”, and old-fashioned. That’s why it is possible to make another step towards a closed sandbox: make it more impenetrable, more managed.</p>
+Once the plat&shy;form was estab&shy;lished and gets popular, prog&shy;ram&shy;mers started massi&shy;vely migra&shy;ting from C/C++ and MFC (Micro&shy;soft Foun&shy;da&shy;tion Classes) to more easy-to-develop envi&shy;ron&shy;ments. Besides .NET Frame&shy;work, those envi&shy;ron&shy;ments included Qt, Java and С++ Builder—the mains&shy;tream was a move&shy;ment towards virtu&shy;a&shy;lized exe&shy;cu&shy;tion of appli&shy;ca&shy;tion code. Even&shy;tu&shy;ally, the thoughtfully designed .NET Frame&shy;work started filling up its niche. Matured over the years, the plat&shy;form turned from a shy newcomer into a key player. If previously we mostly had to deal with far too many compo&shy;nents written in COM/ATL/Active&shy;X (Do you remember drag&shy;ging COM/Active&shy;X compo&shy;nents onto icon forms in Borland C++ Builder?), now life became much easier. Today the corres&shy;pon&shy;ding tech&shy;no&shy;lo&shy;gies are <em>quite</em> rare to worry about and there is a chance to make them slightly uncom&shy;for&shy;table so that people get rid of them and use state-of-the-art .NET Frame&shy;work. We perceive old tech&shy;no&shy;lo&shy;gies that still exist and do well as archaic, forgotten, "faulty”, and old-fashioned. That’s why it is possible to make another step towards a closed sandbox: make it more impe&shy;net&shy;rable, more managed.</p>
 <div class="paragraph-right-side">22</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
 <p >
-One of these steps is to introduce the notion of <code>Corrupted State Exceptions</code> which declares some exceptional situations illegitimate. Let’s see which exceptions are these and trace the history once again based on one of them – <code>AccessViolationException</code>:</p>
+One of these steps is to intro&shy;duce the notion of <code>Corrupted State Exceptions</code> which declares some excep&shy;ti&shy;onal situ&shy;a&shy;tions ille&shy;gi&shy;ti&shy;mate. Let’s see which excep&shy;tions are these and trace the history once again based on one of them – <code>AccessViolationException</code>:</p>
 <div class="paragraph-right-side">23</div>
 </div>
 <div class="paragraph-container">
@@ -1860,7 +1860,7 @@ BOOL IsProcessCorruptedStateException(DWORD dwExceptionCode, BOOL fCheckForSO <s
 </pre></div>
 </div>
 <p >
-Let’s look at the description of our exceptional situations:</p>
+Let’s look at the desc&shy;rip&shy;tion of our excep&shy;ti&shy;onal situ&shy;a&shy;tions:</p>
 <div class="row">
 <div class="offset-0 col-12">
 <table>
@@ -1872,7 +1872,7 @@ Error code</p>
 </th>
 <th>
 <p >
-Description</p>
+Desc&shy;rip&shy;tion</p>
 </th>
 </tr>
 </thead>
@@ -1884,7 +1884,7 @@ STATUS_ACCESS_VIOLATION</p>
 </td>
 <td>
 <p >
-A quite frequent error when you try to work with a memory range without access rights. Though memory is linear in terms of a process, it’s not possible to work with its entire range. You can use only those "portions” allocated by an operating system or ranges that you have access rights to (there are ranges owned by an operating system exclusively or available for code execution, yet not for reading)</p>
+A quite frequent error when you try to work with a memory range without access rights. Though memory is linear in terms of a process, it’s not possible to work with its entire range. You can use only those "portions” allo&shy;cated by an ope&shy;ra&shy;ting system or ranges that you have access rights to (there are ranges owned by an ope&shy;ra&shy;ting system exclu&shy;si&shy;vely or ava&shy;ilable for code exe&shy;cu&shy;tion, yet not for rea&shy;ding)</p>
 </td>
 </tr>
 <tr>
@@ -1894,7 +1894,7 @@ STATUS_STACK_OVERFLOW</p>
 </td>
 <td>
 <p >
-Everybody knows this error: there is not enough memory on the thread stack to call another method</p>
+Every&shy;body knows this error: there is not enough memory on the thread stack to call another method</p>
 </td>
 </tr>
 <tr>
@@ -1904,7 +1904,7 @@ EXCEPTION_ILLEGAL_INSTRUCTION</p>
 </td>
 <td>
 <p >
-Another code, read by a processor from a method body, wasn’t recognized as an instruction</p>
+Another code, read by a processor from a method body, wasn’t recog&shy;nized as an instr&shy;uc&shy;tion</p>
 </td>
 </tr>
 <tr>
@@ -1914,7 +1914,7 @@ EXCEPTION_IN_PAGE_ERROR</p>
 </td>
 <td>
 <p >
-A thread attempted to work with a non-existing memory page</p>
+A thread attempted to work with a non-exis&shy;ting memory page</p>
 </td>
 </tr>
 <tr>
@@ -1924,7 +1924,7 @@ EXCEPTION_INVALID_DISPOSITION</p>
 </td>
 <td>
 <p >
-An exception handling mechanism returned a wrong handler. Such an exception should never appear in programs written in high-level languages (e.g. С++)</p>
+An excep&shy;tion han&shy;dling mech&shy;anism returned a wrong han&shy;dler. Such an excep&shy;tion should never appear in prog&shy;rams written in high-level langu&shy;ages (e.g. С++)</p>
 </td>
 </tr>
 <tr>
@@ -1934,7 +1934,7 @@ EXCEPTION_NONCONTINUABLE_EXCEPTION</p>
 </td>
 <td>
 <p >
-A thread attempted to continue the execution of a program after an exception prohibited the execution. This is not about <code>catch/fault/finally</code> blocks. It's rather about something like exception filters that allowed to fix an error (which caused an exception) and then tried to execute that code again</p>
+A thread attempted to continue the exe&shy;cu&shy;tion of a program after an excep&shy;tion pr&shy;oh&shy;ibited the exe&shy;cu&shy;tion. This is not about <code>catch/fault/finally</code> blocks. It's rather about something like excep&shy;tion filters that allowed to fix an error (which caused an excep&shy;tion) and then tried to exe&shy;cute that code again</p>
 </td>
 </tr>
 <tr>
@@ -1944,7 +1944,7 @@ EXCEPTION_PRIV_INSTRUCTION</p>
 </td>
 <td>
 <p >
-An attempt to execute a privileged instruction of a processor</p>
+An attempt to exe&shy;cute a privi&shy;leged instr&shy;uc&shy;tion of a processor</p>
 </td>
 </tr>
 <tr>
@@ -1954,7 +1954,7 @@ STATUS_UNWIND_CONSOLIDATE</p>
 </td>
 <td>
 <p >
-An exception connected with the stack unwind, which is beyond the scope of our discussion</p>
+An excep&shy;tion connected with the stack unwind, which is beyond the scope of our discus&shy;sion</p>
 </td>
 </tr>
 </tbody>
@@ -1964,27 +1964,27 @@ An exception connected with the stack unwind, which is beyond the scope of our d
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
 <p >
-Note that only two of these exceptions are worth catching: <code>STATUS_ACCESS_VIOLATION</code> and <code>STATUS_STACK_OVERFLOW</code>. Other errors are exceptional even for exceptional situations. They are rather fatal errors and we can’t consider them. So, let’s discuss only these two errors in detail.</p>
+Note that only two of these excep&shy;tions are worth catching: <code>STATUS_ACCESS_VIOLATION</code> and <code>STATUS_STACK_OVERFLOW</code>. Other errors are excep&shy;ti&shy;onal even for excep&shy;ti&shy;onal situ&shy;a&shy;tions. They are rather fatal errors and we can’t consider them. So, let’s discuss only these two errors in detail.</p>
 <div class="paragraph-right-side">25</div>
 </div>
 <h4 id="accessviolationexception">AccessViolationException</h4>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
 <p >
-This exception is bad news which you don’t want to get. But if you get it, it’s not clear what to do with it. <code>AccessViolationException</code> indicates that you &laquo;missed&raquo; a memory range allocated for an application and is thrown when you try to read from or write to a protected region of memory. The word "protected” rather denotes an attempt to work with a range of memory which hasn’t been allocated yet or which has been already cleared. Here I am not talking about a garbage collector that allocates and clears memory. It just assigns the chunks of allocated memory for your and its own needs. Memory has a layered structure in a way. First, there is the layer of memory management by a garbage collector. Next is the layer used by CoreCLR libraries to manage the allocation of memory which is followed by the layer used by OS to manage memory allocation from the pool of available fragments of linear address space. Thus, this exception appears when an application misses its memory range and attempts to work with a region which isn’t yet allocated or intended for this application. In this situation you don’t have many variants for analysis.</p>
+This excep&shy;tion is bad news which you don’t want to get. But if you get it, it’s not clear what to do with it. <code>AccessViolationException</code> indi&shy;cates that you &laquo;missed&raquo; a memory range allo&shy;cated for an appli&shy;ca&shy;tion and is thrown when you try to read from or write to a protected region of memory. The word "protected” rather denotes an attempt to work with a range of memory which hasn’t been allo&shy;cated yet or which has been already cleared. Here I am not talking about a garbage collector that allo&shy;cates and clears memory. It just assigns the chunks of allo&shy;cated memory for your and its own needs. Memory has a layered struc&shy;ture in a way. First, there is the layer of memory mana&shy;ge&shy;ment by a garbage collector. Next is the layer used by Core&shy;CLR libra&shy;ries to manage the allo&shy;ca&shy;tion of memory which is followed by the layer used by OS to manage memory allo&shy;ca&shy;tion from the pool of ava&shy;ilable frag&shy;ments of linear add&shy;ress space. Thus, this excep&shy;tion appears when an appli&shy;ca&shy;tion misses its memory range and attempts to work with a region which isn’t yet allo&shy;cated or intended for this appli&shy;ca&shy;tion. In this situ&shy;a&shy;tion you don’t have many vari&shy;ants for analysis.</p>
 <div class="paragraph-right-side">26</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">27</div>
 <p >
-– If <code>StackTrace</code> goes deep into CLR, you are very unlucky, because it’s probably a core error. However, this almost never happens. You can bypass the error by updating the core version or act in another way.
-– If <code>StackTrace</code> goes into the unsafe code of some library, you either got marshaling wrong or there is a serious error in the unsafe library. Check method arguments carefully: it’s possible that native method arguments have another bit size, another order or just another size. Check that structures are passed by value or by reference where appropriate.</p>
+– If <code>StackTrace</code> goes deep into CLR, you are very unlucky, because it’s probably a core error. However, this almost never happens. You can bypass the error by upda&shy;ting the core version or act in another way.
+– If <code>StackTrace</code> goes into the unsafe code of some library, you either got marshaling wrong or there is a serious error in the unsafe library. Check method argu&shy;ments care&shy;fully: it’s possible that native method argu&shy;ments have another bit size, another order or just another size. Check that struc&shy;tures are passed by value or by refe&shy;rence where approp&shy;riate.</p>
 <div class="paragraph-right-side">27</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
 <p >
-To catch this exception at the moment you should show a JIT-compiler it’s really necessary. Otherwise, it won’t be caught and you will get a broken application. However, you should catch this exception only if you can handle it properly: it may indicate a leak of memory if it was allocated by an unsafe method between calling this method and throwing <code>AccessViolationException</code>. At this point, an application may still function but its work may be incorrect because if you catch an error of a method call you will definitely try to call this method again. In this case, nobody knows what may go wrong: you can’t know how the state of an application was violated previously. However, if you still want to catch this exception, pay attention to the table of possible options for doing this in different versions of .NET Framework:</p>
+To catch this excep&shy;tion at the moment you should show a JIT-compiler it’s really neces&shy;sary. Othe&shy;rwise, it won’t be caught and you will get a broken appli&shy;ca&shy;tion. However, you should catch this excep&shy;tion only if you can handle it properly: it may indi&shy;cate a leak of memory if it was allo&shy;cated by an unsafe method between calling this method and throwing <code>AccessViolationException</code>. At this point, an appli&shy;ca&shy;tion may still function but its work may be incor&shy;rect because if you catch an error of a method call you will defi&shy;ni&shy;tely try to call this method again. In this case, nobody knows what may go wrong: you can’t know how the state of an appli&shy;ca&shy;tion was vio&shy;lated previously. However, if you still want to catch this excep&shy;tion, pay atten&shy;tion to the table of possible options for doing this in diffe&shy;rent versions of .NET Frame&shy;work:</p>
 <div class="paragraph-right-side">28</div>
 </div>
 <div class="row">
@@ -1994,11 +1994,11 @@ To catch this exception at the moment you should show a JIT-compiler it’s real
 <tr>
 <th>
 <p >
-.NET Framework version</p>
+.NET Frame&shy;work version</p>
 </th>
 <th>
 <p >
-AccessViolationExeception</p>
+Access&shy;Violation&shy;Exeception</p>
 </th>
 </tr>
 </thead>
@@ -2010,7 +2010,7 @@ AccessViolationExeception</p>
 </td>
 <td>
 <p >
-NullReferenceException</p>
+Null&shy;Reference&shy;Exception</p>
 </td>
 </tr>
 <tr>
@@ -2020,7 +2020,7 @@ NullReferenceException</p>
 </td>
 <td>
 <p >
-AccessViolation can be caught</p>
+Access&shy;Violation can be caught</p>
 </td>
 </tr>
 <tr>
@@ -2030,7 +2030,7 @@ AccessViolation can be caught</p>
 </td>
 <td>
 <p >
-AccessViolation can be caught, but an adjustment is needed</p>
+Access&shy;Violation can be caught, but an adjust&shy;ment is needed</p>
 </td>
 </tr>
 <tr>
@@ -2040,7 +2040,7 @@ AccessViolation can be caught, but an adjustment is needed</p>
 </td>
 <td>
 <p >
-AccessViolation <em>can’t</em> be caught</p>
+Access&shy;Violation <em>can’t</em> be caught</p>
 </td>
 </tr>
 </tbody>
@@ -2050,53 +2050,53 @@ AccessViolation <em>can’t</em> be caught</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">29</div>
 <p >
-In other words, if you have a very old application, working under .NET Framework 1.0, <del>show it to me</del> you will get NRE which will be a sort of deception: you passed a pointer with a value greater than zero and got <code>NullReferenceException</code>. However, I think this behavior is justified: if you are in the world of managed code, you don’t want to learn the error types of unmanaged code, and NRE—which is essentially "a bad pointer to an object”  in the world of .NET—is suitable here. However, things are not that simple. Users needed this type of exception in real life and it was introduced in .NET Framework 2.0. For years this was an exception you can catch. Then, it lost this capability, but a special structure appeared that allowed activating the catch option. This sequence of the CLR team decisions at every stage looks justified. See it for yourself:</p>
+In other words, if you have a very old appli&shy;ca&shy;tion, working under .NET Frame&shy;work 1.0, <del>show it to me</del> you will get NRE which will be a sort of decep&shy;tion: you passed a pointer with a value greater than zero and got <code>NullReferenceException</code>. However, I think this beh&shy;avior is justi&shy;fied: if you are in the world of managed code, you don’t want to learn the error types of unma&shy;naged code, and NRE—which is essen&shy;ti&shy;ally "a bad pointer to an object”  in the world of .NET—is suitable here. However, things are not that simple. Users needed this type of excep&shy;tion in real life and it was intro&shy;duced in .NET Frame&shy;work 2.0. For years this was an excep&shy;tion you can catch. Then, it lost this capa&shy;bi&shy;lity, but a special struc&shy;ture appe&shy;ared that allowed acti&shy;va&shy;ting the catch option. This sequ&shy;ence of the CLR team deci&shy;sions at every stage looks justi&shy;fied. See it for your&shy;self:</p>
 <div class="paragraph-right-side">29</div>
 </div>
 <ul>
 <li>
 <p >
-<code>1.0</code> Missing allocated memory ranges should be an exceptional situation because if an application works with an address it got it from some place. In the managed world this place is the <code>new</code> operator. In the unmanaged world, every piece of code can be the place for such an error. Though these two exceptions are opposed in terms of essence (NRE works with an uninitialized pointer and AVE works with an incorrectly initialized pointer), incorrectly initialized pointers don’t exist from the .NET ideology point of view. Both cases can be reduced to an incorrectly initialized pointer. So, let’s do it and throw <code>NullReferenceException</code> in both cases.</p>
+<code>1.0</code> Missing allo&shy;cated memory ranges should be an excep&shy;ti&shy;onal situ&shy;a&shy;tion because if an appli&shy;ca&shy;tion works with an add&shy;ress it got it from some place. In the managed world this place is the <code>new</code> ope&shy;rator. In the unma&shy;naged world, every piece of code can be the place for such an error. Though these two excep&shy;tions are opposed in terms of essence (NRE works with an uni&shy;ni&shy;ti&shy;a&shy;lized pointer and AVE works with an incor&shy;rectly ini&shy;ti&shy;a&shy;lized pointer), incor&shy;rectly ini&shy;ti&shy;a&shy;lized poin&shy;ters don’t exist from the .NET ide&shy;o&shy;logy point of view. Both cases can be reduced to an incor&shy;rectly ini&shy;ti&shy;a&shy;lized pointer. So, let’s do it and throw <code>NullReferenceException</code> in both cases.</p>
 </li>
 <li>
 <p >
-<code>2.0</code> During the early stages of .NET Framework existence it turned out that there is more code which is inherited via COM libraries than native code: there is a huge code base of commercial components for networking, UI, DB, and other subsystems. It means that the possibility of getting <code>AccessViolationException</code> exactly is real: the wrong diagnostics of a problem can make it more expensive to catch. Therefore, <code>AccessViolationException</code> was introduced in .NET Framework.</p>
+<code>2.0</code> During the early stages of .NET Frame&shy;work exis&shy;tence it turned out that there is more code which is inhe&shy;rited via COM libra&shy;ries than native code: there is a huge code base of commer&shy;cial compo&shy;nents for networ&shy;king, UI, DB, and other subsystems. It means that the possi&shy;bi&shy;lity of getting <code>AccessViolationException</code> exactly is real: the wrong diag&shy;nos&shy;tics of a problem can make it more expen&shy;sive to catch. The&shy;re&shy;fore, <code>AccessViolationException</code> was intro&shy;duced in .NET Frame&shy;work.</p>
 </li>
 <li>
 <p >
-<code>4.0</code> .NET Framework took hold and squeezed low-level programming languages. The number of COM components decreased sharply: almost all major tasks are solved within the framework already and working with unsafe code is treated as something incorrect. In these conditions we can get back to the ideology, introduced in the framework from the very beginning: .NET is for .NET only. Unsafe code is not a norm but a least-evil state; therefore catching <code>AccessViolationException</code> contradicts the ideology of the “framework as a platform” notion, i.e. of a full-fledged simulated sandbox with its own rules. However, we still use this platform and have to catch this exception in many cases: we introduce a special catch mode only if a corresponding configuration is used.</p>
+<code>4.0</code> .NET Frame&shy;work took hold and sq&shy;ueezed low-level prog&shy;ram&shy;ming langu&shy;ages. The number of COM compo&shy;nents decre&shy;ased sharply: almost all major tasks are solved within the frame&shy;work already and working with unsafe code is treated as something incor&shy;rect. In these condi&shy;tions we can get back to the ide&shy;o&shy;logy, intro&shy;duced in the frame&shy;work from the very begin&shy;ning: .NET is for .NET only. Unsafe code is not a norm but a least-evil state; the&shy;re&shy;fore catching <code>AccessViolationException</code> cont&shy;ra&shy;dicts the ide&shy;o&shy;logy of the “frame&shy;work as a plat&shy;form” notion, i.e. of a full-fledged simu&shy;lated sandbox with its own rules. However, we still use this plat&shy;form and have to catch this excep&shy;tion in many cases: we intro&shy;duce a special catch mode only if a corres&shy;pon&shy;ding confi&shy;gu&shy;ra&shy;tion is used.</p>
 </li>
 <li>
 <p >
-<code>.NET Core</code> The dream of the CLR team has come true: working with unsafe code beyond the law in .NET anymore, and therefore the existence of <code>AccessViolationException</code> is not legitimate even at the configuration level. .NET is mature enough to make its own rules. Now the existence of this exception in an application will crash it. That’s why any unsafe code, i.e. CLR itself, must be safe in terms of this exception. If it appears in an unsafe library, nobody will use it. It means that developers writing third-party components in unsafe languages should be careful and handle this exception on their side.</p>
+<code>.NET Core</code> The dream of the CLR team has come true: working with unsafe code beyond the law in .NET anymore, and the&shy;re&shy;fore the exis&shy;tence of <code>AccessViolationException</code> is not legi&shy;ti&shy;mate even at the confi&shy;gu&shy;ra&shy;tion level. .NET is mature enough to make its own rules. Now the exis&shy;tence of this excep&shy;tion in an appli&shy;ca&shy;tion will crash it. That’s why any unsafe code, i.e. CLR itself, must be safe in terms of this excep&shy;tion. If it appears in an unsafe library, nobody will use it. It means that deve&shy;lo&shy;pers writing third-party compo&shy;nents in unsafe langu&shy;ages should be careful and handle this excep&shy;tion on their side.</p>
 </li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">30</div>
 <p >
-This is how we can follow up how .NET has become a platform using the example of one exception: from playing by imposed rules to establishing its own rules.</p>
+This is how we can follow up how .NET has become a plat&shy;form using the example of one excep&shy;tion: from playing by imposed rules to estab&shy;lishing its own rules.</p>
 <div class="paragraph-right-side">30</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">31</div>
 <p >
-With all things said I should only show how to activate the handling of this exception in a particular method in <code>4.0+</code>. You should:</p>
+With all things said I should only show how to acti&shy;vate the han&shy;dling of this excep&shy;tion in a parti&shy;cular method in <code>4.0+</code>. You should:</p>
 <div class="paragraph-right-side">31</div>
 </div>
 <ul>
 <li>
 <p >
-add the following code to the <code>configuration/runtime</code> section:  <code>&lt;legacyCorruptedStateExceptionsPolicy enabled=&quot;true|false&quot;/&gt;</code></p>
+add the follo&shy;wing code to the <code>configuration/runtime</code> section:  <code>&lt;legacyCorruptedStateExceptionsPolicy enabled=&quot;true|false&quot;/&gt;</code></p>
 </li>
 <li>
 <p >
-add two attributes for each method where it is <em>necessary</em> to handle <code>AccessViolationException</code>: <code>HandleProcessCorruptedStateExceptions</code> and <code>SecurityCritical</code>. These attributes allow activating the handling of Corrupted State Exceptions for <em>particular</em> methods only. This procedure is particularly appropriate as you should be sure that you want to handle these exceptions and should know where: sometimes it is more appropriate to bring an application down.</p>
+add two attri&shy;butes for each method where it is <em>necessary</em> to handle <code>AccessViolationException</code>: <code>HandleProcessCorruptedStateExceptions</code> and <code>SecurityCritical</code>. These attri&shy;butes allow acti&shy;va&shy;ting the han&shy;dling of Corrupted State Excep&shy;tions for <em>particular</em> methods only. This proce&shy;dure is parti&shy;cu&shy;larly approp&shy;riate as you should be sure that you want to handle these excep&shy;tions and should know where: some&shy;times it is more approp&shy;riate to bring an appli&shy;ca&shy;tion down.</p>
 </li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">32</div>
 <p >
-Let’s look at the following code to see the activating of the <code>CSE</code> handler and the example of a trivial handling:</p>
+Let’s look at the follo&shy;wing code to see the acti&shy;va&shy;ting of the <code>CSE</code> han&shy;dler and the example of a trivial han&shy;dling:</p>
 <div class="paragraph-right-side">32</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2122,19 +2122,19 @@ Let’s look at the following code to see the activating of the <code>CSE</code>
 <div class="paragraph-container">
 <div class="paragraph-left-side">33</div>
 <p >
-It is the last type of exception we should talk about. It appears when a memory array allocated for the stack runs out. We already discussed the structure of the stack in the corresponding chapter (<a href="./ThreadStack.html">Thread stack</a>). So, here we will discuss only the error itself.</p>
+It is the last type of excep&shy;tion we should talk about. It appears when a memory array allo&shy;cated for the stack runs out. We already discussed the struc&shy;ture of the stack in the corres&shy;pon&shy;ding chapter (<a href="./ThreadStack.html">Thread stack</a>). So, here we will discuss only the error itself.</p>
 <div class="paragraph-right-side">33</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">34</div>
 <p >
-When there is not enough memory for the thread stack (or the next memory range is occupied and we can’t allocate the next page of virtual memory) or a thread used the allowed memory range, there is an attempt to access the address space which is called Guard page. This range is actually a trap and doesn’t take any physical memory. Instead of real writing or reading, a processor calls a special abort which should request a new memory range from an OS to accommodate the growth of the stack. If the absolute maximum value is reached the OS generates <code>STATUS_STACK_OVERFLOW</code> exception instead of allocating a new range. This exception, forwarded in .NET via the <code>Structured Exception Handling</code> mechanism, destroys the current thread as inconsistent.</p>
+When there is not enough memory for the thread stack (or the next memory range is occu&shy;pied and we can’t allo&shy;cate the next page of virtual memory) or a thread used the allowed memory range, there is an attempt to access the add&shy;ress space which is called Guard page. This range is actu&shy;ally a trap and doesn’t take any physical memory. Instead of real writing or rea&shy;ding, a processor calls a special abort which should request a new memory range from an OS to accom&shy;mo&shy;date the growth of the stack. If the abso&shy;lute maximum value is reached the OS gene&shy;rates <code>STATUS_STACK_OVERFLOW</code> excep&shy;tion instead of allo&shy;ca&shy;ting a new range. This excep&shy;tion, forwarded in .NET via the <code>Structured Exception Handling</code> mech&shy;anism, dest&shy;roys the current thread as incon&shy;sis&shy;tent.</p>
 <div class="paragraph-right-side">34</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">35</div>
 <p >
-Note that although this exception is <code>Corrupted State Exception</code>, you can’t catch it with <code>HandleProcessCorruptedStateExceptions</code>. I mean the following code won’t work:</p>
+Note that although this excep&shy;tion is <code>Corrupted State Exception</code>, you can’t catch it with <code>HandleProcessCorruptedStateExceptions</code>. I mean the follo&shy;wing code won’t work:</p>
 <div class="paragraph-right-side">35</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2167,7 +2167,7 @@ Note that although this exception is <code>Corrupted State Exception</code>, you
 <div class="paragraph-container">
 <div class="paragraph-left-side">36</div>
 <p >
-You can’t catch this exception because stack overflow can be caused by two reasons. The first is an intentional call of a recursive method which doesn’t control its own depth carefully. Here you may want to fix the situation by catching the exception. However, we therefore legalize this situation and allow it to happen again which means we are short-sighted, rather than careful. The second reason is accidental when <code>StackOverflowException</code> appears during a usual call. Just the depth of the stack at that moment was too critical. In this case, catching exceptions looks like something inappropriate at all: an application worked normally, everything was good and suddenly the legal call of a method with algorithms working correctly caused an exception, followed by unwinding stack up to the section of code that expects such behavior. Well&hellip; Once again: we expect that nothing will run in the next section as the stack will be out of memory. I think this is absurd.</p>
+You can’t catch this excep&shy;tion because stack overflow can be caused by two rea&shy;sons. The first is an inten&shy;ti&shy;onal call of a recur&shy;sive method which doesn’t control its own depth care&shy;fully. Here you may want to fix the situ&shy;a&shy;tion by catching the excep&shy;tion. However, we the&shy;re&shy;fore lega&shy;lize this situ&shy;a&shy;tion and allow it to happen again which means we are short-sighted, rather than careful. The second reason is acci&shy;dental when <code>StackOverflowException</code> appears during a usual call. Just the depth of the stack at that moment was too critical. In this case, catching excep&shy;tions looks like something inapp&shy;rop&shy;riate at all: an appli&shy;ca&shy;tion worked normally, everything was good and suddenly the legal call of a method with algo&shy;rithms working correctly caused an excep&shy;tion, followed by unwin&shy;ding stack up to the section of code that expects such beh&shy;avior. Well&hellip; Once again: we expect that nothing will run in the next section as the stack will be out of memory. I think this is absurd.</p>
 <div class="paragraph-right-side">36</div>
 </div>
 

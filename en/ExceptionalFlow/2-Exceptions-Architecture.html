@@ -1290,38 +1290,38 @@ Based on the source of an error</a></li>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
 <p >
-I guess one of the most important issues in this topic is building an exception handling architecture in your application. This is interesting for many reasons. And the main reason, I think, is an apparent simplicity, which you don’t always know what to do with. All the basic constructs such as <code>IEnumerable</code>, <code>IDisposable</code>, <code>IObservable</code>, etc. have this property and use it everywhere. On the one hand, their simplicity tempts to use these constructs in different situations. On the other hand, they are full of traps which you might not get out. It is possible that looking at the amount of information we will cover you’ve got a question: what is so special about exceptional situations?</p>
+I guess one of the most impor&shy;tant issues in this topic is buil&shy;ding an excep&shy;tion han&shy;dling arch&shy;it&shy;ecture in your appli&shy;ca&shy;tion. This is inte&shy;res&shy;ting for many rea&shy;sons. And the main reason, I think, is an appa&shy;rent simp&shy;li&shy;city, which you don’t always know what to do with. All the basic constructs such as <code>IEnumerable</code>, <code>IDisposable</code>, <code>IObservable</code>, etc. have this property and use it everywhere. On the one hand, their simp&shy;li&shy;city tempts to use these constructs in diffe&shy;rent situ&shy;a&shy;tions. On the other hand, they are full of traps which you might not get out. It is possible that loo&shy;king at the amount of infor&shy;ma&shy;tion we will cover you’ve got a ques&shy;tion: what is so special about excep&shy;ti&shy;onal situ&shy;a&shy;tions?</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
 <p >
-However, to make conclusions about building the architecture of exception classes we should learn some details about their classification. Because before building a system of types that would be clear for the user of code, a programmer should determine when to choose the type of error and when to catch or skip exceptions. So, let’s classify the exceptional situations (not the types of exceptions) based on various features.</p>
+However, to make conc&shy;lu&shy;sions about buil&shy;ding the arch&shy;it&shy;ecture of excep&shy;tion classes we should learn some details about their clas&shy;si&shy;fi&shy;ca&shy;tion. Because before buil&shy;ding a system of types that would be clear for the user of code, a prog&shy;rammer should deter&shy;mine when to choose the type of error and when to catch or skip excep&shy;tions. So, let’s clas&shy;sify the excep&shy;ti&shy;onal situ&shy;a&shy;tions (not the types of excep&shy;tions) based on various fea&shy;tures.</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <h3 id="based-on-a-theoretical-possibility-to-catch-a-future-exception">Based on a theoretical possibility to catch a future exception.</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
 <p >
-Based on this feature we can divide exceptions into those that will be definitely caught and those that highly likely won’t be caught. Why do I say <em>highly likely</em>? Because there always be someone who will try to catch an exception while this is unnecessary.</p>
+Based on this fea&shy;ture we can divide excep&shy;tions into those that will be defi&shy;ni&shy;tely caught and those that highly likely won’t be caught. Why do I say <em>highly likely</em>? Because there always be someone who will try to catch an excep&shy;tion while this is unne&shy;ces&shy;sary.</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
 <p >
-First, let’s describe the first group of exceptions – those that should be caught.</p>
+First, let’s desc&shy;ribe the first group of excep&shy;tions – those that should be caught.</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
 <p >
-In case of such exceptions we, on the one hand, say to our subsystem that we came to a state when there is no point in further actions with our data. On the other hand, we mean that nothing disastrous happened and we can find the way out of the situation by simply catching the exception. This property is very important as it defines the criticality of an error and gives confidence that if we catch an exception and clear resources, we can simply proceed with the code.</p>
+In case of such excep&shy;tions we, on the one hand, say to our subsystem that we came to a state when there is no point in further actions with our data. On the other hand, we mean that nothing disas&shy;trous happ&shy;ened and we can find the way out of the situ&shy;a&shy;tion by simply catching the excep&shy;tion. This property is very impor&shy;tant as it defines the criti&shy;ca&shy;lity of an error and gives confi&shy;dence that if we catch an excep&shy;tion and clear reso&shy;urces, we can simply proceed with the code.</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
 <p >
-The second group deals with exceptions that, although it may sound strange, don’t have to be caught. They can be used only for error logging, but not for correcting a situation. The simplest example is <code>ArgumentException</code> and <code>NullReferenceException</code>. In fact, in an ordinary situation you don’t need to catch, for example, <code>ArgumentNullException</code> because in this case the source of an error is exactly you. If you catch such an exception, you admit that you made an error and passed something unacceptable to a method:</p>
+The second group deals with excep&shy;tions that, although it may sound strange, don’t have to be caught. They can be used only for error logging, but not for correc&shy;ting a situ&shy;a&shy;tion. The simp&shy;lest example is <code>ArgumentException</code> and <code>NullReferenceException</code>. In fact, in an ordi&shy;nary situ&shy;a&shy;tion you don’t need to catch, for example, <code>ArgumentNullException</code> because in this case the source of an error is exactly you. If you catch such an excep&shy;tion, you admit that you made an error and passed something unac&shy;cep&shy;table to a method:</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1339,13 +1339,13 @@ The second group deals with exceptions that, although it may sound strange, don�
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
 <p >
-In this method we try to catch <code>ArgumentNullException</code>. But I think this is strange as passing right arguments to a method is entirely our concern. Reacting after the event would be incorrect: the best thing you can do in such a situation is to check the passed data in advance before calling a method or even to build such code where getting wrong parameters is impossible.</p>
+In this method we try to catch <code>ArgumentNullException</code>. But I think this is strange as passing right argu&shy;ments to a method is enti&shy;rely our concern. Reac&shy;ting after the event would be incor&shy;rect: the best thing you can do in such a situ&shy;a&shy;tion is to check the passed data in advance before calling a method or even to build such code where getting wrong para&shy;me&shy;ters is impos&shy;sible.</p>
 <div class="paragraph-right-side">07</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
 <p >
-Another group of exceptional situations is fatal errors. If some cache is faulty and the work of a subsystem is anyway incorrect, then it is a fatal error and the nearest code on the stack will not catch it for sure:</p>
+Another group of excep&shy;ti&shy;onal situ&shy;a&shy;tions is fatal errors. If some cache is faulty and the work of a subsystem is anyway incor&shy;rect, then it is a fatal error and the nea&shy;rest code on the stack will not catch it for sure:</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1371,14 +1371,14 @@ T GetFromCacheOrCalculate()
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
 <p >
-<code>CacheCorruptedException</code> is an exception meaning that &laquo;hard drive cache is inconsistent&raquo;. Then, if the cause of such an error is fatal for the cache subsystem (for example there are no cache file access rights), the following code can’t recreate cache using <code>RecreateCache</code> instruction and therefore catching this exception is an error itself.</p>
+<code>CacheCorruptedException</code> is an excep&shy;tion mea&shy;ning that &laquo;hard drive cache is incon&shy;sis&shy;tent&raquo;. Then, if the cause of such an error is fatal for the cache subsystem (for example there are no cache file access rights), the follo&shy;wing code can’t recreate cache using <code>RecreateCache</code> instr&shy;uc&shy;tion and the&shy;re&shy;fore catching this excep&shy;tion is an error itself.</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <h3 id="based-on-the-area-where-an-exceptional-situation-is-actually-catched">Based on the area where an exceptional situation is actually catched</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
 <p >
-Another issue is whether we should catch some exceptions or pass them to somebody who understands the situation better. In other words, we should establish areas of responsibility. Let’s examine the following code:</p>
+Another issue is whether we should catch some excep&shy;tions or pass them to some&shy;body who unders&shy;tands the situ&shy;a&shy;tion better. In other words, we should estab&shy;lish areas of respon&shy;si&shy;bi&shy;lity. Let’s exa&shy;mine the follo&shy;wing code:</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1447,27 +1447,27 @@ Another issue is whether we should catch some exceptions or pass them to somebod
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
 <p >
-Which of the two strategies is more appropriate? The area of responsibility is very important. Initially, it may seem that the work and consistency of <code>WildInvestment</code> fully depend on <code>WildStrategy</code>. Thus, if <code>WildInvestment</code> simply ignores this exception, it will go to the upper level and we shouldn’t do anything. However, note that in terms of architecture the <code>Main</code> method catches an exception from one level while calling the method from another. How does it look in terms of use? Well, that’s how it looks:</p>
+Which of the two stra&shy;te&shy;gies is more approp&shy;riate? The area of respon&shy;si&shy;bi&shy;lity is very impor&shy;tant. Initi&shy;ally, it may seem that the work and consis&shy;tency of <code>WildInvestment</code> fully depend on <code>WildStrategy</code>. Thus, if <code>WildInvestment</code> simply ignores this excep&shy;tion, it will go to the upper level and we shouldn’t do anything. However, note that in terms of arch&shy;it&shy;ecture the <code>Main</code> method catches an excep&shy;tion from one level while calling the method from another. How does it look in terms of use? Well, that’s how it looks:</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <ul>
 <li>
 <p >
-the responsibility for this exception was handed over to us;</p>
+the respon&shy;si&shy;bi&shy;lity for this excep&shy;tion was handed over to us;</p>
 </li>
 <li>
 <p >
-the user of this class is not sure that this exception was previously passed through a set of methods on purpose;</p>
+the user of this class is not sure that this excep&shy;tion was previously passed through a set of methods on purpose;</p>
 </li>
 <li>
 <p >
-we start to create new dependencies which we got rid of by calling an intermediate layer.</p>
+we start to create new depen&shy;den&shy;cies which we got rid of by calling an inter&shy;me&shy;diate layer.</p>
 </li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
 <p >
-However, there is another conclusion resulting from this one: we should use <code>catch</code> in the <code>DoSomethingWild</code> method. And this is slightly strange for us: <code>WildInvestment</code> is sort of hardly dependent on something. I mean if <code>PlayRussianRoulette</code> didn’t work, the same will happen to <code>DoSomethingWild</code>: it doesn’t have return codes, but it has to play the roulette. So, what we can do in such a seemingly hopeless situation? The answer is actually simple: being on another level <code>DoSomethingWild</code> should throw its own exception that belongs to this level and wrap it in <code>InnerException</code> as the original source of a problem:</p>
+However, there is another conc&shy;lu&shy;sion resul&shy;ting from this one: we should use <code>catch</code> in the <code>DoSomethingWild</code> method. And this is slightly strange for us: <code>WildInvestment</code> is sort of hardly depen&shy;dent on something. I mean if <code>PlayRussianRoulette</code> didn’t work, the same will happen to <code>DoSomethingWild</code>: it doesn’t have return codes, but it has to play the roulette. So, what we can do in such a see&shy;mingly hop&shy;eless situ&shy;a&shy;tion? The answer is actu&shy;ally simple: being on another level <code>DoSomethingWild</code> should throw its own excep&shy;tion that belongs to this level and wrap it in <code>InnerException</code> as the ori&shy;ginal source of a problem:</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1539,20 +1539,20 @@ However, there is another conclusion resulting from this one: we should use <cod
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
 <p >
-By wrapping one exception in another we transfer the problem form one level of application to another and make its work more predictable in terms of a consumer of this class: the <code>Main</code> method.</p>
+By wrap&shy;ping one excep&shy;tion in another we transfer the problem form one level of appli&shy;ca&shy;tion to another and make its work more predic&shy;table in terms of a consumer of this class: the <code>Main</code> method.</p>
 <div class="paragraph-right-side">13</div>
 </div>
 <h3 id="based-on-reuse-issues">Based on reuse issues</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
 <p >
-Often we feel too lazy to create a new type of exception but when we decide to do it, it is not always clear which type to base on. But it is precisely these decisions that define the whole architecture of exceptional situations. Let’s have a look at some popular solutions and make some conclusions.</p>
+Often we feel too lazy to create a new type of excep&shy;tion but when we decide to do it, it is not always clear which type to base on. But it is preci&shy;sely these deci&shy;sions that define the whole arch&shy;it&shy;ecture of excep&shy;ti&shy;onal situ&shy;a&shy;tions. Let’s have a look at some popular solu&shy;tions and make some conc&shy;lu&shy;sions.</p>
 <div class="paragraph-right-side">14</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
 <p >
-When choosing the type of exception we can use a previously made solution, i.e. to find an exception with the name that contains similar sense and use it. For example, if we got an entity via a parameter and we don’t like this entity, we can throw <code>InvalidArgumentException</code>, indicating the cause of an error in Message. This scenario looks good especially since <code>InvalidArgumentException</code> is in the group of exceptions that may not be caught. However, the choice of <code>InvalidDataException</code> will be wrong if you work with some data types. It is because this type is in <code>System.IO</code> area, which is probably isn’t what you deal with. Thus, it will almost always be wrong to search for an existing type instead of developing one by yourself. There are almost no exceptions for a general range of tasks. Virtually all of them are for specific situations and if you reuse them in other cases, it will gravely violate the architecture of exceptional situations. Moreover, an exception of a particular type (for example, <code>System.IO.InvalidDataException</code>) can confuse a user: on the one hand, he will see that exception belongs to the <code>System.IO</code> namespace, while on the other hand it is thrown from a completely different namespace. If this user starts thinking about the rules of throwing this exception, he may go to <a href="https://referencesource.microsoft.com/">referencesource.microsoft.com</a> and find <a href="https://referencesource.microsoft.com/#System/sys/System/IO/compression/InvalidDataException.cs,2b389f14fb01ad1b,references">all the places where it is thrown</a>:</p>
+When choosing the type of excep&shy;tion we can use a previously made solu&shy;tion, i.e. to find an excep&shy;tion with the name that contains similar sense and use it. For example, if we got an entity via a para&shy;meter and we don’t like this entity, we can throw <code>InvalidArgumentException</code>, indi&shy;ca&shy;ting the cause of an error in Message. This scenario looks good espe&shy;ci&shy;ally since <code>InvalidArgumentException</code> is in the group of excep&shy;tions that may not be caught. However, the choice of <code>InvalidDataException</code> will be wrong if you work with some data types. It is because this type is in <code>System.IO</code> area, which is probably isn’t what you deal with. Thus, it will almost always be wrong to search for an exis&shy;ting type instead of deve&shy;lo&shy;ping one by your&shy;self. There are almost no excep&shy;tions for a general range of tasks. Virtu&shy;ally all of them are for specific situ&shy;a&shy;tions and if you reuse them in other cases, it will gravely vio&shy;late the arch&shy;it&shy;ecture of excep&shy;ti&shy;onal situ&shy;a&shy;tions. More&shy;over, an excep&shy;tion of a parti&shy;cular type (for example, <code>System.IO.InvalidDataException</code>) can confuse a user: on the one hand, he will see that excep&shy;tion belongs to the <code>System.IO</code> names&shy;pace, while on the other hand it is thrown from a comp&shy;le&shy;tely diffe&shy;rent names&shy;pace. If this user starts thinking about the rules of throwing this excep&shy;tion, he may go to <a href="https://referencesource.microsoft.com/">referencesource.microsoft.com</a> and find <a href="https://referencesource.microsoft.com/#System/sys/System/IO/compression/InvalidDataException.cs,2b389f14fb01ad1b,references">all the places where it is thrown</a>:</p>
 <div class="paragraph-right-side">15</div>
 </div>
 <ul>
@@ -1564,13 +1564,13 @@ When choosing the type of exception we can use a previously made solution, i.e. 
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
 <p >
-The user will understand that <del>somebody is all thumbs</del> this type of exception confused him as the method that threw this exception didn’t deal with compression.</p>
+The user will unders&shy;tand that <del>somebody is all thumbs</del> this type of excep&shy;tion confused him as the method that threw this excep&shy;tion didn’t deal with comp&shy;res&shy;sion.</p>
 <div class="paragraph-right-side">16</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
 <p >
-Also, in terms of reuse, you can simply create one exception and declare the <code>ErrorCode</code> field in it. That seems like a good idea. You just throw the same exception, setting the code, and use just one <code>catch</code> to deal with exceptions, increasing the stability of an application, nothing more. However, I believe you should rethink this position. Of course, this approach makes life easier on the one hand. However, on the other hand, you dismiss the possibility to catch a subgroup of exceptions that have some common feature. For example, <code>ArgumentException</code> that unites a bunch of exceptions by inheritance. Another serious disadvantage is an excessively large and unreadable code that must arrange error code based filtering. However, introducing an encompassing type with an error code will be more appropriate when a user doesn’t have to care about specifying an error.</p>
+Also, in terms of reuse, you can simply create one excep&shy;tion and declare the <code>ErrorCode</code> field in it. That seems like a good idea. You just throw the same excep&shy;tion, setting the code, and use just one <code>catch</code> to deal with excep&shy;tions, incre&shy;a&shy;sing the stabi&shy;lity of an appli&shy;ca&shy;tion, nothing more. However, I believe you should rethink this posi&shy;tion. Of course, this approach makes life easier on the one hand. However, on the other hand, you dismiss the possi&shy;bi&shy;lity to catch a subgroup of excep&shy;tions that have some common fea&shy;ture. For example, <code>ArgumentException</code> that unites a bunch of excep&shy;tions by inhe&shy;ri&shy;tance. Another serious disad&shy;van&shy;tage is an exces&shy;si&shy;vely large and unre&shy;adable code that must arrange error code based filte&shy;ring. However, intro&shy;du&shy;cing an encom&shy;pas&shy;sing type with an error code will be more approp&shy;riate when a user doesn’t have to care about specif&shy;ying an error.</p>
 <div class="paragraph-right-side">17</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1605,25 +1605,25 @@ Also, in terms of reuse, you can simply create one exception and declare the <co
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
 <p >
-The code that protects the parser call doesn’t care why parsing failed: it is interested in the error as such. However, if the cause of fail becomes important after all, a user can always get the error code from the <code>ErrorCode</code> property. And you really don’t have to search for necessary words in a substring of <code>Message</code>.</p>
+The code that protects the parser call doesn’t care why parsing failed: it is inte&shy;rested in the error as such. However, if the cause of fail becomes impor&shy;tant after all, a user can always get the error code from the <code>ErrorCode</code> property. And you really don’t have to search for neces&shy;sary words in a substring of <code>Message</code>.</p>
 <div class="paragraph-right-side">18</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
 <p >
-If we don’t choose to reuse, we can create a type of exception for every situation. On the one hand, it sounds logical: one type of error – one type of exception. However, don’t overdo: having too many types of exceptions will cause the problem of catching them as the code of a calling method will be overloaded with <code>catch</code> blocks. Because it needs to process all types of exceptions that you want to pass to it. Another disadvantage is purely architectural. If you don’t use exceptions, you confuse those who will use these exceptions: they may have many things in common but will be caught separately.</p>
+If we don’t choose to reuse, we can create a type of excep&shy;tion for every situ&shy;a&shy;tion. On the one hand, it sounds logical: one type of error – one type of excep&shy;tion. However, don’t overdo: having too many types of excep&shy;tions will cause the problem of catching them as the code of a calling method will be over&shy;lo&shy;aded with <code>catch</code> blocks. Because it needs to process all types of excep&shy;tions that you want to pass to it. Another disad&shy;van&shy;tage is purely arch&shy;it&shy;ectural. If you don’t use excep&shy;tions, you confuse those who will use these excep&shy;tions: they may have many things in common but will be caught sepa&shy;ra&shy;tely.</p>
 <div class="paragraph-right-side">19</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
 <p >
-However, there are great scenarios to introduce separate types for specific situations. For example, when the error affects not a whole entity, but a specific method. Then this error type should take such a place in the hierarchy of inheritance that no one would ever think to catch it together with something else: for example, through a separate branch of inheritance.</p>
+However, there are great scena&shy;rios to intro&shy;duce sepa&shy;rate types for specific situ&shy;a&shy;tions. For example, when the error affects not a whole entity, but a specific method. Then this error type should take such a place in the hierarchy of inhe&shy;ri&shy;tance that no one would ever think to catch it together with something else: for example, through a sepa&shy;rate branch of inhe&shy;ri&shy;tance.</p>
 <div class="paragraph-right-side">20</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
 <p >
-Also, if you combine both of these approaches, you can get a powerful set of instruments to work with a group of errors: you can introduce a common abstract type and inherit specific cases from it. The base class (our common type) must get an abstract property, designed to store an error code while inheritors will specify this code by overriding this property.</p>
+Also, if you combine both of these appro&shy;aches, you can get a powerful set of inst&shy;ruments to work with a group of errors: you can intro&shy;duce a common abstract type and inherit specific cases from it. The base class (our common type) must get an abstract property, designed to store an error code while inhe&shy;ri&shy;tors will specify this code by over&shy;ri&shy;ding this property.</p>
 <div class="paragraph-right-side">21</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1660,44 +1660,44 @@ Also, if you combine both of these approaches, you can get a powerful set of ins
 </pre></div>
 </div>
 <p >
-Using this approach we get some wonderful properties:</p>
+Using this approach we get some wonderful proper&shy;ties:</p>
 <ul>
 <li>
 <p >
-on the one hand, we keep catching exceptions using a base (common) type;</p>
+on the one hand, we keep catching excep&shy;tions using a base (common) type;</p>
 </li>
 <li>
 <p >
-on the other hand, even catching exceptions with this base type we are still able to identify a specific situation;</p>
+on the other hand, even catching excep&shy;tions with this base type we are still able to iden&shy;tify a specific situ&shy;a&shy;tion;</p>
 </li>
 <li>
 <p >
-plus, we can catch exceptions via a specific type instead of a base type without using the flat structure of classes.</p>
+plus, we can catch excep&shy;tions via a specific type instead of a base type without using the flat struc&shy;ture of classes.</p>
 </li>
 </ul>
 <p >
-I think it is very convenient.</p>
+I think it is very conve&shy;nient.</p>
 <h3 id="based-on-belonging-to-a-specific-group-of-behavioral-situations">Based on belonging to a specific group of behavioral situations</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
 <p >
-What conclusions can we make based on the previous reasoning? Let’s try to define them.</p>
+What conc&shy;lu&shy;sions can we make based on the previous rea&shy;so&shy;ning? Let’s try to define them.</p>
 <div class="paragraph-right-side">22</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
 <p >
-First of all, let’s decide what means a situation? Usually, we talk about classes and objects in terms of entities with some internal state and we can perform actions on these entities. Thus, the first type of behavioral situation includes actions on some entity. Next, if we look at an object graph from the outside we will see that it is logically represented as a combination of functional groups: the first group deals with caching, the second works with databases, the third performs mathematical calculations. Different layers can go through all these groups, e.g. layers of internal states logging, process logging, and method calls’ tracing. Layers can encompass several functional groups. For example, there can be a layer of a model, a layer of controllers and a presentation layer. These groups can be in one assembly or in different ones, but each group can create its own exceptional situations.</p>
+First of all, let’s decide what means a situ&shy;a&shy;tion? Usually, we talk about classes and objects in terms of enti&shy;ties with some internal state and we can perform actions on these enti&shy;ties. Thus, the first type of beh&shy;a&shy;vioral situ&shy;a&shy;tion includes actions on some entity. Next, if we look at an object graph from the outside we will see that it is logi&shy;cally repre&shy;sented as a combi&shy;na&shy;tion of functi&shy;onal groups: the first group deals with caching, the second works with data&shy;bases, the third performs math&shy;em&shy;at&shy;ical calcu&shy;la&shy;tions. Diffe&shy;rent layers can go through all these groups, e.g. layers of internal states logging, process logging, and method calls’ tracing. Layers can encom&shy;pass several functi&shy;onal groups. For example, there can be a layer of a model, a layer of cont&shy;rol&shy;lers and a presen&shy;ta&shy;tion layer. These groups can be in one assembly or in diffe&shy;rent ones, but each group can create its own excep&shy;ti&shy;onal situ&shy;a&shy;tions.</p>
 <div class="paragraph-right-side">23</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">24</div>
 <p >
-So, we can build a hierarchy for the types of exceptional situations based on the belonging of these types to one or another group or layer. Thus, we allow a catching code to easily navigate among these types in the hierarchy.</p>
+So, we can build a hierarchy for the types of excep&shy;ti&shy;onal situ&shy;a&shy;tions based on the belon&shy;ging of these types to one or another group or layer. Thus, we allow a catching code to easily navi&shy;gate among these types in the hierarchy.</p>
 <div class="paragraph-right-side">24</div>
 </div>
 <p >
-Let’s examine the following code:</p>
+Let’s exa&shy;mine the follo&shy;wing code:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 
 <span style="color:Blue;">namespace</span> JetFinance
@@ -1731,11 +1731,11 @@ Let’s examine the following code:</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
 <p >
-What’s it like? I think the namespace is a perfect way to naturally group the types of exceptions based on the behavioral situations: everything that belongs to particular groups should stay there, including exceptions. Moreover, when you get a particular exception, you will see the name of its type and also its namespace that will specify a group it belongs to. Do you remember the bad reuse of <code>InvalidDataException</code> which is actually defined in the <code>System.IO</code> namespace? The fact that it belongs to this namespace means this type of exception can be thrown from classes that are in the <code>System.IO</code> namespace or in a more nested one. But the actual exception was thrown from a completely different space, confusing a person that handles the issue. However, if you put the types of exceptions and the types that throw these exceptions in the same namespaces you keep the architecture of types consistent and make it easier for developers to understand the reasons for what happens.</p>
+What’s it like? I think the names&shy;pace is a perfect way to natu&shy;rally group the types of excep&shy;tions based on the beh&shy;a&shy;vioral situ&shy;a&shy;tions: everything that belongs to parti&shy;cular groups should stay there, inclu&shy;ding excep&shy;tions. More&shy;over, when you get a parti&shy;cular excep&shy;tion, you will see the name of its type and also its names&shy;pace that will specify a group it belongs to. Do you remember the bad reuse of <code>InvalidDataException</code> which is actu&shy;ally defined in the <code>System.IO</code> names&shy;pace? The fact that it belongs to this names&shy;pace means this type of excep&shy;tion can be thrown from classes that are in the <code>System.IO</code> names&shy;pace or in a more nested one. But the actual excep&shy;tion was thrown from a comp&shy;le&shy;tely diffe&shy;rent space, confu&shy;sing a person that han&shy;dles the issue. However, if you put the types of excep&shy;tions and the types that throw these excep&shy;tions in the same names&shy;paces you keep the arch&shy;it&shy;ecture of types consis&shy;tent and make it easier for deve&shy;lo&shy;pers to unders&shy;tand the rea&shy;sons for what happens.</p>
 <div class="paragraph-right-side">25</div>
 </div>
 <p >
-What is the second way for grouping on the level of code? Inheritance:</p>
+What is the second way for grou&shy;ping on the level of code? Inh&shy;eri&shy;tance:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 
 <span style="color:Blue;">public</span> <span style="color:Blue;">abstract</span> <span style="color:Blue;">class</span> LoggerExceptionBase : Exception
@@ -1758,23 +1758,23 @@ What is the second way for grouping on the level of code? Inheritance:</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
 <p >
-Note that for usual application entities, they inherit both behavior and data and group types that belong to a <em>single group of entities</em>. However, for exceptions, they inherit and are grouped based on a <em>single group of situations</em>, because the essence of an exception is not an entity but a problem.</p>
+Note that for usual appli&shy;ca&shy;tion enti&shy;ties, they inherit both beh&shy;avior and data and group types that belong to a <em>single group of entities</em>. However, for excep&shy;tions, they inherit and are grouped based on a <em>single group of situations</em>, because the essence of an excep&shy;tion is not an entity but a problem.</p>
 <div class="paragraph-right-side">26</div>
 </div>
 <p >
-Combining these two grouping methods we can make the following conclusions:</p>
+Combi&shy;ning these two grou&shy;ping methods we can make the follo&shy;wing conc&shy;lu&shy;sions:</p>
 <ul>
 <li>
 <p >
-there should be a base type of exceptions inside <code>Assembly</code> that will be thrown by this assembly. This type of exceptions should be in a root namespace of the assembly. This will be the first layer of grouping.</p>
+there should be a base type of excep&shy;tions inside <code>Assembly</code> that will be thrown by this assembly. This type of excep&shy;tions should be in a root names&shy;pace of the assembly. This will be the first layer of grou&shy;ping.</p>
 </li>
 <li>
 <p >
-further, there can be one or several namespaces inside an assembly. Each of them divides the assembly into functional zones, defining the groups of situations, that appear in this assembly. These may be zones of controllers, database entities, data processing algorithms, etc. For us, these namespaces mean grouping types based on their function. However, in terms of exceptions they are grouped based on problems within the same assembly;</p>
+further, there can be one or several names&shy;paces inside an assembly. Each of them divides the assembly into functi&shy;onal zones, defi&shy;ning the groups of situ&shy;a&shy;tions, that appear in this assembly. These may be zones of cont&shy;rol&shy;lers, data&shy;base enti&shy;ties, data proces&shy;sing algo&shy;rithms, etc. For us, these names&shy;paces mean grou&shy;ping types based on their function. However, in terms of excep&shy;tions they are grouped based on prob&shy;lems within the same assembly;</p>
 </li>
 <li>
 <p >
-exceptions must be inherited from types in the same upper-level namespace. This ensures that end user will unambiguously understand situations and won’t catch <em>wrong</em> type based exceptions. Admit, it would be strange to catch <code>global::Finiki.Logistics.OhMyException</code> by <code>catch(global::Legacy.LoggerExeption exception)</code>, while the following code looks absolutely appropriate:</p>
+excep&shy;tions must be inhe&shy;rited from types in the same upper-level names&shy;pace. This ensures that end user will unam&shy;bi&shy;guously unders&shy;tand situ&shy;a&shy;tions and won’t catch <em>wrong</em> type based excep&shy;tions. Admit, it would be strange to catch <code>global::Finiki.Logistics.OhMyException</code> by <code>catch(global::Legacy.LoggerExeption exception)</code>, while the follo&shy;wing code looks abso&shy;lu&shy;tely approp&shy;riate:</p>
 </li>
 </ul>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1824,7 +1824,7 @@ exceptions must be inherited from types in the same upper-level namespace. This 
 <div class="paragraph-container">
 <div class="paragraph-left-side">27</div>
 <p >
-Here, the user code calls a library method that, as we know, can throw <code>XmlParserServiceException</code> in some situation. And, as we know, this exception refers to the inherited namespace <code>JetFinance.FinancialPipe.FinancialPipeExceptionBase</code>, which means that there may be some other exceptions — this time <code>XmlParserService</code> microservice creates only one exception but other exceptions may appear in future. As we have a convention for creating types of exceptions, we know what entity this new exception will be inherited from and put an encompassing <code>catch</code> in advance. That enables us to skip all things irrelevant to us.</p>
+Here, the user code calls a library method that, as we know, can throw <code>XmlParserServiceException</code> in some situ&shy;a&shy;tion. And, as we know, this excep&shy;tion refers to the inhe&shy;rited names&shy;pace <code>JetFinance.FinancialPipe.FinancialPipeExceptionBase</code>, which means that there may be some other excep&shy;tions — this time <code>XmlParserService</code> micro&shy;ser&shy;vice creates only one excep&shy;tion but other excep&shy;tions may appear in future. As we have a conven&shy;tion for crea&shy;ting types of excep&shy;tions, we know what entity this new excep&shy;tion will be inhe&shy;rited from and put an encom&shy;pas&shy;sing <code>catch</code> in advance. That enables us to skip all things irre&shy;le&shy;vant to us.</p>
 <div class="paragraph-right-side">27</div>
 </div>
 <p >
@@ -1832,49 +1832,49 @@ How to build such a hierarchy of types?</p>
 <ul>
 <li>
 <p >
-First of all, we should create a base class for a domain. Let’s call it a domain base class. In this case, a domain is a word that encompasses a number of assemblies, combining them based on some feature: logging, business-logic, UI. I mean functional zones of an application that are as large as possible.</p>
+First of all, we should create a base class for a domain. Let’s call it a domain base class. In this case, a domain is a word that encom&shy;passes a number of assem&shy;blies, combi&shy;ning them based on some fea&shy;ture: logging, busi&shy;ness-logic, UI. I mean functi&shy;onal zones of an appli&shy;ca&shy;tion that are as large as possible.</p>
 </li>
 <li>
 <p >
-Next, we should introduce an additional base class for exceptions which must be caught: all the exceptions that will be caught using the <code>catch</code> keyword will be inherited from this base class;</p>
+Next, we should intro&shy;duce an addi&shy;ti&shy;onal base class for excep&shy;tions which must be caught: all the excep&shy;tions that will be caught using the <code>catch</code> keyword will be inhe&shy;rited from this base class;</p>
 </li>
 <li>
 <p >
-All the exceptions indicating fatal errors should be inherited directly from a domain base class. Thus we will separate them from those caught on the architecture level;
-– Divide the domain into functional areas based on namespaces and declare the base type of exceptions that will be thrown from each area. Here it is necessary to use common sense: if an application has a high degree of namespace nesting, you shouldn’t do a base type for each nesting level. However, if there is branching at a nesting level when one group of exceptions goes to one namespace and another group goes to another namespace, it is necessary to use two base types for each subgroup;</p>
+All the excep&shy;tions indi&shy;ca&shy;ting fatal errors should be inhe&shy;rited directly from a domain base class. Thus we will sepa&shy;rate them from those caught on the arch&shy;it&shy;ecture level;
+– Divide the domain into functi&shy;onal areas based on names&shy;paces and declare the base type of excep&shy;tions that will be thrown from each area. Here it is neces&shy;sary to use common sense: if an appli&shy;ca&shy;tion has a high degree of names&shy;pace nesting, you shouldn’t do a base type for each nesting level. However, if there is branching at a nesting level when one group of excep&shy;tions goes to one names&shy;pace and another group goes to another names&shy;pace, it is neces&shy;sary to use two base types for each subgroup;</p>
 </li>
 <li>
 <p >
-Special exceptions should be inherited from the types of exceptions belonging to functional areas</p>
+Special excep&shy;tions should be inhe&shy;rited from the types of excep&shy;tions belon&shy;ging to functi&shy;onal areas</p>
 </li>
 <li>
 <p >
-If a group of special exceptions can be combined, it is necessary to do it in one more base type: thus you can catch them easier;</p>
+If a group of special excep&shy;tions can be combined, it is neces&shy;sary to do it in one more base type: thus you can catch them easier;</p>
 </li>
 <li>
 <p >
-If you suppose the group will be more often caught using a base class, introduce Mixed Mode with ErrorCode.</p>
+If you suppose the group will be more often caught using a base class, intro&shy;duce Mixed Mode with Error&shy;Code.</p>
 </li>
 </ul>
 <h3 id="based-on-the-source-of-an-error">Based on the source of an error</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
 <p >
-The source of an error can be another basis to combine exceptions in a group. For example, if you design a class library, the following things can form groups of sources:</p>
+The source of an error can be another basis to combine excep&shy;tions in a group. For example, if you design a class library, the follo&shy;wing things can form groups of sources:</p>
 <div class="paragraph-right-side">28</div>
 </div>
 <ul>
 <li>
 <p >
-unsafe code call with an error. This situation can be dealt with by wrapping an exception or an error code in its own type of exception while saving returned data (for example the original error code) in a public property of the exception;</p>
+unsafe code call with an error. This situ&shy;a&shy;tion can be dealt with by wrap&shy;ping an excep&shy;tion or an error code in its own type of excep&shy;tion while saving returned data (for example the ori&shy;ginal error code) in a public property of the excep&shy;tion;</p>
 </li>
 <li>
 <p >
-a call of code by external dependencies, which has thrown exceptions that can’t be caught by our library as they are beyond its area of responsibility. This group can include exceptions from the methods of those entities that were accepted as the parameters of a current method or exceptions from the constructor of a class which method has called an external dependence. For example, a method of our class has called a method of another class, the instance of which was returned via parameters of another method. If an exception indicates that we are the source of a problem, we should generate our own exception while retaining the original one in <code>InnerExcepton</code>. However, if we understand that the problem has been caused by an external dependency we ignore this exception as belonging to a group of external dependencies beyond our control;</p>
+a call of code by external depen&shy;den&shy;cies, which has thrown excep&shy;tions that can’t be caught by our library as they are beyond its area of respon&shy;si&shy;bi&shy;lity. This group can include excep&shy;tions from the methods of those enti&shy;ties that were accepted as the para&shy;me&shy;ters of a current method or excep&shy;tions from the const&shy;ructor of a class which method has called an external depen&shy;dence. For example, a method of our class has called a method of another class, the instance of which was returned via para&shy;me&shy;ters of another method. If an excep&shy;tion indi&shy;cates that we are the source of a problem, we should gene&shy;rate our own excep&shy;tion while reta&shy;i&shy;ning the ori&shy;ginal one in <code>InnerExcepton</code>. However, if we unders&shy;tand that the problem has been caused by an external depen&shy;dency we ignore this excep&shy;tion as belon&shy;ging to a group of external depen&shy;den&shy;cies beyond our control;</p>
 </li>
 <li>
 <p >
-our own code that was accidentally put in an inconsistent state. A good example is text parsing — no external dependencies, no transfer to <code>unsafe</code> world, but a problem of parsing occurs.</p>
+our own code that was acci&shy;den&shy;tally put in an incon&shy;sis&shy;tent state. A good example is text parsing — no external depen&shy;den&shy;cies, no transfer to <code>unsafe</code> world, but a problem of parsing occurs.</p>
 </li>
 </ul>
 

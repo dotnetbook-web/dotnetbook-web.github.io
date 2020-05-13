@@ -1288,7 +1288,7 @@ MemoryManager, IMemoryOwner, MemoryPool</a></li>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
 <p >
-从.NET Core 2.0和.NET Framework 4.5开始，我们可以使用新的数据类型： <code>Span</code> 和 <code>Memory</code>。要使用它们，您只需要安装 <code>System.Memory</code> nuget package:</p>
+从.NET Core 2.0和.NET Frame&shy;work 4.5开始，我们可以使用新的数据类型： <code>Span</code> 和 <code>Memory</code>。要使用它们，您只需要安装 <code>System.Memory</code> nuget package:</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <ul>
@@ -1314,7 +1314,7 @@ MemoryManager, IMemoryOwner, MemoryPool</a></li>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
 <p >
-平台开发人员已经尝试为我们提供非托管资源的使用。他们为导入的方法实现了自动包装，并且在大多数情况下都自动运行。这里也属于<code>stackalloc</code>，在关于线程堆栈的章节中提到过。但是，正如我所看到的，第一批C＃开发人员来自C ++世界(我的情况)，但现在他们转向更高级的语言(我知道之前用JavaScript编写的开发人员)。这意味着人们对非托管代码和C / C +构造越来越怀疑，这对Assembler来说更是如此。</p>
+平台开发人员已经尝试为我们提供非托管资源的使用。他们为导入的方法实现了自动包装，并且在大多数情况下都自动运行。这里也属于<code>stackalloc</code>，在关于线程堆栈的章节中提到过。但是，正如我所看到的，第一批C＃开发人员来自C ++世界(我的情况)，但现在他们转向更高级的语言(我知道之前用Java&shy;Script编写的开发人员)。这意味着人们对非托管代码和C / C +构造越来越怀疑，这对Assem&shy;bler来说更是如此。</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <div class="paragraph-container">
@@ -1349,7 +1349,7 @@ MemoryManager, IMemoryOwner, MemoryPool</a></li>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
 <p >
-我们可以看到为什么它不受欢迎。只需浏览此代码并质疑自己是否信任它。我猜答案是'不'。那么，问问自己为什么。很明显：我们不仅看到了“Dangerous”这个词，这表明某些东西可能出错，但是有<code>unsafe</code>关键字和<code>byte* buffer = stackalloc byte[s_readBufferSize];</code>line(具体 - <code>byte *</code>)改变了我们的态度。这是你思考的一个触发因素：“没有其他方法可以做到吗？” 那么，让我们深入了解精神分析：你为什么这么想？一方面，我们使用语言结构，这里提供的语法远不是，例如，C++/CLI，它允许任何东西(甚至插入纯的汇编程序代码)。另一方面，这种语法看起来很不寻常。</p>
+我们可以看到为什么它不受欢迎。只需浏览此代码并质疑自己是否信任它。我猜答案是'不'。那么，问问自己为什么。很明显：我们不仅看到了“Dange&shy;rous”这个词，这表明某些东西可能出错，但是有<code>unsafe</code>关键字和<code>byte* buffer = stackalloc byte[s_readBufferSize];</code>line(具体 - <code>byte *</code>)改变了我们的态度。这是你思考的一个触发因素：“没有其他方法可以做到吗？” 那么，让我们深入了解精神分析：你为什么这么想？一方面，我们使用语言结构，这里提供的语法远不是，例如，C++/CLI，它允许任何东西(甚至插入纯的汇编程序代码)。另一方面，这种语法看起来很不寻常。</p>
 <div class="paragraph-right-side">07</div>
 </div>
 <div class="paragraph-container">
@@ -1576,7 +1576,7 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
 <p >
-这种变体在多大程度上比通过<code>StringBuilder</code>手动构建更糟糕？答案并不总是显而易见的。这取决于施工地点和调用此方法的频率。最初，<code>string.Format</code>为内部<code>StringBuilder</code>分配内存，它将创建一个字符数组(SourceString.Length + args.Length * 8)。如果在数组构造期间发现长度被错误地确定，则将创建另一个<code>StringBuilder</code>来构造其余部分。这将导致创建单个链表。因此，它必须返回构造的字符串，这意味着另一次复制。那是浪费。如果我们可以摆脱在堆上分配已形成字符串的数组，那将是很好的：这将解决我们的一个问题。</p>
+这种变体在多大程度上比通过<code>StringBuilder</code>手动构建更糟糕？答案并不总是显而易见的。这取决于施工地点和调用此方法的频率。最初，<code>string.Format</code>为内部<code>StringBuilder</code>分配内存，它将创建一个字符数组(Source&shy;String.Length + args.Length * 8)。如果在数组构造期间发现长度被错误地确定，则将创建另一个<code>StringBuilder</code>来构造其余部分。这将导致创建单个链表。因此，它必须返回构造的字符串，这意味着另一次复制。那是浪费。如果我们可以摆脱在堆上分配已形成字符串的数组，那将是很好的：这将解决我们的一个问题。</p>
 <div class="paragraph-right-side">19</div>
 </div>
 <p >
@@ -1787,7 +1787,7 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
 <p >
-说清楚，这些情况经常发生。但是，之前我们以另一种方式解决了这个问题 我们曾经创建一个<code>List</code>，用数据填充它并丢失对它的引用。如果经常调用该方法，这将导致一种悲惨的情况：许多<code>List</code>实例(和相关的数组)在堆上被挂起。现在解决了这个问题：不会创建其他对象。但是，就像<code>ValueStringBuilder</code>一样，它仅针对Microsoft程序员解决：此类具有<code>internal</code>修饰符。</p>
+说清楚，这些情况经常发生。但是，之前我们以另一种方式解决了这个问题 我们曾经创建一个<code>List</code>，用数据填充它并丢失对它的引用。如果经常调用该方法，这将导致一种悲惨的情况：许多<code>List</code>实例(和相关的数组)在堆上被挂起。现在解决了这个问题：不会创建其他对象。但是，就像<code>ValueStringBuilder</code>一样，它仅针对Micro&shy;soft程序员解决：此类具有<code>internal</code>修饰符。</p>
 <div class="paragraph-right-side">25</div>
 </div>
 <h3 id="section">规则和使用实践</h3>
@@ -1844,7 +1844,7 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 <div class="paragraph-container">
 <div class="paragraph-left-side">27</div>
 <p >
-问题是_huge_ .NET Framework和.NET Core 1. *没有以特殊方式更新垃圾收集器(与.NET Core 2.0+不同)，并且他们必须使用指向缓冲区开头的附加指针使用。这意味着，内部的“Span”处理托管的.NET对象，就好像它们是不受管理的一样。只需看看结构的第二个变体：它有三个字段。第一个是对manged对象的引用。第二个是从该对象的开头以字节为单位的偏移量，用于定义数据缓冲区的开头(在字符串中，此缓冲区包含<code>char</code>字符，而在数组中，它包含数组的数据)。最后，第三个字段包含连续放置的缓冲区中的元素数量。</p>
+问题是_huge_ .NET Frame&shy;work和.NET Core 1. *没有以特殊方式更新垃圾收集器(与.NET Core 2.0+不同)，并且他们必须使用指向缓冲区开头的附加指针使用。这意味着，内部的“Span”处理托管的.NET对象，就好像它们是不受管理的一样。只需看看结构的第二个变体：它有三个字段。第一个是对manged对象的引用。第二个是从该对象的开头以字节为单位的偏移量，用于定义数据缓冲区的开头(在字符串中，此缓冲区包含<code>char</code>字符，而在数组中，它包含数组的数据)。最后，第三个字段包含连续放置的缓冲区中的元素数量。</p>
 <div class="paragraph-right-side">27</div>
 </div>
 <p >
@@ -1904,7 +1904,7 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 <div class="paragraph-container">
 <div class="paragraph-left-side">31</div>
 <p >
-数组也是如此：当创建<code>Span</code>时，一些内部JIT代码计算数据数组开头的偏移量，并用此偏移量初始化<code>Span</code>。关于字符串和数组的偏移量的计算方法在关于内存中对象结构的章节中讨论过(.\ObjectsStructure.md)。</p>
+数组也是如此：当创建<code>Span</code>时，一些内部JIT代码计算数据数组开头的偏移量，并用此偏移量初始化<code>Span</code>。关于字符串和数组的偏移量的计算方法在关于内存中对象结构的章节中讨论过(.\Objects&shy;Structure.md)。</p>
 <div class="paragraph-right-side">31</div>
 </div>
 <h3 id="spant-1">Span&lt;T&gt; 作为返回值</h3>
@@ -1966,7 +1966,7 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 </li>
 <li>
 <p >
-此外，<code>Memory &lt;T&gt;</code>包含<code>Pin()</code>方法，用于存储缓冲区数据应该传递给<code>unsafe</code>代码的场景。如果在.NET中分配内存时调用此方法，则缓冲区将被固定，并且在GC处于活动状态时不会移动。这个方法将返回一个<code>MemoryHandle</code>结构的实例，它封装了'GCHandle`来表示生命周期的一段，并在内存中固定数组缓冲区。</p>
+此外，<code>Memory &lt;T&gt;</code>包含<code>Pin()</code>方法，用于存储缓冲区数据应该传递给<code>unsafe</code>代码的场景。如果在.NET中分配内存时调用此方法，则缓冲区将被固定，并且在GC处于活动状态时不会移动。这个方法将返回一个<code>MemoryHandle</code>结构的实例，它封装了'GCHa&shy;ndle`来表示生命周期的一段，并在内存中固定数组缓冲区。</p>
 </li>
 </ul>
 <p >
@@ -2127,7 +2127,7 @@ Hello?
 <div class="paragraph-container">
 <div class="paragraph-left-side">40</div>
 <p >
-除了指示结构字段之外，我还要注意，还有另外两个基于另一个实体的<code>internal</code>类型构造函数 - “MemoryManager”。这不是您可能想到的经典内存管理器，我们稍后会讨论它。您可能已经想过的经典内存管理器，我们稍后会讨论它。与<code>Span</code>类似，<code>Memory</code>引用了一个导航对象，一个偏移量和一个内部缓冲区的大小。请注意，您可以使用<code>new</code>运算符仅从数组创建<code>Memory</code>。或者，您可以使用扩展方法从字符串，数组或<code>ArraySegment</code>创建<code>Memory</code>。我的意思是它不是设计为手动从非托管内存创建的。但是，我们可以看到有一个内部方法使用<code>MemoryManager</code>创建这个结构。</p>
+除了指示结构字段之外，我还要注意，还有另外两个基于另一个实体的<code>internal</code>类型构造函数 - “Memory&shy;Manager”。这不是您可能想到的经典内存管理器，我们稍后会讨论它。您可能已经想过的经典内存管理器，我们稍后会讨论它。与<code>Span</code>类似，<code>Memory</code>引用了一个导航对象，一个偏移量和一个内部缓冲区的大小。请注意，您可以使用<code>new</code>运算符仅从数组创建<code>Memory</code>。或者，您可以使用扩展方法从字符串，数组或<code>ArraySegment</code>创建<code>Memory</code>。我的意思是它不是设计为手动从非托管内存创建的。但是，我们可以看到有一个内部方法使用<code>MemoryManager</code>创建这个结构。</p>
 <div class="paragraph-right-side">40</div>
 </div>
 <div class="paragraph-container">
@@ -2457,7 +2457,7 @@ Hello?
 </li>
 <li>
 <p >
-如果我们考虑使用.NET Framework 4.7.1（同样适用于4.5），使用<code>Span</code>会在使用数据缓冲区时显着降低性能。它将减少30-35％。</p>
+如果我们考虑使用.NET Frame&shy;work 4.7.1（同样适用于4.5），使用<code>Span</code>会在使用数据缓冲区时显着降低性能。它将减少30-35％。</p>
 </li>
 <li>
 <p >
@@ -2473,7 +2473,7 @@ Hello?
 </li>
 <li>
 <p >
-在<code>.NET Core 2.1 +</code>中，它们的使用为'ArraySegment<code>和任何'Slice</code>的手动实现提供了无可否认的优势;</p>
+在<code>.NET Core 2.1 +</code>中，它们的使用为'Array&shy;Segment<code>和任何'Slice</code>的手动实现提供了无可否认的优势;</p>
 </li>
 <li>
 <p >

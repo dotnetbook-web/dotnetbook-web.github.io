@@ -1290,65 +1290,65 @@ footer > div {
             <p class="d-none d-xl-block">XL</p> -->
             <h1 id="section">Потоки и планирование потоков</h1>
 <p >
-Что та&shy;кое по&shy;ток? Да&shy;вай&shy;те да&shy;дим крат&shy;кое оп&shy;ре&shy;де&shy;ле&shy;ние. По сво&shy;ей су&shy;ти по&shy;ток это:</p>
+Что такое поток? Давайте дадим крат&shy;кое опре&shy;де&shy;ле&shy;ние. По своей сути поток это:</p>
 <ul>
 <li>
 <p >
-Сред&shy;ство па&shy;рал&shy;лель&shy;но&shy;го от&shy;но&shy;си&shy;тель&shy;но дру&shy;гих по&shy;то&shy;ков ис&shy;пол&shy;не&shy;ния ко&shy;да;</p>
+Сред&shy;ство парал&shy;лель&shy;ного отно&shy;си&shy;тельно дру&shy;гих пото&shy;ков испол&shy;не&shy;ния кода;</p>
 </li>
 <li>
 <p >
-Име&shy;ю&shy;ще&shy;го об&shy;щий дос&shy;туп ко всем ре&shy;сур&shy;сам про&shy;цес&shy;са.</p>
+Име&shy;ю&shy;щего общий дос&shy;туп ко всем ресур&shy;сам про&shy;цесса.</p>
 </li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
 <p >
-Очень час&shy;то час&shy;то слы&shy;шишь та&shy;кое мне&shy;ние, что по&shy;то&shy;ки в .NET — они ка&shy;кие-то аб&shy;со&shy;лют&shy;но свои. И на&shy;ши .NET по&shy;то&shy;ки яв&shy;ля&shy;ют&shy;ся чем-то бо&shy;лее об&shy;легчённым чем есть в Windows. Но на са&shy;мом де&shy;ле по&shy;то&shy;ки в .NET яв&shy;ля&shy;ют&shy;ся са&shy;мы&shy;ми обыч&shy;ны&shy;ми по&shy;то&shy;ка&shy;ми Windows (хоть Windows thread id и скры&shy;то так, что слож&shy;но дос&shy;тать). И ес&shy;ли Вас удив&shy;ля&shy;ет, по&shy;че&shy;му я бу&shy;ду расс&shy;ка&shy;зы&shy;вать не-.NET ве&shy;щи в ха&shy;бе .NET, ска&shy;жу вам так: ес&shy;ли нет по&shy;ни&shy;ма&shy;ния это&shy;го уров&shy;ня, мож&shy;но за&shy;быть о хо&shy;ро&shy;шем по&shy;ни&shy;ма&shy;нии то&shy;го, как и по&shy;че&shy;му имен&shy;но так ра&shy;бо&shy;та&shy;ет код: по&shy;че&shy;му мы дол&shy;жны ста&shy;вить volatile, ис&shy;поль&shy;зо&shy;вать Interlocked и SpinWait. Даль&shy;ше обыч&shy;но&shy;го <code>lock</code> де&shy;ло не уйдёт. И очень да&shy;же зря. По&shy;э&shy;то&shy;му да&shy;вай&shy;те же пос&shy;мот&shy;рим из че&shy;го они сос&shy;то&shy;ят и как они рож&shy;да&shy;ют&shy;ся.</p>
+Очень часто часто слы&shy;шишь такое мне&shy;ние, что потоки в .NET — они какие-то абсо&shy;лютно свои. И наши .NET потоки явля&shy;ются чем-то более облегчённым чем есть в Windows. Но на самом деле потоки в .NET явля&shy;ются самыми обыч&shy;ными пото&shy;ками Windows (хоть Windows thread id и скрыто так, что сложно дос&shy;тать). И если Вас удив&shy;ляет, почему я буду расс&shy;ка&shy;зы&shy;вать не-.NET вещи в хабе .NET, скажу вам так: если нет пони&shy;ма&shy;ния этого уровня, можно забыть о хоро&shy;шем пони&shy;ма&shy;нии того, как и почему именно так рабо&shy;тает код: почему мы дол&shy;жны ста&shy;вить vola&shy;tile, исполь&shy;зо&shy;вать Inter&shy;locked и Spin&shy;Wait. Дальше обыч&shy;ного <code>lock</code> дело не уйдёт. И очень даже зря. Поэ&shy;тому давайте же пос&shy;мот&shy;рим из чего они сос&shy;тоят и как они рож&shy;да&shy;ются.</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
 <p >
-По су&shy;ти по&shy;ток — это сред&shy;ство эму&shy;ля&shy;ции па&shy;рал&shy;лель&shy;но&shy;го ис&shy;пол&shy;не&shy;ния от&shy;но&shy;си&shy;тель&shy;но дру&shy;гих по&shy;то&shy;ков. По&shy;че&shy;му эму&shy;ля&shy;ция? По&shy;то&shy;му, что по&shy;ток как бы стран&shy;но и сме&shy;ло это ни зву&shy;ча&shy;ло — это чис&shy;то прог&shy;рам&shy;м&shy;ная вещь, ко&shy;то&shy;рая идёт из опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы. А опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;те&shy;ма соз&shy;даёт этот слой эму&shy;ля&shy;ции для нас. Про&shy;цес&shy;сор при этом о по&shy;то&shy;ках ни&shy;че&shy;го не зна&shy;ет во&shy;об&shy;ще. За&shy;да&shy;ча про&shy;цес&shy;со&shy;ра — прос&shy;то ис&shy;пол&shy;нять код. По&shy;э&shy;то&shy;му с точ&shy;ки зре&shy;ния про&shy;цес&shy;со&shy;ра есть толь&shy;ко один по&shy;ток: пос&shy;ле&shy;до&shy;ва&shy;тель&shy;ное ис&shy;пол&shy;не&shy;ние ко&shy;манд. А за&shy;да&shy;ча опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы при на&shy;ли&shy;чии на од&shy;ном про&shy;цес&shy;сор&shy;ном яд&shy;ре нес&shy;коль&shy;ких по&shy;то&shy;ков ка&shy;ким-ли&shy;бо об&shy;ра&shy;зом под&shy;ме&shy;нять ак&shy;тив&shy;ный т.о. что&shy;бы эму&shy;ли&shy;ро&shy;вать нес&shy;коль&shy;ко по&shy;то&shy;ков, ра&shy;бо&shy;та&shy;ю&shy;щих па&shy;рал&shy;лель&shy;но. Если бы на каж&shy;дом яд&shy;ре бы&shy;ло по од&shy;но&shy;му по&shy;то&shy;ку, эму&shy;ля&shy;ции бы не бы&shy;ло.</p>
+По сути поток — это сред&shy;ство эму&shy;ля&shy;ции парал&shy;лель&shy;ного испол&shy;не&shy;ния отно&shy;си&shy;тельно дру&shy;гих пото&shy;ков. Почему эму&shy;ля&shy;ция? Потому, что поток как бы странно и смело это ни зву&shy;чало — это чисто прог&shy;рам&shy;м&shy;ная вещь, кото&shy;рая идёт из опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;темы. А опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;тема создаёт этот слой эму&shy;ля&shy;ции для нас. Про&shy;цес&shy;сор при этом о пото&shy;ках ничего не знает вообще. Задача про&shy;цес&shy;сора — просто испол&shy;нять код. Поэ&shy;тому с точки зре&shy;ния про&shy;цес&shy;сора есть только один поток: пос&shy;ле&shy;до&shy;ва&shy;тель&shy;ное испол&shy;не&shy;ние команд. А задача опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;темы при нали&shy;чии на одном про&shy;цес&shy;сор&shy;ном ядре нес&shy;коль&shy;ких пото&shy;ков каким-либо обра&shy;зом под&shy;ме&shy;нять актив&shy;ный т.о. чтобы эму&shy;ли&shy;ро&shy;вать нес&shy;колько пото&shy;ков, рабо&shy;та&shy;ю&shy;щих парал&shy;лельно. Если бы на каж&shy;дом ядре было по одному потоку, эму&shy;ля&shy;ции бы не было.</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <h2 id="section-1">Поток в физическом понимании</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
 <p >
-"Но как же так?", - ска&shy;жи&shy;те вы, - "во мно&shy;гих ма&shy;га&shy;зи&shy;нах и на раз&shy;лич&shy;ных сай&shy;тах я ви&shy;жу за&shy;пись &laquo;Intel Xeon 8 ядер 16 по&shy;то&shy;ков&raquo;. Го&shy;во&shy;ря по-прав&shy;де это - ли&shy;бо скуд&shy;ность в тер&shy;ми&shy;но&shy;ло&shy;гии ли&shy;бо - чис&shy;то мар&shy;ке&shy;тин&shy;го&shy;вый ход. На са&shy;мом же де&shy;ле внут&shy;ри од&shy;но&shy;го боль&shy;шо&shy;го про&shy;цес&shy;со&shy;ра есть в дан&shy;ном слу&shy;чае 8 ядер и каж&shy;дое яд&shy;ро сос&shy;то&shy;ит из двух ло&shy;ги&shy;чес&shy;ких про&shy;цес&shy;со&shy;ров, ко&shy;то&shy;рые это яд&shy;ро эму&shy;ли&shy;ру&shy;ет. Та&shy;кое по&shy;ве&shy;де&shy;ние дос&shy;туп&shy;но при на&shy;ли&shy;чии в про&shy;цес&shy;со&shy;ре тех&shy;но&shy;ло&shy;гии Hyper-Threading, ког&shy;да каж&shy;дое яд&shy;ро эму&shy;ли&shy;ру&shy;ет по&shy;ве&shy;де&shy;ние двух про&shy;цес&shy;со&shy;ров (но не по&shy;то&shy;ков). Де&shy;ла&shy;ет&shy;ся это для по&shy;вы&shy;ше&shy;ния про&shy;из&shy;во&shy;ди&shy;тель&shy;нос&shy;ти, да. Но по боль&shy;шо&shy;му счёту ес&shy;ли нет по&shy;ни&shy;ма&shy;ния, на ка&shy;ких по&shy;то&shy;ках идут расчёты, мож&shy;но по&shy;лу&shy;чить очень не при&shy;ят&shy;ный сце&shy;на&shy;рий, ког&shy;да с двух по&shy;то&shy;ков, на&shy;хо&shy;дя&shy;щих&shy;ся на од&shy;ном фи&shy;зи&shy;чес&shy;ком, но на двух - вир&shy;ту&shy;альных яд&shy;рах, прог&shy;рам&shy;ма ра&shy;бо&shy;та&shy;ет с од&shy;ни&shy;ми и те&shy;ми же дан&shy;ны&shy;ми и код вы&shy;пол&shy;ня&shy;ет&shy;ся со ско&shy;ростью, ни&shy;же чем ес&shy;ли бы расчёты шли на од&shy;ном яд&shy;ре. Имен&shy;но по&shy;э&shy;то&shy;му раз&shy;да&shy;ча ядер по&shy;то&shy;кам идёт +=2 в слу&shy;чае Hyper-Threading. Т.е. про&shy;пус&shy;кая пар&shy;ные яд&shy;ра.</p>
+"Но как же так?", - ска&shy;жите вы, - "во мно&shy;гих мага&shy;зи&shy;нах и на раз&shy;лич&shy;ных сай&shy;тах я вижу запись &laquo;Intel Xeon 8 ядер 16 пото&shy;ков&raquo;. Говоря по-правде это - либо скуд&shy;ность в тер&shy;ми&shy;но&shy;ло&shy;гии либо - чисто мар&shy;ке&shy;тин&shy;го&shy;вый ход. На самом же деле внутри одного боль&shy;шого про&shy;цес&shy;сора есть в дан&shy;ном слу&shy;чае 8 ядер и каж&shy;дое ядро сос&shy;тоит из двух логи&shy;чес&shy;ких про&shy;цес&shy;со&shy;ров, кото&shy;рые это ядро эму&shy;ли&shy;рует. Такое пове&shy;де&shy;ние дос&shy;тупно при нали&shy;чии в про&shy;цес&shy;соре тех&shy;но&shy;ло&shy;гии Hyper-Thr&shy;eading, когда каж&shy;дое ядро эму&shy;ли&shy;рует пове&shy;де&shy;ние двух про&shy;цес&shy;со&shy;ров (но не пото&shy;ков). Дела&shy;ется это для повы&shy;ше&shy;ния про&shy;из&shy;во&shy;ди&shy;тель&shy;ности, да. Но по боль&shy;шому счёту если нет пони&shy;ма&shy;ния, на каких пото&shy;ках идут расчёты, можно полу&shy;чить очень не при&shy;ят&shy;ный сце&shy;на&shy;рий, когда с двух пото&shy;ков, нахо&shy;дя&shy;щихся на одном физи&shy;чес&shy;ком, но на двух - вир&shy;ту&shy;альных ядрах, прог&shy;рамма рабо&shy;тает с одними и теми же дан&shy;ными и код выпол&shy;ня&shy;ется со ско&shy;ростью, ниже чем если бы расчёты шли на одном ядре. Именно поэ&shy;тому раз&shy;дача ядер пото&shy;кам идёт +=2 в слу&shy;чае Hyper-Thr&shy;eading. Т.е. про&shy;пус&shy;кая пар&shy;ные ядра.</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
 <p >
-В этом слу&shy;чае воз&shy;ни&shy;ка&shy;ет бло&shy;ки&shy;ров&shy;ка сов&shy;мест&shy;но&shy;го дос&shy;ту&shy;па: хоть и идёт эму&shy;ля&shy;ция двух ядер, на са&shy;мом-то де&shy;ле оно од&shy;но. Одни и те же про&shy;цес&shy;сор&shy;ные кэ&shy;ши, вклю&shy;чая кэш за&shy;пи&shy;си. По&shy;э&shy;то&shy;му в на&shy;ихуд&shy;шем сце&shy;на&shy;рии эти по&shy;то&shy;ки ис&shy;пол&shy;ня&shy;ют&shy;ся по оче&shy;ре&shy;ди, а не па&shy;рал&shy;лель&shy;но.</p>
+В этом слу&shy;чае воз&shy;ни&shy;кает бло&shy;ки&shy;ровка сов&shy;мест&shy;ного дос&shy;тупа: хоть и идёт эму&shy;ля&shy;ция двух ядер, на самом-то деле оно одно. Одни и те же про&shy;цес&shy;сор&shy;ные кэши, вклю&shy;чая кэш записи. Поэ&shy;тому в наихуд&shy;шем сце&shy;на&shy;рии эти потоки испол&shy;ня&shy;ются по оче&shy;реди, а не парал&shy;лельно.</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
 <p >
-Так, ес&shy;ли про&shy;цес&shy;сор ни&shy;че&shy;го не зна&shy;ет о по&shy;то&shy;ках, как же дос&shy;ти&shy;га&shy;ет&shy;ся па&shy;рал&shy;лель&shy;ное ис&shy;пол&shy;не&shy;ние по&shy;то&shy;ков на каж&shy;дом из его ядер? Как бы&shy;ло ска&shy;за&shy;но, по&shy;ток - сред&shy;ство опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы вы&shy;пол&shy;нять на од&shy;ном про&shy;цес&shy;со&shy;ре нес&shy;коль&shy;ко за&shy;дач од&shy;нов&shy;ре&shy;мен&shy;но. Дос&shy;ти&shy;га&shy;ет&shy;ся па&shy;рал&shy;ле&shy;лизм очень быст&shy;рым пе&shy;рек&shy;лю&shy;че&shy;ни&shy;ем меж&shy;ду по&shy;то&shy;ка&shy;ми в те&shy;че&shy;ние очень ко&shy;рот&shy;ко&shy;го про&shy;ме&shy;жут&shy;ка вре&shy;ме&shy;ни. Пос&shy;ле&shy;до&shy;ва&shy;тель&shy;но за&shy;пус&shy;кая на вы&shy;пол&shy;не&shy;ние код каж&shy;до&shy;го из по&shy;то&shy;ков и де&shy;лая это дос&shy;та&shy;точ&shy;но час&shy;то, опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;те&shy;ма дос&shy;ти&shy;га&shy;ет це&shy;ли: де&shy;ла&shy;ет их ис&shy;пол&shy;не&shy;ние псев&shy;до&shy;па&shy;рал&shy;лель&shy;ным, но па&shy;рал&shy;лель&shy;ным с точ&shy;ки зре&shy;ния вос&shy;при&shy;я&shy;тия че&shy;ло&shy;ве&shy;ка. Вто&shy;рое обос&shy;но&shy;ва&shy;ние су&shy;щест&shy;во&shy;ва&shy;ния по&shy;то&shy;ков - это ут&shy;верж&shy;де&shy;ние, что прог&shy;рам&shy;ма не так час&shy;то сры&shy;ва&shy;ет&shy;ся в ма&shy;те&shy;ма&shy;ти&shy;чес&shy;кие расчёты. Ча&shy;ще все&shy;го она вза&shy;и&shy;мо&shy;дей&shy;ствует с ок&shy;ру&shy;жа&shy;ю&shy;щим её ми&shy;ром: раз&shy;лич&shy;ным обо&shy;ру&shy;до&shy;ва&shy;ни&shy;ем. Это и ра&shy;бо&shy;та с жёстким дис&shy;ком и вы&shy;вод на эк&shy;ран и ра&shy;бо&shy;та с кла&shy;ви&shy;а&shy;ту&shy;рой и мышью. По&shy;э&shy;то&shy;му что&shy;бы про&shy;цес&shy;сор не прос&shy;та&shy;и&shy;вал, по&shy;ка обо&shy;ру&shy;до&shy;ва&shy;ние сде&shy;ла&shy;ет то, че&shy;го хо&shy;чет от не&shy;го прог&shy;рам&shy;ма, по&shy;ток мож&shy;но на это вре&shy;мя ус&shy;та&shy;но&shy;вить в сос&shy;то&shy;я&shy;ние бло&shy;ки&shy;ров&shy;ки: ожи&shy;да&shy;ния сиг&shy;на&shy;ла от опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы, что&shy;бы обо&shy;ру&shy;до&shy;ва&shy;ние сде&shy;ла&shy;ло то, что от не&shy;го про&shy;си&shy;ли. А в это вре&shy;мя мож&shy;но зап&shy;ла&shy;ни&shy;ро&shy;вать в ра&shy;бо&shy;ту дру&shy;гие по&shy;то&shy;ки. Прос&shy;тей&shy;ший при&shy;мер это&shy;го - вы&shy;зов ме&shy;то&shy;да <code>Console.ReadKey()</code>.</p>
+Так, если про&shy;цес&shy;сор ничего не знает о пото&shy;ках, как же дос&shy;ти&shy;га&shy;ется парал&shy;лель&shy;ное испол&shy;не&shy;ние пото&shy;ков на каж&shy;дом из его ядер? Как было ска&shy;зано, поток - сред&shy;ство опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;темы выпол&shy;нять на одном про&shy;цес&shy;соре нес&shy;колько задач однов&shy;ре&shy;менно. Дос&shy;ти&shy;га&shy;ется парал&shy;ле&shy;лизм очень быст&shy;рым перек&shy;лю&shy;че&shy;нием между пото&shy;ками в тече&shy;ние очень корот&shy;кого про&shy;ме&shy;жутка вре&shy;мени. Пос&shy;ле&shy;до&shy;ва&shy;тельно запус&shy;кая на выпол&shy;не&shy;ние код каж&shy;дого из пото&shy;ков и делая это дос&shy;та&shy;точно часто, опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;тема дос&shy;ти&shy;гает цели: делает их испол&shy;не&shy;ние псев&shy;до&shy;па&shy;рал&shy;лель&shy;ным, но парал&shy;лель&shy;ным с точки зре&shy;ния вос&shy;при&shy;я&shy;тия чело&shy;века. Вто&shy;рое обос&shy;но&shy;ва&shy;ние сущест&shy;во&shy;ва&shy;ния пото&shy;ков - это утверж&shy;де&shy;ние, что прог&shy;рамма не так часто сры&shy;ва&shy;ется в мате&shy;ма&shy;ти&shy;чес&shy;кие расчёты. Чаще всего она вза&shy;и&shy;мо&shy;дей&shy;ствует с окру&shy;жа&shy;ю&shy;щим её миром: раз&shy;лич&shy;ным обо&shy;ру&shy;до&shy;ва&shy;нием. Это и работа с жёстким дис&shy;ком и вывод на экран и работа с кла&shy;ви&shy;а&shy;ту&shy;рой и мышью. Поэ&shy;тому чтобы про&shy;цес&shy;сор не прос&shy;та&shy;и&shy;вал, пока обо&shy;ру&shy;до&shy;ва&shy;ние сде&shy;лает то, чего хочет от него прог&shy;рамма, поток можно на это время уста&shy;но&shy;вить в сос&shy;то&shy;я&shy;ние бло&shy;ки&shy;ровки: ожи&shy;да&shy;ния сиг&shy;нала от опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;темы, чтобы обо&shy;ру&shy;до&shy;ва&shy;ние сде&shy;лало то, что от него про&shy;сили. А в это время можно зап&shy;ла&shy;ни&shy;ро&shy;вать в работу дру&shy;гие потоки. Прос&shy;тей&shy;ший при&shy;мер этого - вызов метода <code>Console.ReadKey()</code>.</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
 <p >
-Если заг&shy;ля&shy;нуть в дис&shy;пет&shy;чер за&shy;дач Windows 10, то мож&shy;но за&shy;ме&shy;тить, что в дан&shy;ный мо&shy;мент в ва&shy;шей сис&shy;те&shy;ме су&shy;щес&shy;тву&shy;ет око&shy;ло 1,5 ты&shy;ся&shy;чи по&shy;то&shy;ков. И ес&shy;ли учесть, что квант на деск&shy;то&shy;пе ра&shy;вен 20 мс, а ядер, нап&shy;ри&shy;мер, 4, то мож&shy;но сде&shy;лать пос&shy;пеш&shy;ный вы&shy;вод, что каж&shy;дый по&shy;ток по&shy;лу&shy;ча&shy;ет 20 мс ра&shy;бо&shy;ты 1 раз в 7,5 сек&hellip; На са&shy;мом де&shy;ле, ко&shy;неч&shy;но же, нет. Эта кар&shy;ти&shy;на яв&shy;ля&shy;ет&shy;ся от&shy;лич&shy;ной ил&shy;люст&shy;ра&shy;ци&shy;ей то&shy;го, что боль&shy;шинство из них на&shy;хо&shy;дит&shy;ся в бло&shy;ки&shy;ров&shy;ке: она все че&shy;го-то ждут. Кто-то - вво&shy;да поль&shy;зо&shy;ва&shy;те&shy;ля, кто-то - из&shy;ме&shy;не&shy;ния клю&shy;чей ре&shy;ес&shy;тра&hellip; В опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;ме су&shy;щес&shy;тву&shy;ет очень мно&shy;го при&shy;чин, что&shy;бы что-ли&shy;бо ждать.</p>
+Если заг&shy;ля&shy;нуть в дис&shy;пет&shy;чер задач Windows 10, то можно заме&shy;тить, что в дан&shy;ный момент в вашей сис&shy;теме сущес&shy;твует около 1,5 тысячи пото&shy;ков. И если учесть, что квант на деск&shy;топе равен 20 мс, а ядер, нап&shy;ри&shy;мер, 4, то можно сде&shy;лать пос&shy;пеш&shy;ный вывод, что каж&shy;дый поток полу&shy;чает 20 мс работы 1 раз в 7,5 сек&hellip; На самом деле, конечно же, нет. Эта кар&shy;тина явля&shy;ется отлич&shy;ной иллюст&shy;ра&shy;цией того, что боль&shy;шинство из них нахо&shy;дится в бло&shy;ки&shy;ровке: она все чего-то ждут. Кто-то - ввода поль&shy;зо&shy;ва&shy;теля, кто-то - изме&shy;не&shy;ния клю&shy;чей реес&shy;тра&hellip; В опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;теме сущес&shy;твует очень много при&shy;чин, чтобы что-либо ждать.</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <p >
-Так что по&shy;ка од&shy;ни по&shy;то&shy;ки в бло&shy;ки&shy;ров&shy;ке, дру&shy;гие - что-то де&shy;ла&shy;ют.</p>
+Так что пока одни потоки в бло&shy;ки&shy;ровке, дру&shy;гие - что-то делают.</p>
 <h2 id="section-2">Создание потоков</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
 <p >
-Прос&shy;тей&shy;шая фун&shy;к&shy;ция соз&shy;да&shy;ния по&shy;то&shy;ков в поль&shy;зо&shy;ва&shy;т&shy;ельском ре&shy;жи&shy;ме опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы на&shy;зы&shy;ва&shy;ет&shy;ся <code>CreateThread</code>. Эта фун&shy;к&shy;ция соз&shy;даёт по&shy;ток в те&shy;ку&shy;щем про&shy;цес&shy;се. Ва&shy;ри&shy;ан&shy;тов па&shy;ра&shy;мет&shy;ри&shy;за&shy;ции <code>CreateThread</code> очень мно&shy;го и ког&shy;да мы вы&shy;зы&shy;ва&shy;ем <code>new Thread()</code>, то из на&shy;ше&shy;го .NET ко&shy;да вы&shy;зы&shy;ва&shy;ет&shy;ся дан&shy;ная фун&shy;к&shy;ция опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы.</p>
+Прос&shy;тей&shy;шая фун&shy;к&shy;ция соз&shy;да&shy;ния пото&shy;ков в поль&shy;зо&shy;ва&shy;т&shy;ельском режиме опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;темы назы&shy;ва&shy;ется <code>CreateThread</code>. Эта фун&shy;к&shy;ция создаёт поток в теку&shy;щем про&shy;цессе. Вари&shy;ан&shy;тов пара&shy;мет&shy;ри&shy;за&shy;ции <code>CreateThread</code> очень много и когда мы вызы&shy;ваем <code>new Thread()</code>, то из нашего .NET кода вызы&shy;ва&shy;ется дан&shy;ная фун&shy;к&shy;ция опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;темы.</p>
 <div class="paragraph-right-side">07</div>
 </div>
 <p >
-В эту фун&shy;к&shy;цию пе&shy;ре&shy;да&shy;ют&shy;ся сле&shy;ду&shy;ю&shy;щие ат&shy;ри&shy;бу&shy;ты:</p>
+В эту фун&shy;к&shy;цию пере&shy;да&shy;ются сле&shy;ду&shy;ю&shy;щие атри&shy;буты:</p>
 <ol>
 <li>
 <p >
@@ -1356,12 +1356,12 @@ footer > div {
 <ul>
 <li>
 <p >
-Деск&shy;рип&shy;тор бе&shy;зо&shy;пас&shy;нос&shy;ти (SECURITY_ATTRIBUTES) + приз&shy;нак нас&shy;ле&shy;ду&shy;емос&shy;ти деск&shy;рип&shy;то&shy;ра.</p>
+Деск&shy;рип&shy;тор безо&shy;пас&shy;ности (SECURITY_ATTRIBUTES) + приз&shy;нак нас&shy;ле&shy;ду&shy;емости деск&shy;рип&shy;тора.</p>
 </li>
 </ul>
 <blockquote>
 <p >
-В .NET его нет, но мож&shy;но соз&shy;дать по&shy;ток че&shy;рез вы&shy;зов фун&shy;к&shy;ции опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы;</p>
+В .NET его нет, но можно соз&shy;дать поток через вызов фун&shy;к&shy;ции опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;темы;</p>
 </blockquote>
 </li>
 <li>
@@ -1370,48 +1370,48 @@ footer > div {
 <ul>
 <li>
 <p >
-На&shy;чаль&shy;ный раз&shy;мер сте&shy;ка, в бай&shy;тах (сис&shy;те&shy;ма ок&shy;руг&shy;ля&shy;ет это зна&shy;че&shy;ние до раз&shy;ме&shy;ра стра&shy;ни&shy;цы па&shy;мя&shy;ти)</p>
+Началь&shy;ный раз&shy;мер стека, в бай&shy;тах (сис&shy;тема округ&shy;ляет это зна&shy;че&shy;ние до раз&shy;мера стра&shy;ницы памяти)</p>
 </li>
 </ul>
 </li>
 <li>
 <p >
-Ука&shy;за&shy;тель на фун&shy;к&shy;цию - точ&shy;ка вхо&shy;да но&shy;во&shy;го по&shy;то&shy;ка&shy;ми</p>
+Ука&shy;за&shy;тель на фун&shy;к&shy;цию - точка входа нового пото&shy;ками</p>
 </li>
 <li>
 <p >
-Не&shy;о&shy;бя&shy;за&shy;тель&shy;ный ар&shy;гу&shy;мент для пе&shy;ре&shy;да&shy;чи дан&shy;ных фун&shy;к&shy;ции по&shy;то&shy;ка.</p>
+Нео&shy;бя&shy;за&shy;тель&shy;ный аргу&shy;мент для пере&shy;дачи дан&shy;ных фун&shy;к&shy;ции потока.</p>
 </li>
 </ol>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
 <p >
-Из то&shy;го, что мы <strong>не</strong> име&shy;ем в .NET яв&shy;но - это струк&shy;ту&shy;ра бе&shy;зо&shy;пас&shy;нос&shy;ти с ат&shy;ри&shy;бу&shy;та&shy;ми бе&shy;зо&shy;пас&shy;нос&shy;ти: сей&shy;час мы расс&shy;мат&shy;ри&shy;вать их не бу&shy;дем. Ска&shy;жу толь&shy;ко, что они влияют на воз&shy;мож&shy;ность из&shy;ме&shy;не&shy;ния ин&shy;фор&shy;ма&shy;ции о по&shy;то&shy;ке сред&shy;ства&shy;ми опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы. Остал&shy;ьные па&shy;ра&shy;мет&shy;ры нам зна&shy;ко&shy;мы и мы, по&shy;жа&shy;луй, не бу&shy;дем на них ос&shy;та&shy;нав&shy;ли&shy;аться.</p>
+Из того, что мы <strong>не</strong> имеем в .NET явно - это струк&shy;тура безо&shy;пас&shy;ности с атри&shy;бу&shy;тами безо&shy;пас&shy;ности: сей&shy;час мы расс&shy;мат&shy;ри&shy;вать их не будем. Скажу только, что они влияют на воз&shy;мож&shy;ность изме&shy;не&shy;ния инфор&shy;ма&shy;ции о потоке сред&shy;ствами опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;темы. Остал&shy;ьные пара&shy;метры нам зна&shy;комы и мы, пожа&shy;луй, не будем на них оста&shy;нав&shy;ли&shy;аться.</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
 <p >
-Одна&shy;ко, по&shy;ми&shy;мо этой фун&shy;к&shy;ции в Windows API су&shy;щес&shy;тву&shy;ет ещё од&shy;на очень ин&shy;те&shy;рес&shy;ная фун&shy;к&shy;ция: <code>CreateRemoteThread</code>, ко&shy;то&shy;рый соз&shy;даёт по&shy;ток в чу&shy;жом про&shy;цес&shy;се. Он час&shy;то ис&shy;поль&shy;зу&shy;ет&shy;ся для мо&shy;ни&shy;то&shy;рин&shy;га сос&shy;то&shy;я&shy;ния чу&shy;жо&shy;го про&shy;цес&shy;са (нап&shy;ри&shy;мер, прог&shy;рам&shy;ма Snoop). При по&shy;мо&shy;щи этой фун&shy;к&shy;ции при&shy;ло&shy;же&shy;ния .NET мо&shy;гут за&shy;ли&shy;вать свои по&shy;то&shy;ки в чу&shy;жие про&shy;цес&shy;сы, од&shy;на&shy;ко тут мо&shy;гут воз&shy;ник&shy;нуть проб&shy;ле&shy;мы. Пер&shy;вая и са&shy;мая глав&shy;ная - это от&shy;с&shy;утствие в це&shy;ле&shy;вом по&shy;то&shy;ке .NET runtime. Это зна&shy;чит, что ни од&shy;но&shy;го ме&shy;то&shy;да фрейм&shy;вор&shy;ка там не бу&shy;дет: толь&shy;ко WinAPI и то, что вы на&shy;пи&shy;са&shy;ли са&shy;ми. Одна&shy;ко, ес&shy;ли там .NET есть, то воз&shy;ни&shy;ка&shy;ет вто&shy;рая проб&shy;ле&shy;ма (ко&shy;то&shy;рой не бы&shy;ло рань&shy;ше). Это - вер&shy;сия runtime. Не&shy;об&shy;хо&shy;ди&shy;мо: по&shy;нять, что там за&shy;пу&shy;ще&shy;но (для это&shy;го не&shy;об&shy;хо&shy;ди&shy;мо им&shy;пор&shy;ти&shy;ро&shy;вать не-.NET ме&shy;то&shy;ды runtime, ко&shy;то&shy;рые на&shy;пи&shy;са&shy;ны на C/C++ и ра&shy;зоб&shy;рать&shy;ся, с чем мы име&shy;ем де&shy;ло). На ос&shy;но&shy;ва&shy;нии по&shy;лу&shy;чен&shy;ной ин&shy;фор&shy;ма&shy;ции подг&shy;ру&shy;зить не&shy;об&shy;хо&shy;ди&shy;мые вер&shy;сии на&shy;ших .NET биб&shy;ли&shy;о&shy;тек и ка&shy;ким-то об&shy;ра&shy;зом пе&shy;ре&shy;дать им уп&shy;рав&shy;ле&shy;ние. Ана&shy;ло&shy;гич&shy;ный фун&shy;кци&shy;о&shy;нал, но для опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы Linux в го&shy;то&shy;вом ви&shy;де не су&shy;щес&shy;тву&shy;ет, но ана&shy;ло&shy;гич&shy;но&shy;го по&shy;ве&shy;де&shy;ния всё рав&shy;но мож&shy;но до&shy;бить&shy;ся. Нап&shy;ри&shy;мер, <a href="https://habr.com/ru/post/473740/">так</a>.</p>
+Однако, помимо этой фун&shy;к&shy;ции в Windows API сущес&shy;твует ещё одна очень инте&shy;рес&shy;ная фун&shy;к&shy;ция: <code>CreateRemoteThread</code>, кото&shy;рый создаёт поток в чужом про&shy;цессе. Он часто исполь&shy;зу&shy;ется для мони&shy;то&shy;ринга сос&shy;то&shy;я&shy;ния чужого про&shy;цесса (нап&shy;ри&shy;мер, прог&shy;рамма Snoop). При помощи этой фун&shy;к&shy;ции при&shy;ло&shy;же&shy;ния .NET могут зали&shy;вать свои потоки в чужие про&shy;цессы, однако тут могут воз&shy;ник&shy;нуть проб&shy;лемы. Пер&shy;вая и самая глав&shy;ная - это отс&shy;утствие в целе&shy;вом потоке .NET runtime. Это зна&shy;чит, что ни одного метода фрейм&shy;ворка там не будет: только Win&shy;API и то, что вы напи&shy;сали сами. Однако, если там .NET есть, то воз&shy;ни&shy;кает вто&shy;рая проб&shy;лема (кото&shy;рой не было раньше). Это - вер&shy;сия runtime. Необ&shy;хо&shy;димо: понять, что там запу&shy;щено (для этого необ&shy;хо&shy;димо импор&shy;ти&shy;ро&shy;вать не-.NET методы runtime, кото&shy;рые напи&shy;саны на C/C++ и разоб&shy;раться, с чем мы имеем дело). На осно&shy;ва&shy;нии полу&shy;чен&shy;ной инфор&shy;ма&shy;ции подг&shy;ру&shy;зить необ&shy;хо&shy;ди&shy;мые вер&shy;сии наших .NET биб&shy;ли&shy;о&shy;тек и каким-то обра&shy;зом пере&shy;дать им управ&shy;ле&shy;ние. Ана&shy;ло&shy;гич&shy;ный фун&shy;кци&shy;о&shy;нал, но для опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;темы Linux в гото&shy;вом виде не сущес&shy;твует, но ана&shy;ло&shy;гич&shy;ного пове&shy;де&shy;ния всё равно можно добиться. Нап&shy;ри&shy;мер, <a href="https://habr.com/ru/post/473740/">так</a>.</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
 <p >
-Я бы ре&shy;ко&shy;мен&shy;до&shy;вал вам по&shy;иг&shy;рать&shy;ся с за&shy;дач&shy;кой та&shy;ко&shy;го ро&shy;да: вжить&shy;ся в код лю&shy;бо&shy;го .NET про&shy;цес&shy;са и вы&shy;вес&shy;ти ку&shy;да-ли&shy;бо со&shy;об&shy;ще&shy;ние об уда&shy;че внед&shy;ре&shy;ния (нап&shy;ри&shy;мер, в файл ло&shy;га).</p>
+Я бы реко&shy;мен&shy;до&shy;вал вам поиг&shy;раться с задач&shy;кой такого рода: вжиться в код любого .NET про&shy;цесса и вывести куда-либо сооб&shy;ще&shy;ние об удаче внед&shy;ре&shy;ния (нап&shy;ри&shy;мер, в файл лога).</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <h2 id="section-3">Планирование потоков</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
 <p >
-Для то&shy;го что&shy;бы по&shy;ни&shy;мать, в ка&shy;ком по&shy;ряд&shy;ке ис&shy;пол&shy;нять код раз&shy;лич&shy;ных по&shy;то&shy;ков, не&shy;об&shy;хо&shy;ди&shy;ма ор&shy;га&shy;ни&shy;за&shy;ция пла&shy;ни&shy;ро&shy;ва&shy;ния этих по&shy;то&shy;ков. Ведь сис&shy;те&shy;ма мо&shy;жет иметь как од&shy;но яд&shy;ро, так и нес&shy;коль&shy;ко. Как иметь эму&shy;ля&shy;цию двух ядер на од&shy;ном так и не иметь та&shy;кой эму&shy;ля&shy;ции. И на каж&shy;дом из ядер: же&shy;лез&shy;ных или же эму&shy;ли&shy;ро&shy;ван&shy;ных не&shy;об&shy;хо&shy;ди&shy;мо ис&shy;пол&shy;нять как один по&shy;ток, так и нес&shy;коль&shy;ко. В кон&shy;це кон&shy;цов сис&shy;те&shy;ма мо&shy;жет ра&shy;бо&shy;тать в ре&shy;жи&shy;ме вир&shy;ту&shy;а&shy;ли&shy;за&shy;ции: в об&shy;ла&shy;ке, в вир&shy;ту&shy;альной ма&shy;ши&shy;не, пе&shy;соч&shy;ни&shy;це в рам&shy;ках дру&shy;гой опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы. По&shy;э&shy;то&shy;му мы в обя&shy;за&shy;тель&shy;ном по&shy;ряд&shy;ке расс&shy;мот&shy;рим пла&shy;ни&shy;ро&shy;ва&shy;ние по&shy;то&shy;ков в рам&shy;ках опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы: плат&shy;фор&shy;ма .NET эти&shy;ми воп&shy;ро&shy;са&shy;ми не за&shy;ни&shy;ма&shy;ет&shy;ся. Эта ин&shy;фор&shy;ма&shy;ция - нас&shy;толь&shy;ко важ&shy;ная часть ма&shy;те&shy;ри&shy;ала по мно&shy;го&shy;по&shy;точ&shy;ке, что без его по&shy;ни&shy;ма&shy;ния мно&shy;го&shy;по&shy;точ&shy;ка не вста&shy;нет на своё мес&shy;то в на&shy;шей го&shy;ло&shy;ве ни&shy;ко&shy;им об&shy;ра&shy;зом.</p>
+Для того чтобы пони&shy;мать, в каком порядке испол&shy;нять код раз&shy;лич&shy;ных пото&shy;ков, необ&shy;хо&shy;дима орга&shy;ни&shy;за&shy;ция пла&shy;ни&shy;ро&shy;ва&shy;ния этих пото&shy;ков. Ведь сис&shy;тема может иметь как одно ядро, так и нес&shy;колько. Как иметь эму&shy;ля&shy;цию двух ядер на одном так и не иметь такой эму&shy;ля&shy;ции. И на каж&shy;дом из ядер: желез&shy;ных или же эму&shy;ли&shy;ро&shy;ван&shy;ных необ&shy;хо&shy;димо испол&shy;нять как один поток, так и нес&shy;колько. В конце кон&shy;цов сис&shy;тема может рабо&shy;тать в режиме вир&shy;ту&shy;а&shy;ли&shy;за&shy;ции: в облаке, в вир&shy;ту&shy;альной машине, песоч&shy;нице в рам&shy;ках дру&shy;гой опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;темы. Поэ&shy;тому мы в обя&shy;за&shy;тель&shy;ном порядке расс&shy;мот&shy;рим пла&shy;ни&shy;ро&shy;ва&shy;ние пото&shy;ков в рам&shy;ках опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;темы: плат&shy;форма .NET этими воп&shy;ро&shy;сами не зани&shy;ма&shy;ется. Эта инфор&shy;ма&shy;ция - нас&shy;только важ&shy;ная часть мате&shy;ри&shy;ала по мно&shy;го&shy;по&shy;точке, что без его пони&shy;ма&shy;ния мно&shy;го&shy;по&shy;точка не вста&shy;нет на своё место в нашей голове никоим обра&shy;зом.</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
 <p >
-Итак, начнём. Орга&shy;ни&shy;за&shy;ция пла&shy;ни&shy;ро&shy;ва&shy;ния в опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;ме Windows яв&shy;ля&shy;ет&shy;ся гиб&shy;рид&shy;ной. С од&shy;ной сто&shy;ро&shy;ны - мо&shy;де&shy;ли&shy;ру&shy;ют&shy;ся ус&shy;ло&shy;вия вы&shy;тес&shy;ня&shy;ю&shy;щей мно&shy;го&shy;за&shy;дач&shy;нос&shy;ти, ког&shy;да опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;те&shy;ма са&shy;ма ре&shy;ша&shy;ет, ког&shy;да и на ос&shy;но&shy;ве ка&shy;ких ус&shy;ло&shy;вия вы&shy;тес&shy;нить по&shy;то&shy;ки (по&shy;ве&shy;де&shy;ние поч&shy;ти во всех при&shy;ло&shy;же&shy;ни&shy;ях). С дру&shy;гой сто&shy;ро&shy;ны - ко&shy;о&shy;пе&shy;ра&shy;тив&shy;ной мно&shy;го&shy;за&shy;дач&shy;нос&shy;ти, ког&shy;да по&shy;то&shy;ки са&shy;ми ре&shy;ша&shy;ют, ког&shy;да они всё сде&shy;ла&shy;ли и мож&shy;но пе&shy;рек&shy;лю&shy;чать&shy;ся на сле&shy;ду&shy;ю&shy;щий (UMS пла&shy;ни&shy;ров&shy;щик, соз&shy;да&shy;ва&shy;е&shy;мый поль&shy;зо&shy;ва&shy;т&shy;ельским ко&shy;дом вруч&shy;ную. Испол&shy;ьз&shy;уе&shy;тся край&shy;не ред&shy;ко). Ре&shy;жим вы&shy;тес&shy;ня&shy;ю&shy;щей мно&shy;го&shy;за&shy;дач&shy;нос&shy;ти ра&shy;бо&shy;та&shy;ет на ос&shy;но&shy;ве при&shy;о&shy;ри&shy;те&shy;тов: пла&shy;ни&shy;ров&shy;щик ре&shy;ша&shy;ет, ка&shy;кой сле&shy;ду&shy;ю&shy;щий по&shy;ток бу&shy;дет ис&shy;пол&shy;нять&shy;ся имен&shy;но на ос&shy;но&shy;ве их при&shy;о&shy;ри&shy;те&shy;тов. А вы&shy;тес&shy;ня&shy;ю&shy;щей по&shy;то&shy;му, что ес&shy;ли воз&shy;ни&shy;ка&shy;ет бо&shy;лее при&shy;о&shy;ри&shy;тет&shy;ный по&shy;ток, он вы&shy;тес&shy;ня&shy;ет тот, ко&shy;то&shy;рый сей&shy;час ис&shy;пол&shy;нял&shy;ся. Одна&shy;ко, за&shy;бе&shy;гая вперёд, мож&shy;но сде&shy;лать пос&shy;пеш&shy;ный вы&shy;вод, что во мно&shy;гих слу&shy;ча&shy;ях это бы оз&shy;на&shy;ча&shy;ло, что часть по&shy;то&shy;ков из-за их низ&shy;ких при&shy;о&shy;ри&shy;те&shy;тов ни&shy;ког&shy;да не до&shy;бе&shy;рет&shy;ся до ис&shy;пол&shy;не&shy;ния. По&shy;э&shy;то&shy;му в опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;ме есть мно&shy;го ме&shy;ха&shy;ник, поз&shy;во&shy;ля&shy;ю&shy;щих по&shy;то&shy;кам, ко&shy;то&shy;рым не&shy;об&shy;хо&shy;ди&shy;мо вре&shy;мя на ис&shy;пол&shy;не&shy;ние его по&shy;лу&shy;чить нес&shy;мот&shy;ря на свой бо&shy;лее низ&shy;кий по срав&shy;не&shy;нию с ос&shy;таль&shy;ны&shy;ми, при&shy;о&shy;ри&shy;тет.</p>
+Итак, начнём. Орга&shy;ни&shy;за&shy;ция пла&shy;ни&shy;ро&shy;ва&shy;ния в опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;теме Windows явля&shy;ется гиб&shy;рид&shy;ной. С одной сто&shy;роны - моде&shy;ли&shy;ру&shy;ются усло&shy;вия вытес&shy;ня&shy;ю&shy;щей мно&shy;го&shy;за&shy;дач&shy;ности, когда опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;тема сама решает, когда и на основе каких усло&shy;вия вытес&shy;нить потоки (пове&shy;де&shy;ние почти во всех при&shy;ло&shy;же&shy;ниях). С дру&shy;гой сто&shy;роны - коо&shy;пе&shy;ра&shy;тив&shy;ной мно&shy;го&shy;за&shy;дач&shy;ности, когда потоки сами решают, когда они всё сде&shy;лали и можно перек&shy;лю&shy;чаться на сле&shy;ду&shy;ю&shy;щий (UMS пла&shy;ни&shy;ров&shy;щик, соз&shy;да&shy;ва&shy;е&shy;мый поль&shy;зо&shy;ва&shy;т&shy;ельским кодом вруч&shy;ную. Испол&shy;ьз&shy;уе&shy;тся крайне редко). Режим вытес&shy;ня&shy;ю&shy;щей мно&shy;го&shy;за&shy;дач&shy;ности рабо&shy;тает на основе при&shy;о&shy;ри&shy;те&shy;тов: пла&shy;ни&shy;ров&shy;щик решает, какой сле&shy;ду&shy;ю&shy;щий поток будет испол&shy;няться именно на основе их при&shy;о&shy;ри&shy;те&shy;тов. А вытес&shy;ня&shy;ю&shy;щей потому, что если воз&shy;ни&shy;кает более при&shy;о&shy;ри&shy;тет&shy;ный поток, он вытес&shy;няет тот, кото&shy;рый сей&shy;час испол&shy;нялся. Однако, забе&shy;гая вперёд, можно сде&shy;лать пос&shy;пеш&shy;ный вывод, что во мно&shy;гих слу&shy;чаях это бы озна&shy;чало, что часть пото&shy;ков из-за их низ&shy;ких при&shy;о&shy;ри&shy;те&shy;тов никогда не добе&shy;рется до испол&shy;не&shy;ния. Поэ&shy;тому в опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;теме есть много меха&shy;ник, поз&shy;во&shy;ля&shy;ю&shy;щих пото&shy;кам, кото&shy;рым необ&shy;хо&shy;димо время на испол&shy;не&shy;ние его полу&shy;чить нес&shy;мотря на свой более низ&shy;кий по срав&shy;не&shy;нию с осталь&shy;ными, при&shy;о&shy;ри&shy;тет.</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <h3 id="section-4">Уровни приоритета</h3>
@@ -1422,7 +1422,7 @@ footer > div {
 <div class="paragraph-right-side">13</div>
 </div>
 <p >
-Windows име&shy;ет 32 уров&shy;ня при&shy;о&shy;ри&shy;те&shy;та (0-31):</p>
+Windows имеет 32 уровня при&shy;о&shy;ри&shy;тета (0-31):</p>
 <ul>
 <li>
 <p >
@@ -1430,42 +1430,42 @@ Windows име&shy;ет 32 уров&shy;ня при&shy;о&shy;ри&shy;те&shy
 </li>
 <li>
 <p >
-15 уров&shy;ней (01 - 15) - обыч&shy;ные ди&shy;на&shy;ми&shy;чес&shy;кие при&shy;о&shy;ри&shy;те&shy;ты;</p>
+15 уров&shy;ней (01 - 15) - обыч&shy;ные дина&shy;ми&shy;чес&shy;кие при&shy;о&shy;ри&shy;теты;</p>
 </li>
 <li>
 <p >
-16 уров&shy;ней (16 - 31) - ре&shy;ал&shy;ьного вре&shy;ме&shy;ни.</p>
+16 уров&shy;ней (16 - 31) - реал&shy;ьного вре&shy;мени.</p>
 </li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
 <p >
-Са&shy;мый низ&shy;кий при&shy;о&shy;ри&shy;тет име&shy;ет <code>Zero Page Thread</code>. Это - спе&shy;ци&shy;альный по&shy;ток опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мы, ко&shy;то&shy;рый об&shy;ну&shy;ля&shy;ет стра&shy;ни&shy;цы опе&shy;ра&shy;тив&shy;ной па&shy;мя&shy;ти, вы&shy;чи&shy;щая тем са&shy;мым дан&shy;ные, ко&shy;то&shy;рые там на&shy;хо&shy;ди&shy;лись, но бо&shy;лее не нуж&shy;ны, т.к. стра&shy;ни&shy;ца бы&shy;ла ос&shy;во&shy;бож&shy;де&shy;на. Не&shy;об&shy;хо&shy;ди&shy;мо это по од&shy;ной прос&shy;той при&shy;чи&shy;не: ког&shy;да при&shy;ло&shy;же&shy;ние ос&shy;во&shy;бож&shy;да&shy;ет па&shy;мять, оно мо&shy;жет не&shy;на&shy;ро&shy;ком от&shy;дать ко&shy;му-то чувс&shy;твит&shy;ельные дан&shy;ные. Лич&shy;ные дан&shy;ные, па&shy;ро&shy;ли, что-то ещё. По&shy;э&shy;то&shy;му как опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;те&shy;ма так и runtime язы&shy;ков прог&shy;рам&shy;ми&shy;ро&shy;ва&shy;ния (а у нас - .NET CLR) об&shy;ну&shy;ля&shy;ют по&shy;лу&shy;ча&shy;е&shy;мые учас&shy;тки па&shy;мя&shy;ти. Если опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;те&shy;ма по&shy;ни&shy;ма&shy;ет, что за&shy;нять&shy;ся осо&shy;бо не&shy;чем: по&shy;то&shy;ки ли&shy;бо сто&shy;ят в бло&shy;ки&shy;ров&shy;ке в ожи&shy;да&shy;нии че&shy;го-ли&shy;бо ли&shy;бо нет по&shy;то&shy;ков, ко&shy;то&shy;рые ис&shy;пол&shy;ня&shy;ют&shy;ся, то она за&shy;пус&shy;ка&shy;ет са&shy;мый низ&shy;ко при&shy;о&shy;ри&shy;тет&shy;ный по&shy;ток: по&shy;ток об&shy;ну&shy;ле&shy;ния па&shy;мя&shy;ти. Если она не до&shy;бе&shy;рет&shy;ся этим по&shy;то&shy;ком до ка&shy;ких-ли&shy;бо участ&shy;ков, не страш&shy;но: их об&shy;ну&shy;лят по тре&shy;бо&shy;ва&shy;нию. Ког&shy;да их зап&shy;ро&shy;сят. Но ес&shy;ли есть вре&shy;мя, по&shy;че&shy;му бы это не сде&shy;лать за&shy;ра&shy;нее?</p>
+Самый низ&shy;кий при&shy;о&shy;ри&shy;тет имеет <code>Zero Page Thread</code>. Это - спе&shy;ци&shy;альный поток опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;темы, кото&shy;рый обну&shy;ляет стра&shy;ницы опе&shy;ра&shy;тив&shy;ной памяти, вычи&shy;щая тем самым дан&shy;ные, кото&shy;рые там нахо&shy;ди&shy;лись, но более не нужны, т.к. стра&shy;ница была осво&shy;бож&shy;дена. Необ&shy;хо&shy;димо это по одной прос&shy;той при&shy;чине: когда при&shy;ло&shy;же&shy;ние осво&shy;бож&shy;дает память, оно может нена&shy;ро&shy;ком отдать кому-то чувс&shy;твит&shy;ельные дан&shy;ные. Лич&shy;ные дан&shy;ные, пароли, что-то ещё. Поэ&shy;тому как опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;тема так и runtime язы&shy;ков прог&shy;рам&shy;ми&shy;ро&shy;ва&shy;ния (а у нас - .NET CLR) обну&shy;ляют полу&shy;ча&shy;е&shy;мые учас&shy;тки памяти. Если опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;тема пони&shy;мает, что заняться особо нечем: потоки либо стоят в бло&shy;ки&shy;ровке в ожи&shy;да&shy;нии чего-либо либо нет пото&shy;ков, кото&shy;рые испол&shy;ня&shy;ются, то она запус&shy;кает самый низко при&shy;о&shy;ри&shy;тет&shy;ный поток: поток обну&shy;ле&shy;ния памяти. Если она не добе&shy;рется этим пото&shy;ком до каких-либо участ&shy;ков, не страшно: их обну&shy;лят по тре&shy;бо&shy;ва&shy;нию. Когда их зап&shy;ро&shy;сят. Но если есть время, почему бы это не сде&shy;лать зара&shy;нее?</p>
 <div class="paragraph-right-side">14</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
 <p >
-Про&shy;дол&shy;жая го&shy;во&shy;рить о том, что к нам не от&shy;но&shy;сит&shy;ся, сто&shy;ит от&shy;ме&shy;тить при&shy;о&shy;ри&shy;те&shy;ты ре&shy;ал&shy;ьного вре&shy;ме&shy;ни, ко&shy;то&shy;рые ког&shy;да-то дав&shy;ным-дав&shy;но та&shy;ко&shy;вы&shy;ми яв&shy;ля&shy;лись, но быс&shy;тро по&shy;те&shy;ря&shy;ли свой ста&shy;тус при&shy;о&shy;ри&shy;те&shy;тов ре&shy;ал&shy;ьного вре&shy;ме&shy;ни и от это&shy;го ста&shy;ту&shy;са ос&shy;та&shy;лось лишь наз&shy;ва&shy;ние. Дру&shy;ги&shy;ми сло&shy;ва&shy;ми, Real Time при&shy;о&shy;ри&shy;те&shy;ты на са&shy;мом де&shy;ле не яв&shy;ля&shy;ют&shy;ся та&shy;ко&shy;вы&shy;ми. Они яв&shy;ля&shy;ют&shy;ся при&shy;о&shy;ри&shy;те&shy;та&shy;ми с ис&shy;клю&shy;чи&shy;тель&shy;но вы&shy;со&shy;ким зна&shy;че&shy;ни&shy;ем при&shy;о&shy;ри&shy;те&shy;та. Т.е. ес&shy;ли опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;те&shy;ма бу&shy;дет по ка&shy;кой-то при&shy;чи&shy;не по&shy;вы&shy;шать при&shy;о&shy;ри&shy;тет по&shy;то&shy;ка с при&shy;о&shy;ри&shy;те&shy;том из ди&shy;на&shy;ми&shy;чес&shy;кой груп&shy;пы (об этом - поз&shy;же, но, нап&shy;ри&shy;мер, по&shy;то&shy;му, что по&shy;то&shy;ку ос&shy;во&shy;бо&shy;ди&shy;ли бло&shy;ки&shy;ров&shy;ку) и при этом зна&shy;че&shy;ние до по&shy;вы&shy;ше&shy;ния бы&shy;ло рав&shy;но <code>15</code>, то по&shy;вы&shy;сить при&shy;о&shy;ри&shy;тет опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;те&shy;ма не смо&shy;жет: сле&shy;ду&shy;ю&shy;щее зна&shy;че&shy;ние рав&shy;но <code>16</code>, а оно - из ди&shy;а&shy;па&shy;зо&shy;на ре&shy;ал&shy;ьного вре&shy;ме&shy;ни. Ту&shy;да по&shy;вы&shy;шать та&shy;ки&shy;ми вот &laquo;тви&shy;ка&shy;ми&raquo; нель&shy;зя.</p>
+Про&shy;дол&shy;жая гово&shy;рить о том, что к нам не отно&shy;сится, стоит отме&shy;тить при&shy;о&shy;ри&shy;теты реал&shy;ьного вре&shy;мени, кото&shy;рые когда-то дав&shy;ным-давно тако&shy;выми явля&shy;лись, но быс&shy;тро поте&shy;ряли свой ста&shy;тус при&shy;о&shy;ри&shy;те&shy;тов реал&shy;ьного вре&shy;мени и от этого ста&shy;туса оста&shy;лось лишь наз&shy;ва&shy;ние. Дру&shy;гими сло&shy;вами, Real Time при&shy;о&shy;ри&shy;теты на самом деле не явля&shy;ются тако&shy;выми. Они явля&shy;ются при&shy;о&shy;ри&shy;те&shy;тами с исклю&shy;чи&shy;тельно высо&shy;ким зна&shy;че&shy;нием при&shy;о&shy;ри&shy;тета. Т.е. если опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;тема будет по какой-то при&shy;чине повы&shy;шать при&shy;о&shy;ри&shy;тет потока с при&shy;о&shy;ри&shy;те&shy;том из дина&shy;ми&shy;чес&shy;кой группы (об этом - позже, но, нап&shy;ри&shy;мер, потому, что потоку осво&shy;бо&shy;дили бло&shy;ки&shy;ровку) и при этом зна&shy;че&shy;ние до повы&shy;ше&shy;ния было равно <code>15</code>, то повы&shy;сить при&shy;о&shy;ри&shy;тет опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;тема не смо&shy;жет: сле&shy;ду&shy;ю&shy;щее зна&shy;че&shy;ние равно <code>16</code>, а оно - из диа&shy;па&shy;зона реал&shy;ьного вре&shy;мени. Туда повы&shy;шать такими вот &laquo;тви&shy;ками&raquo; нельзя.</p>
 <div class="paragraph-right-side">15</div>
 </div>
 <h2 id="windows-api">Уровень приоритетов <strong>процессов</strong> с позиции Windows API</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
 <p >
-При&shy;о&shy;ри&shy;те&shy;ты - шту&shy;ка от&shy;но&shy;си&shy;тель&shy;ная. И что&shy;бы нам всем бы&shy;ло про&shy;ще в них ори&shy;ен&shy;ти&shy;ро&shy;вать&shy;ся, бы&shy;ли вве&shy;де&shy;ны не&shy;кие пра&shy;ви&shy;ла от&shy;но&shy;си&shy;тель&shy;нос&shy;ти рас&shy;че&shy;тов: во-пер&shy;вых все по&shy;то&shy;ки во&shy;об&shy;ще (от всех при&shy;ло&shy;же&shy;ний) рав&shy;ны для пла&shy;ни&shy;ров&shy;щи&shy;ка: пла&shy;ни&shy;ров&shy;щик не раз&shy;ли&shy;ча&shy;ет по&shy;то&shy;ки это раз&shy;лич&shy;ных при&shy;ло&shy;же&shy;ний или же од&shy;но&shy;го и то&shy;го же при&shy;ло&shy;же&shy;ния. Да&shy;лее, ког&shy;да прог&shy;рам&shy;мист пи&shy;шет свою прог&shy;рам&shy;му, он за&shy;даёт при&shy;о&shy;ри&shy;тет для раз&shy;лич&shy;ных по&shy;то&shy;ков, соз&shy;да&shy;вая тем са&shy;мым мо&shy;дель мно&shy;го&shy;по&shy;точ&shy;нос&shy;ти внут&shy;ри сво&shy;его при&shy;ло&shy;же&shy;ния. Он прек&shy;рас&shy;но зна&shy;ет, по&shy;че&shy;му там был выб&shy;ран по&shy;ни&shy;жен&shy;ный при&shy;о&shy;ри&shy;тет, а тут - обыч&shy;ный. Внут&shy;ри при&shy;ло&shy;же&shy;ния всё нас&shy;тро&shy;ено. Да&shy;лее, пос&shy;коль&shy;ку есть поль&shy;зо&shy;ва&shy;тель сис&shy;те&shy;мы, он так&shy;же мо&shy;жет выс&shy;тра&shy;и&shy;вать при&shy;о&shy;ри&shy;те&shy;ты для при&shy;ло&shy;же&shy;ний, ко&shy;то&shy;рые за&shy;пус&shy;ка&shy;ют&shy;ся на этой сис&shy;те&shy;ме. Нап&shy;ри&shy;мер, он мо&shy;жет выб&shy;рать по&shy;вы&shy;шен&shy;ный при&shy;о&shy;ри&shy;тет для ка&shy;ко&shy;го-то рас&shy;чет&shy;но&shy;го сер&shy;ви&shy;са, от&shy;да&shy;вая ему тем са&shy;мым мак&shy;си&shy;мум ре&shy;сур&shy;сов. Т.е. уро&shy;вень при&shy;о&shy;ри&shy;те&shy;та мож&shy;но за&shy;дать и у про&shy;цес&shy;са.</p>
+При&shy;о&shy;ри&shy;теты - штука отно&shy;си&shy;тель&shy;ная. И чтобы нам всем было проще в них ори&shy;ен&shy;ти&shy;ро&shy;ваться, были вве&shy;дены некие пра&shy;вила отно&shy;си&shy;тель&shy;ности рас&shy;че&shy;тов: во-пер&shy;вых все потоки вообще (от всех при&shy;ло&shy;же&shy;ний) равны для пла&shy;ни&shy;ров&shy;щика: пла&shy;ни&shy;ров&shy;щик не раз&shy;ли&shy;чает потоки это раз&shy;лич&shy;ных при&shy;ло&shy;же&shy;ний или же одного и того же при&shy;ло&shy;же&shy;ния. Далее, когда прог&shy;рам&shy;мист пишет свою прог&shy;рамму, он задаёт при&shy;о&shy;ри&shy;тет для раз&shy;лич&shy;ных пото&shy;ков, соз&shy;да&shy;вая тем самым модель мно&shy;го&shy;по&shy;точ&shy;ности внутри сво&shy;его при&shy;ло&shy;же&shy;ния. Он прек&shy;расно знает, почему там был выб&shy;ран пони&shy;жен&shy;ный при&shy;о&shy;ри&shy;тет, а тут - обыч&shy;ный. Внутри при&shy;ло&shy;же&shy;ния всё нас&shy;тро&shy;ено. Далее, пос&shy;кольку есть поль&shy;зо&shy;ва&shy;тель сис&shy;темы, он также может выс&shy;тра&shy;и&shy;вать при&shy;о&shy;ри&shy;теты для при&shy;ло&shy;же&shy;ний, кото&shy;рые запус&shy;ка&shy;ются на этой сис&shy;теме. Нап&shy;ри&shy;мер, он может выб&shy;рать повы&shy;шен&shy;ный при&shy;о&shy;ри&shy;тет для какого-то рас&shy;чет&shy;ного сер&shy;виса, отда&shy;вая ему тем самым мак&shy;си&shy;мум ресур&shy;сов. Т.е. уро&shy;вень при&shy;о&shy;ри&shy;тета можно задать и у про&shy;цесса.</p>
 <div class="paragraph-right-side">16</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
 <p >
-Одна&shy;ко, из&shy;ме&shy;не&shy;ние уров&shy;ня при&shy;о&shy;ри&shy;те&shy;та про&shy;цес&shy;са не ме&shy;ня&shy;ет <em>относительных приоритетов</em> внут&shy;ри при&shy;ло&shy;же&shy;ния: их зна&shy;че&shy;ния сдви&shy;га&shy;ют&shy;ся, но не ме&shy;ня&shy;ет&shy;ся внут&shy;рен&shy;няя мо&shy;дель при&shy;о&shy;ри&shy;те&shy;тов: внут&shy;ри по-преж&shy;не&shy;му бу&shy;дет по&shy;ток с по&shy;ни&shy;жен&shy;ным при&shy;о&shy;ри&shy;те&shy;том и по&shy;ток - с обыч&shy;ным. Так, как это&shy;го хо&shy;тел раз&shy;ра&shy;бот&shy;чик при&shy;ло&shy;же&shy;ния. Как же это ра&shy;бо&shy;та&shy;ет?</p>
+Однако, изме&shy;не&shy;ние уровня при&shy;о&shy;ри&shy;тета про&shy;цесса не меняет <em>относительных приоритетов</em> внутри при&shy;ло&shy;же&shy;ния: их зна&shy;че&shy;ния сдви&shy;га&shy;ются, но не меня&shy;ется внут&shy;рен&shy;няя модель при&shy;о&shy;ри&shy;те&shy;тов: внутри по-преж&shy;нему будет поток с пони&shy;жен&shy;ным при&shy;о&shy;ри&shy;те&shy;том и поток - с обыч&shy;ным. Так, как этого хотел раз&shy;ра&shy;бот&shy;чик при&shy;ло&shy;же&shy;ния. Как же это рабо&shy;тает?</p>
 <div class="paragraph-right-side">17</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
 <p >
-Су&shy;щес&shy;тву&shy;ет 6 <em>классов приоритетов</em> про&shy;цес&shy;сов. Класс при&shy;о&shy;ри&shy;те&shy;тов про&shy;цес&shy;сов - это то, от&shy;но&shy;си&shy;тель&shy;но че&shy;го бу&shy;дут соз&shy;да&shy;вать&shy;ся при&shy;о&shy;ри&shy;те&shy;ты по&shy;то&shy;ков. Все эти клас&shy;сы при&shy;о&shy;ри&shy;те&shy;тов мож&shy;но уви&shy;деть в &laquo;Дис&shy;пет&shy;че&shy;ре за&shy;дач&raquo;, при из&shy;ме&shy;не&shy;нии при&shy;о&shy;ри&shy;те&shy;та ка&shy;ко&shy;го-ли&shy;бо про&shy;цес&shy;са.</p>
+Сущес&shy;твует 6 <em>классов приоритетов</em> про&shy;цес&shy;сов. Класс при&shy;о&shy;ри&shy;те&shy;тов про&shy;цес&shy;сов - это то, отно&shy;си&shy;тельно чего будут соз&shy;да&shy;ваться при&shy;о&shy;ри&shy;теты пото&shy;ков. Все эти классы при&shy;о&shy;ри&shy;те&shy;тов можно уви&shy;деть в &laquo;Дис&shy;пет&shy;чере задач&raquo;, при изме&shy;не&shy;нии при&shy;о&shy;ри&shy;тета какого-либо про&shy;цесса.</p>
 <div class="paragraph-right-side">18</div>
 </div>
 <div class="row">
@@ -1483,7 +1483,7 @@ Windows име&shy;ет 32 уров&shy;ня при&shy;о&shy;ри&shy;те&shy
 </th>
 <th>
 <p >
-Ба&shy;зо&shy;вый при&shy;о&shy;ри&shy;тет</p>
+Базо&shy;вый при&shy;о&shy;ри&shy;тет</p>
 </th>
 </tr>
 </thead>
@@ -1579,31 +1579,31 @@ Windows име&shy;ет 32 уров&shy;ня при&shy;о&shy;ри&shy;те&shy
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
 <p >
-Дру&shy;ги&shy;ми сло&shy;ва&shy;ми класс при&shy;о&shy;ри&shy;те&shy;та - это то, от&shy;но&shy;си&shy;тель&shy;но че&shy;го бу&shy;дут за&shy;да&shy;вать&shy;ся при&shy;о&shy;ри&shy;те&shy;ты по&shy;то&shy;ков внут&shy;ри при&shy;ло&shy;же&shy;ния. Что&shy;бы за&shy;дать точ&shy;ку отсчёта, бы&shy;ло вве&shy;де&shy;но по&shy;ня&shy;тие <em>базового приоритета</em>. Ба&shy;зо&shy;вый при&shy;о&shy;ри&shy;тет - это то <strong>значение</strong>, чем бу&shy;дет яв&shy;лять&shy;ся при&shy;о&shy;ри&shy;тет по&shy;то&shy;ка с ти&shy;пом при&shy;о&shy;ри&shy;те&shy;та <strong>Normal</strong>:</p>
+Дру&shy;гими сло&shy;вами класс при&shy;о&shy;ри&shy;тета - это то, отно&shy;си&shy;тельно чего будут зада&shy;ваться при&shy;о&shy;ри&shy;теты пото&shy;ков внутри при&shy;ло&shy;же&shy;ния. Чтобы задать точку отсчёта, было вве&shy;дено поня&shy;тие <em>базового приоритета</em>. Базо&shy;вый при&shy;о&shy;ри&shy;тет - это то <strong>значение</strong>, чем будет являться при&shy;о&shy;ри&shy;тет потока с типом при&shy;о&shy;ри&shy;тета <strong>Normal</strong>:</p>
 <div class="paragraph-right-side">19</div>
 </div>
 <ul>
 <li>
 <p >
-Если про&shy;цесс соз&shy;даётся с <em>классом Normal</em> и внут&shy;ри это&shy;го про&shy;цес&shy;са соз&shy;даётся по&shy;ток с <em>приоритетом Normal</em>, то его <strong>реальный приоритет Normal будет равен 8</strong> (стро&shy;ка №4 в таб&shy;ли&shy;це);</p>
+Если про&shy;цесс создаётся с <em>классом Normal</em> и внутри этого про&shy;цесса создаётся поток с <em>приоритетом Normal</em>, то его <strong>реальный приоритет Normal будет равен 8</strong> (строка №4 в таб&shy;лице);</p>
 </li>
 <li>
 <p >
-Если Вы соз&shy;даёте про&shy;цесс и у не&shy;го <em>класс приоритета Above Normal</em>, то <em>базовый приоритет</em> бу&shy;дет ра&shy;вен 10. Это зна&shy;чит, что по&shy;то&shy;ки внут&shy;ри это&shy;го про&shy;цес&shy;са бу&shy;дут соз&shy;да&shy;вать&shy;ся с бо&shy;лее по&shy;вы&shy;шен&shy;ным при&shy;о&shy;ри&shy;те&shy;том: <strong>Normal будет равен 10</strong>.</p>
+Если Вы создаёте про&shy;цесс и у него <em>класс приоритета Above Normal</em>, то <em>базовый приоритет</em> будет равен 10. Это зна&shy;чит, что потоки внутри этого про&shy;цесса будут соз&shy;да&shy;ваться с более повы&shy;шен&shy;ным при&shy;о&shy;ри&shy;те&shy;том: <strong>Normal будет равен 10</strong>.</p>
 </li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
 <p >
-Для че&shy;го это не&shy;об&shy;хо&shy;ди&shy;мо? Вы как прог&shy;рам&shy;мис&shy;ты зна&shy;ете мо&shy;дель мно&shy;го&shy;по&shy;точ&shy;нос&shy;ти, ко&shy;то&shy;рая у вас при&shy;сут&shy;ствует.
-По&shy;то&shy;ков мо&shy;жет быть мно&shy;го и вы ре&shy;ша&shy;ете, что один по&shy;ток дол&shy;жен быть фо&shy;но&shy;вым, так как он про&shy;из&shy;во&shy;дит вы&shy;чис&shy;ле&shy;ния и вам
-не столь важ&shy;но, ког&shy;да дан&shy;ные ста&shy;нут дос&shy;туп&shy;ны: важ&shy;но что&shy;бы по&shy;ток за&shy;вер&shy;шил вы&shy;чис&shy;ле&shy;ния (нап&shy;ри&shy;мер по&shy;ток об&shy;хо&shy;да и ана&shy;ли&shy;за де&shy;ре&shy;ва). По&shy;э&shy;то&shy;му, вы ус&shy;та&shy;нав&shy;ли&shy;ва&shy;ете по&shy;ни&shy;жен&shy;ный при&shy;о&shy;ри&shy;тет дан&shy;но&shy;го по&shy;то&shy;ка. Ана&shy;ло&shy;гич&shy;но мо&shy;жет сло&shy;жит&shy;ся си&shy;ту&shy;а&shy;ция ког&shy;да не&shy;об&shy;хо&shy;ди&shy;мо за&shy;пус&shy;тить по&shy;ток с по&shy;вы&shy;шен&shy;ным при&shy;о&shy;ри&shy;те&shy;том.</p>
+Для чего это необ&shy;хо&shy;димо? Вы как прог&shy;рам&shy;мисты зна&shy;ете модель мно&shy;го&shy;по&shy;точ&shy;ности, кото&shy;рая у вас при&shy;сут&shy;ствует.
+Пото&shy;ков может быть много и вы реша&shy;ете, что один поток дол&shy;жен быть фоно&shy;вым, так как он про&shy;из&shy;во&shy;дит вычис&shy;ле&shy;ния и вам
+не столь важно, когда дан&shy;ные ста&shy;нут дос&shy;тупны: важно чтобы поток завер&shy;шил вычис&shy;ле&shy;ния (нап&shy;ри&shy;мер поток обхода и ана&shy;лиза дерева). Поэ&shy;тому, вы уста&shy;нав&shy;ли&shy;ва&shy;ете пони&shy;жен&shy;ный при&shy;о&shy;ри&shy;тет дан&shy;ного потока. Ана&shy;ло&shy;гично может сло&shy;жится ситу&shy;а&shy;ция когда необ&shy;хо&shy;димо запус&shy;тить поток с повы&shy;шен&shy;ным при&shy;о&shy;ри&shy;те&shy;том.</p>
 <div class="paragraph-right-side">20</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
 <p >
-Предс&shy;та&shy;вим, что ва&shy;ше при&shy;ло&shy;же&shy;ние за&shy;пус&shy;ка&shy;ет поль&shy;зо&shy;ва&shy;тель и он ре&shy;ша&shy;ет, что ва&shy;ше при&shy;ло&shy;же&shy;ние пот&shy;реб&shy;ля&shy;ет слиш&shy;ком мно&shy;го про&shy;цес&shy;сор&shy;ных ре&shy;сур&shy;сов. Поль&shy;зо&shy;ва&shy;тель счи&shy;та&shy;ет, что ва&shy;ше при&shy;ло&shy;же&shy;ние не столь важ&shy;ное в сис&shy;те&shy;ме, как ка&shy;кие-ни&shy;будь дру&shy;гие при&shy;ло&shy;же&shy;ния и по&shy;ни&shy;жа&shy;ет при&shy;о&shy;ри&shy;тет ва&shy;ше&shy;го при&shy;ло&shy;же&shy;ния до Below Normal. Это оз&shy;на&shy;ча&shy;ет, что он за&shy;даёт ба&shy;зо&shy;вый при&shy;о&shy;ри&shy;тет 6 от&shy;но&shy;си&shy;тель&shy;но ко&shy;то&shy;ро&shy;го бу&shy;дут расс&shy;чи&shy;ты&shy;вать&shy;ся при&shy;о&shy;ри&shy;те&shy;ты по&shy;то&shy;ков внут&shy;ри ва&shy;ше&shy;го при&shy;ло&shy;же&shy;ния. Но в сис&shy;те&shy;ме об&shy;щий при&shy;о&shy;ри&shy;тет упадёт. Как при этом ме&shy;ня&shy;ют&shy;ся при&shy;о&shy;ри&shy;те&shy;ты по&shy;то&shy;ков внут&shy;ри при&shy;ло&shy;же&shy;ния?</p>
+Предс&shy;та&shy;вим, что ваше при&shy;ло&shy;же&shy;ние запус&shy;кает поль&shy;зо&shy;ва&shy;тель и он решает, что ваше при&shy;ло&shy;же&shy;ние пот&shy;реб&shy;ляет слиш&shy;ком много про&shy;цес&shy;сор&shy;ных ресур&shy;сов. Поль&shy;зо&shy;ва&shy;тель счи&shy;тает, что ваше при&shy;ло&shy;же&shy;ние не столь важ&shy;ное в сис&shy;теме, как какие-нибудь дру&shy;гие при&shy;ло&shy;же&shy;ния и пони&shy;жает при&shy;о&shy;ри&shy;тет вашего при&shy;ло&shy;же&shy;ния до Below Normal. Это озна&shy;чает, что он задаёт базо&shy;вый при&shy;о&shy;ри&shy;тет 6 отно&shy;си&shy;тельно кото&shy;рого будут расс&shy;чи&shy;ты&shy;ваться при&shy;о&shy;ри&shy;теты пото&shy;ков внутри вашего при&shy;ло&shy;же&shy;ния. Но в сис&shy;теме общий при&shy;о&shy;ри&shy;тет упадёт. Как при этом меня&shy;ются при&shy;о&shy;ри&shy;теты пото&shy;ков внутри при&shy;ло&shy;же&shy;ния?</p>
 <div class="paragraph-right-side">21</div>
 </div>
 <div class="row">
@@ -1617,7 +1617,7 @@ Windows име&shy;ет 32 уров&shy;ня при&shy;о&shy;ри&shy;те&shy
 </th>
 <th>
 <p >
-Уров&shy;ни на&shy;сы&shy;ще&shy;ния</p>
+Уровни насы&shy;ще&shy;ния</p>
 </th>
 </tr>
 </thead>
@@ -1701,21 +1701,21 @@ Windows име&shy;ет 32 уров&shy;ня при&shy;о&shy;ри&shy;те&shy
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
 <p >
-Normal ос&shy;таётся на уров&shy;не +0 от&shy;но&shy;си&shy;тель&shy;но уров&shy;ня ба&shy;зо&shy;во&shy;го при&shy;о&shy;ри&shy;те&shy;та про&shy;цес&shy;са. Below normal - это (-1) от&shy;но&shy;си&shy;тель&shy;но уров&shy;ня ба&shy;зо&shy;во&shy;го. Т.е. в на&shy;шем при&shy;ме&shy;ре с по&shy;ни&shy;же&shy;ни&shy;ем уров&shy;ня при&shy;о&shy;ри&shy;те&shy;та про&shy;цес&shy;са до клас&shy;са <code>Below Normal</code> при&shy;о&shy;ри&shy;тет по&shy;то&shy;ка &lsquo;Below Normal&rsquo; пе&shy;рес&shy;чи&shy;та&shy;ет&shy;ся и бу&shy;дет не <code>8 - 1 = 7</code> (ка&shy;ким он был при клас&shy;се <code>Normal</code>), а  <code>6 - 1 = 5</code>.  Lowest (-2) ста&shy;нет рав&shy;ным <code>4</code>.</p>
+Normal остаётся на уровне +0 отно&shy;си&shy;тельно уровня базо&shy;вого при&shy;о&shy;ри&shy;тета про&shy;цесса. Below normal - это (-1) отно&shy;си&shy;тельно уровня базо&shy;вого. Т.е. в нашем при&shy;мере с пони&shy;же&shy;нием уровня при&shy;о&shy;ри&shy;тета про&shy;цесса до класса <code>Below Normal</code> при&shy;о&shy;ри&shy;тет потока &lsquo;Below Normal&rsquo; перес&shy;чи&shy;та&shy;ется и будет не <code>8 - 1 = 7</code> (каким он был при классе <code>Normal</code>), а  <code>6 - 1 = 5</code>.  Lowest (-2) ста&shy;нет рав&shy;ным <code>4</code>.</p>
 <div class="paragraph-right-side">22</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
 <p >
-<code>Idle</code> и <code>Time Critical</code> - это уров&shy;ни на&shy;сы&shy;ще&shy;ния (-15 и +15). По&shy;че&shy;му Normal - это <code>0</code> и от&shy;но&shy;си&shy;тель&shy;но не&shy;го все&shy;го два ша&shy;га: -2, -1, +1 и +2? Лег&shy;ко про&shy;вес&shy;ти па&shy;рал&shy;лель с обу&shy;че&shy;ни&shy;ем. Мы хо&shy;дим в шко&shy;лу, по&shy;лу&shy;ча&shy;ем оцен&shy;ки на&shy;ших зна&shy;ний (5,4,3,2,1) и нам по&shy;нят&shy;но, что это за оцен&shy;ки: 5 - мо&shy;ло&shy;дец, 4 - хо&shy;ро&shy;шо, 3 - во&shy;об&shy;ще не пос&shy;та&shy;рал&shy;ся, 2 - это не де&shy;лал ни че&shy;го, а 1 - это то, что мож&shy;но ис&shy;пра&shy;вить по&shy;том на 4. Но ес&shy;ли у нас вво&shy;дит&shy;ся 10-ти баль&shy;ная сис&shy;те&shy;ма оце&shy;нок (или что во&shy;об&shy;ще ужас - 100-баль&shy;ная), то воз&shy;ни&shy;ка&shy;ет не&shy;яс&shy;ность: что та&shy;кое 9 бал&shy;лов или 7? Как по&shy;нять, что вам пос&shy;та&shy;ви&shy;ли 3 или 4?</p>
+<code>Idle</code> и <code>Time Critical</code> - это уровни насы&shy;ще&shy;ния (-15 и +15). Почему Normal - это <code>0</code> и отно&shy;си&shy;тельно него всего два шага: -2, -1, +1 и +2? Легко про&shy;вести парал&shy;лель с обу&shy;че&shy;нием. Мы ходим в школу, полу&shy;чаем оценки наших зна&shy;ний (5,4,3,2,1) и нам понятно, что это за оценки: 5 - моло&shy;дец, 4 - хорошо, 3 - вообще не пос&shy;та&shy;рался, 2 - это не делал ни чего, а 1 - это то, что можно испра&shy;вить потом на 4. Но если у нас вво&shy;дится 10-ти баль&shy;ная сис&shy;тема оце&shy;нок (или что вообще ужас - 100-баль&shy;ная), то воз&shy;ни&shy;кает неяс&shy;ность: что такое 9 бал&shy;лов или 7? Как понять, что вам пос&shy;та&shy;вили 3 или 4?</p>
 <div class="paragraph-right-side">23</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">24</div>
 <p >
-То&shy;же са&shy;мое и с при&shy;о&shy;ри&shy;те&shy;та&shy;ми. У нас есть Normal. Даль&shy;ше, от&shy;но&shy;си&shy;тель&shy;но Normal у нас есть чуть по&shy;вы&shy;ше
-Normal (Normal above), чуть по&shy;ни&shy;же Normal (Normal below). Так&shy;же есть шаг на два вверх
-или на два вниз (Higest и Lowest). Нам, по&shy;верь&shy;те, нет ни&shy;ка&shy;кой не&shy;об&shy;хо&shy;ди&shy;мос&shy;ти в бо&shy;лее под&shy;роб&shy;ной гра&shy;да&shy;ции. Един&shy;ствен&shy;ное, очень ред&shy;ко, мо&shy;жет раз в жиз&shy;ни, нам по&shy;на&shy;до&shy;бит&shy;ся ска&shy;зать: вы&shy;ше чем лю&shy;бой при&shy;о&shy;ри&shy;тет в сис&shy;те&shy;ме. Тог&shy;да мы выс&shy;тав&shy;ля&shy;ем уро&shy;вень <code>Time Critical</code>. Ли&shy;бо на&shy;о&shy;бо&shy;рот: это на&shy;до де&shy;лать, ког&shy;да во всей сис&shy;те&shy;ме де&shy;лать не&shy;че&shy;го. Тог&shy;да мы выс&shy;тав&shy;ля&shy;ем уро&shy;вень <code>Idle</code>. Это зна&shy;че&shy;ния - так на&shy;зы&shy;ва&shy;е&shy;мые уров&shy;ни на&shy;сы&shy;ще&shy;ния.</p>
+Тоже самое и с при&shy;о&shy;ри&shy;те&shy;тами. У нас есть Normal. Дальше, отно&shy;си&shy;тельно Normal у нас есть чуть повыше
+Normal (Normal above), чуть пониже Normal (Normal below). Также есть шаг на два вверх
+или на два вниз (Higest и Lowest). Нам, поверьте, нет ника&shy;кой необ&shy;хо&shy;ди&shy;мости в более под&shy;роб&shy;ной гра&shy;да&shy;ции. Един&shy;ствен&shy;ное, очень редко, может раз в жизни, нам пона&shy;до&shy;бится ска&shy;зать: выше чем любой при&shy;о&shy;ри&shy;тет в сис&shy;теме. Тогда мы выс&shy;тав&shy;ляем уро&shy;вень <code>Time Critical</code>. Либо нао&shy;бо&shy;рот: это надо делать, когда во всей сис&shy;теме делать нечего. Тогда мы выс&shy;тав&shy;ляем уро&shy;вень <code>Idle</code>. Это зна&shy;че&shy;ния - так назы&shy;ва&shy;е&shy;мые уровни насы&shy;ще&shy;ния.</p>
 <div class="paragraph-right-side">24</div>
 </div>
 <h2 id="section-5">Как рассчитываются уровни приоритета?</h2>
@@ -1728,40 +1728,40 @@ Normal (Normal above), чуть по&shy;ни&shy;же Normal (Normal below). Т
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
 <p >
-У нас бал класс при&shy;о&shy;ри&shy;те&shy;та про&shy;цес&shy;са Normal (Таб&shy;ли&shy;ца 3) и при&shy;о&shy;ри&shy;тет по&shy;то&shy;ков Normal - это 8. Если про&shy;цесс Above Normal то по&shy;ток Normal по&shy;лу&shy;ча&shy;ет&shy;ся ра&shy;вен 9. Если же про&shy;цесс выс&shy;тав&shy;лен в Higest, то по&shy;ток Normal по&shy;лу&shy;ча&shy;ет&shy;ся ра&shy;вен 10.</p>
+У нас бал класс при&shy;о&shy;ри&shy;тета про&shy;цесса Normal (Таб&shy;лица 3) и при&shy;о&shy;ри&shy;тет пото&shy;ков Normal - это 8. Если про&shy;цесс Above Normal то поток Normal полу&shy;ча&shy;ется равен 9. Если же про&shy;цесс выс&shy;тав&shy;лен в Higest, то поток Normal полу&shy;ча&shy;ется равен 10.</p>
 <div class="paragraph-right-side">26</div>
 </div>
 <p >
-Пос&shy;коль&shy;ку для пла&shy;ни&shy;ров&shy;щи&shy;ка по&shy;то&shy;ков Windows все по&shy;то&shy;ки про&shy;цес&shy;сов рав&shy;ноз&shy;нач&shy;ны, то:</p>
+Пос&shy;кольку для пла&shy;ни&shy;ров&shy;щика пото&shy;ков Windows все потоки про&shy;цес&shy;сов рав&shy;ноз&shy;начны, то:</p>
 <ul>
 <li>
 <p >
-Для про&shy;цес&shy;са клас&shy;са Normal и по&shy;то&shy;ка Above-Normal;</p>
+Для про&shy;цесса класса Normal и потока Above-Normal;</p>
 </li>
 <li>
 <p >
-Для про&shy;цес&shy;са клас&shy;са Higest и по&shy;то&shy;ка Normal.</p>
+Для про&shy;цесса класса Higest и потока Normal.</p>
 </li>
 </ul>
 <p >
-ко&shy;неч&shy;ные при&shy;о&shy;ри&shy;те&shy;ты бу&shy;дут оди&shy;на&shy;ко&shy;вы&shy;ми и рав&shy;ны 10.</p>
+конеч&shy;ные при&shy;о&shy;ри&shy;теты будут оди&shy;на&shy;ко&shy;выми и равны 10.</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">27</div>
 <p >
-Если мы име&shy;ем два про&shy;цес&shy;са: один с при&shy;о&shy;ри&shy;те&shy;том Normal, а вто&shy;рой - с при&shy;о&shy;ри&shy;те&shy;том Higest, но при этом пер&shy;вый имел по&shy;ток Higest а вто&shy;рой Normal, то сис&shy;те&shy;ма их при&shy;о&shy;ри&shy;те&shy;ты бу&shy;дет расс&shy;мат&shy;ри&shy;вать как оди&shy;на&shy;ко&shy;вые.</p>
+Если мы имеем два про&shy;цесса: один с при&shy;о&shy;ри&shy;те&shy;том Normal, а вто&shy;рой - с при&shy;о&shy;ри&shy;те&shy;том Higest, но при этом пер&shy;вый имел поток Higest а вто&shy;рой Normal, то сис&shy;тема их при&shy;о&shy;ри&shy;теты будет расс&shy;мат&shy;ри&shy;вать как оди&shy;на&shy;ко&shy;вые.</p>
 <div class="paragraph-right-side">27</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
 <p >
-Как уже об&shy;суж&shy;да&shy;лось, груп&shy;па при&shy;о&shy;ри&shy;те&shy;тов Real-Time на са&shy;мом де&shy;ле не яв&shy;ля&shy;ет&shy;ся та&shy;ко&shy;вой, пос&shy;коль&shy;ку нас&shy;то&shy;я&shy;щий Real-Time - это га&shy;ран&shy;ти&shy;ро&shy;ван&shy;ная дос&shy;тав&shy;ка со&shy;об&shy;ще&shy;ния за оп&shy;ре&shy;делённое вре&shy;мя ли&shy;бо об&shy;ра&shy;бот&shy;ка его по&shy;лу&shy;че&shy;ния. Т.е., дру&shy;ги&shy;ми сло&shy;ва&shy;ми, ес&shy;ли на конк&shy;рет&shy;ном яд&shy;ре есть та&shy;кой по&shy;ток, дру&shy;гих там быть не дол&shy;жно. Одна&shy;ко это ведь не так: сис&shy;те&shy;ма мо&shy;жет ре&shy;шить, что низ&shy;ко при&shy;о&shy;ри&shy;тет&shy;ный по&shy;ток дав&shy;но не ра&shy;бо&shy;тал и дать ему вре&shy;мя, от&shy;клю&shy;чив real-time. Вер&shy;нее его наз&shy;вать клас&shy;сом при&shy;о&shy;ри&shy;те&shy;тов ко&shy;то&shy;рый ра&shy;бо&shy;та&shy;ет над обыч&shy;ны&shy;ми при&shy;о&shy;ри&shy;те&shy;та&shy;ми и ку&shy;да обыч&shy;ные при&shy;о&shy;ри&shy;те&shy;ты не мо&shy;гут уй&shy;ти, по&shy;пав под си&shy;ту&shy;а&shy;ции, ког&shy;да Windows вре&shy;мен&shy;но по&shy;вы&shy;ша&shy;ет им при&shy;о&shy;ри&shy;тет.</p>
+Как уже обсуж&shy;да&shy;лось, группа при&shy;о&shy;ри&shy;те&shy;тов Real-Time на самом деле не явля&shy;ется тако&shy;вой, пос&shy;кольку нас&shy;то&shy;я&shy;щий Real-Time - это гаран&shy;ти&shy;ро&shy;ван&shy;ная дос&shy;тавка сооб&shy;ще&shy;ния за опре&shy;делённое время либо обра&shy;ботка его полу&shy;че&shy;ния. Т.е., дру&shy;гими сло&shy;вами, если на конк&shy;рет&shy;ном ядре есть такой поток, дру&shy;гих там быть не дол&shy;жно. Однако это ведь не так: сис&shy;тема может решить, что низко при&shy;о&shy;ри&shy;тет&shy;ный поток давно не рабо&shy;тал и дать ему время, отклю&shy;чив real-time. Вер&shy;нее его наз&shy;вать клас&shy;сом при&shy;о&shy;ри&shy;те&shy;тов кото&shy;рый рабо&shy;тает над обыч&shy;ными при&shy;о&shy;ри&shy;те&shy;тами и куда обыч&shy;ные при&shy;о&shy;ри&shy;теты не могут уйти, попав под ситу&shy;а&shy;ции, когда Windows вре&shy;менно повы&shy;шает им при&shy;о&shy;ри&shy;тет.</p>
 <div class="paragraph-right-side">28</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">29</div>
 <p >
-Но так как по&shy;ток по&shy;вы&shy;шен&shy;ным при&shy;о&shy;ри&shy;те&shy;том ис&shy;пол&shy;ня&shy;ет&shy;ся толь&shy;ко один на груп&shy;пе ядер, то по&shy;лу&shy;ча&shy;ет&shy;ся,
-что ес&shy;ли у вас да&shy;же Real-Time по&shy;то&shy;ки, не факт, что им бу&shy;дет вы&shy;де&shy;ле&shy;но вре&shy;мя.</p>
+Но так как поток повы&shy;шен&shy;ным при&shy;о&shy;ри&shy;те&shy;том испол&shy;ня&shy;ется только один на группе ядер, то полу&shy;ча&shy;ется,
+что если у вас даже Real-Time потоки, не факт, что им будет выде&shy;лено время.</p>
 <div class="paragraph-right-side">29</div>
 </div>
 <div class="row">
@@ -1771,7 +1771,7 @@ Normal (Normal above), чуть по&shy;ни&shy;же Normal (Normal below). Т
 <tr>
 <th>
 <p >
-Класс при&shy;о&shy;ри&shy;те&shy;та / от&shy;но&shy;си&shy;тель&shy;ный при&shy;о&shy;ри&shy;тет</p>
+Класс при&shy;о&shy;ри&shy;тета / отно&shy;си&shy;тель&shy;ный при&shy;о&shy;ри&shy;тет</p>
 </th>
 <th>
 <p >
@@ -1803,7 +1803,7 @@ Idle</p>
 <tr>
 <td>
 <p >
-Time Critical (+на&shy;сы&shy;ще&shy;ние)</p>
+Time Critical (+насы&shy;ще&shy;ние)</p>
 </td>
 <td>
 <p >
@@ -1983,7 +1983,7 @@ Lowest (-2)</p>
 <tr>
 <td>
 <p >
-Idle (-на&shy;сы&shy;ще&shy;ние)</p>
+Idle (-насы&shy;ще&shy;ние)</p>
 </td>
 <td>
 <p >
@@ -2017,7 +2017,7 @@ Idle (-на&shy;сы&shy;ще&shy;ние)</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">30</div>
 <p >
-Если пе&shy;ре&shy;вес&shy;ти в гра&shy;фи&shy;чес&shy;кий вид, то мож&shy;но за&shy;ме&shy;тить, что клас&shy;сы при&shy;о&shy;ри&shy;те&shy;тов пе&shy;ре&shy;се&shy;ка&shy;ют&shy;ся. Нап&shy;ри&shy;мер, су&shy;щес&shy;тву&shy;ет пе&shy;ре&shy;се&shy;че&shy;ние Above-Normal Normal Below-Normal (стол&shy;бик с квад&shy;ра&shy;ти&shy;ка&shy;ми):</p>
+Если пере&shy;вести в гра&shy;фи&shy;чес&shy;кий вид, то можно заме&shy;тить, что классы при&shy;о&shy;ри&shy;те&shy;тов пере&shy;се&shy;ка&shy;ются. Нап&shy;ри&shy;мер, сущес&shy;твует пере&shy;се&shy;че&shy;ние Above-Normal Normal Below-Normal (стол&shy;бик с квад&shy;ра&shy;ти&shy;ками):</p>
 <div class="paragraph-right-side">30</div>
 </div>
 <p >
@@ -2025,202 +2025,202 @@ Idle (-на&shy;сы&shy;ще&shy;ние)</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">31</div>
 <p >
-Это зна&shy;чит, что для этих трех клас&shy;сов при&shy;о&shy;ри&shy;те&shy;тов про&shy;цес&shy;сов су&shy;щес&shy;тву&shy;ют та&shy;кие при&shy;о&shy;ри&shy;те&shy;ты по&shy;то&shy;ков внут&shy;ри этих клас&shy;сов, что ре&shy;альный при&shy;о&shy;ри&shy;тет бу&shy;дет ра&shy;вен. При этом, ког&shy;да вы за&shy;даёте при&shy;о&shy;ри&shy;тет про&shy;цес&shy;су вы прос&shy;то по&shy;вы&shy;ша&shy;ете или по&shy;ни&shy;жа&shy;ете все его внут&shy;рен&shy;ние при&shy;о&shy;ри&shy;те&shy;ты по&shy;то&shy;ков на оп&shy;ре&shy;делённое зна&shy;че&shy;ние (см. Таб&shy;ли&shy;ца 3).</p>
+Это зна&shy;чит, что для этих трех клас&shy;сов при&shy;о&shy;ри&shy;те&shy;тов про&shy;цес&shy;сов сущес&shy;твуют такие при&shy;о&shy;ри&shy;теты пото&shy;ков внутри этих клас&shy;сов, что реальный при&shy;о&shy;ри&shy;тет будет равен. При этом, когда вы задаёте при&shy;о&shy;ри&shy;тет про&shy;цессу вы просто повы&shy;ша&shy;ете или пони&shy;жа&shy;ете все его внут&shy;рен&shy;ние при&shy;о&shy;ри&shy;теты пото&shy;ков на опре&shy;делённое зна&shy;че&shy;ние (см. Таб&shy;лица 3).</p>
 <div class="paragraph-right-side">31</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">32</div>
 <p >
-По&shy;э&shy;то&shy;му, ког&shy;да про&shy;цес&shy;су вы&shy;даётся бо&shy;лее вы&shy;со&shy;кий класс при&shy;о&shy;ри&shy;те&shy;та, это по&shy;вы&shy;ша&shy;ет при&shy;о&shy;ри&shy;тет по&shy;то&shy;ков про&shy;цес&shy;са от&shy;но&shy;си&shy;тель&shy;но обыч&shy;ных – с клас&shy;сом Normal.</p>
+Поэ&shy;тому, когда про&shy;цессу выдаётся более высо&shy;кий класс при&shy;о&shy;ри&shy;тета, это повы&shy;шает при&shy;о&shy;ри&shy;тет пото&shy;ков про&shy;цесса отно&shy;си&shy;тельно обыч&shy;ных – с клас&shy;сом Normal.</p>
 <div class="paragraph-right-side">32</div>
 </div>
 <h2 id="section-6">Состояние потока</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">33</div>
 <p >
-По&shy;ток в тер&shy;ми&shy;но&shy;ло&shy;гии пла&shy;ни&shy;ро&shy;ва&shy;ния мо&shy;жет на&shy;хо&shy;дить&shy;ся в нес&shy;коль&shy;ких сос&shy;то&shy;я&shy;ни&shy;ях, об&shy;ра&shy;зуя ко&shy;неч&shy;ный ав&shy;то&shy;мат, в рам&shy;ках ко&shy;то&shy;ро&shy;го ра&shy;бо&shy;та&shy;ет по&shy;ток. Ког&shy;да соз&shy;даётся по&shy;ток, он соз&shy;даётся в ста&shy;ту&shy;се <em>Initialized</em>. Т.е. он про&shy;и&shy;ни&shy;ци&shy;а&shy;ли&shy;зи&shy;ро&shy;ван и го&shy;тов к ра&shy;бо&shy;те. Да&shy;лее, ког&shy;да поль&shy;зо&shy;ва&shy;т&shy;ельский код стар&shy;ту&shy;ет по&shy;ток, тот пе&shy;ре&shy;во&shy;дит&shy;ся в ста&shy;тус <em>Ready</em>. Т.е. го&shy;тов&shy;нос&shy;ти к ис&shy;пол&shy;не&shy;нию. Дру&shy;ги&shy;ми сло&shy;ва&shy;ми, по&shy;ток го&shy;тов к то&shy;му, что его в лю&shy;бой мо&shy;мент нач&shy;нут ис&shy;пол&shy;нять на ка&shy;ком-ли&shy;бо про&shy;цес&shy;сор&shy;ном яд&shy;ре. Спус&shy;тя не&shy;ко&shy;то&shy;рое вре&shy;мя пла&shy;ни&shy;ров&shy;щик про&shy;сы&shy;па&shy;ет&shy;ся что&shy;бы выб&shy;рать сле&shy;ду&shy;ю&shy;щий к ис&shy;пол&shy;не&shy;нию на те&shy;ку&shy;щем про&shy;цес&shy;сор&shy;ном яд&shy;ре по&shy;ток (для каж&shy;до&shy;го яд&shy;ра соз&shy;да&shy;ет&shy;ся свой пла&shy;ни&shy;ров&shy;щик). Для это&shy;го он ру&shy;ко&shy;дос&shy;тву&shy;ет&shy;ся ря&shy;дом пра&shy;вил: не&shy;ко&shy;то&shy;рым по&shy;то&shy;кам он вре&shy;мен&shy;но по&shy;вы&shy;ша&shy;ет при&shy;о&shy;ри&shy;тет (по&shy;го&shy;во&shy;рим об этом чуть поз&shy;же), не&shy;ко&shy;то&shy;рые на&shy;хо&shy;дят&shy;ся в бло&shy;ки&shy;ров&shy;ке и по&shy;э&shy;то&shy;му не учас&shy;тву&shy;ют в пла&shy;ни&shy;ро&shy;ва&shy;нии. В лю&shy;бом слу&shy;чае пос&shy;ле всех ма&shy;ни&shy;пу&shy;ля&shy;ций он на&shy;чи&shy;на&shy;ет вы&shy;би&shy;рать по&shy;ток, на ко&shy;то&shy;рый бу&shy;дет пе&shy;рек&shy;лю&shy;че&shy;но те&shy;ку&shy;щее про&shy;цес&shy;сор&shy;ное яд&shy;ро из спис&shy;ка го&shy;то&shy;вых к ис&shy;пол&shy;не&shy;нию. Т.е. тех, кто в сво&shy;ей ма&shy;ши&shy;не сос&shy;то&shy;я&shy;ний на&shy;хо&shy;дит&shy;ся в сос&shy;то&shy;я&shy;нии <em>Ready</em>.</p>
+Поток в тер&shy;ми&shy;но&shy;ло&shy;гии пла&shy;ни&shy;ро&shy;ва&shy;ния может нахо&shy;диться в нес&shy;коль&shy;ких сос&shy;то&shy;я&shy;ниях, обра&shy;зуя конеч&shy;ный авто&shy;мат, в рам&shy;ках кото&shy;рого рабо&shy;тает поток. Когда создаётся поток, он создаётся в ста&shy;тусе <em>Initialized</em>. Т.е. он про&shy;и&shy;ни&shy;ци&shy;а&shy;ли&shy;зи&shy;ро&shy;ван и готов к работе. Далее, когда поль&shy;зо&shy;ва&shy;т&shy;ельский код стар&shy;тует поток, тот пере&shy;во&shy;дится в ста&shy;тус <em>Ready</em>. Т.е. готов&shy;ности к испол&shy;не&shy;нию. Дру&shy;гими сло&shy;вами, поток готов к тому, что его в любой момент нач&shy;нут испол&shy;нять на каком-либо про&shy;цес&shy;сор&shy;ном ядре. Спустя неко&shy;то&shy;рое время пла&shy;ни&shy;ров&shy;щик про&shy;сы&shy;па&shy;ется чтобы выб&shy;рать сле&shy;ду&shy;ю&shy;щий к испол&shy;не&shy;нию на теку&shy;щем про&shy;цес&shy;сор&shy;ном ядре поток (для каж&shy;дого ядра соз&shy;да&shy;ется свой пла&shy;ни&shy;ров&shy;щик). Для этого он руко&shy;дос&shy;тву&shy;ется рядом пра&shy;вил: неко&shy;то&shy;рым пото&shy;кам он вре&shy;менно повы&shy;шает при&shy;о&shy;ри&shy;тет (пого&shy;во&shy;рим об этом чуть позже), неко&shy;то&shy;рые нахо&shy;дятся в бло&shy;ки&shy;ровке и поэ&shy;тому не учас&shy;твуют в пла&shy;ни&shy;ро&shy;ва&shy;нии. В любом слу&shy;чае после всех мани&shy;пу&shy;ля&shy;ций он начи&shy;нает выби&shy;рать поток, на кото&shy;рый будет перек&shy;лю&shy;чено теку&shy;щее про&shy;цес&shy;сор&shy;ное ядро из списка гото&shy;вых к испол&shy;не&shy;нию. Т.е. тех, кто в своей машине сос&shy;то&shy;я&shy;ний нахо&shy;дится в сос&shy;то&shy;я&shy;нии <em>Ready</em>.</p>
 <div class="paragraph-right-side">33</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">34</div>
 <p >
-Ког&shy;да пла&shy;ни&shy;ров&shy;щик выб&shy;рал по&shy;ток, он сни&shy;ма&shy;ет его из оче&shy;ре&shy;ди по&shy;то&shy;ков со ста&shy;ту&shy;сом <em>Ready</em> и пе&shy;ре&shy;во&shy;дит его в сос&shy;то&shy;я&shy;ние <em>Standby</em> - не&shy;ко&shy;то&shy;рое про&shy;ме&shy;жу&shy;точ&shy;ное сос&shy;то&shy;я&shy;ние. Пос&shy;ле это&shy;го пла&shy;ни&shy;ров&shy;щик дол&shy;жен за&shy;ме&shy;нить ак&shy;тив&shy;ный по&shy;ток на те&shy;ку&shy;щем яд&shy;ре. Для это&shy;го он ус&shy;та&shy;нав&shy;ли&shy;ва&shy;ет сос&shy;то&shy;я&shy;ние ре&shy;гист&shy;ров про&shy;цес&shy;со&shy;ра в то, ка&shy;ким оно бы&shy;ло ког&shy;да-то на мо&shy;мент пре&shy;ры&shy;ва&shy;ния пла&shy;ни&shy;ров&shy;щи&shy;ком. Тем са&shy;мым про&shy;цес&shy;сор пе&shy;ре&shy;но&shy;сит&shy;ся в то расчётное сос&shy;то&shy;я&shy;ние, ка&shy;ким оно бы&shy;ло на мо&shy;мент пре&shy;ры&shy;ва&shy;ния пла&shy;ни&shy;ро&shy;щи&shy;ком и ес&shy;ли при этом вер&shy;нуть&shy;ся на ту инстр&shy;укцию, с ко&shy;то&shy;рой ког&shy;да-то прог&shy;рам&shy;ма бы&shy;ла прер&shy;ва&shy;на и тем са&shy;мым мы за&shy;пус&shy;тим по&shy;ток на ис&shy;пол&shy;не&shy;ние. Но пе&shy;ред та&shy;ем как окон&shy;ча&shy;тель&shy;но за&shy;пус&shy;тить ис&shy;пол&shy;не&shy;ние по&shy;то&shy;ка, пла&shy;ни&shy;ров&shy;щик из&shy;ме&shy;ня&shy;ет его ста&shy;тус в сос&shy;то&shy;я&shy;ние ис&shy;пол&shy;не&shy;ния <strong>Running</strong>.</p>
+Когда пла&shy;ни&shy;ров&shy;щик выб&shy;рал поток, он сни&shy;мает его из оче&shy;реди пото&shy;ков со ста&shy;ту&shy;сом <em>Ready</em> и пере&shy;во&shy;дит его в сос&shy;то&shy;я&shy;ние <em>Standby</em> - неко&shy;то&shy;рое про&shy;ме&shy;жу&shy;точ&shy;ное сос&shy;то&shy;я&shy;ние. После этого пла&shy;ни&shy;ров&shy;щик дол&shy;жен заме&shy;нить актив&shy;ный поток на теку&shy;щем ядре. Для этого он уста&shy;нав&shy;ли&shy;вает сос&shy;то&shy;я&shy;ние регист&shy;ров про&shy;цес&shy;сора в то, каким оно было когда-то на момент пре&shy;ры&shy;ва&shy;ния пла&shy;ни&shy;ров&shy;щи&shy;ком. Тем самым про&shy;цес&shy;сор пере&shy;но&shy;сится в то расчётное сос&shy;то&shy;я&shy;ние, каким оно было на момент пре&shy;ры&shy;ва&shy;ния пла&shy;ни&shy;ро&shy;щи&shy;ком и если при этом вер&shy;нуться на ту инстр&shy;укцию, с кото&shy;рой когда-то прог&shy;рамма была прер&shy;вана и тем самым мы запус&shy;тим поток на испол&shy;не&shy;ние. Но перед таем как окон&shy;ча&shy;тельно запус&shy;тить испол&shy;не&shy;ние потока, пла&shy;ни&shy;ров&shy;щик изме&shy;няет его ста&shy;тус в сос&shy;то&shy;я&shy;ние испол&shy;не&shy;ния <strong>Running</strong>.</p>
 <div class="paragraph-right-side">34</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">35</div>
 <p >
-Каж&shy;до&shy;му по&shy;то&shy;ку даётся на&shy;ко&shy;то&shy;рый про&shy;ме&shy;жу&shy;ток вре&shy;ме&shy;ни, в те&shy;че&shy;нии ко&shy;то&shy;ро&shy;го он мо&shy;жет ис&shy;пол&shy;нять&shy;ся преж&shy;де чем его прер&shy;вут что&shy;бы от&shy;дать вре&shy;мя дру&shy;го&shy;му. Этот про&shy;ме&shy;жу&shy;ток на&shy;зы&shy;ва&shy;ет&shy;ся <em>квантом</em>. Имен&shy;но бла&shy;го&shy;да&shy;ря дроб&shy;ле&shy;нию вре&shy;ме&shy;ни на кван&shy;ты и бла&shy;го&shy;да&shy;ря то&shy;му, что все по&shy;то&shy;ки ис&shy;пол&shy;ня&shy;ют&shy;ся друг за дру&shy;гом (но по&shy;нем&shy;но&shy;гу) и воз&shy;ни&shy;ка&shy;ет ил&shy;лю&shy;зия па&shy;рал&shy;лель&shy;нос&shy;ти ис&shy;пол&shy;не&shy;ния прог&shy;рамм. Да, на раз&shy;лич&shy;ных яд&shy;рах код ис&shy;пол&shy;ня&shy;ет&shy;ся ис&shy;тин&shy;но па&shy;рал&shy;лель&shy;но. Но в рам&shy;ках од&shy;но&shy;го яд&shy;ра - нет. Имен&shy;но по&shy;э&shy;то&shy;му ес&shy;ли ядер у про&shy;цес&shy;со&shy;ра мно&shy;го, код на ни ра&shy;бо&shy;та&shy;ет быс&shy;т&shy;рее.</p>
+Каж&shy;дому потоку даётся нако&shy;то&shy;рый про&shy;ме&shy;жу&shy;ток вре&shy;мени, в тече&shy;нии кото&shy;рого он может испол&shy;няться прежде чем его прер&shy;вут чтобы отдать время дру&shy;гому. Этот про&shy;ме&shy;жу&shy;ток назы&shy;ва&shy;ется <em>квантом</em>. Именно бла&shy;го&shy;даря дроб&shy;ле&shy;нию вре&shy;мени на кванты и бла&shy;го&shy;даря тому, что все потоки испол&shy;ня&shy;ются друг за дру&shy;гом (но понем&shy;ногу) и воз&shy;ни&shy;кает иллю&shy;зия парал&shy;лель&shy;ности испол&shy;не&shy;ния прог&shy;рамм. Да, на раз&shy;лич&shy;ных ядрах код испол&shy;ня&shy;ется истинно парал&shy;лельно. Но в рам&shy;ках одного ядра - нет. Именно поэ&shy;тому если ядер у про&shy;цес&shy;сора много, код на ни рабо&shy;тает быс&shy;т&shy;рее.</p>
 <div class="paragraph-right-side">35</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">36</div>
 <p >
-Ког&shy;да же по&shy;ток от&shy;ра&shy;ба&shy;ты&shy;ва&shy;ет свой квант вре&shy;ме&shy;ни, пла&shy;ни&shy;ров&shy;щик его пе&shy;ре&shy;во&shy;дит в сос&shy;то&shy;я&shy;ние <em>Ready</em> или <em>Waiting</em>.
-В сос&shy;то&shy;я&shy;ние <em>Waiting</em> по&shy;ток вхо&shy;дит в том слу&shy;чае, ес&shy;ли он вхо&shy;дит бло&shy;ки&shy;ров&shy;ку (бло&shy;ки&shy;ров&shy;ки уров&shy;ня яд&shy;ра: mutex, semaphore, ра&shy;бо&shy;та с дис&shy;ко&shy;вой сис&shy;те&shy;мой вво&shy;да/вы&shy;во&shy;да и т.п.). Ког&shy;да по&shy;ток на&shy;хо&shy;дит&shy;ся в сос&shy;то&shy;я&shy;нии Waiting, про&shy;цес&shy;сор во&shy;об&shy;ще не тра&shy;тит вре&shy;мя на дан&shy;ный по&shy;ток т.к. он ис&shy;че&shy;за&shy;ет из пла&shy;ни&shy;ро&shy;ва&shy;ния: в пла&shy;ни&shy;ро&shy;ва&shy;нии учас&shy;тву&shy;ют толь&shy;ко те по&shy;то&shy;ки, ко&shy;то&shy;рые к это&shy;му го&shy;то&shy;вы. Т.е. на&shy;хо&shy;дят&shy;ся в сос&shy;то&shy;я&shy;нии <em>Ready</em>. Пос&shy;ле сня&shy;тия бло&shy;ки&shy;ров&shy;ки по&shy;ток пе&shy;ре&shy;во&shy;дит&shy;ся в сос&shy;то&shy;я&shy;ние Ready и пос&shy;ле то&shy;го, как до не&shy;го до&shy;хо&shy;дит оче&shy;редь он на&shy;чи&shy;на&shy;ет вы&shy;пол&shy;нять&shy;ся. Су&shy;щес&shy;тву&shy;ет до&shy;пол&shy;ни&shy;тель&shy;ное сос&shy;то&shy;я&shy;ние <em>Transition</em>, но мы его расс&shy;мат&shy;ри&shy;вать не бу&shy;дем. И пос&shy;лед&shy;нее сос&shy;то&shy;я&shy;ние: <em>Terminated</em> - это ког&shy;да жизнь по&shy;то&shy;ка за&shy;вер&shy;ше&shy;на.</p>
+Когда же поток отра&shy;ба&shy;ты&shy;вает свой квант вре&shy;мени, пла&shy;ни&shy;ров&shy;щик его пере&shy;во&shy;дит в сос&shy;то&shy;я&shy;ние <em>Ready</em> или <em>Waiting</em>.
+В сос&shy;то&shy;я&shy;ние <em>Waiting</em> поток вхо&shy;дит в том слу&shy;чае, если он вхо&shy;дит бло&shy;ки&shy;ровку (бло&shy;ки&shy;ровки уровня ядра: mutex, semap&shy;hore, работа с дис&shy;ко&shy;вой сис&shy;те&shy;мой ввода/вывода и т.п.). Когда поток нахо&shy;дится в сос&shy;то&shy;я&shy;нии Wai&shy;ting, про&shy;цес&shy;сор вообще не тра&shy;тит время на дан&shy;ный поток т.к. он исче&shy;зает из пла&shy;ни&shy;ро&shy;ва&shy;ния: в пла&shy;ни&shy;ро&shy;ва&shy;нии учас&shy;твуют только те потоки, кото&shy;рые к этому готовы. Т.е. нахо&shy;дятся в сос&shy;то&shy;я&shy;нии <em>Ready</em>. После сня&shy;тия бло&shy;ки&shy;ровки поток пере&shy;во&shy;дится в сос&shy;то&shy;я&shy;ние Ready и после того, как до него дохо&shy;дит оче&shy;редь он начи&shy;нает выпол&shy;няться. Сущес&shy;твует допол&shy;ни&shy;тель&shy;ное сос&shy;то&shy;я&shy;ние <em>Transition</em>, но мы его расс&shy;мат&shy;ри&shy;вать не будем. И пос&shy;лед&shy;нее сос&shy;то&shy;я&shy;ние: <em>Terminated</em> - это когда жизнь потока завер&shy;шена.</p>
 <div class="paragraph-right-side">36</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">37</div>
 <p >
-За каж&shy;дым яд&shy;ром опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;те&shy;ма зак&shy;реп&shy;ля&shy;ет свой пла&shy;ни&shy;ров&shy;щик по&shy;то&shy;ков (на ко&shy;то&shy;ром &laquo;кру&shy;тит&shy;ся&raquo; нес&shy;коль&shy;ко по&shy;то&shy;ков). До&shy;пус&shy;тим у нас ис&shy;пол&shy;ня&shy;ет&shy;ся 50 по&shy;то&shy;ков <strong>на одном ядре</strong>. Квант, вы&shy;де&shy;ля&shy;е&shy;мый од&shy;но&shy;му по&shy;то&shy;ку око&shy;ло 20 мcек в луч&shy;шем слу&shy;чае. Это зна&shy;чит, что каж&shy;дый по&shy;ток по&shy;лу&shy;чит вре&shy;мя на ис&shy;пол&shy;не&shy;ние при&shy;мер&shy;но 1 раз в <code>50 * 20 = 1000 мсек</code>. <strong>Т.е. один раз в секунду на 20 мcек</strong>. Та&shy;ким об&shy;ра&shy;зом, ес&shy;ли вы со&shy;за&shy;ди&shy;те боль&shy;шое ко&shy;ли&shy;чес&shy;тво про&shy;цес&shy;сов, в каж&shy;дом из ко&shy;то&shy;рых бу&shy;дет как ми&shy;ни&shy;мум 1 ак&shy;тив&shy;ный по&shy;ток, ко&shy;то&shy;рый не заб&shy;ло&shy;ки&shy;ро&shy;ван ожи&shy;да&shy;ни&shy;ем вво&shy;да или вы&shy;во&shy;да, то вы тем са&shy;мым не прос&shy;то де&shy;ли&shy;те об&shy;щее вре&shy;мя меж&shy;ду все&shy;ми участ&shy;ни&shy;ка&shy;ми, но и от&shy;тя&shy;ги&shy;ва&shy;ете сле&shy;ду&shy;ю&shy;щий мо&shy;мент вклю&shy;че&shy;ния по&shy;то&shy;ка в ра&shy;бо&shy;ту.</p>
+За каж&shy;дым ядром опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;тема зак&shy;реп&shy;ляет свой пла&shy;ни&shy;ров&shy;щик пото&shy;ков (на кото&shy;ром &laquo;кру&shy;тится&raquo; нес&shy;колько пото&shy;ков). Допус&shy;тим у нас испол&shy;ня&shy;ется 50 пото&shy;ков <strong>на одном ядре</strong>. Квант, выде&shy;ля&shy;е&shy;мый одному потоку около 20 мcек в луч&shy;шем слу&shy;чае. Это зна&shy;чит, что каж&shy;дый поток полу&shy;чит время на испол&shy;не&shy;ние при&shy;мерно 1 раз в <code>50 * 20 = 1000 мсек</code>. <strong>Т.е. один раз в секунду на 20 мcек</strong>. Таким обра&shy;зом, если вы соза&shy;дите боль&shy;шое коли&shy;чес&shy;тво про&shy;цес&shy;сов, в каж&shy;дом из кото&shy;рых будет как мини&shy;мум 1 актив&shy;ный поток, кото&shy;рый не заб&shy;ло&shy;ки&shy;ро&shy;ван ожи&shy;да&shy;нием ввода или вывода, то вы тем самым не просто делите общее время между всеми участ&shy;ни&shy;ками, но и оття&shy;ги&shy;ва&shy;ете сле&shy;ду&shy;ю&shy;щий момент вклю&shy;че&shy;ния потока в работу.</p>
 <div class="paragraph-right-side">37</div>
 </div>
 <p >
-Двай&shy;те обоб&shy;щим.</p>
+Двайте обоб&shy;щим.</p>
 <p >
-Сос&shy;то&shy;я&shy;ния по&shy;то&shy;ков:</p>
+Сос&shy;то&shy;я&shy;ния пото&shy;ков:</p>
 <ul>
 <li>
 <p >
-Initialized. Испол&shy;ьз&shy;уе&shy;тся при соз&shy;да&shy;нии по&shy;то&shy;ка</p>
+Initi&shy;a&shy;lized. Испол&shy;ьз&shy;уе&shy;тся при соз&shy;да&shy;нии потока</p>
 </li>
 <li>
 <p >
-Ready. Го&shy;тов. Сос&shy;то&shy;я&shy;ние го&shy;тов&shy;нос&shy;ти, ожи&shy;да&shy;ние вы&shy;пол&shy;не&shy;ния</p>
+Ready. Готов. Сос&shy;то&shy;я&shy;ние готов&shy;ности, ожи&shy;да&shy;ние выпол&shy;не&shy;ния</p>
 <ul>
 <li>
 <p >
-При по&shy;ис&shy;ке сле&shy;ду&shy;ю&shy;ще&shy;го по&shy;то&shy;ка пла&shy;ни&shy;ров&shy;щик расс&shy;мат&shy;ри&shy;ва&shy;ет толь&shy;ко это сос&shy;то&shy;я&shy;ние</p>
+При поиске сле&shy;ду&shy;ю&shy;щего потока пла&shy;ни&shy;ров&shy;щик расс&shy;мат&shy;ри&shy;вает только это сос&shy;то&shy;я&shy;ние</p>
 </li>
 </ul>
 </li>
 <li>
 <p >
-Deferred Ready. Го&shy;тов&shy;ность с от&shy;ло&shy;жен&shy;ным вы&shy;пол&shy;не&shy;ни&shy;ем.</p>
+Deferred Ready. Готов&shy;ность с отло&shy;жен&shy;ным выпол&shy;не&shy;нием.</p>
 <ul>
 <li>
 <p >
-По&shy;ток выб&shy;ран на ис&shy;пол&shy;не&shy;ние на выб&shy;ран&shy;ном про&shy;цес&shy;со&shy;ре, но ещё не за&shy;пу&shy;щен.</p>
+Поток выб&shy;ран на испол&shy;не&shy;ние на выб&shy;ран&shy;ном про&shy;цес&shy;соре, но ещё не запу&shy;щен.</p>
 </li>
 <li>
 <p >
-Для ми&shy;ни&shy;ми&shy;за&shy;ции бло&shy;ки&shy;ров&shy;ки БД пла&shy;ни&shy;ро&shy;ва&shy;ния</p>
+Для мини&shy;ми&shy;за&shy;ции бло&shy;ки&shy;ровки БД пла&shy;ни&shy;ро&shy;ва&shy;ния</p>
 </li>
 </ul>
 </li>
 <li>
 <p >
-Standby. В по&shy;вы&shy;шен&shy;ной го&shy;тов&shy;нос&shy;ти.</p>
+Standby. В повы&shy;шен&shy;ной готов&shy;ности.</p>
 <ul>
 <li>
 <p >
-Был выб&shy;ран сле&shy;ду&shy;ю&shy;щим для ис&shy;пол&shy;не&shy;ния на конк&shy;рет&shy;ном про&shy;цес&shy;со&shy;ре</p>
+Был выб&shy;ран сле&shy;ду&shy;ю&shy;щим для испол&shy;не&shy;ния на конк&shy;рет&shy;ном про&shy;цес&shy;соре</p>
 </li>
 <li>
 <p >
-Всё ещё мо&shy;жет быть вы&shy;тес&shy;нен бо&shy;лее при&shy;о&shy;ри&shy;тет&shy;ным по&shy;то&shy;ком</p>
+Всё ещё может быть вытес&shy;нен более при&shy;о&shy;ри&shy;тет&shy;ным пото&shy;ком</p>
 </li>
 </ul>
 </li>
 <li>
 <p >
-Running. Вы&shy;пол&shy;не&shy;ние</p>
+Running. Выпол&shy;не&shy;ние</p>
 <ul>
 <li>
 <p >
-Испол&shy;ня&shy;ет&shy;ся до ис&shy;те&shy;че&shy;ния кван&shy;та вре&shy;ме&shy;ни</p>
+Испол&shy;ня&shy;ется до исте&shy;че&shy;ния кванта вре&shy;мени</p>
 </li>
 </ul>
 </li>
 <li>
 <p >
-Waiting</p>
+Wai&shy;ting</p>
 <ul>
 <li>
 <p >
-Ожи&shy;да&shy;ние объ&shy;ек&shy;та синх&shy;ро&shy;ни&shy;за&shy;ции</p>
+Ожи&shy;да&shy;ние объ&shy;екта синх&shy;ро&shy;ни&shy;за&shy;ции</p>
 </li>
 <li>
 <p >
-ОС ждёт че&shy;го-ли&shy;бо от име&shy;ни по&shy;то&shy;ка</p>
+ОС ждёт чего-либо от имени потока</p>
 </li>
 </ul>
 </li>
 <li>
 <p >
-Transition</p>
+Tran&shy;si&shy;tion</p>
 <ul>
 <li>
 <p >
-Если го&shy;тов к вы&shy;пол&shy;не&shy;нию, но стек яд&shy;ра выг&shy;ру&shy;жен из па&shy;мя&shy;ти</p>
+Если готов к выпол&shy;не&shy;нию, но стек ядра выг&shy;ру&shy;жен из памяти</p>
 </li>
 </ul>
 </li>
 <li>
 <p >
-Terminated. За&shy;вершён</p>
+Termi&shy;nated. Завершён</p>
 </li>
 </ul>
 <p >
 <img src="./img/2.png" alt="Состояния потоков" /></p>
 <p >
-Ри&shy;су&shy;нок 2: Сос&shy;то&shy;я&shy;ние по&shy;то&shy;ков</p>
+Рису&shy;нок 2: Сос&shy;то&shy;я&shy;ние пото&shy;ков</p>
 <p >
 <code>тут пока НЕ обработано</code></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">38</div>
 <p >
-На ри&shy;сун&shy;ке 2 изоб&shy;ра&shy;же&shy;но от&shy;но&shy;ше&shy;ния по&shy;то&shy;ков и про&shy;цес&shy;со&shy;ра. Отку&shy;да вид&shy;но, что по&shy;то&shy;ки к про&shy;цес&shy;со&shy;ру не име&shy;ют ни ка&shy;ко&shy;го от&shy;нош&shy;к&shy;ния. Для пла&shy;ни&shy;ров&shy;щи&shy;ка по&shy;то&shy;ков все они рав&shy;но&shy;цен&shy;ны.</p>
+На рисунке 2 изоб&shy;ра&shy;жено отно&shy;ше&shy;ния пото&shy;ков и про&shy;цес&shy;сора. Откуда видно, что потоки к про&shy;цес&shy;сору не имеют ни какого отнош&shy;к&shy;ния. Для пла&shy;ни&shy;ров&shy;щика пото&shy;ков все они рав&shy;но&shy;ценны.</p>
 <div class="paragraph-right-side">38</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">39</div>
 <p >
-Как это всё ра&shy;бо&shy;та&shy;ет? До&shy;пус&shy;тим мы име&shy;ем три про&shy;цес&shy;са 1, 2 и 4. Есть две груп&shy;пы ядер со сво&shy;им пла&shy;ни&shy;ров&shy;щи&shy;ком по&shy;то&shy;ков. Есть оче&shy;ре&shy;ди по&shy;то&shy;ков по при&shy;о&shy;ри&shy;те&shy;там. И ког&shy;да по&shy;ток пла&shy;ни&shy;ру&shy;ет&shy;ся в ра&shy;бо&shy;ту, пе&shy;ре&shy;хо&shy;дит в сос&shy;то&shy;я&shy;ние Ready, это оз&shy;на&shy;ча&shy;ет, что он встаёт в оп&shy;ре&shy;делённую оче&shy;редь. Если это по&shy;ток с при&shy;о&shy;ри&shy;те&shy;том Normal, за&shy;пу&shy;щен&shy;ный внут&shy;ри при&shy;ло&shy;же&shy;ния с Клас&shy;сом Normal бу&shy;дет иметь 8. Зна&shy;чит ког&shy;да он ис&shy;пол&shy;нит&shy;ся то из Running он пе&shy;рейдёт в Ready и бу&shy;дет пос&shy;тав&shy;лен в оче&shy;редь 8. Если есть по&shy;то&shy;ки ко&shy;то&shy;рые так-же на&shy;хо&shy;дят&shy;ся в сос&shy;то&shy;я&shy;нии Ready, но бо&shy;лее вы&shy;со&shy;ких при&shy;о&shy;ри&shy;те&shy;тов, то пла&shy;ни&shy;ров&shy;щик в бу&shy;дет вы&shy;пол&shy;нять их в пер&shy;вую оче&shy;редь и не бу&shy;дет до&shy;хо&shy;дить до ва&shy;ше&shy;го по&shy;то&shy;ка, по&shy;ка все по&shy;то&shy;ки с бо&shy;лее вы&shy;со&shy;ким при&shy;о&shy;ри&shy;те&shy;том не бу&shy;дут ис&shy;пол&shy;не&shy;ны.</p>
+Как это всё рабо&shy;тает? Допус&shy;тим мы имеем три про&shy;цесса 1, 2 и 4. Есть две группы ядер со своим пла&shy;ни&shy;ров&shy;щи&shy;ком пото&shy;ков. Есть оче&shy;реди пото&shy;ков по при&shy;о&shy;ри&shy;те&shy;там. И когда поток пла&shy;ни&shy;ру&shy;ется в работу, пере&shy;хо&shy;дит в сос&shy;то&shy;я&shy;ние Ready, это озна&shy;чает, что он встаёт в опре&shy;делённую оче&shy;редь. Если это поток с при&shy;о&shy;ри&shy;те&shy;том Normal, запу&shy;щен&shy;ный внутри при&shy;ло&shy;же&shy;ния с Клас&shy;сом Normal будет иметь 8. Зна&shy;чит когда он испол&shy;нится то из Running он перейдёт в Ready и будет пос&shy;тав&shy;лен в оче&shy;редь 8. Если есть потоки кото&shy;рые так-же нахо&shy;дятся в сос&shy;то&shy;я&shy;нии Ready, но более высо&shy;ких при&shy;о&shy;ри&shy;те&shy;тов, то пла&shy;ни&shy;ров&shy;щик в будет выпол&shy;нять их в пер&shy;вую оче&shy;редь и не будет дохо&shy;дить до вашего потока, пока все потоки с более высо&shy;ким при&shy;о&shy;ри&shy;те&shy;том не будут испол&shy;нены.</p>
 <div class="paragraph-right-side">39</div>
 </div>
 <p >
 <img src="./img/3.png" alt="Взаимодействие процессора и потоков" /></p>
 <p >
-Ри&shy;су&shy;нок 2: По&shy;то&shy;ки и про&shy;цес&shy;сор</p>
+Рису&shy;нок 2: Потоки и про&shy;цес&shy;сор</p>
 <h2 id="section-7">Кванты времени</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">40</div>
 <p >
-Квант - это про&shy;ме&shy;жу&shy;ток вре&shy;ме&shy;ни в те&shy;че&shy;ние ко&shy;то&shy;ро&shy;го по&shy;ток бу&shy;дет ис&shy;пол&shy;нять&shy;ся. Каж&shy;до&shy;му по&shy;то&shy;ку вы&shy;де&shy;ля&shy;ет&shy;ся квант вре&shy;ме&shy;ни на ис&shy;пол&shy;не&shy;ние. По&shy;то&shy;ки ра&shy;бо&shy;та&shy;ют че&shy;рез и в те&shy;че&shy;ние оп&shy;ре&shy;делённо&shy;го ко&shy;ли&shy;чес&shy;тво вре&shy;ме&shy;ни. Меж&shy;ду по&shy;то&shy;ка&shy;ми есть про&shy;ме&shy;жут&shy;ки вре&shy;ме&shy;ни, во вре&shy;мя ко&shy;то&shy;рых пла&shy;ни&shy;ров&shy;щик по&shy;то&shy;ков вы&shy;пол&shy;ня&shy;ет свою ра&shy;бо&shy;ту.</p>
+Квант - это про&shy;ме&shy;жу&shy;ток вре&shy;мени в тече&shy;ние кото&shy;рого поток будет испол&shy;няться. Каж&shy;дому потоку выде&shy;ля&shy;ется квант вре&shy;мени на испол&shy;не&shy;ние. Потоки рабо&shy;тают через и в тече&shy;ние опре&shy;делённого коли&shy;чес&shy;тво вре&shy;мени. Между пото&shy;ками есть про&shy;ме&shy;жутки вре&shy;мени, во время кото&shy;рых пла&shy;ни&shy;ров&shy;щик пото&shy;ков выпол&shy;няет свою работу.</p>
 <div class="paragraph-right-side">40</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">41</div>
 <p >
-На од&shy;ноп&shy;ро&shy;цес&shy;сор&shy;ной сис&shy;те&shy;ме x86 ра&shy;бо&shy;та си&shy;тем&shy;но&shy;го тай&shy;ме&shy;ра нас&shy;тро&shy;ена на сра&shy;ба&shy;ты&shy;ва&shy;ет каж&shy;дые 10 млСек, тем са&shy;мым воз&shy;ни&shy;ка&shy;ет ап&shy;па&shy;рат&shy;ное пре&shy;ры&shy;ва&shy;ние про&shy;цес&shy;со&shy;ра INT 08 и вы&shy;зов фун&shy;к&shy;ции поль&shy;зо&shy;ва&shy;те&shy;ля. На этом пре&shy;ры&shy;ва&shy;нии ус&shy;та&shy;нов&shy;лен пла&shy;ни&shy;ров&shy;щик. На мно&shy;гоп&shy;ро&shy;цес&shy;сор&shy;ной сис&shy;те&shy;ме тай&shy;мер нас&shy;тро&shy;ен на 15 млСек.</p>
+На одноп&shy;ро&shy;цес&shy;сор&shy;ной сис&shy;теме x86 работа ситем&shy;ного тай&shy;мера нас&shy;тро&shy;ена на сра&shy;ба&shy;ты&shy;вает каж&shy;дые 10 млСек, тем самым воз&shy;ни&shy;кает аппа&shy;рат&shy;ное пре&shy;ры&shy;ва&shy;ние про&shy;цес&shy;сора INT 08 и вызов фун&shy;к&shy;ции поль&shy;зо&shy;ва&shy;теля. На этом пре&shy;ры&shy;ва&shy;нии уста&shy;нов&shy;лен пла&shy;ни&shy;ров&shy;щик. На мно&shy;гоп&shy;ро&shy;цес&shy;сор&shy;ной сис&shy;теме тай&shy;мер нас&shy;троен на 15 млСек.</p>
 <div class="paragraph-right-side">41</div>
 </div>
 <p >
 <img src="./img/4.png" alt="Такты системного таймера" /></p>
 <p >
-Ри&shy;су&shy;нок 3: По&shy;то&shy;ки и про&shy;цес&shy;сор</p>
+Рису&shy;нок 3: Потоки и про&shy;цес&shy;сор</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">42</div>
 <p >
-Исхо&shy;дя из сис&shy;тем&shy;но&shy;го тай&shy;ме&shy;ра воз&shy;ни&shy;ка&shy;ет <strong>квантовая единица</strong> (рис. 4) рав&shy;ная 1/3 это&shy;го ин&shy;тер&shy;ва&shy;ла. Да&shy;лее ког&shy;да ме&shy;ня&shy;ет&shy;ся по&shy;ток это зна&shy;че&shy;ние на&shy;зы&shy;ва&shy;ет&shy;ся <strong>Значение Перезапуска Кванта</strong>. Оно раз&shy;лич&shy;но на раз&shy;ных опе&shy;ра&shy;ци&shy;он&shy;ных сис&shy;те&shy;мах. На кли&shy;е&shy;нтских сис&shy;те&shy;мах Windows оно рав&shy;но 6. Это зна&shy;чит, что ко&shy;ли&shy;чес&shy;тво кван&shy;то&shy;вых еди&shy;ниц, вы&shy;де&shy;ля&shy;е&shy;мых по&shy;то&shy;ку, рав&shy;но 6. Дол&shy;жно прой&shy;ти два так&shy;та си&shy;тем&shy;но&shy;го тай&shy;ме&shy;ра 20 мл.сек. на од&shy;ноп&shy;ро&shy;цес&shy;сор&shy;ной сис&shy;те&shy;ме и 30 мл.сек. на мно&shy;гоп&shy;ро&shy;цес&shy;сор&shy;ной сис&shy;те&shy;ме (см. рис. 4) и про&shy;и&shy;зойдёт пе&shy;ре&shy;ход к дру&shy;го&shy;му по&shy;то&shy;ку.</p>
+Исходя из сис&shy;тем&shy;ного тай&shy;мера воз&shy;ни&shy;кает <strong>квантовая единица</strong> (рис. 4) рав&shy;ная 1/3 этого интер&shy;вала. Далее когда меня&shy;ется поток это зна&shy;че&shy;ние назы&shy;ва&shy;ется <strong>Значение Перезапуска Кванта</strong>. Оно раз&shy;лично на раз&shy;ных опе&shy;ра&shy;ци&shy;он&shy;ных сис&shy;те&shy;мах. На кли&shy;е&shy;нтских сис&shy;те&shy;мах Windows оно равно 6. Это зна&shy;чит, что коли&shy;чес&shy;тво кван&shy;то&shy;вых еди&shy;ниц, выде&shy;ля&shy;е&shy;мых потоку, равно 6. Дол&shy;жно пройти два такта ситем&shy;ного тай&shy;мера 20 мл.сек. на одноп&shy;ро&shy;цес&shy;сор&shy;ной сис&shy;теме и 30 мл.сек. на мно&shy;гоп&shy;ро&shy;цес&shy;сор&shy;ной сис&shy;теме (см. рис. 4) и про&shy;и&shy;зойдёт пере&shy;ход к дру&shy;гому потоку.</p>
 <div class="paragraph-right-side">42</div>
 </div>
 <p >
 <img src="./img/5.png" alt="Квантовая единица" /></p>
 <p >
-Ри&shy;су&shy;нок 4: Кван&shy;то&shy;вая еди&shy;ни&shy;ца</p>
+Рису&shy;нок 4: Кван&shy;то&shy;вая еди&shy;ница</p>
 <ul>
 <li>
 <p >
-Кван&shy;то&shy;вая Цель = [Фак&shy;тич. Кван&shy;то&shy;вые Еди&shy;ни&shy;цы] * [Так&shy;то&shy;вых Импул&shy;ьсов на квант вре&shy;ме&shy;ни]</p>
+Кван&shy;то&shy;вая Цель = [Фак&shy;тич. Кван&shy;то&shy;вые Еди&shy;ницы] * [Так&shy;то&shy;вых Импул&shy;ьсов на квант вре&shy;мени]</p>
 </li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">43</div>
 <p >
-Вре&shy;мен&shy;ная шка&shy;ла сис&shy;тем&shy;но&shy;го тай&shy;ме&shy;ра предс&shy;тав&shy;ле&shy;на на ри&shy;сун&shy;ке 5. Зна&shy;че&shy;ние пе&shy;ре&shy;за&shy;пус&shy;ка кван&shy;та в кли&shy;е&shy;нтских сис&shy;те&shy;мах Windows рав&shy;но 6 в сер&shy;вер&shy;ных сис&shy;те&shy;мах Windows 36, то есть в шесть раз длин&shy;нее зна&shy;чит по&shy;ток бу&shy;дет от&shy;ра&shy;ба&shy;ты&shy;вать 120 мл.сек. Пос&shy;ле че&shy;го он пе&shy;рейдёт в сос&shy;то&shy;я&shy;ние Ready и вернётся к ис&shy;пол&shy;не&shy;нию не ско&shy;ро. По&shy;э&shy;то&shy;му на сер&shy;вер&shy;ной сис&shy;те&shy;ме не&shy;об&shy;хо&shy;ди&shy;мо ос&shy;тав&shy;лять толь&shy;ко те при&shy;ло&shy;же&shy;ния, ко&shy;то&shy;рые там дол&shy;жны ра&shy;бо&shy;тать и боль&shy;ше ни&shy;че&shy;го лиш&shy;не&shy;го.</p>
+Вре&shy;мен&shy;ная шкала сис&shy;тем&shy;ного тай&shy;мера предс&shy;тав&shy;лена на рисунке 5. Зна&shy;че&shy;ние пере&shy;за&shy;пуска кванта в кли&shy;е&shy;нтских сис&shy;те&shy;мах Windows равно 6 в сер&shy;вер&shy;ных сис&shy;те&shy;мах Windows 36, то есть в шесть раз длин&shy;нее зна&shy;чит поток будет отра&shy;ба&shy;ты&shy;вать 120 мл.сек. После чего он перейдёт в сос&shy;то&shy;я&shy;ние Ready и вернётся к испол&shy;не&shy;нию не скоро. Поэ&shy;тому на сер&shy;вер&shy;ной сис&shy;теме необ&shy;хо&shy;димо остав&shy;лять только те при&shy;ло&shy;же&shy;ния, кото&shy;рые там дол&shy;жны рабо&shy;тать и больше ничего лиш&shy;него.</p>
 <div class="paragraph-right-side">43</div>
 </div>
 <p >
 <img src="./img/6.png" alt="Временная шкала системного таймера" /></p>
 <p >
-Ри&shy;су&shy;нок 5: Вре&shy;мен&shy;ная шка&shy;ла сис&shy;тем&shy;но&shy;го тай&shy;ме&shy;ра</p>
+Рису&shy;нок 5: Вре&shy;мен&shy;ная шкала сис&shy;тем&shy;ного тай&shy;мера</p>
 <ul>
 <li>
 <p >
-Зна&shy;че&shy;ние Пе&shy;ре&shy;за&shy;пус&shy;ка Кван&shy;та = [Фак&shy;тич. Кван&shy;то&shy;вые Еди&shy;ни&shy;цы] * [Кол-во Квант. Еди&shy;ниц в Так&shy;те]</p>
+Зна&shy;че&shy;ние Пере&shy;за&shy;пуска Кванта = [Фак&shy;тич. Кван&shy;то&shy;вые Еди&shy;ницы] * [Кол-во Квант. Еди&shy;ниц в Такте]</p>
 <ul>
 <li>
 <p >
@@ -2236,35 +2236,35 @@ Terminated. За&shy;вершён</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">44</div>
 <p >
-Пред&shy;по&shy;ло&shy;жим что один из по&shy;то&shy;ков на уров&shy;не вто&shy;рой кван&shy;то&shy;вой еди&shy;ни&shy;цы встал в бло&shy;ки&shy;ров&shy;ку (рис. 6). Этот по&shy;ток те&shy;ря&shy;ет
-кван&shy;то&shy;вое вре&shy;мя и оно от&shy;даётся дру&shy;го&shy;му по&shy;то&shy;ку. Дру&shy;гой по&shy;ток на&shy;чал свою ра&shy;бо&shy;ту. Но пос&shy;коль&shy;ку пла&shy;ни&shy;ров&shy;щик за&shy;пус&shy;ка&shy;ет&shy;ся толь&shy;ко ког&shy;да сра&shy;ба&shy;ты&shy;ва&shy;ет сис&shy;тем&shy;ный тай&shy;мер, то сле&shy;ду&shy;ю&shy;щий по&shy;ток от&shy;ра&shy;бо&shy;та&shy;ет доль&shy;ше. Сле&shy;ду&shy;ю&shy;щий по&shy;ток от&shy;ра&shy;бо&shy;та&shy;ет по&shy;ло&shy;жен&shy;ное вре&shy;мя. По&shy;лу&shy;ча&shy;ет&shy;ся так, что ес&shy;ли вы ра&shy;бо&shy;та&shy;ете с бло&shy;ки&shy;ров&shy;ка&shy;ми, то ва&shy;ше при&shy;ло&shy;же&shy;ние бу&shy;дет вы&shy;пол&shy;нять&shy;ся ма&shy;лое ко&shy;ли&shy;чес&shy;тво вре&shy;ме&shy;ни. Во вре&shy;мя ра&shy;бо&shy;ты по&shy;то&shy;ка мо&shy;гут воз&shy;ник&shy;нуть ап&shy;па&shy;рат&shy;ные пре&shy;ры&shy;ва&shy;ния (INT). Пре&shy;ры&shy;ва&shy;ния это от&shy;вле&shy;че&shy;ние про&shy;цес&shy;со&shy;ра от вы&shy;пол&shy;не&shy;ния те&shy;ку&shy;ще&shy;го по&shy;то&shy;ка для вы&shy;пол&shy;не&shy;ния бо&shy;лее важ&shy;ных за&shy;дач (по&shy;лу&shy;че&shy;ние сос&shy;то&shy;я&shy;ния внеш&shy;них ус&shy;т&shy;ройств и т.п.). Обра&shy;бот&shy;ка пре&shy;ры&shy;ва&shy;ния за&shy;ни&shy;ма&shy;ет вре&shy;мя по&shy;то&shy;ка, но вас это не дол&shy;жно бес&shy;по&shy;ко&shy;ить по&shy;то&shy;му, что вре&shy;мя зат&shy;ра&shy;чен&shy;ное на об&shy;ра&shy;бот&shy;ку пре&shy;ры&shy;ва&shy;ния не учи&shy;ты&shy;ва&shy;ет&shy;ся в пла&shy;ни&shy;ро&shy;ва&shy;нии и со&shy;от&shy;ветст&shy;венно ваш по&shy;ток
-от&shy;ра&shy;бо&shy;та&shy;ет доль&shy;ше. Да&shy;лее, ког&shy;да по&shy;ток, ос&shy;во&shy;бождённый от бло&shy;ки&shy;ров&shy;ки, про&shy;сы&shy;па&shy;ет&shy;ся, то он до&shy;ра&shy;ба&shy;ты&shy;ва&shy;ет своё зна&shy;че&shy;ние кван&shy;то&shy;во&shy;го пе&shy;ре&shy;за&shy;пус&shy;ка.</p>
+Пред&shy;по&shy;ло&shy;жим что один из пото&shy;ков на уровне вто&shy;рой кван&shy;то&shy;вой еди&shy;ницы встал в бло&shy;ки&shy;ровку (рис. 6). Этот поток теряет
+кван&shy;то&shy;вое время и оно отдаётся дру&shy;гому потоку. Дру&shy;гой поток начал свою работу. Но пос&shy;кольку пла&shy;ни&shy;ров&shy;щик запус&shy;ка&shy;ется только когда сра&shy;ба&shy;ты&shy;вает сис&shy;тем&shy;ный тай&shy;мер, то сле&shy;ду&shy;ю&shy;щий поток отра&shy;бо&shy;тает дольше. Сле&shy;ду&shy;ю&shy;щий поток отра&shy;бо&shy;тает поло&shy;жен&shy;ное время. Полу&shy;ча&shy;ется так, что если вы рабо&shy;та&shy;ете с бло&shy;ки&shy;ров&shy;ками, то ваше при&shy;ло&shy;же&shy;ние будет выпол&shy;няться малое коли&shy;чес&shy;тво вре&shy;мени. Во время работы потока могут воз&shy;ник&shy;нуть аппа&shy;рат&shy;ные пре&shy;ры&shy;ва&shy;ния (INT). Пре&shy;ры&shy;ва&shy;ния это отвле&shy;че&shy;ние про&shy;цес&shy;сора от выпол&shy;не&shy;ния теку&shy;щего потока для выпол&shy;не&shy;ния более важ&shy;ных задач (полу&shy;че&shy;ние сос&shy;то&shy;я&shy;ния внеш&shy;них уст&shy;ройств и т.п.). Обра&shy;ботка пре&shy;ры&shy;ва&shy;ния зани&shy;мает время потока, но вас это не дол&shy;жно бес&shy;по&shy;ко&shy;ить потому, что время зат&shy;ра&shy;чен&shy;ное на обра&shy;ботку пре&shy;ры&shy;ва&shy;ния не учи&shy;ты&shy;ва&shy;ется в пла&shy;ни&shy;ро&shy;ва&shy;нии и соот&shy;ветст&shy;венно ваш поток
+отра&shy;бо&shy;тает дольше. Далее, когда поток, осво&shy;бождённый от бло&shy;ки&shy;ровки, про&shy;сы&shy;па&shy;ется, то он дора&shy;ба&shy;ты&shy;вает своё зна&shy;че&shy;ние кван&shy;то&shy;вого пере&shy;за&shy;пуска.</p>
 <div class="paragraph-right-side">44</div>
 </div>
 <p >
 <img src="./img/7.png" alt="Работа потока" /></p>
 <p >
-Ри&shy;су&shy;нок 6: Ра&shy;бо&shy;та по&shy;то&shy;ка</p>
+Рису&shy;нок 6: Работа потока</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">45</div>
 <p >
-Да&shy;вай&shy;те оп&shy;ре&shy;де&shy;лим ко&shy;ли&shy;чес&shy;тво кван&shy;то&shy;вых цик&shy;лов на квант. Сог&shy;лас&shy;но сле&shy;ду&shy;ю&shy;щих ша&shy;гов. Ша&shy;ги на&shy;хож&shy;де&shy;ние кван&shy;то&shy;вых цик&shy;лов на квант:</p>
+Давайте опре&shy;де&shy;лим коли&shy;чес&shy;тво кван&shy;то&shy;вых цик&shy;лов на квант. Сог&shy;ласно сле&shy;ду&shy;ю&shy;щих шагов. Шаги нахож&shy;де&shy;ние кван&shy;то&shy;вых цик&shy;лов на квант:</p>
 <div class="paragraph-right-side">45</div>
 </div>
 <ul>
 <li>
 <p >
-Возьмём так&shy;то&shy;вую час&shy;то&shy;ту про&shy;цес&shy;со&shy;ра:</p>
+Возьмём так&shy;то&shy;вую час&shy;тоту про&shy;цес&shy;сора:</p>
 <ul>
 <li>
 <p >
-Вы&shy;пол&shy;ним ко&shy;ман&shy;ду по&shy;цес&shy;со&shy;ра <b>сpuid</b>, ко&shy;то&shy;рая вы&shy;даст точ&shy;ное зна&shy;че&shy;ние час&shy;то&shy;ты на&shy;ше&shy;го про&shy;цес&shy;со&shy;ра в ГГц : GenuineIntel 2601 fffffff00000000 …</p>
+Выпол&shy;ним команду поцес&shy;сора <b>сpuid</b>, кото&shy;рая выдаст точ&shy;ное зна&shy;че&shy;ние час&shy;тоты нашего про&shy;цес&shy;сора в ГГц : Genuine&shy;Intel 2601 fffffff00000000 …</p>
 </li>
 </ul>
 </li>
 <li>
 <p >
-Пе&shy;ре&shy;ведём её в гер&shy;цы:</p>
+Пере&shy;ведём её в герцы:</p>
 <ul>
 <li>
 <p >
@@ -2274,17 +2274,17 @@ var freq = 2601 * 1,000,000,000 = 2 601 000 000 так&shy;тов/сек</p>
 </li>
 <li>
 <p >
-При по&shy;мо&shy;щи ути&shy;ли&shy;ты <b>clockres</b> от Sysinternals по&shy;лу&shy;ча&shy;ем зна&shy;че&shy;ние ин&shy;тер&shy;ва&shy;ла тай&shy;ме&shy;ра в сис&shy;те&shy;ме (как час&shy;то сра&shy;ба&shy;ты&shy;ва&shy;ет тай&shy;мер):</p>
+При помощи ути&shy;литы <b>clockres</b> от Sysin&shy;ter&shy;nals полу&shy;чаем зна&shy;че&shy;ние интер&shy;вала тай&shy;мера в сис&shy;теме (как часто сра&shy;ба&shy;ты&shy;вает тай&shy;мер):</p>
 <ul>
 <li>
 <p >
-15,625 мсек - то есть у нас мно&shy;гоп&shy;ро&shy;цес&shy;сор&shy;ная сис&shy;те&shy;ма ( 10 мсек - од&shy;ноп&shy;ро&shy;цес&shy;сор&shy;ная )</p>
+15,625 мсек - то есть у нас мно&shy;гоп&shy;ро&shy;цес&shy;сор&shy;ная сис&shy;тема ( 10 мсек - одноп&shy;ро&shy;цес&shy;сор&shy;ная )</p>
 </li>
 </ul>
 </li>
 <li>
 <p >
-Пре&shy;об&shy;ра&shy;зу&shy;ем его в се&shy;кун&shy;ды:</p>
+Пре&shy;об&shy;ра&shy;зуем его в секунды:</p>
 <ul>
 <li>
 <p >
@@ -2294,7 +2294,7 @@ var freq = 2601 * 1,000,000,000 = 2 601 000 000 так&shy;тов/сек</p>
 </li>
 <li>
 <p >
-Умно&shy;жим на кол-во цик&shy;лов в се&shy;кун&shy;ду и по&shy;лу&shy;чим чис&shy;ло так&shy;тов на ин&shy;тер&shy;вал тай&shy;ме&shy;ра (от &laquo;ти&shy;ка&raquo; до &laquo;ти&shy;ка&raquo; сис&shy;тем&shy;но&shy;го тай&shy;ме&shy;ра):</p>
+Умно&shy;жим на кол-во цик&shy;лов в секунду и полу&shy;чим число так&shy;тов на интер&shy;вал тай&shy;мера (от &laquo;тика&raquo; до &laquo;тика&raquo; сис&shy;тем&shy;ного тай&shy;мера):</p>
 <ul>
 <li>
 <p >
@@ -2304,7 +2304,7 @@ var freq = 2601 * 1,000,000,000 = 2 601 000 000 так&shy;тов/сек</p>
 </li>
 <li>
 <p >
-По&shy;лу&shy;чим чис&shy;ло так&shy;тов на кван&shy;то&shy;вую еди&shy;ни&shy;цу (кван&shy;то&shy;вая еди&shy;ни&shy;ца это 1/3 сис&shy;тем&shy;но&shy;го тай&shy;ме&shy;ра):</p>
+Полу&shy;чим число так&shy;тов на кван&shy;то&shy;вую еди&shy;ницу (кван&shy;то&shy;вая еди&shy;ница это 1/3 сис&shy;тем&shy;ного тай&shy;мера):</p>
 <ul>
 <li>
 <p >
@@ -2314,11 +2314,11 @@ var freq = 2601 * 1,000,000,000 = 2 601 000 000 так&shy;тов/сек</p>
 </li>
 <li>
 <p >
-Если вы&shy;вес&shy;ти дамп пе&shy;ре&shy;мен&shy;ной KiCyclesPerClockQuantum, по&shy;лу&shy;чит&shy;ся схо&shy;жее зна&shy;че&shy;ние:</p>
+Если вывести дамп пере&shy;мен&shy;ной Ki&shy;Cycles&shy;Per&shy;Clock&shy;Quantum, полу&shy;чится схо&shy;жее зна&shy;че&shy;ние:</p>
 <ul>
 <li>
 <p >
-lkd> dd nt!KiCyclesPerClockQuantum L1</p>
+lkd> dd nt!Ki&shy;Cycles&shy;Per&shy;Clock&shy;Quantum L1</p>
 </li>
 <li>
 <p >
@@ -2330,24 +2330,24 @@ lkd> dd nt!KiCyclesPerClockQuantum L1</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">46</div>
 <p >
-Отно&shy;си&shy;тель&shy;но <b>кван&shy;то&shy;вой еди&shy;ни&shy;цы</b> расс&shy;чи&shy;ты&shy;ва&shy;ет&shy;ся цель. Эта пе&shy;ре&shy;мен&shy;ная при&shy;сут&shy;ствует в сис&shy;те&shy;ме, но её мож&shy;но по&shy;лу&shy;чить толь&shy;ко под от&shy;лад&shy;чи&shy;ком уров&shy;ня яд&shy;ра. Расс&shy;чи&shy;тан&shy;ное на&shy;ми зна&shy;че&shy;ние прак&shy;ти&shy;чес&shy;ки сов&shy;па&shy;да&shy;ет со зна&shy;че&shy;ни&shy;ем в сис&shy;те&shy;ме ( 0x00A70550 ~= 0x00A70553). Ито&shy;го&shy;вые дан&shy;ные для на&shy;ше&shy;го слу&shy;чая предс&shy;тав&shy;ле&shy;ны в  таб&shy;ли&shy;це 5. Она отоб&shy;ра&shy;жа&shy;ет ка&shy;кое ко&shy;ли&shy;чес&shy;тво так&shy;тов ис&shy;пол&shy;нит&shy;ся в на&shy;шем про&shy;цес&shy;се, преж&shy;де чем он по&shy;те&shy;ря&shy;ет уп&shy;рав&shy;ле&shy;ние.</p>
+Отно&shy;си&shy;тельно <b>кван&shy;то&shy;вой еди&shy;ницы</b> расс&shy;чи&shy;ты&shy;ва&shy;ется цель. Эта пере&shy;мен&shy;ная при&shy;сут&shy;ствует в сис&shy;теме, но её можно полу&shy;чить только под отлад&shy;чи&shy;ком уровня ядра. Расс&shy;чи&shy;тан&shy;ное нами зна&shy;че&shy;ние прак&shy;ти&shy;чески сов&shy;па&shy;дает со зна&shy;че&shy;нием в сис&shy;теме ( 0x00A70550 ~= 0x00A70553). Ито&shy;го&shy;вые дан&shy;ные для нашего слу&shy;чая предс&shy;тав&shy;лены в  таб&shy;лице 5. Она отоб&shy;ра&shy;жает какое коли&shy;чес&shy;тво так&shy;тов испол&shy;нится в нашем про&shy;цессе, прежде чем он поте&shy;ряет управ&shy;ле&shy;ние.</p>
 <div class="paragraph-right-side">46</div>
 </div>
 <p >
-Это важ&shy;но с нес&shy;коль&shy;ких по&shy;зи&shy;ций.</p>
+Это важно с нес&shy;коль&shy;ких пози&shy;ций.</p>
 <ol>
 <li>
 <p >
-Если есть сер&shy;вер&shy;ное при&shy;ло&shy;же&shy;ние и у нас очень мно&shy;го по&shy;то&shy;ков, и они не очень хо&shy;ро&shy;шо ор&shy;га&shy;ни&shy;зо&shy;ва&shy;ны, то од&shy;ни по&shy;то&shy;ки бу&shy;дут
-&laquo;стра&shy;дать&raquo; из-за дру&shy;гих, ес&shy;ли они ра&shy;бо&shy;та&shy;ют на од&shy;ном яд&shy;ре.</p>
+Если есть сер&shy;вер&shy;ное при&shy;ло&shy;же&shy;ние и у нас очень много пото&shy;ков, и они не очень хорошо орга&shy;ни&shy;зо&shy;ваны, то одни потоки будут
+&laquo;стра&shy;дать&raquo; из-за дру&shy;гих, если они рабо&shy;тают на одном ядре.</p>
 </li>
 <li>
 <p >
-Мож&shy;но по&shy;пы&shy;тать&shy;ся прис&shy;во&shy;ить по&shy;то&shy;ки ка&shy;ким-то яд&shy;рам и тем са&shy;мым обес&shy;пе&shy;чить им бо&shy;лее дол&shy;гую ра&shy;бо&shy;ту.</p>
+Можно попы&shy;таться прис&shy;во&shy;ить потоки каким-то ядрам и тем самым обес&shy;пе&shy;чить им более дол&shy;гую работу.</p>
 </li>
 <li>
 <p >
-Пе&shy;ре&shy;да&shy;ча про&shy;цес&shy;сор&shy;но&shy;го вре&shy;ме&shy;ни дру&shy;гим по&shy;то&shy;кам в слу&shy;чае бло&shy;ки&shy;ров&shy;ки</p>
+Пере&shy;дача про&shy;цес&shy;сор&shy;ного вре&shy;мени дру&shy;гим пото&shy;кам в слу&shy;чае бло&shy;ки&shy;ровки</p>
 </li>
 </ol>
 <div class="row">
@@ -2357,11 +2357,11 @@ lkd> dd nt!KiCyclesPerClockQuantum L1</p>
 <tr>
 <th>
 <p >
-Сис&shy;те&shy;ма</p>
+Сис&shy;тема</p>
 </th>
 <th>
 <p >
-Знач. Пе&shy;ре&shy;за&shy;пус&shy;ка Кван&shy;та</p>
+Знач. Пере&shy;за&shy;пуска Кванта</p>
 </th>
 <th>
 <p >
@@ -2404,37 +2404,37 @@ lkd> dd nt!KiCyclesPerClockQuantum L1</p>
 </div>
 <h3 id="section-8">Управление величиной кванта</h3>
 <p >
-За&shy;хо&shy;дим в свой&shy;ства сво&shy;его ком&shy;пьютера. Да&shy;лее &laquo;Change Settings&raquo;</p>
+Захо&shy;дим в свой&shy;ства сво&shy;его ком&shy;пьютера. Далее &laquo;Change Settings&raquo;</p>
 <p >
 <img src="./img/10_1.png" alt="Управление величиной кванта. Шаг 1" /></p>
 <p >
-Пе&shy;ре&shy;хо&shy;дим в Perfimance -> Settings</p>
+Пере&shy;хо&shy;дим в Perfi&shy;mance -> Settings</p>
 <p >
 <img src="./img/10_2.png" alt="Управление величиной кванта. Шаг 2" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">47</div>
 <p >
-Пе&shy;ре&shy;хо&shy;дим на вклад&shy;ку Advanced. Programs - это ко&shy;рот&shy;кие кван&shy;ты (6). По&shy;че&shy;му для Desktop у нас выб&shy;ра&shy;но 6? По&shy;то&shy;му-что, у нас не&shy;об&shy;хо&shy;ди&shy;ма от&shy;зыв&shy;чи&shy;вость сис&shy;те&shy;мы, так как за ком&shy;пьютером ра&shy;бо&shy;тае поль&shy;зо&shy;ва&shy;тель. Пед&shy;по&shy;ло&shy;жим в Chrome от&shy;кры&shy;то 50 вкла&shy;док. Если у нас бу&shy;дет ус&shy;та&shy;нов&shy;лен квант рав&shy;ный 36 (сер&shy;вер), то да&shy;же пе&shy;ре&shy;ме&shy;ще&shy;ние кур&shy;со&shy;ра &laquo;мы&shy;ши&raquo; по эк&shy;ра&shy;ну бу&shy;дет при&shy;тор&shy;ма&shy;жи&shy;вать из-за то&shy;го что по&shy;то&shy;ку GUI бу&shy;дет вы&shy;де&shy;лять&shy;ся ма&shy;ло вре&shy;ме&shy;ни.</p>
+Пере&shy;хо&shy;дим на вкладку Advanced. Prog&shy;rams - это корот&shy;кие кванты (6). Почему для Desktop у нас выб&shy;рано 6? Потому-что, у нас необ&shy;хо&shy;дима отзыв&shy;чи&shy;вость сис&shy;темы, так как за ком&shy;пьютером рабо&shy;тае поль&shy;зо&shy;ва&shy;тель. Пед&shy;по&shy;ло&shy;жим в Chrome открыто 50 вкла&shy;док. Если у нас будет уста&shy;нов&shy;лен квант рав&shy;ный 36 (сер&shy;вер), то даже пере&shy;ме&shy;ще&shy;ние кур&shy;сора &laquo;мыши&raquo; по экрану будет при&shy;тор&shy;ма&shy;жи&shy;вать из-за того что потоку GUI будет выде&shy;ляться мало вре&shy;мени.</p>
 <div class="paragraph-right-side">47</div>
 </div>
 <p >
-Опти&shy;ми&shy;за&shy;ция под прог&shy;рам&shy;мы</p>
+Опти&shy;ми&shy;за&shy;ция под прог&shy;раммы</p>
 <ul>
 <li>
 <p >
-Испол&shy;ьз&shy;ов&shy;ание ко&shy;рот&shy;ких, пе&shy;ре&shy;мен&shy;ных кван&shy;тов</p>
+Испол&shy;ьз&shy;ов&shy;ание корот&shy;ких, пере&shy;мен&shy;ных кван&shy;тов</p>
 </li>
 <li>
 <p >
-Ре&shy;жим по-умол&shy;ча&shy;нию для кли&shy;е&shy;нтских Windows, вклю&shy;чая XBOX, Hololens</p>
+Режим по-умол&shy;ча&shy;нию для кли&shy;е&shy;нтских Windows, вклю&shy;чая XBOX, Holo&shy;lens</p>
 </li>
 <li>
 <p >
-Мож&shy;но выб&shy;рать наст&shy;рой&shy;ку, ес&shy;ли сер&shy;вер&shy;ная ОС ус&shy;та&shy;нов&shy;ле&shy;на как нас&shy;толь&shy;ная</p>
+Можно выб&shy;рать наст&shy;ройку, если сер&shy;вер&shy;ная ОС уста&shy;нов&shy;лена как нас&shy;толь&shy;ная</p>
 </li>
 </ul>
 <p >
-Опти&shy;ми&shy;за&shy;ция под фо&shy;но&shy;вые служ&shy;бы</p>
+Опти&shy;ми&shy;за&shy;ция под фоно&shy;вые службы</p>
 <ul>
 <li>
 <p >
@@ -2442,15 +2442,15 @@ lkd> dd nt!KiCyclesPerClockQuantum L1</p>
 </li>
 <li>
 <p >
-Ре&shy;жим по-умол&shy;ча&shy;нию для сер&shy;вер&shy;ных Windows</p>
+Режим по-умол&shy;ча&shy;нию для сер&shy;вер&shy;ных Windows</p>
 </li>
 <li>
 <p >
-Мож&shy;но выб&shy;рать наст&shy;рой&shy;ку, ес&shy;ли нас&shy;толь&shy;ная ОС ус&shy;та&shy;нов&shy;ле&shy;на как сер&shy;вер&shy;ная</p>
+Можно выб&shy;рать наст&shy;ройку, если нас&shy;толь&shy;ная ОС уста&shy;нов&shy;лена как сер&shy;вер&shy;ная</p>
 </li>
 <li>
 <p >
-Пос&shy;коль&shy;ку эф&shy;фект не&shy;мед&shy;лен&shy;ный, мож&shy;но выс&shy;та&shy;вить наст&shy;рой&shy;ку пе&shy;ред на&shy;ча&shy;лом расчётов, а пос&shy;ле расчётов (нап&shy;ри&shy;мер, ут&shy;ром) – вер&shy;нуть наст&shy;рой&shy;ки на&shy;зад</p>
+Пос&shy;кольку эффект немед&shy;лен&shy;ный, можно выс&shy;та&shy;вить наст&shy;ройку перед нача&shy;лом расчётов, а после расчётов (нап&shy;ри&shy;мер, утром) – вер&shy;нуть наст&shy;ройки назад</p>
 </li>
 </ul>
 <p >
@@ -2459,35 +2459,35 @@ lkd> dd nt!KiCyclesPerClockQuantum L1</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">48</div>
 <p >
-Кван&shy;ты вре&shy;ме&shy;ни бы&shy;ва&shy;ют не толь&shy;ко ста&shy;тич&shy;ные но и пе&shy;ре&shy;мен&shy;ные. Ста&shy;тич&shy;ные кван&shy;ты это ког&shy;да в име&shy;ете 6 и 36 не за&shy;ви&shy;си&shy;мо от ус&shy;ло&shy;вий (ка&shy;ких ус&shy;ло&shy;вий?). Пе&shy;ре&shy;мен&shy;ные кван&shy;ты в за&shy;ви&shy;си&shy;мос&shy;ти от ус&shy;ло&shy;вий вам мо&shy;жет быть вы&shy;де&shy;ле&shy;но боль&shy;ше про&shy;цес&shy;сор&shy;но&shy;го вре&shy;ме&shy;ни на квант. В это ус&shy;ло&shy;вия вхо&shy;дит, нап&shy;ри&shy;мер, при&shy;ло&shy;же&shy;ние ко&shy;то&shy;рое сей&shy;час на&shy;хо&shy;дит&shy;ся на пе&shy;ред&shy;нем пла&shy;не - оно ра&shy;бо&shy;та&shy;ет доль&shy;ше, чем все ос&shy;таль&shy;ные. И, со&shy;от&shy;ветст&shy;венно, быс&shy;т&shy;рее. При ко&shy;пи&shy;ро&shy;ва&shy;нии фай&shy;лов, ес&shy;ли пе&shy;ре&shy;ме&shy;щать кур&shy;сор &laquo;мы&shy;ши&raquo; над ок&shy;ном, то ко&shy;пи&shy;ро&shy;ва&shy;ние идёт быс&shy;т&shy;рее :) из-за то&shy;го,  что та&shy;кие по&shy;то&shy;ки по&shy;лу&shy;ча&shy;ют вре&shy;мен&shy;но по&shy;вы&shy;ше&shy;ние при&shy;о&shy;ри&shy;те&shy;та.</p>
+Кванты вре&shy;мени бывают не только ста&shy;тич&shy;ные но и пере&shy;мен&shy;ные. Ста&shy;тич&shy;ные кванты это когда в име&shy;ете 6 и 36 не зави&shy;симо от усло&shy;вий (каких усло&shy;вий?). Пере&shy;мен&shy;ные кванты в зави&shy;си&shy;мости от усло&shy;вий вам может быть выде&shy;лено больше про&shy;цес&shy;сор&shy;ного вре&shy;мени на квант. В это усло&shy;вия вхо&shy;дит, нап&shy;ри&shy;мер, при&shy;ло&shy;же&shy;ние кото&shy;рое сей&shy;час нахо&shy;дится на перед&shy;нем плане - оно рабо&shy;тает дольше, чем все осталь&shy;ные. И, соот&shy;ветст&shy;венно, быс&shy;т&shy;рее. При копи&shy;ро&shy;ва&shy;нии фай&shy;лов, если пере&shy;ме&shy;щать кур&shy;сор &laquo;мыши&raquo; над окном, то копи&shy;ро&shy;ва&shy;ние идёт быс&shy;т&shy;рее :) из-за того,  что такие потоки полу&shy;чают вре&shy;менно повы&shy;ше&shy;ние при&shy;о&shy;ри&shy;тета.</p>
 <div class="paragraph-right-side">48</div>
 </div>
 <p >
-Если раз&shy;ре&shy;ше&shy;но ис&shy;поль&shy;зо&shy;ва&shy;ние пе&shy;ре&shy;мен&shy;ных кван&shy;тов (кли&shy;е&shy;нтская ОС):</p>
+Если раз&shy;ре&shy;шено исполь&shy;зо&shy;ва&shy;ние пере&shy;мен&shy;ных кван&shy;тов (кли&shy;е&shy;нтская ОС):</p>
 <ul>
 <li>
 <p >
-в таб&shy;ли&shy;цу пе&shy;ре&shy;мен&shy;ных кван&shy;тов заг&shy;ру&shy;жа&shy;ет&shy;ся PspForegroundQuantum, ко&shy;то&shy;рая ис&shy;поль&shy;зу&shy;ет&shy;ся фун&shy;кци&shy;ей PspComputeQuantum, заг&shy;ру&shy;жа&shy;ет&shy;ся таб&shy;ли&shy;ца PspVariableQuantums</p>
+в таб&shy;лицу пере&shy;мен&shy;ных кван&shy;тов заг&shy;ру&shy;жа&shy;ется Psp&shy;Foreground&shy;Quantum, кото&shy;рая исполь&shy;зу&shy;ется фун&shy;кцией Psp&shy;Compute&shy;Quantum, заг&shy;ру&shy;жа&shy;ется таб&shy;лица Psp&shy;Variable&shy;Quantums</p>
 </li>
 <li>
 <p >
-Алго&shy;ритм под&shy;би&shy;ра&shy;ет под&shy;хо&shy;дя&shy;щий ин&shy;декс кван&shy;та в за&shy;ви&shy;си&shy;мос&shy;ти от то&shy;го, ра&shy;бо&shy;та&shy;ет про&shy;цесс на пе&shy;ред&shy;нем пла&shy;не или нет:</p>
+Алго&shy;ритм под&shy;би&shy;рает под&shy;хо&shy;дя&shy;щий индекс кванта в зави&shy;си&shy;мости от того, рабо&shy;тает про&shy;цесс на перед&shy;нем плане или нет:</p>
 <ul>
 <li>
 <p >
-есть ли в нём по&shy;ток, вла&shy;де&shy;ю&shy;щий ок&shy;ном пе&shy;ред&shy;не&shy;го пла&shy;на или нет?</p>
+есть ли в нём поток, вла&shy;де&shy;ю&shy;щий окном перед&shy;него плана или нет?</p>
 </li>
 </ul>
 </li>
 <li>
 <p >
-В па&shy;ре с пла&shy;ни&shy;ров&shy;щи&shy;ком по&shy;то&shy;ков, это даёт по&shy;вы&shy;ше&shy;ние при&shy;о&shy;ри&shy;те&shy;та для это&shy;го про&shy;цес&shy;са.</p>
+В паре с пла&shy;ни&shy;ров&shy;щи&shy;ком пото&shy;ков, это даёт повы&shy;ше&shy;ние при&shy;о&shy;ри&shy;тета для этого про&shy;цесса.</p>
 </li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">49</div>
 <p >
-За&shy;пу&shy;ще&shy;но два каль&shy;ку&shy;ля&shy;то&shy;ра: пра&shy;вый - ак&shy;тив&shy;ный (на пе&shy;ред&shy;нем пла&shy;не), ле&shy;вый - фо&shy;но&shy;вый.  Есть груп&shy;пы кван&shy;тов: пе&shy;ре&shy;мен&shy;ные и фик&shy;си&shy;ро&shy;ван&shy;ные. И в таб&shy;ли&shy;це 6 по&shy;ка&shy;за&shy;ны ин&shy;дек&shy;сы этих каль&shy;ку&shy;ля&shy;то&shy;ров. Пра&shy;вый бу&shy;дет иметь ин&shy;декс 12 или 18, ле&shy;вый - 6. На поль&shy;зо&shy;ва&shy;т&shy;ельской Windows ус&shy;та&shy;нов&shy;ле&shy;но по умол&shy;ча&shy;нию пе&shy;ре&shy;мен&shy;ное зна&shy;че&shy;ние кван&shy;та. На сер&shy;ве&shy;ре, по умол&shy;ча&shy;нию, нет пе&shy;ре&shy;мен&shy;ных кван&shy;тов.</p>
+Запу&shy;щено два каль&shy;ку&shy;ля&shy;тора: пра&shy;вый - актив&shy;ный (на перед&shy;нем плане), левый - фоно&shy;вый.  Есть группы кван&shy;тов: пере&shy;мен&shy;ные и фик&shy;си&shy;ро&shy;ван&shy;ные. И в таб&shy;лице 6 пока&shy;заны индексы этих каль&shy;ку&shy;ля&shy;то&shy;ров. Пра&shy;вый будет иметь индекс 12 или 18, левый - 6. На поль&shy;зо&shy;ва&shy;т&shy;ельской Windows уста&shy;нов&shy;лено по умол&shy;ча&shy;нию пере&shy;мен&shy;ное зна&shy;че&shy;ние кванта. На сер&shy;вере, по умол&shy;ча&shy;нию, нет пере&shy;мен&shy;ных кван&shy;тов.</p>
 <div class="paragraph-right-side">49</div>
 </div>
 <p >
@@ -2503,11 +2503,11 @@ lkd> dd nt!KiCyclesPerClockQuantum L1</p>
 </th>
 <th>
 <p >
-Индекс ко&shy;рот&shy;ко&shy;го кван&shy;та</p>
+Индекс корот&shy;кого кванта</p>
 </th>
 <th>
 <p >
-Индекс длин&shy;но&shy;го кван&shy;та</p>
+Индекс длин&shy;ного кванта</p>
 </th>
 </tr>
 </thead>
@@ -2515,7 +2515,7 @@ lkd> dd nt!KiCyclesPerClockQuantum L1</p>
 <tr>
 <td>
 <p >
-Пе&shy;ре&shy;мен&shy;ное</p>
+Пере&shy;мен&shy;ное</p>
 </td>
 <td>
 <p >
@@ -2547,7 +2547,7 @@ lkd> dd nt!KiCyclesPerClockQuantum L1</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">50</div>
 <p >
-Наст&shy;рой&shy;ка ме&shy;ня&shy;ет&shy;ся в ре&shy;ес&shy;тре. Мож&shy;но по&shy;ме&shy;нять сис&shy;те&shy;му раз&shy;да&shy;чи кван&shy;тов по ад&shy;ре&shy;су <code>HKLM\SYSTEM\CurrentControlSet\PriorityControl</code>.</p>
+Наст&shy;ройка меня&shy;ется в реес&shy;тре. Можно поме&shy;нять сис&shy;тему раз&shy;дачи кван&shy;тов по адресу <code>HKLM\SYSTEM\CurrentControlSet\PriorityControl</code>.</p>
 <div class="paragraph-right-side">50</div>
 </div>
 <p >
@@ -2575,11 +2575,11 @@ lkd> dd nt!KiCyclesPerClockQuantum L1</p>
 <tr>
 <td>
 <p >
-ко&shy;рот&shy;кие или длин&shy;ные</p>
+корот&shy;кие или длин&shy;ные</p>
 </td>
 <td>
 <p >
-Пе&shy;ре&shy;мен&shy;ные/фик&shy;си&shy;ро&shy;ван&shy;ные</p>
+Пере&shy;мен&shy;ные/фик&shy;си&shy;ро&shy;ван&shy;ные</p>
 </td>
 <td>
 <p >
@@ -2591,32 +2591,32 @@ lkd> dd nt!KiCyclesPerClockQuantum L1</p>
 </div>
 </div>
 <p >
-Па&shy;ра&shy;метр по&shy;би&shy;то&shy;во де&shy;лит&shy;ся на три зо&shy;ны.
-Ко&shy;рот&shy;кие или длин&shy;ные</p>
+Пара&shy;метр поби&shy;тово делится на три зоны.
+Корот&shy;кие или длин&shy;ные</p>
 <ul>
 <li>
 <p >
-0 или 3 – ко&shy;рот&shy;кие для кли&shy;ен&shy;с&shy;ких, длин&shy;ные для сер&shy;вер&shy;ных</p>
+0 или 3 – корот&shy;кие для кли&shy;ен&shy;с&shy;ких, длин&shy;ные для сер&shy;вер&shy;ных</p>
 </li>
 <li>
 <p >
-1 – длин&shy;ные кван&shy;ты</p>
+1 – длин&shy;ные кванты</p>
 </li>
 <li>
 <p >
-2 – ко&shy;рот&shy;кие кван&shy;ты</p>
+2 – корот&shy;кие кванты</p>
 </li>
 </ul>
 <p >
-Пе&shy;ре&shy;мен&shy;ные или фик&shy;си&shy;ро&shy;ван&shy;ные</p>
+Пере&shy;мен&shy;ные или фик&shy;си&shy;ро&shy;ван&shy;ные</p>
 <ul>
 <li>
 <p >
-0 или 3 – пе&shy;ре&shy;мен&shy;ные для кли&shy;ен&shy;с&shy;ких, фик&shy;си&shy;ро&shy;ван&shy;ные для сер&shy;вер&shy;ных</p>
+0 или 3 – пере&shy;мен&shy;ные для кли&shy;ен&shy;с&shy;ких, фик&shy;си&shy;ро&shy;ван&shy;ные для сер&shy;вер&shy;ных</p>
 </li>
 <li>
 <p >
-1 – пе&shy;ре&shy;мен&shy;ные кван&shy;ты</p>
+1 – пере&shy;мен&shy;ные кванты</p>
 </li>
 </ul>
 <p >
@@ -2624,29 +2624,29 @@ lkd> dd nt!KiCyclesPerClockQuantum L1</p>
 <ul>
 <li>
 <p >
-0 - 2 – оп&shy;ре&shy;де&shy;ля&shy;ет при&shy;о&shy;ри&shy;тет&shy;ное раз&shy;де&shy;ле&shy;ние</p>
+0 - 2 – опре&shy;де&shy;ляет при&shy;о&shy;ри&shy;тет&shy;ное раз&shy;де&shy;ле&shy;ние</p>
 </li>
 </ul>
 <h2 id="section-10">Выводы</h2>
 <ol>
 <li>
 <p >
-Ког&shy;да по&shy;ток вхо&shy;дит в бло&shy;ки&shy;ров&shy;ку, он пе&shy;рес&shy;таёт учавс&shy;твовать в пла&shy;ни&shy;ро&shy;ва&shy;нии.</p>
+Когда поток вхо&shy;дит в бло&shy;ки&shy;ровку, он перестаёт учавс&shy;твовать в пла&shy;ни&shy;ро&shy;ва&shy;нии.</p>
 </li>
 <li>
 <p >
-На од&shy;ноп&shy;ро&shy;цес&shy;сор&shy;ной сис&shy;те&shy;ме пла&shy;ни&shy;ров&shy;щик всег&shy;да за&shy;би&shy;ра&shy;ет по&shy;ток свер&shy;ху, по&shy;э&shy;то&shy;му он и на&shy;зы&shy;ва&shy;ет&shy;ся во пер&shy;вых, с при&shy;о&shy;ри&shy;те&shy;та&shy;ми,
-во вто&shy;рых он вы&shy;тес&shy;ня&shy;ю&shy;щий. Если по&shy;яв&shy;ля&shy;ет&shy;ся по&shy;ток с бо&shy;лее вы&shy;со&shy;ким при&shy;о&shy;ри&shy;те&shy;том, то пла&shy;ни&shy;ров&shy;щик вы&shy;тес&shy;ня&shy;ет ис&shy;пол&shy;ня&shy;е&shy;мый по&shy;ток
-и пе&shy;рек&shy;лю&shy;ча&shy;ет&shy;ся на по&shy;ток с боль&shy;шим при&shy;о&shy;ри&shy;те&shy;том.</p>
+На одноп&shy;ро&shy;цес&shy;сор&shy;ной сис&shy;теме пла&shy;ни&shy;ров&shy;щик всегда заби&shy;рает поток сверху, поэ&shy;тому он и назы&shy;ва&shy;ется во пер&shy;вых, с при&shy;о&shy;ри&shy;те&shy;тами,
+во вто&shy;рых он вытес&shy;ня&shy;ю&shy;щий. Если появ&shy;ля&shy;ется поток с более высо&shy;ким при&shy;о&shy;ри&shy;те&shy;том, то пла&shy;ни&shy;ров&shy;щик вытес&shy;няет испол&shy;ня&shy;е&shy;мый поток
+и перек&shy;лю&shy;ча&shy;ется на поток с боль&shy;шим при&shy;о&shy;ри&shy;те&shy;том.</p>
 </li>
 <li>
 <p >
-Важ&shy;но знать, что есть кван&shy;ты. Квант - это дос&shy;та&shy;точ&shy;но длин&shy;ная по вре&shy;ме&shy;ни про&shy;це&shy;ду&shy;ра. И не&shy;за&shy;ви&shy;си&shy;мо от то&shy;го,
-пре&shy;ры&shy;ва&shy;ет&shy;ся ли ваш по&shy;ток, вре&shy;мя, ко&shy;то&shy;рое вы&shy;де&shy;ле&shy;но по&shy;то&shy;ку, он от&shy;ра&shy;бо&shy;та&shy;ет</p>
+Важно знать, что есть кванты. Квант - это дос&shy;та&shy;точно длин&shy;ная по вре&shy;мени про&shy;це&shy;дура. И неза&shy;ви&shy;симо от того,
+пре&shy;ры&shy;ва&shy;ется ли ваш поток, время, кото&shy;рое выде&shy;лено потоку, он отра&shy;бо&shy;тает</p>
 </li>
 <li>
 <p >
-Если по&shy;ток пе&shy;ре&shy;хо&shy;дит в бло&shy;ки&shy;ров&shy;ку, то часть вре&shy;ме&shy;ни пе&shy;ре&shy;хо&shy;дит дру&shy;го&shy;му по&shy;то&shy;ку</p>
+Если поток пере&shy;хо&shy;дит в бло&shy;ки&shy;ровку, то часть вре&shy;мени пере&shy;хо&shy;дит дру&shy;гому потоку</p>
 </li>
 </ol>
 
