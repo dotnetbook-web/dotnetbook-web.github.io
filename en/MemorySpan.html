@@ -133,12 +133,12 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 p code:not(.highlight), li code:not(.highlight) {
     font-size: 0.7em;
-    padding: 3px;
     color: darkslateblue;
 }
 
 /* style for manual selecting */
 .box {
+    padding: 3px;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
@@ -233,6 +233,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     font-weight: 400;
     font-family: inherit;
+    hyphens: none;
 }
 
 h1 {
@@ -246,23 +247,32 @@ h1 {
 
 h2 {
     padding-top: 1.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    margin-bottom: 0.5em;
     font-family: Charter, Arial, Helvetica Neue, sans-serif;
-    font-size: 1.25em;
-    width: 70%;
+    font-size: 1.4em;
+    text-align: center;
 }
 
 h3 {
-    padding-top: 1em;
-    font-size: 1.3em;
+    padding-top: 1.2em;
+    font-family: Charter, Arial, Helvetica Neue, sans-serif;
+    font-size: 1.15em;
+    width: 70%;
+}
+
+h4 {
+    padding: 1em 0 0 0;
+    font-size: 1.2em;
     font-weight: 300;
     font-style: italic;
 }
 
-h4 {
-    margin: 20px 0 10px 0;
-    font-size: 16pt;
-    font-weight: 500;
-    font-style: italic;
+h5 {
+    padding: 0.6em 0 0 0;
+    font-weight: 300;
+    font-size: 1.1em;
 }
 
 /* Sidenotes */
@@ -677,7 +687,7 @@ footer > div {
 /* MD */
 @media (max-width: 991px) {
     
-    h2 {
+    h3 {
         width:80%;
     }
 
@@ -904,7 +914,17 @@ footer > div {
         font-size: 10pt;
         padding: 3px;
     }
-   
+
+    *[class*='lang-'] > div, pre > code {
+        padding-left: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    
+    ol li, ul li {
+        padding-left: 0.2em;	
+    }
+    
     p, li {
         line-height: 24px;
     }    
@@ -1222,7 +1242,7 @@ Performance</a></li>
                             </li>
                             <li>
                                 <p>
-                                <a href="..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></p>
+                                <a href="..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон IDisposable</a></p>
                             </li>
                             <li>
                                 <p>
@@ -1284,58 +1304,47 @@ Performance</a></li>
             <p class="d-none d-sm-block d-md-none">MD</p>
             <p class="d-none d-lg-block d-xl-none">LG</p>
             <p class="d-none d-xl-block">XL</p> -->
-            <h1 id="memoryt-and-spant">Memory&lt;T&gt; and Span&lt;T&gt;</h1>
+            <h1 id="memoryt-and-spant">Memory<T> and Span<T></h1>
 <blockquote>
-<p >
-<a href="https://github.com/sidristij/dotnetbook/issues/55">A link to the discussion</a></p>
+<p><a href="https://github.com/sidristij/dotnetbook/issues/55">A link to the discus&shy;sion</a></p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p >
-Star&shy;ting from .NET Core 2.0 and .NET Frame&shy;work 4.5 we can use new data types:  <code>Span</code> and <code>Memory</code>. To use them, you just need to ins&shy;tall the <code>System.Memory</code> nuget package:</p>
+<p>Star&shy;ting from .NET Core 2.0 and .NET Frame&shy;work 4.5 we can use new data types:  <code>Span</code> and <code>Memory</code>. To use them, you just need to ins&shy;tall the <code>System&shy;.Memory</code> nuget package:</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <ul>
-<li>
-<p >
-<code>PM&gt; Install-Package System.Memory</code></p>
-</li>
+<li><code>PM> Install&shy;-Package System&shy;.Memory</code></li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p >
-These data types are notable because the CLR team has done a great job to imple&shy;ment their special support inside the code of .NET Core 2.1+ JIT compiler by embed&shy;ding these data types right into the core. What kind of data types are these and why are they worth a whole chapter?</p>
+<p>These data types are notable because the CLR team has done a great job to imple&shy;ment their special support inside the code of .NET Core 2.1+ JIT compiler by embed&shy;ding these data types right into the core. What kind of data types are these and why are they worth a whole chapter?</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p >
-If we talk about prob&shy;lems that made these types appear, I should name three of them. The first one is unma&shy;naged code.</p>
+<p>If we talk about prob&shy;lems that made these types appear, I should name three of them. The first one is unma&shy;naged code.</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p >
-Both the language and the plat&shy;form have existed for many years along with means to work with unma&shy;naged code. So, why release another API to work with unma&shy;naged code if the former basi&shy;cally existed for many years? To answer this ques&shy;tion, we should unders&shy;tand what we lacked before.</p>
+<p>Both the language and the plat&shy;form have existed for many years along with means to work with unma&shy;naged code. So&shy;, why release another API to work with unma&shy;naged code if the former basi&shy;cally existed for many years? To answer this ques&shy;tion, we should unders&shy;tand what we lacked before.</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p >
-The plat&shy;form deve&shy;lo&shy;pers already tried to faci&shy;li&shy;tate the use of unma&shy;naged reso&shy;urces for us. They imple&shy;mented auto wrap&shy;pers for imported methods and marshaling that works aut&shy;om&shy;at&shy;ically in most cases. Here also belongs <code>stackalloc</code>, menti&shy;oned in the chapter about a thread stack. However, as I see it, the first C# deve&shy;lo&shy;pers came from C++ world (my case), but now they shift from more high-level langu&shy;ages (I know a deve&shy;loper who wrote in Java&shy;Script before). This means people are getting more suspi&shy;cious to unma&shy;naged code and C/C+ constructs, so much the more to Assem&shy;bler.</p>
+<p>The plat&shy;form deve&shy;lo&shy;pers already tried to faci&shy;li&shy;tate the use of unma&shy;naged reso&shy;urces for us. They imple&shy;mented auto wrap&shy;pers for imported methods and marshaling that works aut&shy;om&shy;at&shy;ically in most cases. Here also belongs <code>stac&shy;kalloc</code>, menti&shy;oned in the chapter about a thread stack. However&shy;, as I see it, the first C# deve&shy;lo&shy;pers came from C++ world (my case), but now they shift from more high-level langu&shy;ages (I know a deve&shy;loper who wrote in Java&shy;Script before). This means people are getting more suspi&shy;cious to unma&shy;naged code and C/C+ constructs, so much the more to Assembler&shy;.</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p >
-As a result, projects contain less and less unsafe code and the confi&shy;dence in the plat&shy;form API grows more and more. This is easy to check if we search for <code>stackalloc</code> use cases in public repo&shy;si&shy;to&shy;ries  — they are scarce. However, let’s take any code that uses it:</p>
+<p>As a result, projects contain less and less unsafe code and the confi&shy;dence in the plat&shy;form API grows more and more. This is easy to check if we search for <code>stac&shy;kalloc</code> use cases in public repo&shy;si&shy;to&shy;ries  — they are scarce. However&shy;, let’s take any code that uses it:</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p >
-<strong>Interop.ReadDir class</strong>
-<a href="https://github.com/dotnet/coreclr/blob/b29f6328510207970763580d6f4db864e4b198af/src/mscorlib/shared/Interop/Unix/System.Native/Interop.ReadDir.cs#L71-L83">/src/mscorlib/shared/Interop/Unix/System.Native/Interop.ReadDir.cs</a></p>
+<p><strong>Interop&shy;.Read&shy;Dir class</strong>
+<a href="https://github.com/dotnet/coreclr/blob/b29f6328510207970763580d6f4db864e4b198af/src/mscorlib/shared/Interop/Unix/System.Native/Interop.ReadDir.cs#L71-L83">/src/mscorlib/shared/Interop&shy;/Unix&shy;/System&shy;.Native&shy;/Interop&shy;.Read&shy;Dir&shy;.cs</a></p>
 <div class="paragraph-right-side">07</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1356,20 +1365,17 @@ As a result, projects contain less and less unsafe code and the confi&shy;dence 
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p >
-We can see why it is not popular. Just skim this code and ques&shy;tion your&shy;self  whether you trust it. I guess the answer is ‘No’. Then, ask your&shy;self why. It is obvious: not only do we see the word <code>Dangerous</code>, which kind of suggests that something may go wrong, but there is the <code>unsafe</code> keyword and <code>byte* buffer = stackalloc byte[s_readBufferSize];</code> line (speci&shy;fi&shy;cally — <code>byte*</code>) that change our atti&shy;tude. This is a trigger for you to think: “Wasn’t there another way to do it”? So, let’s get deeper into psych&shy;oanalysis: why might you think that way? On the one hand, we use language constructs and the syntax offered here is far from, for example, C++/CLI, which allows anything (even inser&shy;ting pure Assem&shy;bler code). On the other hand, this syntax looks unu&shy;sual.</p>
+<p>We can see why it is not popular. Just skim this code and ques&shy;tion your&shy;self  whether you trust it. I guess the answer is ‘No’. Then&shy;, ask your&shy;self why. It is obvious: not only do we see the word <code>Dange&shy;rous</code>, which kind of suggests that something may go wrong, but there is the <code>unsafe</code> keyword and <code>byte* buffer = stac&shy;kalloc byte[s_read&shy;Buf&shy;fer&shy;Size];</code> line (speci&shy;fi&shy;cally — <code>byte*</code>) that change our atti&shy;tude. This is a trigger for you to think: “Wasn’t there another way to do it”? So&shy;, let’s get deeper into psych&shy;oanalysis: why might you think that way? On the one hand, we use language constructs and the syntax offered here is far from, for example, C++/CLI, which allows anything (even inser&shy;ting pure Assem&shy;bler code). On the other hand, this syntax looks unu&shy;sual.</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
-<p >
-The second issue deve&shy;lo&shy;pers thought of impli&shy;citly or expli&shy;citly is incom&shy;pa&shy;ti&shy;bi&shy;lity of  string and char[] types. Although, logi&shy;cally a string is an array of char&shy;acters, but you can’t cast a string to char[]: you can only create a new object and copy the content of a string to an array. This incom&shy;pa&shy;ti&shy;bi&shy;lity is intro&shy;duced to opti&shy;mize strings in terms of storage (there are no rea&shy;donly arrays). However, prob&shy;lems appear when you start working with files. How to read them? As a string or as an array? If you choose an array you cannot use some methods designed to work with strings. What about rea&shy;ding as a string? It may be too long. If you need to parse it then, what parser should you choose for primi&shy;tive data types: you don’t always want to parse them manu&shy;ally (inte&shy;gers, floats, given in diffe&shy;rent formats). We have a lot of proven algo&shy;rithms that do it quicker and more effi&shy;ci&shy;ently, don’t we? However, such algo&shy;rithms often work with strings that contain nothing but a primi&shy;tive type itself. So, there is a dilemma.</p>
+<p>The second issue deve&shy;lo&shy;pers thought of impli&shy;citly or expli&shy;citly is incom&shy;pa&shy;ti&shy;bi&shy;lity of  string and char[] types. Although&shy;, logi&shy;cally a string is an array of char&shy;acters, but you can’t cast a string to char[]: you can only create a new object and copy the content of a string to an array. This incom&shy;pa&shy;ti&shy;bi&shy;lity is intro&shy;duced to opti&shy;mize strings in terms of storage (there are no rea&shy;donly arrays). However&shy;, prob&shy;lems appear when you start working with files. How to read them? As a string or as an array? If you choose an array you cannot use some methods designed to work with strings. What about rea&shy;ding as a string? It may be too long. If you need to parse it then, what parser should you choose for primi&shy;tive data types: you don’t always want to parse them manu&shy;ally (inte&shy;gers, floats, given in diffe&shy;rent formats). We have a lot of proven algo&shy;rithms that do it quicker and more effi&shy;ci&shy;ently, don’t we? However&shy;, such algo&shy;rithms often work with strings that contain nothing but a primi&shy;tive type itself. So&shy;, there is a dilemma.</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
-<p >
-The third problem is that the data requ&shy;ired by an algo&shy;rithm rarely make a conti&shy;nuous, solid data slice within a section of an array read from some source.  For example, in case of files or data read from a socket, we have some part of  those already processed by an algo&shy;rithm, followed by a part of data that must be processed by our method, and then by not yet processed data.  Ideally, our method wants only the data for which this method was designed. For example, a method that parses inte&shy;gers won’t be happy with a string that contains some words with an expected number somew&shy;here among them. This method wants a number and nothing else. Or, if we pass an entire array, there is a requ&shy;i&shy;re&shy;ment to indi&shy;cate, for example, the offset for a number from the begin&shy;ning of the array.</p>
+<p>The third problem is that the data requ&shy;ired by an algo&shy;rithm rarely make a conti&shy;nuous, solid data slice within a section of an array read from some source.  For example, in case of files or data read from a socket, we have some part of  those already processed by an algo&shy;rithm, followed by a part of data that must be processed by our method, and then by not yet processed data.  Ideally&shy;, our method wants only the data for which this method was designed. For example, a method that parses inte&shy;gers won’t be happy with a string that contains some words with an expected number somew&shy;here among them. This method wants a number and nothing else. Or&shy;, if we pass an entire array, there is a requ&shy;i&shy;re&shy;ment to indi&shy;cate, for example, the offset for a number from the begin&shy;ning of the array.</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1385,8 +1391,7 @@ The third problem is that the data requ&shy;ired by an algo&shy;rithm rarely mak
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
-<p >
-However, this approach is poor, as this method gets unne&shy;ces&shy;sary data. In other words <em>the method is called for contexts it was not designed for</em>, and has to solve some external tasks. This is a bad design. How to avoid these prob&shy;lems? As an option we can use the <code>ArraySegment&lt;T&gt;</code> type that can give access to a section of an array:</p>
+<p>However&shy;, this approach is poor, as this method gets unne&shy;ces&shy;sary data. In other words <em>the method is called for contexts it was not designed for</em>, and has to solve some external tasks. This is a bad design. How to avoid these prob&shy;lems? As an option we can use the <code>Array&shy;Segment&shy;<T></code> type that can give access to a section of an array:</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1405,27 +1410,23 @@ However, this approach is poor, as this method gets unne&shy;ces&shy;sary data. 
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
-<p >
-However, I think this is too much both in terms of logic and a decrease in perfor&shy;mance. <code>ArraySegment</code> is poorly designed and slows the access to ele&shy;ments 7 times more in compa&shy;rison with the same ope&shy;ra&shy;tions done with an array.</p>
+<p>However&shy;, I think this is too much both in terms of logic and a decrease in perfor&shy;mance. <code>Array&shy;Segment</code> is poorly designed and slows the access to ele&shy;ments 7 times more in compa&shy;rison with the same ope&shy;ra&shy;tions done with an array.</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
-<p >
-So how do we solve these prob&shy;lems? How do we get deve&shy;lo&shy;pers back to using unma&shy;naged code and give them a uni&shy;fied and quick tool to work with het&shy;er&shy;og&shy;eneous data sources:  arrays, strings and unma&shy;naged memory. It was neces&shy;sary to give them a sense of confi&shy;dence that they can’t do a mistake unkno&shy;wingly. It was neces&shy;sary to give them an inst&shy;rument that doesn’t dimi&shy;nish native data types in terms of perfor&shy;mance but solves the listed prob&shy;lems. <code>Span&lt;T&gt;</code> and <code>Memory&lt;T&gt;</code> types are exactly these inst&shy;ruments.</p>
+<p>So how do we solve these prob&shy;lems? How do we get deve&shy;lo&shy;pers back to using unma&shy;naged code and give them a uni&shy;fied and quick tool to work with het&shy;er&shy;og&shy;eneous data sources:  arrays, strings and unma&shy;naged memory. It was neces&shy;sary to give them a sense of confi&shy;dence that they can’t do a mistake unkno&shy;wingly. It was neces&shy;sary to give them an inst&shy;rument that doesn’t dimi&shy;nish native data types in terms of perfor&shy;mance but solves the listed prob&shy;lems. <code>Span&shy;<T></code> and <code>Memory&shy;<T></code> types are exactly these inst&shy;ruments.</p>
 <div class="paragraph-right-side">13</div>
 </div>
-<h2 id="spant-readonlyspant">Span&lt;T&gt;, ReadOnlySpan&lt;T&gt;</h2>
+<h2 id="spant-readonlyspant">Span<T>, Read&shy;Only&shy;Span<T></h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
-<p >
-<code>Span</code> type is an inst&shy;rument to work with data within a section of a data array or with a subrange of its values. As in case of an array it allows both rea&shy;ding and writing to the ele&shy;ments of this subrange, but with one impor&shy;tant constraint: you get or create a <code>Span&lt;T&gt;</code> only for a <em>temporary</em> work with an array, Just to  call a group of methods. However, to get a general unders&shy;tan&shy;ding let’s compare the types of data which <code>Span</code> is designed for and look at its possible use scena&shy;rios.</p>
+<p><code>Span</code> type is an inst&shy;rument to work with data within a section of a data array or with a subrange of its values. As in case of an array it allows both rea&shy;ding and writing to the ele&shy;ments of this subrange, but with one impor&shy;tant constraint: you get or create a <code>Span&shy;<T></code> only for a <em>tempo&shy;rary</em> work with an array, Just to  call a group of methods. However&shy;, to get a general unders&shy;tan&shy;ding let’s compare the types of data which <code>Span</code> is designed for and look at its possible use scena&shy;rios.</p>
 <div class="paragraph-right-side">14</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
-<p >
-The first type of data is a usual array. Arrays work with <code>Span</code> in the follo&shy;wing way:</p>
+<p>The first type of data is a usual array. Arrays work with <code>Span</code> in the follo&shy;wing way:</p>
 <div class="paragraph-right-side">15</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1437,14 +1438,12 @@ The first type of data is a usual array. Arrays work with <code>Span</code> in t
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
-<p >
-At first, we create an array of data, as shown by this example. Next, we create <code>Span</code> (or a subset) which refe&shy;rences to the array, and makes a previously ini&shy;ti&shy;a&shy;lized value range acces&shy;sible to code that uses the array.</p>
+<p>At first, we create an array of data, as shown by this example. Next&shy;, we create <code>Span</code> (or a subset) which refe&shy;rences to the array, and makes a previously ini&shy;ti&shy;a&shy;lized value range acces&shy;sible to code that uses the array.</p>
 <div class="paragraph-right-side">16</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
-<p >
-Here we see the first fea&shy;ture of this type of data  i.e. the abi&shy;lity to create a certain context. Let’s expand our idea of contexts:</p>
+<p>Here we see the first fea&shy;ture of this type of data  i.e. the abi&shy;lity to create a certain context. Let’s expand our idea of contexts:</p>
 <div class="paragraph-right-side">17</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1480,8 +1479,7 @@ Here we see the first fea&shy;ture of this type of data  i.e. the abi&shy;lity t
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
-<p >
-As we see <code>Span&lt;T&gt;</code> provides abstract access to a memory range both for rea&shy;ding and writing. What does it give us? If we remember what else we can use <code>Span</code> for, we will think about unma&shy;naged reso&shy;urces and strings:</p>
+<p>As we see <code>Span&shy;<T></code> provides abstract access to a memory range both for rea&shy;ding and writing. What does it give us? If we remember what else we can use <code>Span</code> for, we will think about unma&shy;naged reso&shy;urces and strings:</p>
 <div class="paragraph-right-side">18</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1519,14 +1517,12 @@ buf[3] = <span style="color:#A31515;">&#39;4&#39;</span>; buf[4] = <span style="
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
-<p >
-That means <code>Span&lt;T&gt;</code> is a tool to unify ways of working with memory,  both managed and unma&shy;naged. It ensures safety while working with such data during Garbage Collec&shy;tion.  That is if memory ranges with unma&shy;naged reso&shy;urces start to move, it will be safe.</p>
+<p>That means <code>Span&shy;<T></code> is a tool to unify ways of working with memory,  both managed and unma&shy;naged. It ensures safety while working with such data during Garbage Collection&shy;.  That is if memory ranges with unma&shy;naged reso&shy;urces start to move, it will be safe.</p>
 <div class="paragraph-right-side">19</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
-<p >
-However, should we be so excited? Could we achieve this earlier? For example, in case of managed arrays there is no doubt about it:  you just need to wrap an array in one more class (e.g. long-exis&shy;ting [Array&shy;Segment] (<a href="https://referencesource.microsoft.com/#mscorlib/system/arraysegment.cs,31">https://referencesource.microsoft.com/#mscorlib/system/arraysegment.cs,31</a>)) thus giving a similar inter&shy;face and that is it. More&shy;over, you can do the same with strings  — they have neces&shy;sary methods.  Again, you just need to wrap a string in the same type and provide methods to work with it. However, to store a string, a buffer and an array in one type you will have much to do with kee&shy;ping refe&shy;rences to each possible variant in a single instance (with only one active variant, obviously).</p>
+<p>However&shy;, should we be so excited? Could we achieve this earlier? For example, in case of managed arrays there is no doubt about it:  you just need to wrap an array in one more class (e.g. long-exis&shy;ting [Array&shy;Segment&shy;] (<a href="https://referencesource.microsoft.com/#mscorlib/system/arraysegment.cs,31">https://refe&shy;ren&shy;ce&shy;so&shy;urce.micro&shy;soft.com/#mscorlib/system/array&shy;seg&shy;ment.cs,31</a>)) thus giving a similar inter&shy;face and that is it. Moreover&shy;, you can do the same with strings  — they have neces&shy;sary methods.  Again&shy;, you just need to wrap a string in the same type and provide methods to work with it. However&shy;, to store a string, a buffer and an array in one type you will have much to do with kee&shy;ping refe&shy;rences to each possible variant in a single instance (with only one active variant, obviously).</p>
 <div class="paragraph-right-side">20</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1542,24 +1538,19 @@ However, should we be so excited? Could we achieve this earlier? For example, in
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
-<p >
-Or, based on arch&shy;it&shy;ecture you can create three types that imple&shy;ment a uni&shy;form inter&shy;face. Thus, it is not possible to create a uni&shy;form inter&shy;face between these data types that is diffe&shy;rent from <code>Span&lt;T&gt;</code> and keep the maximum perfor&shy;mance.</p>
+<p>Or&shy;, based on arch&shy;it&shy;ecture you can create three types that imple&shy;ment a uni&shy;form inter&shy;face. Thus&shy;, it is not possible to create a uni&shy;form inter&shy;face between these data types that is diffe&shy;rent from <code>Span&shy;<T></code> and keep the maximum perfor&shy;mance.</p>
 <div class="paragraph-right-side">21</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
-<p >
-Next, there is a ques&shy;tion of what is <code>ref struct</code> in respect to <code>Span</code>? These are exactly those “struc&shy;tures exis&shy;ting only on stack” that we hear about during job inter&shy;views so often. It means this data type can be allo&shy;cated on the stack only and cannot go to the heap. This is why <code>Span</code>, which is a ref struc&shy;ture, is a context data type that enables work of methods but not that of objects in memory. That is what we need to base on when trying to unders&shy;tand it.</p>
+<p>Next&shy;, there is a ques&shy;tion of what is <code>ref struct</code> in respect to <code>Span</code>? These are exactly those “struc&shy;tures exis&shy;ting only on stack” that we hear about during job inter&shy;views so often. It means this data type can be allo&shy;cated on the stack only and cannot go to the heap. This is why <code>Span</code>, which is a ref struc&shy;ture, is a context data type that enables work of methods but not that of objects in memory. That is what we need to base on when trying to unders&shy;tand it.</p>
 <div class="paragraph-right-side">22</div>
 </div>
-<p >
-Now we can define the <code>Span</code> type and the related <code>ReadOnlySpan</code> type:</p>
+<p>Now we can define the <code>Span</code> type and the related <code>Read&shy;Only&shy;Span</code> type:</p>
 <blockquote>
-<p >
-Span is a data type that imple&shy;ments a uni&shy;form inter&shy;face to work with het&shy;er&shy;og&shy;eneous types of data arrays and enables passing a subset of an array to a method so that the speed of access to the ori&shy;ginal array would be cons&shy;tant and highest regard&shy;less of the depth of the context.</p>
+<p>Span is a data type that imple&shy;ments a uni&shy;form inter&shy;face to work with het&shy;er&shy;og&shy;eneous types of data arrays and enables passing a subset of an array to a method so that the speed of access to the ori&shy;ginal array would be cons&shy;tant and highest regard&shy;less of the depth of the context.</p>
 </blockquote>
-<p >
-Indeed,  if we have a code like</p>
+<p>Indeed&shy;,  if we have a code like</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">void</span> Method1(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 {
@@ -1579,34 +1570,29 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
-<p >
-the speed of access to the ori&shy;ginal buffer will be the highest as you work with a managed pointer and not a managed object. That means you work with an unsafe type in a managed wrapper, but not with a .NET managed type.</p>
+<p>the speed of access to the ori&shy;ginal buffer will be the highest as you work with a managed pointer and not a managed object. That means you work with an unsafe type in a managed wrapper, but not with a .NET managed type.</p>
 <div class="paragraph-right-side">23</div>
 </div>
-<h3 id="spant-usage-examples">Span&lt;T&gt; usage examples</h3>
+<h3 id="spant-usage-examples">Span<T> usage examples</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">24</div>
-<p >
-A human by nature cannot fully unders&shy;tand the purpose of a certain inst&shy;rument until he or she gets some expe&shy;ri&shy;ence. So, let’s turn to some examples.</p>
+<p>A human by nature cannot fully unders&shy;tand the purpose of a certain inst&shy;rument until he or she gets some expe&shy;ri&shy;ence. So&shy;, let’s turn to some examples.</p>
 <div class="paragraph-right-side">24</div>
 </div>
-<h4 id="valuestringbuilder">ValueStringBuilder</h4>
+<h4 id="valuestringbuilder">Value&shy;String&shy;Builder</h4>
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
-<p >
-One of the most inte&shy;res&shy;ting examples in respect to algo&shy;rithms is the <code>ValueStringBuilder</code> type. However, it is buried deep inside mscorlib and marked with the <code>internal</code> modi&shy;fier as many other very inte&shy;res&shy;ting data types. This means we would not find this remar&shy;kable inst&shy;rument for opti&shy;mi&shy;za&shy;tion if we haven’t rese&shy;arched the mscorlib source code.</p>
+<p>One of the most inte&shy;res&shy;ting examples in respect to algo&shy;rithms is the <code>Value&shy;String&shy;Builder</code> type. However&shy;, it is buried deep inside mscorlib and marked with the <code>internal</code> modi&shy;fier as many other very inte&shy;res&shy;ting data types. This means we would not find this remar&shy;kable inst&shy;rument for opti&shy;mi&shy;za&shy;tion if we haven’t rese&shy;arched the mscorlib source code.</p>
 <div class="paragraph-right-side">25</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
-<p >
-What is the main disad&shy;van&shy;tage of the <code>StringBuilder</code> system type? Its main draw&shy;back is  the type and its basis — it is a refe&shy;rence type and is based on <code>char[]</code>, i.e. a char&shy;acter array. At least, this means two things: we use the heap (though not much) anyway and increase the chances to miss the CPU cash.</p>
+<p>What is the main disad&shy;van&shy;tage of the <code>String&shy;Builder</code> system type? Its main draw&shy;back is  the type and its basis — it is a refe&shy;rence type and is based on <code>char[]</code>, i.e. a char&shy;acter array. At least, this means two things: we use the heap (though not much) anyway and increase the chances to miss the CPU cash.</p>
 <div class="paragraph-right-side">26</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">27</div>
-<p >
-Another issue with <code>StringBuilder</code> that I faced is the const&shy;ru&shy;ction of small strings,  that is when the resul&shy;ting string must be short  e.g. less than 100 char&shy;acters. Short format&shy;ting raises issues on perfor&shy;mance.</p>
+<p>Another issue with <code>String&shy;Builder</code> that I faced is the const&shy;ru&shy;ction of small strings,  that is when the resul&shy;ting string must be short  e.g. less than 100 char&shy;acters. Short format&shy;ting raises issues on perfor&shy;mance.</p>
 <div class="paragraph-right-side">27</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1615,17 +1601,14 @@ Another issue with <code>StringBuilder</code> that I faced is the const&shy;ru&s
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
-<p >
-To what extent is this variant worse than manual const&shy;ru&shy;ction through <code>StringBuilder</code>? The answer is not always obvious.  It depends on the place of const&shy;ru&shy;ction  and the frequ&shy;ency of calling this method. Initi&shy;ally, <code>string.Format</code> allo&shy;cates memory for internal <code>StringBuilder</code> that will create an array of char&shy;acters (Source&shy;String.Length + args.Length * 8). If during array const&shy;ru&shy;ction it turns out that the length was incor&shy;rectly deter&shy;mined, another <code>StringBuilder</code> will be created to construct the rest. This will lead to the crea&shy;tion of a single linked list. As a result, it must return the const&shy;ructed string  which means another copying. That is a waste. It would be great if we could get rid of allo&shy;ca&shy;ting the array of a formed string on the heap: this would solve one of our prob&shy;lems.</p>
+<p>To what extent is this variant worse than manual const&shy;ru&shy;ction through <code>String&shy;Builder</code>? The answer is not always obvious.  It depends on the place of const&shy;ru&shy;ction  and the frequ&shy;ency of calling this method. Initially&shy;, <code>string.Format</code> allo&shy;cates memory for internal <code>String&shy;Builder</code> that will create an array of char&shy;acters (Source&shy;String&shy;.Length + args.Length * 8). If during array const&shy;ru&shy;ction it turns out that the length was incor&shy;rectly deter&shy;mined, another <code>String&shy;Builder</code> will be created to construct the rest. This will lead to the crea&shy;tion of a single linked list. As a result, it must return the const&shy;ructed string  which means another copying. That is a waste. It would be great if we could get rid of allo&shy;ca&shy;ting the array of a formed string on the heap: this would solve one of our prob&shy;lems.</p>
 <div class="paragraph-right-side">28</div>
 </div>
-<p >
-Let’s look at this type from the depth of <code>mscorlib</code>:</p>
+<p>Let’s look at this type from the depth of <code>mscorlib</code>:</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">29</div>
-<p >
-<strong>ValueStringBuilder class</strong>
-<a href="https://github.com/dotnet/coreclr/blob/efebb38f3c18425c57f94ff910a50e038d13c848/src/mscorlib/shared/System/Text/ValueStringBuilder.cs">/src/mscorlib/shared/System/Text/ValueStringBuilder</a></p>
+<p><strong>Value&shy;String&shy;Builder class</strong>
+<a href="https://github.com/dotnet/coreclr/blob/efebb38f3c18425c57f94ff910a50e038d13c848/src/mscorlib/shared/System/Text/ValueStringBuilder.cs">/src/mscorlib/shared/System&shy;/Text&shy;/Value&shy;String&shy;Builder</a></p>
 <div class="paragraph-right-side">29</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1750,14 +1733,12 @@ Let’s look at this type from the depth of <code>mscorlib</code>:</p>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">30</div>
-<p >
-This class is functi&shy;o&shy;nally similar to its senior fellow <code>StringBuilder</code>, although having one inte&shy;res&shy;ting and very impor&shy;tant fea&shy;ture:  it is a value type. That means it is stored and passed enti&shy;rely by value. Also, a new <code>ref</code> type modi&shy;fier, which is a part of a type decla&shy;ra&shy;tion signa&shy;ture, indi&shy;cates that this type has an addi&shy;ti&shy;onal constraint: it can be allo&shy;cated only on the stack. I mean passing its instances to class fields will produce an error. What is all this stuff for? To answer this ques&shy;tion, you just need to look at the <code>StringBuilder</code> class, the essence of which we have just desc&shy;ribed:</p>
+<p>This class is functi&shy;o&shy;nally similar to its senior fellow <code>String&shy;Builder</code>, although having one inte&shy;res&shy;ting and very impor&shy;tant fea&shy;ture:  it is a value type. That means it is stored and passed enti&shy;rely by value. Also&shy;, a new <code>ref</code> type modi&shy;fier, which is a part of a type decla&shy;ra&shy;tion signa&shy;ture, indi&shy;cates that this type has an addi&shy;ti&shy;onal constraint: it can be allo&shy;cated only on the stack. I mean passing its instances to class fields will produce an error. What is all this stuff for? To answer this ques&shy;tion, you just need to look at the <code>String&shy;Builder</code> class, the essence of which we have just desc&shy;ribed:</p>
 <div class="paragraph-right-side">30</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">31</div>
-<p >
-<strong>StringBuilder class</strong> <a href="https://github.com/dotnet/coreclr/blob/68f72dd2587c3365a9fe74d1991f93612c3bc62a/src/mscorlib/src/System/Text/StringBuilder.cs#L47-L62">/src/mscorlib/src/System/Text/StringBuilder.cs</a></p>
+<p><strong>String&shy;Builder class</strong> <a href="https://github.com/dotnet/coreclr/blob/68f72dd2587c3365a9fe74d1991f93612c3bc62a/src/mscorlib/src/System/Text/StringBuilder.cs#L47-L62">/src/mscorlib/src/System&shy;/Text&shy;/String&shy;Builder&shy;.cs</a></p>
 <div class="paragraph-right-side">31</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1779,11 +1760,10 @@ This class is functi&shy;o&shy;nally similar to its senior fellow <code>StringBu
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">32</div>
-<p >
-<code>StringBuilder</code> is a class that contains a refe&shy;rence to an array of char&shy;acters. Thus, when you create it, there appear two objects in fact:  <code>StringBuilder</code> and an array of char&shy;acters which is at least 16 char&shy;acters in size. This is why it is essen&shy;tial to set the expected length of a string: it will be built by gene&shy;ra&shy;ting a single linked list of arrays with 16 char&shy;acters each. Admit, that is a waste. In terms of <code>ValueStringBuilder</code> type, it means no default <code>capacity</code>, as it borrows external memory. Also, it is a value type, and it makes a user allo&shy;cate a buffer for char&shy;acters on the stack.  Thus, the whole instance of a type is put on the stack together with its contents and the issue of opti&shy;mi&shy;za&shy;tion is solved. As there is no need to allo&shy;cate memory on the heap, there are no prob&shy;lems with a decrease in perfor&shy;mance when dea&shy;ling with the heap. So, you might have a ques&shy;tion:  why don’t we always use <code>ValueStringBuilder</code> (or its custom analog as we cannot use the ori&shy;ginal because it is internal)? The answer is:  it depends on a task. Will a resul&shy;ting string have a defi&shy;nite size? Will it have a known maximum length? If you answer “yes” and if the string doesn’t exceed rea&shy;so&shy;nable boun&shy;da&shy;ries, you can use the value version of <code>StringBuilder</code>. However, if you expect lengthy strings, use the usual version.</p>
+<p><code>String&shy;Builder</code> is a class that contains a refe&shy;rence to an array of char&shy;acters. Thus&shy;, when you create it, there appear two objects in fact:  <code>String&shy;Builder</code> and an array of char&shy;acters which is at least 16 char&shy;acters in size. This is why it is essen&shy;tial to set the expected length of a string: it will be built by gene&shy;ra&shy;ting a single linked list of arrays with 16 char&shy;acters each. Admit&shy;, that is a waste. In terms of <code>Value&shy;String&shy;Builder</code> type, it means no default <code>capa&shy;city</code>, as it borrows external memory. Also&shy;, it is a value type, and it makes a user allo&shy;cate a buffer for char&shy;acters on the stack.  Thus&shy;, the whole instance of a type is put on the stack together with its contents and the issue of opti&shy;mi&shy;za&shy;tion is solved. As there is no need to allo&shy;cate memory on the heap, there are no prob&shy;lems with a decrease in perfor&shy;mance when dea&shy;ling with the heap. So&shy;, you might have a ques&shy;tion:  why don’t we always use <code>Value&shy;String&shy;Builder</code> (or its custom analog as we cannot use the ori&shy;ginal because it is internal)? The answer is:  it depends on a task. Will a resul&shy;ting string have a defi&shy;nite size? Will it have a known maximum length? If you answer “yes” and if the string doesn’t exceed rea&shy;so&shy;nable boun&shy;da&shy;ries, you can use the value version of <code>String&shy;Builder</code>. However&shy;, if you expect lengthy strings, use the usual version.</p>
 <div class="paragraph-right-side">32</div>
 </div>
-<h4 id="valuelistbuilder">ValueListBuilder</h4>
+<h4 id="valuelistbuilder">Value&shy;List&shy;Builder</h4>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">internal</span> <span style="color:Blue;">ref</span> <span style="color:Blue;">partial</span> <span style="color:Blue;">struct</span> ValueListBuilder&lt;T&gt;
 {
@@ -1816,62 +1796,45 @@ This class is functi&shy;o&shy;nally similar to its senior fellow <code>StringBu
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">33</div>
-<p >
-The second type of data that I espe&shy;ci&shy;ally want to note is the <code>ValueListBuilder</code> type. It is used when you need to create a collec&shy;tion of ele&shy;ments for a short time and pass it to an algo&shy;rithm for proces&shy;sing.</p>
+<p>The second type of data that I espe&shy;ci&shy;ally want to note is the <code>Value&shy;List&shy;Builder</code> type. It is used when you need to create a collec&shy;tion of ele&shy;ments for a short time and pass it to an algo&shy;rithm for proces&shy;sing.</p>
 <div class="paragraph-right-side">33</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">34</div>
-<p >
-Admit,  this task looks pretty similar to the <code>ValueStringBuilder</code> task. And it is solved in a similar way:</p>
+<p>Admit&shy;,  this task looks pretty similar to the <code>Value&shy;String&shy;Builder</code> task. And it is solved in a similar way:</p>
 <div class="paragraph-right-side">34</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">35</div>
-<p >
-** File [ValueListBuilder.cs (https://github.com/dotnet/coreclr/blob/dbaf2957387c5290a680c8918779683194137b1d/src/System.Private.CoreLib/shared/System/Collections/Generic/ValueListBuilder.cs)**</p>
+<p>** File [Value&shy;List&shy;Builder&shy;.cs (https://github.com/dotnet/coreclr/blob/dbaf2957387c5290a680c8918779683194137b1d/src/System&shy;.Private&shy;.Core&shy;Lib&shy;/shared&shy;/System&shy;/Collections&shy;/Generic&shy;/Value&shy;List&shy;Builder&shy;.cs&shy;)**</p>
 <div class="paragraph-right-side">35</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">36</div>
-<p >
-To put it clearly, these situ&shy;a&shy;tions are often. However, previously we solved the issue another way. We used to create a <code>List</code>, fill it with data and lose the refe&shy;rence to it. If the method is called frequ&shy;ently, this will lead to a sad situ&shy;a&shy;tion: many <code>List</code> instances (and asso&shy;ci&shy;ated arrays) get suspended on the heap. Now this problem is solved: no addi&shy;ti&shy;onal objects will be created. However, as in case of <code>ValueStringBuilder</code> it is solved only for Micro&shy;soft prog&shy;ram&shy;mers:  this class has the <code>internal</code> modi&shy;fier.</p>
+<p>To put it clearly, these situ&shy;a&shy;tions are often. However&shy;, previously we solved the issue another way. We used to create a <code>List</code>, fill it with data and lose the refe&shy;rence to it. If the method is called frequ&shy;ently, this will lead to a sad situ&shy;a&shy;tion: many <code>List</code> instances (and asso&shy;ci&shy;ated arrays) get suspended on the heap. Now this problem is solved: no addi&shy;ti&shy;onal objects will be created. However&shy;, as in case of <code>Value&shy;String&shy;Builder</code> it is solved only for Micro&shy;soft prog&shy;ram&shy;mers:  this class has the <code>internal</code> modi&shy;fier.</p>
 <div class="paragraph-right-side">36</div>
 </div>
-<h3 id="rules-and-use-practice">Rules and use practice</h3>
+<h3 id="rules-and-use-practice">Rules and use prac&shy;tice</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">37</div>
-<p >
-To fully unders&shy;tand the new type of data you need to play with it by writing two or three or better more methods that use it. However, it is possible to learn main rules right now:</p>
+<p>To fully unders&shy;tand the new type of data you need to play with it by writing two or three or better more methods that use it. However&shy;, it is possible to learn main rules right now:</p>
 <div class="paragraph-right-side">37</div>
 </div>
 <ul>
-<li>
-<p >
-If your method processes some input dataset without changing its size, you may try to stick to the <code>Span</code> type. If you are not going to modify buffer, choose the <code>ReadOnlySpan</code> type;</p>
-</li>
-<li>
-<p >
-If your method han&shy;dles strings calcu&shy;la&shy;ting some statis&shy;tics or parsing these strings, it <em>must</em> accept <code>ReadOnlySpan&lt;char&gt;</code>. Must is a new rule. Because when you accept a string, you make some&shy;body create a substring for you;</p>
-</li>
-<li>
-<p >
-If you need to create a short data array (no more than 10 kB) for a method, you can easily arrange that using <code>Span&lt;TType&gt; buf = stackalloc TType[size]</code>. Note that TType should be a value type as <code>stackalloc</code> works with value types only.</p>
-</li>
+<li>If your method processes some input dataset without changing its size, you may try to stick to the <code>Span</code> type. If you are not going to modify buffer, choose the <code>Read&shy;Only&shy;Span</code> type;</li>
+<li>If your method han&shy;dles strings calcu&shy;la&shy;ting some statis&shy;tics or parsing these strings, it <em>must</em> accept <code>Read&shy;Only&shy;Span&shy;<char&shy;></code>. Must is a new rule. Because when you accept a string, you make some&shy;body create a substring for you;</li>
+<li>If you need to create a short data array (no more than 10 kB) for a method, you can easily arrange that using <code>Span&shy;<TType&shy;> buf = stac&shy;kalloc TType&shy;[size&shy;]</code>. Note that TType should be a value type as <code>stac&shy;kalloc</code> works with value types only.</li>
 </ul>
-<p >
-In other cases, you’d better look closer at <code>Memory</code> or use classic data types.</p>
+<p>In other cases, you’d better look closer at <code>Memory</code> or use classic data types.</p>
 <h3 id="how-does-span-work">How does Span work?</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">38</div>
-<p >
-I would like to say a few addi&shy;ti&shy;onal words on how <code>Span</code> functions and why it is that notable. And there is something to talk about. This type of data has two versions:  one for .NET Core 2.0+ and the other for the rest.</p>
+<p>I would like to say a few addi&shy;ti&shy;onal words on how <code>Span</code> functions and why it is that notable. And there is something to talk about. This type of data has two versions:  one for .NET Core 2.0+ and the other for the rest.</p>
 <div class="paragraph-right-side">38</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">39</div>
-<p >
-<strong>File [Span.Fast.cs, .NET Core 2.0] (<a href="https://github.com/dotnet/coreclr/blob/38403e661a4202ca4c8a72e4bbd9a263bddeb891/src/System.Private.CoreLib/shared/System/Span.Fast.cs">https://github.com/dotnet/coreclr/blob/38403e661a4202ca4c8a72e4bbd9a263bddeb891/src/System.Private.CoreLib/shared/System/Span.Fast.cs</a>)</strong></p>
+<p><strong>File [Span&shy;.Fast&shy;.cs&shy;, .NET Core 2.0] (<a href="https://github.com/dotnet/coreclr/blob/38403e661a4202ca4c8a72e4bbd9a263bddeb891/src/System.Private.CoreLib/shared/System/Span.Fast.cs">https://github.com/dotnet/coreclr/blob/38403e661a4202ca4c8a72e4bbd9a263bddeb891/src/System&shy;.Private&shy;.Core&shy;Lib&shy;/shared&shy;/System&shy;/Span&shy;.Fast&shy;.cs</a>)</strong></p>
 <div class="paragraph-right-side">39</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1885,8 +1848,7 @@ I would like to say a few addi&shy;ti&shy;onal words on how <code>Span</code> fu
 }
 </pre></div>
 </div>
-<p >
-<strong>File ??? [decompiled]</strong></p>
+<p><strong>File ??? [decom&shy;piled]</strong></p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">ref</span> <span style="color:Blue;">readonly</span> <span style="color:Blue;">struct</span> Span&lt;T&gt;
 {
@@ -1899,16 +1861,13 @@ I would like to say a few addi&shy;ti&shy;onal words on how <code>Span</code> fu
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">40</div>
-<p >
-The thing is that <em>huge</em> .NET Frame&shy;work and .NET Core 1.* don’t have a garbage collector updated in a special way (unlike .NET Core 2.0+) and they have to use an addi&shy;ti&shy;onal pointer  to the begin&shy;ning of a buffer in use. That means, that inter&shy;nally <code>Span</code> han&shy;dles managed .NET objects as though they are unma&shy;naged. Just look into the second variant of the struc&shy;ture: it has three fields. The first one is a refe&shy;rence to a manged object. The second one is the offset in bytes from the begin&shy;ning of this object, used to define the begin&shy;ning of the data buffer (in strings this buffer contains <code>char</code> char&shy;acters while in arrays it contains the data of an array). Finally, the third field contains the quan&shy;tity of ele&shy;ments in the buffer laid in a row.</p>
+<p>The thing is that <em>huge</em> .NET Frame&shy;work and .NET Core 1.* don’t have a garbage collector updated in a special way (unlike .NET Core 2.0+) and they have to use an addi&shy;ti&shy;onal pointer  to the begin&shy;ning of a buffer in use. That means, that inter&shy;nally <code>Span</code> han&shy;dles managed .NET objects as though they are unma&shy;naged. Just look into the second variant of the struc&shy;ture: it has three fields. The first one is a refe&shy;rence to a manged object. The second one is the offset in bytes from the begin&shy;ning of this object, used to define the begin&shy;ning of the data buffer (in strings this buffer contains <code>char</code> char&shy;acters while in arrays it contains the data of an array). Finally&shy;, the third field contains the quan&shy;tity of ele&shy;ments in the buffer laid in a row.</p>
 <div class="paragraph-right-side">40</div>
 </div>
-<p >
-Let’s see how <code>Span</code> han&shy;dles strings, for example:</p>
+<p>Let’s see how <code>Span</code> han&shy;dles strings, for example:</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">41</div>
-<p >
-<strong>File [coreclr::src/System.Private.CoreLib/shared/System/MemoryExtensions.Fast.cs] (<a href="https://github.com/dotnet/coreclr/blob/2b50bba8131acca2ab535e144796941ad93487b7/src/System.Private.CoreLib/shared/System/MemoryExtensions.Fast.cs#L409-L416">https://github.com/dotnet/coreclr/blob/2b50bba8131acca2ab535e144796941ad93487b7/src/System.Private.CoreLib/shared/System/MemoryExtensions.Fast.cs#L409-L416</a>)</strong></p>
+<p><strong>File [coreclr::src/System&shy;.Private&shy;.Core&shy;Lib&shy;/shared&shy;/System&shy;/Memory&shy;Extensions&shy;.Fast&shy;.cs] (<a href="https://github.com/dotnet/coreclr/blob/2b50bba8131acca2ab535e144796941ad93487b7/src/System.Private.CoreLib/shared/System/MemoryExtensions.Fast.cs#L409-L416">https://github.com/dotnet/coreclr/blob/2b50bba8131acca2ab535e144796941ad93487b7/src/System&shy;.Private&shy;.Core&shy;Lib&shy;/shared&shy;/System&shy;/Memory&shy;Extensions&shy;.Fast&shy;.cs&shy;#L409-L416</a>)</strong></p>
 <div class="paragraph-right-side">41</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1921,18 +1880,15 @@ Let’s see how <code>Span</code> han&shy;dles strings, for example:</p>
 }
 </pre></div>
 </div>
-<p >
-Where <code>string.GetRawStringData()</code> looks the follo&shy;wing way:</p>
+<p>Where <code>string.Get&shy;Raw&shy;String&shy;Data&shy;()</code> looks the follo&shy;wing way:</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">42</div>
-<p >
-<strong>A file with the definition of fields <a href="https://github.com/dotnet/coreclr/blob/2b50bba8131acca2ab535e144796941ad93487b7/src/System.Private.CoreLib/src/System/String.CoreCLR.cs#L16-L23">coreclr::src/System.Private.CoreLib/src/System/String.CoreCLR.cs</a></strong></p>
+<p><strong>A file with the defi&shy;ni&shy;tion of fields <a href="https://github.com/dotnet/coreclr/blob/2b50bba8131acca2ab535e144796941ad93487b7/src/System.Private.CoreLib/src/System/String.CoreCLR.cs#L16-L23">coreclr::src/System&shy;.Private&shy;.Core&shy;Lib&shy;/src&shy;/System&shy;/String&shy;.Core&shy;CLR.cs</a></strong></p>
 <div class="paragraph-right-side">42</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">43</div>
-<p >
-<strong>A file with the definition of GetRawStringData <a href="https://github.com/dotnet/coreclr/blob/2b50bba8131acca2ab535e144796941ad93487b7/src/System.Private.CoreLib/shared/System/String.cs#L462">coreclr::src/System.Private.CoreLib/shared/System/String.cs</a></strong></p>
+<p><strong>A file with the defi&shy;ni&shy;tion of Get&shy;Raw&shy;String&shy;Data <a href="https://github.com/dotnet/coreclr/blob/2b50bba8131acca2ab535e144796941ad93487b7/src/System.Private.CoreLib/shared/System/String.cs#L462">coreclr::src/System&shy;.Private&shy;.Core&shy;Lib&shy;/shared&shy;/System&shy;/String&shy;.cs</a></strong></p>
 <div class="paragraph-right-side">43</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1957,21 +1913,18 @@ Where <code>string.GetRawStringData()</code> looks the follo&shy;wing way:</p>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">44</div>
-<p >
-It turns out the method directly accesses the inside of the string, while the <code>ref char</code> speci&shy;fi&shy;ca&shy;tion allows GC to track an unma&shy;naged refe&shy;rence to that inside of the string by moving it together with the string when GC is active.</p>
+<p>It turns out the method directly accesses the inside of the string, while the <code>ref char</code> speci&shy;fi&shy;ca&shy;tion allows GC to track an unma&shy;naged refe&shy;rence to that inside of the string by moving it together with the string when GC is active.</p>
 <div class="paragraph-right-side">44</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">45</div>
-<p >
-The same thing is with arrays:  when <code>Span</code> is created, some internal JIT code calcu&shy;lates the offset for the begin&shy;ning of the data array and ini&shy;ti&shy;a&shy;lizes <code>Span</code> with this offset. The way you can calcu&shy;late the offset for strings and arrays was discussed in the chapter about the struc&shy;ture of objects in memory (.\Objects&shy;Structure.md).</p>
+<p>The same thing is with arrays:  when <code>Span</code> is created, some internal JIT code calcu&shy;lates the offset for the begin&shy;ning of the data array and ini&shy;ti&shy;a&shy;lizes <code>Span</code> with this offset. The way you can calcu&shy;late the offset for strings and arrays was discussed in the chapter about the struc&shy;ture of objects in memory (.\Objects&shy;Structure&shy;.md&shy;).</p>
 <div class="paragraph-right-side">45</div>
 </div>
-<h3 id="spant-as-a-returned-value">Span&lt;T&gt; as a returned value</h3>
+<h3 id="spant-as-a-returned-value">Span<T> as a returned value</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">46</div>
-<p >
-Despite all the harmony, <code>Span</code> has some logical but unex&shy;pected constraints on its return from a method. If we look at the follo&shy;wing code:</p>
+<p>Despite all the harmony, <code>Span</code> has some logical but unex&shy;pected constraints on its return from a method. If we look at the follo&shy;wing code:</p>
 <div class="paragraph-right-side">46</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1989,8 +1942,7 @@ Despite all the harmony, <code>Span</code> has some logical but unex&shy;pected 
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">47</div>
-<p >
-we can see it is logical and good. However, if we replace one instr&shy;uc&shy;tion with another:</p>
+<p>we can see it is logical and good. However&shy;, if we replace one instr&shy;uc&shy;tion with another:</p>
 <div class="paragraph-right-side">47</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2008,43 +1960,32 @@ we can see it is logical and good. However, if we replace one instr&shy;uc&shy;t
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">48</div>
-<p >
-a compiler will pr&shy;ohibit it. Before I say why, I would like you to guess which prob&shy;lems this construct brings.</p>
+<p>a compiler will pr&shy;ohibit it. Before I say why, I would like you to guess which prob&shy;lems this construct brings.</p>
 <div class="paragraph-right-side">48</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">49</div>
-<p >
-Well, I hope you thought, guessed and maybe even under&shy;stood the reason. If yes, my efforts to writing a deta&shy;iled chapter about a [thread stack] (./Thread&shy;Stack.md) paid off. Because when you return a refe&shy;rence to local vari&shy;ables from a method that finishes its work, you can call another method, wait until it finishes its work too, and then read values of those local vari&shy;ables using x[0.99].</p>
+<p>Well&shy;, I hope you thought, guessed and maybe even under&shy;stood the reason. If yes, my efforts to writing a deta&shy;iled chapter about a [thread stack] (./Thread&shy;Stack&shy;.md&shy;) paid off. Because when you return a refe&shy;rence to local vari&shy;ables from a method that finishes its work, you can call another method, wait until it finishes its work too, and then read values of those local vari&shy;ables using x[0.99].</p>
 <div class="paragraph-right-side">49</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">50</div>
-<p >
-Fortu&shy;na&shy;tely, when we attempt to write such code a compiler slaps on our wrists by warning: <code>CS8352 Cannot use local 'reff' in this context because it may expose referenced variables outside of their declaration scope</code>. The compiler is right because if you bypass this error, there will be a chance, while in a plug-in, to steal the pass&shy;words of others or to ele&shy;vate  privi&shy;leges for running our plug-in.</p>
+<p>Fortunately&shy;, when we attempt to write such code a compiler slaps on our wrists by warning: <code>CS8352 Cannot use local 'reff' in this context because it may expose refe&shy;renced vari&shy;ables outside of their decla&shy;ra&shy;tion scope</code>. The compiler is right because if you bypass this error, there will be a chance, while in a plug-in, to steal the pass&shy;words of others or to ele&shy;vate  privi&shy;leges for running our plug-in.</p>
 <div class="paragraph-right-side">50</div>
 </div>
-<h2 id="memoryt-and-readonlymemoryt">Memory&lt;T&gt; and ReadOnlyMemory&lt;T&gt;</h2>
+<h2 id="memoryt-and-readonlymemoryt">Memory<T> and Read&shy;Only&shy;Memory<T></h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">51</div>
-<p >
-There are two visual diffe&shy;rences between <code>Memory&lt;T&gt;</code> and <code>Span&lt;T&gt;</code>. The first one is that <code>Memory&lt;T&gt;</code> type doesn’t contain <code>ref</code> modi&shy;fier in the header of the type. In other words, the <code>Memory&lt;T&gt;</code> type can be allo&shy;cated both on the stack while being either a local vari&shy;able, or a method para&shy;meter, or its returned value and on the heap, refe&shy;ren&shy;cing some data in memory from there. However, this small diffe&shy;rence creates a huge distin&shy;ction in the beh&shy;avior and capa&shy;bi&shy;li&shy;ties of <code>Memory&lt;T&gt;</code> compared to <code>Span&lt;T&gt;</code>. Unlike <code>Span&lt;T&gt;</code> that is an <em>instrument</em> for some methods to use some data buffer, the <code>Memory&lt;T&gt;</code> type is designed to store infor&shy;ma&shy;tion about the buffer, but not to handle it. Thus, there is the diffe&shy;rence in API.</p>
+<p>There are two visual diffe&shy;rences between <code>Memory&shy;<T></code> and <code>Span&shy;<T></code>. The first one is that <code>Memory&shy;<T></code> type doesn’t contain <code>ref</code> modi&shy;fier in the header of the type. In other words, the <code>Memory&shy;<T></code> type can be allo&shy;cated both on the stack while being either a local vari&shy;able, or a method para&shy;meter, or its returned value and on the heap, refe&shy;ren&shy;cing some data in memory from there. However&shy;, this small diffe&shy;rence creates a huge distin&shy;ction in the beh&shy;avior and capa&shy;bi&shy;li&shy;ties of <code>Memory&shy;<T></code> compared to <code>Span&shy;<T></code>. Unlike <code>Span&shy;<T></code> that is an <em>inst&shy;rument</em> for some methods to use some data buffer, the <code>Memory&shy;<T></code> type is designed to store infor&shy;ma&shy;tion about the buffer, but not to handle it. Thus&shy;, there is the diffe&shy;rence in API.</p>
 <div class="paragraph-right-side">51</div>
 </div>
 <ul>
-<li>
-<p >
-<code>Memory&lt;T&gt;</code> doesn’t have methods to access the data that it is respon&shy;sible for. Instead, it has the <code>Span</code> property and the <code>Slice</code> method that return an instance of the <code>Span</code> type.</p>
-</li>
-<li>
-<p >
-Addi&shy;ti&shy;o&shy;nally, <code>Memory&lt;T&gt;</code> contains the <code>Pin()</code> method used for scena&shy;rios when a stored buffer data should be passed to <code>unsafe</code> code. If this method is called when memory is allo&shy;cated in .NET, the buffer will be pinned and will not move when GC is active. This method will return an instance of the <code>MemoryHandle</code> struc&shy;ture, which encap&shy;su&shy;lates <code>GCHandle</code> to indi&shy;cate a segment of a life&shy;time and to pin array buffer in memory.</p>
-</li>
+<li><code>Memory&shy;<T></code> doesn’t have methods to access the data that it is respon&shy;sible for. Instead&shy;, it has the <code>Span</code> property and the <code>Slice</code> method that return an instance of the <code>Span</code> type.</li>
+<li>Additionally&shy;, <code>Memory&shy;<T></code> contains the <code>Pin&shy;()</code> method used for scena&shy;rios when a stored buffer data should be passed to <code>unsafe</code> code. If this method is called when memory is allo&shy;cated in .NET, the buffer will be pinned and will not move when GC is active. This method will return an instance of the <code>Memory&shy;Handle</code> struc&shy;ture, which encap&shy;su&shy;lates <code>GCHa&shy;ndle</code> to indi&shy;cate a segment of a life&shy;time and to pin array buffer in memory.</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">52</div>
-<p >
-However, I suggest we get fami&shy;liar with the whole set of classes. First, let’s look at the <code>Memory&lt;T&gt;</code> struc&shy;ture itself (here I show only those type members that I found most impor&shy;tant):</p>
+<p>However&shy;, I suggest we get fami&shy;liar with the whole set of classes. First&shy;, let’s look at the <code>Memory&shy;<T></code> struc&shy;ture itself (here I show only those type members that I found most impor&shy;tant):</p>
 <div class="paragraph-right-side">52</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2072,23 +2013,20 @@ However, I suggest we get fami&shy;liar with the whole set of classes. First, le
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">53</div>
-<p >
-As we see the struc&shy;ture contains the const&shy;ructor based on arrays, but stores data in the object. This is to addi&shy;ti&shy;o&shy;nally refe&shy;rence  strings that don’t have a const&shy;ructor designed for them, but can be used with the <code>AsMemory()</code> <code>string</code> method, it returns <code>ReadOnlyMemory</code>. However, as both types should be binary similar, <code>Object</code> is the type of the <code>_object</code> field.</p>
+<p>As we see the struc&shy;ture contains the const&shy;ructor based on arrays, but stores data in the object. This is to addi&shy;ti&shy;o&shy;nally refe&shy;rence  strings that don’t have a const&shy;ructor designed for them, but can be used with the <code>As&shy;Memory&shy;()</code> <code>string</code> method, it returns <code>Read&shy;Only&shy;Memory</code>. However&shy;, as both types should be binary similar, <code>Object</code> is the type of the <code>_object</code> field.</p>
 <div class="paragraph-right-side">53</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">54</div>
-<p >
-Next, we see two const&shy;ructors based on <code>MemoryManager</code>. We will talk about them later. The proper&shy;ties of obta&shy;i&shy;ning <code>Length</code> (size) and <code>IsEmpty</code> check for an empty set. Also, there is the <code>Slice</code> method for getting a subset as well as <code>CopyTo</code> and <code>TryCopyTo</code> methods of copying.</p>
+<p>Next&shy;, we see two const&shy;ructors based on <code>Memory&shy;Manager</code>. We will talk about them later. The proper&shy;ties of obta&shy;i&shy;ning <code>Length</code> (size) and <code>Is&shy;Empty</code> check for an empty set. Also&shy;, there is the <code>Slice</code> method for getting a subset as well as <code>Copy&shy;To</code> and <code>Try&shy;Copy&shy;To</code> methods of copying.</p>
 <div class="paragraph-right-side">54</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">55</div>
-<p >
-Talking about <code>Memory</code> I want to desc&shy;ribe two methods of this type in detail:  the <code>Span</code> property and the <code>Pin</code> method.</p>
+<p>Talking about <code>Memory</code> I want to desc&shy;ribe two methods of this type in detail:  the <code>Span</code> property and the <code>Pin</code> method.</p>
 <div class="paragraph-right-side">55</div>
 </div>
-<h3 id="memoryt.span">Memory&lt;T&gt;.Span</h3>
+<h3 id="memoryt.span">Memory<T>.Span</h3>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> Span&lt;T&gt; Span
 {
@@ -2121,8 +2059,7 @@ Talking about <code>Memory</code> I want to desc&shy;ribe two methods of this ty
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">56</div>
-<p >
-Namely, the lines that handle strings mana&shy;ge&shy;ment. They say that if we convert <code>ReadOnlyMemory&lt;T&gt;</code> to <code>Memory&lt;T&gt;</code> (these things are the same in binary repre&shy;sen&shy;ta&shy;tion and there is even a comment these types must coin&shy;cide in a binary way as one is produced from another by calling <code>Unsafe.As</code>) we will get an <sub>access to a secret chamber</sub> with an oppor&shy;tu&shy;nity to change strings. This is an extre&shy;mely dange&shy;rous mech&shy;anism:</p>
+<p>Namely&shy;, the lines that handle strings mana&shy;ge&shy;ment. They say that if we convert <code>Read&shy;Only&shy;Memory&shy;<T></code> to <code>Memory&shy;<T></code> (these things are the same in binary repre&shy;sen&shy;ta&shy;tion and there is even a comment these types must coin&shy;cide in a binary way as one is produced from another by calling <code>Unsafe&shy;.As</code>) we will get an <sub>access to a secret chamber</sub> with an oppor&shy;tu&shy;nity to change strings. This is an extre&shy;mely dange&shy;rous mech&shy;anism:</p>
 <div class="paragraph-right-side">56</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2139,11 +2076,9 @@ Namely, the lines that handle strings mana&shy;ge&shy;ment. They say that if we 
 Hello?
 </pre></div>
 </div>
-<p >
-This mech&shy;anism combined with string inter&shy;ning can produce dire conse&shy;qu&shy;ences.</p>
-<h3 id="memoryt.pin">Memory&lt;T&gt;.Pin</h3>
-<p >
-The second method that draws strong atten&shy;tion is <code>Pin</code>:</p>
+<p>This mech&shy;anism combined with string inter&shy;ning can produce dire conse&shy;qu&shy;ences.</p>
+<h3 id="memoryt.pin">Memory<T>.Pin</h3>
+<p>The second method that draws strong atten&shy;tion is <code>Pin</code>:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">unsafe</span> MemoryHandle Pin()
 {
@@ -2183,8 +2118,7 @@ The second method that draws strong atten&shy;tion is <code>Pin</code>:</p>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">57</div>
-<p >
-It is also an impor&shy;tant inst&shy;rument for uni&shy;fi&shy;ca&shy;tion  because if we want to pass a buffer to unma&shy;naged code, we just need to call the <code>Pin()</code> method and pass a pointer to this code no matter what type of data <code>Memory&lt;T&gt;</code> refers to. This pointer will be stored in the property of a resul&shy;ting struc&shy;ture.</p>
+<p>It is also an impor&shy;tant inst&shy;rument for uni&shy;fi&shy;ca&shy;tion  because if we want to pass a buffer to unma&shy;naged code, we just need to call the <code>Pin&shy;()</code> method and pass a pointer to this code no matter what type of data <code>Memory&shy;<T></code> refers to. This pointer will be stored in the property of a resul&shy;ting struc&shy;ture.</p>
 <div class="paragraph-right-side">57</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2199,21 +2133,18 @@ It is also an impor&shy;tant inst&shy;rument for uni&shy;fi&shy;ca&shy;tion  bec
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">58</div>
-<p >
-It doesn’t matter what <code>Pin()</code> was called for in this code: it can be <code>Memory</code> that repre&shy;sents either <code>T[]</code>, or a <code>string</code> or a buffer of unma&shy;naged memory. Merely arrays and string will get a real <code>GCHandle.Alloc(array, GCHandleType.Pinned)</code> and in case of unma&shy;naged memory nothing will happen.</p>
+<p>It doesn’t matter what <code>Pin&shy;()</code> was called for in this code: it can be <code>Memory</code> that repre&shy;sents either <code>T[]</code>, or a <code>string</code> or a buffer of unma&shy;naged memory. Merely arrays and string will get a real <code>GCHandle&shy;.Alloc&shy;(array&shy;, GCHandle&shy;Type&shy;.Pinned&shy;)</code> and in case of unma&shy;naged memory nothing will happen.</p>
 <div class="paragraph-right-side">58</div>
 </div>
-<h2 id="memorymanager-imemoryowner-memorypool">MemoryManager, IMemoryOwner, MemoryPool</h2>
+<h2 id="memorymanager-imemoryowner-memorypool">Memory&shy;Manager&shy;, IMemory&shy;Owner&shy;, Memory&shy;Pool</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">59</div>
-<p >
-Besides indi&shy;ca&shy;ting struc&shy;ture fields, I want to note that there are two other <code>internal</code> type const&shy;ructors based on an other entity – <code>MemoryManager</code>. This is not a classic memory manager that you might have thought of and we are going to talk about it later. classic memory manager that you might have thought of and we are going to talk about it later. Like <code>Span</code>, <code>Memory</code> has a refe&shy;rence to a navi&shy;gated object, an offset, and a size of an internal buffer. Note that you can use the <code>new</code> ope&shy;rator to create <code>Memory</code> from an array only. Or, you can use exten&shy;sion methods to create <code>Memory</code> from a string, an array or <code>ArraySegment</code>. I mean it is not designed to be created from unma&shy;naged memory manu&shy;ally. However, we can see that there is an internal method to create this struc&shy;ture using <code>MemoryManager</code>.</p>
+<p>Besides indi&shy;ca&shy;ting struc&shy;ture fields, I want to note that there are two other <code>internal</code> type const&shy;ructors based on an other entity – <code>Memory&shy;Manager</code>. This is not a classic memory manager that you might have thought of and we are going to talk about it later. classic memory manager that you might have thought of and we are going to talk about it later. Like <code>Span</code>, <code>Memory</code> has a refe&shy;rence to a navi&shy;gated object, an offset, and a size of an internal buffer. Note that you can use the <code>new</code> ope&shy;rator to create <code>Memory</code> from an array only. Or&shy;, you can use exten&shy;sion methods to create <code>Memory</code> from a string, an array or <code>Array&shy;Segment</code>. I mean it is not designed to be created from unma&shy;naged memory manu&shy;ally. However&shy;, we can see that there is an internal method to create this struc&shy;ture using <code>Memory&shy;Manager</code>.</p>
 <div class="paragraph-right-side">59</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">60</div>
-<p >
-<strong>File <a href="https://github.com/dotnet/corefx/blob/master/src/Common/src/CoreLib/System/Buffers/MemoryManager.cs">MemoryManager.cs</a></strong></p>
+<p><strong>File <a href="https://github.com/dotnet/corefx/blob/master/src/Common/src/CoreLib/System/Buffers/MemoryManager.cs">Memory&shy;Manager&shy;.cs</a></strong></p>
 <div class="paragraph-right-side">60</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2234,14 +2165,12 @@ Besides indi&shy;ca&shy;ting struc&shy;ture fields, I want to note that there ar
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">61</div>
-<p >
-This struc&shy;ture indi&shy;cates the owner of a memory range. In other words, <code>Span</code> is an inst&shy;rument to work with memory, <code>Memory</code> is a tool to store the infor&shy;ma&shy;tion about a parti&shy;cular memory range and <code>MemoryManager</code> is a tool to control the life&shy;time of this range, i.e. its owner. For example, we can look at <code>NativeMemoryManager&lt;T&gt;</code> type. Although it is used for tests, this type clearly repre&shy;sents the concept of “ownership”.</p>
+<p>This struc&shy;ture indi&shy;cates the owner of a memory range. In other words, <code>Span</code> is an inst&shy;rument to work with memory, <code>Memory</code> is a tool to store the infor&shy;ma&shy;tion about a parti&shy;cular memory range and <code>Memory&shy;Manager</code> is a tool to control the life&shy;time of this range, i.e. its owner. For example, we can look at <code>Native&shy;Memory&shy;Manager&shy;<T></code> type. Although it is used for tests, this type clearly repre&shy;sents the concept of “ownership”.</p>
 <div class="paragraph-right-side">61</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">62</div>
-<p >
-<strong>File <a href="https://github.com/dotnet/corefx/blob/888088448ac5dd1053d88434dfd819dcbc0fd9a1/src/Common/tests/System/Buffers/NativeMemoryManager.cs">NativeMemoryManager.cs</a></strong></p>
+<p><strong>File <a href="https://github.com/dotnet/corefx/blob/888088448ac5dd1053d88434dfd819dcbc0fd9a1/src/Common/tests/System/Buffers/NativeMemoryManager.cs">Native&shy;Memory&shy;Manager&shy;.cs</a></strong></p>
 <div class="paragraph-right-side">62</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2285,20 +2214,17 @@ This struc&shy;ture indi&shy;cates the owner of a memory range. In other words, 
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">63</div>
-<p >
-That means the class allows for nested calls of the <code>Pin()</code> method, thus coun&shy;ting gene&shy;rated refe&shy;rences from the <code>unsafe</code> world.</p>
+<p>That means the class allows for nested calls of the <code>Pin&shy;()</code> method, thus coun&shy;ting gene&shy;rated refe&shy;rences from the <code>unsafe</code> world.</p>
 <div class="paragraph-right-side">63</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">64</div>
-<p >
-Another entity closely tied with <code>Memory</code> is <code>MemoryPool</code> that pools <code>MemoryManager</code> instances (<code>IMemoryOwner</code> in fact):</p>
+<p>Another entity closely tied with <code>Memory</code> is <code>Memory&shy;Pool</code> that pools <code>Memory&shy;Manager</code> instances (<code>IMemory&shy;Owner</code> in fact):</p>
 <div class="paragraph-right-side">64</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">65</div>
-<p >
-<strong>File <a href="https://github.com/dotnet/corefx/blob/f592e887e2349ed52af6a83070c42adb9d26408c/src/System.Memory/src/System/Buffers/MemoryPool.cs">MemoryPool.cs</a></strong></p>
+<p><strong>File <a href="https://github.com/dotnet/corefx/blob/f592e887e2349ed52af6a83070c42adb9d26408c/src/System.Memory/src/System/Buffers/MemoryPool.cs">Memory&shy;Pool&shy;.cs</a></strong></p>
 <div class="paragraph-right-side">65</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2314,14 +2240,12 @@ Another entity closely tied with <code>Memory</code> is <code>MemoryPool</code> 
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">66</div>
-<p >
-It is used to lease buffers of a neces&shy;sary size for tempo&shy;rary use. The leased instances with imple&shy;mented <code>IMemoryOwner&lt;T&gt;</code> inter&shy;face have the <code>Dispose()</code> method to return the leased array back to the pool of arrays. By default, you can use the sha&shy;re&shy;able pool of buffers built on <code>ArrayMemoryPool</code>:</p>
+<p>It is used to lease buffers of a neces&shy;sary size for tempo&shy;rary use. The leased instances with imple&shy;mented <code>IMemory&shy;Owner&shy;<T></code> inter&shy;face have the <code>Dispose&shy;()</code> method to return the leased array back to the pool of arrays. By default, you can use the sha&shy;re&shy;able pool of buffers built on <code>Array&shy;Memory&shy;Pool</code>:</p>
 <div class="paragraph-right-side">66</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">67</div>
-<p >
-<strong>File <a href="https://github.com/dotnet/corefx/blob/56dfb8834fa50f3bc61ea9b4bfdc9dcc759b6ec9/src/System.Memory/src/System/Buffers/ArrayMemoryPool.cs">ArrayMemoryPool.cs</a></strong></p>
+<p><strong>File <a href="https://github.com/dotnet/corefx/blob/56dfb8834fa50f3bc61ea9b4bfdc9dcc759b6ec9/src/System.Memory/src/System/Buffers/ArrayMemoryPool.cs">Array&shy;Memory&shy;Pool&shy;.cs</a></strong></p>
 <div class="paragraph-right-side">67</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2342,25 +2266,22 @@ It is used to lease buffers of a neces&shy;sary size for tempo&shy;rary use. The
 }
 </pre></div>
 </div>
-<p >
-Based on this arch&shy;it&shy;ecture, we have the follo&shy;wing picture:</p>
+<p>Based on this arch&shy;it&shy;ecture, we have the follo&shy;wing picture:</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">68</div>
-<p >
-– <code>Span</code> data type should be used as a method para&shy;meter if you want to read data (<code>ReadOnlySpan</code>) or read and write data (<code>Span</code>). However, it is not supposed to be stored in a field of a class for future use.
-– If you need to store a refe&shy;rence from a field of a class to a data buffer, you need to use <code>Memory&lt;T&gt;</code> or <code>ReadOnlyMemory&lt;T&gt;</code> depen&shy;ding on your goals.
-– <code>MemoryManager&lt;T&gt;</code> is the owner of a data buffer (opti&shy;onal ). It may be neces&shy;sary if you need to count <code>Pin()</code> calls for example. Or, if you need to know how to release memory.
-– If <code>Memory</code> is built around an unma&shy;naged memory range, <code>Pin()</code> can do nothing. However, this uni&shy;forms working with diffe&shy;rent types of buffers:  for both managed and unma&shy;naged code the inte&shy;rac&shy;tion inter&shy;face will be the same.<br />
-– Every type has public const&shy;ructors. That means you can use <code>Span</code> directly or get its instance from <code>Memory</code>. For <code>Memory</code> as such, you can create it indi&shy;vi&shy;du&shy;ally or you can create a memory range owned by <code>IMemoryOwner</code> and refe&shy;renced by <code>Memory</code>. Any type based on <code>MemoryManger</code> can be regarded as a specific case which it owns some local memory range (e.g. accom&shy;pa&shy;nied by coun&shy;ting the refe&shy;rences from the <code>unsafe</code> world). In addi&shy;tion, if you need to pool such buffers (the frequent traffic of almost equ&shy;ally sized buffers is expected) you can use the <code>MemoryPool</code> type.
-– If you intend to work with <code>unsafe</code> code by passing a data buffer there, you should use the <code>Memory</code> type which has the <code>Pin()</code> method that aut&shy;om&shy;at&shy;ically pins a buffer on the .NET heap if it was created there.
-– If you have some traffic of buffers (for example you parse a text of a program or DSL), it is better to use the <code>MemoryPool</code> type. You can properly imple&shy;ment it to output the buffers of a neces&shy;sary size from a pool (for example a slightly bigger buffer if there is no suitable one, but using <code>originalMemory.Slice(requiredSize)</code> to avoid pool frag&shy;men&shy;ta&shy;tion).</p>
+<p>– <code>Span</code> data type should be used as a method para&shy;meter if you want to read data (<code>Read&shy;Only&shy;Span</code>) or read and write data (<code>Span</code>). However&shy;, it is not supposed to be stored in a field of a class for future use.
+– If you need to store a refe&shy;rence from a field of a class to a data buffer, you need to use <code>Memory&shy;<T></code> or <code>Read&shy;Only&shy;Memory&shy;<T></code> depen&shy;ding on your goals.
+– <code>Memory&shy;Manager&shy;<T></code> is the owner of a data buffer (opti&shy;onal ). It may be neces&shy;sary if you need to count <code>Pin&shy;()</code> calls for example. Or&shy;, if you need to know how to release memory.
+– If <code>Memory</code> is built around an unma&shy;naged memory range, <code>Pin&shy;()</code> can do nothing. However&shy;, this uni&shy;forms working with diffe&shy;rent types of buffers:  for both managed and unma&shy;naged code the inte&shy;rac&shy;tion inter&shy;face will be the same.<br />
+– Every type has public const&shy;ructors. That means you can use <code>Span</code> directly or get its instance from <code>Memory</code>. For <code>Memory</code> as such, you can create it indi&shy;vi&shy;du&shy;ally or you can create a memory range owned by <code>IMemory&shy;Owner</code> and refe&shy;renced by <code>Memory</code>. Any type based on <code>Memory&shy;Manger</code> can be regarded as a specific case which it owns some local memory range (e.g. accom&shy;pa&shy;nied by coun&shy;ting the refe&shy;rences from the <code>unsafe</code> world). In addi&shy;tion, if you need to pool such buffers (the frequent traffic of almost equ&shy;ally sized buffers is expected) you can use the <code>Memory&shy;Pool</code> type.
+– If you intend to work with <code>unsafe</code> code by passing a data buffer there, you should use the <code>Memory</code> type which has the <code>Pin&shy;()</code> method that aut&shy;om&shy;at&shy;ically pins a buffer on the .NET heap if it was created there.
+– If you have some traffic of buffers (for example you parse a text of a program or DSL), it is better to use the <code>Memory&shy;Pool</code> type. You can properly imple&shy;ment it to output the buffers of a neces&shy;sary size from a pool (for example a slightly bigger buffer if there is no suitable one, but using <code>ori&shy;gi&shy;nal&shy;Me&shy;mory.Slice&shy;(required&shy;Size&shy;)</code> to avoid pool frag&shy;men&shy;ta&shy;tion).</p>
 <div class="paragraph-right-side">68</div>
 </div>
-<h2 id="performance">Performance</h2>
+<h2 id="performance">Perfor&shy;mance</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">69</div>
-<p >
-To mea&shy;sure the perfor&shy;mance of new data types I decided to use a library that has already become stan&shy;dard <a href="https://github.com/dotnet/BenchmarkDotNet">BenchmarkDotNet</a>:</p>
+<p>To mea&shy;sure the perfor&shy;mance of new data types I decided to use a library that has already become stan&shy;dard <a href="https://github.com/dotnet/BenchmarkDotNet">Benchmark&shy;Dot&shy;Net</a>:</p>
 <div class="paragraph-right-side">69</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2514,41 +2435,19 @@ To mea&shy;sure the perfor&shy;mance of new data types I decided to use a librar
 }
 </pre></div>
 </div>
-<p >
-Now, let’s see the results.</p>
-<p >
-<img src="./imgs/Span/Performance.png" alt="Performance chart" /></p>
-<p >
-Loo&shy;king at them we can get the follo&shy;wing infor&shy;ma&shy;tion:</p>
+<p>Now&shy;, let’s see the results.</p>
+<p><img src="./imgs/Span/Performance.png" alt="Perfor&shy;mance chart" /></p>
+<p>Loo&shy;king at them we can get the follo&shy;wing infor&shy;ma&shy;tion:</p>
 <ul>
-<li>
-<p >
-<code>ArraySegment</code> is awful. But if you wrap it in <code>Span</code> you can make it less awful. In this case, perfor&shy;mance will increase 7 times.</p>
-</li>
-<li>
-<p >
-If we consider .NET Frame&shy;work 4.7.1 (the same thing is for 4.5), the use of <code>Span</code> will signi&shy;fi&shy;cantly lower the perfor&shy;mance when working with data buffers. It will decrease by 30–35 %.</p>
-</li>
-<li>
-<p >
-However, if we look at .NET Core 2.1+ the perfor&shy;mance remains similar or even incre&shy;ases given that <code>Span</code> can use a part of a data buffer, crea&shy;ting the context.  The same functi&shy;o&shy;na&shy;lity can be found in <code>ArraySegment</code>, but it works very slowly.</p>
-</li>
+<li><code>Array&shy;Segment</code> is awful. But if you wrap it in <code>Span</code> you can make it less awful. In this case, perfor&shy;mance will increase 7 times.</li>
+<li>If we consider .NET Frame&shy;work 4.7.1 (the same thing is for 4.5), the use of <code>Span</code> will signi&shy;fi&shy;cantly lower the perfor&shy;mance when working with data buffers. It will decrease by 30–35 %.</li>
+<li>However&shy;, if we look at .NET Core 2.1+ the perfor&shy;mance remains similar or even incre&shy;ases given that <code>Span</code> can use a part of a data buffer, crea&shy;ting the context.  The same functi&shy;o&shy;na&shy;lity can be found in <code>Array&shy;Segment</code>, but it works very slowly.</li>
 </ul>
-<p >
-Thus, we can draw simple conc&shy;lu&shy;sions regar&shy;ding the use of these data types:</p>
+<p>Thus&shy;, we can draw simple conc&shy;lu&shy;sions regar&shy;ding the use of these data types:</p>
 <ul>
-<li>
-<p >
-for <code>.NET Framework 4.5+</code> и <code>.NET Core</code> they have the only advan&shy;tage:  they are faster than <code>ArraySegment</code> when dea&shy;ling with a subset of an ori&shy;ginal array;</p>
-</li>
-<li>
-<p >
-in <code>.NET Core 2.1+</code> their use gives an unde&shy;ni&shy;able advan&shy;tage over both <code>ArraySegment</code> and any manual imple&shy;men&shy;ta&shy;tion of <code>Slice</code>;</p>
-</li>
-<li>
-<p >
-all three ways are as produc&shy;tive as possible and that cannot be achieved with any tool to unify arrays.</p>
-</li>
+<li>for <code>.NET Frame&shy;work 4.5+</code> и <code>.NET Core</code> they have the only advan&shy;tage:  they are faster than <code>Array&shy;Segment</code> when dea&shy;ling with a subset of an ori&shy;ginal array;</li>
+<li>in <code>.NET Core 2.1+</code> their use gives an unde&shy;ni&shy;able advan&shy;tage over both <code>Array&shy;Segment</code> and any manual imple&shy;men&shy;ta&shy;tion of <code>Slice</code>;</li>
+<li>all three ways are as produc&shy;tive as possible and that cannot be achieved with any tool to unify arrays.</li>
 </ul>
 
         </div>

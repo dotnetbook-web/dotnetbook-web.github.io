@@ -133,12 +133,12 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 p code:not(.highlight), li code:not(.highlight) {
     font-size: 0.7em;
-    padding: 3px;
     color: darkslateblue;
 }
 
 /* style for manual selecting */
 .box {
+    padding: 3px;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
@@ -233,6 +233,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     font-weight: 400;
     font-family: inherit;
+    hyphens: none;
 }
 
 h1 {
@@ -246,23 +247,32 @@ h1 {
 
 h2 {
     padding-top: 1.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    margin-bottom: 0.5em;
     font-family: Charter, Arial, Helvetica Neue, sans-serif;
-    font-size: 1.25em;
-    width: 70%;
+    font-size: 1.4em;
+    text-align: center;
 }
 
 h3 {
-    padding-top: 1em;
-    font-size: 1.3em;
+    padding-top: 1.2em;
+    font-family: Charter, Arial, Helvetica Neue, sans-serif;
+    font-size: 1.15em;
+    width: 70%;
+}
+
+h4 {
+    padding: 1em 0 0 0;
+    font-size: 1.2em;
     font-weight: 300;
     font-style: italic;
 }
 
-h4 {
-    margin: 20px 0 10px 0;
-    font-size: 16pt;
-    font-weight: 500;
-    font-style: italic;
+h5 {
+    padding: 0.6em 0 0 0;
+    font-weight: 300;
+    font-size: 1.1em;
 }
 
 /* Sidenotes */
@@ -677,7 +687,7 @@ footer > div {
 /* MD */
 @media (max-width: 991px) {
     
-    h2 {
+    h3 {
         width:80%;
     }
 
@@ -904,7 +914,17 @@ footer > div {
         font-size: 10pt;
         padding: 3px;
     }
-   
+
+    *[class*='lang-'] > div, pre > code {
+        padding-left: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    
+    ol li, ul li {
+        padding-left: 0.2em;	
+    }
+    
     p, li {
         line-height: 24px;
     }    
@@ -1228,7 +1248,7 @@ Conclusions on </a></li>
                             </li>
                             <li>
                                 <p>
-                                <a href="..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></p>
+                                <a href="..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон IDisposable</a></p>
                             </li>
                             <li>
                                 <p>
@@ -1292,18 +1312,15 @@ Conclusions on </a></li>
             <p class="d-none d-xl-block">XL</p> -->
             <h1 id="a-thread-stack">A thread stack</h1>
 <blockquote>
-<p >
-<a href="https://github.com/sidristij/dotnetbook/issues/58">A link to the discussion</a></p>
+<p><a href="https://github.com/sidristij/dotnetbook/issues/58">A link to the discus&shy;sion</a></p>
 </blockquote>
-<h2 id="basic-structure-x86-platform">Basic structure, x86 platform</h2>
+<h2 id="basic-structure-x86-platform">Basic struc&shy;ture, x86 plat&shy;form</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p >
-There is a memory region that is rarely menti&shy;oned. However, it probably takes a primary role in the work of an appli&shy;ca&shy;tion. This is the most frequ&shy;ently used and a quite limited region with instan&shy;ta&shy;neous memory allo&shy;ca&shy;tion and cleanup. This region is called &laquo;a thread stack&raquo;. And since a pointer to a thread stack is encoded essen&shy;ti&shy;ally by processor regis&shy;ters which are in the thread context, each thread has its own stack during exe&shy;cu&shy;tion. Why is it neces&shy;sary?</p>
+<p>There is a memory region that is rarely menti&shy;oned. However&shy;, it probably takes a primary role in the work of an appli&shy;ca&shy;tion. This is the most frequ&shy;ently used and a quite limited region with instan&shy;ta&shy;neous memory allo&shy;ca&shy;tion and cleanup. This region is called &laquo;a thread stack&raquo;. And since a pointer to a thread stack is encoded essen&shy;ti&shy;ally by processor regis&shy;ters which are in the thread context, each thread has its own stack during exe&shy;cu&shy;tion. Why is it neces&shy;sary?</p>
 <div class="paragraph-right-side">01</div>
 </div>
-<p >
-Let’s review a simple example of code:</p>
+<p>Let’s review a simple example of code:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">void</span> Method1()
 {
@@ -1318,61 +1335,34 @@ Let’s review a simple example of code:</p>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p >
-Nothing signi&shy;fi&shy;cant happens in this code. However, we wouldn’t skip it and instead will exa&shy;mine it care&shy;fully . When any <code>Method1</code> calls any <code>Method2</code>, any such call (not only in .NET but in other plat&shy;forms too) goes through the follo&shy;wing steps:</p>
+<p>Nothing signi&shy;fi&shy;cant happens in this code. However&shy;, we wouldn’t skip it and instead will exa&shy;mine it care&shy;fully . When any <code>Method1</code> calls any <code>Method2</code>, any such call (not only in .NET but in other plat&shy;forms too) goes through the follo&shy;wing steps:</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <ol>
-<li>
-<p >
-First, a JIT-compiled code saves method para&shy;me&shy;ters to the stack (star&shy;ting with a third one). The first two para&shy;me&shy;ters are passed through regis&shy;ters. It is impor&shy;tant to remember that the first passed para&shy;meter of instance methods is a pointer to an object that the method works with, i.e. <code>this</code> pointer. So, in these (almost all) cases only one para&shy;meter goes to regis&shy;ters, while the stack is used for the rest.</p>
-</li>
-<li>
-<p >
-Next, a compiler puts the <code>call</code> method call instr&shy;uc&shy;tion which puts the method return add&shy;ress to the stack. This is the add&shy;ress of an instr&shy;uc&shy;tion that follows the <code>call</code> instr&shy;uc&shy;tion. Thus, each method knows where it should return to, so that calling code could continue its work.</p>
-</li>
-<li>
-<p >
-After passing all para&shy;me&shy;ters and calling the method we should unders&shy;tand how to restore the stack if we exi&shy;ting the method and don’t want to calcu&shy;late bytes occu&shy;pied in the stack. To do this, we save the value of the EBP register, which always stores a pointer to the begin&shy;ning of a current stack frame (i.e. a range where the infor&shy;ma&shy;tion for a specific called method is stored). Saving the value of this register at each call, we create a single linked list of stack frames. Note that in fact they follow each other preci&shy;sely without gaps. However, to simp&shy;lify memory cleanup from a frame and to debug an appli&shy;ca&shy;tion (a debugger uses these poin&shy;ters to show Stack Trace) a single linked list is built.</p>
-</li>
-<li>
-<p >
-The last thing to do during the method call is to allo&shy;cate a memory range for local vari&shy;ables. As a compiler knows in advance how much memory is needed, it allo&shy;cates it imme&shy;di&shy;a&shy;tely by moving a pointer to the top of the stack (SP/ESP/RSP) by a neces&shy;sary number of bytes.</p>
-</li>
-<li>
-<p >
-The fifth step is the exe&shy;cu&shy;tion of a method code, i.e. useful ope&shy;ra&shy;tions.</p>
-</li>
-<li>
-<p >
-While exi&shy;ting the method, the top of the stack is restored from the EBP which is the place where the begin&shy;ning of a current stack frame is stored.</p>
-</li>
-<li>
-<p >
-And finally, we use <code>ret</code> instr&shy;uc&shy;tion to exit the method.  It takes the return add&shy;ress that was put on the stack by the <code>call</code> instr&shy;uc&shy;tion and makes <code>jmp</code> based on this add&shy;ress.</p>
-</li>
+<li>First&shy;, a JIT-compiled code saves method para&shy;me&shy;ters to the stack (star&shy;ting with a third one). The first two para&shy;me&shy;ters are passed through regis&shy;ters. It is impor&shy;tant to remember that the first passed para&shy;meter of instance methods is a pointer to an object that the method works with, i.e. <code>this</code> pointer. So&shy;, in these (almost all) cases only one para&shy;meter goes to regis&shy;ters, while the stack is used for the rest.</li>
+<li>Next&shy;, a compiler puts the <code>call</code> method call instr&shy;uc&shy;tion which puts the method return add&shy;ress to the stack. This is the add&shy;ress of an instr&shy;uc&shy;tion that follows the <code>call</code> instr&shy;uc&shy;tion. Thus&shy;, each method knows where it should return to, so that calling code could continue its work.</li>
+<li>After passing all para&shy;me&shy;ters and calling the method we should unders&shy;tand how to restore the stack if we exi&shy;ting the method and don’t want to calcu&shy;late bytes occu&shy;pied in the stack. To do this, we save the value of the EBP register, which always stores a pointer to the begin&shy;ning of a current stack frame (i.e. a range where the infor&shy;ma&shy;tion for a specific called method is stored). Saving the value of this register at each call, we create a single linked list of stack frames. Note that in fact they follow each other preci&shy;sely without gaps. However&shy;, to simp&shy;lify memory cleanup from a frame and to debug an appli&shy;ca&shy;tion (a debugger uses these poin&shy;ters to show Stack Trace&shy;) a single linked list is built.</li>
+<li>The last thing to do during the method call is to allo&shy;cate a memory range for local vari&shy;ables. As a compiler knows in advance how much memory is needed, it allo&shy;cates it imme&shy;di&shy;a&shy;tely by moving a pointer to the top of the stack (SP/ESP/RSP) by a neces&shy;sary number of bytes.</li>
+<li>The fifth step is the exe&shy;cu&shy;tion of a method code, i.e. useful ope&shy;ra&shy;tions.</li>
+<li>While exi&shy;ting the method, the top of the stack is restored from the EBP which is the place where the begin&shy;ning of a current stack frame is stored.</li>
+<li>And finally, we use <code>ret</code> instr&shy;uc&shy;tion to exit the method.  It takes the return add&shy;ress that was put on the stack by the <code>call</code> instr&shy;uc&shy;tion and makes <code>jmp</code> based on this add&shy;ress.</li>
 </ol>
-<p >
-The figure shows these processes:</p>
-<p >
-<img src="../imgs/ThreadStack/AnyMethodCall.png" alt="" /></p>
+<p>The figure shows these processes:</p>
+<p><img src="../imgs/ThreadStack/AnyMethodCall.png" alt="" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p >
-Note that the stack grows star&shy;ting from higher and finishing with lower addresses, i.e. in reverse.</p>
+<p>Note that the stack grows star&shy;ting from higher and finishing with lower addresses, i.e. in reverse.</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p >
-Loo&shy;king at this you may think that if not the majo&shy;rity but at least the half of all ope&shy;ra&shy;tions a processor deals with are to service the struc&shy;ture of a program and not its payload. I mean servi&shy;cing method calls, checking if one type can be cast to another one, compi&shy;ling Generic vari&shy;a&shy;tions, searching methods in inter&shy;face tables&hellip; Espe&shy;ci&shy;ally if we remember that the major part of the modern code is written from the pers&shy;pec&shy;tive of working through inter&shy;faces and imple&shy;men&shy;ting a multi&shy;tude of small methods, each perfor&shy;ming its own functions&hellip; The work often involves base types and casting types to an inter&shy;face or to an inhe&shy;ritor. With all these input condi&shy;tions you might make a conc&shy;lu&shy;sion about the lavish&shy;ness of inf&shy;rast&shy;ruc&shy;ture code. The only thing I can tell you is that compi&shy;lers, inclu&shy;ding JIT, have a lot of tech&shy;ni&shy;ques that allow them to create more produc&shy;tive code. Where possible they insert an entire method body instead of calling it and rather than searching a method in an inter&shy;face VSD, compi&shy;lers call it directly. The saddest thing is that it’s hard to mea&shy;sure the load on inf&shy;rast&shy;ruc&shy;ture: it’s neces&shy;sary that a JITter or any other compiler inserts some metrics before and after inf&shy;rast&shy;ruc&shy;ture code running. That is before a method call and after ini&shy;ti&shy;a&shy;li&shy;zing a stack frame inside this method. Before and after exi&shy;ting a method. Before compi&shy;la&shy;tion and after it. And so on. But let’s not talk about sad things, but discuss what we can do with the obta&shy;ined infor&shy;ma&shy;tion.</p>
+<p>Loo&shy;king at this you may think that if not the majo&shy;rity but at least the half of all ope&shy;ra&shy;tions a processor deals with are to service the struc&shy;ture of a program and not its payload. I mean servi&shy;cing method calls, checking if one type can be cast to another one, compi&shy;ling Generic vari&shy;a&shy;tions, searching methods in inter&shy;face tables&hellip; Espe&shy;ci&shy;ally if we remember that the major part of the modern code is written from the pers&shy;pec&shy;tive of working through inter&shy;faces and imple&shy;men&shy;ting a multi&shy;tude of small methods, each perfor&shy;ming its own functions&hellip; The work often involves base types and casting types to an inter&shy;face or to an inhe&shy;ritor. With all these input condi&shy;tions you might make a conc&shy;lu&shy;sion about the lavish&shy;ness of inf&shy;rast&shy;ruc&shy;ture code. The only thing I can tell you is that compi&shy;lers, inclu&shy;ding JIT, have a lot of tech&shy;ni&shy;ques that allow them to create more produc&shy;tive code. Where possible they insert an entire method body instead of calling it and rather than searching a method in an inter&shy;face VSD, compi&shy;lers call it directly. The saddest thing is that it’s hard to mea&shy;sure the load on inf&shy;rast&shy;ruc&shy;ture: it’s neces&shy;sary that a JITter or any other compiler inserts some metrics before and after inf&shy;rast&shy;ruc&shy;ture code running. That is before a method call and after ini&shy;ti&shy;a&shy;li&shy;zing a stack frame inside this method. Before and after exi&shy;ting a method. Before compi&shy;la&shy;tion and after it. And so on. But let’s not talk about sad things, but discuss what we can do with the obta&shy;ined infor&shy;ma&shy;tion.</p>
 <div class="paragraph-right-side">04</div>
 </div>
-<h2 id="some-words-about-exceptions-in-terms-of-the-x86-platform">Some words about exceptions in terms of the x86 platform</h2>
+<h2 id="some-words-about-exceptions-in-terms-of-the-x86-platform">Some words about excep&shy;tions in terms of the x86 plat&shy;form</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p >
-If we look inside the code of methods, we will see another struc&shy;ture, working with a thread stack. See for your&shy;self:</p>
+<p>If we look inside the code of methods, we will see another struc&shy;ture, working with a thread stack. See for your&shy;self:</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1404,53 +1394,33 @@ If we look inside the code of methods, we will see another struc&shy;ture, worki
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p >
-If an excep&shy;tion appears in any method, called from <code>Method3</code>, the control will be returned to the <code>catch</code> block of <code>Method3</code>. If han&shy;dling of this excep&shy;tion failed, its han&shy;dling will start in <code>Method1</code>. However, if nothing happens, <code>Method3</code> will finish its work and control will be passed to <code>Method2</code> where an excep&shy;tion can also be thrown. However, natu&shy;rally, it will be han&shy;dled in <code>Method1</code> and not in <code>Method3</code>. The idea of such conve&shy;nient aut&shy;om&shy;ation is that data struc&shy;tures that form the chains of excep&shy;tion han&shy;dlers are also put to the method stack frame where they are declared. We will talk about excep&shy;tions sepa&shy;ra&shy;tely. Here, I should only note that the model of excep&shy;tions in .NET Frame&shy;work CLR is diffe&shy;rent from Core CLR. Core&shy;CLR has to be diffe&shy;rent for various plat&shy;forms. That’s why it has a distinc&shy;tive model of excep&shy;tions which is offered through PAL (Plat&shy;form Adap&shy;tion Layer) in diffe&shy;rent imple&shy;men&shy;ta&shy;tions depen&shy;ding on the plat&shy;form. Big .NET Frame&shy;work CLR doesn’t need this as it exists in Windows ec&shy;osystem that for many years has been using a common mech&shy;anism for excep&shy;tion han&shy;dling called SEH (Struc&shy;tured Excep&shy;tion Hand&shy;ling). This mech&shy;anism is used by almost all prog&shy;ram&shy;ming langu&shy;ages (during final compi&shy;la&shy;tion) because it ensures end-to-end excep&shy;tion han&shy;dling between modules, written in diffe&shy;rent langu&shy;ages. It works like this:</p>
+<p>If an excep&shy;tion appears in any method, called from <code>Method3</code>, the control will be returned to the <code>catch</code> block of <code>Method3</code>. If han&shy;dling of this excep&shy;tion failed, its han&shy;dling will start in <code>Method1</code>. However&shy;, if nothing happens, <code>Method3</code> will finish its work and control will be passed to <code>Method2</code> where an excep&shy;tion can also be thrown. However&shy;, natu&shy;rally, it will be han&shy;dled in <code>Method1</code> and not in <code>Method3</code>. The idea of such conve&shy;nient aut&shy;om&shy;ation is that data struc&shy;tures that form the chains of excep&shy;tion han&shy;dlers are also put to the method stack frame where they are declared. We will talk about excep&shy;tions sepa&shy;ra&shy;tely. Here&shy;, I should only note that the model of excep&shy;tions in .NET Frame&shy;work CLR is diffe&shy;rent from Core CLR. Core&shy;CLR has to be diffe&shy;rent for various plat&shy;forms. That’s why it has a distinc&shy;tive model of excep&shy;tions which is offered through PAL (Plat&shy;form Adap&shy;tion Layer&shy;) in diffe&shy;rent imple&shy;men&shy;ta&shy;tions depen&shy;ding on the plat&shy;form. Big .NET Frame&shy;work CLR doesn’t need this as it exists in Windows ec&shy;osystem that for many years has been using a common mech&shy;anism for excep&shy;tion han&shy;dling called SEH (Struc&shy;tured Excep&shy;tion Handling&shy;). This mech&shy;anism is used by almost all prog&shy;ram&shy;ming langu&shy;ages (during final compi&shy;la&shy;tion) because it ensures end-to-end excep&shy;tion han&shy;dling between modules, written in diffe&shy;rent langu&shy;ages. It works like this:</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <ol>
-<li>
-<p >
-When a program enters a <code>try</code> block, the mech&shy;anism puts the struc&shy;ture to the stack , the first field of which indi&shy;cates a previous block of excep&shy;tion han&shy;dling (e.g. a calling method which also has try-catch), the type of the block, the excep&shy;tion code and the han&shy;dler add&shy;ress.</p>
-</li>
-<li>
-<p >
-The add&shy;ress of highest-prio&shy;rity excep&shy;tion han&shy;dler for the Thread Envi&shy;ron&shy;ment Block (TEB)—basi&shy;cally, a thread context—within the chain of han&shy;dlers is changed to the add&shy;ress created by us. Thus, we added our block to the chain.</p>
-</li>
-<li>
-<p >
-After the exe&shy;cu&shy;tion of the <code>try</code> block, the mech&shy;anism performs a reverse ope&shy;ra&shy;tion: the previous highest-prio&shy;rity han&shy;dler is regis&shy;tered in TEB, thus pushing our han&shy;dler out of the chain.</p>
-</li>
-<li>
-<p >
-If an excep&shy;tion occurs, the highest-prio&shy;rity han&shy;dler is taken from TEB and han&shy;dlers in the chain are called in turn. Each of them checks whether this excep&shy;tion matches its parti&shy;cular type. If it does, the han&shy;dling block is acti&shy;vated (e.g., <code>catch</code>).</p>
-</li>
-<li>
-<p >
-The add&shy;ress of SEH struc&shy;ture which was in the stack BEFORE the excep&shy;tion han&shy;dler method is restored in TEB.</p>
-</li>
+<li>When a program enters a <code>try</code> block, the mech&shy;anism puts the struc&shy;ture to the stack , the first field of which indi&shy;cates a previous block of excep&shy;tion han&shy;dling (e.g. a calling method which also has try-catch), the type of the block, the excep&shy;tion code and the han&shy;dler add&shy;ress.</li>
+<li>The add&shy;ress of highest-prio&shy;rity excep&shy;tion han&shy;dler for the Thread Envi&shy;ron&shy;ment Block (TEB)—basi&shy;cally, a thread context—within the chain of han&shy;dlers is changed to the add&shy;ress created by us. Thus&shy;, we added our block to the chain.</li>
+<li>After the exe&shy;cu&shy;tion of the <code>try</code> block, the mech&shy;anism performs a reverse ope&shy;ra&shy;tion: the previous highest-prio&shy;rity han&shy;dler is regis&shy;tered in TEB, thus pushing our han&shy;dler out of the chain.</li>
+<li>If an excep&shy;tion occurs, the highest-prio&shy;rity han&shy;dler is taken from TEB and han&shy;dlers in the chain are called in turn. Each of them checks whether this excep&shy;tion matches its parti&shy;cular type. If it does, the han&shy;dling block is acti&shy;vated (e.g., <code>catch</code>).</li>
+<li>The add&shy;ress of SEH struc&shy;ture which was in the stack BEFORE the excep&shy;tion han&shy;dler method is restored in TEB.</li>
 </ol>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p >
-As you can see, it’s not so diffi&shy;cult. However, all this infor&shy;ma&shy;tion also exists on the stack.</p>
+<p>As you can see, it’s not so diffi&shy;cult. However&shy;, all this infor&shy;ma&shy;tion also exists on the stack.</p>
 <div class="paragraph-right-side">07</div>
 </div>
-<h2 id="basic-information-about-x64-and-amd64-platforms-in-progress">Basic information about x64 and AMD64 platforms [In Progress]</h2>
+<h2 id="basic-information-about-x64-and-amd64-platforms-in-progress">Basic infor&shy;ma&shy;tion about x64 and AMD64 plat&shy;forms [In Progress&shy;]</h2>
 <blockquote>
-<p >
-TODO</p>
+<p>TODO</p>
 </blockquote>
-<h2 id="basic-information-about-exception-handling-on-x64-and-amd64-platforms-in-progress">Basic information about exception handling on x64 and AMD64 platforms [In Progress]</h2>
+<h2 id="basic-information-about-exception-handling-on-x64-and-amd64-platforms-in-progress">Basic infor&shy;ma&shy;tion about excep&shy;tion han&shy;dling on x64 and AMD64 plat&shy;forms [In Progress&shy;]</h2>
 <blockquote>
-<p >
-TODO</p>
+<p>TODO</p>
 </blockquote>
-<h2 id="a-little-about-the-imperfection-of-a-thread-stack">A little about the imperfection of a thread stack</h2>
+<h2 id="a-little-about-the-imperfection-of-a-thread-stack">A little about the imper&shy;fec&shy;tion of a thread stack</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p >
-Let’s think about a secu&shy;rity issue and possible prob&shy;lems that can appear the&shy;or&shy;etically. To do this, let’s look again at the struc&shy;ture of a thread stack which is essen&shy;ti&shy;ally a usual array. The memory range in which frames are built grows from the end to the begin&shy;ning. It means that more recent frames are assigned ini&shy;tial addresses. As it was said earlier frames are connected through a single linked list. This is because the size of a frame is not fixed and should be &laquo;read&raquo; by any debugger. A processor, in this case, doesn’t deli&shy;neate frames from each other: any method can read the entire memory region. And assu&shy;ming that we are in virtual memory that is divided into ranges of really allo&shy;cated memory, we can use special Win&shy;API function and any add&shy;ress on the stack to get an allo&shy;cated memory range where this add&shy;ress exists. Dea&shy;ling with a single linked list is easy:</p>
+<p>Let’s think about a secu&shy;rity issue and possible prob&shy;lems that can appear the&shy;or&shy;etically. To do this, let’s look again at the struc&shy;ture of a thread stack which is essen&shy;ti&shy;ally a usual array. The memory range in which frames are built grows from the end to the begin&shy;ning. It means that more recent frames are assigned ini&shy;tial addresses. As it was said earlier frames are connected through a single linked list. This is because the size of a frame is not fixed and should be &laquo;read&raquo; by any debugger. A processor, in this case, doesn’t deli&shy;neate frames from each other: any method can read the entire memory region. And assu&shy;ming that we are in virtual memory that is divided into ranges of really allo&shy;cated memory, we can use special Win&shy;API function and any add&shy;ress on the stack to get an allo&shy;cated memory range where this add&shy;ress exists. Dea&shy;ling with a single linked list is easy:</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1464,15 +1434,13 @@ Let’s think about a secu&shy;rity issue and possible prob&shy;lems that can ap
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
-<p >
-Thus we can get and modify all data which exists as local vari&shy;ables in methods that called us. If an appli&shy;ca&shy;tion doesn’t adjust the settings of a sandbox used for calling third-party libra&shy;ries, which enhance the functi&shy;o&shy;na&shy;lity of the appli&shy;ca&shy;tion, the third-party library can get data, even if the API you are using doesn’t provide for it. This tech&shy;nique may seem purely arti&shy;fi&shy;cial, but in the world of C/C++ where there is no App&shy;Domain with confi&shy;gured rights, the attack on the stack is a typical way to hack appli&shy;ca&shy;tions. More&shy;over, we can use reflec&shy;tion to look at the type we need, repli&shy;cate its struc&shy;ture on our side and replace the VMT add&shy;ress with our add&shy;ress, using the refe&shy;rence from the stack to an object, and redi&shy;rect the whole work with a parti&shy;cular instance to our side. By the way, SEH is also acti&shy;vely used to hack appli&shy;ca&shy;tions. Using an excep&shy;tion han&shy;dler, you can change its add&shy;ress and make OS exe&shy;cute malware code. However, the solu&shy;tion is simple: always adjust the settings of a sandbox when you want to work with libra&shy;ries, exten&shy;ding the functi&shy;o&shy;na&shy;lity of your appli&shy;ca&shy;tion. I mean diffe&shy;rent plug-ins, add-ons and other exten&shy;sions.</p>
+<p>Thus we can get and modify all data which exists as local vari&shy;ables in methods that called us. If an appli&shy;ca&shy;tion doesn’t adjust the settings of a sandbox used for calling third-party libra&shy;ries, which enhance the functi&shy;o&shy;na&shy;lity of the appli&shy;ca&shy;tion, the third-party library can get data, even if the API you are using doesn’t provide for it. This tech&shy;nique may seem purely arti&shy;fi&shy;cial, but in the world of C/C++ where there is no App&shy;Domain with confi&shy;gured rights, the attack on the stack is a typical way to hack appli&shy;ca&shy;tions. Moreover&shy;, we can use reflec&shy;tion to look at the type we need, repli&shy;cate its struc&shy;ture on our side and replace the VMT add&shy;ress with our add&shy;ress, using the refe&shy;rence from the stack to an object, and redi&shy;rect the whole work with a parti&shy;cular instance to our side. By the way, SEH is also acti&shy;vely used to hack appli&shy;ca&shy;tions. Using an excep&shy;tion han&shy;dler, you can change its add&shy;ress and make OS exe&shy;cute malware code. However&shy;, the solu&shy;tion is simple: always adjust the settings of a sandbox when you want to work with libra&shy;ries, exten&shy;ding the functi&shy;o&shy;na&shy;lity of your appli&shy;ca&shy;tion. I mean diffe&shy;rent plug-ins, add-ons and other exten&shy;sions.</p>
 <div class="paragraph-right-side">09</div>
 </div>
-<h2 id="a-big-example-thread-cloning-on-86-platform">A big example: thread cloning on х86 platform</h2>
+<h2 id="a-big-example-thread-cloning-on-86-platform">A big example: thread cloning on х86 plat&shy;form</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
-<p >
-To memo&shy;rize the details of what we have read, we should look at the same topic from diffe&shy;rent pers&shy;pec&shy;tives. Which example can you really design for a thread stack? Call a method from another? Magic&hellip; Of course not: we do it many times every day. Instead, we will copy the exe&shy;cu&shy;tion thread. It means we will ensure that after calling a parti&shy;cular method we would get two threads instead of one: our thread and a new one that conti&shy;nues to exe&shy;cute code from the point of the clone method call as if it got here itself. It will look like this:</p>
+<p>To memo&shy;rize the details of what we have read, we should look at the same topic from diffe&shy;rent pers&shy;pec&shy;tives. Which example can you really design for a thread stack? Call a method from another? Magic&hellip; Of course not: we do it many times every day. Instead&shy;, we will copy the exe&shy;cu&shy;tion thread. It means we will ensure that after calling a parti&shy;cular method we would get two threads instead of one: our thread and a new one that conti&shy;nues to exe&shy;cute code from the point of the clone method call as if it got here itself. It will look like this:</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1512,38 +1480,23 @@ To memo&shy;rize the details of what we have read, we should look at the same to
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
-<p >
-Admit, this is an inte&shy;res&shy;ting concept. Of course, you may argue a lot about the approp&shy;ri&shy;a&shy;te&shy;ness of such actions, but the main task of this example is to put a fine point to the expla&shy;na&shy;tions of working prin&shy;ciples for this data struc&shy;ture. How do we clone threads? To answer this ques&shy;tion, we should unders&shy;tand what things char&shy;ac&shy;te&shy;rize a thread. Actually, it is char&shy;ac&shy;te&shy;rized by the follo&shy;wing struc&shy;tures and data regions:</p>
+<p>Admit&shy;, this is an inte&shy;res&shy;ting concept. Of course, you may argue a lot about the approp&shy;ri&shy;a&shy;te&shy;ness of such actions, but the main task of this example is to put a fine point to the expla&shy;na&shy;tions of working prin&shy;ciples for this data struc&shy;ture. How do we clone threads? To answer this ques&shy;tion, we should unders&shy;tand what things char&shy;ac&shy;te&shy;rize a thread. Actually&shy;, it is char&shy;ac&shy;te&shy;rized by the follo&shy;wing struc&shy;tures and data regions:</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <ol>
-<li>
-<p >
-A set of CPU regis&shy;ters. All regis&shy;ters define the state of an exe&shy;cu&shy;tion thread: star&shy;ting from the add&shy;ress of a current exe&shy;cu&shy;tion instr&shy;uc&shy;tion to the addresses of a thread stack and the data it uses.</p>
-</li>
-<li>
-<p >
-<a href="https://en.wikipedia.org/wiki/Win32_Thread_Information_Block">Thread Environment Block</a> or TIB/TEB stores system infor&shy;ma&shy;tion about a thread, inclu&shy;ding the addresses of excep&shy;tion han&shy;dlers.</p>
-</li>
-<li>
-<p >
-A thread stack, the add&shy;ress of which is defined by SS:ESP regis&shy;ters.</p>
-</li>
-<li>
-<p >
-The plat&shy;form context of a thread that contains local data for the thread (a refe&shy;rence comes from TIB).</p>
-</li>
+<li>A set of CPU regis&shy;ters. All regis&shy;ters define the state of an exe&shy;cu&shy;tion thread: star&shy;ting from the add&shy;ress of a current exe&shy;cu&shy;tion instr&shy;uc&shy;tion to the addresses of a thread stack and the data it uses.</li>
+<li><a href="https://en.wikipedia.org/wiki/Win32_Thread_Information_Block">Thread Envi&shy;ron&shy;ment Block</a> or TIB/TEB stores system infor&shy;ma&shy;tion about a thread, inclu&shy;ding the addresses of excep&shy;tion han&shy;dlers.</li>
+<li>A thread stack, the add&shy;ress of which is defined by SS:ESP regis&shy;ters.</li>
+<li>The plat&shy;form context of a thread that contains local data for the thread (a refe&shy;rence comes from TIB).</li>
 </ol>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
-<p >
-And surely something else that we don’t know. But we don’t have to know everything in case of an example: this code is not for produc&shy;tion use, but to unders&shy;tand the idea. That’s why it takes into account only the most impor&shy;tant things. If we want this code to function in its basic form, we need to copy a set of regis&shy;ters to a new thread (changing SS:ESP as the stack will be new) and edit the stack itself, so it would contain what we need.</p>
+<p>And surely something else that we don’t know. But we don’t have to know everything in case of an example: this code is not for produc&shy;tion use, but to unders&shy;tand the idea. That’s why it takes into account only the most impor&shy;tant things. If we want this code to function in its basic form, we need to copy a set of regis&shy;ters to a new thread (changing SS:ESP as the stack will be new) and edit the stack itself, so it would contain what we need.</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
-<p >
-Well, if a thread stack deter&shy;mines which methods were called and which data they use, it means that the&shy;or&shy;etically by changing these struc&shy;tures you can change local vari&shy;ables of methods and eli&shy;mi&shy;nate the call of some method from the stack, replace the method with another or your own method in any place of a chain. Ok, we have decided on this. Now, let’s look at some pseu&shy;do&shy;code:</p>
+<p>Well&shy;, if a thread stack deter&shy;mines which methods were called and which data they use, it means that the&shy;or&shy;etically by changing these struc&shy;tures you can change local vari&shy;ables of methods and eli&shy;mi&shy;nate the call of some method from the stack, replace the method with another or your own method in any place of a chain. Ok&shy;, we have decided on this. Now&shy;, let’s look at some pseu&shy;do&shy;code:</p>
 <div class="paragraph-right-side">13</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1555,8 +1508,7 @@ Well, if a thread stack deter&shy;mines which methods were called and which data
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
-<p >
-When <code>MakeFork()</code> is called, what do we expect in terms of stack traces?  We expect that nothing will change in a parent thread, and a child thread will be taken from the thread pool (for speed). The call of <code>MakeFork</code> method with its local data will be imi&shy;tated in this thread, and the exe&shy;cu&shy;tion of code will continue not from the begin&shy;ning of the method, but from the point after <code>CloneThread</code> call. Thus, the stack trace in our ima&shy;gi&shy;na&shy;tion will look like:</p>
+<p>When <code>Make&shy;Fork&shy;()</code> is called, what do we expect in terms of stack traces?  We expect that nothing will change in a parent thread, and a child thread will be taken from the thread pool (for speed). The call of <code>Make&shy;Fork</code> method with its local data will be imi&shy;tated in this thread, and the exe&shy;cu&shy;tion of code will continue not from the begin&shy;ning of the method, but from the point after <code>Clone&shy;Thread</code> call. Thus&shy;, the stack trace in our ima&shy;gi&shy;na&shy;tion will look like:</p>
 <div class="paragraph-right-side">14</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1569,68 +1521,53 @@ ThreadPool -&gt; MakeFork
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
-<p >
-What do we have from the begin&shy;ning? We have our thread. We also have an oppor&shy;tu&shy;nity to create a new thread or sch&shy;edule a task to an object pool, exe&shy;cu&shy;ting our code there. We also unders&shy;tand that the infor&shy;ma&shy;tion about nested calls is stored in a call stack and we can mani&shy;pu&shy;late it (for example, using C++/CLI). Also, if we imple&shy;ment agre&shy;e&shy;ments and put to the stack top the return add&shy;ress for the <code>ret</code> instr&shy;uc&shy;tion as well as the EBP register value and allo&shy;cate space for locals (if neces&shy;sary), we can imi&shy;tate the method call. Manual entries to a thread stack can be made from C#, but we will need regis&shy;ters and will have to use them very care&shy;fully. Thus, we can’t do without turning to C++. Here CLI/C++ comes to help us the first time in life (at least for me). It allows writing mixed code: a part of instr&shy;uc&shy;tions is written in .NET, another part in C++, and the third part can even be written in assembly language. That’s exactly what we need.</p>
+<p>What do we have from the begin&shy;ning? We have our thread. We also have an oppor&shy;tu&shy;nity to create a new thread or sch&shy;edule a task to an object pool, exe&shy;cu&shy;ting our code there. We also unders&shy;tand that the infor&shy;ma&shy;tion about nested calls is stored in a call stack and we can mani&shy;pu&shy;late it (for example, using C++/CLI). Also&shy;, if we imple&shy;ment agre&shy;e&shy;ments and put to the stack top the return add&shy;ress for the <code>ret</code> instr&shy;uc&shy;tion as well as the EBP register value and allo&shy;cate space for locals (if neces&shy;sary), we can imi&shy;tate the method call. Manual entries to a thread stack can be made from C#, but we will need regis&shy;ters and will have to use them very care&shy;fully. Thus&shy;, we can’t do without turning to C++. Here CLI/C++ comes to help us the first time in life (at least for me). It allows writing mixed code: a part of instr&shy;uc&shy;tions is written in .NET, another part in C++, and the third part can even be written in assembly language. That’s exactly what we need.</p>
 <div class="paragraph-right-side">15</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
-<p >
-So, how will a thread stack look like, when our code will call <code>MakeFork</code> which will call <code>CloneThread</code> which will go to the unma&shy;naged world of CLI/C++ and call the cloning method (the imple&shy;men&shy;ta&shy;tion itself) there? Let’s look at the figure (note once again that the stack is growing from higher to lower addresses. From left to right):</p>
+<p>So&shy;, how will a thread stack look like, when our code will call <code>Make&shy;Fork</code> which will call <code>Clone&shy;Thread</code> which will go to the unma&shy;naged world of CLI/C++ and call the cloning method (the imple&shy;men&shy;ta&shy;tion itself) there? Let’s look at the figure (note once again that the stack is growing from higher to lower addresses. From left to right):</p>
 <div class="paragraph-right-side">16</div>
 </div>
-<p >
-<img src="../imgs/ThreadStack/step1.png" alt="" /></p>
+<p><img src="../imgs/ThreadStack/step1.png" alt="" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
-<p >
-In order not to move the whole thing from figure to figure, let’s simp&shy;lify it and keep only what we need:</p>
+<p>In order not to move the whole thing from figure to figure, let’s simp&shy;lify it and keep only what we need:</p>
 <div class="paragraph-right-side">17</div>
 </div>
-<p >
-<img src="../imgs/ThreadStack/step2.png" alt="" /></p>
+<p><img src="../imgs/ThreadStack/step2.png" alt="" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
-<p >
-When we create a thread or take a made-up thread from the pool, another stack appears in our figure. However, this stack is not ini&shy;ti&shy;a&shy;lized yet.</p>
+<p>When we create a thread or take a made-up thread from the pool, another stack appears in our figure. However&shy;, this stack is not ini&shy;ti&shy;a&shy;lized yet.</p>
 <div class="paragraph-right-side">18</div>
 </div>
-<p >
-<img src="../imgs/ThreadStack/step3.png" alt="" /></p>
+<p><img src="../imgs/ThreadStack/step3.png" alt="" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
-<p >
-Now, we need to imi&shy;tate the running of <code>Fork.CloneThread()</code> method in a new thread. To do this, we need to add a series of frames to the end of its thread stack: as if CLI/C++ method was called by a managed wrapper through a C++ wrapper from <code>Fork.CloneThread()</code> which was in turn called from a dele&shy;gate trans&shy;ferred to <code>ThreadPool</code>. To do this, we will copy a neces&shy;sary stack region to an array (note that the copies of EBP regis&shy;ters, used for buil&shy;ding a frame chain, in the cloned region “over&shy;look” the former region):</p>
+<p>Now&shy;, we need to imi&shy;tate the running of <code>Fork&shy;.Clone&shy;Thread&shy;()</code> method in a new thread. To do this, we need to add a series of frames to the end of its thread stack: as if CLI/C++ method was called by a managed wrapper through a C++ wrapper from <code>Fork&shy;.Clone&shy;Thread&shy;()</code> which was in turn called from a dele&shy;gate trans&shy;ferred to <code>Thread&shy;Pool</code>. To do this, we will copy a neces&shy;sary stack region to an array (note that the copies of EBP regis&shy;ters, used for buil&shy;ding a frame chain, in the cloned region “over&shy;look” the former region):</p>
 <div class="paragraph-right-side">19</div>
 </div>
-<p >
-<img src="../imgs/ThreadStack/step4.png" alt="" /></p>
+<p><img src="../imgs/ThreadStack/step4.png" alt="" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
-<p >
-To ensure the integ&shy;rity of stack after copying the previously cloned region, we esti&shy;mate in advance which addresses will be taken by EBP fields in a new place and change them to copies imme&shy;di&shy;a&shy;tely:</p>
+<p>To ensure the integ&shy;rity of stack after copying the previously cloned region, we esti&shy;mate in advance which addresses will be taken by EBP fields in a new place and change them to copies imme&shy;di&shy;a&shy;tely:</p>
 <div class="paragraph-right-side">20</div>
 </div>
-<p >
-<img src="../imgs/ThreadStack/step5.png" alt="" /></p>
+<p><img src="../imgs/ThreadStack/step5.png" alt="" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
-<p >
-The last step is to copy our array to the end of the child thread stack care&shy;fully, using a minimal number of regis&shy;ters, and move our ESP and EBP regis&shy;ters to new places. We imi&shy;tated the call of all these methods in terms of the stack:</p>
+<p>The last step is to copy our array to the end of the child thread stack care&shy;fully, using a minimal number of regis&shy;ters, and move our ESP and EBP regis&shy;ters to new places. We imi&shy;tated the call of all these methods in terms of the stack:</p>
 <div class="paragraph-right-side">21</div>
 </div>
-<p >
-<img src="../imgs/ThreadStack/step6.png" alt="" /></p>
+<p><img src="../imgs/ThreadStack/step6.png" alt="" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
-<p >
-But not in terms of code. In terms of code, we need to access those methods that we have just created. The simp&shy;lest way is to imi&shy;tate the exit from a method: restore <code>ESP</code> from <code>EBP</code>, put into <code>EBP</code> what it points to and call <code>ret</code> instr&shy;uc&shy;tion, ini&shy;ti&shy;a&shy;ting the exit from a suppo&shy;sedly called C++ method for thread cloning. This will end up with retur&shy;ning to a real wrapper of the CLI/C++ call, which will pass control to <code>MakeFork()</code>, but in a child thread. This tech&shy;nique works.</p>
+<p>But not in terms of code. In terms of code, we need to access those methods that we have just created. The simp&shy;lest way is to imi&shy;tate the exit from a method: restore <code>ESP</code> from <code>EBP</code>, put into <code>EBP</code> what it points to and call <code>ret</code> instr&shy;uc&shy;tion, ini&shy;ti&shy;a&shy;ting the exit from a suppo&shy;sedly called C++ method for thread cloning. This will end up with retur&shy;ning to a real wrapper of the CLI/C++ call, which will pass control to <code>Make&shy;Fork&shy;()</code>, but in a child thread. This tech&shy;nique works.</p>
 <div class="paragraph-right-side">22</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
-<p >
-Now, let’s look at another code. The first thing we do is the oppor&shy;tu&shy;nity for CLI/C++ code to create a .NET thread. To do this, we need to create in .NET:</p>
+<p>Now&shy;, let’s look at another code. The first thing we do is the oppor&shy;tu&shy;nity for CLI/C++ code to create a .NET thread. To do this, we need to create in .NET:</p>
 <div class="paragraph-right-side">23</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1643,8 +1580,7 @@ Now, let’s look at another code. The first thing we do is the oppor&shy;tu&shy
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">24</div>
-<p >
-Don’t yet pay atten&shy;tion to the types of para&shy;me&shy;ters. They are requ&shy;ired to transfer infor&shy;ma&shy;tion about which stack region should be copied from a parent stack to a child one. The method of thread crea&shy;tion wraps the call of unma&shy;naged method in a dele&shy;gate, trans&shy;fers data and put the dele&shy;gate into a queue for proces&shy;sing by the thread pool.</p>
+<p>Don’t yet pay atten&shy;tion to the types of para&shy;me&shy;ters. They are requ&shy;ired to transfer infor&shy;ma&shy;tion about which stack region should be copied from a parent stack to a child one. The method of thread crea&shy;tion wraps the call of unma&shy;naged method in a dele&shy;gate, trans&shy;fers data and put the dele&shy;gate into a queue for proces&shy;sing by the thread pool.</p>
 <div class="paragraph-right-side">24</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1666,8 +1602,7 @@ Don’t yet pay atten&shy;tion to the types of para&shy;me&shy;ters. They are re
 }
 </pre></div>
 </div>
-<p >
-And at last the cloning method itself (its .NET part actu&shy;ally):</p>
+<p>And at last the cloning method itself (its .NET part actu&shy;ally):</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 [MethodImpl(MethodImplOptions::NoInlining | MethodImplOptions::NoOptimization | MethodImplOptions::PreserveSig)]
 <span style="color:Blue;">static</span> <span style="color:Blue;">bool</span> CloneThread()
@@ -1693,8 +1628,7 @@ And at last the cloning method itself (its .NET part actu&shy;ally):</p>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
-<p >
-To unders&shy;tand where this method exists in a chain of stack frames, we have saved the add&shy;ress of a stack vari&shy;able (*). We will use this add&shy;ress in a cloning method, which will be discussed further. Also, for you to unders&shy;tand what is it all about I will show the code of a struc&shy;ture that is neces&shy;sary to store infor&shy;ma&shy;tion about the stack copy:</p>
+<p>To unders&shy;tand where this method exists in a chain of stack frames, we have saved the add&shy;ress of a stack vari&shy;able (*). We will use this add&shy;ress in a cloning method, which will be discussed further. Also&shy;, for you to unders&shy;tand what is it all about I will show the code of a struc&shy;ture that is neces&shy;sary to store infor&shy;ma&shy;tion about the stack copy:</p>
 <div class="paragraph-right-side">25</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1723,21 +1657,18 @@ To unders&shy;tand where this method exists in a chain of stack frames, we have 
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
-<p >
-The work of the algo&shy;rithm is divided into two stages: firstly, we prepare data in a parent thread to repre&shy;sent neces&shy;sary stack frames in a child thread. Secondly, the child thread data is restored and over&shy;lays its own exe&shy;cu&shy;tion thread stack, thus imi&shy;ta&shy;ting the calls of methods that were never called.</p>
+<p>The work of the algo&shy;rithm is divided into two stages: firstly, we prepare data in a parent thread to repre&shy;sent neces&shy;sary stack frames in a child thread. Secondly&shy;, the child thread data is restored and over&shy;lays its own exe&shy;cu&shy;tion thread stack, thus imi&shy;ta&shy;ting the calls of methods that were never called.</p>
 <div class="paragraph-right-side">26</div>
 </div>
-<h3 id="a-method-of-preparation-for-copying">A method of preparation for copying</h3>
+<h3 id="a-method-of-preparation-for-copying">A method of prepa&shy;ra&shy;tion for copying</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">27</div>
-<p >
-I will desc&shy;ribe the code step-by-step. To do so, I will divide the entire code into parts and comment on each part sepa&shy;ra&shy;tely. Let’s start.</p>
+<p>I will desc&shy;ribe the code step-by-step. To do so, I will divide the entire code into parts and comment on each part sepa&shy;ra&shy;tely. Let’s start.</p>
 <div class="paragraph-right-side">27</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
-<p >
-External code calls <code>Fork.CloneThread()</code> through an internal wrap over the unma&shy;naged code and through a series of addi&shy;ti&shy;onal methods if code runs while debug&shy;ging (so-called debugger assis&shy;tants). That’s why we saved the add&shy;ress of a vari&shy;able on the stack in the .NET part: for a C++ method this add&shy;ress is a kind of label, and now we know which region of the stack we can copy.</p>
+<p>External code calls <code>Fork&shy;.Clone&shy;Thread&shy;()</code> through an internal wrap over the unma&shy;naged code and through a series of addi&shy;ti&shy;onal methods if code runs while debug&shy;ging (so-called debugger assis&shy;tants). That’s why we saved the add&shy;ress of a vari&shy;able on the stack in the .NET part: for a C++ method this add&shy;ress is a kind of label, and now we know which region of the stack we can copy.</p>
 <div class="paragraph-right-side">28</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1749,8 +1680,7 @@ External code calls <code>Fork.CloneThread()</code> through an internal wrap ove
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">29</div>
-<p >
-First of all, before any ope&shy;ra&shy;tion, we copy the regis&shy;ters locally to avoid corrup&shy;ting them. Addi&shy;ti&shy;o&shy;nally, we need to save the add&shy;ress of code, where we will make <code>goto</code> when the stack will be imi&shy;tated in a child thread and we will have to exit <code>CloneThread</code> in the child thread. As an "exit point” we choose <code>JmpPointOnMethodsChainCallEmulation</code> on purpose, because after saving this add&shy;ress "for the future” we addi&shy;ti&shy;o&shy;nally put number 0 on the stack.</p>
+<p>First of all, before any ope&shy;ra&shy;tion, we copy the regis&shy;ters locally to avoid corrup&shy;ting them. Additionally&shy;, we need to save the add&shy;ress of code, where we will make <code>goto</code> when the stack will be imi&shy;tated in a child thread and we will have to exit <code>Clone&shy;Thread</code> in the child thread. As an "exit point” we choose <code>Jmp&shy;Point&shy;On&shy;Methods&shy;Chain&shy;Call&shy;Emulation</code> on purpose, because after saving this add&shy;ress "for the future” we addi&shy;ti&shy;o&shy;nally put number 0 on the stack.</p>
 <div class="paragraph-right-side">29</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1777,8 +1707,7 @@ First of all, before any ope&shy;ra&shy;tion, we copy the regis&shy;ters locally
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">30</div>
-<p >
-Then, after <code>JmpPointOnMethodsChainCallEmulation</code> we retrieve this number from the stack and check if it’s still <code>0</code>. If it is, then we are still in the same thread which means we have a lot of things to do and we go to <code>NonCloned</code>. If the value is <code>1</code>, it means that the child thread added all neces&shy;sary compo&shy;nents to the thread stack, put number <code>1</code> on the stack and made <code>goto</code> to this point (note that <code>goto</code> is made from another method). This means it’s time to exit <code>CloneThread</code> from the child tread, the call of which was imi&shy;tated.</p>
+<p>Then&shy;, after <code>Jmp&shy;Point&shy;On&shy;Methods&shy;Chain&shy;Call&shy;Emulation</code> we retrieve this number from the stack and check if it’s still <code>0</code>. If it is, then we are still in the same thread which means we have a lot of things to do and we go to <code>Non&shy;Cloned</code>. If the value is <code>1</code>, it means that the child thread added all neces&shy;sary compo&shy;nents to the thread stack, put number <code>1</code> on the stack and made <code>goto</code> to this point (note that <code>goto</code> is made from another method). This means it’s time to exit <code>Clone&shy;Thread</code> from the child tread, the call of which was imi&shy;tated.</p>
 <div class="paragraph-right-side">30</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1799,8 +1728,7 @@ NonCloned:
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">31</div>
-<p >
-OK, we made sure that we have a lot to do and we need to prepare data for the child thread. We will work with the struc&shy;ture of previously saved regis&shy;ters not to go to the assembler language level again. First, let’s get the EBP register value out of this struc&shy;ture. Essen&shy;ti&shy;ally, the register is the "Next” field in a single linked list of stack frames. Follo&shy;wing the add&shy;ress that exists there, we access the frame of a method which called us. If we use the add&shy;ress which is conta&shy;ined in the first field there, we will access an even lower frame. This way we can get to the managed part of <code>CloneThread</code> as we saved the add&shy;ress of the vari&shy;able in its stack frame and know exactly where to stop. The cycle shown below solves exactly this task.</p>
+<p>OK, we made sure that we have a lot to do and we need to prepare data for the child thread. We will work with the struc&shy;ture of previously saved regis&shy;ters not to go to the assembler language level again. First&shy;, let’s get the EBP register value out of this struc&shy;ture. Essentially&shy;, the register is the "Next” field in a single linked list of stack frames. Follo&shy;wing the add&shy;ress that exists there, we access the frame of a method which called us. If we use the add&shy;ress which is conta&shy;ined in the first field there, we will access an even lower frame. This way we can get to the managed part of <code>Clone&shy;Thread</code> as we saved the add&shy;ress of the vari&shy;able in its stack frame and know exactly where to stop. The cycle shown below solves exactly this task.</p>
 <div class="paragraph-right-side">31</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1819,8 +1747,7 @@ OK, we made sure that we have a lot to do and we need to prepare data for the ch
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">32</div>
-<p >
-Because we got the add&shy;ress of <code>CloneThread</code> managed method frame begin&shy;ning we know how much we should copy to imi&shy;tate the call of <code>CloneThread</code> from <code>MakeFork</code>. However, since we also need <code>MakeFork</code> (we need to exit into it exactly), it’s neces&shy;sary to make another tran&shy;si&shy;tion in a single linked list: <code>*(int *)curptr</code>. After that, we create an array to save the stack by simple copying.</p>
+<p>Because we got the add&shy;ress of <code>Clone&shy;Thread</code> managed method frame begin&shy;ning we know how much we should copy to imi&shy;tate the call of <code>Clone&shy;Thread</code> from <code>Make&shy;Fork</code>. However&shy;, since we also need <code>Make&shy;Fork</code> (we need to exit into it exactly), it’s neces&shy;sary to make another tran&shy;si&shy;tion in a single linked list: <code>*(int *)curptr</code>. After that, we create an array to save the stack by simple copying.</p>
 <div class="paragraph-right-side">32</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1836,8 +1763,7 @@ Because we got the add&shy;ress of <code>CloneThread</code> managed method frame
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">33</div>
-<p >
-Another task to be solved is upda&shy;ting the addresses of vari&shy;ables, which are still on the stack and point to it. To solve this task, we get a range of addresses which were allo&shy;cated by the ope&shy;ra&shy;ting system for the thread stack. We save the retri&shy;eved infor&shy;ma&shy;tion and start the second part of a cloning process, prepa&shy;ring a dele&shy;gate for the thread pool:</p>
+<p>Another task to be solved is upda&shy;ting the addresses of vari&shy;ables, which are still on the stack and point to it. To solve this task, we get a range of addresses which were allo&shy;cated by the ope&shy;ra&shy;ting system for the thread stack. We save the retri&shy;eved infor&shy;ma&shy;tion and start the second part of a cloning process, prepa&shy;ring a dele&shy;gate for the thread pool:</p>
 <div class="paragraph-right-side">33</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1859,11 +1785,10 @@ Another task to be solved is upda&shy;ting the addresses of vari&shy;ables, whic
 }
 </pre></div>
 </div>
-<h3 id="a-method-of-restoration-from-a-copy">A method of restoration from a copy</h3>
+<h3 id="a-method-of-restoration-from-a-copy">A method of resto&shy;ra&shy;tion from a copy</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">34</div>
-<p >
-This method is conse&shy;qu&shy;en&shy;ti&shy;ally called after the previous one quits running: we obta&shy;ined a copy of the parent thread stack region and a full set of its regis&shy;ters. Our task is to add all calls, copied from the parent thread, to our thread, taken from a thread pool, as if we made these calls ourse&shy;lves. After finishing its work <code>MakeFork</code> of the child thread will return to this method which will release the thread and get it back to the pool when work is over.</p>
+<p>This method is conse&shy;qu&shy;en&shy;ti&shy;ally called after the previous one quits running: we obta&shy;ined a copy of the parent thread stack region and a full set of its regis&shy;ters. Our task is to add all calls, copied from the parent thread, to our thread, taken from a thread pool, as if we made these calls ourse&shy;lves. After finishing its work <code>Make&shy;Fork</code> of the child thread will return to this method which will release the thread and get it back to the pool when work is over.</p>
 <div class="paragraph-right-side">34</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1874,8 +1799,7 @@ This method is conse&shy;qu&shy;en&shy;ti&shy;ally called after the previous one
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">35</div>
-<p >
-First, we save the values of working regis&shy;ters to restore them pain&shy;lessly after <code>MakeFork</code> finishes its work. To have a minimal impact on regis&shy;ters in the future, we unload the para&shy;me&shy;ters trans&shy;ferred to us on our stack. They will be accessed through <code>SS:ESP</code> only , which will be predic&shy;table for us.</p>
+<p>First&shy;, we save the values of working regis&shy;ters to restore them pain&shy;lessly after <code>Make&shy;Fork</code> finishes its work. To have a minimal impact on regis&shy;ters in the future, we unload the para&shy;me&shy;ters trans&shy;ferred to us on our stack. They will be accessed through <code>SS:ESP</code> only , which will be predic&shy;table for us.</p>
 <div class="paragraph-right-side">35</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1895,8 +1819,7 @@ First, we save the values of working regis&shy;ters to restore them pain&shy;les
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">36</div>
-<p >
-Our next task is to correct the <code>EBP</code> values in a stack copy that form a single linked list of frames, so they would reflect their future posi&shy;tions. To do this, we calcu&shy;late the offset between the add&shy;ress of our thread stack and the parent thread stack, the offset between the copy of the parent thread stack range and the parent thread itself.</p>
+<p>Our next task is to correct the <code>EBP</code> values in a stack copy that form a single linked list of frames, so they would reflect their future posi&shy;tions. To do this, we calcu&shy;late the offset between the add&shy;ress of our thread stack and the parent thread stack, the offset between the copy of the parent thread stack range and the parent thread itself.</p>
 <div class="paragraph-right-side">36</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1921,8 +1844,7 @@ Our next task is to correct the <code>EBP</code> values in a stack copy that for
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">37</div>
-<p >
-Using this data we follow the copy of the stack within a cycle and correct the addresses to their future values.</p>
+<p>Using this data we follow the copy of the stack within a cycle and correct the addresses to their future values.</p>
 <div class="paragraph-right-side">37</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1946,8 +1868,7 @@ Using this data we follow the copy of the stack within a cycle and correct the a
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">38</div>
-<p >
-When the single linked list is corrected, we should update the values of regis&shy;ters in their copy, so that if it contains refe&shy;rences to the stack, they will be updated too. The algo&shy;rithm here is not precise at all. Because if an inapp&shy;rop&shy;riate value from the stack add&shy;ress range appears there by some reason, it will be corrected by mistake. However, our task is just to unders&shy;tand the functi&shy;o&shy;ning of a thread stack and that’s why this tech&shy;nique is suitable for this purpose.</p>
+<p>When the single linked list is corrected, we should update the values of regis&shy;ters in their copy, so that if it contains refe&shy;rences to the stack, they will be updated too. The algo&shy;rithm here is not precise at all. Because if an inapp&shy;rop&shy;riate value from the stack add&shy;ress range appears there by some reason, it will be corrected by mistake. However&shy;, our task is just to unders&shy;tand the functi&shy;o&shy;ning of a thread stack and that’s why this tech&shy;nique is suitable for this purpose.</p>
 <div class="paragraph-right-side">38</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1962,8 +1883,7 @@ When the single linked list is corrected, we should update the values of regis&s
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">39</div>
-<p >
-Now, the most impor&shy;tant part. When we add the copy of the parent stack to the end of our stack, everything will be OK until <code>MakeFork</code> in the child thread tries to exit (make <code>return</code>). We need to show it where it should exit to. To do this, we also imi&shy;tate the call of <code>MakeFork</code> itself from this method. We put the add&shy;ress of <code>RestorePointAfterClonedExited</code> label on the stack as if the <code>call</code> processor instr&shy;uc&shy;tion puts the return add&shy;ress and the current <code>EBP</code> to the stack, imi&shy;ta&shy;ting the buil&shy;ding of a single linked list of method frames chains. Then we put a copy of the parent stack on the stack using the usual <code>push</code> ope&shy;ra&shy;tion, thus repre&shy;sen&shy;ting all methods, called in the parent stack from the <code>MakeFork</code> method inclu&shy;ding itself. The stack is ready!</p>
+<p>Now&shy;, the most impor&shy;tant part. When we add the copy of the parent stack to the end of our stack, everything will be OK until <code>Make&shy;Fork</code> in the child thread tries to exit (make <code>return</code>). We need to show it where it should exit to. To do this, we also imi&shy;tate the call of <code>Make&shy;Fork</code> itself from this method. We put the add&shy;ress of <code>Restore&shy;Point&shy;After&shy;Cloned&shy;Exited</code> label on the stack as if the <code>call</code> processor instr&shy;uc&shy;tion puts the return add&shy;ress and the current <code>EBP</code> to the stack, imi&shy;ta&shy;ting the buil&shy;ding of a single linked list of method frames chains. Then we put a copy of the parent stack on the stack using the usual <code>push</code> ope&shy;ra&shy;tion, thus repre&shy;sen&shy;ting all methods, called in the parent stack from the <code>Make&shy;Fork</code> method inclu&shy;ding itself. The stack is ready!</p>
 <div class="paragraph-right-side">39</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1978,8 +1898,7 @@ Now, the most impor&shy;tant part. When we add the copy of the parent stack to t
     };
 </pre></div>
 </div>
-<p >
-Next, we should restore regis&shy;ters.</p>
+<p>Next&shy;, we should restore regis&shy;ters.</p>
 <pre><code>    // restore registers, push 1 for Fork() and jmp
     _asm {
         push copy.EAX
@@ -1997,8 +1916,7 @@ Next, we should restore regis&shy;ters.</p>
 </code></pre>
 <div class="paragraph-container">
 <div class="paragraph-left-side">40</div>
-<p >
-Now, it’s time to remember the strange code where we put <code>0</code> on stack and then checked for <code>0</code>. In this thread, we put <code>1</code> and make a long <code>jmp</code> to the <code>ForkImpl</code> method code. Because we are exactly there accor&shy;ding to the stack, but in fact, we are still here. When we get there <code>ForkImpl</code> will recog&shy;nize the change of a thread and will exit to the <code>MakeFork</code> method, which will get to the <code>RestorePointAfterClonedExited</code> after finishing its work because earlier we imi&shy;tated the call of <code>MakeFork</code> from this point. By resto&shy;ring the regis&shy;ters to the state of “just called from <code>ThreadPool</code>” we finish work, giving the thread to the pool.</p>
+<p>Now&shy;, it’s time to remember the strange code where we put <code>0</code> on stack and then checked for <code>0</code>. In this thread, we put <code>1</code> and make a long <code>jmp</code> to the <code>Fork&shy;Impl</code> method code. Because we are exactly there accor&shy;ding to the stack, but in fact, we are still here. When we get there <code>Fork&shy;Impl</code> will recog&shy;nize the change of a thread and will exit to the <code>Make&shy;Fork</code> method, which will get to the <code>Restore&shy;Point&shy;After&shy;Cloned&shy;Exited</code> after finishing its work because earlier we imi&shy;tated the call of <code>Make&shy;Fork</code> from this point. By resto&shy;ring the regis&shy;ters to the state of “just called from <code>Thread&shy;Pool</code>” we finish work, giving the thread to the pool.</p>
 <div class="paragraph-right-side">40</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2014,51 +1932,41 @@ RestorePointAfterClonedExited:
  }
 </pre></div>
 </div>
-<p >
-Let’s check. This screenshot is made before a thread cloning call:</p>
-<p >
-<img src="../imgs/ThreadStack/ForkBeforeEnter.png" alt="" /></p>
-<p >
-This screenshot is made after:</p>
-<p >
-<img src="../imgs/ThreadStack/ForkAfterEnter.png" alt="" /></p>
+<p>Let’s check. This screenshot is made before a thread cloning call:</p>
+<p><img src="../imgs/ThreadStack/ForkBeforeEnter.png" alt="" /></p>
+<p>This screenshot is made after:</p>
+<p><img src="../imgs/ThreadStack/ForkAfterEnter.png" alt="" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">41</div>
-<p >
-As we see now, there are two threads in <code>ForkImpl</code> instead of one. Both of them exited this method.</p>
+<p>As we see now, there are two threads in <code>Fork&shy;Impl</code> instead of one. Both of them exited this method.</p>
 <div class="paragraph-right-side">41</div>
 </div>
 <h1 id="a-few-words-about-a-lower-level">A few words about a lower level</h1>
 <div class="paragraph-container">
 <div class="paragraph-left-side">42</div>
-<p >
-If we look at an even lower level, we will recall that the memory is, in fact, virtual and it is divided into 8 and 4 Kb pages. Each of these pages can either exist or not exist physically. If it exists, it can be mapped to a file or real RAM. It is exactly this virtu&shy;a&shy;li&shy;za&shy;tion mech&shy;anism that allows appli&shy;ca&shy;tions to have sepa&shy;rate memory and provides secu&shy;rity levels between an appli&shy;ca&shy;tion and an ope&shy;ra&shy;ting system. What does this have to do with a thread stack? As any other random access memory of an appli&shy;ca&shy;tion a thread stack is its part and also consists of 4 and 8 Kb pages. On the sides of a range allo&shy;cated for the stack, there are two pages. An attempt to access these pages will produce an excep&shy;tion, notif&shy;ying an OS that an appli&shy;ca&shy;tion tries to add&shy;ress an unal&shy;lo&shy;cated memory range. The actu&shy;ally allo&shy;cated ranges inside this region are those pages which the appli&shy;ca&shy;tion addressed: if the appli&shy;ca&shy;tion allo&shy;cates 2 Mb of memory for a thread, that doesn’t mean they will be allo&shy;cated straight away. They will be allo&shy;cated on demand: if a thread stack will grow up to 1 Mb, that will mean that the appli&shy;ca&shy;tion got exactly 1 Mb of RAM for the stack.</p>
+<p>If we look at an even lower level, we will recall that the memory is, in fact, virtual and it is divided into 8 and 4 Kb pages. Each of these pages can either exist or not exist physically. If it exists, it can be mapped to a file or real RAM. It is exactly this virtu&shy;a&shy;li&shy;za&shy;tion mech&shy;anism that allows appli&shy;ca&shy;tions to have sepa&shy;rate memory and provides secu&shy;rity levels between an appli&shy;ca&shy;tion and an ope&shy;ra&shy;ting system. What does this have to do with a thread stack? As any other random access memory of an appli&shy;ca&shy;tion a thread stack is its part and also consists of 4 and 8 Kb pages. On the sides of a range allo&shy;cated for the stack, there are two pages. An attempt to access these pages will produce an excep&shy;tion, notif&shy;ying an OS that an appli&shy;ca&shy;tion tries to add&shy;ress an unal&shy;lo&shy;cated memory range. The actu&shy;ally allo&shy;cated ranges inside this region are those pages which the appli&shy;ca&shy;tion addressed: if the appli&shy;ca&shy;tion allo&shy;cates 2 Mb of memory for a thread, that doesn’t mean they will be allo&shy;cated straight away. They will be allo&shy;cated on demand: if a thread stack will grow up to 1 Mb&shy;, that will mean that the appli&shy;ca&shy;tion got exactly 1 Mb of RAM for the stack.</p>
 <div class="paragraph-right-side">42</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">43</div>
-<p >
-When an appli&shy;ca&shy;tion allo&shy;cates memory for local vari&shy;ables, two things happen: the value of ESP register grows and the memory for vari&shy;ables is set to null. That’s why when you write a recur&shy;sive method which enters infi&shy;nite recur&shy;sion, you will get <code>StackOverflowException</code>: acqu&shy;i&shy;ring the entire memory allo&shy;cated for the stack (the entire ava&shy;ilable region), you will run into a special Guard Page the access to which will make an ope&shy;ra&shy;ting system ini&shy;tiate <code>StackOverflow</code> at the OS level. It will pass to .NET and will be caught resul&shy;ting in <code>StackOverflowException</code> for a .NET appli&shy;ca&shy;tion.</p>
+<p>When an appli&shy;ca&shy;tion allo&shy;cates memory for local vari&shy;ables, two things happen: the value of ESP register grows and the memory for vari&shy;ables is set to null. That’s why when you write a recur&shy;sive method which enters infi&shy;nite recur&shy;sion, you will get <code>Stack&shy;Overflow&shy;Exception</code>: acqu&shy;i&shy;ring the entire memory allo&shy;cated for the stack (the entire ava&shy;ilable region), you will run into a special Guard Page the access to which will make an ope&shy;ra&shy;ting system ini&shy;tiate <code>Stack&shy;Overflow</code> at the OS level. It will pass to .NET and will be caught resul&shy;ting in <code>Stack&shy;Overflow&shy;Exception</code> for a .NET appli&shy;ca&shy;tion.</p>
 <div class="paragraph-right-side">43</div>
 </div>
-<h1 id="the-memory-allocation-on-the-stack-stackalloc">The memory allocation on the stack: <code>stackalloc</code></h1>
+<h1 id="the-memory-allocation-on-the-stack-stackalloc">The memory allo&shy;ca&shy;tion on the stack: <code>stac&shy;kalloc</code></h1>
 <div class="paragraph-container">
 <div class="paragraph-left-side">44</div>
-<p >
-In C# there is a quite inte&shy;res&shy;ting and rarely used keyword <code>stackalloc</code>. It is so rarely used in code (I’d rather say &laquo;never&raquo; instead of &laquo;rarely&raquo;) that it’s hard to find a suitable example of its use and it’s even harder to create an example because if it’s seldom used the expe&shy;ri&shy;ence of working with it is too little. Why? Because for those who try to figure out what this instr&shy;uc&shy;tion does, <code>stackalloc</code> becomes more thr&shy;ea&shy;tening than useful, as the dark side of <code>stackalloc</code> is unsafe code. The result it returns is not a managed pointer: the value is a usual pointer to the range of unpro&shy;tected memory. And if you make an entry at this add&shy;ress after a method finishes its work, you will start writing to local vari&shy;ables of some method or will overw&shy;rite the return add&shy;ress from the method, and an appli&shy;ca&shy;tion will finish work with an error. However, our task is to get to hidden corners and figure out what they hide. Also, we should unders&shy;tand that this inst&shy;rument was created on purpose and not just to spill our water and slip on it. Quite oppo&shy;site: we were giving this inst&shy;rument to use it and create really quick soft&shy;ware. Did I inspire you? Then, let’s start.</p>
+<p>In C# there is a quite inte&shy;res&shy;ting and rarely used keyword <code>stac&shy;kalloc</code>. It is so rarely used in code (I’d rather say &laquo;never&raquo; instead of &laquo;rarely&raquo;) that it’s hard to find a suitable example of its use and it’s even harder to create an example because if it’s seldom used the expe&shy;ri&shy;ence of working with it is too little. Why&shy;? Because for those who try to figure out what this instr&shy;uc&shy;tion does, <code>stac&shy;kalloc</code> becomes more thr&shy;ea&shy;tening than useful, as the dark side of <code>stac&shy;kalloc</code> is unsafe code. The result it returns is not a managed pointer: the value is a usual pointer to the range of unpro&shy;tected memory. And if you make an entry at this add&shy;ress after a method finishes its work, you will start writing to local vari&shy;ables of some method or will overw&shy;rite the return add&shy;ress from the method, and an appli&shy;ca&shy;tion will finish work with an error. However&shy;, our task is to get to hidden corners and figure out what they hide. Also&shy;, we should unders&shy;tand that this inst&shy;rument was created on purpose and not just to spill our water and slip on it. Quite oppo&shy;site: we were giving this inst&shy;rument to use it and create really quick soft&shy;ware. Did I inspire you? Then&shy;, let’s start.</p>
 <div class="paragraph-right-side">44</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">45</div>
-<p >
-To find the approp&shy;riate use cases for this keyword, we should turn to its authors, i.e. Micro&shy;soft and see how they use it. We can do this with the help of a full-text search in the  <a href="https://github.com/dotnet/coreclr">coreclr repository</a>. Besides diffe&shy;rent tests of the keyword itself, we will find no more than 25 use cases of this keyword in the library code. I hope I moti&shy;vated you enough in the previous parag&shy;raph and you won’t stop rea&shy;ding my work when you see such a small number. To say the truth, the CLR team is more far-sighted and profes&shy;si&shy;onal than the .NET Frame&shy;work team. And if they created something, it should help us a lot. But if it is not used in .NET Frame&shy;work&hellip; Well, we can suppose that not all engi&shy;neers there know there is such a powerful opti&shy;mi&shy;za&shy;tion inst&shy;rument. Othe&shy;rwise, its would be more widely used.</p>
+<p>To find the approp&shy;riate use cases for this keyword, we should turn to its authors, i.e. Micro&shy;soft and see how they use it. We can do this with the help of a full-text search in the  <a href="https://github.com/dotnet/coreclr">coreclr repo&shy;si&shy;tory</a>. Besides diffe&shy;rent tests of the keyword itself, we will find no more than 25 use cases of this keyword in the library code. I hope I moti&shy;vated you enough in the previous parag&shy;raph and you won’t stop rea&shy;ding my work when you see such a small number. To say the truth, the CLR team is more far-sighted and profes&shy;si&shy;onal than the .NET Frame&shy;work team. And if they created something, it should help us a lot. But if it is not used in .NET Frame&shy;work&hellip; Well&shy;, we can suppose that not all engi&shy;neers there know there is such a powerful opti&shy;mi&shy;za&shy;tion inst&shy;rument. Otherwise&shy;, its would be more widely used.</p>
 <div class="paragraph-right-side">45</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">46</div>
-<p >
-<strong>Interop.ReadDir class</strong>
-<a href="https://github.com/dotnet/coreclr/blob/b29f6328510207970763580d6f4db864e4b198af/src/mscorlib/shared/Interop/Unix/System.Native/Interop.ReadDir.cs#L71-L83">/src/mscorlib/shared/Interop/Unix/System.Native/Interop.ReadDir.cs</a></p>
+<p><strong>Interop&shy;.Read&shy;Dir class</strong>
+<a href="https://github.com/dotnet/coreclr/blob/b29f6328510207970763580d6f4db864e4b198af/src/mscorlib/shared/Interop/Unix/System.Native/Interop.ReadDir.cs#L71-L83">/src/mscorlib/shared/Interop&shy;/Unix&shy;/System&shy;.Native&shy;/Interop&shy;.Read&shy;Dir&shy;.cs</a></p>
 <div class="paragraph-right-side">46</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2079,17 +1987,14 @@ To find the approp&shy;riate use cases for this keyword, we should turn to its a
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">47</div>
-<p >
-What is <code>stackalloc</code> used here for? As we see the code goes to the unsafe method after memory allo&shy;ca&shy;tion to fill the created buffer with data. That means a memory range that the unsafe method needs for a record is allo&shy;cated right on the stack dyna&shy;mi&shy;cally. It’s a great opti&shy;mi&shy;za&shy;tion, given that alter&shy;na&shy;tives are to get a memory range from Windows or fixed (pinned) .NET array that besides burde&shy;ning the heap also burdens the GC because the array is fixed, so the GC wouldn’t move it when acces&shy;sing its data. By allo&shy;ca&shy;ting memory on the stack we risk nothing: the allo&shy;ca&shy;tion is almost instan&shy;ta&shy;neous and we can easily fill it with data and exit this method. And together with the exit from the method, its stack frame will disap&shy;pear. As a result, we save a lot of time.</p>
+<p>What is <code>stac&shy;kalloc</code> used here for? As we see the code goes to the unsafe method after memory allo&shy;ca&shy;tion to fill the created buffer with data. That means a memory range that the unsafe method needs for a record is allo&shy;cated right on the stack dyna&shy;mi&shy;cally. It’s a great opti&shy;mi&shy;za&shy;tion, given that alter&shy;na&shy;tives are to get a memory range from Windows or fixed (pinned) .NET array that besides burde&shy;ning the heap also burdens the GC because the array is fixed, so the GC wouldn’t move it when acces&shy;sing its data. By allo&shy;ca&shy;ting memory on the stack we risk nothing: the allo&shy;ca&shy;tion is almost instan&shy;ta&shy;neous and we can easily fill it with data and exit this method. And together with the exit from the method, its stack frame will disap&shy;pear. As a result, we save a lot of time.</p>
 <div class="paragraph-right-side">47</div>
 </div>
-<p >
-Let’s look at another example:</p>
+<p>Let’s look at another example:</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">48</div>
-<p >
-<strong>Class Number.Formatting::FormatDecimal</strong>
-<a href="https://github.com/dotnet/coreclr/blob/efebb38f3c18425c57f94ff910a50e038d13c848/src/mscorlib/shared/System/Number.Formatting.cs#L287-L311">/src/mscorlib/shared/System/Number.Formatting.cs</a></p>
+<p><strong>Class Number&shy;.Formatting::Format&shy;Decimal</strong>
+<a href="https://github.com/dotnet/coreclr/blob/efebb38f3c18425c57f94ff910a50e038d13c848/src/mscorlib/shared/System/Number.Formatting.cs#L287-L311">/src/mscorlib/shared/System&shy;/Number&shy;.Formatting&shy;.cs</a></p>
 <div class="paragraph-right-side">48</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2122,14 +2027,12 @@ Let’s look at another example:</p>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">49</div>
-<p >
-This is an example of number format&shy;ting which is based on an even more inte&shy;res&shy;ting example of a class <a href="https://github.com/dotnet/coreclr/blob/efebb38f3c18425c57f94ff910a50e038d13c848/src/mscorlib/shared/System/Text/ValueStringBuilder.cs">ValueStringBuilder</a>, working on the basis of <code>Span&lt;T&gt;</code>. The essence of this code section is that it doesn’t use the allo&shy;ca&shy;tion of memory for the char&shy;acter accu&shy;mu&shy;la&shy;tion buffer to collect the textual repre&shy;sen&shy;ta&shy;tion of a formatted number as quickly as possible. This wonderful code allo&shy;cates memory right in the method stack frame, ensu&shy;ring no need for the GC to collect garbage in String&shy;Builder instances if the method worked on its basis. The method run time also decre&shy;ases: the memory allo&shy;ca&shy;tion in the heap also takes time. Besides, using <code>Span&lt;T&gt;</code> type instead of bare poin&shy;ters make the work of <code>stackalloc</code> based code look safer.</p>
+<p>This is an example of number format&shy;ting which is based on an even more inte&shy;res&shy;ting example of a class <a href="https://github.com/dotnet/coreclr/blob/efebb38f3c18425c57f94ff910a50e038d13c848/src/mscorlib/shared/System/Text/ValueStringBuilder.cs">Value&shy;String&shy;Builder</a>, working on the basis of <code>Span&shy;<T></code>. The essence of this code section is that it doesn’t use the allo&shy;ca&shy;tion of memory for the char&shy;acter accu&shy;mu&shy;la&shy;tion buffer to collect the textual repre&shy;sen&shy;ta&shy;tion of a formatted number as quickly as possible. This wonderful code allo&shy;cates memory right in the method stack frame, ensu&shy;ring no need for the GC to collect garbage in String&shy;Builder instances if the method worked on its basis. The method run time also decre&shy;ases: the memory allo&shy;ca&shy;tion in the heap also takes time. Besides&shy;, using <code>Span&shy;<T></code> type instead of bare poin&shy;ters make the work of <code>stac&shy;kalloc</code> based code look safer.</p>
 <div class="paragraph-right-side">49</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">50</div>
-<p >
-Also, before making conc&shy;lu&shy;sions I should show what you mustn’t do. In other words, I will show which code can work well but will fail at the worst possible time. Let’s look at the example:</p>
+<p>Also&shy;, before making conc&shy;lu&shy;sions I should show what you mustn’t do. In other words, I will show which code can work well but will fail at the worst possible time. Let’s look at the example:</p>
 <div class="paragraph-right-side">50</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2142,8 +2045,7 @@ Also, before making conc&shy;lu&shy;sions I should show what you mustn’t do. I
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">51</div>
-<p >
-This little code can cause a lot of troubles: you can’t just pass the size to allo&shy;cate memory on the stack from the outside. If you need a size which is set exter&shy;nally, accept the buffer itself:</p>
+<p>This little code can cause a lot of troubles: you can’t just pass the size to allo&shy;cate memory on the stack from the outside. If you need a size which is set exter&shy;nally, accept the buffer itself:</p>
 <div class="paragraph-right-side">51</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2155,40 +2057,31 @@ This little code can cause a lot of troubles: you can’t just pass the size to 
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">52</div>
-<p >
-This code is more infor&shy;ma&shy;tive as it makes a user think and be careful when choosing numbers. In case of bad luck, the first variant can produce <code>StackOverflowException</code> with a method not being quite deep into a thread stack: it is enough to pass a big number as a para&shy;meter. The second variant when you can actu&shy;ally accept the size is when this method is called in specific cases and the calling code &laquo;knows&raquo; the working algo&shy;rithm of this method. Without knowing the internal struc&shy;ture of a method there is no specific idea about the possible range for <code>noiseLength</code> and as a result errors can occur.</p>
+<p>This code is more infor&shy;ma&shy;tive as it makes a user think and be careful when choosing numbers. In case of bad luck, the first variant can produce <code>Stack&shy;Overflow&shy;Exception</code> with a method not being quite deep into a thread stack: it is enough to pass a big number as a para&shy;meter. The second variant when you can actu&shy;ally accept the size is when this method is called in specific cases and the calling code &laquo;knows&raquo; the working algo&shy;rithm of this method. Without knowing the internal struc&shy;ture of a method there is no specific idea about the possible range for <code>noi&shy;se&shy;Length</code> and as a result errors can occur.</p>
 <div class="paragraph-right-side">52</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">53</div>
-<p >
-The second example which I see is that if we misde&shy;ter&shy;mined the size of a buffer which we allo&shy;cated on the stack and we don’t want to decrease the effi&shy;ci&shy;ency of work, we can take a number of ways: allo&shy;cate more memory on the stack or allo&shy;cate it in the heap. The second variant will probably be more approp&shy;riate in most cases (this is what was done in the case of <code>ValueStringBuffer</code>) as it is safer in respect of getting <code>StackOverflowException</code>.</p>
+<p>The second example which I see is that if we misde&shy;ter&shy;mined the size of a buffer which we allo&shy;cated on the stack and we don’t want to decrease the effi&shy;ci&shy;ency of work, we can take a number of ways: allo&shy;cate more memory on the stack or allo&shy;cate it in the heap. The second variant will probably be more approp&shy;riate in most cases (this is what was done in the case of <code>Value&shy;String&shy;Buffer</code>) as it is safer in respect of getting <code>Stack&shy;Overflow&shy;Exception</code>.</p>
 <div class="paragraph-right-side">53</div>
 </div>
-<h2 id="conclusions-on-stackalloc">Conclusions on <code>stackalloc</code></h2>
-<p >
-So, what is <code>stackalloc</code> best used for?</p>
+<h2 id="conclusions-on-stackalloc">Conc&shy;lu&shy;sions on <code>stac&shy;kalloc</code></h2>
+<p>So&shy;, what is <code>stac&shy;kalloc</code> best used for?</p>
 <ul>
-<li>
-<p >
-To work with unma&shy;naged code when it is neces&shy;sary to fill some data buffer with an unma&shy;naged method or accept some data buffer from an unma&shy;naged method which will be used during the method body life&shy;time.</p>
+<li><p>To work with unma&shy;naged code when it is neces&shy;sary to fill some data buffer with an unma&shy;naged method or accept some data buffer from an unma&shy;naged method which will be used during the method body life&shy;time.</p>
 </li>
-<li>
-<p >
-For methods that need an array, but again while these methods work. The example with format&shy;ting is very good: this method can be called too often to avoid allo&shy;ca&shy;ting tempo&shy;rary arrays in the heap.</p>
+<li><p>For methods that need an array, but again while these methods work. The example with format&shy;ting is very good: this method can be called too often to avoid allo&shy;ca&shy;ting tempo&shy;rary arrays in the heap.</p>
 </li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">54</div>
-<p >
-The use of this allo&shy;cator can signi&shy;fi&shy;cantly increase the perfor&shy;mance of your appli&shy;ca&shy;tions.</p>
+<p>The use of this allo&shy;cator can signi&shy;fi&shy;cantly increase the perfor&shy;mance of your appli&shy;ca&shy;tions.</p>
 <div class="paragraph-right-side">54</div>
 </div>
-<h1 id="conclusions-on-section">Conclusions on section</h1>
+<h1 id="conclusions-on-section">Conc&shy;lu&shy;sions on section</h1>
 <div class="paragraph-container">
 <div class="paragraph-left-side">55</div>
-<p >
-Of course in general terms, we don’t need to edit the stack in produc&shy;tion code: only if we want to spend our time solving an inte&shy;res&shy;ting problem. However, unders&shy;tan&shy;ding its struc&shy;ture shows us that it’s appa&shy;rently simple to edit it and get data from it. I mean if you create an API to extend the functi&shy;o&shy;na&shy;lity of your appli&shy;ca&shy;tion and if this API doesn’t give access to some data, that doesn’t mean that this data can’t be accessed. That’s why always check that your appli&shy;ca&shy;tion is hack proof.</p>
+<p>Of course in general terms, we don’t need to edit the stack in produc&shy;tion code: only if we want to spend our time solving an inte&shy;res&shy;ting problem. However&shy;, unders&shy;tan&shy;ding its struc&shy;ture shows us that it’s appa&shy;rently simple to edit it and get data from it. I mean if you create an API to extend the functi&shy;o&shy;na&shy;lity of your appli&shy;ca&shy;tion and if this API doesn’t give access to some data, that doesn’t mean that this data can’t be accessed. That’s why always check that your appli&shy;ca&shy;tion is hack proof.</p>
 <div class="paragraph-right-side">55</div>
 </div>
 

@@ -133,12 +133,12 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 p code:not(.highlight), li code:not(.highlight) {
     font-size: 0.7em;
-    padding: 3px;
     color: darkslateblue;
 }
 
 /* style for manual selecting */
 .box {
+    padding: 3px;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
@@ -233,6 +233,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     font-weight: 400;
     font-family: inherit;
+    hyphens: none;
 }
 
 h1 {
@@ -246,23 +247,32 @@ h1 {
 
 h2 {
     padding-top: 1.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    margin-bottom: 0.5em;
     font-family: Charter, Arial, Helvetica Neue, sans-serif;
-    font-size: 1.25em;
-    width: 70%;
+    font-size: 1.4em;
+    text-align: center;
 }
 
 h3 {
-    padding-top: 1em;
-    font-size: 1.3em;
+    padding-top: 1.2em;
+    font-family: Charter, Arial, Helvetica Neue, sans-serif;
+    font-size: 1.15em;
+    width: 70%;
+}
+
+h4 {
+    padding: 1em 0 0 0;
+    font-size: 1.2em;
     font-weight: 300;
     font-style: italic;
 }
 
-h4 {
-    margin: 20px 0 10px 0;
-    font-size: 16pt;
-    font-weight: 500;
-    font-style: italic;
+h5 {
+    padding: 0.6em 0 0 0;
+    font-weight: 300;
+    font-size: 1.1em;
 }
 
 /* Sidenotes */
@@ -677,7 +687,7 @@ footer > div {
 /* MD */
 @media (max-width: 991px) {
     
-    h2 {
+    h3 {
         width:80%;
     }
 
@@ -904,7 +914,17 @@ footer > div {
         font-size: 10pt;
         padding: 3px;
     }
-   
+
+    *[class*='lang-'] > div, pre > code {
+        padding-left: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    
+    ol li, ul li {
+        padding-left: 0.2em;	
+    }
+    
     p, li {
         line-height: 24px;
     }    
@@ -1218,7 +1238,7 @@ AppDomain.UnhandledException</a></li>
                             </li>
                             <li>
                                 <p>
-                                <a href="../../..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></p>
+                                <a href="../../..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон IDisposable</a></p>
                             </li>
                             <li>
                                 <p>
@@ -1280,15 +1300,13 @@ AppDomain.UnhandledException</a></li>
             <p class="d-none d-sm-block d-md-none">MD</p>
             <p class="d-none d-lg-block d-xl-none">LG</p>
             <p class="d-none d-xl-block">XL</p> -->
-            <h2 id="section">События об исключительных ситуациях</h2>
+            <h2 id="section">Собы&shy;тия об исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;циях</h2>
 <blockquote>
-<p >
-<a href="https://github.com/sidristij/dotnetbook/issues/51">Ссылка на обсуждение</a></p>
+<p><a href="https://github.com/sidristij/dotnetbook/issues/51">Ссылка на обсуж&shy;де&shy;ние</a></p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p >
-В общем слу&shy;чае мы не всегда знаем о тех исклю&shy;че&shy;ниях, кото&shy;рые про&shy;изой&shy;дут в наших прог&shy;рам&shy;мах потому что прак&shy;ти&shy;чески всегда мы исполь&shy;зуем что-то, что напи&shy;сано дру&shy;гими людьми и что нахо&shy;дится в дру&shy;гих под&shy;сис&shy;те&shy;мах и биб&shy;ли&shy;о&shy;те&shy;ках. Мало того что воз&shy;можны самые раз&shy;ные ситу&shy;а&shy;ции в вашем собст&shy;венном коде, в коде дру&shy;гих биб&shy;ли&shy;о&shy;тек, так ещё и сущес&shy;твует мно&shy;жес&shy;тво проб&shy;лем, свя&shy;зан&shy;ных с испол&shy;не&shy;нием кода в изо&shy;ли&shy;ро&shy;ван&shy;ных доме&shy;нах. И как раз в этом слу&shy;чае было бы крайне полезно уметь полу&shy;чать дан&shy;ные о работе изо&shy;ли&shy;ро&shy;ван&shy;ного кода. Ведь вполне реальной может быть ситу&shy;а&shy;ция, когда сто&shy;рон&shy;ний код перех&shy;ва&shy;ты&shy;вает все без исклю&shy;че&shy;ния ошибки, заг&shy;лу&shy;шив их <code>fault</code> бло&shy;ком:</p>
+<p>В общем слу&shy;чае мы не всегда знаем о тех исклю&shy;че&shy;ниях, кото&shy;рые про&shy;изой&shy;дут в наших прог&shy;рам&shy;мах потому что прак&shy;ти&shy;чески всегда мы исполь&shy;зуем что-то, что напи&shy;сано дру&shy;гими людьми и что нахо&shy;дится в дру&shy;гих под&shy;сис&shy;те&shy;мах и биб&shy;ли&shy;о&shy;те&shy;ках. Мало того что воз&shy;можны самые раз&shy;ные ситу&shy;а&shy;ции в вашем собст&shy;венном коде, в коде дру&shy;гих биб&shy;ли&shy;о&shy;тек, так ещё и сущес&shy;твует мно&shy;жес&shy;тво проб&shy;лем, свя&shy;зан&shy;ных с испол&shy;не&shy;нием кода в изо&shy;ли&shy;ро&shy;ван&shy;ных доме&shy;нах. И как раз в этом слу&shy;чае было бы крайне полезно уметь полу&shy;чать дан&shy;ные о работе изо&shy;ли&shy;ро&shy;ван&shy;ного кода. Ведь вполне реальной может быть ситу&shy;а&shy;ция, когда сто&shy;рон&shy;ний код перех&shy;ва&shy;ты&shy;вает все без исклю&shy;че&shy;ния ошибки, заг&shy;лу&shy;шив их <code>fault</code> бло&shy;ком:</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1301,67 +1319,47 @@ AppDomain.UnhandledException</a></li>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p >
-В такой ситу&shy;а&shy;ции может ока&shy;заться, что выпол&shy;не&shy;ние кода уже не так безо&shy;пасно как выг&shy;ля&shy;дит, но сооб&shy;ще&shy;ний о том, что про&shy;изошли какие-то проб&shy;лемы мы не имеем. Вто&shy;рой вари&shy;ант - когда при&shy;ло&shy;же&shy;ние глу&shy;шит неко&shy;то&shy;рое, пусть даже легаль&shy;ное, исклю&shy;че&shy;ние. А резуль&shy;тат - сле&shy;ду&shy;ю&shy;щее исклю&shy;че&shy;ние в слу&shy;чай&shy;ном месте вызо&shy;вет паде&shy;ние при&shy;ло&shy;же&shy;ния в неко&shy;то&shy;ром буду&shy;щем от слу&shy;чай&shy;ной, каза&shy;лось бы, ошибки. Тут хоте&shy;лось бы иметь предс&shy;тав&shy;ле&shy;ние, какая была пре&shy;дыс&shy;то&shy;рия этой ошибки. Каков ход собы&shy;тий привёл к такой ситу&shy;а&shy;ции. И один из спо&shy;со&shy;бов сде&shy;лать это воз&shy;мож&shy;ным - исполь&shy;зо&shy;вать допол&shy;ни&shy;тель&shy;ные собы&shy;тия, кото&shy;рые отно&shy;сятся к исклю&shy;чи&shy;тель&shy;ным ситу&shy;а&shy;циям: <code>AppDomain.FirstChanceException</code> и <code>AppDomain.UnhandledException</code>.</p>
+<p>В такой ситу&shy;а&shy;ции может ока&shy;заться, что выпол&shy;не&shy;ние кода уже не так безо&shy;пасно как выг&shy;ля&shy;дит, но сооб&shy;ще&shy;ний о том, что про&shy;изошли какие-то проб&shy;лемы мы не имеем. Вто&shy;рой вари&shy;ант  &mdash;  когда при&shy;ло&shy;же&shy;ние глу&shy;шит неко&shy;то&shy;рое, пусть даже легаль&shy;ное, исклю&shy;че&shy;ние. А резуль&shy;тат  &mdash;  сле&shy;ду&shy;ю&shy;щее исклю&shy;че&shy;ние в слу&shy;чай&shy;ном месте вызо&shy;вет паде&shy;ние при&shy;ло&shy;же&shy;ния в неко&shy;то&shy;ром буду&shy;щем от слу&shy;чай&shy;ной, каза&shy;лось бы, ошибки. Тут хоте&shy;лось бы иметь предс&shy;тав&shy;ле&shy;ние, какая была пре&shy;дыс&shy;то&shy;рия этой ошибки. Каков ход собы&shy;тий привёл к такой ситу&shy;а&shy;ции. И один из спо&shy;со&shy;бов сде&shy;лать это воз&shy;мож&shy;ным  &mdash;  исполь&shy;зо&shy;вать допол&shy;ни&shy;тель&shy;ные собы&shy;тия, кото&shy;рые отно&shy;сятся к исклю&shy;чи&shy;тель&shy;ным ситу&shy;а&shy;циям: <code>App&shy;Domain&shy;.First&shy;Chance&shy;Exception</code> и <code>App&shy;Domain&shy;.Unhandled&shy;Exception</code>.</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p >
-Фак&shy;ти&shy;чески, когда вы &laquo;бро&shy;са&shy;ете исклю&shy;че&shy;ние&raquo;, то вызы&shy;ва&shy;ется обыч&shy;ный метод неко&shy;то&shy;рой внут&shy;рен&shy;ней под&shy;сис&shy;темы <code>Throw</code>, кото&shy;рый внутри себя про&shy;де&shy;лы&shy;вает сле&shy;ду&shy;ю&shy;щие опе&shy;ра&shy;ции:</p>
+<p>Фак&shy;ти&shy;чески, когда вы &laquo;бро&shy;са&shy;ете исклю&shy;че&shy;ние&raquo;, то вызы&shy;ва&shy;ется обыч&shy;ный метод неко&shy;то&shy;рой внут&shy;рен&shy;ней под&shy;сис&shy;темы <code>Throw</code>, кото&shy;рый внутри себя про&shy;де&shy;лы&shy;вает сле&shy;ду&shy;ю&shy;щие опе&shy;ра&shy;ции:</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <ul>
-<li>
-<p >
-Вызы&shy;вает <code>AppDomain.FirstChanceException</code></p>
-</li>
-<li>
-<p >
-Ищет в цепочке обра&shy;бот&shy;чи&shy;ков под&shy;хо&shy;дя&shy;щий по фильтрам</p>
-</li>
-<li>
-<p >
-Вызы&shy;вает обра&shy;бот&shy;чик, пред&shy;ва&shy;ри&shy;тельно отка&shy;тив стек на нуж&shy;ный кадр</p>
-</li>
-<li>
-<p >
-Если обра&shy;бот&shy;чик най&shy;ден не был, вызы&shy;ва&shy;ется <code>AppDomain.UnhandledException</code>, обру&shy;ши&shy;вая поток, в кото&shy;ром про&shy;изошло исклю&shy;че&shy;ние.</p>
-</li>
+<li>Вызы&shy;вает <code>App&shy;Domain&shy;.First&shy;Chance&shy;Exception</code></li>
+<li>Ищет в цепочке обра&shy;бот&shy;чи&shy;ков под&shy;хо&shy;дя&shy;щий по фильтрам</li>
+<li>Вызы&shy;вает обра&shy;бот&shy;чик, пред&shy;ва&shy;ри&shy;тельно отка&shy;тив стек на нуж&shy;ный кадр</li>
+<li>Если обра&shy;бот&shy;чик най&shy;ден не был, вызы&shy;ва&shy;ется <code>App&shy;Domain&shy;.Unhandled&shy;Exception</code>, обру&shy;ши&shy;вая поток, в кото&shy;ром про&shy;изошло исклю&shy;че&shy;ние.</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p >
-Сразу сле&shy;дует ого&shy;во&shy;риться, отве&shy;тив на муча&shy;ю&shy;щий мно&shy;гие умы воп&shy;рос: есть ли воз&shy;мож&shy;ность как-то отме&shy;нить исклю&shy;че&shy;ние, воз&shy;ник&shy;шее в неконт&shy;ро&shy;ли&shy;ру&shy;е&shy;мом коде, кото&shy;рый испол&shy;ня&shy;ется в изо&shy;ли&shy;ро&shy;ван&shy;ном домене, не обру&shy;ши&shy;вая тем самым поток, в кото&shy;ром это исклю&shy;че&shy;ние было выб&shy;ро&shy;шено? Ответ лако&shy;ни&shy;чен и прост: нет. Если исклю&shy;че&shy;ние не перех&shy;ва&shy;ты&shy;ва&shy;ется на всем диа&shy;па&shy;зоне выз&shy;ван&shy;ных мето&shy;дов, оно не может быть обра&shy;бо&shy;тано в прин&shy;ципе. Иначе воз&shy;ни&shy;кает стран&shy;ная ситу&shy;а&shy;ция: если мы при помощи <code>AppDomain.FirstChanceException</code> обра&shy;ба&shy;ты&shy;ваем (некий син&shy;те&shy;ти&shy;чес&shy;кий <code>catch</code>) исклю&shy;че&shy;ние, то на какой кадр дол&shy;жен отка&shy;титься стек потока? Как это задать в рам&shy;ках пра&shy;вил .NET CLR? Никак. Это просто не воз&shy;можно. Един&shy;ствен&shy;ное что мы можем сде&shy;лать - зап&shy;ро&shy;то&shy;ко&shy;ли&shy;ро&shy;вать полу&shy;чен&shy;ную инфор&shy;ма&shy;цию для буду&shy;щих иссле&shy;до&shy;ва&shy;ний.</p>
+<p>Сразу сле&shy;дует ого&shy;во&shy;риться, отве&shy;тив на муча&shy;ю&shy;щий мно&shy;гие умы воп&shy;рос: есть ли воз&shy;мож&shy;ность как-то отме&shy;нить исклю&shy;че&shy;ние, воз&shy;ник&shy;шее в неконт&shy;ро&shy;ли&shy;ру&shy;е&shy;мом коде, кото&shy;рый испол&shy;ня&shy;ется в изо&shy;ли&shy;ро&shy;ван&shy;ном домене, не обру&shy;ши&shy;вая тем самым поток, в кото&shy;ром это исклю&shy;че&shy;ние было выб&shy;ро&shy;шено? Ответ лако&shy;ни&shy;чен и прост: нет. Если исклю&shy;че&shy;ние не перех&shy;ва&shy;ты&shy;ва&shy;ется на всем диа&shy;па&shy;зоне выз&shy;ван&shy;ных мето&shy;дов, оно не может быть обра&shy;бо&shy;тано в прин&shy;ципе. Иначе воз&shy;ни&shy;кает стран&shy;ная ситу&shy;а&shy;ция: если мы при помощи <code>App&shy;Domain&shy;.First&shy;Chance&shy;Exception</code> обра&shy;ба&shy;ты&shy;ваем (некий син&shy;те&shy;ти&shy;чес&shy;кий <code>catch</code>) исклю&shy;че&shy;ние, то на какой кадр дол&shy;жен отка&shy;титься стек потока? Как это задать в рам&shy;ках пра&shy;вил .NET CLR? Никак. Это просто не воз&shy;можно. Един&shy;ствен&shy;ное что мы можем сде&shy;лать  &mdash;  зап&shy;ро&shy;то&shy;ко&shy;ли&shy;ро&shy;вать полу&shy;чен&shy;ную инфор&shy;ма&shy;цию для буду&shy;щих иссле&shy;до&shy;ва&shy;ний.</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p >
-Вто&shy;рое, о чем сле&shy;дует расс&shy;ка&shy;зать &laquo;на берегу&raquo; - это почему эти собы&shy;тия вве&shy;дены не у <code>Thread</code>, а у <code>AppDomain</code>. Ведь если сле&shy;до&shy;вать логике, исклю&shy;че&shy;ния воз&shy;ни&shy;кают где? В потоке испол&shy;не&shy;ния команд. Т.е. фак&shy;ти&shy;чески у <code>Thread</code>. Так почему же проб&shy;лемы воз&shy;ни&shy;кают у домена? Ответ очень прост: для каких ситу&shy;а&shy;ций соз&shy;да&shy;ва&shy;лись <code>AppDomain.FirstChanceException</code> и <code>AppDomain.UnhandledException</code>? Помимо всего про&shy;чего - для соз&shy;да&shy;ния песоч&shy;ниц для пла&shy;ги&shy;нов. Т.е. для ситу&shy;а&shy;ций, когда есть некий <code>AppDomain</code>, кото&shy;рый нас&shy;троен на Partial&shy;Trust. Внутри этого App&shy;Domain может про&shy;ис&shy;хо&shy;дить что угодно: там в любой момент могут соз&shy;да&shy;ваться потоки, или исполь&shy;зо&shy;ваться уже сущес&shy;тву&shy;ю&shy;щие из Thread&shy;Pool. Тогда полу&shy;ча&shy;ется что мы, будучи нахо&shy;дясь сна&shy;ружи от этого про&shy;цесса (не мы писали тот код) не можем никак под&shy;пи&shy;саться на собы&shy;тия внут&shy;рен&shy;них пото&shy;ков. Просто потому что мы поня&shy;тия не имеем что там за потоки были соз&shy;даны. Зато мы гаран&shy;ти&shy;ро&shy;ванно имеем <code>AppDomain</code>, кото&shy;рый орга&shy;ни&shy;зует песоч&shy;ницу и ссылка на кото&shy;рый у нас есть.</p>
+<p>Вто&shy;рое, о чем сле&shy;дует расс&shy;ка&shy;зать &laquo;на берегу&raquo;  &mdash;  это почему эти собы&shy;тия вве&shy;дены не у <code>Thread</code>, а у <code>App&shy;Domain</code>. Ведь если сле&shy;до&shy;вать логике, исклю&shy;че&shy;ния воз&shy;ни&shy;кают где? В потоке испол&shy;не&shy;ния команд. Т.е. фак&shy;ти&shy;чески у <code>Thread</code>. Так почему же проб&shy;лемы воз&shy;ни&shy;кают у домена? Ответ очень прост: для каких ситу&shy;а&shy;ций соз&shy;да&shy;ва&shy;лись <code>App&shy;Domain&shy;.First&shy;Chance&shy;Exception</code> и <code>App&shy;Domain&shy;.Unhandled&shy;Exception</code>? Помимо всего про&shy;чего  &mdash;  для соз&shy;да&shy;ния песоч&shy;ниц для пла&shy;ги&shy;нов. Т.е. для ситу&shy;а&shy;ций, когда есть некий <code>App&shy;Domain</code>, кото&shy;рый нас&shy;троен на Partial&shy;Trust&shy;. Внутри этого App&shy;Domain может про&shy;ис&shy;хо&shy;дить что угодно: там в любой момент могут соз&shy;да&shy;ваться потоки, или исполь&shy;зо&shy;ваться уже сущес&shy;тву&shy;ю&shy;щие из Thread&shy;Pool&shy;. Тогда полу&shy;ча&shy;ется что мы, будучи нахо&shy;дясь сна&shy;ружи от этого про&shy;цесса (не мы писали тот код) не можем никак под&shy;пи&shy;саться на собы&shy;тия внут&shy;рен&shy;них пото&shy;ков. Просто потому что мы поня&shy;тия не имеем что там за потоки были соз&shy;даны. Зато мы гаран&shy;ти&shy;ро&shy;ванно имеем <code>App&shy;Domain</code>, кото&shy;рый орга&shy;ни&shy;зует песоч&shy;ницу и ссылка на кото&shy;рый у нас есть.</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p >
-Итак, по факту нам пре&shy;дос&shy;тав&shy;ля&shy;ется два кра&shy;е&shy;вых собы&shy;тия: что-то про&shy;изошло, чего не пред&shy;по&shy;ла&shy;га&shy;лось (<code>FirstChanceExecption</code>) и &laquo;все плохо&raquo;, никто не обра&shy;бо&shy;тал исклю&shy;чи&shy;тель&shy;ную ситу&shy;а&shy;цию: она ока&shy;за&shy;лась не пре&shy;дус&shy;мот&shy;рен&shy;ной. А потому поток испол&shy;не&shy;ния команд не имеет смысла и он (<code>Thread</code>) будет отгру&shy;жен.</p>
+<p>Итак, по факту нам пре&shy;дос&shy;тав&shy;ля&shy;ется два кра&shy;е&shy;вых собы&shy;тия: что-то про&shy;изошло, чего не пред&shy;по&shy;ла&shy;га&shy;лось (<code>First&shy;Chance&shy;Execption</code>) и &laquo;все плохо&raquo;, никто не обра&shy;бо&shy;тал исклю&shy;чи&shy;тель&shy;ную ситу&shy;а&shy;цию: она ока&shy;за&shy;лась не пре&shy;дус&shy;мот&shy;рен&shy;ной. А потому поток испол&shy;не&shy;ния команд не имеет смысла и он (<code>Thread</code>) будет отгру&shy;жен.</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p >
-Что можно полу&shy;чить, имея дан&shy;ные собы&shy;тия и почему плохо что раз&shy;ра&shy;бот&shy;чики обхо&shy;дят эти собы&shy;тия сто&shy;ро&shy;ной?</p>
+<p>Что можно полу&shy;чить, имея дан&shy;ные собы&shy;тия и почему плохо что раз&shy;ра&shy;бот&shy;чики обхо&shy;дят эти собы&shy;тия сто&shy;ро&shy;ной?</p>
 <div class="paragraph-right-side">07</div>
 </div>
-<h3 id="appdomain.firstchanceexception">AppDomain.FirstChanceException</h3>
+<h3 id="appdomain.firstchanceexception">App&shy;Domain&shy;.First&shy;Chance&shy;Exception</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p >
-Это собы&shy;тие по своей сути носит чисто инфор&shy;ма&shy;ци&shy;он&shy;ный харак&shy;тер и не может быть &laquo;обра&shy;бо&shy;тано&raquo;. Его задача - уве&shy;до&shy;мить вас, что в рам&shy;ках дан&shy;ного домена про&shy;изошло исклю&shy;че&shy;ние, и оно после обра&shy;ботки собы&shy;тия начнёт обра&shy;ба&shy;ты&shy;ваться кодом при&shy;ло&shy;же&shy;ния. Его испол&shy;не&shy;ние несёт за собой пару осо&shy;бен&shy;нос&shy;тей, о кото&shy;рых необ&shy;хо&shy;димо пом&shy;нить во время про&shy;ек&shy;ти&shy;ро&shy;ва&shy;ния обра&shy;бот&shy;чика.</p>
+<p>Это собы&shy;тие по своей сути носит чисто инфор&shy;ма&shy;ци&shy;он&shy;ный харак&shy;тер и не может быть &laquo;обра&shy;бо&shy;тано&raquo;. Его задача  &mdash;  уве&shy;до&shy;мить вас, что в рам&shy;ках дан&shy;ного домена про&shy;изошло исклю&shy;че&shy;ние, и оно после обра&shy;ботки собы&shy;тия начнёт обра&shy;ба&shy;ты&shy;ваться кодом при&shy;ло&shy;же&shy;ния. Его испол&shy;не&shy;ние несёт за собой пару осо&shy;бен&shy;нос&shy;тей, о кото&shy;рых необ&shy;хо&shy;димо пом&shy;нить во время про&shy;ек&shy;ти&shy;ро&shy;ва&shy;ния обра&shy;бот&shy;чика.</p>
 <div class="paragraph-right-side">08</div>
 </div>
-<p >
-Но давайте для начала пос&shy;мот&shy;рим на прос&shy;той син&shy;те&shy;ти&shy;чес&shy;кий при&shy;мер его обра&shy;ботки:</p>
+<p>Но давайте для начала пос&shy;мот&shy;рим на прос&shy;той син&shy;те&shy;ти&shy;чес&shy;кий при&shy;мер его обра&shy;ботки:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">void</span> Main()
 {
@@ -1380,14 +1378,12 @@ AppDomain.UnhandledException</a></li>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
-<p >
-Чем при&shy;ме&shy;ча&shy;те&shy;лен дан&shy;ный код? Где бы некий код ни сге&shy;не&shy;ри&shy;ро&shy;вал бы исклю&shy;че&shy;ние пер&shy;вое что про&shy;и&shy;зойдёт - это его логи&shy;ро&shy;ва&shy;ние в кон&shy;соль. Т.е. даже если вы забу&shy;дете или не смо&shy;жете пре&shy;дус&shy;мот&shy;реть обра&shy;ботку неко&shy;то&shy;рого типа исклю&shy;че&shy;ния оно все равно появится в жур&shy;нале собы&shy;тий, кото&shy;рое вы орга&shy;ни&shy;зу&shy;ете. Вто&shy;рое - нес&shy;колько стран&shy;ное усло&shy;вие выб&shy;роса внут&shy;рен&shy;него исклю&shy;че&shy;ния. Все дело в том, что внутри обра&shy;бот&shy;чика <code>FirstChanceException</code> вы не можете просто взять и бро&shy;сить ещё одно исклю&shy;че&shy;ние. Ско&shy;рее даже так: внутри обра&shy;бот&shy;чика First&shy;Chance&shy;Exception вы <em>не имеете возможности</em> бро&shy;сить хоть какое-либо исклю&shy;че&shy;ние. Если вы так сде&shy;ла&shy;ете, воз&shy;можны два вари&shy;анта собы&shy;тий. При пер&shy;вом, если бы не было усло&shy;вия <code>if(++counter == 1)</code>, мы бы полу&shy;чили бес&shy;ко&shy;неч&shy;ный выб&shy;рос <code>FirstChanceException</code> для все новых и новых <code>ArgumentOutOfRangeException</code>. А что это зна&shy;чит? Это зна&shy;чит, что на опре&shy;делённом этапе мы бы полу&shy;чили <code>StackOverflowException</code>: <code>throw new Exception(&quot;Hello!&quot;)</code> вызы&shy;вает CLR метод Throw, кото&shy;рый вызы&shy;вает <code>FirstChanceException</code>, кото&shy;рый вызы&shy;вает <code>Throw</code> уже для <code>ArgumentOutOfRangeException</code> и далее - по рекур&shy;сии. Вто&shy;рой вари&shy;ант: мы защи&shy;ти&shy;лись по глу&shy;бине рекур&shy;сии при помощи усло&shy;вия по <code>counter</code>. Т.е. в дан&shy;ном слу&shy;чае мы бро&shy;саем исклю&shy;че&shy;ние только один раз. Резуль&shy;тат более чем нео&shy;жи&shy;дан&shy;ный: мы полу&shy;чим исклю&shy;чи&shy;тель&shy;ную ситу&shy;а&shy;цию, кото&shy;рая фак&shy;ти&shy;чески отра&shy;ба&shy;ты&shy;вает внутри инстр&shy;укции <code>Throw</code>. А что под&shy;хо&shy;дит более всего для дан&shy;ного типа ошибки? Сог&shy;ласно ECMA-335 если инстр&shy;укция была вве&shy;дена в исклю&shy;чи&shy;тель&shy;ное поло&shy;же&shy;ние, дол&shy;жно быть выб&shy;ро&shy;шено <code>ExecutionEngineException</code>! А эту исклю&shy;чи&shy;тель&shy;ную ситу&shy;а&shy;цию мы обра&shy;бо&shy;тать никак не в сос&shy;то&shy;я&shy;нии. Она при&shy;во&shy;дит к пол&shy;ному вылету из при&shy;ло&shy;же&shy;ния. Какие же вари&shy;анты безо&shy;пас&shy;ной обра&shy;ботки у нас есть?</p>
+<p>Чем при&shy;ме&shy;ча&shy;те&shy;лен дан&shy;ный код? Где бы некий код ни сге&shy;не&shy;ри&shy;ро&shy;вал бы исклю&shy;че&shy;ние пер&shy;вое что про&shy;и&shy;зойдёт  &mdash;  это его логи&shy;ро&shy;ва&shy;ние в кон&shy;соль. Т.е. даже если вы забу&shy;дете или не смо&shy;жете пре&shy;дус&shy;мот&shy;реть обра&shy;ботку неко&shy;то&shy;рого типа исклю&shy;че&shy;ния оно все равно появится в жур&shy;нале собы&shy;тий, кото&shy;рое вы орга&shy;ни&shy;зу&shy;ете. Вто&shy;рое  &mdash;  нес&shy;колько стран&shy;ное усло&shy;вие выб&shy;роса внут&shy;рен&shy;него исклю&shy;че&shy;ния. Все дело в том, что внутри обра&shy;бот&shy;чика <code>First&shy;Chance&shy;Exception</code> вы не можете просто взять и бро&shy;сить ещё одно исклю&shy;че&shy;ние. Ско&shy;рее даже так: внутри обра&shy;бот&shy;чика First&shy;Chance&shy;Exception вы <em>не име&shy;ете воз&shy;мож&shy;ности</em> бро&shy;сить хоть какое-либо исклю&shy;че&shy;ние. Если вы так сде&shy;ла&shy;ете, воз&shy;можны два вари&shy;анта собы&shy;тий. При пер&shy;вом, если бы не было усло&shy;вия <code>if(++counter == 1)</code>, мы бы полу&shy;чили бес&shy;ко&shy;неч&shy;ный выб&shy;рос <code>First&shy;Chance&shy;Exception</code> для все новых и новых <code>Argument&shy;Out&shy;Of&shy;Range&shy;Exception</code>. А что это зна&shy;чит? Это зна&shy;чит, что на опре&shy;делённом этапе мы бы полу&shy;чили <code>Stack&shy;Overflow&shy;Exception</code>: <code>throw new Exception&shy;("Hello&shy;!")</code> вызы&shy;вает CLR метод Throw&shy;, кото&shy;рый вызы&shy;вает <code>First&shy;Chance&shy;Exception</code>, кото&shy;рый вызы&shy;вает <code>Throw</code> уже для <code>Argument&shy;Out&shy;Of&shy;Range&shy;Exception</code> и далее  &mdash;  по рекур&shy;сии. Вто&shy;рой вари&shy;ант: мы защи&shy;ти&shy;лись по глу&shy;бине рекур&shy;сии при помощи усло&shy;вия по <code>counter</code>. Т.е. в дан&shy;ном слу&shy;чае мы бро&shy;саем исклю&shy;че&shy;ние только один раз. Резуль&shy;тат более чем нео&shy;жи&shy;дан&shy;ный: мы полу&shy;чим исклю&shy;чи&shy;тель&shy;ную ситу&shy;а&shy;цию, кото&shy;рая фак&shy;ти&shy;чески отра&shy;ба&shy;ты&shy;вает внутри инстр&shy;укции <code>Throw</code>. А что под&shy;хо&shy;дит более всего для дан&shy;ного типа ошибки? Сог&shy;ласно ECMA-335 если инстр&shy;укция была вве&shy;дена в исклю&shy;чи&shy;тель&shy;ное поло&shy;же&shy;ние, дол&shy;жно быть выб&shy;ро&shy;шено <code>Execution&shy;Engine&shy;Exception</code>! А эту исклю&shy;чи&shy;тель&shy;ную ситу&shy;а&shy;цию мы обра&shy;бо&shy;тать никак не в сос&shy;то&shy;я&shy;нии. Она при&shy;во&shy;дит к пол&shy;ному вылету из при&shy;ло&shy;же&shy;ния. Какие же вари&shy;анты безо&shy;пас&shy;ной обра&shy;ботки у нас есть?</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
-<p >
-Пер&shy;вое, что при&shy;хо&shy;дит в голову - это выс&shy;та&shy;вить <code>try-catch</code> блок на весь код обра&shy;бот&shy;чика <code>FirstChanceException</code>:</p>
+<p>Пер&shy;вое, что при&shy;хо&shy;дит в голову  &mdash;  это выс&shy;та&shy;вить <code>try-catch</code> блок на весь код обра&shy;бот&shy;чика <code>First&shy;Chance&shy;Exception</code>:</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1448,14 +1444,12 @@ Success
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
-<p >
-Т.е. с одной сто&shy;роны у нас есть код обра&shy;ботки собы&shy;тия <code>FirstChanceException</code>, а с дру&shy;гой - допол&shy;ни&shy;тель&shy;ный код обра&shy;ботки исклю&shy;че&shy;ний в самом <code>FirstChanceException</code>. Однако мето&shy;дики лог&shy;ги&shy;ро&shy;ва&shy;ния обеих ситу&shy;а&shy;ций дол&shy;жны отли&shy;чаться. Если логи&shy;ро&shy;ва&shy;ние обра&shy;ботки собы&shy;тия может идти как угодно, то обра&shy;ботка ошибки логики обра&shy;ботки <code>FirstChanceException</code> дол&shy;жно идти без исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций в прин&shy;ципе. Вто&shy;рое, что вы навер&shy;няка заме&shy;тили - это синх&shy;ро&shy;ни&shy;за&shy;ция между пото&shy;ками. Тут может воз&shy;ник&shy;нуть воп&shy;рос: зачем она тут, если любое исклю&shy;че&shy;ние рож&shy;дено в каком-либо потоке, а зна&shy;чит <code>FirstChanceException</code> по идее дол&shy;жен быть пото&shy;ко&shy;бе&shy;зо&shy;пас&shy;ным. Однако, все не так жиз&shy;не&shy;ра&shy;дос&shy;тно. <code>FirstChanceException</code> у нас воз&shy;ни&shy;кает у App&shy;Domain. А это зна&shy;чит, что он воз&shy;ни&shy;кает для любого потока, стар&shy;то&shy;ван&shy;ного в опре&shy;делённом домене. Т.е. если у нас есть домен, внутри кото&shy;рого стар&shy;то&shy;вано нес&shy;колько пото&shy;ков, то <code>FirstChanceException</code> могут идти в парал&shy;лель. А это зна&shy;чит, что нам необ&shy;хо&shy;димо как-то защи&shy;тить себя синх&shy;ро&shy;ни&shy;за&shy;цией: нап&shy;ри&shy;мер при помощи <code>lock</code>.</p>
+<p>Т.е. с одной сто&shy;роны у нас есть код обра&shy;ботки собы&shy;тия <code>First&shy;Chance&shy;Exception</code>, а с дру&shy;гой  &mdash;  допол&shy;ни&shy;тель&shy;ный код обра&shy;ботки исклю&shy;че&shy;ний в самом <code>First&shy;Chance&shy;Exception</code>. Однако мето&shy;дики лог&shy;ги&shy;ро&shy;ва&shy;ния обеих ситу&shy;а&shy;ций дол&shy;жны отли&shy;чаться. Если логи&shy;ро&shy;ва&shy;ние обра&shy;ботки собы&shy;тия может идти как угодно, то обра&shy;ботка ошибки логики обра&shy;ботки <code>First&shy;Chance&shy;Exception</code> дол&shy;жно идти без исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций в прин&shy;ципе. Вто&shy;рое, что вы навер&shy;няка заме&shy;тили  &mdash;  это синх&shy;ро&shy;ни&shy;за&shy;ция между пото&shy;ками. Тут может воз&shy;ник&shy;нуть воп&shy;рос: зачем она тут, если любое исклю&shy;че&shy;ние рож&shy;дено в каком-либо потоке, а зна&shy;чит <code>First&shy;Chance&shy;Exception</code> по идее дол&shy;жен быть пото&shy;ко&shy;бе&shy;зо&shy;пас&shy;ным. Однако, все не так жиз&shy;не&shy;ра&shy;дос&shy;тно. <code>First&shy;Chance&shy;Exception</code> у нас воз&shy;ни&shy;кает у App&shy;Domain&shy;. А это зна&shy;чит, что он воз&shy;ни&shy;кает для любого потока, стар&shy;то&shy;ван&shy;ного в опре&shy;делённом домене. Т.е. если у нас есть домен, внутри кото&shy;рого стар&shy;то&shy;вано нес&shy;колько пото&shy;ков, то <code>First&shy;Chance&shy;Exception</code> могут идти в парал&shy;лель. А это зна&shy;чит, что нам необ&shy;хо&shy;димо как-то защи&shy;тить себя синх&shy;ро&shy;ни&shy;за&shy;цией: нап&shy;ри&shy;мер при помощи <code>lock</code>.</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
-<p >
-Вто&shy;рой спо&shy;соб - поп&shy;ро&shy;бо&shy;вать увести обра&shy;ботку в сосед&shy;ний поток, при&shy;над&shy;ле&shy;жа&shy;щий дру&shy;гому домену при&shy;ло&shy;же&shy;ний. Однако тут стоит ого&shy;во&shy;риться, что при такой реа&shy;ли&shy;за&shy;ции мы дол&shy;жны пос&shy;тро&shy;ить выде&shy;лен&shy;ный домен именно под эту задачу чтобы не полу&shy;чи&shy;лось так, что этот домен могут поло&shy;жить дру&shy;гие потоки, кото&shy;рые явля&shy;ются рабо&shy;чими:</p>
+<p>Вто&shy;рой спо&shy;соб  &mdash;  поп&shy;ро&shy;бо&shy;вать увести обра&shy;ботку в сосед&shy;ний поток, при&shy;над&shy;ле&shy;жа&shy;щий дру&shy;гому домену при&shy;ло&shy;же&shy;ний. Однако тут стоит ого&shy;во&shy;риться, что при такой реа&shy;ли&shy;за&shy;ции мы дол&shy;жны пос&shy;тро&shy;ить выде&shy;лен&shy;ный домен именно под эту задачу чтобы не полу&shy;чи&shy;лось так, что этот домен могут поло&shy;жить дру&shy;гие потоки, кото&shy;рые явля&shy;ются рабо&shy;чими:</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1541,21 +1535,18 @@ Success
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
-<p >
-В дан&shy;ном слу&shy;чае обра&shy;ботка <code>FirstChanceException</code> про&shy;ис&shy;хо&shy;дит мак&shy;си&shy;мально безо&shy;пасно: в сосед&shy;нем потоке, при&shy;над&shy;ле&shy;жа&shy;щем сосед&shy;нему домену. Ошибки обра&shy;ботки сооб&shy;ще&shy;ния при этом не могут обру&shy;шить рабо&shy;чие потоки при&shy;ло&shy;же&shy;ния. Плюс отдельно можно пос&shy;лу&shy;шать Unhandled&shy;Exception домена логи&shy;ро&shy;ва&shy;ния сооб&shy;ще&shy;ний: фаталь&shy;ные ошибки при логи&shy;ро&shy;ва&shy;нии не обру&shy;шат все при&shy;ло&shy;же&shy;ние.</p>
+<p>В дан&shy;ном слу&shy;чае обра&shy;ботка <code>First&shy;Chance&shy;Exception</code> про&shy;ис&shy;хо&shy;дит мак&shy;си&shy;мально безо&shy;пасно: в сосед&shy;нем потоке, при&shy;над&shy;ле&shy;жа&shy;щем сосед&shy;нему домену. Ошибки обра&shy;ботки сооб&shy;ще&shy;ния при этом не могут обру&shy;шить рабо&shy;чие потоки при&shy;ло&shy;же&shy;ния. Плюс отдельно можно пос&shy;лу&shy;шать Unhandled&shy;Exception домена логи&shy;ро&shy;ва&shy;ния сооб&shy;ще&shy;ний: фаталь&shy;ные ошибки при логи&shy;ро&shy;ва&shy;нии не обру&shy;шат все при&shy;ло&shy;же&shy;ние.</p>
 <div class="paragraph-right-side">13</div>
 </div>
-<h3 id="appdomain.unhandledexception">AppDomain.UnhandledException</h3>
+<h3 id="appdomain.unhandledexception">App&shy;Domain&shy;.Unhandled&shy;Exception</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
-<p >
-Вто&shy;рое сооб&shy;ще&shy;ние, кото&shy;рое мы можем перех&shy;ва&shy;тить и кото&shy;рое каса&shy;ется обра&shy;ботки исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций - это <code>AppDomain.UnhandledException</code>. Это сооб&shy;ще&shy;ние - очень пло&shy;хая новость для нас пос&shy;кольку обоз&shy;на&shy;чает что не наш&shy;лось никого кто смог бы найти спо&shy;соб обра&shy;ботки воз&shy;ник&shy;шей ошибки в неко&shy;то&shy;ром потоке. Также, если про&shy;изошла такая ситу&shy;а&shy;ция, все что мы можем сде&shy;лать - это &laquo;разг&shy;рести&raquo; пос&shy;л&shy;едствия такой ошибки. Т.е. каким-либо обра&shy;зом зачис&shy;тить ресурсы, при&shy;над&shy;ле&shy;жа&shy;щие только этому потоку, если тако&shy;вые соз&shy;да&shy;ва&shy;лись. Однако, ещё более луч&shy;шая ситу&shy;а&shy;ция - обра&shy;ба&shy;ты&shy;вать исклю&shy;че&shy;ния, нахо&shy;дясь в &laquo;корне&raquo; пото&shy;ков не зава&shy;ли&shy;вая поток. Т.е. по сути ста&shy;вить <code>try-catch</code>. Давайте поп&shy;ро&shy;буем расс&shy;мот&shy;реть целе&shy;со&shy;об&shy;раз&shy;ность такого пове&shy;де&shy;ния.</p>
+<p>Вто&shy;рое сооб&shy;ще&shy;ние, кото&shy;рое мы можем перех&shy;ва&shy;тить и кото&shy;рое каса&shy;ется обра&shy;ботки исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций  &mdash;  это <code>App&shy;Domain&shy;.Unhandled&shy;Exception</code>. Это сооб&shy;ще&shy;ние  &mdash;  очень пло&shy;хая новость для нас пос&shy;кольку обоз&shy;на&shy;чает что не наш&shy;лось никого кто смог бы найти спо&shy;соб обра&shy;ботки воз&shy;ник&shy;шей ошибки в неко&shy;то&shy;ром потоке. Также, если про&shy;изошла такая ситу&shy;а&shy;ция, все что мы можем сде&shy;лать  &mdash;  это &laquo;разг&shy;рести&raquo; пос&shy;л&shy;едствия такой ошибки. Т.е. каким-либо обра&shy;зом зачис&shy;тить ресурсы, при&shy;над&shy;ле&shy;жа&shy;щие только этому потоку, если тако&shy;вые соз&shy;да&shy;ва&shy;лись. Однако, ещё более луч&shy;шая ситу&shy;а&shy;ция  &mdash;  обра&shy;ба&shy;ты&shy;вать исклю&shy;че&shy;ния, нахо&shy;дясь в &laquo;корне&raquo; пото&shy;ков не зава&shy;ли&shy;вая поток. Т.е. по сути ста&shy;вить <code>try-catch</code>. Давайте поп&shy;ро&shy;буем расс&shy;мот&shy;реть целе&shy;со&shy;об&shy;раз&shy;ность такого пове&shy;де&shy;ния.</p>
 <div class="paragraph-right-side">14</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
-<p >
-Пусть мы имеем биб&shy;ли&shy;о&shy;теку, кото&shy;рой необ&shy;хо&shy;димо соз&shy;да&shy;вать потоки и осу&shy;щ&shy;ествлять какую-то логику в этих пото&shy;ках. Мы, как поль&shy;зо&shy;ва&shy;тели этой биб&shy;ли&shy;о&shy;теки инте&shy;ре&shy;су&shy;емся только гаран&shy;тией вызо&shy;вов API а также полу&shy;че&shy;нием сооб&shy;ще&shy;ний об ошиб&shy;ках. Если биб&shy;ли&shy;о&shy;тека будет рушить потоки не ноти&shy;фи&shy;ци&shy;руя об этом, нам это мало чем может помочь. Мало того обру&shy;ше&shy;ние потока при&shy;ведёт к сооб&shy;ще&shy;нию <code>AppDomain.UnhandledException</code>, в кото&shy;ром нет инфор&shy;ма&shy;ции о том, какой конк&shy;ретно поток лёг на бок. Если же речь идёт о нашем коде, обру&shy;ши&shy;ва&shy;ющийся поток нам тоже вряд-ли будет полез&shy;ным. Во вся&shy;ком слу&shy;чае необ&shy;хо&shy;ди&shy;мости в этом я не встр&shy;ечал. Наша задача - обра&shy;бо&shy;тать ошибки пра&shy;вильно, отдать инфор&shy;ма&shy;цию об их воз&shy;ник&shy;но&shy;ве&shy;нии в жур&shy;нал оши&shy;бок и кор&shy;рек&shy;тно завер&shy;шить работу потока. Т.е. по сути, обер&shy;нуть метод, с кото&shy;рого стар&shy;тует поток в <code>try-catch</code>:</p>
+<p>Пусть мы имеем биб&shy;ли&shy;о&shy;теку, кото&shy;рой необ&shy;хо&shy;димо соз&shy;да&shy;вать потоки и осу&shy;щ&shy;ествлять какую-то логику в этих пото&shy;ках. Мы, как поль&shy;зо&shy;ва&shy;тели этой биб&shy;ли&shy;о&shy;теки инте&shy;ре&shy;су&shy;емся только гаран&shy;тией вызо&shy;вов API а также полу&shy;че&shy;нием сооб&shy;ще&shy;ний об ошиб&shy;ках. Если биб&shy;ли&shy;о&shy;тека будет рушить потоки не ноти&shy;фи&shy;ци&shy;руя об этом, нам это мало чем может помочь. Мало того обру&shy;ше&shy;ние потока при&shy;ведёт к сооб&shy;ще&shy;нию <code>App&shy;Domain&shy;.Unhandled&shy;Exception</code>, в кото&shy;ром нет инфор&shy;ма&shy;ции о том, какой конк&shy;ретно поток лёг на бок. Если же речь идёт о нашем коде, обру&shy;ши&shy;ва&shy;ющийся поток нам тоже вряд-ли будет полез&shy;ным. Во вся&shy;ком слу&shy;чае необ&shy;хо&shy;ди&shy;мости в этом я не встр&shy;ечал. Наша задача  &mdash;  обра&shy;бо&shy;тать ошибки пра&shy;вильно, отдать инфор&shy;ма&shy;цию об их воз&shy;ник&shy;но&shy;ве&shy;нии в жур&shy;нал оши&shy;бок и кор&shy;рек&shy;тно завер&shy;шить работу потока. Т.е. по сути, обер&shy;нуть метод, с кото&shy;рого стар&shy;тует поток в <code>try-catch</code>:</p>
 <div class="paragraph-right-side">15</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1575,8 +1566,7 @@ Success
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
-<p >
-В такой схеме мы полу&shy;чим то, что надо: с одной сто&shy;роны мы не обру&shy;шим поток. С дру&shy;гой - кор&shy;рек&shy;тно очис&shy;тим локаль&shy;ные ресурсы, если они были соз&shy;даны. Ну и в дове&shy;сок - орга&shy;ни&shy;зуем жур&shy;на&shy;ли&shy;ро&shy;ва&shy;ние полу&shy;чен&shy;ной ошибки. Но пос&shy;тойте, ска&shy;жете вы. Как-то вы лихо сос&shy;ко&shy;чили с воп&shy;роса собы&shy;тия <code>AppDomain.UnhandledException</code>. Неу&shy;жели оно сов&shy;сем не нужно? Нужно. Но только для того чтобы сооб&shy;щить, что мы забыли обер&shy;нуть какие-то потоки в <code>try-catch</code> со всей необ&shy;хо&shy;ди&shy;мой логи&shy;кой. Именно со всей: с логи&shy;ро&shy;ва&shy;нием и очист&shy;кой ресур&shy;сов. Иначе это будет совер&shy;шенно не пра&shy;вильно: брать и гасить все исклю&shy;че&shy;ния, как будто их и не было вовсе.</p>
+<p>В такой схеме мы полу&shy;чим то, что надо: с одной сто&shy;роны мы не обру&shy;шим поток. С дру&shy;гой  &mdash;  кор&shy;рек&shy;тно очис&shy;тим локаль&shy;ные ресурсы, если они были соз&shy;даны. Ну и в дове&shy;сок  &mdash;  орга&shy;ни&shy;зуем жур&shy;на&shy;ли&shy;ро&shy;ва&shy;ние полу&shy;чен&shy;ной ошибки. Но пос&shy;тойте, ска&shy;жете вы. Как-то вы лихо сос&shy;ко&shy;чили с воп&shy;роса собы&shy;тия <code>App&shy;Domain&shy;.Unhandled&shy;Exception</code>. Неу&shy;жели оно сов&shy;сем не нужно? Нужно. Но только для того чтобы сооб&shy;щить, что мы забыли обер&shy;нуть какие-то потоки в <code>try-catch</code> со всей необ&shy;хо&shy;ди&shy;мой логи&shy;кой. Именно со всей: с логи&shy;ро&shy;ва&shy;нием и очист&shy;кой ресур&shy;сов. Иначе это будет совер&shy;шенно не пра&shy;вильно: брать и гасить все исклю&shy;че&shy;ния, как будто их и не было вовсе.</p>
 <div class="paragraph-right-side">16</div>
 </div>
 

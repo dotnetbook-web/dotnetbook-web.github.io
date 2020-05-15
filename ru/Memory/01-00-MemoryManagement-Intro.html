@@ -133,12 +133,12 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 p code:not(.highlight), li code:not(.highlight) {
     font-size: 0.7em;
-    padding: 3px;
     color: darkslateblue;
 }
 
 /* style for manual selecting */
 .box {
+    padding: 3px;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
@@ -233,6 +233,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     font-weight: 400;
     font-family: inherit;
+    hyphens: none;
 }
 
 h1 {
@@ -246,23 +247,32 @@ h1 {
 
 h2 {
     padding-top: 1.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    margin-bottom: 0.5em;
     font-family: Charter, Arial, Helvetica Neue, sans-serif;
-    font-size: 1.25em;
-    width: 70%;
+    font-size: 1.4em;
+    text-align: center;
 }
 
 h3 {
-    padding-top: 1em;
-    font-size: 1.3em;
+    padding-top: 1.2em;
+    font-family: Charter, Arial, Helvetica Neue, sans-serif;
+    font-size: 1.15em;
+    width: 70%;
+}
+
+h4 {
+    padding: 1em 0 0 0;
+    font-size: 1.2em;
     font-weight: 300;
     font-style: italic;
 }
 
-h4 {
-    margin: 20px 0 10px 0;
-    font-size: 16pt;
-    font-weight: 500;
-    font-style: italic;
+h5 {
+    padding: 0.6em 0 0 0;
+    font-weight: 300;
+    font-size: 1.1em;
 }
 
 /* Sidenotes */
@@ -677,7 +687,7 @@ footer > div {
 /* MD */
 @media (max-width: 991px) {
     
-    h2 {
+    h3 {
         width:80%;
     }
 
@@ -904,7 +914,17 @@ footer > div {
         font-size: 10pt;
         padding: 3px;
     }
-   
+
+    *[class*='lang-'] > div, pre > code {
+        padding-left: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    
+    ol li, ul li {
+        padding-left: 0.2em;	
+    }
+    
     p, li {
         line-height: 24px;
     }    
@@ -1216,7 +1236,7 @@ footer > div {
                             </li>
                             <li>
                                 <p>
-                                <a href="../..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></p>
+                                <a href="../..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон IDisposable</a></p>
                             </li>
                             <li>
                                 <p>
@@ -1278,82 +1298,46 @@ footer > div {
             <p class="d-none d-sm-block d-md-none">MD</p>
             <p class="d-none d-lg-block d-xl-none">LG</p>
             <p class="d-none d-xl-block">XL</p> -->
-            <h1 id="section">Основы управления памятью</h1>
+            <h1 id="section">Основы управ&shy;ле&shy;ния памятью</h1>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p >
-Когда вы дума&shy;ете о раз&shy;ра&shy;ботке любого .NET при&shy;ло&shy;же&shy;ния до недав&shy;них пор можно было себе поз&shy;во&shy;лить счи&shy;тать, что при&shy;ло&shy;же&shy;ние, кото&shy;рое вы дела&shy;ете, будет всегда рабо&shy;тать на одной и той же плат&shy;форме: это опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;тема Windows, запу&shy;щен&shy;ная поверх тех&shy;но&shy;ло&shy;ги&shy;чес&shy;кого стека Intel. Сей&shy;час же с каж&shy;дым про&shy;жи&shy;тым днем мы вхо&shy;дим в новую эпоху: плат&shy;форма .NET стала поис&shy;тине крос&shy;сплат&shy;фор&shy;мен&shy;ной, пус&shy;тив новые корни в сто&shy;рону всех дос&shy;туп&shy;ных нас&shy;толь&shy;ных опе&shy;ра&shy;ци&shy;он&shy;ных сис&shy;тем. Это  &mdash;  прек&shy;рас&shy;ное время и наш долг сей&shy;час не поте&shy;рять нить и остаться вост&shy;ре&shy;бо&shy;ван&shy;ными спе&shy;ци&shy;алис&shy;тами. Ведь когда toolset ста&shy;но&shy;вится крос&shy;сплат&shy;фор&shy;мен&shy;ным, это озна&shy;чает что мы обя&shy;заны начать смот&shy;реть внутрь. Изу&shy;чать, как рабо&shy;тает дви&shy;га&shy;тель нашей плат&shy;формы. Чтобы пони&shy;мать, почему тот ведет себя, так или иначе, на раз&shy;лич&shy;ных сис&shy;те&shy;мах.</p>
+<p>Когда вы дума&shy;ете о раз&shy;ра&shy;ботке любого .NET при&shy;ло&shy;же&shy;ния до недав&shy;них пор можно было себе поз&shy;во&shy;лить счи&shy;тать, что при&shy;ло&shy;же&shy;ние, кото&shy;рое вы дела&shy;ете, будет всегда рабо&shy;тать на одной и той же плат&shy;форме: это опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;тема Windows&shy;, запу&shy;щен&shy;ная поверх тех&shy;но&shy;ло&shy;ги&shy;чес&shy;кого стека Intel&shy;. Сей&shy;час же с каж&shy;дым про&shy;жи&shy;тым днем мы вхо&shy;дим в новую эпоху: плат&shy;форма .NET стала поис&shy;тине крос&shy;сплат&shy;фор&shy;мен&shy;ной, пус&shy;тив новые корни в сто&shy;рону всех дос&shy;туп&shy;ных нас&shy;толь&shy;ных опе&shy;ра&shy;ци&shy;он&shy;ных сис&shy;тем. Это  &mdash;  прек&shy;рас&shy;ное время и наш долг сей&shy;час не поте&shy;рять нить и остаться вост&shy;ре&shy;бо&shy;ван&shy;ными спе&shy;ци&shy;алис&shy;тами. Ведь когда toolset ста&shy;но&shy;вится крос&shy;сплат&shy;фор&shy;мен&shy;ным, это озна&shy;чает что мы обя&shy;заны начать смот&shy;реть внутрь. Изу&shy;чать, как рабо&shy;тает дви&shy;га&shy;тель нашей плат&shy;формы. Чтобы пони&shy;мать, почему тот ведет себя, так или иначе, на раз&shy;лич&shy;ных сис&shy;те&shy;мах.</p>
 <div class="paragraph-right-side">01</div>
 </div>
-<div class="aside-container">
-<p >
-Вто&shy;рая мысль, кото&shy;рую мне хоте&shy;лось бы пере&shy;дать через стра&shy;ницы дан&shy;ной книги: даже если ваши сер&shy;вера будут свер&shy;хпр&shy;ои&shy;зв&shy;од&shy;ител&shy;ьн&shy;ыми. Даже если они будут нас&shy;только быст&shy;рыми, что будет казаться, что опти&shy;ми&shy;за&shy;ции  &mdash;  пос&shy;лед&shy;нее дело, о кото&shy;ром стоит думать&hellip; Вы всё равно начнёте опти&shy;ми&shy;зи&shy;ро&shy;вать код. Вспом&shy;ните: когда-то всем извест&shy;ный сис&shy;тем&shy;ный прог&shy;рам&shy;мист Билл Гейтс ска&shy;зал, что 640 Кб памяти дол&shy;жно хва&shy;тить любому. И на тот момент это было прав&shy;дой. И на тот момент если скажи любому, что через каких-то 20 лет один компьютер смо&shy;жет заме&shy;нить нес&shy;колько тысяч сер&shy;ве&shy;ров того вре&shy;мени, вам бы ска&shy;зали: в ваше время про&shy;из&shy;во&shy;ди&shy;тель&shy;ность нас&shy;только высо&shy;кая, что над опти&shy;ми&shy;за&shy;цией навер&shy;няка не стоит даже заду&shy;мы&shy;ваться. Но что мы видим? Всё боль&shy;шее коли&shy;чес&shy;тво людей ухо&shy;дит в онлайн. Всё боль&shy;шее коли&shy;чес&shy;тво людей начи&shy;нает поль&shy;зо&shy;ваться смарт&shy;фо&shy;нами и как след&shy;с&shy;твие  &mdash;  онлайн тор&shy;гов&shy;лей. А этим сис&shy;те&shy;мам чтобы выдер&shy;жи&shy;вать всё нарас&shy;та&shy;ю&shy;щие наг&shy;рузки хочется сэко&shy;но&shy;мить: арен&shy;до&shy;вы&shy;вать мень&shy;шее коли&shy;чес&shy;тво сер&shy;ве&shy;ров при всё нарас&shy;та&shy;ю&shy;щей наг&shy;рузке. И поверьте: эпоха сети Интер&shy;нет только взяла старт: в прош&shy;лое уйдёт насе&shy;ле&shy;ние, не при&shy;ни&shy;ма&shy;ю&shy;щее сов&shy;ре&shy;мен&shy;ных тех&shy;но&shy;ло&shy;гий, а на смену ему придёт поко&shy;ле&shy;ние, не зна&shy;ю&shy;щее дру&shy;гого пути. И даже если сер&shy;вер&shy;ные сис&shy;темы буду&shy;щего будут выдер&shy;жи&shy;вать наг&shy;рузки в 1,000 раз боль&shy;шие.. Конечно же сайты &laquo;поп&shy;роще&raquo; могут быть напи&shy;саны как угодно плохо&hellip; Но если ваша цель  &mdash;  рабо&shy;тать в ком&shy;па&shy;ниях топо&shy;вого уровня, опти&shy;ми&shy;за&shy;цией вы будете зани&shy;маться всегда.</p>
+<div class="aside-container"><p>Вто&shy;рая мысль, кото&shy;рую мне хоте&shy;лось бы пере&shy;дать через стра&shy;ницы дан&shy;ной книги: даже если ваши сер&shy;вера будут свер&shy;хпр&shy;ои&shy;зв&shy;од&shy;ител&shy;ьн&shy;ыми. Даже если они будут нас&shy;только быст&shy;рыми, что будет казаться, что опти&shy;ми&shy;за&shy;ции  &mdash;  пос&shy;лед&shy;нее дело, о кото&shy;ром стоит думать&hellip; Вы всё равно начнёте опти&shy;ми&shy;зи&shy;ро&shy;вать код. Вспом&shy;ните: когда-то всем извест&shy;ный сис&shy;тем&shy;ный прог&shy;рам&shy;мист Билл Гейтс ска&shy;зал, что 640 Кб памяти дол&shy;жно хва&shy;тить любому. И на тот момент это было прав&shy;дой. И на тот момент если скажи любому, что через каких-то 20 лет один компьютер смо&shy;жет заме&shy;нить нес&shy;колько тысяч сер&shy;ве&shy;ров того вре&shy;мени, вам бы ска&shy;зали: в ваше время про&shy;из&shy;во&shy;ди&shy;тель&shy;ность нас&shy;только высо&shy;кая, что над опти&shy;ми&shy;за&shy;цией навер&shy;няка не стоит даже заду&shy;мы&shy;ваться. Но что мы видим? Всё боль&shy;шее коли&shy;чес&shy;тво людей ухо&shy;дит в онлайн. Всё боль&shy;шее коли&shy;чес&shy;тво людей начи&shy;нает поль&shy;зо&shy;ваться смарт&shy;фо&shy;нами и как след&shy;с&shy;твие  &mdash;  онлайн тор&shy;гов&shy;лей. А этим сис&shy;те&shy;мам чтобы выдер&shy;жи&shy;вать всё нарас&shy;та&shy;ю&shy;щие наг&shy;рузки хочется сэко&shy;но&shy;мить: арен&shy;до&shy;вы&shy;вать мень&shy;шее коли&shy;чес&shy;тво сер&shy;ве&shy;ров при всё нарас&shy;та&shy;ю&shy;щей наг&shy;рузке. И поверьте: эпоха сети Интер&shy;нет только взяла старт: в прош&shy;лое уйдёт насе&shy;ле&shy;ние, не при&shy;ни&shy;ма&shy;ю&shy;щее сов&shy;ре&shy;мен&shy;ных тех&shy;но&shy;ло&shy;гий, а на смену ему придёт поко&shy;ле&shy;ние, не зна&shy;ю&shy;щее дру&shy;гого пути. И даже если сер&shy;вер&shy;ные сис&shy;темы буду&shy;щего будут выдер&shy;жи&shy;вать наг&shy;рузки в 1,000 раз боль&shy;шие.. Конечно же сайты &laquo;поп&shy;роще&raquo; могут быть напи&shy;саны как угодно плохо&hellip; Но если ваша цель  &mdash;  рабо&shy;тать в ком&shy;па&shy;ниях топо&shy;вого уровня, опти&shy;ми&shy;за&shy;цией вы будете зани&shy;маться всегда.</p>
 <div class="aside-side-container side-regular-block">
-<p >
-Каса&shy;тельно этого воп&shy;роса, конечно же, может сущест&shy;во&shy;вать мно&shy;жес&shy;тво мне&shy;ний. Однако, как опыт так и ста&shy;тис&shy;тика по зарп&shy;ла&shy;там на раз&shy;лич&shy;ных пор&shy;та&shy;лах гово&shy;рит нам о том, что век&shy;тор раз&shy;ви&shy;тия индус&shy;т&shy;рии именно такой.</p>
+<p>Каса&shy;тельно этого воп&shy;роса, конечно же, может сущест&shy;во&shy;вать мно&shy;жес&shy;тво мне&shy;ний. Однако, как опыт так и ста&shy;тис&shy;тика по зарп&shy;ла&shy;там на раз&shy;лич&shy;ных пор&shy;та&shy;лах гово&shy;рит нам о том, что век&shy;тор раз&shy;ви&shy;тия индус&shy;т&shy;рии именно такой.</p>
 </div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p >
-Прог&shy;рам&shy;мисты, на мой взгляд, раз&shy;де&shy;лятся если можно так выра&shy;зиться на классы: это деле&shy;ние уже в неко&shy;то&shy;ром смысле нача&shy;лось. Однако сег&shy;мен&shy;та&shy;ция будет более выра&shy;жен&shy;ной: на мой взгляд сливки будут сни&shy;мать люди с хоро&shy;шим мате&shy;ма&shy;ти&shy;чес&shy;ким аппа&shy;ра&shy;том. Эти люди будут решать воп&shy;росы раз&shy;ра&shy;ботки сис&shy;тем ИИ, ней&shy;ро&shy;се&shy;тей, пото&shy;ко&shy;вого шиф&shy;ро&shy;ва&shy;ния и пере&shy;дачи боль&shy;ших объёмов траф&shy;фика. Воп&shy;росы кратко- и дол&shy;гос&shy;роч&shy;ного хра&shy;не&shy;ния дан&shy;ных, высо&shy;кос&shy;ко&shy;рост&shy;ного извле&shy;че&shy;ния дан&shy;ных по нечётким кри&shy;те&shy;риям, ассо&shy;ци&shy;атив&shy;ным кри&shy;те&shy;риям. Рас&shy;поз&shy;на&shy;ния и син&shy;теза обра&shy;зов и речи. Сис&shy;темы сле&shy;же&shy;ния за всеми аспек&shy;тами жизни людей и про&shy;дажи этой инфор&shy;ма&shy;ции через API. Эта работа воз&shy;можна только со зна&shy;нием мате&shy;ма&shy;ти&shy;чес&shy;кого аппа&shy;рата и с глу&shy;бо&shy;ким зна&shy;нием плат&shy;формы, на кото&shy;рой идёт работа. Оби&shy;лие вывода раз&shy;ра&shy;бот&shy;чи&shy;ков ВУЗами соз&shy;даст избы&shy;точ&shy;ное пред&shy;ло&shy;же&shy;ние, излишки кото&shy;рого будут зани&shy;маться наст&shy;рой&shy;кой шаб&shy;ло&shy;нов &laquo;под мага&shy;зин&raquo;. Они будут мас&shy;тера этого дела: ведь работа эта  &mdash;  пото&shy;ко&shy;вая. И каж&shy;дый из клас&shy;сов будет, как это при&shy;нято, иметь зарп&shy;лат&shy;ную вилку. Уйти в вер&shy;х&shy;нюю зарп&shy;лат&shy;ную вилку помимо всего про&shy;чего вам помо&shy;гут стра&shy;ницы этой книги. Ровно как и соз&shy;дать её этими зна&shy;ни&shy;ями.</p>
+<p>Прог&shy;рам&shy;мисты, на мой взгляд, раз&shy;де&shy;лятся если можно так выра&shy;зиться на классы: это деле&shy;ние уже в неко&shy;то&shy;ром смысле нача&shy;лось. Однако сег&shy;мен&shy;та&shy;ция будет более выра&shy;жен&shy;ной: на мой взгляд сливки будут сни&shy;мать люди с хоро&shy;шим мате&shy;ма&shy;ти&shy;чес&shy;ким аппа&shy;ра&shy;том. Эти люди будут решать воп&shy;росы раз&shy;ра&shy;ботки сис&shy;тем ИИ, ней&shy;ро&shy;се&shy;тей, пото&shy;ко&shy;вого шиф&shy;ро&shy;ва&shy;ния и пере&shy;дачи боль&shy;ших объёмов траф&shy;фика. Воп&shy;росы кратко- и дол&shy;гос&shy;роч&shy;ного хра&shy;не&shy;ния дан&shy;ных, высо&shy;кос&shy;ко&shy;рост&shy;ного извле&shy;че&shy;ния дан&shy;ных по нечётким кри&shy;те&shy;риям, ассо&shy;ци&shy;атив&shy;ным кри&shy;те&shy;риям. Рас&shy;поз&shy;на&shy;ния и син&shy;теза обра&shy;зов и речи. Сис&shy;темы сле&shy;же&shy;ния за всеми аспек&shy;тами жизни людей и про&shy;дажи этой инфор&shy;ма&shy;ции через API. Эта работа воз&shy;можна только со зна&shy;нием мате&shy;ма&shy;ти&shy;чес&shy;кого аппа&shy;рата и с глу&shy;бо&shy;ким зна&shy;нием плат&shy;формы, на кото&shy;рой идёт работа. Оби&shy;лие вывода раз&shy;ра&shy;бот&shy;чи&shy;ков ВУЗами соз&shy;даст избы&shy;точ&shy;ное пред&shy;ло&shy;же&shy;ние, излишки кото&shy;рого будут зани&shy;маться наст&shy;рой&shy;кой шаб&shy;ло&shy;нов &laquo;под мага&shy;зин&raquo;. Они будут мас&shy;тера этого дела: ведь работа эта  &mdash;  пото&shy;ко&shy;вая. И каж&shy;дый из клас&shy;сов будет, как это при&shy;нято, иметь зарп&shy;лат&shy;ную вилку. Уйти в вер&shy;х&shy;нюю зарп&shy;лат&shy;ную вилку помимо всего про&shy;чего вам помо&shy;гут стра&shy;ницы этой книги. Ровно как и соз&shy;дать её этими зна&shy;ни&shy;ями.</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <blockquote class="big-quote">
-<p >
- Рынок высо&shy;коп&shy;ро&shy;из&shy;во&shy;ди&shy;тель&shy;ного прог&shy;рамм&shy;ного обес&shy;пе&shy;че&shy;ния создаётся нали&shy;чием про&shy;фес&shy;си&shy;о&shy;на&shy;лов, кото&shy;рые своей рабо&shy;той сами соз&shy;дают спрос на себя.</p>
+<p> Рынок высо&shy;коп&shy;ро&shy;из&shy;во&shy;ди&shy;тель&shy;ного прог&shy;рамм&shy;ного обес&shy;пе&shy;че&shy;ния создаётся нали&shy;чием про&shy;фес&shy;си&shy;о&shy;на&shy;лов, кото&shy;рые своей рабо&shy;той сами соз&shy;дают спрос на себя.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p >
-Под&shy;сис&shy;тему управ&shy;ле&shy;ния памятью мы будем изу&shy;чать слой за слоем. Нач&shy;нем от слоя, близ&shy;кого к пони&shy;ма&shy;нию ее работы &laquo;на паль&shy;цах&raquo; и закон&shy;чим  &mdash;  слоем архи&shy;тек&shy;туры на самом низ&shy;ком уровне  &mdash;  про&shy;цес&shy;сор&shy;ном. Ведь чтобы до конца пони&shy;мать всю проб&shy;ле&shy;ма&shy;тику работы с памятью  &mdash;  надо знать все, начи&shy;ная от про&shy;цес&shy;сор&shy;ных кэшей закан&shy;чи&shy;вая опти&shy;ми&shy;за&shy;ци&shy;ями работы c кучами .NET.</p>
+<p>Под&shy;сис&shy;тему управ&shy;ле&shy;ния памятью мы будем изу&shy;чать слой за слоем. Нач&shy;нем от слоя, близ&shy;кого к пони&shy;ма&shy;нию ее работы &laquo;на паль&shy;цах&raquo; и закон&shy;чим  &mdash;  слоем архи&shy;тек&shy;туры на самом низ&shy;ком уровне  &mdash;  про&shy;цес&shy;сор&shy;ном. Ведь чтобы до конца пони&shy;мать всю проб&shy;ле&shy;ма&shy;тику работы с памятью  &mdash;  надо знать все, начи&shy;ная от про&shy;цес&shy;сор&shy;ных кэшей закан&shy;чи&shy;вая опти&shy;ми&shy;за&shy;ци&shy;ями работы c кучами .NET.</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <h2 id="section-1">Основы основ</h2>
-<div class="aside-container">
-<p >
-Если взять любое при&shy;ло&shy;же&shy;ние и поп&shy;ро&shy;бо&shy;вать грубо раз&shy;де&shy;лить его на две части, то полу&shy;чится, что любое при&shy;ло&shy;же&shy;ние сос&shy;тоит фак&shy;ти&shy;чески из двух самых важ&shy;ных вещей: кода, кото&shy;рый испол&shy;ня&shy;ется про&shy;цес&shy;со&shy;ром, и дан&shy;ных, кото&shy;рыми этот код опе&shy;ри&shy;рует в своей работе. При&shy;чем если с кодом все более-менее ясно, то дан&shy;ные можно поде&shy;лить на нес&shy;колько боль&shy;ших сек&shy;ций:</p>
+<div class="aside-container"><p>Если взять любое при&shy;ло&shy;же&shy;ние и поп&shy;ро&shy;бо&shy;вать грубо раз&shy;де&shy;лить его на две части, то полу&shy;чится, что любое при&shy;ло&shy;же&shy;ние сос&shy;тоит фак&shy;ти&shy;чески из двух самых важ&shy;ных вещей: кода, кото&shy;рый испол&shy;ня&shy;ется про&shy;цес&shy;со&shy;ром, и дан&shy;ных, кото&shy;рыми этот код опе&shy;ри&shy;рует в своей работе. При&shy;чем если с кодом все более-менее ясно, то дан&shy;ные можно поде&shy;лить на нес&shy;колько боль&shy;ших сек&shy;ций:</p>
 <div class="aside-side-container side-regular-block">
-<p >
-Самым боль&shy;шим воп&shy;ро&shy;сом при фор&shy;ми&shy;ро&shy;ва&shy;нии линии повест&shy;во&shy;ва&shy;ния был воп&shy;рос выбора тем: что конк&shy;ретно вклю&shy;чать в книгу? Понятно, что работа с памятью и биб&shy;ли&shy;о&shy;тека, опре&shy;де&shy;ля&shy;ю&shy;щая модель работы в мно&shy;го&shy;по&shy;точ&shy;ной среде вклю&shy;чены быть дол&shy;жны в поло&shy;ном (но адек&shy;ват&shy;ном) объ&shy;еме. Однако не только ими фор&shy;ми&shy;ру&shy;ется плат&shy;форма.</p>
-<p >
-Что ещё вклю&shy;чать в архи&shy;тек&shy;туру, а что  &mdash;  оста&shy;вить за бор&shy;том как часть BCL? Ведь BCL одними сво&shy;ими час&shy;тями задаёт тон всему .NET: опре&shy;де&shy;ляет архи&shy;тек&shy;туру ваших при&shy;ло&shy;же&shy;ний. С дру&shy;гой  &mdash;  явля&shy;етя биб&shy;ли&shy;о&shy;те&shy;кой стан&shy;дарт&shy;ных клас&shy;сов.</p>
+<p>Самым боль&shy;шим воп&shy;ро&shy;сом при фор&shy;ми&shy;ро&shy;ва&shy;нии линии повест&shy;во&shy;ва&shy;ния был воп&shy;рос выбора тем: что конк&shy;ретно вклю&shy;чать в книгу? Понятно, что работа с памятью и биб&shy;ли&shy;о&shy;тека, опре&shy;де&shy;ля&shy;ю&shy;щая модель работы в мно&shy;го&shy;по&shy;точ&shy;ной среде вклю&shy;чены быть дол&shy;жны в поло&shy;ном (но адек&shy;ват&shy;ном) объ&shy;еме. Однако не только ими фор&shy;ми&shy;ру&shy;ется плат&shy;форма.</p>
+<p>Что ещё вклю&shy;чать в архи&shy;тек&shy;туру, а что  &mdash;  оста&shy;вить за бор&shy;том как часть BCL? Ведь BCL одними сво&shy;ими час&shy;тями задаёт тон всему .NET: опре&shy;де&shy;ляет архи&shy;тек&shy;туру ваших при&shy;ло&shy;же&shy;ний. С дру&shy;гой  &mdash;  явля&shy;етя биб&shy;ли&shy;о&shy;те&shy;кой стан&shy;дарт&shy;ных клас&shy;сов.</p>
 </div>
 </div>
 <ul>
-<li>
-<p >
-<strong>Thread stack</strong>  &mdash;  область памяти, кото&shy;рая есть у любого потока и через кото&shy;рую рабо&shy;тают все вызовы всех мето&shy;дов, плюс там же орга&shy;ни&shy;зо&shy;вано хра&shy;ни&shy;лище для локаль&shy;ных пере&shy;мен&shy;ных мето&shy;дов;</p>
-</li>
-<li>
-<p >
-<strong>Code Heap</strong>  &mdash;  это область памяти, куда JITter скла&shy;ды&shy;вает резуль&shy;таты ком&shy;пи&shy;ля&shy;ции MSIL;</p>
-</li>
-<li>
-<p >
-<strong>Small Objects Heap</strong>  &mdash;  это куча малень&shy;ких объ&shy;ек&shy;тов. Как бы это не зву&shy;чало, именно так это и назы&shy;ва&shy;ется. По своей сути это  &mdash;  хра&shy;ни&shy;лище объ&shy;ек&shy;тов, раз&shy;мер кото&shy;рых не пре&shy;вы&shy;шает 85К байт;</p>
-</li>
-<li>
-<p >
-<strong>Large Objects Heap</strong>  &mdash;  это куча боль&shy;ших объ&shy;ек&shy;тов. Сюда попа&shy;дают объ&shy;екты, раз&shy;меры кото&shy;рых пре&shy;вы&shy;шают 85K байт;</p>
-</li>
-<li>
-<p >
-<strong>TypeRefs Heap</strong>  &mdash;  куча Type Refe&shy;rences  &mdash;  опи&shy;са&shy;те&shy;лей типов .NET  &mdash;  со сто&shy;роны под&shy;сис&shy;темы CLR (со сто&shy;роны .NET типов выс&shy;ту&shy;пает под&shy;сис&shy;тема Reflec&shy;tion)</p>
-</li>
-<li>
-<p >
-<strong>MethodRefs Heap</strong>  &mdash;  куча Methods Refe&shy;rences  &mdash;  опи&shy;са&shy;те&shy;лей мето&shy;дов .NET  &mdash;  со сто&shy;роны под&shy;сис&shy;темы CLR (со сто&shy;роны .NET типов выс&shy;ту&shy;пает под&shy;сис&shy;тема Reflec&shy;tion)</p>
-</li>
-<li>
-<p >
-И мно&shy;гие дру&shy;гие</p>
-</li>
+<li><strong>Thread stack</strong>  &mdash;  область памяти, кото&shy;рая есть у любого потока и через кото&shy;рую рабо&shy;тают все вызовы всех мето&shy;дов, плюс там же орга&shy;ни&shy;зо&shy;вано хра&shy;ни&shy;лище для локаль&shy;ных пере&shy;мен&shy;ных мето&shy;дов;</li>
+<li><strong>Code Heap</strong>  &mdash;  это область памяти, куда JITter скла&shy;ды&shy;вает резуль&shy;таты ком&shy;пи&shy;ля&shy;ции MSIL;</li>
+<li><strong>Small Objects Heap</strong>  &mdash;  это куча малень&shy;ких объ&shy;ек&shy;тов. Как бы это не зву&shy;чало, именно так это и назы&shy;ва&shy;ется. По своей сути это  &mdash;  хра&shy;ни&shy;лище объ&shy;ек&shy;тов, раз&shy;мер кото&shy;рых не пре&shy;вы&shy;шает 85К байт;</li>
+<li><strong>Large Objects Heap</strong>  &mdash;  это куча боль&shy;ших объ&shy;ек&shy;тов. Сюда попа&shy;дают объ&shy;екты, раз&shy;меры кото&shy;рых пре&shy;вы&shy;шают 85K байт;</li>
+<li><strong>Type&shy;Refs Heap</strong>  &mdash;  куча Type Refe&shy;rences  &mdash;  опи&shy;са&shy;те&shy;лей типов .NET  &mdash;  со сто&shy;роны под&shy;сис&shy;темы CLR (со сто&shy;роны .NET типов выс&shy;ту&shy;пает под&shy;сис&shy;тема Reflection&shy;)</li>
+<li><strong>Method&shy;Refs Heap</strong>  &mdash;  куча Methods Refe&shy;rences  &mdash;  опи&shy;са&shy;те&shy;лей мето&shy;дов .NET  &mdash;  со сто&shy;роны под&shy;сис&shy;темы CLR (со сто&shy;роны .NET типов выс&shy;ту&shy;пает под&shy;сис&shy;тема Reflection&shy;)</li>
+<li>И мно&shy;гие дру&shy;гие</li>
 </ul>
-<blockquote class="breadcrumbs">
-<p >
- <a href="../readme.html">Содержание</a></p>
-</blockquote>
 
         </div>
         <footer>

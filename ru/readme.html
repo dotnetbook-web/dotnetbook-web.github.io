@@ -133,12 +133,12 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 p code:not(.highlight), li code:not(.highlight) {
     font-size: 0.7em;
-    padding: 3px;
     color: darkslateblue;
 }
 
 /* style for manual selecting */
 .box {
+    padding: 3px;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
@@ -233,6 +233,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     font-weight: 400;
     font-family: inherit;
+    hyphens: none;
 }
 
 h1 {
@@ -246,23 +247,32 @@ h1 {
 
 h2 {
     padding-top: 1.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    margin-bottom: 0.5em;
     font-family: Charter, Arial, Helvetica Neue, sans-serif;
-    font-size: 1.25em;
-    width: 70%;
+    font-size: 1.4em;
+    text-align: center;
 }
 
 h3 {
-    padding-top: 1em;
-    font-size: 1.3em;
+    padding-top: 1.2em;
+    font-family: Charter, Arial, Helvetica Neue, sans-serif;
+    font-size: 1.15em;
+    width: 70%;
+}
+
+h4 {
+    padding: 1em 0 0 0;
+    font-size: 1.2em;
     font-weight: 300;
     font-style: italic;
 }
 
-h4 {
-    margin: 20px 0 10px 0;
-    font-size: 16pt;
-    font-weight: 500;
-    font-style: italic;
+h5 {
+    padding: 0.6em 0 0 0;
+    font-weight: 300;
+    font-size: 1.1em;
 }
 
 /* Sidenotes */
@@ -677,7 +687,7 @@ footer > div {
 /* MD */
 @media (max-width: 991px) {
     
-    h2 {
+    h3 {
         width:80%;
     }
 
@@ -904,7 +914,17 @@ footer > div {
         font-size: 10pt;
         padding: 3px;
     }
-   
+
+    *[class*='lang-'] > div, pre > code {
+        padding-left: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    
+    ol li, ul li {
+        padding-left: 0.2em;	
+    }
+    
     p, li {
         line-height: 24px;
     }    
@@ -1214,7 +1234,7 @@ footer > div {
                             </li>
                             <li>
                                 <p>
-                                <a href="..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></p>
+                                <a href="..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон IDisposable</a></p>
                             </li>
                             <li>
                                 <p>
@@ -1276,379 +1296,157 @@ footer > div {
             <p class="d-none d-sm-block d-md-none">MD</p>
             <p class="d-none d-lg-block d-xl-none">LG</p>
             <p class="d-none d-xl-block">XL</p> -->
-            <h2 id="section">Введение</h2>
+            <h2 id="section">Вве&shy;де&shy;ние</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p >
-Эта книга заду&shy;мана мной как мак&shy;си&shy;мально пол&shy;ное опи&shy;са&shy;ние работы .NET CLR, и час&shy;тично - .NET Frame&shy;work и приз&shy;вана в пер&shy;вую оче&shy;редь зас&shy;та&shy;вить пос&shy;мот&shy;реть чита&shy;теля на его внут&shy;рен&shy;нюю струк&shy;туру под нес&shy;колько дру&shy;гим углом: не так, как это дела&shy;ется обычно. Свя&shy;зано это в пер&shy;вую оче&shy;редь с утверж&shy;де&shy;нием, кото&shy;рое может пока&shy;заться мно&shy;гим очень спор&shy;ным: любой раз&shy;ра&shy;бот&shy;чик обя&shy;зан пройти школу C/C++. Почему? Да потому что из высо&shy;ко&shy;уров&shy;не&shy;вых эти языки наи&shy;бо&shy;лее близки к про&shy;цес&shy;сору, и прог&shy;рам&shy;ми&shy;руя на них начи&shy;на&shy;ешь чувс&shy;твовать работу прог&shy;раммы силь&shy;нее. Однако, пони&shy;мая, что мир устроен нес&shy;колько иначе и у нас зачас&shy;тую нет ника&shy;кого вре&shy;мени изу&shy;чать то, чем мы не будем нап&shy;ря&shy;мую поль&shy;зо&shy;ваться, я и решил напи&shy;сать эту книгу, в кото&shy;рой объ&shy;яс&shy;не&shy;ние всех воп&shy;ро&shy;сов идет с более глу&shy;бо&shy;кой чем обычно - пози&shy;ции и с более слож&shy;ными или же поп&shy;росту аль&shy;те&shy;рна&shy;ти&shy;вными при&shy;ме&shy;рами. Кото&shy;рые, помимо своей стан&shy;дарт&shy;ной мис&shy;сии - на самом прос&shy;том коде пока&shy;зать как рабо&shy;тает тот или иной фун&shy;кци&shy;о&shy;нал, сде&shy;лать реве&shy;ранс в аль&shy;те&shy;рна&shy;тивную реальность, пока&shy;зав что все сильно слож&shy;нее чем может пока&shy;заться изна&shy;чально. Зачем? Чтобы и у вас воз&shy;никло чувство пони&shy;ма&shy;ния работы CLR до пос&shy;лед&shy;него вин&shy;тика</p>
+<p>Эта книга заду&shy;мана мной как мак&shy;си&shy;мально пол&shy;ное опи&shy;са&shy;ние работы .NET CLR, и час&shy;тично - .NET Frame&shy;work и приз&shy;вана в пер&shy;вую оче&shy;редь зас&shy;та&shy;вить пос&shy;мот&shy;реть чита&shy;теля на его внут&shy;рен&shy;нюю струк&shy;туру под нес&shy;колько дру&shy;гим углом: не так, как это дела&shy;ется обычно. Свя&shy;зано это в пер&shy;вую оче&shy;редь с утверж&shy;де&shy;нием, кото&shy;рое может пока&shy;заться мно&shy;гим очень спор&shy;ным: любой раз&shy;ра&shy;бот&shy;чик обя&shy;зан пройти школу C/C++. Почему? Да потому что из высо&shy;ко&shy;уров&shy;не&shy;вых эти языки наи&shy;бо&shy;лее близки к про&shy;цес&shy;сору, и прог&shy;рам&shy;ми&shy;руя на них начи&shy;на&shy;ешь чувс&shy;твовать работу прог&shy;раммы силь&shy;нее. Однако, пони&shy;мая, что мир устроен нес&shy;колько иначе и у нас зачас&shy;тую нет ника&shy;кого вре&shy;мени изу&shy;чать то, чем мы не будем нап&shy;ря&shy;мую поль&shy;зо&shy;ваться, я и решил напи&shy;сать эту книгу, в кото&shy;рой объ&shy;яс&shy;не&shy;ние всех воп&shy;ро&shy;сов идет с более глу&shy;бо&shy;кой чем обычно - пози&shy;ции и с более слож&shy;ными или же поп&shy;росту аль&shy;те&shy;рна&shy;ти&shy;вными при&shy;ме&shy;рами. Кото&shy;рые, помимо своей стан&shy;дарт&shy;ной мис&shy;сии - на самом прос&shy;том коде пока&shy;зать как рабо&shy;тает тот или иной фун&shy;кци&shy;о&shy;нал, сде&shy;лать реве&shy;ранс в аль&shy;те&shy;рна&shy;тивную реальность, пока&shy;зав что все сильно слож&shy;нее чем может пока&shy;заться изна&shy;чально. Зачем? Чтобы и у вас воз&shy;никло чувство пони&shy;ма&shy;ния работы CLR до пос&shy;лед&shy;него вин&shy;тика</p>
 <div class="paragraph-right-side">01</div>
 </div>
-<h1 id="section-1">Содержание</h1>
+<h1 id="section-1">Содер&shy;жа&shy;ние</h1>
 <ol>
-<li>
-<p >
-<strong>Часть 1. Память</strong></p>
+<li><strong>Часть 1. Память</strong>
 <ol>
-<li>
-<p >
-<strong>Раздел 1.</strong> Вве&shy;де&shy;ние в управ&shy;ле&shy;ние памятью</p>
+<li><strong>Раз&shy;дел 1.</strong> Вве&shy;де&shy;ние в управ&shy;ле&shy;ние памятью
 <ol>
-<li>
-<p >
-<a href="./Memory/01-00-MemoryManagement-Intro.html">Общие слова</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-02-MemoryManagement-Basics.html">Введение в управление памятью</a></p>
+<li><a href="./Memory/01-00-MemoryManagement-Intro.html">Общие слова</a></li>
+<li><a href="./Memory/01-02-MemoryManagement-Basics.html">Вве&shy;де&shy;ние в управ&shy;ле&shy;ние памятью</a>
 <ol>
-<li>
-<p >
-<a href="./Memory/01-02-MemoryManagement-Basics.html#%D0%BF%D0%B0%D1%80%D0%B0-%D1%81%D0%BB%D0%BE%D0%B2-%D0%BF%D0%B5%D1%80%D0%B5%D0%B4-%D1%81%D1%82%D0%B0%D1%80%D1%82%D0%BE%D0%BC">Пара слов перед стартом</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-02-MemoryManagement-Basics.html#%D0%B2%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D1%8C%D1%8E">Введение в управление памятью</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-02-MemoryManagement-Basics.html#%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D1%8B%D0%B5-%D0%BA%D0%BB%D0%B0%D1%81%D1%81%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8-%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D0%B8-%D0%B8%D1%81%D1%85%D0%BE%D0%B4%D1%8F-%D0%B8%D0%B7-%D0%BB%D0%BE%D0%B3%D0%B8%D0%BA%D0%B8">Возможные классификации памяти исходя из логики</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-02-MemoryManagement-Basics.html#%D0%BA%D0%B0%D0%BA-%D1%8D%D1%82%D0%BE-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D0%B5%D1%82-%D1%83-%D0%BD%D0%B0%D1%81-%D0%BE%D0%B1%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%D0%B0-%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BE%D0%B2">Как это работает у нас. Обоснование выбора архитекторов</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-02-MemoryManagement-Basics.html#%D0%BA%D0%B0%D0%BA-%D1%8D%D1%82%D0%BE-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D0%B5%D1%82-%D1%83-%D0%BD%D0%B0%D1%81">Как это работает у нас</a></p>
-</li>
+<li><a href="./Memory/01-02-MemoryManagement-Basics.html#%D0%BF%D0%B0%D1%80%D0%B0-%D1%81%D0%BB%D0%BE%D0%B2-%D0%BF%D0%B5%D1%80%D0%B5%D0%B4-%D1%81%D1%82%D0%B0%D1%80%D1%82%D0%BE%D0%BC">Пара слов перед стар&shy;том</a></li>
+<li><a href="./Memory/01-02-MemoryManagement-Basics.html#%D0%B2%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D1%8C%D1%8E">Вве&shy;де&shy;ние в управ&shy;ле&shy;ние памятью</a></li>
+<li><a href="./Memory/01-02-MemoryManagement-Basics.html#%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D1%8B%D0%B5-%D0%BA%D0%BB%D0%B0%D1%81%D1%81%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8-%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D0%B8-%D0%B8%D1%81%D1%85%D0%BE%D0%B4%D1%8F-%D0%B8%D0%B7-%D0%BB%D0%BE%D0%B3%D0%B8%D0%BA%D0%B8">Воз&shy;мож&shy;ные клас&shy;си&shy;фи&shy;ка&shy;ции памяти исходя из логики</a></li>
+<li><a href="./Memory/01-02-MemoryManagement-Basics.html#%D0%BA%D0%B0%D0%BA-%D1%8D%D1%82%D0%BE-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D0%B5%D1%82-%D1%83-%D0%BD%D0%B0%D1%81-%D0%BE%D0%B1%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%D0%B0-%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BE%D0%B2">Как это рабо&shy;тает у нас. Обос&shy;но&shy;ва&shy;ние выбора архи&shy;тек&shy;то&shy;ров</a></li>
+<li><a href="./Memory/01-02-MemoryManagement-Basics.html#%D0%BA%D0%B0%D0%BA-%D1%8D%D1%82%D0%BE-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D0%B5%D1%82-%D1%83-%D0%BD%D0%B0%D1%81">Как это рабо&shy;тает у нас</a></li>
 </ol>
 </li>
-<li>
-<p >
-<a href="./Memory/01-04-MemoryManagement-ThreadStack.html">Стек потока</a></p>
+<li><a href="./Memory/01-04-MemoryManagement-ThreadStack.html">Стек потока</a>
 <ol>
-<li>
-<p >
-<a href="./Memory/01-04-MemoryManagement-ThreadStack.html#%D0%B1%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D1%8F-%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0-x86">Базовая структура, платформа x86</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-04-MemoryManagement-ThreadStack.html#%D0%BD%D0%B5%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D1%80%D0%BE-%D0%B8%D1%81%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F-%D0%BD%D0%B0-%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B5-x86">Немного про исключения на платформе x86</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-04-MemoryManagement-ThreadStack.html#%D1%81%D0%BE%D0%B2%D1%81%D0%B5%D0%BC-%D0%BD%D0%B5%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D1%80%D0%BE-%D0%BD%D0%B5%D1%81%D0%BE%D0%B2%D0%B5%D1%80%D1%88%D0%B5%D0%BD%D1%81%D1%82%D0%B2%D0%BE-%D1%81%D1%82%D0%B5%D0%BA%D0%B0-%D0%BF%D0%BE%D1%82%D0%BE%D0%BA%D0%B0">Совсем немного про несовершенство стека потока</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-04-MemoryManagement-ThreadStack.html#%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B9-%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80-%D0%BA%D0%BB%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BF%D0%BE%D1%82%D0%BE%D0%BA%D0%B0-%D0%BD%D0%B0-%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B5-%D1%8586">Большой пример: клонирование потока на платформе х86</a></p>
-</li>
+<li><a href="./Memory/01-04-MemoryManagement-ThreadStack.html#%D0%B1%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D1%8F-%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0-x86">Базо&shy;вая струк&shy;тура, плат&shy;форма x86</a></li>
+<li><a href="./Memory/01-04-MemoryManagement-ThreadStack.html#%D0%BD%D0%B5%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D1%80%D0%BE-%D0%B8%D1%81%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F-%D0%BD%D0%B0-%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B5-x86">Нем&shy;ного про исклю&shy;че&shy;ния на плат&shy;форме x86</a></li>
+<li><a href="./Memory/01-04-MemoryManagement-ThreadStack.html#%D1%81%D0%BE%D0%B2%D1%81%D0%B5%D0%BC-%D0%BD%D0%B5%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D1%80%D0%BE-%D0%BD%D0%B5%D1%81%D0%BE%D0%B2%D0%B5%D1%80%D1%88%D0%B5%D0%BD%D1%81%D1%82%D0%B2%D0%BE-%D1%81%D1%82%D0%B5%D0%BA%D0%B0-%D0%BF%D0%BE%D1%82%D0%BE%D0%BA%D0%B0">Сов&shy;сем нем&shy;ного про несо&shy;вер&shy;шенство стека потока</a></li>
+<li><a href="./Memory/01-04-MemoryManagement-ThreadStack.html#%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B9-%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80-%D0%BA%D0%BB%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BF%D0%BE%D1%82%D0%BE%D0%BA%D0%B0-%D0%BD%D0%B0-%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B5-%D1%8586">Боль&shy;шой при&shy;мер: кло&shy;ни&shy;ро&shy;ва&shy;ние потока на плат&shy;форме х86</a></li>
 </ol>
 </li>
-<li>
-<p >
-<a href="./Memory/01-06-MemoryManagement-EntitiesLifetime.html">Время жизни сущности</a></p>
+<li><a href="./Memory/01-06-MemoryManagement-EntitiesLifetime.html">Время жизни сущ&shy;ности</a>
 <ol>
-<li>
-<p >
-<a href="./Memory/01-06-MemoryManagement-EntitiesLifetime.html#%D1%81%D1%81%D1%8B%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B5-%D1%82%D0%B8%D0%BF%D1%8B">Ссылочные типы</a></p>
+<li><a href="./Memory/01-06-MemoryManagement-EntitiesLifetime.html#%D1%81%D1%81%D1%8B%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B5-%D1%82%D0%B8%D0%BF%D1%8B">Ссы&shy;лоч&shy;ные типы</a>
 <ol>
-<li>
-<p >
-<a href="./Memory/01-06-MemoryManagement-EntitiesLifetime.html#%D0%BE%D0%B1%D1%89%D0%B8%D0%B9-%D0%BE%D0%B1%D0%B7%D0%BE%D1%80">Общий обзор</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-06-MemoryManagement-EntitiesLifetime.html#%D0%B2-%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%83-%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B5%D0%B3%D0%BE-%D0%BF%D0%BE%D0%B4%D1%85%D0%BE%D0%B4%D0%B0">В защиту текущего подхода</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-06-MemoryManagement-EntitiesLifetime.html#%D0%BF%D1%80%D0%B5%D0%B4%D0%B2%D0%B0%D1%80%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5-%D0%B2%D1%8B%D0%B2%D0%BE%D0%B4%D1%8B">Предварительные выводы</a></p>
-</li>
+<li><a href="./Memory/01-06-MemoryManagement-EntitiesLifetime.html#%D0%BE%D0%B1%D1%89%D0%B8%D0%B9-%D0%BE%D0%B1%D0%B7%D0%BE%D1%80">Общий обзор</a></li>
+<li><a href="./Memory/01-06-MemoryManagement-EntitiesLifetime.html#%D0%B2-%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%83-%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B5%D0%B3%D0%BE-%D0%BF%D0%BE%D0%B4%D1%85%D0%BE%D0%B4%D0%B0">В защиту теку&shy;щего под&shy;хода</a></li>
+<li><a href="./Memory/01-06-MemoryManagement-EntitiesLifetime.html#%D0%BF%D1%80%D0%B5%D0%B4%D0%B2%D0%B0%D1%80%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5-%D0%B2%D1%8B%D0%B2%D0%BE%D0%B4%D1%8B">Пред&shy;ва&shy;ри&shy;тель&shy;ные выводы</a></li>
 </ol>
 </li>
 </ol>
 </li>
-<li>
-<p >
-<a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html">RefTypes, ValueTypes, Boxing &amp; Unboxing</a></p>
+<li><a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html">Ref&shy;Types&shy;, Value&shy;Types&shy;, Boxing & Unbo&shy;xing</a>
 <ol>
-<li>
-<p >
-<a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D1%81%D1%81%D1%8B%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B5-%D0%B8-%D0%B7%D0%BD%D0%B0%D1%87%D0%B8%D0%BC%D1%8B%D0%B5-%D1%82%D0%B8%D0%BF%D1%8B-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85">Ссылочные и значимые типы данных</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D0%BA%D0%BE%D0%BF%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5">Копирование</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D0%BF%D0%B5%D1%80%D0%B5%D0%BE%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D1%8F%D0%B5%D0%BC%D1%8B%D0%B5-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B-%D0%B8-%D0%BD%D0%B0%D1%81%D0%BB%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5">Переопределяемые методы и наследование</a></p>
-</li>
-<li>
-<p >
-<a href="/Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BF%D1%80%D0%B8-%D0%B2%D1%8B%D0%B7%D0%BE%D0%B2%D0%B5-%D1%8D%D0%BA%D0%B7%D0%B5%D0%BC%D0%BF%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D1%85-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%BE%D0%B2">Поведение при вызове экземплярных методов</a></p>
-</li>
-<li>
-<p >
-<a href="/Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C-%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C-%D0%BF%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2">Возможность указать положение элементов</a></p>
-</li>
-<li>
-<p >
-<a href="/Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D1%80%D0%B0%D0%B7%D0%BD%D0%B8%D1%86%D0%B0-%D0%B2-%D0%B0%D0%BB%D0%BB%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D0%B8">Разница в аллокации</a></p>
-</li>
-<li>
-<p >
-<a href="/Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8-%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%D0%B0-%D0%BC%D0%B5%D0%B6%D0%B4%D1%83-classstruct">Особенности выбора между class/struct</a></p>
-</li>
-<li>
-<p >
-<a href="/Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D0%B1%D0%B0%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9-%D1%82%D0%B8%D0%BF---object-%D0%B8-%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C-%D1%80%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8-%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%BE%D0%B2-boxing">Базовый тип - Object и возможность реализации интерфейсов. Boxing</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html#nullablet">Nullable&lt;T&gt;</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D0%BF%D0%BE%D0%B3%D1%80%D1%83%D0%B6%D0%B0%D0%B5%D0%BC%D1%81%D1%8F-%D0%B2-boxing-%D0%B5%D1%89%D1%91-%D0%B3%D0%BB%D1%83%D0%B1%D0%B6%D0%B5">Погружаемся в boxing ещё глубже</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D1%87%D1%82%D0%BE-%D0%B5%D1%81%D0%BB%D0%B8-%D1%85%D0%BE%D1%87%D0%B5%D1%82%D1%81%D1%8F-%D0%BB%D0%B8%D1%87%D0%BD%D0%BE-%D0%BF%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D1%82%D1%8C-%D0%BA%D0%B0%D0%BA-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D0%B5%D1%82-boxing">Что если хочется лично посмотреть как работает boxing?</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D0%BF%D0%BE%D1%87%D0%B5%D0%BC%D1%83-net-clr-%D0%BD%D0%B5-%D0%B4%D0%B5%D0%BB%D0%B0%D0%B5%D1%82-%D0%BF%D1%83%D0%BB%D0%BB%D0%B8%D0%BD%D0%B3%D0%B0-%D0%B4%D0%BB%D1%8F-%D0%B1%D0%BE%D0%BA%D1%81%D0%B8%D0%BD%D0%B3%D0%B0-%D1%81%D0%B0%D0%BC%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE">Почему .NET CLR не делает пуллинга для боксинга самостоятельно?</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D0%BF%D0%BE%D1%87%D0%B5%D0%BC%D1%83-%D0%BF%D1%80%D0%B8-%D0%B2%D1%8B%D0%B7%D0%BE%D0%B2%D0%B5-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B0-%D0%BF%D1%80%D0%B8%D0%BD%D0%B8%D0%BC%D0%B0%D1%8E%D1%89%D0%B5%D0%B3%D0%BE-%D1%82%D0%B8%D0%BF-object-%D0%B0-%D0%BF%D0%BE-%D1%84%D0%B0%D0%BA%D1%82%D1%83---%D0%B7%D0%BD%D0%B0%D1%87%D0%B8%D0%BC%D1%8B%D0%B9-%D1%82%D0%B8%D0%BF-%D0%BD%D0%B5%D1%82-%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8-%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C-boxing-%D0%BD%D0%B0-%D1%81%D1%82%D0%B5%D0%BA%D0%B5-%D1%80%D0%B0%D0%B7%D0%B3%D1%80%D1%83%D0%B7%D0%B8%D0%B2-%D0%BA%D1%83%D1%87%D1%83">Почему при вызове метода, принимающего тип object, а по факту - значимый тип нет возможности сделать boxing на стеке, разгрузив кучу?</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D0%BF%D0%BE%D1%87%D0%B5%D0%BC%D1%83-%D0%BD%D0%B5%D0%BB%D1%8C%D0%B7%D1%8F-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-%D0%B2-%D0%BA%D0%B0%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%B5-%D0%BF%D0%BE%D0%BB%D1%8F-value-type-%D0%B5%D0%B3%D0%BE-%D1%81%D0%B0%D0%BC%D0%BE%D0%B3%D0%BE">Почему нельзя использовать в качестве поля Value Type его самого?</a></p>
-</li>
+<li><a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D1%81%D1%81%D1%8B%D0%BB%D0%BE%D1%87%D0%BD%D1%8B%D0%B5-%D0%B8-%D0%B7%D0%BD%D0%B0%D1%87%D0%B8%D0%BC%D1%8B%D0%B5-%D1%82%D0%B8%D0%BF%D1%8B-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85">Ссы&shy;лоч&shy;ные и зна&shy;чи&shy;мые типы дан&shy;ных</a></li>
+<li><a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D0%BA%D0%BE%D0%BF%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5">Копи&shy;ро&shy;ва&shy;ние</a></li>
+<li><a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D0%BF%D0%B5%D1%80%D0%B5%D0%BE%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D1%8F%D0%B5%D0%BC%D1%8B%D0%B5-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B-%D0%B8-%D0%BD%D0%B0%D1%81%D0%BB%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5">Пере&shy;оп&shy;ре&shy;де&shy;ля&shy;е&shy;мые методы и нас&shy;ле&shy;до&shy;ва&shy;ние</a></li>
+<li><a href="/Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BF%D1%80%D0%B8-%D0%B2%D1%8B%D0%B7%D0%BE%D0%B2%D0%B5-%D1%8D%D0%BA%D0%B7%D0%B5%D0%BC%D0%BF%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D1%85-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%BE%D0%B2">Пове&shy;де&shy;ние при вызове экземп&shy;ляр&shy;ных мето&shy;дов</a></li>
+<li><a href="/Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C-%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C-%D0%BF%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2">Воз&shy;мож&shy;ность ука&shy;зать поло&shy;же&shy;ние эле&shy;мен&shy;тов</a></li>
+<li><a href="/Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D1%80%D0%B0%D0%B7%D0%BD%D0%B8%D1%86%D0%B0-%D0%B2-%D0%B0%D0%BB%D0%BB%D0%BE%D0%BA%D0%B0%D1%86%D0%B8%D0%B8">Раз&shy;ница в алло&shy;ка&shy;ции</a></li>
+<li><a href="/Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8-%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%D0%B0-%D0%BC%D0%B5%D0%B6%D0%B4%D1%83-classstruct">Осо&shy;бен&shy;ности выбора между class/struct</a></li>
+<li><a href="/Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D0%B1%D0%B0%D0%B7%D0%BE%D0%B2%D1%8B%D0%B9-%D1%82%D0%B8%D0%BF---object-%D0%B8-%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C-%D1%80%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8-%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%BE%D0%B2-boxing">Базо&shy;вый тип - Object и воз&shy;мож&shy;ность реа&shy;ли&shy;за&shy;ции интер&shy;фей&shy;сов. Boxing</a></li>
+<li><a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html#nullablet">Nullable&lt;T&gt;</a></li>
+<li><a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D0%BF%D0%BE%D0%B3%D1%80%D1%83%D0%B6%D0%B0%D0%B5%D0%BC%D1%81%D1%8F-%D0%B2-boxing-%D0%B5%D1%89%D1%91-%D0%B3%D0%BB%D1%83%D0%B1%D0%B6%D0%B5">Пог&shy;ру&shy;жа&shy;емся в boxing ещё глубже</a></li>
+<li><a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D1%87%D1%82%D0%BE-%D0%B5%D1%81%D0%BB%D0%B8-%D1%85%D0%BE%D1%87%D0%B5%D1%82%D1%81%D1%8F-%D0%BB%D0%B8%D1%87%D0%BD%D0%BE-%D0%BF%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D1%82%D1%8C-%D0%BA%D0%B0%D0%BA-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D0%B5%D1%82-boxing">Что если хочется лично пос&shy;мот&shy;реть как рабо&shy;тает boxing?</a></li>
+<li><a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D0%BF%D0%BE%D1%87%D0%B5%D0%BC%D1%83-net-clr-%D0%BD%D0%B5-%D0%B4%D0%B5%D0%BB%D0%B0%D0%B5%D1%82-%D0%BF%D1%83%D0%BB%D0%BB%D0%B8%D0%BD%D0%B3%D0%B0-%D0%B4%D0%BB%D1%8F-%D0%B1%D0%BE%D0%BA%D1%81%D0%B8%D0%BD%D0%B3%D0%B0-%D1%81%D0%B0%D0%BC%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE">Почему .NET CLR не делает пул&shy;линга для бок&shy;синга самос&shy;то&shy;я&shy;тельно?</a></li>
+<li><a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D0%BF%D0%BE%D1%87%D0%B5%D0%BC%D1%83-%D0%BF%D1%80%D0%B8-%D0%B2%D1%8B%D0%B7%D0%BE%D0%B2%D0%B5-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B0-%D0%BF%D1%80%D0%B8%D0%BD%D0%B8%D0%BC%D0%B0%D1%8E%D1%89%D0%B5%D0%B3%D0%BE-%D1%82%D0%B8%D0%BF-object-%D0%B0-%D0%BF%D0%BE-%D1%84%D0%B0%D0%BA%D1%82%D1%83---%D0%B7%D0%BD%D0%B0%D1%87%D0%B8%D0%BC%D1%8B%D0%B9-%D1%82%D0%B8%D0%BF-%D0%BD%D0%B5%D1%82-%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8-%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C-boxing-%D0%BD%D0%B0-%D1%81%D1%82%D0%B5%D0%BA%D0%B5-%D1%80%D0%B0%D0%B7%D0%B3%D1%80%D1%83%D0%B7%D0%B8%D0%B2-%D0%BA%D1%83%D1%87%D1%83">Почему при вызове метода, при&shy;ни&shy;ма&shy;ю&shy;щего тип object, а по факту - зна&shy;чи&shy;мый тип нет воз&shy;мож&shy;ности сде&shy;лать boxing на стеке, разг&shy;ру&shy;зив кучу?</a></li>
+<li><a href="./Memory/01-08-MemoryManagement-RefVsValueTypes.html#%D0%BF%D0%BE%D1%87%D0%B5%D0%BC%D1%83-%D0%BD%D0%B5%D0%BB%D1%8C%D0%B7%D1%8F-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-%D0%B2-%D0%BA%D0%B0%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%B5-%D0%BF%D0%BE%D0%BB%D1%8F-value-type-%D0%B5%D0%B3%D0%BE-%D1%81%D0%B0%D0%BC%D0%BE%D0%B3%D0%BE">Почему нельзя исполь&shy;зо&shy;вать в качес&shy;тве поля Value Type его самого?</a></li>
 </ol>
 </li>
-<li>
-<p >
-<a href="./Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></p>
+<li><a href="./Memory/01-10-MemoryManagement-IDisposable.html">Шаб&shy;лон Dispo&shy;sable</a>
 <ol>
-<li>
-<p >
-<a href="./Memory/01-10-MemoryManagement-IDisposable.html#idisposable">IDisposable</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-10-MemoryManagement-IDisposable.html#%D0%B2%D0%B0%D1%80%D0%B8%D0%B0%D1%86%D0%B8%D0%B8-%D1%80%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8-idisposable">Вариации реализации IDisposable</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-10-MemoryManagement-IDisposable.html#safehandle--criticalhandle--safebuffer--%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5">SafeHandle / CriticalHandle / SafeBuffer / производные</a></p>
+<li><a href="./Memory/01-10-MemoryManagement-IDisposable.html#idisposable">IDis&shy;po&shy;sable</a></li>
+<li><a href="./Memory/01-10-MemoryManagement-IDisposable.html#%D0%B2%D0%B0%D1%80%D0%B8%D0%B0%D1%86%D0%B8%D0%B8-%D1%80%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8-idisposable">Вари&shy;а&shy;ции реа&shy;ли&shy;за&shy;ции IDis&shy;po&shy;sable</a></li>
+<li><a href="./Memory/01-10-MemoryManagement-IDisposable.html#safehandle--criticalhandle--safebuffer--%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5">Safe&shy;Handle / Critical&shy;Handle / Safe&shy;Buffer / про&shy;из&shy;вод&shy;ные</a>
 <ol>
-<li>
-<p >
-<a href="./Memory/01-10-MemoryManagement-IDisposable.html#%D1%81%D1%80%D0%B0%D0%B1%D0%B0%D1%82%D1%8B%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-finalizer-%D0%B2%D0%BE-%D0%B2%D1%80%D0%B5%D0%BC%D1%8F-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B-%D1%8D%D0%BA%D0%B7%D0%B5%D0%BC%D0%BF%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D1%85-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%BE%D0%B2">Срабатывание finalizer во время работы экземплярных методов</a></p>
-</li>
+<li><a href="./Memory/01-10-MemoryManagement-IDisposable.html#%D1%81%D1%80%D0%B0%D0%B1%D0%B0%D1%82%D1%8B%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-finalizer-%D0%B2%D0%BE-%D0%B2%D1%80%D0%B5%D0%BC%D1%8F-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B-%D1%8D%D0%BA%D0%B7%D0%B5%D0%BC%D0%BF%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D1%85-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%BE%D0%B2">Сра&shy;ба&shy;ты&shy;ва&shy;ние fina&shy;lizer во время работы экземп&shy;ляр&shy;ных мето&shy;дов</a></li>
 </ol>
 </li>
-<li>
-<p >
-<a href="./Memory/01-10-MemoryManagement-IDisposable.html#%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE%D0%BF%D0%BE%D1%82%D0%BE%D1%87%D0%BD%D0%BE%D1%81%D1%82%D1%8C">Многопоточность</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-10-MemoryManagement-IDisposable.html#%D0%B4%D0%B2%D0%B0-%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D1%8F-disposable-design-principle">Два уровня Disposable Design Principle</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-10-MemoryManagement-IDisposable.html#%D0%BA%D0%B0%D0%BA-%D0%B5%D1%89%D1%91-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D0%B5%D1%82%D1%81%D1%8F-dispose">Как ещё используется Dispose</a></p>
+<li><a href="./Memory/01-10-MemoryManagement-IDisposable.html#%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE%D0%BF%D0%BE%D1%82%D0%BE%D1%87%D0%BD%D0%BE%D1%81%D1%82%D1%8C">Мно&shy;го&shy;по&shy;точ&shy;ность</a></li>
+<li><a href="./Memory/01-10-MemoryManagement-IDisposable.html#%D0%B4%D0%B2%D0%B0-%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D1%8F-disposable-design-principle">Два уровня Dispo&shy;sable Design Prin&shy;ciple</a></li>
+<li><a href="./Memory/01-10-MemoryManagement-IDisposable.html#%D0%BA%D0%B0%D0%BA-%D0%B5%D1%89%D1%91-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D0%B5%D1%82%D1%81%D1%8F-dispose">Как ещё исполь&shy;зу&shy;ется Dispose</a>
 <ol>
-<li>
-<p >
-<a href="./Memory/01-10-MemoryManagement-IDisposable.html#%D0%B4%D0%B5%D0%BB%D0%B5%D0%B3%D0%B0%D1%82%D1%8B-events">Делегаты, events</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-10-MemoryManagement-IDisposable.html#%D0%BB%D1%8F%D0%BC%D0%B1%D0%B4%D1%8B-%D0%B7%D0%B0%D0%BC%D1%8B%D0%BA%D0%B0%D0%BD%D0%B8%D1%8F">Лямбды, замыкания</a></p>
-</li>
+<li><a href="./Memory/01-10-MemoryManagement-IDisposable.html#%D0%B4%D0%B5%D0%BB%D0%B5%D0%B3%D0%B0%D1%82%D1%8B-events">Деле&shy;гаты, events</a></li>
+<li><a href="./Memory/01-10-MemoryManagement-IDisposable.html#%D0%BB%D1%8F%D0%BC%D0%B1%D0%B4%D1%8B-%D0%B7%D0%B0%D0%BC%D1%8B%D0%BA%D0%B0%D0%BD%D0%B8%D1%8F">Лям&shy;бды, замы&shy;ка&shy;ния</a></li>
 </ol>
 </li>
-<li>
-<p >
-<a href="./Memory/01-10-MemoryManagement-IDisposable.html#%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D0%B0-%D0%BE%D1%82-threadabort">Защита от ThreadAbort</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-10-MemoryManagement-IDisposable.html#%D0%B8%D1%82%D0%BE%D0%B3%D0%B8">Итоги</a></p>
-</li>
+<li><a href="./Memory/01-10-MemoryManagement-IDisposable.html#%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D0%B0-%D0%BE%D1%82-threadabort">Защита от Thread&shy;Abort</a></li>
+<li><a href="./Memory/01-10-MemoryManagement-IDisposable.html#%D0%B8%D1%82%D0%BE%D0%B3%D0%B8">Итоги</a></li>
 </ol>
 </li>
-<li>
-<p >
-<a href="./Memory/01-12-MemoryManagement-Finalizer.html">Финализация</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/01-14-MemoryManagement-Results.html">Выводы</a></p>
-</li>
+<li><a href="./Memory/01-12-MemoryManagement-Finalizer.html">Фина&shy;ли&shy;за&shy;ция</a></li>
+<li><a href="./Memory/01-14-MemoryManagement-Results.html">Выводы</a></li>
 </ol>
 </li>
-<li>
-<p >
-<strong>Раздел 2.</strong> Прак&shy;ти&shy;чес&shy;кая</p>
+<li><strong>Раз&shy;дел 2.</strong> Прак&shy;ти&shy;чес&shy;кая
 <ol>
-<li>
-<p >
-<a href="./Memory/02-02-MemoryManagement-MemorySpan.html">Memory, Span</a></p>
+<li><a href="./Memory/02-02-MemoryManagement-MemorySpan.html">Memory&shy;, Span</a>
 <ol>
-<li>
-<p >
-<a href="./Memory/02-02-MemoryManagement-MemorySpan.html#spant-readonlyspant">Span&lt;T&gt;, ReadOnlySpan&lt;T&gt;</a></p>
+<li><a href="./Memory/02-02-MemoryManagement-MemorySpan.html#spant-readonlyspant">Span&lt;T&gt;, Read&shy;Only&shy;Span&lt;T&gt;</a>
 <ol>
-<li>
-<p >
-<a href="./Memory/02-02-MemoryManagement-MemorySpan.html#spant-%D0%BD%D0%B0-%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85">Span&lt;T&gt; на примерах</a></p>
-</li>
-<li>
-<p >
-<a href="/Memory/02-02-MemoryManagement-MemorySpan.html#%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0-%D0%B8-%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B0-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F">Правила и практика использования</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/02-02-MemoryManagement-MemorySpan.html#%D0%BA%D0%B0%D0%BA-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D0%B5%D1%82-span">Как работает Span</a></p>
-</li>
-<li>
-<p >
-<a href="/Memory/02-02-MemoryManagement-MemorySpan.html#spant-%D0%BA%D0%B0%D0%BA-%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D0%BC%D0%BE%D0%B5-%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5">Span&lt;T&gt; как возвращаемое значение</a></p>
-</li>
+<li><a href="./Memory/02-02-MemoryManagement-MemorySpan.html#spant-%D0%BD%D0%B0-%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D1%85">Span&lt;T&gt; на при&shy;ме&shy;рах</a></li>
+<li><a href="/Memory/02-02-MemoryManagement-MemorySpan.html#%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0-%D0%B8-%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B0-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F">Пра&shy;вила и прак&shy;тика исполь&shy;зо&shy;ва&shy;ния</a></li>
+<li><a href="./Memory/02-02-MemoryManagement-MemorySpan.html#%D0%BA%D0%B0%D0%BA-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D0%B5%D1%82-span">Как рабо&shy;тает Span</a></li>
+<li><a href="/Memory/02-02-MemoryManagement-MemorySpan.html#spant-%D0%BA%D0%B0%D0%BA-%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D0%BC%D0%BE%D0%B5-%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5">Span&lt;T&gt; как возв&shy;ра&shy;ща&shy;е&shy;мое зна&shy;че&shy;ние</a></li>
 </ol>
 </li>
-<li>
-<p >
-<a href="./Memory/02-02-MemoryManagement-MemorySpan.html#memoryt-%D0%B8-readonlymemoryt">Memory&lt;T&gt; и ReadOnlyMemory&lt;T&gt;</a></p>
+<li><a href="./Memory/02-02-MemoryManagement-MemorySpan.html#memoryt-%D0%B8-readonlymemoryt">Memory&lt;T&gt; и Read&shy;Only&shy;Memory&lt;T&gt;</a>
 <ol>
-<li>
-<p >
-<a href="/Memory/02-02-MemoryManagement-MemorySpan.html#memorytspan">Memory&lt;T&gt;.Span</a></p>
-</li>
-<li>
-<p >
-<a href="/Memory/02-02-MemoryManagement-MemorySpan.html#memorytpin">Memory&lt;T&gt;.Pin</a></p>
-</li>
-<li>
-<p >
-<a href="./Memory/02-02-MemoryManagement-MemorySpan.html#memorymanager-imemoryowner-memorypool">MemoryManager, IMemoryOwner, MemoryPool</a></p>
-</li>
+<li><a href="/Memory/02-02-MemoryManagement-MemorySpan.html#memorytspan">Memory&lt;T&gt;.Span</a></li>
+<li><a href="/Memory/02-02-MemoryManagement-MemorySpan.html#memorytpin">Memory&lt;T&gt;.Pin</a></li>
+<li><a href="./Memory/02-02-MemoryManagement-MemorySpan.html#memorymanager-imemoryowner-memorypool">Memory&shy;Manager&shy;, IMemory&shy;Owner&shy;, Memory&shy;Pool</a></li>
 </ol>
 </li>
-<li>
-<p >
-<a href="./Memory/02-02-MemoryManagement-MemorySpan.html#%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D1%8C">Производительность</a></p>
-</li>
+<li><a href="./Memory/02-02-MemoryManagement-MemorySpan.html#%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D1%8C">Про&shy;из&shy;во&shy;ди&shy;тель&shy;ность</a></li>
 </ol>
 </li>
 </ol>
 </li>
-<li>
-<p >
-<strong>Раздел 3.</strong> Под&shy;роб&shy;ности реа&shy;ли&shy;за&shy;ции GC</p>
+<li><strong>Раз&shy;дел 3.</strong> Под&shy;роб&shy;ности реа&shy;ли&shy;за&shy;ции GC
 <ol>
-<li>
-<p >
-<a href="./Memory/03-02-MemoryManagement-Allocation.html">Выделение памяти под объект</a> <em>(Только наговорен текст)</em></p>
-</li>
-<li>
-<p >
-<a href="./Memory/03-04-MemoryManagement-GC-Intro.html">Введение в сборку мусора</a> <em>(Только наговорен текст)</em></p>
-</li>
-<li>
-<p >
-<a href="./Memory/03-06-MemoryManagement-GC-Mark-Phase.html">Фаза маркировки</a> <em>(Только наговорен текст)</em></p>
-</li>
-<li>
-<p >
-<a href="./Memory/03-08-MemoryManagement-GC-Planning-Phase.html">Фаза планирования</a> <em>(Только наговорен текст)</em></p>
-</li>
-<li>
-<p >
-<a href="./Memory/03-10-MemoryManagement-GC-Sweep-Collect.html">Фазы Sweep/Collect</a> <em>(Только наговорен текст)</em></p>
-</li>
-<li>
-<p >
-<a href="./Memory/03-12-MemoryMenegement-GC-Results.html">Выводы по менеджменту памяти и работе над производительностью</a> <em>(Только наговорен текст)</em></p>
-</li>
+<li><a href="./Memory/03-02-MemoryManagement-Allocation.html">Выде&shy;ле&shy;ние памяти под объ&shy;ект</a> <em>(Только наго&shy;во&shy;рен текст)</em></li>
+<li><a href="./Memory/03-04-MemoryManagement-GC-Intro.html">Вве&shy;де&shy;ние в сборку мусора</a> <em>(Только наго&shy;во&shy;рен текст)</em></li>
+<li><a href="./Memory/03-06-MemoryManagement-GC-Mark-Phase.html">Фаза мар&shy;ки&shy;ровки</a> <em>(Только наго&shy;во&shy;рен текст)</em></li>
+<li><a href="./Memory/03-08-MemoryManagement-GC-Planning-Phase.html">Фаза пла&shy;ни&shy;ро&shy;ва&shy;ния</a> <em>(Только наго&shy;во&shy;рен текст)</em></li>
+<li><a href="./Memory/03-10-MemoryManagement-GC-Sweep-Collect.html">Фазы Sweep&shy;/Collect</a> <em>(Только наго&shy;во&shy;рен текст)</em></li>
+<li><a href="./Memory/03-12-MemoryMenegement-GC-Results.html">Выводы по менедж&shy;менту памяти и работе над про&shy;из&shy;во&shy;ди&shy;тель&shy;ностью</a> <em>(Только наго&shy;во&shy;рен текст)</em></li>
 </ol>
 </li>
-<li>
-<p >
-<strong>Раздел 4.</strong> Струк&shy;тура объ&shy;ек&shy;тов в памяти</p>
+<li><strong>Раз&shy;дел 4.</strong> Струк&shy;тура объ&shy;ек&shy;тов в памяти
 <ol>
-<li>
-<p >
-<a href="./Memory/QQ-ObjectsStructure.html">Структура объектов в памяти</a></p>
-</li>
+<li><a href="./Memory/QQ-ObjectsStructure.html">Струк&shy;тура объ&shy;ек&shy;тов в памяти</a></li>
 </ol>
 </li>
-<li>
-<p >
-<strong>Раздел 5.</strong> Вне порядка повест&shy;во&shy;ва&shy;ния</p>
+<li><strong>Раз&shy;дел 5.</strong> Вне порядка повест&shy;во&shy;ва&shy;ния
 <ol>
-<li>
-<p >
-<a href="./Memory/2-Basics/4-LifetimeManagement/3-Lifetime.html">Шаблон Lifetime</a></p>
-</li>
+<li><a href="./Memory/2-Basics/4-LifetimeManagement/3-Lifetime.html">Шаб&shy;лон Life&shy;time</a></li>
 </ol>
 </li>
 </ol>
 </li>
-<li>
-<p >
-<strong>Часть 2. Поток исполнения команд</strong></p>
+<li><strong>Часть 2. Поток испол&shy;не&shy;ния команд</strong>
 <ol>
-<li>
-<p >
-Раз&shy;дел 1. Домены при&shy;ло&shy;же&shy;ний</p>
+<li>Раз&shy;дел 1. Домены при&shy;ло&shy;же&shy;ний
 <ol>
-<li>
-<p >
-<a href="./Execution/A-AppDomains/1-AppDomains-Intro.html">Введение в домены приложений</a></p>
-</li>
-<li>
-<p >
-<a href="./Execution/A-AppDomains/2-AppDomains-Isolation.html">Изоляция</a></p>
-</li>
+<li><a href="./Execution/A-AppDomains/1-AppDomains-Intro.html">Вве&shy;де&shy;ние в домены при&shy;ло&shy;же&shy;ний</a></li>
+<li><a href="./Execution/A-AppDomains/2-AppDomains-Isolation.html">Изо&shy;ля&shy;ция</a></li>
 </ol>
 </li>
-<li>
-<p >
-Раз&shy;дел 2. Искл&shy;юч&shy;ител&shy;ьные ситу&shy;а&shy;ции</p>
+<li>Раз&shy;дел 2. Искл&shy;юч&shy;ител&shy;ьные ситу&shy;а&shy;ции
 <ol>
-<li>
-<p >
-<a href="./Execution/2-ExceptionalFlow/1-Exceptions-Intro.html">Введение в исключительные ситуации</a></p>
-</li>
-<li>
-<p >
-<a href="./Execution/2-ExceptionalFlow/2-Exceptions-Architecture.html">Архитектура исключительной ситуации</a></p>
-</li>
-<li>
-<p >
-<a href="./Execution/2-ExceptionalFlow/3-Exceptions-Events.html">События об исключительных ситуациях</a></p>
-</li>
-<li>
-<p >
-<a href="./Execution/2-ExceptionalFlow/4-Exceptions-Types.html">Виды исключительных ситуаций</a></p>
-</li>
+<li><a href="./Execution/2-ExceptionalFlow/1-Exceptions-Intro.html">Вве&shy;де&shy;ние в исклю&shy;чи&shy;тель&shy;ные ситу&shy;а&shy;ции</a></li>
+<li><a href="./Execution/2-ExceptionalFlow/2-Exceptions-Architecture.html">Архи&shy;тек&shy;тура исклю&shy;чи&shy;тель&shy;ной ситу&shy;а&shy;ции</a></li>
+<li><a href="./Execution/2-ExceptionalFlow/3-Exceptions-Events.html">Собы&shy;тия об исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;циях</a></li>
+<li><a href="./Execution/2-ExceptionalFlow/4-Exceptions-Types.html">Виды исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций</a></li>
 </ol>
 </li>
 </ol>
 </li>
 </ol>
-<h1 id="section-2">Лицензия</h1>
-<p >
-Нахо&shy;дится в файле <a href="../../LICENSE">LICENSE</a></p>
+<h1 id="section-2">Лицен&shy;зия</h1>
+<p>Нахо&shy;дится в файле <a href="../../LICENSE">LICENSE</a></p>
 
         </div>
         <footer>

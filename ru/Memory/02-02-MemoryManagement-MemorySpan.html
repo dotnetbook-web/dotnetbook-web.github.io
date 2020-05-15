@@ -133,12 +133,12 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 p code:not(.highlight), li code:not(.highlight) {
     font-size: 0.7em;
-    padding: 3px;
     color: darkslateblue;
 }
 
 /* style for manual selecting */
 .box {
+    padding: 3px;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
@@ -233,6 +233,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     font-weight: 400;
     font-family: inherit;
+    hyphens: none;
 }
 
 h1 {
@@ -246,23 +247,32 @@ h1 {
 
 h2 {
     padding-top: 1.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    margin-bottom: 0.5em;
     font-family: Charter, Arial, Helvetica Neue, sans-serif;
-    font-size: 1.25em;
-    width: 70%;
+    font-size: 1.4em;
+    text-align: center;
 }
 
 h3 {
-    padding-top: 1em;
-    font-size: 1.3em;
+    padding-top: 1.2em;
+    font-family: Charter, Arial, Helvetica Neue, sans-serif;
+    font-size: 1.15em;
+    width: 70%;
+}
+
+h4 {
+    padding: 1em 0 0 0;
+    font-size: 1.2em;
     font-weight: 300;
     font-style: italic;
 }
 
-h4 {
-    margin: 20px 0 10px 0;
-    font-size: 16pt;
-    font-weight: 500;
-    font-style: italic;
+h5 {
+    padding: 0.6em 0 0 0;
+    font-weight: 300;
+    font-size: 1.1em;
 }
 
 /* Sidenotes */
@@ -677,7 +687,7 @@ footer > div {
 /* MD */
 @media (max-width: 991px) {
     
-    h2 {
+    h3 {
         width:80%;
     }
 
@@ -904,7 +914,17 @@ footer > div {
         font-size: 10pt;
         padding: 3px;
     }
-   
+
+    *[class*='lang-'] > div, pre > code {
+        padding-left: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    
+    ol li, ul li {
+        padding-left: 0.2em;	
+    }
+    
     p, li {
         line-height: 24px;
     }    
@@ -1222,7 +1242,7 @@ MemoryManager, IMemoryOwner, MemoryPool</a></li>
                             </li>
                             <li>
                                 <p>
-                                <a href="../..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></p>
+                                <a href="../..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон IDisposable</a></p>
                             </li>
                             <li>
                                 <p>
@@ -1284,62 +1304,47 @@ MemoryManager, IMemoryOwner, MemoryPool</a></li>
             <p class="d-none d-sm-block d-md-none">MD</p>
             <p class="d-none d-lg-block d-xl-none">LG</p>
             <p class="d-none d-xl-block">XL</p> -->
-            <blockquote class="breadcrumbs">
-<p >
- <a href="../readme.html">Содержание</a> / <a href="./01-00-MemoryManagement-Intro.html">Основы управления памятью</a></p>
-</blockquote>
-<h1 id="memoryt-spant">Memory&lt;T&gt; и Span&lt;T&gt;</h1>
+            <h1 id="memoryt-spant">Memory<T> и Span<T></h1>
 <blockquote>
-<p >
-<a href="https://github.com/sidristij/dotnetbook/issues/55">Ссылка на обсуждение</a></p>
+<p><a href="https://github.com/sidristij/dotnetbook/issues/55">Ссылка на обсуж&shy;де&shy;ние</a></p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p >
-Начи&shy;ная с вер&shy;сий .NET Core 2.0 и .NET Frame&shy;work 4.5 нам стали дос&shy;тупны новые типы дан&shy;ных: это <code>Span</code> и <code>Memory</code>. Чтобы ими вос&shy;поль&shy;зо&shy;ваться, дос&shy;та&shy;точно уста&shy;но&shy;вить nuget пакет <code>System.Memory</code>:</p>
+<p>Начи&shy;ная с вер&shy;сий .NET Core 2.0 и .NET Frame&shy;work 4.5 нам стали дос&shy;тупны новые типы дан&shy;ных: это <code>Span</code> и <code>Memory</code>. Чтобы ими вос&shy;поль&shy;зо&shy;ваться, дос&shy;та&shy;точно уста&shy;но&shy;вить nuget пакет <code>System&shy;.Memory</code>:</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <ul>
-<li>
-<p >
-<code>PM&gt; Install-Package System.Memory</code></p>
-</li>
+<li><code>PM> Install&shy;-Package System&shy;.Memory</code></li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p >
-И при&shy;ме&shy;ча&shy;тельны эти типы дан&shy;ных тем, что спе&shy;ци&shy;ально для них была про&shy;де&shy;лана огром&shy;ная работа коман&shy;дой <code>CLR</code> чтобы реа&shy;ли&shy;зо&shy;вать их спе&shy;ци&shy;альную под&shy;дер&shy;жку в коде JIT ком&shy;пи&shy;ля&shy;тора .NET Core 2.1+, вжи&shy;вив их прямо в ядро. Что это за типы дан&shy;ных и почему на них стоит выде&shy;лить целую часть книги?</p>
+<p>И при&shy;ме&shy;ча&shy;тельны эти типы дан&shy;ных тем, что спе&shy;ци&shy;ально для них была про&shy;де&shy;лана огром&shy;ная работа коман&shy;дой <code>CLR</code> чтобы реа&shy;ли&shy;зо&shy;вать их спе&shy;ци&shy;альную под&shy;дер&shy;жку в коде JIT ком&shy;пи&shy;ля&shy;тора .NET Core 2.1+, вжи&shy;вив их прямо в ядро. Что это за типы дан&shy;ных и почему на них стоит выде&shy;лить целую часть книги?</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p >
-Если гово&shy;рить о проб&shy;ле&shy;ма&shy;тике, при&shy;вед&shy;шей к появ&shy;ле&shy;нию дан&shy;ного фун&shy;кци&shy;о&shy;нала, я бы выб&shy;рал три основ&shy;ные. И пер&shy;вая из них - это неуп&shy;рав&shy;ля&shy;е&shy;мый код.</p>
+<p>Если гово&shy;рить о проб&shy;ле&shy;ма&shy;тике, при&shy;вед&shy;шей к появ&shy;ле&shy;нию дан&shy;ного фун&shy;кци&shy;о&shy;нала, я бы выб&shy;рал три основ&shy;ные. И пер&shy;вая из них  &mdash;  это неуп&shy;рав&shy;ля&shy;е&shy;мый код.</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p >
-Как язык, так и плат&shy;форма сущес&shy;твуют уже много лет: и все это время сущест&shy;во&shy;вало мно&shy;жес&shy;тво средств для работы с неуп&shy;рав&shy;ля&shy;е&shy;мым кодом. Так почему же сей&shy;час выхо&shy;дит оче&shy;ред&shy;ной API для работы с неуп&shy;рав&shy;ля&shy;е&shy;мым кодом, если, по сути, он сущест&shy;во&shy;вал уже много-много лет? Для того чтобы отве&shy;тить на этот воп&shy;рос, дос&shy;та&shy;точно понять, чего не хва&shy;тало нам раньше.</p>
+<p>Как язык, так и плат&shy;форма сущес&shy;твуют уже много лет: и все это время сущест&shy;во&shy;вало мно&shy;жес&shy;тво средств для работы с неуп&shy;рав&shy;ля&shy;е&shy;мым кодом. Так почему же сей&shy;час выхо&shy;дит оче&shy;ред&shy;ной API для работы с неуп&shy;рав&shy;ля&shy;е&shy;мым кодом, если, по сути, он сущест&shy;во&shy;вал уже много-много лет? Для того чтобы отве&shy;тить на этот воп&shy;рос, дос&shy;та&shy;точно понять, чего не хва&shy;тало нам раньше.</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p >
-Раз&shy;ра&shy;бот&shy;чики плат&shy;формы и раньше пыта&shy;лись нам помочь скра&shy;сить будни раз&shy;ра&shy;ботки с исполь&shy;зо&shy;ва&shy;нием неуп&shy;рав&shy;ля&shy;е&shy;мых ресур&shy;сов: это и авто&shy;ма&shy;ти&shy;чес&shy;кие врап&shy;перы для импор&shy;ти&shy;ру&shy;е&shy;мых мето&shy;дов, и мар&shy;шал&shy;линг, кото&shy;рый в боль&shy;шинстве слу&shy;чаев рабо&shy;тает авто&shy;ма&shy;ти&shy;чески. Это также инстр&shy;укция <code>stackalloc</code>, о кото&shy;рой гово&shy;рится в главе про стек потока. Однако, как по мне если ран&shy;ние раз&shy;ра&shy;бот&shy;чики с исполь&shy;зо&shy;ва&shy;нием языка C# при&shy;хо&shy;дили из мира C++ (как сде&shy;лал это и я), то сей&shy;час они при&shy;хо&shy;дят из более высо&shy;ко&shy;уров&shy;не&shy;вых язы&shy;ков (я, нап&shy;ри&shy;мер, знаю раз&shy;ра&shy;бот&shy;чика, кото&shy;рый при&shy;шел из Java&shy;Script). Это озна&shy;чает, что люди со все боль&shy;шим подоз&shy;ре&shy;нием начи&shy;нают отно&shy;ситься к неуп&shy;рав&shy;ля&shy;е&shy;мым ресур&shy;сам и конст&shy;ру&shy;кциям, близ&shy;ким по духу к C/C++, и уж тем более - к языку Ассем&shy;бл&shy;ера.</p>
+<p>Раз&shy;ра&shy;бот&shy;чики плат&shy;формы и раньше пыта&shy;лись нам помочь скра&shy;сить будни раз&shy;ра&shy;ботки с исполь&shy;зо&shy;ва&shy;нием неуп&shy;рав&shy;ля&shy;е&shy;мых ресур&shy;сов: это и авто&shy;ма&shy;ти&shy;чес&shy;кие врап&shy;перы для импор&shy;ти&shy;ру&shy;е&shy;мых мето&shy;дов, и мар&shy;шал&shy;линг, кото&shy;рый в боль&shy;шинстве слу&shy;чаев рабо&shy;тает авто&shy;ма&shy;ти&shy;чески. Это также инстр&shy;укция <code>stac&shy;kalloc</code>, о кото&shy;рой гово&shy;рится в главе про стек потока. Однако, как по мне если ран&shy;ние раз&shy;ра&shy;бот&shy;чики с исполь&shy;зо&shy;ва&shy;нием языка C# при&shy;хо&shy;дили из мира C++ (как сде&shy;лал это и я), то сей&shy;час они при&shy;хо&shy;дят из более высо&shy;ко&shy;уров&shy;не&shy;вых язы&shy;ков (я, нап&shy;ри&shy;мер, знаю раз&shy;ра&shy;бот&shy;чика, кото&shy;рый при&shy;шел из Java&shy;Script&shy;). Это озна&shy;чает, что люди со все боль&shy;шим подоз&shy;ре&shy;нием начи&shy;нают отно&shy;ситься к неуп&shy;рав&shy;ля&shy;е&shy;мым ресур&shy;сам и конст&shy;ру&shy;кциям, близ&shy;ким по духу к C/C++, и уж тем более  &mdash;  к языку Ассем&shy;бл&shy;ера.</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p >
-Как резуль&shy;тат такого отно&shy;ше&shy;ния - все мень&shy;шее и мень&shy;шее содер&shy;жа&shy;ние unsafe кода в про&shy;ек&shy;тах и все боль&shy;шее дове&shy;рие к API самой плат&shy;формы. Это легко про&shy;ве&shy;ря&shy;ется, если поис&shy;кать исполь&shy;зо&shy;ва&shy;ние конст&shy;рукции <code>stackalloc</code> по откры&shy;тым репо&shy;зи&shy;то&shy;риям: оно нич&shy;тожно мало. Но если взять любой код, кото&shy;рый его исполь&shy;зует:</p>
+<p>Как резуль&shy;тат такого отно&shy;ше&shy;ния  &mdash;  все мень&shy;шее и мень&shy;шее содер&shy;жа&shy;ние unsafe кода в про&shy;ек&shy;тах и все боль&shy;шее дове&shy;рие к API самой плат&shy;формы. Это легко про&shy;ве&shy;ря&shy;ется, если поис&shy;кать исполь&shy;зо&shy;ва&shy;ние конст&shy;рукции <code>stac&shy;kalloc</code> по откры&shy;тым репо&shy;зи&shy;то&shy;риям: оно нич&shy;тожно мало. Но если взять любой код, кото&shy;рый его исполь&shy;зует:</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p >
-<strong>Класс Interop.ReadDir</strong>
-<a href="https://github.com/dotnet/coreclr/blob/b29f6328510207970763580d6f4db864e4b198af/src/mscorlib/shared/Interop/Unix/System.Native/Interop.ReadDir.cs#L71-L83">/src/mscorlib/shared/Interop/Unix/System.Native/Interop.ReadDir.cs</a></p>
+<p><strong>Класс Interop&shy;.Read&shy;Dir</strong>
+<a href="https://github.com/dotnet/coreclr/blob/b29f6328510207970763580d6f4db864e4b198af/src/mscorlib/shared/Interop/Unix/System.Native/Interop.ReadDir.cs#L71-L83">/src/mscorlib/shared/Interop&shy;/Unix&shy;/System&shy;.Native&shy;/Interop&shy;.Read&shy;Dir&shy;.cs</a></p>
 <div class="paragraph-right-side">07</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1360,20 +1365,17 @@ MemoryManager, IMemoryOwner, MemoryPool</a></li>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p >
-Ста&shy;но&shy;вится понятна при&shy;чина непо&shy;пу&shy;ляр&shy;ности. Пос&shy;мот&shy;рите, не вчи&shy;ты&shy;ва&shy;ясь в код, и ответьте для себя на один воп&shy;рос: дове&shy;ря&shy;ете ли вы ему? Могу пред&shy;по&shy;ло&shy;жить, что отве&shy;том будет &laquo;нет&raquo;. Тогда ответьте на дру&shy;гой: почему? Ответ будет оче&shy;ви&shy;ден: помимо того что мы видим слово <code>Dangerous</code>, кото&shy;рое как бы наме&shy;кает, что что-то может пойти не так, вто&shy;рой фак&shy;тор, вл&shy;ияющий на наше отно&shy;ше&shy;ние, - это запись <code>unsafe</code> и строчка <code>byte* buffer = stackalloc byte[s_readBufferSize];</code>, а если еще конк&shy;рет&shy;нее - <code>byte*</code>. Эта запись - триг&shy;гер для любого, чтобы в голове поя&shy;ви&shy;лась мысль: "а что, по-дру&shy;гому сде&shy;лать нельзя было что ли?". Тогда давайте еще чуть-чуть раз&shy;бе&shy;ремся с пси&shy;хо&shy;а&shy;на&shy;ли&shy;зом: отчего может воз&shy;ник&shy;нуть подоб&shy;ная мысль? С одной сто&shy;роны мы поль&shy;зу&shy;емся конст&shy;ру&shy;кциями языка и пред&shy;ло&shy;жен&shy;ный здесь син&shy;так&shy;сис далек от, нап&shy;ри&shy;мер, C++/CLI, кото&shy;рый поз&shy;во&shy;ляет делать вообще все что угодно (в том числе делать вставки на чис&shy;том Assem&shy;bler), а с дру&shy;гой он выг&shy;ля&shy;дит неп&shy;ри&shy;вычно.</p>
+<p>Ста&shy;но&shy;вится понятна при&shy;чина непо&shy;пу&shy;ляр&shy;ности. Пос&shy;мот&shy;рите, не вчи&shy;ты&shy;ва&shy;ясь в код, и ответьте для себя на один воп&shy;рос: дове&shy;ря&shy;ете ли вы ему? Могу пред&shy;по&shy;ло&shy;жить, что отве&shy;том будет &laquo;нет&raquo;. Тогда ответьте на дру&shy;гой: почему? Ответ будет оче&shy;ви&shy;ден: помимо того что мы видим слово <code>Dange&shy;rous</code>, кото&shy;рое как бы наме&shy;кает, что что-то может пойти не так, вто&shy;рой фак&shy;тор, вл&shy;ияющий на наше отно&shy;ше&shy;ние,  &mdash;  это запись <code>unsafe</code> и строчка <code>byte* buffer = stac&shy;kalloc byte[s_read&shy;Buf&shy;fer&shy;Size];</code>, а если еще конк&shy;рет&shy;нее  &mdash;  <code>byte*</code>. Эта запись  &mdash;  триг&shy;гер для любого, чтобы в голове поя&shy;ви&shy;лась мысль: "а что, по-дру&shy;гому сде&shy;лать нельзя было что ли?". Тогда давайте еще чуть-чуть раз&shy;бе&shy;ремся с пси&shy;хо&shy;а&shy;на&shy;ли&shy;зом: отчего может воз&shy;ник&shy;нуть подоб&shy;ная мысль? С одной сто&shy;роны мы поль&shy;зу&shy;емся конст&shy;ру&shy;кциями языка и пред&shy;ло&shy;жен&shy;ный здесь син&shy;так&shy;сис далек от, нап&shy;ри&shy;мер, C++/CLI, кото&shy;рый поз&shy;во&shy;ляет делать вообще все что угодно (в том числе делать вставки на чис&shy;том Assembler&shy;), а с дру&shy;гой он выг&shy;ля&shy;дит неп&shy;ри&shy;вычно.</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
-<p >
-Вто&shy;рой воп&shy;рос, кото&shy;рый явно или неявно воз&shy;ни&shy;кал в голо&shy;вах у мно&shy;гих раз&shy;ра&shy;бот&shy;чи&shy;ков - это несов&shy;мес&shy;ти&shy;мость типов: строки <code>string</code> и мас&shy;сива сим&shy;во&shy;лов <code>char[]</code>, хотя чисто логи&shy;чески строка - это и есть мас&shy;сив сим&shy;во&shy;лов, при&shy;вести string к char[] воз&shy;мож&shy;ности нет ника&shy;кой: только соз&shy;да&shy;ние нового объ&shy;екта и копи&shy;ро&shy;ва&shy;ние содер&shy;жи&shy;мого строки в мас&shy;сив. При&shy;чем несов&shy;мес&shy;ти&shy;мость такая вве&shy;дена для опти&shy;ми&shy;за&shy;ции строк с точки зре&shy;ния хра&shy;не&shy;ния (rea&shy;donly мас&shy;си&shy;вов не сущес&shy;твует), но проб&shy;лемы воз&shy;ни&shy;кают, когда вы начи&shy;на&shy;ете рабо&shy;тать с фай&shy;лами. Как про&shy;чи&shy;тать? Стро&shy;кой или мас&shy;си&shy;вом? Ведь если мас&shy;си&shy;вом, ста&shy;нет невоз&shy;мож&shy;ным поль&shy;зо&shy;ваться неко&shy;то&shy;рыми мето&shy;дами, расс&shy;чи&shy;тан&shy;ными на работу со стро&shy;ками. А если стро&shy;кой? Может ока&shy;заться слиш&shy;ком длин&shy;ной. Если речь идет о пос&shy;ле&shy;ду&shy;ю&shy;щем пар&shy;синге, воз&shy;ни&shy;кает воп&shy;рос выбора пар&shy;се&shy;ров при&shy;ми&shy;ти&shy;вов: далеко не всегда хочется пар&shy;сить их все вруч&shy;ную (целые числа, числа с пла&shy;ва&shy;ю&shy;щей точ&shy;кой, в раз&shy;ных фор&shy;ма&shy;тах запи&shy;сан&shy;ных). Есть же мно&shy;жес&shy;тво алго&shy;рит&shy;мов, про&shy;ве&shy;рен&shy;ных годами, кото&shy;рые делают это быс&shy;тро и эффек&shy;тивно. Но такие алго&shy;ритмы часто рабо&shy;тают на стро&shy;ках, в кото&shy;рых кроме самого при&shy;ми&shy;тива ничего дру&shy;гого нет. Дру&shy;гими сло&shy;вами, дилемма.</p>
+<p>Вто&shy;рой воп&shy;рос, кото&shy;рый явно или неявно воз&shy;ни&shy;кал в голо&shy;вах у мно&shy;гих раз&shy;ра&shy;бот&shy;чи&shy;ков  &mdash;  это несов&shy;мес&shy;ти&shy;мость типов: строки <code>string</code> и мас&shy;сива сим&shy;во&shy;лов <code>char[]</code>, хотя чисто логи&shy;чески строка  &mdash;  это и есть мас&shy;сив сим&shy;во&shy;лов, при&shy;вести string к char[] воз&shy;мож&shy;ности нет ника&shy;кой: только соз&shy;да&shy;ние нового объ&shy;екта и копи&shy;ро&shy;ва&shy;ние содер&shy;жи&shy;мого строки в мас&shy;сив. При&shy;чем несов&shy;мес&shy;ти&shy;мость такая вве&shy;дена для опти&shy;ми&shy;за&shy;ции строк с точки зре&shy;ния хра&shy;не&shy;ния (rea&shy;donly мас&shy;си&shy;вов не сущес&shy;твует), но проб&shy;лемы воз&shy;ни&shy;кают, когда вы начи&shy;на&shy;ете рабо&shy;тать с фай&shy;лами. Как про&shy;чи&shy;тать? Стро&shy;кой или мас&shy;си&shy;вом? Ведь если мас&shy;си&shy;вом, ста&shy;нет невоз&shy;мож&shy;ным поль&shy;зо&shy;ваться неко&shy;то&shy;рыми мето&shy;дами, расс&shy;чи&shy;тан&shy;ными на работу со стро&shy;ками. А если стро&shy;кой? Может ока&shy;заться слиш&shy;ком длин&shy;ной. Если речь идет о пос&shy;ле&shy;ду&shy;ю&shy;щем пар&shy;синге, воз&shy;ни&shy;кает воп&shy;рос выбора пар&shy;се&shy;ров при&shy;ми&shy;ти&shy;вов: далеко не всегда хочется пар&shy;сить их все вруч&shy;ную (целые числа, числа с пла&shy;ва&shy;ю&shy;щей точ&shy;кой, в раз&shy;ных фор&shy;ма&shy;тах запи&shy;сан&shy;ных). Есть же мно&shy;жес&shy;тво алго&shy;рит&shy;мов, про&shy;ве&shy;рен&shy;ных годами, кото&shy;рые делают это быс&shy;тро и эффек&shy;тивно. Но такие алго&shy;ритмы часто рабо&shy;тают на стро&shy;ках, в кото&shy;рых кроме самого при&shy;ми&shy;тива ничего дру&shy;гого нет. Дру&shy;гими сло&shy;вами, дилемма.</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
-<p >
-Третья проб&shy;ле&shy;ма&shy;тика зак&shy;лю&shy;ча&shy;ется в том, что необ&shy;хо&shy;ди&shy;мые для неко&shy;то&shy;рого алго&shy;ритма дан&shy;ные редко лежат от начала и до самого конца счи&shy;тан&shy;ного с неко&shy;то&shy;рого источ&shy;ника мас&shy;сива. Нап&shy;ри&shy;мер, если речь опять же идет о фай&shy;лах или о дан&shy;ных, счи&shy;тан&shy;ных с сокета, то есть неко&shy;то&shy;рая уже обра&shy;бо&shy;тан&shy;ная неким алго&shy;рит&shy;мом часть, дальше идет то, что дол&shy;жен обра&shy;бо&shy;тать некий наш метод, после чего идут дан&shy;ные, кото&shy;рые нам обра&shy;бо&shy;тать, еще пред&shy;стоит. И этот самый метод в иде&shy;але хочет, чтобы ему отдали только то, что он ожи&shy;дает. Нап&shy;ри&shy;мер, метод пар&shy;синга целых чисел вряд ли будет сильно бла&shy;го&shy;да&shy;рен, если вы отда&shy;дите ему строку с раз&shy;го&shy;во&shy;ром о чём-либо, где в неко&shy;то&shy;рой пози&shy;ции будет нахо&shy;диться нуж&shy;ное число. Такой метод ожи&shy;дает, что вы отда&shy;дите ему число и ничего больше. Если же мы отда&shy;дим мас&shy;сив цели&shy;ком, то воз&shy;ни&shy;кает тре&shy;бо&shy;ва&shy;ние ука&shy;зать, нап&shy;ри&shy;мер, сме&shy;ще&shy;ние числа отно&shy;си&shy;тельно начала мас&shy;сива:</p>
+<p>Третья проб&shy;ле&shy;ма&shy;тика зак&shy;лю&shy;ча&shy;ется в том, что необ&shy;хо&shy;ди&shy;мые для неко&shy;то&shy;рого алго&shy;ритма дан&shy;ные редко лежат от начала и до самого конца счи&shy;тан&shy;ного с неко&shy;то&shy;рого источ&shy;ника мас&shy;сива. Нап&shy;ри&shy;мер, если речь опять же идет о фай&shy;лах или о дан&shy;ных, счи&shy;тан&shy;ных с сокета, то есть неко&shy;то&shy;рая уже обра&shy;бо&shy;тан&shy;ная неким алго&shy;рит&shy;мом часть, дальше идет то, что дол&shy;жен обра&shy;бо&shy;тать некий наш метод, после чего идут дан&shy;ные, кото&shy;рые нам обра&shy;бо&shy;тать, еще пред&shy;стоит. И этот самый метод в иде&shy;але хочет, чтобы ему отдали только то, что он ожи&shy;дает. Нап&shy;ри&shy;мер, метод пар&shy;синга целых чисел вряд ли будет сильно бла&shy;го&shy;да&shy;рен, если вы отда&shy;дите ему строку с раз&shy;го&shy;во&shy;ром о чём-либо, где в неко&shy;то&shy;рой пози&shy;ции будет нахо&shy;диться нуж&shy;ное число. Такой метод ожи&shy;дает, что вы отда&shy;дите ему число и ничего больше. Если же мы отда&shy;дим мас&shy;сив цели&shy;ком, то воз&shy;ни&shy;кает тре&shy;бо&shy;ва&shy;ние ука&shy;зать, нап&shy;ри&shy;мер, сме&shy;ще&shy;ние числа отно&shy;си&shy;тельно начала мас&shy;сива:</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1389,8 +1391,7 @@ MemoryManager, IMemoryOwner, MemoryPool</a></li>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
-<p >
-Однако дан&shy;ный спо&shy;соб плох тем, что метод полу&shy;чает дан&shy;ные, кото&shy;рые ему не нужны. Дру&shy;гими сло&shy;вами, <em>метод не введен в контекст своей задачи</em>. Ведь помимо своей задачи метод решает еще и неко&shy;то&shy;рую внеш&shy;нюю. А это - приз&shy;нак пло&shy;хого про&shy;ек&shy;ти&shy;ро&shy;ва&shy;ния. Как избе&shy;жать дан&shy;ной проб&shy;лемы? Как вари&shy;ант, можно вос&shy;поль&shy;зо&shy;ваться типом <code>ArraySegment&lt;T&gt;</code>, суть кото&shy;рого - пре&shy;дос&shy;та&shy;вить &laquo;окно&raquo; в некий мас&shy;сив:</p>
+<p>Однако дан&shy;ный спо&shy;соб плох тем, что метод полу&shy;чает дан&shy;ные, кото&shy;рые ему не нужны. Дру&shy;гими сло&shy;вами, <em>метод не вве&shy;ден в кон&shy;текст своей задачи</em>. Ведь помимо своей задачи метод решает еще и неко&shy;то&shy;рую внеш&shy;нюю. А это  &mdash;  приз&shy;нак пло&shy;хого про&shy;ек&shy;ти&shy;ро&shy;ва&shy;ния. Как избе&shy;жать дан&shy;ной проб&shy;лемы? Как вари&shy;ант, можно вос&shy;поль&shy;зо&shy;ваться типом <code>Array&shy;Segment&shy;<T></code>, суть кото&shy;рого  &mdash;  пре&shy;дос&shy;та&shy;вить &laquo;окно&raquo; в некий мас&shy;сив:</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1409,27 +1410,23 @@ MemoryManager, IMemoryOwner, MemoryPool</a></li>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
-<p >
-Но как по мне, так это - пере&shy;бор, как с точки зре&shy;ния логики, так и с точки зре&shy;ния про&shy;садки по про&shy;из&shy;во&shy;ди&shy;тель&shy;ности. <code>ArraySegment</code> - ужасно сде&shy;лан и обес&shy;пе&shy;чи&shy;вает замед&shy;ле&shy;ние дос&shy;тупа к эле&shy;мен&shy;там в 7 раз отно&shy;си&shy;тельно тех же самых опе&shy;ра&shy;ций, но с мас&shy;си&shy;вом.</p>
+<p>Но как по мне, так это  &mdash;  пере&shy;бор, как с точки зре&shy;ния логики, так и с точки зре&shy;ния про&shy;садки по про&shy;из&shy;во&shy;ди&shy;тель&shy;ности. <code>Array&shy;Segment</code>  &mdash;  ужасно сде&shy;лан и обес&shy;пе&shy;чи&shy;вает замед&shy;ле&shy;ние дос&shy;тупа к эле&shy;мен&shy;там в 7 раз отно&shy;си&shy;тельно тех же самых опе&shy;ра&shy;ций, но с мас&shy;си&shy;вом.</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
-<p >
-Так как же решить все эти проб&shy;лемы? Как вер&shy;нуть раз&shy;ра&shy;бот&shy;чи&shy;ков обратно в лоно неуп&shy;рав&shy;ля&shy;е&shy;мого кода, при этом дав им меха&shy;низм уни&shy;фи&shy;ци&shy;ро&shy;ван&shy;ной и быст&shy;рой работы с раз&shy;но&shy;род&shy;ными источ&shy;ни&shy;ками дан&shy;ных: мас&shy;си&shy;вами, стро&shy;ками и неуп&shy;рав&shy;ля&shy;е&shy;мой памятью? Необ&shy;хо&shy;димо дать им чувство спо&shy;к&shy;ойствия, что они не могут сде&shy;лать ошибку слу&shy;чайно, по нез&shy;на&shy;нию. Необ&shy;хо&shy;димо дать им инст&shy;румент, не усту&shy;па&shy;ю&shy;щий в про&shy;из&shy;во&shy;ди&shy;тель&shy;ности натив&shy;ным типам дан&shy;ных, но реша&shy;ю&shy;щих пере&shy;чис&shy;лен&shy;ные проб&shy;лемы. Этим инст&shy;рум&shy;ентом явля&shy;ются типы  <code>Span&lt;T&gt;</code> и <code>Memory&lt;T&gt;</code>.</p>
+<p>Так как же решить все эти проб&shy;лемы? Как вер&shy;нуть раз&shy;ра&shy;бот&shy;чи&shy;ков обратно в лоно неуп&shy;рав&shy;ля&shy;е&shy;мого кода, при этом дав им меха&shy;низм уни&shy;фи&shy;ци&shy;ро&shy;ван&shy;ной и быст&shy;рой работы с раз&shy;но&shy;род&shy;ными источ&shy;ни&shy;ками дан&shy;ных: мас&shy;си&shy;вами, стро&shy;ками и неуп&shy;рав&shy;ля&shy;е&shy;мой памятью? Необ&shy;хо&shy;димо дать им чувство спо&shy;к&shy;ойствия, что они не могут сде&shy;лать ошибку слу&shy;чайно, по нез&shy;на&shy;нию. Необ&shy;хо&shy;димо дать им инст&shy;румент, не усту&shy;па&shy;ю&shy;щий в про&shy;из&shy;во&shy;ди&shy;тель&shy;ности натив&shy;ным типам дан&shy;ных, но реша&shy;ю&shy;щих пере&shy;чис&shy;лен&shy;ные проб&shy;лемы. Этим инст&shy;рум&shy;ентом явля&shy;ются типы  <code>Span&shy;<T></code> и <code>Memory&shy;<T></code>.</p>
 <div class="paragraph-right-side">13</div>
 </div>
-<h2 id="spant-readonlyspant">Span&lt;T&gt;, ReadOnlySpan&lt;T&gt;</h2>
+<h2 id="spant-readonlyspant">Span<T>, Read&shy;Only&shy;Span<T></h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
-<p >
-Тип <code>Span</code> оли&shy;цет&shy;во&shy;ряет собой инст&shy;румент для работы с дан&shy;ными части неко&shy;то&shy;рого мас&shy;сива дан&shy;ных либо под&shy;ди&shy;а&shy;па&shy;зона его зна&shy;че&shy;ний. При этом поз&shy;во&shy;ляя, как и в слу&shy;чае мас&shy;сива рабо&shy;тать с эле&shy;мен&shy;тами этого диа&shy;па&shy;зона, как на запись, так и на чте&shy;ние, но с одним важ&shy;ным огра&shy;ни&shy;че&shy;нием: <code>Span&lt;T&gt;</code> вы полу&shy;ча&shy;ете или соз&shy;да&shy;ете только для того, чтобы <em>временно</em> пора&shy;бо&shy;тать с мас&shy;си&shy;вом. В рам&shy;ках вызова группы мето&shy;дов, но не более того. Однако давайте для раз&shy;гона и общего пони&shy;ма&shy;ния срав&shy;ним типы дан&shy;ных, для кото&shy;рых сде&shy;лана реа&shy;ли&shy;за&shy;ция типа <code>Span</code>, и пос&shy;мот&shy;рим на воз&shy;мож&shy;ные сце&shy;на&shy;рии для работы с ним.</p>
+<p>Тип <code>Span</code> оли&shy;цет&shy;во&shy;ряет собой инст&shy;румент для работы с дан&shy;ными части неко&shy;то&shy;рого мас&shy;сива дан&shy;ных либо под&shy;ди&shy;а&shy;па&shy;зона его зна&shy;че&shy;ний. При этом поз&shy;во&shy;ляя, как и в слу&shy;чае мас&shy;сива рабо&shy;тать с эле&shy;мен&shy;тами этого диа&shy;па&shy;зона, как на запись, так и на чте&shy;ние, но с одним важ&shy;ным огра&shy;ни&shy;че&shy;нием: <code>Span&shy;<T></code> вы полу&shy;ча&shy;ете или соз&shy;да&shy;ете только для того, чтобы <em>вре&shy;менно</em> пора&shy;бо&shy;тать с мас&shy;си&shy;вом. В рам&shy;ках вызова группы мето&shy;дов, но не более того. Однако давайте для раз&shy;гона и общего пони&shy;ма&shy;ния срав&shy;ним типы дан&shy;ных, для кото&shy;рых сде&shy;лана реа&shy;ли&shy;за&shy;ция типа <code>Span</code>, и пос&shy;мот&shy;рим на воз&shy;мож&shy;ные сце&shy;на&shy;рии для работы с ним.</p>
 <div class="paragraph-right-side">14</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
-<p >
-Пер&shy;вый тип дан&shy;ных, о кото&shy;ром хочется завести речь, - это обыч&shy;ный мас&shy;сив. Для мас&shy;си&shy;вов работа со <code>Span</code> будет выг&shy;ля&shy;деть сле&shy;ду&shy;ю&shy;щим обра&shy;зом:</p>
+<p>Пер&shy;вый тип дан&shy;ных, о кото&shy;ром хочется завести речь,  &mdash;  это обыч&shy;ный мас&shy;сив. Для мас&shy;си&shy;вов работа со <code>Span</code> будет выг&shy;ля&shy;деть сле&shy;ду&shy;ю&shy;щим обра&shy;зом:</p>
 <div class="paragraph-right-side">15</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1441,14 +1438,12 @@ MemoryManager, IMemoryOwner, MemoryPool</a></li>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
-<p >
-Как мы видим в дан&shy;ном при&shy;мере, для начала мы соз&shy;даем некий мас&shy;сив дан&shy;ных. После этого мы соз&shy;даем <code>Span</code> (или подм&shy;но&shy;жес&shy;тво), кото&shy;рый, ссы&shy;ла&shy;ясь на сам мас&shy;сив, раз&shy;ре&shy;шает дос&shy;туп исполь&shy;зу&shy;ю&shy;щему его коду только в тот диа&shy;па&shy;зон зна&shy;че&shy;ний, кото&shy;рый был ука&shy;зан при ини&shy;ци&shy;а&shy;ли&shy;за&shy;ции.</p>
+<p>Как мы видим в дан&shy;ном при&shy;мере, для начала мы соз&shy;даем некий мас&shy;сив дан&shy;ных. После этого мы соз&shy;даем <code>Span</code> (или подм&shy;но&shy;жес&shy;тво), кото&shy;рый, ссы&shy;ла&shy;ясь на сам мас&shy;сив, раз&shy;ре&shy;шает дос&shy;туп исполь&shy;зу&shy;ю&shy;щему его коду только в тот диа&shy;па&shy;зон зна&shy;че&shy;ний, кото&shy;рый был ука&shy;зан при ини&shy;ци&shy;а&shy;ли&shy;за&shy;ции.</p>
 <div class="paragraph-right-side">16</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
-<p >
-Тут мы видим пер&shy;вое свой&shy;ство этого типа дан&shy;ных: это соз&shy;да&shy;ние неко&shy;то&shy;рого кон&shy;тек&shy;ста. Давайте разов&shy;ьем нашу идею с кон&shy;текс&shy;тами:</p>
+<p>Тут мы видим пер&shy;вое свой&shy;ство этого типа дан&shy;ных: это соз&shy;да&shy;ние неко&shy;то&shy;рого кон&shy;тек&shy;ста. Давайте разов&shy;ьем нашу идею с кон&shy;текс&shy;тами:</p>
 <div class="paragraph-right-side">17</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1484,8 +1479,7 @@ MemoryManager, IMemoryOwner, MemoryPool</a></li>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
-<p >
-Как мы видим, <code>Span&lt;T&gt;</code> вво&shy;дит абстр&shy;акцию дос&shy;тупа к неко&shy;то&shy;рому учас&shy;тку памяти, как на чте&shy;ние, так и на запись. Что нам это дает? Если вспом&shy;нить, на основе чего еще может быть сде&shy;лан <code>Span</code>, то мы вспом&shy;ним как про неуп&shy;рав&shy;ля&shy;е&shy;мые ресурсы, так и про строки:</p>
+<p>Как мы видим, <code>Span&shy;<T></code> вво&shy;дит абстр&shy;акцию дос&shy;тупа к неко&shy;то&shy;рому учас&shy;тку памяти, как на чте&shy;ние, так и на запись. Что нам это дает? Если вспом&shy;нить, на основе чего еще может быть сде&shy;лан <code>Span</code>, то мы вспом&shy;ним как про неуп&shy;рав&shy;ля&shy;е&shy;мые ресурсы, так и про строки:</p>
 <div class="paragraph-right-side">18</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1523,14 +1517,12 @@ buf[3] = <span style="color:#A31515;">&#39;4&#39;</span>; buf[4] = <span style="
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
-<p >
-Т.е., полу&shy;ча&shy;ется, что <code>Span&lt;T&gt;</code> - это сред&shy;ство уни&shy;фи&shy;ка&shy;ции по работе с памятью: управ&shy;ля&shy;е&shy;мой и неуп&shy;рав&shy;ля&shy;е&shy;мой, кото&shy;рое гаран&shy;ти&shy;рует безо&shy;пас&shy;ность в работе с такого рода дан&shy;ными во время Garbage Collec&shy;tion: если учас&shy;тки памяти с управ&shy;ля&shy;е&shy;мыми мас&shy;си&shy;вами нач&shy;нут дви&shy;гаться, то для нас это будет безо&shy;пасно.</p>
+<p>Т.е., полу&shy;ча&shy;ется, что <code>Span&shy;<T></code>  &mdash;  это сред&shy;ство уни&shy;фи&shy;ка&shy;ции по работе с памятью: управ&shy;ля&shy;е&shy;мой и неуп&shy;рав&shy;ля&shy;е&shy;мой, кото&shy;рое гаран&shy;ти&shy;рует безо&shy;пас&shy;ность в работе с такого рода дан&shy;ными во время Garbage Collection&shy;: если учас&shy;тки памяти с управ&shy;ля&shy;е&shy;мыми мас&shy;си&shy;вами нач&shy;нут дви&shy;гаться, то для нас это будет безо&shy;пасно.</p>
 <div class="paragraph-right-side">19</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
-<p >
-Однако, стоит ли так сильно радо&shy;ваться? Можно ли было всего этого добиться и раньше? Нап&shy;ри&shy;мер, если гово&shy;рить об управ&shy;ля&shy;е&shy;мых мас&shy;си&shy;вах, то тут даже сом&shy;не&shy;ваться не при&shy;хо&shy;дится: дос&shy;та&shy;точно просто обер&shy;нуть мас&shy;сив в еще один класс (нап&shy;ри&shy;мер давно сущес&shy;тву&shy;ю&shy;щий <a href="https://referencesource.microsoft.com/#mscorlib/system/arraysegment.cs,31">ArraySegment</a>), пре&shy;дос&shy;та&shy;вив ана&shy;ло&shy;гич&shy;ный интер&shy;фейс, и все готово. Мало того, ана&shy;ло&shy;гич&shy;ную опе&shy;ра&shy;цию можно про&shy;де&shy;лать и со стро&shy;ками: они обла&shy;дают необ&shy;хо&shy;ди&shy;мыми мето&shy;дами. Опять же, дос&shy;та&shy;точно строку завер&shy;нуть в точно такой же тип и пре&shy;дос&shy;та&shy;вить методы по работе с ней. Дру&shy;гое дело, что для того чтобы хра&shy;нить в одном типе строку, буфер или мас&shy;сив, при&shy;дется сильно пово&shy;зиться, храня в еди&shy;ном экземп&shy;ляре ссылки на каж&shy;дый из воз&shy;мож&shy;ных вари&shy;ан&shy;тов (актив&shy;ным, понят&shy;ное дело, будет только один):</p>
+<p>Однако, стоит ли так сильно радо&shy;ваться? Можно ли было всего этого добиться и раньше? Нап&shy;ри&shy;мер, если гово&shy;рить об управ&shy;ля&shy;е&shy;мых мас&shy;си&shy;вах, то тут даже сом&shy;не&shy;ваться не при&shy;хо&shy;дится: дос&shy;та&shy;точно просто обер&shy;нуть мас&shy;сив в еще один класс (нап&shy;ри&shy;мер давно сущес&shy;тву&shy;ю&shy;щий <a href="https://referencesource.microsoft.com/#mscorlib/system/arraysegment.cs,31">Array&shy;Segment</a>), пре&shy;дос&shy;та&shy;вив ана&shy;ло&shy;гич&shy;ный интер&shy;фейс, и все готово. Мало того, ана&shy;ло&shy;гич&shy;ную опе&shy;ра&shy;цию можно про&shy;де&shy;лать и со стро&shy;ками: они обла&shy;дают необ&shy;хо&shy;ди&shy;мыми мето&shy;дами. Опять же, дос&shy;та&shy;точно строку завер&shy;нуть в точно такой же тип и пре&shy;дос&shy;та&shy;вить методы по работе с ней. Дру&shy;гое дело, что для того чтобы хра&shy;нить в одном типе строку, буфер или мас&shy;сив, при&shy;дется сильно пово&shy;зиться, храня в еди&shy;ном экземп&shy;ляре ссылки на каж&shy;дый из воз&shy;мож&shy;ных вари&shy;ан&shy;тов (актив&shy;ным, понят&shy;ное дело, будет только один):</p>
 <div class="paragraph-right-side">20</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1546,28 +1538,23 @@ buf[3] = <span style="color:#A31515;">&#39;4&#39;</span>; buf[4] = <span style="
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
-<p >
-Или же если оттал&shy;ки&shy;ваться от архи&shy;тек&shy;туры, то делать три типа, кото&shy;рые нас&shy;ле&shy;дуют еди&shy;ный интер&shy;фейс. Полу&shy;ча&shy;ется, что невоз&shy;можно сде&shy;лать сред&shy;ство еди&shy;ного интер&shy;фейса, отлич&shy;ное от <code>Span&lt;T&gt;</code>, между этими типами дан&shy;ных, сох&shy;ра&shy;нив при этом мак&shy;си&shy;маль&shy;ную про&shy;из&shy;во&shy;ди&shy;тель&shy;ность.</p>
+<p>Или же если оттал&shy;ки&shy;ваться от архи&shy;тек&shy;туры, то делать три типа, кото&shy;рые нас&shy;ле&shy;дуют еди&shy;ный интер&shy;фейс. Полу&shy;ча&shy;ется, что невоз&shy;можно сде&shy;лать сред&shy;ство еди&shy;ного интер&shy;фейса, отлич&shy;ное от <code>Span&shy;<T></code>, между этими типами дан&shy;ных, сох&shy;ра&shy;нив при этом мак&shy;си&shy;маль&shy;ную про&shy;из&shy;во&shy;ди&shy;тель&shy;ность.</p>
 <div class="paragraph-right-side">21</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
-<p >
-Далее, если про&shy;дол&shy;жить рас&shy;суж&shy;де&shy;ния, то, что такое <code>ref struct</code> в поня&shy;тиях <code>Span</code>? Это именно те самые &laquo;струк&shy;туры, они только на стеке&raquo;, о кото&shy;рых мы так часто слы&shy;шим на собе&shy;се&shy;до&shy;ва&shy;ниях. А это зна&shy;чит, что этот тип дан&shy;ных может идти только через стек и не имеет права ухо&shy;дить в кучу. А потому <code>Span</code>, будучи ref струк&shy;ту&shy;рой, явля&shy;ется кон&shy;т&shy;екстным типом дан&shy;ных, обес&shy;пе&shy;чи&shy;ва&shy;ю&shy;щим работу мето&shy;дов, но не объ&shy;ек&shy;тов в памяти. От этого для его пони&shy;ма&shy;ния и надо оттал&shy;ки&shy;ваться.</p>
+<p>Далее, если про&shy;дол&shy;жить рас&shy;суж&shy;де&shy;ния, то, что такое <code>ref struct</code> в поня&shy;тиях <code>Span</code>? Это именно те самые &laquo;струк&shy;туры, они только на стеке&raquo;, о кото&shy;рых мы так часто слы&shy;шим на собе&shy;се&shy;до&shy;ва&shy;ниях. А это зна&shy;чит, что этот тип дан&shy;ных может идти только через стек и не имеет права ухо&shy;дить в кучу. А потому <code>Span</code>, будучи ref струк&shy;ту&shy;рой, явля&shy;ется кон&shy;т&shy;екстным типом дан&shy;ных, обес&shy;пе&shy;чи&shy;ва&shy;ю&shy;щим работу мето&shy;дов, но не объ&shy;ек&shy;тов в памяти. От этого для его пони&shy;ма&shy;ния и надо оттал&shy;ки&shy;ваться.</p>
 <div class="paragraph-right-side">22</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
-<p >
-Отсюда мы можем сфор&shy;му&shy;ли&shy;ро&shy;вать опре&shy;де&shy;ле&shy;ние типа Span и свя&shy;зан&shy;ного с ним rea&shy;donly типа Read&shy;Only&shy;Span:</p>
+<p>Отсюда мы можем сфор&shy;му&shy;ли&shy;ро&shy;вать опре&shy;де&shy;ле&shy;ние типа Span и свя&shy;зан&shy;ного с ним rea&shy;donly типа Read&shy;Only&shy;Span&shy;:</p>
 <div class="paragraph-right-side">23</div>
 </div>
 <blockquote>
-<p >
-Span - это тип дан&shy;ных, обес&shy;пе&shy;чи&shy;ва&shy;ю&shy;щий еди&shy;ный интер&shy;фейс работы с раз&shy;но&shy;род&shy;ными типами мас&shy;си&shy;вов дан&shy;ных, а также воз&shy;мож&shy;ность пере&shy;дать в дру&shy;гой метод подм&shy;но&shy;жес&shy;тво этого мас&shy;сива таким обра&shy;зом, чтобы вне зави&shy;си&shy;мости от глу&shy;бины взя&shy;тия кон&shy;тек&shy;ста ско&shy;рость дос&shy;тупа к исход&shy;ному мас&shy;сиву была конс&shy;тант&shy;ной и мак&shy;си&shy;мально высо&shy;кой.</p>
+<p>Span  &mdash;  это тип дан&shy;ных, обес&shy;пе&shy;чи&shy;ва&shy;ю&shy;щий еди&shy;ный интер&shy;фейс работы с раз&shy;но&shy;род&shy;ными типами мас&shy;си&shy;вов дан&shy;ных, а также воз&shy;мож&shy;ность пере&shy;дать в дру&shy;гой метод подм&shy;но&shy;жес&shy;тво этого мас&shy;сива таким обра&shy;зом, чтобы вне зави&shy;си&shy;мости от глу&shy;бины взя&shy;тия кон&shy;тек&shy;ста ско&shy;рость дос&shy;тупа к исход&shy;ному мас&shy;сиву была конс&shy;тант&shy;ной и мак&shy;си&shy;мально высо&shy;кой.</p>
 </blockquote>
-<p >
-И дейс&shy;твит&shy;ельно: если мы имеем при&shy;мерно такой код:</p>
+<p>И дейс&shy;твит&shy;ельно: если мы имеем при&shy;мерно такой код:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">void</span> Method1(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 {
@@ -1587,34 +1574,29 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">24</div>
-<p >
-то ско&shy;рость дос&shy;тупа к исход&shy;ному буферу будет мак&shy;си&shy;мально высо&shy;кой: вы рабо&shy;та&shy;ете не с managed объ&shy;ек&shy;том, а с managed ука&shy;за&shy;те&shy;лем. Т.е. не с .NET managed типом, а с unsafe типом, зак&shy;лю&shy;чен&shy;ным в managed обо&shy;лочку.</p>
+<p>то ско&shy;рость дос&shy;тупа к исход&shy;ному буферу будет мак&shy;си&shy;мально высо&shy;кой: вы рабо&shy;та&shy;ете не с managed объ&shy;ек&shy;том, а с managed ука&shy;за&shy;те&shy;лем. Т.е. не с .NET managed типом, а с unsafe типом, зак&shy;лю&shy;чен&shy;ным в managed обо&shy;лочку.</p>
 <div class="paragraph-right-side">24</div>
 </div>
-<h3 id="spant">Span&lt;T&gt; на примерах</h3>
+<h3 id="spant">Span<T> на при&shy;ме&shy;рах</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
-<p >
-Чело&shy;век так устроен, что зачас&shy;тую пока он не полу&shy;чит опре&shy;де&shy;лен&shy;ного опыта, то конеч&shy;ного пони&shy;ма&shy;ния, для чего необ&shy;хо&shy;дим инст&shy;румент, часто не при&shy;хо&shy;дит. А потому, пос&shy;кольку нам нужен некий опыт, давайте обра&shy;тимся к при&shy;ме&shy;рам.</p>
+<p>Чело&shy;век так устроен, что зачас&shy;тую пока он не полу&shy;чит опре&shy;де&shy;лен&shy;ного опыта, то конеч&shy;ного пони&shy;ма&shy;ния, для чего необ&shy;хо&shy;дим инст&shy;румент, часто не при&shy;хо&shy;дит. А потому, пос&shy;кольку нам нужен некий опыт, давайте обра&shy;тимся к при&shy;ме&shy;рам.</p>
 <div class="paragraph-right-side">25</div>
 </div>
-<h4 id="valuestringbuilder">ValueStringBuilder</h4>
+<h4 id="valuestringbuilder">Value&shy;String&shy;Builder</h4>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
-<p >
-Одним из самых алго&shy;рит&shy;ми&shy;чески инте&shy;рес&shy;ных при&shy;ме&shy;ров явля&shy;ется тип <code>ValueStringBuilder</code>, кото&shy;рый при&shy;ко&shy;пан где-то в нед&shy;рах <code>mscorlib</code> и почему-то, как и мно&shy;гие дру&shy;гие инте&shy;рес&shy;ней&shy;шие типы дан&shy;ных поме&shy;чен моди&shy;фи&shy;ка&shy;то&shy;ром <code>internal</code>, что озна&shy;чает, что, если бы не иссле&shy;до&shy;ва&shy;ние исход&shy;ного кода mscorlib, о таком заме&shy;ча&shy;тель&shy;ном спо&shy;собе опти&shy;ми&shy;за&shy;ции мы бы никогда не узнали.</p>
+<p>Одним из самых алго&shy;рит&shy;ми&shy;чески инте&shy;рес&shy;ных при&shy;ме&shy;ров явля&shy;ется тип <code>Value&shy;String&shy;Builder</code>, кото&shy;рый при&shy;ко&shy;пан где-то в нед&shy;рах <code>mscorlib</code> и почему-то, как и мно&shy;гие дру&shy;гие инте&shy;рес&shy;ней&shy;шие типы дан&shy;ных поме&shy;чен моди&shy;фи&shy;ка&shy;то&shy;ром <code>internal</code>, что озна&shy;чает, что, если бы не иссле&shy;до&shy;ва&shy;ние исход&shy;ного кода mscorlib, о таком заме&shy;ча&shy;тель&shy;ном спо&shy;собе опти&shy;ми&shy;за&shy;ции мы бы никогда не узнали.</p>
 <div class="paragraph-right-side">26</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">27</div>
-<p >
-Каков основ&shy;ной минус сис&shy;тем&shy;ного типа <code>StringBuilder</code>? Это, конечно же, его суть: как он сам, так и то, на чем он осно&shy;ван (а это - мас&shy;сив сим&shy;во&shy;лов <code>char[]</code>) - явля&shy;ются типами ссы&shy;лоч&shy;ными. А это зна&shy;чит как мини&shy;мум две вещи: мы все равно (хоть и нем&shy;ного) наг&shy;ру&shy;жаем кучу и вто&shy;рое - уве&shy;ли&shy;чи&shy;ваем шансы про&shy;маха по кэшам про&shy;цес&shy;сора.</p>
+<p>Каков основ&shy;ной минус сис&shy;тем&shy;ного типа <code>String&shy;Builder</code>? Это, конечно же, его суть: как он сам, так и то, на чем он осно&shy;ван (а это  &mdash;  мас&shy;сив сим&shy;во&shy;лов <code>char[]</code>)  &mdash;  явля&shy;ются типами ссы&shy;лоч&shy;ными. А это зна&shy;чит как мини&shy;мум две вещи: мы все равно (хоть и нем&shy;ного) наг&shy;ру&shy;жаем кучу и вто&shy;рое  &mdash;  уве&shy;ли&shy;чи&shy;ваем шансы про&shy;маха по кэшам про&shy;цес&shy;сора.</p>
 <div class="paragraph-right-side">27</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
-<p >
-Еще один воп&shy;рос, кото&shy;рый у меня воз&shy;ни&shy;кал к <code>StringBuilder</code> - это фор&shy;ми&shy;ро&shy;ва&shy;ние малень&shy;ких строк. Т.е. когда резуль&shy;ти&shy;ру&shy;ю&shy;щая строка &laquo;зуб даю&raquo; будет корот&shy;кой: нап&shy;ри&shy;мер, менее 100 сим&shy;во&shy;лов. Когда мы имеем дос&shy;та&shy;точно корот&shy;кие фор&shy;ма&shy;ти&shy;ро&shy;ва&shy;ния, к про&shy;из&shy;во&shy;ди&shy;тель&shy;ности воз&shy;ни&shy;кают воп&shy;росы:</p>
+<p>Еще один воп&shy;рос, кото&shy;рый у меня воз&shy;ни&shy;кал к <code>String&shy;Builder</code>  &mdash;  это фор&shy;ми&shy;ро&shy;ва&shy;ние малень&shy;ких строк. Т.е. когда резуль&shy;ти&shy;ру&shy;ю&shy;щая строка &laquo;зуб даю&raquo; будет корот&shy;кой: нап&shy;ри&shy;мер, менее 100 сим&shy;во&shy;лов. Когда мы имеем дос&shy;та&shy;точно корот&shy;кие фор&shy;ма&shy;ти&shy;ро&shy;ва&shy;ния, к про&shy;из&shy;во&shy;ди&shy;тель&shy;ности воз&shy;ни&shy;кают воп&shy;росы:</p>
 <div class="paragraph-right-side">28</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1623,17 +1605,14 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">29</div>
-<p >
-Нас&shy;колько эта запись хуже, чем руч&shy;ное фор&shy;ми&shy;ро&shy;ва&shy;ние через <code>StringBuilder</code>? Ответ далеко не всегда оче&shy;ви&shy;ден: все сильно зави&shy;сит от места фор&shy;ми&shy;ро&shy;ва&shy;ния: как часто будет выз&shy;ван дан&shy;ный метод. Ведь сна&shy;чала <code>string.Format</code> выде&shy;ляет память под внут&shy;рен&shy;ний <code>StringBuilder</code>, кото&shy;рый соз&shy;даст мас&shy;сив сим&shy;во&shy;лов (Source&shy;String.Length + args.Length * 8) и если в про&shy;цессе фор&shy;ми&shy;ро&shy;ва&shy;ния мас&shy;сива выяс&shy;нится, что длина не была уга&shy;дана, то для фор&shy;ми&shy;ро&shy;ва&shy;ния про&shy;дол&shy;же&shy;ния будет соз&shy;дан еще один <code>StringBuilder</code>, фор&shy;ми&shy;руя тем самым однос&shy;вяз&shy;ный спи&shy;сок. А в резуль&shy;тате - необ&shy;хо&shy;димо будет вер&shy;нуть сфор&shy;ми&shy;ро&shy;ван&shy;ную строку: а это еще одно копи&shy;ро&shy;ва&shy;ние. Тран&shy;жирство и рас&shy;то&shy;чи&shy;тельство. Вот если бы изба&shy;виться от раз&shy;ме&shy;ще&shy;ния в куче пер&shy;вого мас&shy;сива фор&shy;ми&shy;ру&shy;е&shy;мой строки, было бы заме&shy;ча&shy;тельно: от одной проб&shy;лемы мы бы точно изба&shy;ви&shy;лись.</p>
+<p>Нас&shy;колько эта запись хуже, чем руч&shy;ное фор&shy;ми&shy;ро&shy;ва&shy;ние через <code>String&shy;Builder</code>? Ответ далеко не всегда оче&shy;ви&shy;ден: все сильно зави&shy;сит от места фор&shy;ми&shy;ро&shy;ва&shy;ния: как часто будет выз&shy;ван дан&shy;ный метод. Ведь сна&shy;чала <code>string.Format</code> выде&shy;ляет память под внут&shy;рен&shy;ний <code>String&shy;Builder</code>, кото&shy;рый соз&shy;даст мас&shy;сив сим&shy;во&shy;лов (Source&shy;String&shy;.Length + args.Length * 8) и если в про&shy;цессе фор&shy;ми&shy;ро&shy;ва&shy;ния мас&shy;сива выяс&shy;нится, что длина не была уга&shy;дана, то для фор&shy;ми&shy;ро&shy;ва&shy;ния про&shy;дол&shy;же&shy;ния будет соз&shy;дан еще один <code>String&shy;Builder</code>, фор&shy;ми&shy;руя тем самым однос&shy;вяз&shy;ный спи&shy;сок. А в резуль&shy;тате  &mdash;  необ&shy;хо&shy;димо будет вер&shy;нуть сфор&shy;ми&shy;ро&shy;ван&shy;ную строку: а это еще одно копи&shy;ро&shy;ва&shy;ние. Тран&shy;жирство и рас&shy;то&shy;чи&shy;тельство. Вот если бы изба&shy;виться от раз&shy;ме&shy;ще&shy;ния в куче пер&shy;вого мас&shy;сива фор&shy;ми&shy;ру&shy;е&shy;мой строки, было бы заме&shy;ча&shy;тельно: от одной проб&shy;лемы мы бы точно изба&shy;ви&shy;лись.</p>
 <div class="paragraph-right-side">29</div>
 </div>
-<p >
-Взгл&shy;янем на тип из недр <code>mscorlib</code>:</p>
+<p>Взгл&shy;янем на тип из недр <code>mscorlib</code>:</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">30</div>
-<p >
-<strong>Класс ValueStringBuilder</strong>
-<a href="https://github.com/dotnet/coreclr/blob/efebb38f3c18425c57f94ff910a50e038d13c848/src/mscorlib/shared/System/Text/ValueStringBuilder.cs">/src/mscorlib/shared/System/Text/ValueStringBuilder</a></p>
+<p><strong>Класс Value&shy;String&shy;Builder</strong>
+<a href="https://github.com/dotnet/coreclr/blob/efebb38f3c18425c57f94ff910a50e038d13c848/src/mscorlib/shared/System/Text/ValueStringBuilder.cs">/src/mscorlib/shared/System&shy;/Text&shy;/Value&shy;String&shy;Builder</a></p>
 <div class="paragraph-right-side">30</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1758,14 +1737,12 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">31</div>
-<p >
-Этот класс по сво&shy;ему фун&shy;кци&shy;о&shy;налу схо&shy;ден со своим стар&shy;шим соб&shy;ра&shy;том <code>StringBuilder</code>, обла&shy;дая при этом одной инте&shy;рес&shy;ной и очень важ&shy;ной осо&shy;бен&shy;ностью: он явля&shy;ется зна&shy;чи&shy;мым типом. Т.е. хра&shy;нится и пере&shy;да&shy;ется цели&shy;ком по зна&shy;че&shy;нию. А новей&shy;ший моди&shy;фи&shy;ка&shy;тор типа <code>ref</code>, кото&shy;рый при&shy;пи&shy;сан к сиг&shy;на&shy;туре объ&shy;яв&shy;ле&shy;ния типа, гово&shy;рит нам о том, что дан&shy;ный тип обла&shy;дает допол&shy;ни&shy;тель&shy;ным огра&shy;ни&shy;че&shy;нием: он имеет право нахо&shy;диться только на стеке. Т.е. вывод его экземп&shy;ля&shy;ров в поля клас&shy;сов при&shy;ве&shy;дет к ошибке. К чему все эти при&shy;се&shy;да&shy;ния? Для ответа на этот воп&shy;рос дос&shy;та&shy;точно пос&shy;мот&shy;реть на класс <code>StringBuilder</code>, суть кото&shy;рого мы только что опи&shy;сали:</p>
+<p>Этот класс по сво&shy;ему фун&shy;кци&shy;о&shy;налу схо&shy;ден со своим стар&shy;шим соб&shy;ра&shy;том <code>String&shy;Builder</code>, обла&shy;дая при этом одной инте&shy;рес&shy;ной и очень важ&shy;ной осо&shy;бен&shy;ностью: он явля&shy;ется зна&shy;чи&shy;мым типом. Т.е. хра&shy;нится и пере&shy;да&shy;ется цели&shy;ком по зна&shy;че&shy;нию. А новей&shy;ший моди&shy;фи&shy;ка&shy;тор типа <code>ref</code>, кото&shy;рый при&shy;пи&shy;сан к сиг&shy;на&shy;туре объ&shy;яв&shy;ле&shy;ния типа, гово&shy;рит нам о том, что дан&shy;ный тип обла&shy;дает допол&shy;ни&shy;тель&shy;ным огра&shy;ни&shy;че&shy;нием: он имеет право нахо&shy;диться только на стеке. Т.е. вывод его экземп&shy;ля&shy;ров в поля клас&shy;сов при&shy;ве&shy;дет к ошибке. К чему все эти при&shy;се&shy;да&shy;ния? Для ответа на этот воп&shy;рос дос&shy;та&shy;точно пос&shy;мот&shy;реть на класс <code>String&shy;Builder</code>, суть кото&shy;рого мы только что опи&shy;сали:</p>
 <div class="paragraph-right-side">31</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">32</div>
-<p >
-<strong>Класс StringBuilder</strong> <a href="https://github.com/dotnet/coreclr/blob/68f72dd2587c3365a9fe74d1991f93612c3bc62a/src/mscorlib/src/System/Text/StringBuilder.cs#L47-L62">/src/mscorlib/src/System/Text/StringBuilder.cs</a></p>
+<p><strong>Класс String&shy;Builder</strong> <a href="https://github.com/dotnet/coreclr/blob/68f72dd2587c3365a9fe74d1991f93612c3bc62a/src/mscorlib/src/System/Text/StringBuilder.cs#L47-L62">/src/mscorlib/src/System&shy;/Text&shy;/String&shy;Builder&shy;.cs</a></p>
 <div class="paragraph-right-side">32</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1787,11 +1764,10 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">33</div>
-<p >
-<code>StringBuilder</code> - это класс, внутри кото&shy;рого нахо&shy;дится ссылка на мас&shy;сив сим&shy;во&shy;лов. Т.е. когда вы соз&shy;да&shy;ете его, то по сути соз&shy;да&shy;ется как мини&shy;мум два объ&shy;екта: сам <code>StringBuilder</code> и мас&shy;сив сим&shy;во&shy;лов в как мини&shy;мум 16 сим&shy;во&shy;лов (кстати именно поэ&shy;тому так важно зада&shy;вать пред&shy;по&shy;ла&shy;га&shy;е&shy;мую длину строки: ее пос&shy;тро&shy;е&shy;ние будет идти через гене&shy;ра&shy;цию однос&shy;вяз&shy;ного списка 16-сим&shy;воль&shy;ных мас&shy;си&shy;вов. Сог&shy;ла&shy;си&shy;тесь, рас&shy;то&shy;чи&shy;тельство). Что это зна&shy;чит в кон&shy;тек&shy;сте нашего раз&shy;го&shy;вора о типе <code>ValueStringBuilder</code>: capa&shy;city по умол&shy;ча&shy;нию отсут&shy;ствует, т.к. он заимс&shy;твует память извне, плюс он сам явля&shy;ется зна&shy;чи&shy;мым типом и зас&shy;тав&shy;ляет поль&shy;зо&shy;ва&shy;теля рас&shy;по&shy;ло&shy;жить буфер для сим&shy;во&shy;лов на стеке. Как итог весь экземп&shy;ляр типа поме&shy;ща&shy;ется на стек вместе с его содер&shy;жи&shy;мым и воп&shy;рос опти&shy;ми&shy;за&shy;ции здесь ста&shy;но&shy;вится решен&shy;ным. Нет выде&shy;ле&shy;ния памяти в куче? Нет проб&shy;лем с про&shy;се&shy;да&shy;нием про&shy;из&shy;во&shy;ди&shy;тель&shy;ности по куче. Но вы мне ска&shy;жите: почему тогда не поль&shy;зо&shy;ваться Value&shy;String&shy;Builder (или его само&shy;пис&shy;ной вер&shy;сией: сам он internal и нам не дос&shy;ту&shy;пен) всегда? Ответ такой: надо смот&shy;реть на задачу, кото&shy;рая вами реша&shy;ется. Будет ли резуль&shy;ти&shy;ру&shy;ю&shy;щая строка извест&shy;ного раз&shy;мера? Будет ли она иметь некий извест&shy;ный мак&shy;си&shy;мум по длине? Если ответ &laquo;да&raquo; и если при этом раз&shy;мер строки не выхо&shy;дит за неко&shy;то&shy;рые разум&shy;ные гра&shy;ницы, то можно исполь&shy;зо&shy;вать зна&shy;чи&shy;мую вер&shy;сию <code>StringBuilder</code>. Иначе, если мы ожи&shy;даем длин&shy;ные строки, пере&shy;хо&shy;дим на исполь&shy;зо&shy;ва&shy;ние обыч&shy;ной вер&shy;сии.</p>
+<p><code>String&shy;Builder</code>  &mdash;  это класс, внутри кото&shy;рого нахо&shy;дится ссылка на мас&shy;сив сим&shy;во&shy;лов. Т.е. когда вы соз&shy;да&shy;ете его, то по сути соз&shy;да&shy;ется как мини&shy;мум два объ&shy;екта: сам <code>String&shy;Builder</code> и мас&shy;сив сим&shy;во&shy;лов в как мини&shy;мум 16 сим&shy;во&shy;лов (кстати именно поэ&shy;тому так важно зада&shy;вать пред&shy;по&shy;ла&shy;га&shy;е&shy;мую длину строки: ее пос&shy;тро&shy;е&shy;ние будет идти через гене&shy;ра&shy;цию однос&shy;вяз&shy;ного списка 16-сим&shy;воль&shy;ных мас&shy;си&shy;вов. Сог&shy;ла&shy;си&shy;тесь, рас&shy;то&shy;чи&shy;тельство). Что это зна&shy;чит в кон&shy;тек&shy;сте нашего раз&shy;го&shy;вора о типе <code>Value&shy;String&shy;Builder</code>: capa&shy;city по умол&shy;ча&shy;нию отсут&shy;ствует, т.к. он заимс&shy;твует память извне, плюс он сам явля&shy;ется зна&shy;чи&shy;мым типом и зас&shy;тав&shy;ляет поль&shy;зо&shy;ва&shy;теля рас&shy;по&shy;ло&shy;жить буфер для сим&shy;во&shy;лов на стеке. Как итог весь экземп&shy;ляр типа поме&shy;ща&shy;ется на стек вместе с его содер&shy;жи&shy;мым и воп&shy;рос опти&shy;ми&shy;за&shy;ции здесь ста&shy;но&shy;вится решен&shy;ным. Нет выде&shy;ле&shy;ния памяти в куче? Нет проб&shy;лем с про&shy;се&shy;да&shy;нием про&shy;из&shy;во&shy;ди&shy;тель&shy;ности по куче. Но вы мне ска&shy;жите: почему тогда не поль&shy;зо&shy;ваться Value&shy;String&shy;Builder (или его само&shy;пис&shy;ной вер&shy;сией: сам он internal и нам не дос&shy;ту&shy;пен) всегда? Ответ такой: надо смот&shy;реть на задачу, кото&shy;рая вами реша&shy;ется. Будет ли резуль&shy;ти&shy;ру&shy;ю&shy;щая строка извест&shy;ного раз&shy;мера? Будет ли она иметь некий извест&shy;ный мак&shy;си&shy;мум по длине? Если ответ &laquo;да&raquo; и если при этом раз&shy;мер строки не выхо&shy;дит за неко&shy;то&shy;рые разум&shy;ные гра&shy;ницы, то можно исполь&shy;зо&shy;вать зна&shy;чи&shy;мую вер&shy;сию <code>String&shy;Builder</code>. Иначе, если мы ожи&shy;даем длин&shy;ные строки, пере&shy;хо&shy;дим на исполь&shy;зо&shy;ва&shy;ние обыч&shy;ной вер&shy;сии.</p>
 <div class="paragraph-right-side">33</div>
 </div>
-<h4 id="valuelistbuilder">ValueListBuilder</h4>
+<h4 id="valuelistbuilder">Value&shy;List&shy;Builder</h4>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">internal</span> <span style="color:Blue;">ref</span> <span style="color:Blue;">partial</span> <span style="color:Blue;">struct</span> ValueListBuilder&lt;T&gt;
 {
@@ -1824,66 +1800,49 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">34</div>
-<p >
-Вто&shy;рой тип дан&shy;ных, кото&shy;рый хочется осо&shy;бенно - отме&shy;тить - это тип <code>ValueListBuilder</code>. Соз&shy;дан он для ситу&shy;а&shy;ций, когда необ&shy;хо&shy;димо на корот&shy;кое время соз&shy;дать неко&shy;то&shy;рую кол&shy;лек&shy;цию эле&shy;мен&shy;тов и тут же отдать ее в обра&shy;ботку неко&shy;то&shy;рому алго&shy;ритму.</p>
+<p>Вто&shy;рой тип дан&shy;ных, кото&shy;рый хочется осо&shy;бенно  &mdash;  отме&shy;тить  &mdash;  это тип <code>Value&shy;List&shy;Builder</code>. Соз&shy;дан он для ситу&shy;а&shy;ций, когда необ&shy;хо&shy;димо на корот&shy;кое время соз&shy;дать неко&shy;то&shy;рую кол&shy;лек&shy;цию эле&shy;мен&shy;тов и тут же отдать ее в обра&shy;ботку неко&shy;то&shy;рому алго&shy;ритму.</p>
 <div class="paragraph-right-side">34</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">35</div>
-<p >
-Сог&shy;ла&shy;си&shy;тесь: задача очень похожа на задачу <code>ValueStringBuilder</code>. Да и решена она очень похо&shy;жим обра&shy;зом:</p>
+<p>Сог&shy;ла&shy;си&shy;тесь: задача очень похожа на задачу <code>Value&shy;String&shy;Builder</code>. Да и решена она очень похо&shy;жим обра&shy;зом:</p>
 <div class="paragraph-right-side">35</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">36</div>
-<p >
-<strong>Файл <a href="https://github.com/dotnet/coreclr/blob/dbaf2957387c5290a680c8918779683194137b1d/src/System.Private.CoreLib/shared/System/Collections/Generic/ValueListBuilder.cs">ValueListBuilder.cs</a></strong></p>
+<p><strong>Файл <a href="https://github.com/dotnet/coreclr/blob/dbaf2957387c5290a680c8918779683194137b1d/src/System.Private.CoreLib/shared/System/Collections/Generic/ValueListBuilder.cs">Value&shy;List&shy;Builder&shy;.cs</a></strong></p>
 <div class="paragraph-right-side">36</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">37</div>
-<p >
-Если гово&shy;рить прямо, то такие ситу&shy;а&shy;ции дос&shy;та&shy;точно час&shy;тые. Однако раньше мы решали этот воп&shy;рос дру&shy;гим спо&shy;со&shy;бом: соз&shy;да&shy;вали <code>List</code>, запол&shy;няли его дан&shy;ными и теряли ссылку. Если при этом метод вызы&shy;ва&shy;ется дос&shy;та&shy;точно часто, воз&shy;ни&shy;кает печаль&shy;ная ситу&shy;а&shy;ция: мно&shy;жес&shy;тво экземп&shy;ля&shy;ров класса <code>List</code> пови&shy;сает в куче, а вместе с ними пови&shy;сают в куче и мас&shy;сивы, с ними ассо&shy;ци&shy;и&shy;ро&shy;ван&shy;ные. Теперь эта проб&shy;лема решена: допол&shy;ни&shy;тель&shy;ных объ&shy;ек&shy;тов соз&shy;дано не будет. Однако, как и в слу&shy;чае с <code>ValueStringBuilder</code>, решена она только для прог&shy;рам&shy;мис&shy;тов Micro&shy;soft: класс имеет моди&shy;фи&shy;ка&shy;тор <code>internal</code>.</p>
+<p>Если гово&shy;рить прямо, то такие ситу&shy;а&shy;ции дос&shy;та&shy;точно час&shy;тые. Однако раньше мы решали этот воп&shy;рос дру&shy;гим спо&shy;со&shy;бом: соз&shy;да&shy;вали <code>List</code>, запол&shy;няли его дан&shy;ными и теряли ссылку. Если при этом метод вызы&shy;ва&shy;ется дос&shy;та&shy;точно часто, воз&shy;ни&shy;кает печаль&shy;ная ситу&shy;а&shy;ция: мно&shy;жес&shy;тво экземп&shy;ля&shy;ров класса <code>List</code> пови&shy;сает в куче, а вместе с ними пови&shy;сают в куче и мас&shy;сивы, с ними ассо&shy;ци&shy;и&shy;ро&shy;ван&shy;ные. Теперь эта проб&shy;лема решена: допол&shy;ни&shy;тель&shy;ных объ&shy;ек&shy;тов соз&shy;дано не будет. Однако, как и в слу&shy;чае с <code>Value&shy;String&shy;Builder</code>, решена она только для прог&shy;рам&shy;мис&shy;тов Microsoft&shy;: класс имеет моди&shy;фи&shy;ка&shy;тор <code>internal</code>.</p>
 <div class="paragraph-right-side">37</div>
 </div>
-<h3 id="section">Правила и практика использования</h3>
+<h3 id="section">Пра&shy;вила и прак&shy;тика исполь&shy;зо&shy;ва&shy;ния</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">38</div>
-<p >
-Для того чтобы окон&shy;ча&shy;тельно понять суть нового типа дан&shy;ных, необ&shy;хо&shy;димо &laquo;поиг&shy;раться&raquo; с ним, напи&shy;сав пару-тройку, а лучше - больше мето&shy;дов, его исполь&shy;зу&shy;ю&shy;щих. Однако, основ&shy;ные пра&shy;вила можно почерп&shy;нуть уже сей&shy;час:</p>
+<p>Для того чтобы окон&shy;ча&shy;тельно понять суть нового типа дан&shy;ных, необ&shy;хо&shy;димо &laquo;поиг&shy;раться&raquo; с ним, напи&shy;сав пару-тройку, а лучше  &mdash;  больше мето&shy;дов, его исполь&shy;зу&shy;ю&shy;щих. Однако, основ&shy;ные пра&shy;вила можно почерп&shy;нуть уже сей&shy;час:</p>
 <div class="paragraph-right-side">38</div>
 </div>
 <ul>
-<li>
-<p >
-Если ваш метод будет обра&shy;ба&shy;ты&shy;вать неко&shy;то&shy;рый вхо&shy;дя&shy;щий набор дан&shy;ных, не меняя его раз&shy;мер, можно поп&shy;ро&shy;бо&shy;вать оста&shy;но&shy;виться на типе <code>Span</code>. Если при этом не будет моди&shy;фи&shy;ка&shy;ции этого буфера, то на типе <code>ReadOnlySpan</code>;</p>
-</li>
-<li>
-<p >
-Если ваш метод будет рабо&shy;тать со стро&shy;ками, вычис&shy;ляя какую-то ста&shy;тис&shy;тику либо про&shy;из&shy;водя син&shy;так&shy;си&shy;чес&shy;кий раз&shy;бор строки, то ваш метод <em>обязан</em> при&shy;ни&shy;мать <code>ReadOnlySpan&lt;char&gt;</code>. Именно обя&shy;зан: это новое пра&shy;вило. Ведь если вы при&shy;ни&shy;ма&shy;ете строку, тем самым вы зас&shy;тав&shy;ля&shy;ете кого-то сде&shy;лать для вас подс&shy;троку</p>
-</li>
-<li>
-<p >
-Если необ&shy;хо&shy;димо в рам&shy;ках работы метода сде&shy;лать дос&shy;та&shy;точно корот&shy;кий мас&shy;сив с дан&shy;ными (ска&shy;жем, 10Кб мак&shy;си&shy;мум), то вы с лег&shy;костью можете орга&shy;ни&shy;зо&shy;вать такой мас&shy;сив при помощи <code>Span&lt;TType&gt; buf = stackalloc TType[size]</code>. Однако, конечно, TType дол&shy;жен быть только зна&shy;чи&shy;мым типом, т.к. <code>stackalloc</code> рабо&shy;тает только со зна&shy;чи&shy;мыми типами.</p>
-</li>
+<li>Если ваш метод будет обра&shy;ба&shy;ты&shy;вать неко&shy;то&shy;рый вхо&shy;дя&shy;щий набор дан&shy;ных, не меняя его раз&shy;мер, можно поп&shy;ро&shy;бо&shy;вать оста&shy;но&shy;виться на типе <code>Span</code>. Если при этом не будет моди&shy;фи&shy;ка&shy;ции этого буфера, то на типе <code>Read&shy;Only&shy;Span</code>;</li>
+<li>Если ваш метод будет рабо&shy;тать со стро&shy;ками, вычис&shy;ляя какую-то ста&shy;тис&shy;тику либо про&shy;из&shy;водя син&shy;так&shy;си&shy;чес&shy;кий раз&shy;бор строки, то ваш метод <em>обя&shy;зан</em> при&shy;ни&shy;мать <code>Read&shy;Only&shy;Span&shy;<char&shy;></code>. Именно обя&shy;зан: это новое пра&shy;вило. Ведь если вы при&shy;ни&shy;ма&shy;ете строку, тем самым вы зас&shy;тав&shy;ля&shy;ете кого-то сде&shy;лать для вас подс&shy;троку</li>
+<li>Если необ&shy;хо&shy;димо в рам&shy;ках работы метода сде&shy;лать дос&shy;та&shy;точно корот&shy;кий мас&shy;сив с дан&shy;ными (ска&shy;жем, 10Кб мак&shy;си&shy;мум), то вы с лег&shy;костью можете орга&shy;ни&shy;зо&shy;вать такой мас&shy;сив при помощи <code>Span&shy;<TType&shy;> buf = stac&shy;kalloc TType&shy;[size&shy;]</code>. Однако, конечно, TType дол&shy;жен быть только зна&shy;чи&shy;мым типом, т.к. <code>stac&shy;kalloc</code> рабо&shy;тает только со зна&shy;чи&shy;мыми типами.</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">39</div>
-<p >
-В осталь&shy;ных слу&shy;чаях стоит прис&shy;мот&shy;реться либо к <code>Memory</code> либо исполь&shy;зо&shy;вать клас&shy;си&shy;чес&shy;кие типы дан&shy;ных.</p>
+<p>В осталь&shy;ных слу&shy;чаях стоит прис&shy;мот&shy;реться либо к <code>Memory</code> либо исполь&shy;зо&shy;вать клас&shy;си&shy;чес&shy;кие типы дан&shy;ных.</p>
 <div class="paragraph-right-side">39</div>
 </div>
-<h3 id="span">Как работает Span</h3>
+<h3 id="span">Как рабо&shy;тает Span</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">40</div>
-<p >
-Допол&shy;ни&shy;тельно хоте&shy;лось бы пого&shy;во&shy;рить о том, как рабо&shy;тает <code>Span</code> и что в нем такого при&shy;ме&shy;ча&shy;тель&shy;ного. А пого&shy;во&shy;рить есть о чем: сам тип дан&shy;ных делится на две вер&shy;сии: для .NET Core 2.0+ и для всех осталь&shy;ных.</p>
+<p>Допол&shy;ни&shy;тельно хоте&shy;лось бы пого&shy;во&shy;рить о том, как рабо&shy;тает <code>Span</code> и что в нем такого при&shy;ме&shy;ча&shy;тель&shy;ного. А пого&shy;во&shy;рить есть о чем: сам тип дан&shy;ных делится на две вер&shy;сии: для .NET Core 2.0+ и для всех осталь&shy;ных.</p>
 <div class="paragraph-right-side">40</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">41</div>
-<p >
-<strong>Файл <a href="https://github.com/dotnet/coreclr/blob/38403e661a4202ca4c8a72e4bbd9a263bddeb891/src/System.Private.CoreLib/shared/System/Span.Fast.cs">Span.Fast.cs, .NET Core 2.0</a></strong></p>
+<p><strong>Файл <a href="https://github.com/dotnet/coreclr/blob/38403e661a4202ca4c8a72e4bbd9a263bddeb891/src/System.Private.CoreLib/shared/System/Span.Fast.cs">Span&shy;.Fast&shy;.cs&shy;, .NET Core 2.0</a></strong></p>
 <div class="paragraph-right-side">41</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1897,8 +1856,7 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 }
 </pre></div>
 </div>
-<p >
-<strong>Файл ??? [decompiled]</strong></p>
+<p><strong>Файл ??? [decom&shy;piled]</strong></p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">ref</span> <span style="color:Blue;">readonly</span> <span style="color:Blue;">struct</span> Span&lt;T&gt;
 {
@@ -1911,16 +1869,13 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">42</div>
-<p >
-Все дело в том что <em>большой</em> .NET Frame&shy;work и .NET Core 1.* не имеют спе&shy;ци&shy;альным обра&shy;зом изме&shy;нен&shy;ного сбор&shy;щика мусора (в отли&shy;чии от вер&shy;сии .NET Core 2.0+) и потому вынуж&shy;дены тащить за собой допол&shy;ни&shy;тель&shy;ный ука&shy;за&shy;тель: на начало буфера, с кото&shy;рым идет работа. Т.е. полу&shy;ча&shy;ется, что <code>Span</code> внутри себя рабо&shy;тает с управ&shy;ля&shy;е&shy;мыми объ&shy;ек&shy;тами плат&shy;формы .NET как с неуп&shy;рав&shy;ля&shy;е&shy;мыми. Взгл&shy;ян&shy;ите на внут&shy;рен&shy;ности вто&shy;рого вари&shy;анта струк&shy;туры: там при&shy;сут&shy;ствует три поля. Пер&shy;вое поле - это ссылка на managed объ&shy;ект. Вто&shy;рое - сме&shy;ще&shy;ние отно&shy;си&shy;тельно начала этого объ&shy;екта в бай&shy;тах, чтобы полу&shy;чить начало буфера дан&shy;ных (в стро&shy;ках это буфер с сим&shy;во&shy;лами <code>char</code>, в мас&shy;си&shy;вах - буфер с дан&shy;ными мас&shy;сива). И, нако&shy;нец, третье поле - коли&shy;чес&shy;тво уло&shy;жен&shy;ных друг за дру&shy;гом эле&shy;мен&shy;тов этого буфера.</p>
+<p>Все дело в том что <em>боль&shy;шой</em> .NET Frame&shy;work и .NET Core 1.* не имеют спе&shy;ци&shy;альным обра&shy;зом изме&shy;нен&shy;ного сбор&shy;щика мусора (в отли&shy;чии от вер&shy;сии .NET Core 2.0+) и потому вынуж&shy;дены тащить за собой допол&shy;ни&shy;тель&shy;ный ука&shy;за&shy;тель: на начало буфера, с кото&shy;рым идет работа. Т.е. полу&shy;ча&shy;ется, что <code>Span</code> внутри себя рабо&shy;тает с управ&shy;ля&shy;е&shy;мыми объ&shy;ек&shy;тами плат&shy;формы .NET как с неуп&shy;рав&shy;ля&shy;е&shy;мыми. Взгл&shy;ян&shy;ите на внут&shy;рен&shy;ности вто&shy;рого вари&shy;анта струк&shy;туры: там при&shy;сут&shy;ствует три поля. Пер&shy;вое поле  &mdash;  это ссылка на managed объ&shy;ект. Вто&shy;рое  &mdash;  сме&shy;ще&shy;ние отно&shy;си&shy;тельно начала этого объ&shy;екта в бай&shy;тах, чтобы полу&shy;чить начало буфера дан&shy;ных (в стро&shy;ках это буфер с сим&shy;во&shy;лами <code>char</code>, в мас&shy;си&shy;вах  &mdash;  буфер с дан&shy;ными мас&shy;сива). И, нако&shy;нец, третье поле  &mdash;  коли&shy;чес&shy;тво уло&shy;жен&shy;ных друг за дру&shy;гом эле&shy;мен&shy;тов этого буфера.</p>
 <div class="paragraph-right-side">42</div>
 </div>
-<p >
-Для при&shy;мера возь&shy;мем работу <code>Span</code> для строк:</p>
+<p>Для при&shy;мера возь&shy;мем работу <code>Span</code> для строк:</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">43</div>
-<p >
-<strong>Файл <a href="https://github.com/dotnet/coreclr/blob/2b50bba8131acca2ab535e144796941ad93487b7/src/System.Private.CoreLib/shared/System/MemoryExtensions.Fast.cs#L409-L416">coreclr::src/System.Private.CoreLib/shared/System/MemoryExtensions.Fast.cs</a></strong></p>
+<p><strong>Файл <a href="https://github.com/dotnet/coreclr/blob/2b50bba8131acca2ab535e144796941ad93487b7/src/System.Private.CoreLib/shared/System/MemoryExtensions.Fast.cs#L409-L416">coreclr::src/System&shy;.Private&shy;.Core&shy;Lib&shy;/shared&shy;/System&shy;/Memory&shy;Extensions&shy;.Fast&shy;.cs</a></strong></p>
 <div class="paragraph-right-side">43</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1933,18 +1888,15 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 }
 </pre></div>
 </div>
-<p >
-Где <code>string.GetRawStringData()</code> выг&shy;ля&shy;дит сле&shy;ду&shy;ю&shy;щим обра&shy;зом:</p>
+<p>Где <code>string.Get&shy;Raw&shy;String&shy;Data&shy;()</code> выг&shy;ля&shy;дит сле&shy;ду&shy;ю&shy;щим обра&shy;зом:</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">44</div>
-<p >
-<strong>Файл с определением полей <a href="https://github.com/dotnet/coreclr/blob/2b50bba8131acca2ab535e144796941ad93487b7/src/System.Private.CoreLib/src/System/String.CoreCLR.cs#L16-L23">coreclr::src/System.Private.CoreLib/src/System/String.CoreCLR.cs</a></strong></p>
+<p><strong>Файл с опре&shy;де&shy;ле&shy;нием полей <a href="https://github.com/dotnet/coreclr/blob/2b50bba8131acca2ab535e144796941ad93487b7/src/System.Private.CoreLib/src/System/String.CoreCLR.cs#L16-L23">coreclr::src/System&shy;.Private&shy;.Core&shy;Lib&shy;/src&shy;/System&shy;/String&shy;.Core&shy;CLR.cs</a></strong></p>
 <div class="paragraph-right-side">44</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">45</div>
-<p >
-<strong>Файл с определением GetRawStringData <a href="https://github.com/dotnet/coreclr/blob/2b50bba8131acca2ab535e144796941ad93487b7/src/System.Private.CoreLib/shared/System/String.cs#L462">coreclr::src/System.Private.CoreLib/shared/System/String.cs</a></strong></p>
+<p><strong>Файл с опре&shy;де&shy;ле&shy;нием Get&shy;Raw&shy;String&shy;Data <a href="https://github.com/dotnet/coreclr/blob/2b50bba8131acca2ab535e144796941ad93487b7/src/System.Private.CoreLib/shared/System/String.cs#L462">coreclr::src/System&shy;.Private&shy;.Core&shy;Lib&shy;/shared&shy;/System&shy;/String&shy;.cs</a></strong></p>
 <div class="paragraph-right-side">45</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1969,21 +1921,18 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">46</div>
-<p >
-Т.е. полу&shy;ча&shy;ется, что метод лезет нап&shy;ря&shy;мую вов&shy;нутрь строки, а спе&shy;ци&shy;фи&shy;ка&shy;ция <code>ref char</code> поз&shy;во&shy;ляет отсле&shy;жи&shy;вать GC неуп&shy;рав&shy;ля&shy;е&shy;мую ссылку во внутрь строки, пере&shy;ме&shy;щая его вместе со стро&shy;кой во время сра&shy;ба&shy;ты&shy;ва&shy;ния GC.</p>
+<p>Т.е. полу&shy;ча&shy;ется, что метод лезет нап&shy;ря&shy;мую вов&shy;нутрь строки, а спе&shy;ци&shy;фи&shy;ка&shy;ция <code>ref char</code> поз&shy;во&shy;ляет отсле&shy;жи&shy;вать GC неуп&shy;рав&shy;ля&shy;е&shy;мую ссылку во внутрь строки, пере&shy;ме&shy;щая его вместе со стро&shy;кой во время сра&shy;ба&shy;ты&shy;ва&shy;ния GC.</p>
 <div class="paragraph-right-side">46</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">47</div>
-<p >
-Та же самая исто&shy;рия про&shy;ис&shy;хо&shy;дит и с мас&shy;си&shy;вами: когда соз&shy;да&shy;ется <code>Span</code>, то некий код внутри JIT расс&shy;чи&shy;ты&shy;вает сме&shy;ще&shy;ние начала дан&shy;ных мас&shy;сива и этим сме&shy;ще&shy;нием ини&shy;ци&shy;а&shy;ли&shy;зи&shy;рует <code>Span</code>. А как подс&shy;чи&shy;тать сме&shy;ще&shy;ния для строк и мас&shy;си&shy;вов, мы нау&shy;чи&shy;лись в главе <a href=".%5CObjectsStructure.md">про структуру объектов в памяти</a>.</p>
+<p>Та же самая исто&shy;рия про&shy;ис&shy;хо&shy;дит и с мас&shy;си&shy;вами: когда соз&shy;да&shy;ется <code>Span</code>, то некий код внутри JIT расс&shy;чи&shy;ты&shy;вает сме&shy;ще&shy;ние начала дан&shy;ных мас&shy;сива и этим сме&shy;ще&shy;нием ини&shy;ци&shy;а&shy;ли&shy;зи&shy;рует <code>Span</code>. А как подс&shy;чи&shy;тать сме&shy;ще&shy;ния для строк и мас&shy;си&shy;вов, мы нау&shy;чи&shy;лись в главе <a href=".%5CObjectsStructure.md">про струк&shy;туру объ&shy;ек&shy;тов в памяти</a>.</p>
 <div class="paragraph-right-side">47</div>
 </div>
-<h3 id="spant-1">Span&lt;T&gt; как возвращаемое значение</h3>
+<h3 id="spant-1">Span<T> как возв&shy;ра&shy;ща&shy;е&shy;мое зна&shy;че&shy;ние</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">48</div>
-<p >
-Нес&shy;мотря на всю идил&shy;лию, свя&shy;зан&shy;ную со <code>Span</code>, сущес&shy;твуют хоть и логич&shy;ные, но нео&shy;жи&shy;дан&shy;ные огра&shy;ни&shy;че&shy;ния на его возв&shy;рат из метода. Если взгл&shy;януть на сле&shy;ду&shy;ю&shy;щий код:</p>
+<p>Нес&shy;мотря на всю идил&shy;лию, свя&shy;зан&shy;ную со <code>Span</code>, сущес&shy;твуют хоть и логич&shy;ные, но нео&shy;жи&shy;дан&shy;ные огра&shy;ни&shy;че&shy;ния на его возв&shy;рат из метода. Если взгл&shy;януть на сле&shy;ду&shy;ю&shy;щий код:</p>
 <div class="paragraph-right-side">48</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2001,8 +1950,7 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">49</div>
-<p >
-то все выг&shy;ля&shy;дит крайне логично и хорошо. Однако, стоит заме&shy;нить одну инстр&shy;укцию дру&shy;гой:</p>
+<p>то все выг&shy;ля&shy;дит крайне логично и хорошо. Однако, стоит заме&shy;нить одну инстр&shy;укцию дру&shy;гой:</p>
 <div class="paragraph-right-side">49</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2020,43 +1968,32 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">50</div>
-<p >
-как ком&shy;пи&shy;ля&shy;тор зап&shy;ре&shy;тит инстр&shy;укцию такого вида. Но прежде чем напи&shy;сать, почему, я прошу вас самим дога&shy;даться, какие проб&shy;лемы поне&shy;сет за собой такая конст&shy;рукция.</p>
+<p>как ком&shy;пи&shy;ля&shy;тор зап&shy;ре&shy;тит инстр&shy;укцию такого вида. Но прежде чем напи&shy;сать, почему, я прошу вас самим дога&shy;даться, какие проб&shy;лемы поне&shy;сет за собой такая конст&shy;рукция.</p>
 <div class="paragraph-right-side">50</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">51</div>
-<p >
-Итак, я наде&shy;юсь, что вы поду&shy;мали, пос&shy;тро&shy;или догадки и пред&shy;по&shy;ло&shy;же&shy;ния, а может даже и поняли при&shy;чину. Если так, главу про <a href="./ThreadStack.html">стек потока</a> я по вин&shy;ти&shy;кам рас&shy;пи&shy;сы&shy;вал не зря. Ведь дав таким обра&shy;зом ссылку на локаль&shy;ные пере&shy;мен&shy;ные метода, кото&shy;рый закон&shy;чил работу, вы можете выз&shy;вать дру&shy;гой метод, дож&shy;даться окон&shy;ча&shy;ния его работы и через x[0.99] про&shy;чи&shy;тать его локаль&shy;ные пере&shy;мен&shy;ные.</p>
+<p>Итак, я наде&shy;юсь, что вы поду&shy;мали, пос&shy;тро&shy;или догадки и пред&shy;по&shy;ло&shy;же&shy;ния, а может даже и поняли при&shy;чину. Если так, главу про <a href="./ThreadStack.html">стек потока</a> я по вин&shy;ти&shy;кам рас&shy;пи&shy;сы&shy;вал не зря. Ведь дав таким обра&shy;зом ссылку на локаль&shy;ные пере&shy;мен&shy;ные метода, кото&shy;рый закон&shy;чил работу, вы можете выз&shy;вать дру&shy;гой метод, дож&shy;даться окон&shy;ча&shy;ния его работы и через x[0.99] про&shy;чи&shy;тать его локаль&shy;ные пере&shy;мен&shy;ные.</p>
 <div class="paragraph-right-side">51</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">52</div>
-<p >
-Однако, к счастью, когда мы делаем попытку напи&shy;сать такого рода код, ком&shy;пи&shy;ля&shy;тор дает нам по рукам, выдав пре&shy;дуп&shy;реж&shy;де&shy;ние: <code>CS8352 Cannot use local 'reff' in this context because it may expose referenced variables outside of their declaration scope</code> и будет прав: ведь если обойти эту ошибку, то воз&shy;ни&shy;кает воз&shy;мож&shy;ность, нап&shy;ри&shy;мер, нахо&shy;дясь в пла&shy;гине под&shy;строить такую ситу&shy;а&shy;цию, что ста&shy;нет воз&shy;мож&shy;ным украсть чужие пароли или повы&shy;сить при&shy;ви&shy;ле&shy;гии выпол&shy;не&shy;ния нашего пла&shy;гина.</p>
+<p>Однако, к счастью, когда мы делаем попытку напи&shy;сать такого рода код, ком&shy;пи&shy;ля&shy;тор дает нам по рукам, выдав пре&shy;дуп&shy;реж&shy;де&shy;ние: <code>CS8352 Cannot use local 'reff' in this context because it may expose refe&shy;renced vari&shy;ables outside of their decla&shy;ra&shy;tion scope</code> и будет прав: ведь если обойти эту ошибку, то воз&shy;ни&shy;кает воз&shy;мож&shy;ность, нап&shy;ри&shy;мер, нахо&shy;дясь в пла&shy;гине под&shy;строить такую ситу&shy;а&shy;цию, что ста&shy;нет воз&shy;мож&shy;ным украсть чужие пароли или повы&shy;сить при&shy;ви&shy;ле&shy;гии выпол&shy;не&shy;ния нашего пла&shy;гина.</p>
 <div class="paragraph-right-side">52</div>
 </div>
-<h2 id="memoryt-readonlymemoryt">Memory&lt;T&gt; и ReadOnlyMemory&lt;T&gt;</h2>
+<h2 id="memoryt-readonlymemoryt">Memory<T> и Read&shy;Only&shy;Memory<T></h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">53</div>
-<p >
-Визу&shy;альных отли&shy;чий <code>Memory&lt;T&gt;</code> от <code>Span&lt;T&gt;</code> два. Пер&shy;вое - тип <code>Memory&lt;T&gt;</code> не содер&shy;жит огра&shy;ни&shy;че&shy;ния <code>ref</code> в заго&shy;ловке типа. Т.е., дру&shy;гими сло&shy;вами, тип <code>Memory&lt;T&gt;</code> имеет право нахо&shy;диться не только на стеке, явля&shy;ясь либо локаль&shy;ной пере&shy;мен&shy;ной, либо пара&shy;мет&shy;ром метода, либо его возв&shy;ра&shy;ща&shy;е&shy;мым зна&shy;че&shy;нием, но и нахо&shy;диться в куче, ссы&shy;ла&shy;ясь оттуда на неко&shy;то&shy;рые дан&shy;ные в памяти. Однако, эта малень&shy;кая раз&shy;ница соз&shy;дает огром&shy;ную раз&shy;ницу в пове&shy;де&shy;нии и воз&shy;мож&shy;нос&shy;тях <code>Memory&lt;T&gt;</code> в срав&shy;не&shy;нии с <code>Span&lt;T&gt;</code>. В отли&shy;чии от <code>Span&lt;T&gt;</code>, кото&shy;рый предс&shy;тав&shy;ляет собой <em>средство пользования</em> неким буфе&shy;ром дан&shy;ных для неко&shy;то&shy;рых мето&shy;дов, тип <code>Memory&lt;T&gt;</code> пред&shy;наз&shy;на&shy;чен для <em>хранения</em> инфор&shy;ма&shy;ции о буфере, а не для работы с ним. Отсюда воз&shy;ни&shy;кает раз&shy;ница в API:</p>
+<p>Визу&shy;альных отли&shy;чий <code>Memory&shy;<T></code> от <code>Span&shy;<T></code> два. Пер&shy;вое  &mdash;  тип <code>Memory&shy;<T></code> не содер&shy;жит огра&shy;ни&shy;че&shy;ния <code>ref</code> в заго&shy;ловке типа. Т.е., дру&shy;гими сло&shy;вами, тип <code>Memory&shy;<T></code> имеет право нахо&shy;диться не только на стеке, явля&shy;ясь либо локаль&shy;ной пере&shy;мен&shy;ной, либо пара&shy;мет&shy;ром метода, либо его возв&shy;ра&shy;ща&shy;е&shy;мым зна&shy;че&shy;нием, но и нахо&shy;диться в куче, ссы&shy;ла&shy;ясь оттуда на неко&shy;то&shy;рые дан&shy;ные в памяти. Однако, эта малень&shy;кая раз&shy;ница соз&shy;дает огром&shy;ную раз&shy;ницу в пове&shy;де&shy;нии и воз&shy;мож&shy;нос&shy;тях <code>Memory&shy;<T></code> в срав&shy;не&shy;нии с <code>Span&shy;<T></code>. В отли&shy;чии от <code>Span&shy;<T></code>, кото&shy;рый предс&shy;тав&shy;ляет собой <em>сред&shy;ство поль&shy;зо&shy;ва&shy;ния</em> неким буфе&shy;ром дан&shy;ных для неко&shy;то&shy;рых мето&shy;дов, тип <code>Memory&shy;<T></code> пред&shy;наз&shy;на&shy;чен для <em>хра&shy;не&shy;ния</em> инфор&shy;ма&shy;ции о буфере, а не для работы с ним. Отсюда воз&shy;ни&shy;кает раз&shy;ница в API:</p>
 <div class="paragraph-right-side">53</div>
 </div>
 <ul>
-<li>
-<p >
-<code>Memory&lt;T&gt;</code> не содер&shy;жит мето&shy;дов дос&shy;тупа к дан&shy;ным, кото&shy;рыми он заве&shy;дует. Вместо этого он имеет свой&shy;ство <code>Span</code> и метод <code>Slice</code>, кото&shy;рые возв&shy;ра&shy;щают рабо&shy;чую лошадку - экземп&shy;ляр типа <code>Span</code>.</p>
-</li>
-<li>
-<p >
-<code>Memory&lt;T&gt;</code> допол&shy;ни&shy;тельно содер&shy;жит метод <code>Pin()</code>, пред&shy;наз&shy;на&shy;чен&shy;ный для сце&shy;на&shy;риев, когда хра&shy;ня&shy;щийся буфер необ&shy;хо&shy;димо пере&shy;дать в <code>unsafe</code> код. При его вызове для слу&shy;чаев, когда память была выде&shy;лена в .NET, буфер будет зак&shy;реп&shy;лен (pinned) и не будет пере&shy;ме&shy;щаться при сра&shy;ба&shy;ты&shy;ва&shy;нии GC, возв&shy;ра&shy;щая поль&shy;зо&shy;ва&shy;телю экземп&shy;ляр струк&shy;туры <code>MemoryHandle</code>, инкап&shy;су&shy;ли&shy;ру&shy;ю&shy;щей в себе поня&shy;тие отрезка жизни <code>GCHandle</code>, зак&shy;ре&shy;пив&shy;шего буфер в памяти.</p>
-</li>
+<li><code>Memory&shy;<T></code> не содер&shy;жит мето&shy;дов дос&shy;тупа к дан&shy;ным, кото&shy;рыми он заве&shy;дует. Вместо этого он имеет свой&shy;ство <code>Span</code> и метод <code>Slice</code>, кото&shy;рые возв&shy;ра&shy;щают рабо&shy;чую лошадку  &mdash;  экземп&shy;ляр типа <code>Span</code>.</li>
+<li><code>Memory&shy;<T></code> допол&shy;ни&shy;тельно содер&shy;жит метод <code>Pin&shy;()</code>, пред&shy;наз&shy;на&shy;чен&shy;ный для сце&shy;на&shy;риев, когда хра&shy;ня&shy;щийся буфер необ&shy;хо&shy;димо пере&shy;дать в <code>unsafe</code> код. При его вызове для слу&shy;чаев, когда память была выде&shy;лена в .NET, буфер будет зак&shy;реп&shy;лен (pinned) и не будет пере&shy;ме&shy;щаться при сра&shy;ба&shy;ты&shy;ва&shy;нии GC, возв&shy;ра&shy;щая поль&shy;зо&shy;ва&shy;телю экземп&shy;ляр струк&shy;туры <code>Memory&shy;Handle</code>, инкап&shy;су&shy;ли&shy;ру&shy;ю&shy;щей в себе поня&shy;тие отрезка жизни <code>GCHa&shy;ndle</code>, зак&shy;ре&shy;пив&shy;шего буфер в памяти.</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">54</div>
-<p >
-Однако, для начала пред&shy;ла&shy;гаю поз&shy;на&shy;ко&shy;миться со всем набо&shy;ром клас&shy;сов. И в качес&shy;тве пер&shy;вого из них, взгл&shy;янем на саму струк&shy;туру <code>Memory&lt;T&gt;</code> (пока&shy;заны не все члены типа, а пока&shy;зав&shy;ши&shy;еся наи&shy;бо&shy;лее важ&shy;ными):</p>
+<p>Однако, для начала пред&shy;ла&shy;гаю поз&shy;на&shy;ко&shy;миться со всем набо&shy;ром клас&shy;сов. И в качес&shy;тве пер&shy;вого из них, взгл&shy;янем на саму струк&shy;туру <code>Memory&shy;<T></code> (пока&shy;заны не все члены типа, а пока&shy;зав&shy;ши&shy;еся наи&shy;бо&shy;лее важ&shy;ными):</p>
 <div class="paragraph-right-side">54</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2084,23 +2021,20 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">55</div>
-<p >
-Как мы видим, струк&shy;тура содер&shy;жит конст&shy;руктор на основе мас&shy;си&shy;вов, но хра&shy;нит дан&shy;ные в object. Сде&shy;лано это для того чтобы допол&shy;ни&shy;тельно ссы&shy;латься на строки, для кото&shy;рых конст&shy;руктор не пре&shy;дус&shy;мот&shy;рен, зато пре&shy;дус&shy;мот&shy;рен метод рас&shy;ши&shy;ре&shy;ния для типа <code>string</code> <code>AsMemory()</code>, возв&shy;ра&shy;ща&shy;ю&shy;щий <code>ReadOnlyMemory</code>. Однако, пос&shy;кольку бинарно оба типа дол&shy;жны быть оди&shy;на&shy;ко&shy;выми, типом поля <code>_object</code> явля&shy;ется <code>Object</code>.</p>
+<p>Как мы видим, струк&shy;тура содер&shy;жит конст&shy;руктор на основе мас&shy;си&shy;вов, но хра&shy;нит дан&shy;ные в object. Сде&shy;лано это для того чтобы допол&shy;ни&shy;тельно ссы&shy;латься на строки, для кото&shy;рых конст&shy;руктор не пре&shy;дус&shy;мот&shy;рен, зато пре&shy;дус&shy;мот&shy;рен метод рас&shy;ши&shy;ре&shy;ния для типа <code>string</code> <code>As&shy;Memory&shy;()</code>, возв&shy;ра&shy;ща&shy;ю&shy;щий <code>Read&shy;Only&shy;Memory</code>. Однако, пос&shy;кольку бинарно оба типа дол&shy;жны быть оди&shy;на&shy;ко&shy;выми, типом поля <code>_object</code> явля&shy;ется <code>Object</code>.</p>
 <div class="paragraph-right-side">55</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">56</div>
-<p >
-Далее мы видим два конст&shy;ру&shy;ктора, рабо&shy;та&shy;ю&shy;щих на основе <code>MemoryManager</code>. О них мы пого&shy;во&shy;рим попозже. Свой&shy;ства полу&shy;че&shy;ния раз&shy;мера <code>Length</code> и про&shy;верки на пус&shy;тое мно&shy;жес&shy;тво <code>IsEmpty</code>. Также име&shy;ется метод полу&shy;че&shy;ния подм&shy;но&shy;жес&shy;тва <code>Slice</code> и методы копи&shy;ро&shy;ва&shy;ния <code>CopyTo</code> и <code>TryCopyTo</code>.</p>
+<p>Далее мы видим два конст&shy;ру&shy;ктора, рабо&shy;та&shy;ю&shy;щих на основе <code>Memory&shy;Manager</code>. О них мы пого&shy;во&shy;рим попозже. Свой&shy;ства полу&shy;че&shy;ния раз&shy;мера <code>Length</code> и про&shy;верки на пус&shy;тое мно&shy;жес&shy;тво <code>Is&shy;Empty</code>. Также име&shy;ется метод полу&shy;че&shy;ния подм&shy;но&shy;жес&shy;тва <code>Slice</code> и методы копи&shy;ро&shy;ва&shy;ния <code>Copy&shy;To</code> и <code>Try&shy;Copy&shy;To</code>.</p>
 <div class="paragraph-right-side">56</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">57</div>
-<p >
-Под&shy;роб&shy;нее же в раз&shy;го&shy;воре о <code>Memory</code> хочется оста&shy;но&shy;виться на двух мето&shy;дах этого типа: на свой&shy;стве <code>Span</code> и методе <code>Pin</code>.</p>
+<p>Под&shy;роб&shy;нее же в раз&shy;го&shy;воре о <code>Memory</code> хочется оста&shy;но&shy;виться на двух мето&shy;дах этого типа: на свой&shy;стве <code>Span</code> и методе <code>Pin</code>.</p>
 <div class="paragraph-right-side">57</div>
 </div>
-<h3 id="memoryt.span">Memory&lt;T&gt;.Span</h3>
+<h3 id="memoryt.span">Memory<T>.Span</h3>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> Span&lt;T&gt; Span
 {
@@ -2133,8 +2067,7 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">58</div>
-<p >
-А точ&shy;нее, на строчки, обра&shy;ба&shy;ты&shy;ва&shy;ю&shy;щие работу со стро&shy;ками. Ведь в них гово&shy;рится о том, что если мы каким-либо обра&shy;зом скон&shy;вер&shy;ти&shy;ро&shy;вали <code>ReadOnlyMemory&lt;T&gt;</code> в <code>Memory&lt;T&gt;</code> (а в дво&shy;ич&shy;ном предс&shy;тав&shy;ле&shy;нии это одно и тоже. Мало того, сущес&shy;твует ком&shy;мен&shy;та&shy;рий, пре&shy;дуп&shy;реж&shy;да&shy;ю&shy;щий, что бинарно эти два типа обя&shy;заны сов&shy;па&shy;дать, т.к. один из дру&shy;гого полу&shy;ча&shy;ется путем вызова <code>Unsafe.As</code>), то мы полу&shy;чаем <sub>доступ в тайную комнату</sub> воз&shy;мож&shy;ность менять строки. А это крайне опас&shy;ный меха&shy;низм:</p>
+<p>А точ&shy;нее, на строчки, обра&shy;ба&shy;ты&shy;ва&shy;ю&shy;щие работу со стро&shy;ками. Ведь в них гово&shy;рится о том, что если мы каким-либо обра&shy;зом скон&shy;вер&shy;ти&shy;ро&shy;вали <code>Read&shy;Only&shy;Memory&shy;<T></code> в <code>Memory&shy;<T></code> (а в дво&shy;ич&shy;ном предс&shy;тав&shy;ле&shy;нии это одно и тоже. Мало того, сущес&shy;твует ком&shy;мен&shy;та&shy;рий, пре&shy;дуп&shy;реж&shy;да&shy;ю&shy;щий, что бинарно эти два типа обя&shy;заны сов&shy;па&shy;дать, т.к. один из дру&shy;гого полу&shy;ча&shy;ется путем вызова <code>Unsafe&shy;.As</code>), то мы полу&shy;чаем <sub>дос&shy;туп в тай&shy;ную ком&shy;нату</sub> воз&shy;мож&shy;ность менять строки. А это крайне опас&shy;ный меха&shy;низм:</p>
 <div class="paragraph-right-side">58</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2151,11 +2084,9 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 Hello?
 </pre></div>
 </div>
-<p >
-Кото&shy;рый в купе с интер&shy;ни&shy;ро&shy;ва&shy;нием строк может дать весьма пла&shy;чев&shy;ные пос&shy;л&shy;едствия.</p>
-<h3 id="memoryt.pin">Memory&lt;T&gt;.Pin</h3>
-<p >
-Вто&shy;рой метод, кото&shy;рый вызы&shy;вает не под&shy;дель&shy;ный инте&shy;рес - это метод <code>Pin</code>:</p>
+<p>Кото&shy;рый в купе с интер&shy;ни&shy;ро&shy;ва&shy;нием строк может дать весьма пла&shy;чев&shy;ные пос&shy;л&shy;едствия.</p>
+<h3 id="memoryt.pin">Memory<T>.Pin</h3>
+<p>Вто&shy;рой метод, кото&shy;рый вызы&shy;вает не под&shy;дель&shy;ный инте&shy;рес  &mdash;  это метод <code>Pin</code>:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">unsafe</span> MemoryHandle Pin()
 {
@@ -2195,8 +2126,7 @@ Hello?
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">59</div>
-<p >
-Кото&shy;рый также явля&shy;ется очень важ&shy;ным инст&shy;рум&shy;ентом уни&shy;фи&shy;ка&shy;ции: ведь вне зави&shy;си&shy;мости от типа дан&shy;ных, на кото&shy;рые ссы&shy;ла&shy;ется <code>Memory&lt;T&gt;</code>, если мы захо&shy;тим отдать буфер в неуп&shy;рав&shy;ля&shy;е&shy;мый код, то единст&shy;венное, что нам надо сде&shy;лать - выз&shy;вать метод <code>Pin()</code> и пере&shy;дать ука&shy;за&shy;тель, кото&shy;рый будет хра&shy;ниться в свой&shy;стве полу&shy;чен&shy;ной струк&shy;туры в неуп&shy;рав&shy;ля&shy;е&shy;мый код:</p>
+<p>Кото&shy;рый также явля&shy;ется очень важ&shy;ным инст&shy;рум&shy;ентом уни&shy;фи&shy;ка&shy;ции: ведь вне зави&shy;си&shy;мости от типа дан&shy;ных, на кото&shy;рые ссы&shy;ла&shy;ется <code>Memory&shy;<T></code>, если мы захо&shy;тим отдать буфер в неуп&shy;рав&shy;ля&shy;е&shy;мый код, то единст&shy;венное, что нам надо сде&shy;лать  &mdash;  выз&shy;вать метод <code>Pin&shy;()</code> и пере&shy;дать ука&shy;за&shy;тель, кото&shy;рый будет хра&shy;ниться в свой&shy;стве полу&shy;чен&shy;ной струк&shy;туры в неуп&shy;рав&shy;ля&shy;е&shy;мый код:</p>
 <div class="paragraph-right-side">59</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2211,21 +2141,18 @@ Hello?
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">60</div>
-<p >
-И в дан&shy;ном коде нет ника&shy;кой раз&shy;ницы, для чего выз&shy;ван <code>Pin()</code>: для <code>Memory</code> над <code>T[]</code>, над <code>string</code> или же над буфе&shy;ром неуп&shy;рав&shy;ля&shy;е&shy;мой памяти. Просто для мас&shy;си&shy;вов и строк будет соз&shy;дан реальный <code>GCHandle.Alloc(array, GCHandleType.Pinned)</code>, а для неуп&shy;рав&shy;ля&shy;е&shy;мой памяти - просто ничего не про&shy;изой&shy;дет.</p>
+<p>И в дан&shy;ном коде нет ника&shy;кой раз&shy;ницы, для чего выз&shy;ван <code>Pin&shy;()</code>: для <code>Memory</code> над <code>T[]</code>, над <code>string</code> или же над буфе&shy;ром неуп&shy;рав&shy;ля&shy;е&shy;мой памяти. Просто для мас&shy;си&shy;вов и строк будет соз&shy;дан реальный <code>GCHandle&shy;.Alloc&shy;(array&shy;, GCHandle&shy;Type&shy;.Pinned&shy;)</code>, а для неуп&shy;рав&shy;ля&shy;е&shy;мой памяти  &mdash;  просто ничего не про&shy;изой&shy;дет.</p>
 <div class="paragraph-right-side">60</div>
 </div>
-<h2 id="memorymanager-imemoryowner-memorypool">MemoryManager, IMemoryOwner, MemoryPool</h2>
+<h2 id="memorymanager-imemoryowner-memorypool">Memory&shy;Manager&shy;, IMemory&shy;Owner&shy;, Memory&shy;Pool</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">61</div>
-<p >
-Помимо ука&shy;за&shy;ния полей струк&shy;туры я хочу допол&shy;ни&shy;тельно ука&shy;зать на то, что сущес&shy;твует еще два <code>internal</code> конст&shy;ру&shy;ктора типа, рабо&shy;та&shy;ю&shy;щих на осно&shy;ва&shy;нии еще одной сущ&shy;ности - <code>MemoryManager</code>, речь о кото&shy;ром зай&shy;дет нес&shy;колько дальше и что не явля&shy;ется чем-то, о чем вы, воз&shy;можно, только что поду&shy;мали: менед&shy;же&shy;ром памяти в клас&shy;си&shy;чес&shy;ком пони&shy;ма&shy;нии. Однако, как и <code>Span</code>, <code>Memory</code> точно также содер&shy;жит в себе ссылку на объ&shy;ект, по кото&shy;рому будет про&shy;из&shy;во&shy;диться нави&shy;га&shy;ция, а также сме&shy;ще&shy;ние и раз&shy;мер внут&shy;рен&shy;него буфера. Также допол&shy;ни&shy;тельно стоит отме&shy;тить, что <code>Memory</code> может быть соз&shy;дан опе&shy;ра&shy;то&shy;ром <code>new</code> только на осно&shy;ва&shy;нии мас&shy;сива плюс мето&shy;дами рас&shy;ши&shy;ре&shy;ния - на осно&shy;ва&shy;нии строки, мас&shy;сива и <code>ArraySegment</code>. Т.е. его соз&shy;да&shy;ние на осно&shy;ва&shy;нии unma&shy;naged памяти вруч&shy;ную не под&shy;ра&shy;зу&shy;ме&shy;ва&shy;ется. Однако, как мы видим, сущес&shy;твует некий внут&shy;рен&shy;ний метод соз&shy;да&shy;ния этой струк&shy;туры на осно&shy;ва&shy;нии <code>MemoryManager</code>:</p>
+<p>Помимо ука&shy;за&shy;ния полей струк&shy;туры я хочу допол&shy;ни&shy;тельно ука&shy;зать на то, что сущес&shy;твует еще два <code>internal</code> конст&shy;ру&shy;ктора типа, рабо&shy;та&shy;ю&shy;щих на осно&shy;ва&shy;нии еще одной сущ&shy;ности  &mdash;  <code>Memory&shy;Manager</code>, речь о кото&shy;ром зай&shy;дет нес&shy;колько дальше и что не явля&shy;ется чем-то, о чем вы, воз&shy;можно, только что поду&shy;мали: менед&shy;же&shy;ром памяти в клас&shy;си&shy;чес&shy;ком пони&shy;ма&shy;нии. Однако, как и <code>Span</code>, <code>Memory</code> точно также содер&shy;жит в себе ссылку на объ&shy;ект, по кото&shy;рому будет про&shy;из&shy;во&shy;диться нави&shy;га&shy;ция, а также сме&shy;ще&shy;ние и раз&shy;мер внут&shy;рен&shy;него буфера. Также допол&shy;ни&shy;тельно стоит отме&shy;тить, что <code>Memory</code> может быть соз&shy;дан опе&shy;ра&shy;то&shy;ром <code>new</code> только на осно&shy;ва&shy;нии мас&shy;сива плюс мето&shy;дами рас&shy;ши&shy;ре&shy;ния  &mdash;  на осно&shy;ва&shy;нии строки, мас&shy;сива и <code>Array&shy;Segment</code>. Т.е. его соз&shy;да&shy;ние на осно&shy;ва&shy;нии unma&shy;naged памяти вруч&shy;ную не под&shy;ра&shy;зу&shy;ме&shy;ва&shy;ется. Однако, как мы видим, сущес&shy;твует некий внут&shy;рен&shy;ний метод соз&shy;да&shy;ния этой струк&shy;туры на осно&shy;ва&shy;нии <code>Memory&shy;Manager</code>:</p>
 <div class="paragraph-right-side">61</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">62</div>
-<p >
-<strong>Файл <a href="https://github.com/dotnet/corefx/blob/master/src/Common/src/CoreLib/System/Buffers/MemoryManager.cs">MemoryManager.cs</a></strong></p>
+<p><strong>Файл <a href="https://github.com/dotnet/corefx/blob/master/src/Common/src/CoreLib/System/Buffers/MemoryManager.cs">Memory&shy;Manager&shy;.cs</a></strong></p>
 <div class="paragraph-right-side">62</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2246,14 +2173,12 @@ Hello?
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">63</div>
-<p >
-Кото&shy;рая инкап&shy;су&shy;ли&shy;рует в себе поня&shy;тие вла&shy;дельца учас&shy;тка памяти. Дру&shy;гими сло&shy;вами, если <code>Span</code> - сред&shy;ство работы с памятью, а <code>Memory</code> - сред&shy;ство хра&shy;не&shy;ния инфор&shy;ма&shy;ции о конк&shy;рет&shy;ном учас&shy;тке, то <code>MemoryManager</code> - сред&shy;ство конт&shy;роля его жизни, его вла&shy;де&shy;лец. Для при&shy;мера можно взять тип <code>NativeMemoryManager&lt;T&gt;</code>, кото&shy;рый хоть и напи&shy;сан для тес&shy;тов, однако неп&shy;лохо отра&shy;жает суть поня&shy;тия &laquo;вла&shy;де&shy;ние&raquo;:</p>
+<p>Кото&shy;рая инкап&shy;су&shy;ли&shy;рует в себе поня&shy;тие вла&shy;дельца учас&shy;тка памяти. Дру&shy;гими сло&shy;вами, если <code>Span</code>  &mdash;  сред&shy;ство работы с памятью, а <code>Memory</code>  &mdash;  сред&shy;ство хра&shy;не&shy;ния инфор&shy;ма&shy;ции о конк&shy;рет&shy;ном учас&shy;тке, то <code>Memory&shy;Manager</code>  &mdash;  сред&shy;ство конт&shy;роля его жизни, его вла&shy;де&shy;лец. Для при&shy;мера можно взять тип <code>Native&shy;Memory&shy;Manager&shy;<T></code>, кото&shy;рый хоть и напи&shy;сан для тес&shy;тов, однако неп&shy;лохо отра&shy;жает суть поня&shy;тия &laquo;вла&shy;де&shy;ние&raquo;:</p>
 <div class="paragraph-right-side">63</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">64</div>
-<p >
-<strong>Файл <a href="https://github.com/dotnet/corefx/blob/888088448ac5dd1053d88434dfd819dcbc0fd9a1/src/Common/tests/System/Buffers/NativeMemoryManager.cs">NativeMemoryManager.cs</a></strong></p>
+<p><strong>Файл <a href="https://github.com/dotnet/corefx/blob/888088448ac5dd1053d88434dfd819dcbc0fd9a1/src/Common/tests/System/Buffers/NativeMemoryManager.cs">Native&shy;Memory&shy;Manager&shy;.cs</a></strong></p>
 <div class="paragraph-right-side">64</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2297,20 +2222,17 @@ Hello?
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">65</div>
-<p >
-Т.е., дру&shy;гими сло&shy;вами, класс обес&shy;пе&shy;чи&shy;вает воз&shy;мож&shy;ность вло&shy;жен&shy;ных вызо&shy;вов метода <code>Pin()</code> подс&shy;чи&shy;ты&shy;вая тем самым обра&shy;зу&shy;ю&shy;щи&shy;еся ссылки из <code>unsafe</code> мира.</p>
+<p>Т.е., дру&shy;гими сло&shy;вами, класс обес&shy;пе&shy;чи&shy;вает воз&shy;мож&shy;ность вло&shy;жен&shy;ных вызо&shy;вов метода <code>Pin&shy;()</code> подс&shy;чи&shy;ты&shy;вая тем самым обра&shy;зу&shy;ю&shy;щи&shy;еся ссылки из <code>unsafe</code> мира.</p>
 <div class="paragraph-right-side">65</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">66</div>
-<p >
-Еще одной сущ&shy;ностью, тесно свя&shy;зан&shy;ной с <code>Memory</code>, явля&shy;ется <code>MemoryPool</code>, кото&shy;рый обес&shy;пе&shy;чи&shy;вает пулинг экземп&shy;ля&shy;ров <code>MemoryManager</code> (а по факту - <code>IMemoryOwner</code>):</p>
+<p>Еще одной сущ&shy;ностью, тесно свя&shy;зан&shy;ной с <code>Memory</code>, явля&shy;ется <code>Memory&shy;Pool</code>, кото&shy;рый обес&shy;пе&shy;чи&shy;вает пулинг экземп&shy;ля&shy;ров <code>Memory&shy;Manager</code> (а по факту  &mdash;  <code>IMemory&shy;Owner</code>):</p>
 <div class="paragraph-right-side">66</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">67</div>
-<p >
-<strong>Файл <a href="https://github.com/dotnet/corefx/blob/f592e887e2349ed52af6a83070c42adb9d26408c/src/System.Memory/src/System/Buffers/MemoryPool.cs">MemoryPool.cs</a></strong></p>
+<p><strong>Файл <a href="https://github.com/dotnet/corefx/blob/f592e887e2349ed52af6a83070c42adb9d26408c/src/System.Memory/src/System/Buffers/MemoryPool.cs">Memory&shy;Pool&shy;.cs</a></strong></p>
 <div class="paragraph-right-side">67</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2326,14 +2248,12 @@ Hello?
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">68</div>
-<p >
-Кото&shy;рый пред&shy;наз&shy;на&shy;чен для выдачи буфе&shy;ров необ&shy;хо&shy;ди&shy;мого раз&shy;мера во вре&shy;мен&shy;ное поль&shy;зо&shy;ва&shy;ние. Арен&shy;ду&shy;е&shy;мые экземп&shy;ляры, реа&shy;ли&shy;зу&shy;ю&shy;щие интер&shy;фейс <code>IMemoryOwner&lt;T&gt;</code>, имеют метод <code>Dispose()</code>, кото&shy;рый возв&shy;ра&shy;щает арен&shy;до&shy;ван&shy;ный мас&shy;сив обратно в пул мас&shy;си&shy;вов. При&shy;чем, по умол&shy;ча&shy;нию вы можете поль&shy;зо&shy;ваться общим пулом буфе&shy;ров, кото&shy;рый пос&shy;троен на основе <code>ArrayMemoryPool</code>:</p>
+<p>Кото&shy;рый пред&shy;наз&shy;на&shy;чен для выдачи буфе&shy;ров необ&shy;хо&shy;ди&shy;мого раз&shy;мера во вре&shy;мен&shy;ное поль&shy;зо&shy;ва&shy;ние. Арен&shy;ду&shy;е&shy;мые экземп&shy;ляры, реа&shy;ли&shy;зу&shy;ю&shy;щие интер&shy;фейс <code>IMemory&shy;Owner&shy;<T></code>, имеют метод <code>Dispose&shy;()</code>, кото&shy;рый возв&shy;ра&shy;щает арен&shy;до&shy;ван&shy;ный мас&shy;сив обратно в пул мас&shy;си&shy;вов. При&shy;чем, по умол&shy;ча&shy;нию вы можете поль&shy;зо&shy;ваться общим пулом буфе&shy;ров, кото&shy;рый пос&shy;троен на основе <code>Array&shy;Memory&shy;Pool</code>:</p>
 <div class="paragraph-right-side">68</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">69</div>
-<p >
-<strong>Файл <a href="https://github.com/dotnet/corefx/blob/56dfb8834fa50f3bc61ea9b4bfdc9dcc759b6ec9/src/System.Memory/src/System/Buffers/ArrayMemoryPool.cs">ArrayMemoryPool.cs</a></strong></p>
+<p><strong>Файл <a href="https://github.com/dotnet/corefx/blob/56dfb8834fa50f3bc61ea9b4bfdc9dcc759b6ec9/src/System.Memory/src/System/Buffers/ArrayMemoryPool.cs">Array&shy;Memory&shy;Pool&shy;.cs</a></strong></p>
 <div class="paragraph-right-side">69</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2354,43 +2274,20 @@ Hello?
 }
 </pre></div>
 </div>
-<p >
-И на осно&shy;ва&shy;нии дан&shy;ной архи&shy;тек&shy;туры выри&shy;со&shy;вы&shy;ва&shy;ется сле&shy;ду&shy;ю&shy;щая кар&shy;тина мира:</p>
+<p>И на осно&shy;ва&shy;нии дан&shy;ной архи&shy;тек&shy;туры выри&shy;со&shy;вы&shy;ва&shy;ется сле&shy;ду&shy;ю&shy;щая кар&shy;тина мира:</p>
 <ul>
-<li>
-<p >
-Тип дан&shy;ных <code>Span</code> необ&shy;хо&shy;димо исполь&shy;зо&shy;вать в пара&shy;мет&shy;рах мето&shy;дов, если вы под&shy;ра&shy;зу&shy;ме&shy;ва&shy;ете либо счи&shy;ты&shy;ва&shy;ние дан&shy;ных (<code>ReadOnlySpan</code>), либо счи&shy;ты&shy;ва&shy;ние или запись (<code>Span</code>). Но не задачу его сох&shy;ра&shy;не&shy;ния в поле класса для исполь&shy;зо&shy;ва&shy;ния в буду&shy;щем</p>
-</li>
-<li>
-<p >
-Если вам необ&shy;хо&shy;димо хра&shy;нить ссылку на буфер дан&shy;ных из поля класса, необ&shy;хо&shy;димо исполь&shy;зо&shy;вать <code>Memory&lt;T&gt;</code> или <code>ReadOnlyMemory&lt;T&gt;</code> - в зави&shy;си&shy;мости от целей</p>
-</li>
-<li>
-<p >
-<code>MemoryManager&lt;T&gt;</code> - это вла&shy;де&shy;лец буфера дан&shy;ных (можно не исполь&shy;зо&shy;вать: по необ&shy;хо&shy;ди&shy;мости). Необ&shy;хо&shy;дим, когда, нап&shy;ри&shy;мер, вст&shy;ает необ&shy;хо&shy;ди&shy;мость подс&shy;чи&shy;ты&shy;вать вызовы <code>Pin()</code>. Или когда необ&shy;хо&shy;димо обла&shy;дать зна&shy;ни&shy;ями о том, как осво&shy;бож&shy;дать память</p>
-</li>
-<li>
-<p >
-Если <code>Memory</code> пос&shy;троен вок&shy;руг неуп&shy;рав&shy;ля&shy;е&shy;мого учас&shy;тка памяти, <code>Pin()</code> ничего не сде&shy;лает. Однако это уни&shy;фи&shy;ци&shy;рует работу с раз&shy;ными типами буфе&shy;ров: как в слу&shy;чае управ&shy;ля&shy;е&shy;мого, так и в слу&shy;чае неуп&shy;рав&shy;ля&shy;е&shy;мого кода интер&shy;фейс вза&shy;и&shy;мо&shy;д&shy;ействия будет оди&shy;на&shy;ко&shy;вым</p>
-</li>
-<li>
-<p >
-Каж&shy;дый из типов имеет пуб&shy;лич&shy;ные конст&shy;ру&shy;кторы. А это зна&shy;чит, что вы можете поль&shy;зо&shy;ваться как <code>Span</code> нап&shy;ря&shy;мую, так и полу&shy;чать его экземп&shy;ляр из <code>Memory</code>. Сам <code>Memory</code> вы можете соз&shy;дать как отдельно, так и орга&shy;ни&shy;зо&shy;вать для него <code>IMemoryOwner</code> тип, кото&shy;рый будет вла&shy;деть участ&shy;ком памяти, на кото&shy;рый будет ссы&shy;латься <code>Memory</code>. Част&shy;ным слу&shy;чаем может являться любой тип, осно&shy;ван&shy;ный на <code>MemoryManager</code>: неко&shy;то&shy;рое локаль&shy;ное вла&shy;де&shy;ние участ&shy;ком памяти (нап&shy;ри&shy;мер, с подс&shy;че&shy;том ссы&shy;лок из <code>unsafe</code> мира). Если при этом необ&shy;хо&shy;дим пулинг таких буфе&shy;ров (ожи&shy;да&shy;ется час&shy;тый тра&shy;фик буфе&shy;ров при&shy;мерно рав&shy;ного раз&shy;мера), можно вос&shy;поль&shy;зо&shy;ваться типом <code>MemoryPool</code>.</p>
-</li>
-<li>
-<p >
-Если под&shy;ра&shy;зу&shy;ме&shy;ва&shy;ется, что вам необ&shy;хо&shy;димо рабо&shy;тать с <code>unsafe</code> кодом, пере&shy;да&shy;вая туда некий буфер дан&shy;ных, стоит исполь&shy;зо&shy;вать тип <code>Memory</code>: он имеет метод <code>Pin()</code>, авто&shy;ма&shy;ти&shy;зи&shy;ру&shy;ю&shy;щий фик&shy;са&shy;цию буфера в куче .NET, если тот был там соз&shy;дан.</p>
-</li>
-<li>
-<p >
-Если же вы име&shy;ете некий тра&shy;фик буфе&shy;ров (нап&shy;ри&shy;мер, вы реша&shy;ете задачу пар&shy;синга тек&shy;ста прог&shy;раммы или какого-то DSL), стоит вос&shy;поль&shy;зо&shy;ваться типом <code>MemoryPool</code>, кото&shy;рый можно орга&shy;ни&shy;зо&shy;вать очень пра&shy;виль&shy;ным обра&shy;зом, выда&shy;вая из пула буферы под&shy;хо&shy;дя&shy;щего раз&shy;мера (нап&shy;ри&shy;мер, нем&shy;ного боль&shy;шего, если не наш&shy;лось под&shy;хо&shy;дя&shy;щего, но с обрез&shy;кой <code>originalMemory.Slice(requiredSize)</code> чтобы не фраг&shy;мен&shy;ти&shy;ро&shy;вать пул)</p>
-</li>
+<li>Тип дан&shy;ных <code>Span</code> необ&shy;хо&shy;димо исполь&shy;зо&shy;вать в пара&shy;мет&shy;рах мето&shy;дов, если вы под&shy;ра&shy;зу&shy;ме&shy;ва&shy;ете либо счи&shy;ты&shy;ва&shy;ние дан&shy;ных (<code>Read&shy;Only&shy;Span</code>), либо счи&shy;ты&shy;ва&shy;ние или запись (<code>Span</code>). Но не задачу его сох&shy;ра&shy;не&shy;ния в поле класса для исполь&shy;зо&shy;ва&shy;ния в буду&shy;щем</li>
+<li>Если вам необ&shy;хо&shy;димо хра&shy;нить ссылку на буфер дан&shy;ных из поля класса, необ&shy;хо&shy;димо исполь&shy;зо&shy;вать <code>Memory&shy;<T></code> или <code>Read&shy;Only&shy;Memory&shy;<T></code> - в зави&shy;си&shy;мости от целей</li>
+<li><code>Memory&shy;Manager&shy;<T></code> - это вла&shy;де&shy;лец буфера дан&shy;ных (можно не исполь&shy;зо&shy;вать: по необ&shy;хо&shy;ди&shy;мости). Необ&shy;хо&shy;дим, когда, нап&shy;ри&shy;мер, вст&shy;ает необ&shy;хо&shy;ди&shy;мость подс&shy;чи&shy;ты&shy;вать вызовы <code>Pin&shy;()</code>. Или когда необ&shy;хо&shy;димо обла&shy;дать зна&shy;ни&shy;ями о том, как осво&shy;бож&shy;дать память</li>
+<li>Если <code>Memory</code> пос&shy;троен вок&shy;руг неуп&shy;рав&shy;ля&shy;е&shy;мого учас&shy;тка памяти, <code>Pin&shy;()</code> ничего не сде&shy;лает. Однако это уни&shy;фи&shy;ци&shy;рует работу с раз&shy;ными типами буфе&shy;ров: как в слу&shy;чае управ&shy;ля&shy;е&shy;мого, так и в слу&shy;чае неуп&shy;рав&shy;ля&shy;е&shy;мого кода интер&shy;фейс вза&shy;и&shy;мо&shy;д&shy;ействия будет оди&shy;на&shy;ко&shy;вым</li>
+<li>Каж&shy;дый из типов имеет пуб&shy;лич&shy;ные конст&shy;ру&shy;кторы. А это зна&shy;чит, что вы можете поль&shy;зо&shy;ваться как <code>Span</code> нап&shy;ря&shy;мую, так и полу&shy;чать его экземп&shy;ляр из <code>Memory</code>. Сам <code>Memory</code> вы можете соз&shy;дать как отдельно, так и орга&shy;ни&shy;зо&shy;вать для него <code>IMemory&shy;Owner</code> тип, кото&shy;рый будет вла&shy;деть участ&shy;ком памяти, на кото&shy;рый будет ссы&shy;латься <code>Memory</code>. Част&shy;ным слу&shy;чаем может являться любой тип, осно&shy;ван&shy;ный на <code>Memory&shy;Manager</code>: неко&shy;то&shy;рое локаль&shy;ное вла&shy;де&shy;ние участ&shy;ком памяти (нап&shy;ри&shy;мер, с подс&shy;че&shy;том ссы&shy;лок из <code>unsafe</code> мира). Если при этом необ&shy;хо&shy;дим пулинг таких буфе&shy;ров (ожи&shy;да&shy;ется час&shy;тый тра&shy;фик буфе&shy;ров при&shy;мерно рав&shy;ного раз&shy;мера), можно вос&shy;поль&shy;зо&shy;ваться типом <code>Memory&shy;Pool</code>.</li>
+<li>Если под&shy;ра&shy;зу&shy;ме&shy;ва&shy;ется, что вам необ&shy;хо&shy;димо рабо&shy;тать с <code>unsafe</code> кодом, пере&shy;да&shy;вая туда некий буфер дан&shy;ных, стоит исполь&shy;зо&shy;вать тип <code>Memory</code>: он имеет метод <code>Pin&shy;()</code>, авто&shy;ма&shy;ти&shy;зи&shy;ру&shy;ю&shy;щий фик&shy;са&shy;цию буфера в куче .NET, если тот был там соз&shy;дан.</li>
+<li>Если же вы име&shy;ете некий тра&shy;фик буфе&shy;ров (нап&shy;ри&shy;мер, вы реша&shy;ете задачу пар&shy;синга тек&shy;ста прог&shy;раммы или какого-то DSL), стоит вос&shy;поль&shy;зо&shy;ваться типом <code>Memory&shy;Pool</code>, кото&shy;рый можно орга&shy;ни&shy;зо&shy;вать очень пра&shy;виль&shy;ным обра&shy;зом, выда&shy;вая из пула буферы под&shy;хо&shy;дя&shy;щего раз&shy;мера (нап&shy;ри&shy;мер, нем&shy;ного боль&shy;шего, если не наш&shy;лось под&shy;хо&shy;дя&shy;щего, но с обрез&shy;кой <code>ori&shy;gi&shy;nal&shy;Me&shy;mory.Slice&shy;(required&shy;Size&shy;)</code> чтобы не фраг&shy;мен&shy;ти&shy;ро&shy;вать пул)</li>
 </ul>
-<h2 id="section-1">Производительность</h2>
+<h2 id="section-1">Про&shy;из&shy;во&shy;ди&shy;тель&shy;ность</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">70</div>
-<p >
-Для того чтобы понять про&shy;из&shy;во&shy;ди&shy;тель&shy;ность новых типов дан&shy;ных, я решил вос&shy;поль&shy;зо&shy;ваться уже став&shy;шей стан&shy;дарт&shy;ной биб&shy;ли&shy;о&shy;те&shy;кой <a href="https://github.com/dotnet/BenchmarkDotNet">BenchmarkDotNet</a>:</p>
+<p>Для того чтобы понять про&shy;из&shy;во&shy;ди&shy;тель&shy;ность новых типов дан&shy;ных, я решил вос&shy;поль&shy;зо&shy;ваться уже став&shy;шей стан&shy;дарт&shy;ной биб&shy;ли&shy;о&shy;те&shy;кой <a href="https://github.com/dotnet/BenchmarkDotNet">Benchmark&shy;Dot&shy;Net</a>:</p>
 <div class="paragraph-right-side">70</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2544,41 +2441,19 @@ Hello?
 }
 </pre></div>
 </div>
-<p >
-После чего изу&shy;чим резуль&shy;таты:</p>
-<p >
-<img src="./imgs/Span/Performance.png" alt="Performance chart" /></p>
-<p >
-Смотря на них можно почерп&shy;нуть сле&shy;ду&shy;ю&shy;щую инфор&shy;ма&shy;цию:</p>
+<p>После чего изу&shy;чим резуль&shy;таты:</p>
+<p><img src="./imgs/Span/Performance.png" alt="Perfor&shy;mance chart" /></p>
+<p>Смотря на них можно почерп&shy;нуть сле&shy;ду&shy;ю&shy;щую инфор&shy;ма&shy;цию:</p>
 <ul>
-<li>
-<p >
-Array&shy;Segment ужа&shy;сен. Но его можно сде&shy;лать не таким ужас&shy;ным, обер&shy;нув в <code>Span</code>. Про&shy;из&shy;во&shy;ди&shy;тель&shy;ность вырас&shy;тет при этом в 7 раз;</p>
-</li>
-<li>
-<p >
-Если расс&shy;мат&shy;ри&shy;вать <code>.NET Framework 4.7.1</code> (а для 4.5 это будет ана&shy;ло&shy;гич&shy;ным), то пере&shy;ход на Span заметно про&shy;са&shy;дит работу с буфе&shy;рами дан&shy;ных. При&shy;мерно на 30-35%;</p>
-</li>
-<li>
-<p >
-Однако если пос&shy;мот&shy;реть в сто&shy;рону .NET Core 2.1+, то здесь про&shy;из&shy;во&shy;ди&shy;тель&shy;ность ста&shy;нет сопос&shy;та&shy;ви&shy;мой, а с уче&shy;том того что Span может рабо&shy;тать на части буфера дан&shy;ных, соз&shy;да&shy;вая кон&shy;текст, то вообще быс&shy;т&shy;рее: ведь ана&shy;ло&shy;гич&shy;ным фун&shy;кци&shy;о&shy;на&shy;лом обла&shy;дает Array&shy;Segment, кото&shy;рый рабо&shy;тает крайне мед&shy;ленно.</p>
-</li>
+<li>Array&shy;Segment ужа&shy;сен. Но его можно сде&shy;лать не таким ужас&shy;ным, обер&shy;нув в <code>Span</code>. Про&shy;из&shy;во&shy;ди&shy;тель&shy;ность вырас&shy;тет при этом в 7 раз;</li>
+<li>Если расс&shy;мат&shy;ри&shy;вать <code>.NET Frame&shy;work 4.7.1</code> (а для 4.5 это будет ана&shy;ло&shy;гич&shy;ным), то пере&shy;ход на Span заметно про&shy;са&shy;дит работу с буфе&shy;рами дан&shy;ных. При&shy;мерно на 30-35%;</li>
+<li>Однако если пос&shy;мот&shy;реть в сто&shy;рону .NET Core 2.1+, то здесь про&shy;из&shy;во&shy;ди&shy;тель&shy;ность ста&shy;нет сопос&shy;та&shy;ви&shy;мой, а с уче&shy;том того что Span может рабо&shy;тать на части буфера дан&shy;ных, соз&shy;да&shy;вая кон&shy;текст, то вообще быс&shy;т&shy;рее: ведь ана&shy;ло&shy;гич&shy;ным фун&shy;кци&shy;о&shy;на&shy;лом обла&shy;дает Array&shy;Segment&shy;, кото&shy;рый рабо&shy;тает крайне мед&shy;ленно.</li>
 </ul>
-<p >
-Отсюда можно сде&shy;лать прос&shy;тые выводы по исполь&shy;зо&shy;ва&shy;нию этих типов дан&shy;ных:</p>
+<p>Отсюда можно сде&shy;лать прос&shy;тые выводы по исполь&shy;зо&shy;ва&shy;нию этих типов дан&shy;ных:</p>
 <ul>
-<li>
-<p >
-Для <code>.NET Framework 4.5+</code> и <code>.NET Core</code> их исполь&shy;зо&shy;ва&shy;ние даст только один плюс: они быс&shy;т&shy;рее их аль&shy;те&shy;рн&shy;ативы в виде Array&shy;Segment - на подм&shy;но&shy;жес&shy;тве исход&shy;ного мас&shy;сива;</p>
-</li>
-<li>
-<p >
-Для <code>.NET Core 2.1+</code> их исполь&shy;зо&shy;ва&shy;ние даст неос&shy;по&shy;ри&shy;мое пре&shy;и&shy;му&shy;щес&shy;тво как перед исполь&shy;зо&shy;ва&shy;нием Array&shy;Segment, так и перед любыми видами руч&shy;ной реа&shy;ли&shy;за&shy;ции <code>Slice</code></p>
-</li>
-<li>
-<p >
-Также, что не даст ни один спо&shy;соб уни&shy;фи&shy;ка&shy;ции мас&shy;си&shy;вов - все три спо&shy;соба мак&shy;си&shy;мально про&shy;из&shy;во&shy;ди&shy;тельны.</p>
-</li>
+<li>Для <code>.NET Frame&shy;work 4.5+</code> и <code>.NET Core</code> их исполь&shy;зо&shy;ва&shy;ние даст только один плюс: они быс&shy;т&shy;рее их аль&shy;те&shy;рн&shy;ативы в виде Array&shy;Segment - на подм&shy;но&shy;жес&shy;тве исход&shy;ного мас&shy;сива;</li>
+<li>Для <code>.NET Core 2.1+</code> их исполь&shy;зо&shy;ва&shy;ние даст неос&shy;по&shy;ри&shy;мое пре&shy;и&shy;му&shy;щес&shy;тво как перед исполь&shy;зо&shy;ва&shy;нием Array&shy;Segment&shy;, так и перед любыми видами руч&shy;ной реа&shy;ли&shy;за&shy;ции <code>Slice</code></li>
+<li>Также, что не даст ни один спо&shy;соб уни&shy;фи&shy;ка&shy;ции мас&shy;си&shy;вов  &mdash;  все три спо&shy;соба мак&shy;си&shy;мально про&shy;из&shy;во&shy;ди&shy;тельны.</li>
 </ul>
 
         </div>

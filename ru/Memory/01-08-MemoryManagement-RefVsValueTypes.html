@@ -133,12 +133,12 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 p code:not(.highlight), li code:not(.highlight) {
     font-size: 0.7em;
-    padding: 3px;
     color: darkslateblue;
 }
 
 /* style for manual selecting */
 .box {
+    padding: 3px;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
@@ -233,6 +233,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     font-weight: 400;
     font-family: inherit;
+    hyphens: none;
 }
 
 h1 {
@@ -246,23 +247,32 @@ h1 {
 
 h2 {
     padding-top: 1.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    margin-bottom: 0.5em;
     font-family: Charter, Arial, Helvetica Neue, sans-serif;
-    font-size: 1.25em;
-    width: 70%;
+    font-size: 1.4em;
+    text-align: center;
 }
 
 h3 {
-    padding-top: 1em;
-    font-size: 1.3em;
+    padding-top: 1.2em;
+    font-family: Charter, Arial, Helvetica Neue, sans-serif;
+    font-size: 1.15em;
+    width: 70%;
+}
+
+h4 {
+    padding: 1em 0 0 0;
+    font-size: 1.2em;
     font-weight: 300;
     font-style: italic;
 }
 
-h4 {
-    margin: 20px 0 10px 0;
-    font-size: 16pt;
-    font-weight: 500;
-    font-style: italic;
+h5 {
+    padding: 0.6em 0 0 0;
+    font-weight: 300;
+    font-size: 1.1em;
 }
 
 /* Sidenotes */
@@ -677,7 +687,7 @@ footer > div {
 /* MD */
 @media (max-width: 991px) {
     
-    h2 {
+    h3 {
         width:80%;
     }
 
@@ -904,7 +914,17 @@ footer > div {
         font-size: 10pt;
         padding: 3px;
     }
-   
+
+    *[class*='lang-'] > div, pre > code {
+        padding-left: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    
+    ol li, ul li {
+        padding-left: 0.2em;	
+    }
+    
     p, li {
         line-height: 24px;
     }    
@@ -1194,7 +1214,7 @@ footer > div {
 <li><a href="#classstruct" onclick="$('#menu__toggle').click(); return true;">
 Особенности выбора между class/struct</a></li>
 <li><a href="#object.boxing" onclick="$('#menu__toggle').click(); return true;">
-Базовый тип - Object и возможность реализации интерфейсов. Boxing.</a></li>
+Базовый тип </a></li>
 <li><a href="#boxing" onclick="$('#menu__toggle').click(); return true;">
 Погружаемся в boxing ещё глубже</a></li>
 <li><a href="#boxing-1" onclick="$('#menu__toggle').click(); return true;">
@@ -1210,7 +1230,7 @@ __</a></li>
 <li><a href="#net-clr" onclick="$('#menu__toggle').click(); return true;">
 Почему .NET CLR не делает пуллинга для боксинга самостоятельно?</a></li>
 <li><a href="#object-boxing" onclick="$('#menu__toggle').click(); return true;">
-Почему при вызове метода, принимающего тип object, а по факту - значимый тип нет возможности сделать boxing на стеке, разгрузив кучу?</a></li>
+Почему при вызове метода, принимающего тип object, а по факту </a></li>
 <li><a href="#value-type" onclick="$('#menu__toggle').click(); return true;">
 Почему нельзя использовать в качестве поля Value Type его самого?</a></li>
 <li><a href="#section-7" onclick="$('#menu__toggle').click(); return true;">
@@ -1248,7 +1268,7 @@ __</a></li>
                             </li>
                             <li>
                                 <p>
-                                <a href="../..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></p>
+                                <a href="../..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон IDisposable</a></p>
                             </li>
                             <li>
                                 <p>
@@ -1310,75 +1330,45 @@ __</a></li>
             <p class="d-none d-sm-block d-md-none">MD</p>
             <p class="d-none d-lg-block d-xl-none">LG</p>
             <p class="d-none d-xl-block">XL</p> -->
-            <blockquote class="breadcrumbs">
-<p >
- <a href="../readme.html">Содержание</a> / <a href="./01-00-MemoryManagement-Intro.html">Основы управления памятью</a></p>
-</blockquote>
-<h1 id="section">Ссылочные и значимые типы данных</h1>
+            <h1 id="section">Ссы&shy;лоч&shy;ные и зна&shy;чи&shy;мые типы дан&shy;ных</h1>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p >
-Теперь, когда мы укре&shy;пили свои зна&shy;ния основ в управ&shy;ле&shy;нии памятью в .NET, давайте пого&shy;во&shy;рим про Refe&shy;rence Types и Value Types. И если гово&shy;рить про раз&shy;ницу между ними и про полез&shy;ность каж&shy;дого из типов, то пер&shy;вое, о чем я бы упо&shy;мя&shy;нул - так это о своих мыс&shy;лях об их наз&shy;ва&shy;нии. На мой скром&shy;ный взгляд, если бы в рус&shy;ско&shy;языч&shy;ном сег&shy;менте их наз&shy;вали ссы&shy;лоч&shy;ные и зна&shy;чи&shy;мые типы вместо про&shy;го&shy;ва&shy;ри&shy;ва&shy;ния Value Types и Refe&shy;rence Types, то с пони&shy;ма&shy;нием раз&shy;ницы между ними все бы встало на свои места.</p>
+<p>Теперь, когда мы укре&shy;пили свои зна&shy;ния основ в управ&shy;ле&shy;нии памятью в .NET, давайте пого&shy;во&shy;рим про Refe&shy;rence Types и Value Types&shy;. И если гово&shy;рить про раз&shy;ницу между ними и про полез&shy;ность каж&shy;дого из типов, то пер&shy;вое, о чем я бы упо&shy;мя&shy;нул  &mdash;  так это о своих мыс&shy;лях об их наз&shy;ва&shy;нии. На мой скром&shy;ный взгляд, если бы в рус&shy;ско&shy;языч&shy;ном сег&shy;менте их наз&shy;вали ссы&shy;лоч&shy;ные и зна&shy;чи&shy;мые типы вместо про&shy;го&shy;ва&shy;ри&shy;ва&shy;ния Value Types и Refe&shy;rence Types&shy;, то с пони&shy;ма&shy;нием раз&shy;ницы между ними все бы встало на свои места.</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <blockquote>
-<p >
-Очень часто при воп&shy;росе что такое ссы&shy;лоч&shy;ные и зна&shy;чи&shy;мые типы, люди отве&shy;чают, что ссы&shy;лоч&shy;ные живут в куче, а зна&shy;чи&shy;мые - в стеке. И это в корне неп&shy;ра&shy;вильно. Это нас&shy;только малень&shy;кая часть правды, что прав&shy;дой не может счи&shy;таться в прин&shy;ципе</p>
+<p>Очень часто при воп&shy;росе что такое ссы&shy;лоч&shy;ные и зна&shy;чи&shy;мые типы, люди отве&shy;чают, что ссы&shy;лоч&shy;ные живут в куче, а зна&shy;чи&shy;мые  &mdash;  в стеке. И это в корне неп&shy;ра&shy;вильно. Это нас&shy;только малень&shy;кая часть правды, что прав&shy;дой не может счи&shy;таться в прин&shy;ципе</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p >
-Также, чтобы пони&shy;мать раз&shy;ницу между ними, давайте и будем изу&shy;чать их с точки зре&shy;ния раз&shy;ницы:</p>
+<p>Также, чтобы пони&shy;мать раз&shy;ницу между ними, давайте и будем изу&shy;чать их с точки зре&shy;ния раз&shy;ницы:</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <ul>
-<li>
-<p >
-<em>Значимый тип</em>:  зна&shy;че&shy;нием явля&shy;ется <strong>вся структура целиком</strong>. Для <em>ссылочного типа</em> зна&shy;че&shy;нием явля&shy;ется <strong>ссылка</strong> на объ&shy;ект;</p>
-</li>
-<li>
-<p >
-По струк&shy;туре в памяти: зна&shy;чи&shy;мые типы содер&shy;жат только те дан&shy;ные, кото&shy;рые вы ука&shy;зали. Ссы&shy;лоч&shy;ные также содер&shy;жат два сис&shy;тем&shy;ных поля. Пер&shy;вое необ&shy;хо&shy;димо для хра&shy;не&shy;ния <code>SyncBlockIndex</code>, вто&shy;рое - для хра&shy;не&shy;ния инфор&shy;ма&shy;ции о типе: в том числе и о Virtual Methods Table (VMT)</p>
-</li>
-<li>
-<p >
-Однако, ссы&shy;лоч&shy;ные типы можно нас&shy;ле&shy;до&shy;вать, пере&shy;оп&shy;ре&shy;де&shy;ляя методы. Зна&shy;чи&shy;мые типы лишены такой воз&shy;мож&shy;ности;</p>
-</li>
-<li>
-<p >
-Но, чтобы выде&shy;лить ссы&shy;лоч&shy;ный тип, надо алло&shy;ци&shy;ро&shy;вать место в куче. Зна&shy;чи&shy;мый тип <em>может</em> рабо&shy;тать на стеке, не уходя в кучу, а может стать частью ссы&shy;лоч&shy;ного типа. Это свой&shy;ство может зна&shy;чи&shy;тельно повы&shy;сить про&shy;из&shy;во&shy;ди&shy;тель&shy;ность для неко&shy;то&shy;рых алго&shy;рит&shy;мов;</p>
-</li>
+<li><em>Зна&shy;чи&shy;мый тип</em>:  зна&shy;че&shy;нием явля&shy;ется <strong>вся струк&shy;тура цели&shy;ком</strong>. Для <em>ссы&shy;лоч&shy;ного типа</em> зна&shy;че&shy;нием явля&shy;ется <strong>ссылка</strong> на объ&shy;ект;</li>
+<li>По струк&shy;туре в памяти: зна&shy;чи&shy;мые типы содер&shy;жат только те дан&shy;ные, кото&shy;рые вы ука&shy;зали. Ссы&shy;лоч&shy;ные также содер&shy;жат два сис&shy;тем&shy;ных поля. Пер&shy;вое необ&shy;хо&shy;димо для хра&shy;не&shy;ния <code>Sync&shy;Block&shy;Index</code>, вто&shy;рое  &mdash;  для хра&shy;не&shy;ния инфор&shy;ма&shy;ции о типе: в том числе и о Virtual Methods Table (VMT)</li>
+<li>Однако, ссы&shy;лоч&shy;ные типы можно нас&shy;ле&shy;до&shy;вать, пере&shy;оп&shy;ре&shy;де&shy;ляя методы. Зна&shy;чи&shy;мые типы лишены такой воз&shy;мож&shy;ности;</li>
+<li>Но, чтобы выде&shy;лить ссы&shy;лоч&shy;ный тип, надо алло&shy;ци&shy;ро&shy;вать место в куче. Зна&shy;чи&shy;мый тип <em>может</em> рабо&shy;тать на стеке, не уходя в кучу, а может стать частью ссы&shy;лоч&shy;ного типа. Это свой&shy;ство может зна&shy;чи&shy;тельно повы&shy;сить про&shy;из&shy;во&shy;ди&shy;тель&shy;ность для неко&shy;то&shy;рых алго&shy;рит&shy;мов;</li>
 </ul>
-<p >
-Однако, есть и общие черты.</p>
+<p>Однако, есть и общие черты.</p>
 <blockquote class="big-quote">
-<p >
-  Оба подк&shy;ласса нас&shy;ле&shy;дуют тип object. <br>
+<p>  Оба подк&shy;ласса нас&shy;ле&shy;дуют тип object. <br>
 А зна&shy;чит, могут выс&shy;ту&shy;пать как его предс&shy;та&shy;ви&shy;тели: на пол&shy;ных пра&shy;вах</p>
 </blockquote>
-<p >
-Расс&shy;мот&shy;рим каж&shy;дую осо&shy;бен&shy;ность в отдель&shy;ности.</p>
-<h2 id="section-1">Копирование</h2>
+<p>Расс&shy;мот&shy;рим каж&shy;дую осо&shy;бен&shy;ность в отдель&shy;ности.</p>
+<h2 id="section-1">Копи&shy;ро&shy;ва&shy;ние</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p >
-Самую глав&shy;ную и осно&shy;во&shy;по&shy;ла&shy;га&shy;ю&shy;щую раз&shy;ницу между типами можно опи&shy;сать при&shy;мерно так:</p>
+<p>Самую глав&shy;ную и осно&shy;во&shy;по&shy;ла&shy;га&shy;ю&shy;щую раз&shy;ницу между типами можно опи&shy;сать при&shy;мерно так:</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <ul>
-<li>
-<p >
-Любая пере&shy;мен&shy;ная, поле класса/струк&shy;туры или же пара&shy;метр метода, кото&shy;рые при&shy;ни&shy;мают ссы&shy;лоч&shy;ный тип, на самом деле хра&shy;нят в себе <strong>ссылку</strong> на зна&shy;че&shy;ние;</p>
-</li>
-<li>
-<p >
-Тогда как любая пере&shy;мен&shy;ная, поле класса/струк&shy;туры или же пара&shy;метр метода, кото&shy;рые при&shy;ни&shy;мают зна&shy;чи&shy;мый тип, на самом деле хра&shy;нят в себе именно зна&shy;че&shy;ние. Т.е. всю струк&shy;туру цели&shy;ком;</p>
-</li>
+<li>Любая пере&shy;мен&shy;ная, поле класса/струк&shy;туры или же пара&shy;метр метода, кото&shy;рые при&shy;ни&shy;мают ссы&shy;лоч&shy;ный тип, на самом деле хра&shy;нят в себе <strong>ссылку</strong> на зна&shy;че&shy;ние;</li>
+<li>Тогда как любая пере&shy;мен&shy;ная, поле класса/струк&shy;туры или же пара&shy;метр метода, кото&shy;рые при&shy;ни&shy;мают зна&shy;чи&shy;мый тип, на самом деле хра&shy;нят в себе именно зна&shy;че&shy;ние. Т.е. всю струк&shy;туру цели&shy;ком;</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p >
-Что это зна&shy;чит для нас? Это в част&shy;ности зна&shy;чит, что любое прис&shy;ва&shy;и&shy;ва&shy;ние или про&shy;ки&shy;ды&shy;ва&shy;ние через пара&shy;метр метода вызо&shy;вет копи&shy;ро&shy;ва&shy;ние зна&shy;че&shy;ния. А поме&shy;няв копию, ори&shy;ги&shy;нал изменён не будет. При этом если вы меня&shy;ете поля ссы&shy;лоч&shy;ного типа, изме&shy;не&shy;ния &laquo;полу&shy;чают&raquo; все, кто имеют ссылку на экземп&shy;ляр типа. Давайте расс&shy;мот&shy;рим это на при&shy;мере:</p>
+<p>Что это зна&shy;чит для нас? Это в част&shy;ности зна&shy;чит, что любое прис&shy;ва&shy;и&shy;ва&shy;ние или про&shy;ки&shy;ды&shy;ва&shy;ние через пара&shy;метр метода вызо&shy;вет копи&shy;ро&shy;ва&shy;ние зна&shy;че&shy;ния. А поме&shy;няв копию, ори&shy;ги&shy;нал изменён не будет. При этом если вы меня&shy;ете поля ссы&shy;лоч&shy;ного типа, изме&shy;не&shy;ния &laquo;полу&shy;чают&raquo; все, кто имеют ссылку на экземп&shy;ляр типа. Давайте расс&shy;мот&shy;рим это на при&shy;мере:</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <div class="wide lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1394,8 +1384,7 @@ __</a></li>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p >
-Это свой&shy;ство рож&shy;дает ряд двус&shy;мыс&shy;лен&shy;ных на пер&shy;вый взгляд конст&shy;рукций кода. Одна из них - изме&shy;не&shy;ние зна&shy;че&shy;ний в кол&shy;лек&shy;циях:</p>
+<p>Это свой&shy;ство рож&shy;дает ряд двус&shy;мыс&shy;лен&shy;ных на пер&shy;вый взгляд конст&shy;рукций кода. Одна из них  &mdash;  изме&shy;не&shy;ние зна&shy;че&shy;ний в кол&shy;лек&shy;циях:</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1417,12 +1406,10 @@ Console.WriteLine(array[0].Data);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p >
-В дан&shy;ном коде есть малень&shy;кая хит&shy;рость. Код выг&shy;ля&shy;дит так, будто мы сна&shy;чала достаём экземп&shy;ляр струк&shy;туры, а затем у полу&shy;чен&shy;ной копии выс&shy;тав&shy;ляем поле Data в новое зна&shy;че&shy;ние. А это зна&shy;чит, что при про&shy;верке мы снова дол&shy;жны полу&shy;чить <code>5</code>. Однако все сов&shy;сем не так. Все дело в том, что в MSIL есть отдель&shy;ная инстр&shy;укция для выс&shy;тав&shy;ле&shy;ния зна&shy;че&shy;ния полей струк&shy;тур, нахо&shy;дя&shy;щихся в мас&shy;си&shy;вах. Она была вве&shy;дена для повы&shy;ше&shy;ния про&shy;из&shy;во&shy;ди&shy;тель&shy;ности. И этот код отра&shy;бо&shy;тает именно так, как и было заду&shy;мано его авто&shy;ром: прог&shy;рамма выве&shy;дет в кон&shy;соль число <code>4</code>.</p>
+<p>В дан&shy;ном коде есть малень&shy;кая хит&shy;рость. Код выг&shy;ля&shy;дит так, будто мы сна&shy;чала достаём экземп&shy;ляр струк&shy;туры, а затем у полу&shy;чен&shy;ной копии выс&shy;тав&shy;ляем поле Data в новое зна&shy;че&shy;ние. А это зна&shy;чит, что при про&shy;верке мы снова дол&shy;жны полу&shy;чить <code>5</code>. Однако все сов&shy;сем не так. Все дело в том, что в MSIL есть отдель&shy;ная инстр&shy;укция для выс&shy;тав&shy;ле&shy;ния зна&shy;че&shy;ния полей струк&shy;тур, нахо&shy;дя&shy;щихся в мас&shy;си&shy;вах. Она была вве&shy;дена для повы&shy;ше&shy;ния про&shy;из&shy;во&shy;ди&shy;тель&shy;ности. И этот код отра&shy;бо&shy;тает именно так, как и было заду&shy;мано его авто&shy;ром: прог&shy;рамма выве&shy;дет в кон&shy;соль число <code>4</code>.</p>
 <div class="paragraph-right-side">06</div>
 </div>
-<p >
-Однако стоит изме&shy;нить при&shy;мер так:</p>
+<p>Однако стоит изме&shy;нить при&shy;мер так:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Green;">// Объявим структуру</span>
 <span style="color:Blue;">struct</span> ValueHolder
@@ -1442,8 +1429,7 @@ Console.WriteLine(list[0].Data);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p >
-Так у нас ничего даже и не ском&shy;пи&shy;ли&shy;ру&shy;ется. А все потому, что когда вы пишете <code>list[0].Data = 4</code>, то сна&shy;чала вы полу&shy;ча&shy;ете именно копию струк&shy;туры. Вы ведь на самом деле вызы&shy;ва&shy;ете метод экземп&shy;ляра типа <code>List&lt;T&gt;</code>, кото&shy;рый скры&shy;ва&shy;ется за дос&shy;ту&shy;пом по индексу. И кото&shy;рый в свою оче&shy;редь заби&shy;рает копию струк&shy;туры из внут&shy;рен&shy;него мас&shy;сива (<code>List&lt;T&gt;</code> хра&shy;нит дан&shy;ные в мас&shy;си&shy;вах), кото&shy;рая возв&shy;ра&shy;ща&shy;ется из метода дос&shy;тупа по индексу - вам. После чего вы пыта&shy;е&shy;тесь моди&shy;фи&shy;ци&shy;ро&shy;вать копию, кото&shy;рая далее нигде не исполь&shy;зу&shy;ется. Это - не то чтобы ошибка, но абсо&shy;лютно бесс&shy;мыс&shy;лен&shy;ный код. А ком&shy;пи&shy;ля&shy;тор, зная, что люди пута&shy;ются с Value Types, зап&shy;ре&shy;щает такое пове&shy;де&shy;ние. Поэ&shy;тому при&shy;мер дол&shy;жен быть пере&shy;пи&shy;сан таким обра&shy;зом:</p>
+<p>Так у нас ничего даже и не ском&shy;пи&shy;ли&shy;ру&shy;ется. А все потому, что когда вы пишете <code>list[0].Data = 4</code>, то сна&shy;чала вы полу&shy;ча&shy;ете именно копию струк&shy;туры. Вы ведь на самом деле вызы&shy;ва&shy;ете метод экземп&shy;ляра типа <code>List&shy;<T></code>, кото&shy;рый скры&shy;ва&shy;ется за дос&shy;ту&shy;пом по индексу. И кото&shy;рый в свою оче&shy;редь заби&shy;рает копию струк&shy;туры из внут&shy;рен&shy;него мас&shy;сива (<code>List&shy;<T></code> хра&shy;нит дан&shy;ные в мас&shy;си&shy;вах), кото&shy;рая возв&shy;ра&shy;ща&shy;ется из метода дос&shy;тупа по индексу  &mdash;  вам. После чего вы пыта&shy;е&shy;тесь моди&shy;фи&shy;ци&shy;ро&shy;вать копию, кото&shy;рая далее нигде не исполь&shy;зу&shy;ется. Это  &mdash;  не то чтобы ошибка, но абсо&shy;лютно бесс&shy;мыс&shy;лен&shy;ный код. А ком&shy;пи&shy;ля&shy;тор, зная, что люди пута&shy;ются с Value Types&shy;, зап&shy;ре&shy;щает такое пове&shy;де&shy;ние. Поэ&shy;тому при&shy;мер дол&shy;жен быть пере&shy;пи&shy;сан таким обра&shy;зом:</p>
 <div class="paragraph-right-side">07</div>
 </div>
 <div class="wide lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1467,14 +1453,12 @@ Console.WriteLine(list[0].Data);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p >
-Нес&shy;мотря на кажу&shy;ще&shy;еся мно&shy;гос&shy;ло&shy;вие, он кор&shy;рек&shy;тен. Когда прог&shy;рамма отра&shy;бо&shy;тает, в кон&shy;соль выве&shy;дется число <code>4</code>.</p>
+<p>Нес&shy;мотря на кажу&shy;ще&shy;еся мно&shy;гос&shy;ло&shy;вие, он кор&shy;рек&shy;тен. Когда прог&shy;рамма отра&shy;бо&shy;тает, в кон&shy;соль выве&shy;дется число <code>4</code>.</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
-<p >
-Вто&shy;рым при&shy;ме&shy;ром я хочу пока&shy;зать вам, что вообще пони&shy;ма&shy;ется под &laquo;зна&shy;че&shy;нием струк&shy;туры явля&shy;ется вся струк&shy;тура цели&shy;ком&raquo;</p>
+<p>Вто&shy;рым при&shy;ме&shy;ром я хочу пока&shy;зать вам, что вообще пони&shy;ма&shy;ется под &laquo;зна&shy;че&shy;нием струк&shy;туры явля&shy;ется вся струк&shy;тура цели&shy;ком&raquo;</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1500,8 +1484,7 @@ PersonInfo person;
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
-<p >
-Фак&shy;ти&shy;чески, по рас&shy;по&shy;ло&shy;же&shy;нию дан&shy;ных в памяти оба при&shy;мера иден&shy;тичны. Потому как зна&shy;че&shy;нием струк&shy;туры явля&shy;ется вся струк&shy;тура в целом. Куда она попала, там под себя память и опре&shy;де&shy;лила.</p>
+<p>Фак&shy;ти&shy;чески, по рас&shy;по&shy;ло&shy;же&shy;нию дан&shy;ных в памяти оба при&shy;мера иден&shy;тичны. Потому как зна&shy;че&shy;нием струк&shy;туры явля&shy;ется вся струк&shy;тура в целом. Куда она попала, там под себя память и опре&shy;де&shy;лила.</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1533,20 +1516,17 @@ PersonInfo person;
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
-<p >
-Эти при&shy;меры также иден&shy;тичны с точки зре&shy;ния поло&shy;же&shy;ния эле&shy;мен&shy;тов в памяти, т.к. струк&shy;тура просто встаёт туда, где её опре&shy;де&shy;лили: среди полей класса. Я не утвер&shy;ж&shy;даю, что это абсо&shy;лютно иден&shy;тично: ведь в струк&shy;туре вы можете опе&shy;ри&shy;ро&shy;вать над её полями при помощи мето&shy;дов струк&shy;туры.</p>
+<p>Эти при&shy;меры также иден&shy;тичны с точки зре&shy;ния поло&shy;же&shy;ния эле&shy;мен&shy;тов в памяти, т.к. струк&shy;тура просто встаёт туда, где её опре&shy;де&shy;лили: среди полей класса. Я не утвер&shy;ж&shy;даю, что это абсо&shy;лютно иден&shy;тично: ведь в струк&shy;туре вы можете опе&shy;ри&shy;ро&shy;вать над её полями при помощи мето&shy;дов струк&shy;туры.</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
-<p >
-Если гово&shy;рить про ссы&shy;лоч&shy;ные типы, то, понят&shy;ное дело, для них все обстоит иначе. Сам экземп&shy;ляр нахо&shy;дится в недо&shy;ся&shy;га&shy;е&shy;мом Small Object Heap (SOH) или же в Large Object Heap (LOH), а в поле класса запи&shy;шется лишь зна&shy;че&shy;ние ука&shy;за&shy;теля на экземп&shy;ляр: 32-х или 64-раз&shy;ряд&shy;ное число.</p>
+<p>Если гово&shy;рить про ссы&shy;лоч&shy;ные типы, то, понят&shy;ное дело, для них все обстоит иначе. Сам экземп&shy;ляр нахо&shy;дится в недо&shy;ся&shy;га&shy;е&shy;мом Small Object Heap (SOH) или же в Large Object Heap (LOH), а в поле класса запи&shy;шется лишь зна&shy;че&shy;ние ука&shy;за&shy;теля на экземп&shy;ляр: 32-х или 64-раз&shy;ряд&shy;ное число.</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
-<p >
-Пос&shy;лед&shy;ний при&shy;мер, наде&shy;юсь, вас не запу&shy;тает. Но мне хоте&shy;лось пос&shy;та&shy;вить точку в этом воп&shy;росе.</p>
+<p>Пос&shy;лед&shy;ний при&shy;мер, наде&shy;юсь, вас не запу&shy;тает. Но мне хоте&shy;лось пос&shy;та&shy;вить точку в этом воп&shy;росе.</p>
 <div class="paragraph-right-side">13</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1566,45 +1546,31 @@ PersonInfo person;
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
-<p >
-Вы меня поняли совер&shy;шенно кор&shy;рек&shy;тно: с точки зре&shy;ния работы с памятью оба вари&shy;анта будут рабо&shy;тать оди&shy;на&shy;ково (но не архи&shy;тек&shy;тур&shy;ной! это вам не замена пере&shy;мен&shy;ного числа аргу&shy;мен&shy;тов!). Почему изме&shy;нился поря&shy;док? Потому что пара&shy;метры метода объ&shy;яв&shy;ля&shy;ются друг за дру&shy;гом и в этом порядке скла&shy;ды&shy;ва&shy;ются в стек потока. Однако стек растёт от стар&shy;ших адре&shy;сов к млад&shy;шим, а это зна&shy;чит, что поря&shy;док скла&shy;ды&shy;ва&shy;ния по оче&shy;реди будет отли&shy;чаться от порядка скла&shy;ды&shy;ва&shy;ния струк&shy;туры цели&shy;ком.</p>
+<p>Вы меня поняли совер&shy;шенно кор&shy;рек&shy;тно: с точки зре&shy;ния работы с памятью оба вари&shy;анта будут рабо&shy;тать оди&shy;на&shy;ково (но не архи&shy;тек&shy;тур&shy;ной! это вам не замена пере&shy;мен&shy;ного числа аргу&shy;мен&shy;тов!). Почему изме&shy;нился поря&shy;док? Потому что пара&shy;метры метода объ&shy;яв&shy;ля&shy;ются друг за дру&shy;гом и в этом порядке скла&shy;ды&shy;ва&shy;ются в стек потока. Однако стек растёт от стар&shy;ших адре&shy;сов к млад&shy;шим, а это зна&shy;чит, что поря&shy;док скла&shy;ды&shy;ва&shy;ния по оче&shy;реди будет отли&shy;чаться от порядка скла&shy;ды&shy;ва&shy;ния струк&shy;туры цели&shy;ком.</p>
 <div class="paragraph-right-side">14</div>
 </div>
-<h2 id="section-2">Переопределяемые методы и наследование</h2>
+<h2 id="section-2">Пере&shy;оп&shy;ре&shy;де&shy;ля&shy;е&shy;мые методы и нас&shy;ле&shy;до&shy;ва&shy;ние</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
-<p >
-Вто&shy;рая гло&shy;баль&shy;ная раз&shy;ница между ними - это отс&shy;утствие таб&shy;лицы вир&shy;ту&shy;альных мето&shy;дов в струк&shy;ту&shy;рах. Это озна&shy;чает что:</p>
+<p>Вто&shy;рая гло&shy;баль&shy;ная раз&shy;ница между ними  &mdash;  это отс&shy;утствие таб&shy;лицы вир&shy;ту&shy;альных мето&shy;дов в струк&shy;ту&shy;рах. Это озна&shy;чает что:</p>
 <div class="paragraph-right-side">15</div>
 </div>
 <ol>
-<li>
-<p >
-В струк&shy;ту&shy;рах нельзя опи&shy;сать <code>virtual</code> методы, а также - пере&shy;оп&shy;ре&shy;де&shy;лять их;</p>
-</li>
-<li>
-<p >
-Струк&shy;туры в прин&shy;ципе нельзя нас&shy;ле&shy;до&shy;вать друг от друга. Един&shy;ствен&shy;ный спо&shy;соб сде&shy;лать эму&shy;ля&shy;цию нас&shy;ле&shy;до&shy;ва&shy;ния - рас&shy;по&shy;ло&shy;жить струк&shy;туру базо&shy;вого типа пер&shy;вым полем. Тогда по сме&shy;ще&shy;ниям они будут сов&shy;па&shy;дать, поля &laquo;унас&shy;ле&shy;до&shy;ван&shy;ной&raquo; струк&shy;туры будут рас&shy;по&shy;ла&shy;гаться после полей &laquo;базо&shy;вой&raquo;, и логи&shy;чески вы сде&shy;ла&shy;ете нас&shy;ле&shy;до&shy;ва&shy;ние;</p>
-</li>
-<li>
-<p >
-Струк&shy;туры в отли&shy;чии от клас&shy;сов можно пере&shy;да&shy;вать в unma&shy;naged код. Я имею ввиду именно зна&shy;че&shy;ние. Инфор&shy;ма&shy;ция о мето&shy;дах, естест&shy;венно, будет уте&shy;ряна. Ведь струк&shy;тура - это просто отре&shy;зок памяти, запол&shy;нен&shy;ный дан&shy;ными без инфор&shy;ма&shy;ции о типе. А это зна&shy;чит, что её можно без изме&shy;не&shy;ний отда&shy;вать в unma&shy;naged методы, напи&shy;сан&shy;ные, нап&shy;ри&shy;мер, на C++.</p>
-</li>
+<li>В струк&shy;ту&shy;рах нельзя опи&shy;сать <code>virtual</code> методы, а также  &mdash;  пере&shy;оп&shy;ре&shy;де&shy;лять их;</li>
+<li>Струк&shy;туры в прин&shy;ципе нельзя нас&shy;ле&shy;до&shy;вать друг от друга. Един&shy;ствен&shy;ный спо&shy;соб сде&shy;лать эму&shy;ля&shy;цию нас&shy;ле&shy;до&shy;ва&shy;ния  &mdash;  рас&shy;по&shy;ло&shy;жить струк&shy;туру базо&shy;вого типа пер&shy;вым полем. Тогда по сме&shy;ще&shy;ниям они будут сов&shy;па&shy;дать, поля &laquo;унас&shy;ле&shy;до&shy;ван&shy;ной&raquo; струк&shy;туры будут рас&shy;по&shy;ла&shy;гаться после полей &laquo;базо&shy;вой&raquo;, и логи&shy;чески вы сде&shy;ла&shy;ете нас&shy;ле&shy;до&shy;ва&shy;ние;</li>
+<li>Струк&shy;туры в отли&shy;чии от клас&shy;сов можно пере&shy;да&shy;вать в unma&shy;naged код. Я имею ввиду именно зна&shy;че&shy;ние. Инфор&shy;ма&shy;ция о мето&shy;дах, естест&shy;венно, будет уте&shy;ряна. Ведь струк&shy;тура  &mdash;  это просто отре&shy;зок памяти, запол&shy;нен&shy;ный дан&shy;ными без инфор&shy;ма&shy;ции о типе. А это зна&shy;чит, что её можно без изме&shy;не&shy;ний отда&shy;вать в unma&shy;naged методы, напи&shy;сан&shy;ные, нап&shy;ри&shy;мер, на C++.</li>
 </ol>
 <blockquote class="big-quote">
-<p >
-   Отсу&shy;т&shy;ствие таб&shy;лицы вир&shy;ту&shy;альных мето&shy;дов хоть и отни&shy;мает у струк&shy;тур часть &laquo;магии&raquo;, кото&shy;рую вно&shy;сит поня&shy;тие нас&shy;ле&shy;до&shy;ва&shy;ния, но и наде&shy;ляет рядом пре&shy;и&shy;му&shy;ществ.</p>
+<p>   Отсу&shy;т&shy;ствие таб&shy;лицы вир&shy;ту&shy;альных мето&shy;дов хоть и отни&shy;мает у струк&shy;тур часть &laquo;магии&raquo;, кото&shy;рую вно&shy;сит поня&shy;тие нас&shy;ле&shy;до&shy;ва&shy;ния, но и наде&shy;ляет рядом пре&shy;и&shy;му&shy;ществ.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
-<p >
-Пер&shy;вое и самое глав&shy;ное уже было ого&shy;во&shy;рено: мы можем легко и просто отдать во внеш&shy;ний мир (за пре&shy;делы .NET Frame&shy;work) экземп&shy;ляр такой струк&shy;туры. Это ведь просто учас&shy;ток памяти! Либо мы можем при&shy;нять из unma&shy;naged кода некий учас&shy;ток памяти и сде&shy;лать при&shy;ве&shy;де&shy;ние типа к нашей струк&shy;туре, чтобы сде&shy;лать более удоб&shy;ный дос&shy;туп к её полям. С клас&shy;сами такое пове&shy;де&shy;ние не пройдёт: у клас&shy;сов сущес&shy;твует два поля, кото&shy;рые никому не дос&shy;тупны: это Sync&shy;Block&shy;Index и адрес таб&shy;лицы вир&shy;ту&shy;альных мето&shy;дов. Если эти два поля уйдут в unma&shy;naged код, это ста&shy;нет очень опас&shy;ным. Ведь с любой таб&shy;ли&shy;цей вир&shy;ту&shy;альных мето&shy;дов можно уме&shy;ючи дос&shy;ту&shy;чаться до любого типа и поме&shy;нять его, осу&shy;щест&shy;вив атаку на при&shy;ло&shy;же&shy;ние.</p>
+<p>Пер&shy;вое и самое глав&shy;ное уже было ого&shy;во&shy;рено: мы можем легко и просто отдать во внеш&shy;ний мир (за пре&shy;делы .NET Framework&shy;) экземп&shy;ляр такой струк&shy;туры. Это ведь просто учас&shy;ток памяти! Либо мы можем при&shy;нять из unma&shy;naged кода некий учас&shy;ток памяти и сде&shy;лать при&shy;ве&shy;де&shy;ние типа к нашей струк&shy;туре, чтобы сде&shy;лать более удоб&shy;ный дос&shy;туп к её полям. С клас&shy;сами такое пове&shy;де&shy;ние не пройдёт: у клас&shy;сов сущес&shy;твует два поля, кото&shy;рые никому не дос&shy;тупны: это Sync&shy;Block&shy;Index и адрес таб&shy;лицы вир&shy;ту&shy;альных мето&shy;дов. Если эти два поля уйдут в unma&shy;naged код, это ста&shy;нет очень опас&shy;ным. Ведь с любой таб&shy;ли&shy;цей вир&shy;ту&shy;альных мето&shy;дов можно уме&shy;ючи дос&shy;ту&shy;чаться до любого типа и поме&shy;нять его, осу&shy;щест&shy;вив атаку на при&shy;ло&shy;же&shy;ние.</p>
 <div class="paragraph-right-side">16</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
-<p >
-Давайте дока&shy;жем, что это просто учас&shy;ток памяти без какой-либо допол&shy;ни&shy;тель&shy;ной логики:</p>
+<p>Давайте дока&shy;жем, что это просто учас&shy;ток памяти без какой-либо допол&shy;ни&shy;тель&shy;ной логики:</p>
 <div class="paragraph-right-side">17</div>
 </div>
 <div class="wide lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1641,15 +1607,13 @@ PersonInfo person;
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
-<p >
-В дан&shy;ном при&shy;мере мы осу&shy;щес&shy;твляем недо&shy;пус&shy;ти&shy;мую с точки зре&shy;ния стро&shy;гой типи&shy;за&shy;ции опе&shy;ра&shy;цию: мы при&shy;во&shy;дим один тип к несов&shy;мес&shy;ти&shy;мому дру&shy;гому, кото&shy;рый содер&shy;жит одно лиш&shy;нее поле. В методе <code>Main</code> мы вво&shy;дим допол&shy;ни&shy;тель&shy;ную пере&shy;мен&shy;ную, зна&shy;че&shy;ние кото&shy;рой по идее сек&shy;ретно и не дол&shy;жно быть счи&shy;тано. Однако это не так. При&shy;мер уве&shy;ренно выво&shy;дит на экран зна&shy;че&shy;ние пере&shy;мен&shy;ной метода Main(), кото&shy;рая не нахо&shy;дится ни в одной из струк&shy;тур. Тут на вашем лице дол&shy;жна расп&shy;лыться улыбка, а в голове про&shy;м&shy;елькнуть фраза "ну ни черта себе дыра в безо&shy;пас&shy;ности!!!"&hellip; Но на самом деле все не так оче&shy;видно. Обе&shy;зо&shy;па&shy;сить свой код от вызы&shy;ва&shy;е&shy;мого unma&shy;naged прак&shy;ти&shy;чески невоз&shy;можно. Все дело в пер&shy;вую оче&shy;редь - в струк&shy;туре стека потока, о кото&shy;ром мы пого&shy;во&shy;рим чуть позже, и по кото&shy;рому можно легко уйти в вызы&shy;ва&shy;е&shy;мый код, и похи&shy;ми&shy;чить с локаль&shy;ными пере&shy;мен&shy;ными. Защита от такого рода атак стр&shy;ои&shy;тся дру&shy;гими путями. Нап&shy;ри&shy;мер, на ран&shy;до&shy;ми&shy;за&shy;ции раз&shy;мера кадра стека или на сти&shy;ра&shy;нии инфор&shy;ма&shy;ции о регис&shy;тре EBP - для услож&shy;не&shy;ния восс&shy;та&shy;нов&shy;ле&shy;ния сте&shy;ко&shy;вого кадра. Но не будем слиш&shy;ком углуб&shy;ляться: это тема отдель&shy;ного раз&shy;го&shy;вора. Един&shy;ствен&shy;ное, о чем стоит упо&shy;мя&shy;нуть в рам&shy;ках этого при&shy;мера, это почему же при том, что пере&shy;мен&shy;ная <code>secret</code> нахо&shy;дится <strong>перед</strong> опре&shy;де&shy;ле&shy;нием пере&shy;мен&shy;ной <code>hh</code>, а в струк&shy;туре <code>WidthHolder</code> - <strong>после</strong> (т.е. по сути визу&shy;ально - в раз&shy;ных мес&shy;тах), её зна&shy;че&shy;ние прек&shy;расно счи&shy;та&shy;лось. А все потому, что стек растёт не слева нап&shy;раво, а нао&shy;бо&shy;рот - справа налево. Т.е. пере&shy;мен&shy;ные, объ&shy;яв&shy;лен&shy;ные пер&shy;выми, будут нахо&shy;диться по более стар&shy;шим адре&shy;сам, а те, кто объ&shy;яв&shy;лены поз&shy;д&shy;нее - по более ран&shy;ним.</p>
+<p>В дан&shy;ном при&shy;мере мы осу&shy;щес&shy;твляем недо&shy;пус&shy;ти&shy;мую с точки зре&shy;ния стро&shy;гой типи&shy;за&shy;ции опе&shy;ра&shy;цию: мы при&shy;во&shy;дим один тип к несов&shy;мес&shy;ти&shy;мому дру&shy;гому, кото&shy;рый содер&shy;жит одно лиш&shy;нее поле. В методе <code>Main</code> мы вво&shy;дим допол&shy;ни&shy;тель&shy;ную пере&shy;мен&shy;ную, зна&shy;че&shy;ние кото&shy;рой по идее сек&shy;ретно и не дол&shy;жно быть счи&shy;тано. Однако это не так. При&shy;мер уве&shy;ренно выво&shy;дит на экран зна&shy;че&shy;ние пере&shy;мен&shy;ной метода Main&shy;(), кото&shy;рая не нахо&shy;дится ни в одной из струк&shy;тур. Тут на вашем лице дол&shy;жна расп&shy;лыться улыбка, а в голове про&shy;м&shy;елькнуть фраза "ну ни черта себе дыра в безо&shy;пас&shy;ности!!!"&hellip; Но на самом деле все не так оче&shy;видно. Обе&shy;зо&shy;па&shy;сить свой код от вызы&shy;ва&shy;е&shy;мого unma&shy;naged прак&shy;ти&shy;чески невоз&shy;можно. Все дело в пер&shy;вую оче&shy;редь  &mdash;  в струк&shy;туре стека потока, о кото&shy;ром мы пого&shy;во&shy;рим чуть позже, и по кото&shy;рому можно легко уйти в вызы&shy;ва&shy;е&shy;мый код, и похи&shy;ми&shy;чить с локаль&shy;ными пере&shy;мен&shy;ными. Защита от такого рода атак стр&shy;ои&shy;тся дру&shy;гими путями. Нап&shy;ри&shy;мер, на ран&shy;до&shy;ми&shy;за&shy;ции раз&shy;мера кадра стека или на сти&shy;ра&shy;нии инфор&shy;ма&shy;ции о регис&shy;тре EBP  &mdash;  для услож&shy;не&shy;ния восс&shy;та&shy;нов&shy;ле&shy;ния сте&shy;ко&shy;вого кадра. Но не будем слиш&shy;ком углуб&shy;ляться: это тема отдель&shy;ного раз&shy;го&shy;вора. Един&shy;ствен&shy;ное, о чем стоит упо&shy;мя&shy;нуть в рам&shy;ках этого при&shy;мера, это почему же при том, что пере&shy;мен&shy;ная <code>secret</code> нахо&shy;дится <strong>перед</strong> опре&shy;де&shy;ле&shy;нием пере&shy;мен&shy;ной <code>hh</code>, а в струк&shy;туре <code>Width&shy;Holder</code>  &mdash;  <strong>после</strong> (т.е. по сути визу&shy;ально  &mdash;  в раз&shy;ных мес&shy;тах), её зна&shy;че&shy;ние прек&shy;расно счи&shy;та&shy;лось. А все потому, что стек растёт не слева нап&shy;раво, а нао&shy;бо&shy;рот  &mdash;  справа налево. Т.е. пере&shy;мен&shy;ные, объ&shy;яв&shy;лен&shy;ные пер&shy;выми, будут нахо&shy;диться по более стар&shy;шим адре&shy;сам, а те, кто объ&shy;яв&shy;лены поз&shy;д&shy;нее  &mdash;  по более ран&shy;ним.</p>
 <div class="paragraph-right-side">18</div>
 </div>
-<h2 id="section-3">Поведение при вызове экземплярных методов</h2>
+<h2 id="section-3">Пове&shy;де&shy;ние при вызове экземп&shy;ляр&shy;ных мето&shy;дов</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
-<p >
-Оба типа дан&shy;ных обла&shy;дают ещё одной инте&shy;рес&shy;ной осо&shy;бен&shy;ностью, кото&shy;рая не лежит на поверх&shy;ности, и кото&shy;рая может про&shy;лить ещё нем&shy;ного света в стр&shy;о&shy;ение обоих типов. И эта осо&shy;бен&shy;ность свя&shy;зана с вызо&shy;вом экземп&shy;ляр&shy;ных мето&shy;дов.</p>
+<p>Оба типа дан&shy;ных обла&shy;дают ещё одной инте&shy;рес&shy;ной осо&shy;бен&shy;ностью, кото&shy;рая не лежит на поверх&shy;ности, и кото&shy;рая может про&shy;лить ещё нем&shy;ного света в стр&shy;о&shy;ение обоих типов. И эта осо&shy;бен&shy;ность свя&shy;зана с вызо&shy;вом экземп&shy;ляр&shy;ных мето&shy;дов.</p>
 <div class="paragraph-right-side">19</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1685,8 +1649,7 @@ strukt.ChangeTo(10);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
-<p >
-Если рас&shy;суж&shy;дать логи&shy;чески, то можно легко и просто прийти к выводу, что тело у метода ком&shy;пи&shy;ли&shy;ру&shy;ется одно. Т.е. нет такого, что у каж&shy;дого экземп&shy;ляра типа ком&shy;пи&shy;ли&shy;ру&shy;ется свой набор мето&shy;дов, кото&shy;рый при этом совер&shy;шенно иден&shy;ти&shy;чен набору мето&shy;дов дру&shy;гих экземп&shy;ля&shy;ров. Однако выз&shy;ван&shy;ный метод прек&shy;расно знает, для какого экземп&shy;ляра он выз&shy;ван. Это дос&shy;ти&shy;га&shy;ется тем, что пер&shy;вым пара&shy;мет&shy;ром передаётся ссылка на экземп&shy;ляр типа. Можно наш при&shy;мер легко пере&shy;пи&shy;сать, и это будет совер&shy;шенно иден&shy;тично тому, что было напи&shy;сано выше (я наме&shy;ренно не при&shy;вожу при&shy;мер с вир&shy;ту&shy;ал&shy;ьными мето&shy;дами. У них все по-дру&shy;гому):</p>
+<p>Если рас&shy;суж&shy;дать логи&shy;чески, то можно легко и просто прийти к выводу, что тело у метода ком&shy;пи&shy;ли&shy;ру&shy;ется одно. Т.е. нет такого, что у каж&shy;дого экземп&shy;ляра типа ком&shy;пи&shy;ли&shy;ру&shy;ется свой набор мето&shy;дов, кото&shy;рый при этом совер&shy;шенно иден&shy;ти&shy;чен набору мето&shy;дов дру&shy;гих экземп&shy;ля&shy;ров. Однако выз&shy;ван&shy;ный метод прек&shy;расно знает, для какого экземп&shy;ляра он выз&shy;ван. Это дос&shy;ти&shy;га&shy;ется тем, что пер&shy;вым пара&shy;мет&shy;ром передаётся ссылка на экземп&shy;ляр типа. Можно наш при&shy;мер легко пере&shy;пи&shy;сать, и это будет совер&shy;шенно иден&shy;тично тому, что было напи&shy;сано выше (я наме&shy;ренно не при&shy;вожу при&shy;мер с вир&shy;ту&shy;ал&shy;ьными мето&shy;дами. У них все по-дру&shy;гому):</p>
 <div class="paragraph-right-side">20</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1722,57 +1685,31 @@ ChangeTo(<span style="color:Blue;">ref</span> strukt, 10);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
-<p >
-Стоит пояс&shy;нить, почему я исполь&shy;зо&shy;вал клю&shy;че&shy;вое слово <code>ref</code>. Если бы я его не исполь&shy;зо&shy;вал, то полу&shy;чи&shy;лась бы ситу&shy;а&shy;ция, в кото&shy;рой я полу&shy;чил пара&shy;мет&shy;ром метода <strong>копию</strong> струк&shy;туры вместо ори&shy;ги&shy;нала, поме&shy;нял её, а ори&shy;ги&shy;нал бы остался неиз&shy;мен&shy;ным. Мне бы приш&shy;лось возв&shy;ра&shy;щать изменённую копию из метода вызы&shy;ва&shy;ю&shy;щей сто&shy;роне (ещё одно копи&shy;ро&shy;ва&shy;ние), а вызы&shy;ва&shy;ю&shy;щая сто&shy;рона сох&shy;ра&shy;нила бы это зна&shy;че&shy;ние обратно в пере&shy;мен&shy;ной (ещё одно копи&shy;ро&shy;ва&shy;ние). Вместо этого в экземп&shy;ляр&shy;ный метод отдаётся ука&shy;за&shy;тель на струк&shy;туру, по кото&shy;рому она и меня&shy;ется. Сразу ори&shy;ги&shy;нал. Заметьте, что пере&shy;дача по ука&shy;за&shy;телю никак не влияет на про&shy;из&shy;во&shy;ди&shy;тель&shy;ность, т.к. любые опе&shy;ра&shy;ции на уровне про&shy;цес&shy;сора итак про&shy;ис&shy;хо&shy;дят по ука&shy;за&shy;те&shy;лям. Т.е. ref - это из мира C#, не более того.</p>
+<p>Стоит пояс&shy;нить, почему я исполь&shy;зо&shy;вал клю&shy;че&shy;вое слово <code>ref</code>. Если бы я его не исполь&shy;зо&shy;вал, то полу&shy;чи&shy;лась бы ситу&shy;а&shy;ция, в кото&shy;рой я полу&shy;чил пара&shy;мет&shy;ром метода <strong>копию</strong> струк&shy;туры вместо ори&shy;ги&shy;нала, поме&shy;нял её, а ори&shy;ги&shy;нал бы остался неиз&shy;мен&shy;ным. Мне бы приш&shy;лось возв&shy;ра&shy;щать изменённую копию из метода вызы&shy;ва&shy;ю&shy;щей сто&shy;роне (ещё одно копи&shy;ро&shy;ва&shy;ние), а вызы&shy;ва&shy;ю&shy;щая сто&shy;рона сох&shy;ра&shy;нила бы это зна&shy;че&shy;ние обратно в пере&shy;мен&shy;ной (ещё одно копи&shy;ро&shy;ва&shy;ние). Вместо этого в экземп&shy;ляр&shy;ный метод отдаётся ука&shy;за&shy;тель на струк&shy;туру, по кото&shy;рому она и меня&shy;ется. Сразу ори&shy;ги&shy;нал. Заметьте, что пере&shy;дача по ука&shy;за&shy;телю никак не влияет на про&shy;из&shy;во&shy;ди&shy;тель&shy;ность, т.к. любые опе&shy;ра&shy;ции на уровне про&shy;цес&shy;сора итак про&shy;ис&shy;хо&shy;дят по ука&shy;за&shy;те&shy;лям. Т.е. ref  &mdash;  это из мира C#, не более того.</p>
 <div class="paragraph-right-side">21</div>
 </div>
-<h2 id="section-4">Возможность указать положение элементов</h2>
+<h2 id="section-4">Воз&shy;мож&shy;ность ука&shy;зать поло&shy;же&shy;ние эле&shy;мен&shy;тов</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
-<p >
-Ещё одной воз&shy;мож&shy;ностью обоих клас&shy;сов типов явля&shy;ется воз&shy;мож&shy;ность точно ука&shy;зать, по какому сме&shy;ще&shy;нию отно&shy;си&shy;тельно начала струк&shy;туры в памяти рас&shy;по&shy;ла&shy;га&shy;ется то или иное поле. Это вве&shy;дено по нес&shy;коль&shy;ким при&shy;чи&shy;нам:</p>
+<p>Ещё одной воз&shy;мож&shy;ностью обоих клас&shy;сов типов явля&shy;ется воз&shy;мож&shy;ность точно ука&shy;зать, по какому сме&shy;ще&shy;нию отно&shy;си&shy;тельно начала струк&shy;туры в памяти рас&shy;по&shy;ла&shy;га&shy;ется то или иное поле. Это вве&shy;дено по нес&shy;коль&shy;ким при&shy;чи&shy;нам:</p>
 <div class="paragraph-right-side">22</div>
 </div>
 <ul>
-<li>
-<p >
-для работы с внеш&shy;ними API, кото&shy;рые рас&shy;по&shy;ла&shy;га&shy;ются в unma&shy;naged world, чтобы не &laquo;отби&shy;вать&raquo; до нуж&shy;ного поля неис&shy;поль&shy;зу&shy;е&shy;мыми полями</p>
-</li>
-<li>
-<p >
-чтобы, нап&shy;ри&shy;мер, при&shy;ка&shy;зать ком&shy;пи&shy;ля&shy;тору рас&shy;по&shy;ло&shy;жить неко&shy;то&shy;рое поле точно в самом начале типа (<code>[FieldOffset(0)]</code>). Тогда это уско&shy;рит работу с ним. А если это поле очень часто исполь&shy;зу&shy;ется, то на этом можно неп&shy;лохо сэко&shy;но&shy;мить. Отмечу только одну важ&shy;ную деталь. Ука&shy;зан&shy;ное спра&shy;вед&shy;ливо только для зна&shy;чи&shy;мых типов. Ведь в ссы&shy;лоч&shy;ных по нуле&shy;вому сме&shy;ще&shy;нию рас&shy;по&shy;ла&shy;га&shy;ется адрес таб&shy;лицы вир&shy;ту&shy;альных мето&shy;дов, кото&shy;рый зани&shy;мает 1 про&shy;цес&shy;сор&shy;ное слово. Т.е. даже если вы обра&shy;ща&shy;е&shy;тесь к самому пер&shy;вому полю класса, обра&shy;ще&shy;ние все равно будет идти по более слож&shy;ной адре&shy;са&shy;ции (адрес + сме&shy;ще&shy;ние). Кстати это сде&shy;лано не просто так: самым часто исполь&shy;зу&shy;е&shy;мым полем класса явля&shy;ется именно адрес таб&shy;лицы вир&shy;ту&shy;альных мето&shy;дов, т.к. именно через неё вир&shy;ту&shy;альные методы и вызы&shy;ва&shy;ются;</p>
-</li>
-<li>
-<p >
-вы можете уста&shy;но&shy;вить нес&shy;колько полей по одному адресу. Тогда одно и то же зна&shy;че&shy;ние может быть интерп&shy;ре&shy;ти&shy;ро&shy;вано как раз&shy;лич&shy;ные типы дан&shy;ных. В C++ такой тип дан&shy;ных назы&shy;ва&shy;ется <code>union</code>;</p>
-</li>
-<li>
-<p >
-также вы можете ничего не объ&shy;яв&shy;лять: ком&shy;пи&shy;ля&shy;тор будет раз&shy;ме&shy;щать поля так, как ему пока&shy;жется опти&shy;маль&shy;ным. Т.е. конеч&shy;ный поря&shy;док полей может ока&shy;заться дру&shy;гим;</p>
-</li>
+<li>для работы с внеш&shy;ними API, кото&shy;рые рас&shy;по&shy;ла&shy;га&shy;ются в unma&shy;naged world, чтобы не &laquo;отби&shy;вать&raquo; до нуж&shy;ного поля неис&shy;поль&shy;зу&shy;е&shy;мыми полями</li>
+<li>чтобы, нап&shy;ри&shy;мер, при&shy;ка&shy;зать ком&shy;пи&shy;ля&shy;тору рас&shy;по&shy;ло&shy;жить неко&shy;то&shy;рое поле точно в самом начале типа (<code>[Field&shy;Offset&shy;(0)]</code>). Тогда это уско&shy;рит работу с ним. А если это поле очень часто исполь&shy;зу&shy;ется, то на этом можно неп&shy;лохо сэко&shy;но&shy;мить. Отмечу только одну важ&shy;ную деталь. Ука&shy;зан&shy;ное спра&shy;вед&shy;ливо только для зна&shy;чи&shy;мых типов. Ведь в ссы&shy;лоч&shy;ных по нуле&shy;вому сме&shy;ще&shy;нию рас&shy;по&shy;ла&shy;га&shy;ется адрес таб&shy;лицы вир&shy;ту&shy;альных мето&shy;дов, кото&shy;рый зани&shy;мает 1 про&shy;цес&shy;сор&shy;ное слово. Т.е. даже если вы обра&shy;ща&shy;е&shy;тесь к самому пер&shy;вому полю класса, обра&shy;ще&shy;ние все равно будет идти по более слож&shy;ной адре&shy;са&shy;ции (адрес + сме&shy;ще&shy;ние). Кстати это сде&shy;лано не просто так: самым часто исполь&shy;зу&shy;е&shy;мым полем класса явля&shy;ется именно адрес таб&shy;лицы вир&shy;ту&shy;альных мето&shy;дов, т.к. именно через неё вир&shy;ту&shy;альные методы и вызы&shy;ва&shy;ются;</li>
+<li>вы можете уста&shy;но&shy;вить нес&shy;колько полей по одному адресу. Тогда одно и то же зна&shy;че&shy;ние может быть интерп&shy;ре&shy;ти&shy;ро&shy;вано как раз&shy;лич&shy;ные типы дан&shy;ных. В C++ такой тип дан&shy;ных назы&shy;ва&shy;ется <code>union</code>;</li>
+<li>также вы можете ничего не объ&shy;яв&shy;лять: ком&shy;пи&shy;ля&shy;тор будет раз&shy;ме&shy;щать поля так, как ему пока&shy;жется опти&shy;маль&shy;ным. Т.е. конеч&shy;ный поря&shy;док полей может ока&shy;заться дру&shy;гим;</li>
 </ul>
-<p >
-<strong>Общие положения</strong></p>
+<p><strong>Общие поло&shy;же&shy;ния</strong></p>
 <ul>
-<li>
-<p >
-<strong>Auto</strong>: Среда выпол&shy;не&shy;ния авто&shy;ма&shy;ти&shy;чески выби&shy;рает рас&shy;по&shy;ло&shy;же&shy;ние и упа&shy;ковку для всех полей класса или струк&shy;туры. Струк&shy;туры, опре&shy;делённые с помощью члена этого пере&shy;чис&shy;ле&shy;ния, не могут быть пре&shy;дос&shy;тав&shy;лены за пре&shy;де&shy;лами управ&shy;ля&shy;е&shy;мого кода. Попытка это сде&shy;лать при&shy;во&shy;дит к воз&shy;ник&shy;но&shy;ве&shy;нию исклю&shy;че&shy;ния;</p>
-</li>
-<li>
-<p >
-<strong>Explicit</strong>: Прог&shy;рам&shy;мист явным обра&shy;зом конт&shy;ро&shy;ли&shy;рует точ&shy;ное поло&shy;же&shy;ние каж&shy;дого поля объ&shy;екта. Каж&shy;дое поле дол&shy;жно исполь&shy;зо&shy;вать Field&shy;Offset&shy;Attribute для ука&shy;за&shy;ния его точ&shy;ного рас&shy;по&shy;ло&shy;же&shy;ния;</p>
-</li>
-<li>
-<p >
-<strong>Sequential</strong>: Члены объ&shy;екта рас&shy;по&shy;ла&shy;га&shy;ются пос&shy;ле&shy;до&shy;ва&shy;тельно в порядке, ука&shy;зан&shy;ном при про&shy;ек&shy;ти&shy;ро&shy;ва&shy;нии типа. Также они рас&shy;по&shy;ла&shy;га&shy;ются в соот&shy;в&shy;етствии с ука&shy;зан&shy;ным Struct&shy;Layout&shy;Attribute.Pack зна&shy;че&shy;нием шага упа&shy;ковки.</p>
-</li>
+<li><strong>Auto</strong>: Среда выпол&shy;не&shy;ния авто&shy;ма&shy;ти&shy;чески выби&shy;рает рас&shy;по&shy;ло&shy;же&shy;ние и упа&shy;ковку для всех полей класса или струк&shy;туры. Струк&shy;туры, опре&shy;делённые с помощью члена этого пере&shy;чис&shy;ле&shy;ния, не могут быть пре&shy;дос&shy;тав&shy;лены за пре&shy;де&shy;лами управ&shy;ля&shy;е&shy;мого кода. Попытка это сде&shy;лать при&shy;во&shy;дит к воз&shy;ник&shy;но&shy;ве&shy;нию исклю&shy;че&shy;ния;</li>
+<li><strong>Expl&shy;icit</strong>: Прог&shy;рам&shy;мист явным обра&shy;зом конт&shy;ро&shy;ли&shy;рует точ&shy;ное поло&shy;же&shy;ние каж&shy;дого поля объ&shy;екта. Каж&shy;дое поле дол&shy;жно исполь&shy;зо&shy;вать Field&shy;Offset&shy;Attribute для ука&shy;за&shy;ния его точ&shy;ного рас&shy;по&shy;ло&shy;же&shy;ния;</li>
+<li><strong>Sequ&shy;en&shy;tial</strong>: Члены объ&shy;екта рас&shy;по&shy;ла&shy;га&shy;ются пос&shy;ле&shy;до&shy;ва&shy;тельно в порядке, ука&shy;зан&shy;ном при про&shy;ек&shy;ти&shy;ро&shy;ва&shy;нии типа. Также они рас&shy;по&shy;ла&shy;га&shy;ются в соот&shy;в&shy;етствии с ука&shy;зан&shy;ным Struct&shy;Layout&shy;Attribute&shy;.Pack зна&shy;че&shy;нием шага упа&shy;ковки.</li>
 </ul>
-<p >
-<strong>Использование FieldOffset для пропуска неиспользуемых областей структуры</strong></p>
+<p><strong>Испол&shy;ьз&shy;ов&shy;ание Field&shy;Offset для про&shy;пуска неис&shy;поль&shy;зу&shy;е&shy;мых облас&shy;тей струк&shy;туры</strong></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
-<p >
-Тут конечно же может воз&shy;ник&shy;нуть воп&shy;рос, почему вообще могут воз&shy;ник&shy;нуть поля, кото&shy;рые не исполь&shy;зу&shy;ются вообще. Струк&shy;туры, иду&shy;щие из unma&shy;naged мира, могут содер&shy;жать резер&shy;в&shy;ные поля, кото&shy;рые могут быть исполь&shy;зо&shy;ваны в буду&shy;щих вер&shy;сиях биб&shy;ли&shy;о&shy;теки. Если в мире C/C++ при&shy;нято отби&shy;вать такие про&shy;пуски путём добав&shy;ле&shy;ния полей <code>reserved1, reserved2, ..</code>, то в .NET мы имеем прек&shy;рас&shy;ную воз&shy;мож&shy;ность просто задать сме&shy;ще&shy;ние к началу поля при помощи атри&shy;бута <code>FieldOffsetAttribute</code> и <code>[StructLayout(LayoutKind.Explicit)]</code>:</p>
+<p>Тут конечно же может воз&shy;ник&shy;нуть воп&shy;рос, почему вообще могут воз&shy;ник&shy;нуть поля, кото&shy;рые не исполь&shy;зу&shy;ются вообще. Струк&shy;туры, иду&shy;щие из unma&shy;naged мира, могут содер&shy;жать резер&shy;в&shy;ные поля, кото&shy;рые могут быть исполь&shy;зо&shy;ваны в буду&shy;щих вер&shy;сиях биб&shy;ли&shy;о&shy;теки. Если в мире C/C++ при&shy;нято отби&shy;вать такие про&shy;пуски путём добав&shy;ле&shy;ния полей <code>reserved1, reserved2, ..</code>, то в .NET мы имеем прек&shy;рас&shy;ную воз&shy;мож&shy;ность просто задать сме&shy;ще&shy;ние к началу поля при помощи атри&shy;бута <code>Field&shy;Offset&shy;Attribute</code> и <code>[Struct&shy;Layout&shy;(Layout&shy;Kind&shy;.Explicit&shy;)]</code>:</p>
 <div class="paragraph-right-side">23</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1790,16 +1727,13 @@ ChangeTo(<span style="color:Blue;">ref</span> strukt, 10);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">24</div>
-<p >
-Прошу заме&shy;тить, что про&shy;пуск - это тоже заня&shy;тое, но не исполь&shy;зу&shy;е&shy;мое прост&shy;ранство. Раз&shy;мер струк&shy;туры будет равен <code>132</code> байта, а не <code>40</code>, как может пока&shy;заться изна&shy;чально.</p>
+<p>Прошу заме&shy;тить, что про&shy;пуск  &mdash;  это тоже заня&shy;тое, но не исполь&shy;зу&shy;е&shy;мое прост&shy;ранство. Раз&shy;мер струк&shy;туры будет равен <code>132</code> байта, а не <code>40</code>, как может пока&shy;заться изна&shy;чально.</p>
 <div class="paragraph-right-side">24</div>
 </div>
-<p >
-<strong>Union</strong></p>
+<p><strong>Union</strong></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
-<p >
-При помощи <code>FieldOffsetAttribute</code> вы можете эму&shy;ли&shy;ро&shy;вать такой тип из мира C/C++ как <code>union</code>. <code>union</code> – это спе&shy;ци&shy;альный тип, кото&shy;рый поз&shy;во&shy;ляет обра&shy;щаться к одним и тем же дан&shy;ным как к раз&shy;но&shy;тип&shy;ным сущ&shy;нос&shy;тям. Давайте пос&shy;мот&shy;рим на при&shy;мере его эму&shy;ля&shy;цию:</p>
+<p>При помощи <code>Field&shy;Offset&shy;Attribute</code> вы можете эму&shy;ли&shy;ро&shy;вать такой тип из мира C/C++ как <code>union</code>. <code>union</code> – это спе&shy;ци&shy;альный тип, кото&shy;рый поз&shy;во&shy;ляет обра&shy;щаться к одним и тем же дан&shy;ным как к раз&shy;но&shy;тип&shy;ным сущ&shy;нос&shy;тям. Давайте пос&shy;мот&shy;рим на при&shy;мере его эму&shy;ля&shy;цию:</p>
 <div class="paragraph-right-side">25</div>
 </div>
 <div class="wide lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1818,8 +1752,7 @@ ChangeTo(<span style="color:Blue;">ref</span> strukt, 10);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
-<p >
-Здесь вы могли бы заду&shy;маться и ска&shy;зать, что такое пове&shy;де&shy;ние воз&shy;можно только для зна&shy;чи&shy;мых типов, однако это не так. Как бы странно это ни зву&shy;чало, но такое пове&shy;де&shy;ние можно вос&shy;про&shy;из&shy;вести и для ссы&shy;лоч&shy;ных типов, перек&shy;рыв по одному адресу два ссы&shy;лоч&shy;ных типа или же ссы&shy;лоч&shy;ный со зна&shy;чи&shy;мым:</p>
+<p>Здесь вы могли бы заду&shy;маться и ска&shy;зать, что такое пове&shy;де&shy;ние воз&shy;можно только для зна&shy;чи&shy;мых типов, однако это не так. Как бы странно это ни зву&shy;чало, но такое пове&shy;де&shy;ние можно вос&shy;про&shy;из&shy;вести и для ссы&shy;лоч&shy;ных типов, перек&shy;рыв по одному адресу два ссы&shy;лоч&shy;ных типа или же ссы&shy;лоч&shy;ный со зна&shy;чи&shy;мым:</p>
 <div class="paragraph-right-side">26</div>
 </div>
 <div class="wide lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1857,241 +1790,143 @@ ChangeTo(<span style="color:Blue;">ref</span> strukt, 10);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">27</div>
-<p >
-Заметьте, что я наме&shy;ренно перек&shy;рыл через Generic тип: при обыч&shy;ном перек&shy;ры&shy;тии в момент заг&shy;рузки дан&shy;ного типа в домен при&shy;ло&shy;же&shy;ния будет сге&shy;не&shy;ри&shy;ро&shy;вано исклю&shy;че&shy;ние <code>TypeLoadException</code>. На самом деле это только внешне выг&shy;ля&shy;дит как брешь в безо&shy;пас&shy;ности при&shy;ло&shy;же&shy;ния (осо&shy;бенно со сто&shy;роны &laquo;пла&shy;ги&shy;нов&raquo; к при&shy;ло&shy;же&shy;нию), однако если мы поп&shy;ро&shy;буем запус&shy;тить этот код из-под защищённого домена, то мы полу&shy;чим все тот же самый <code>TypeLoadException</code>.</p>
+<p>Заметьте, что я наме&shy;ренно перек&shy;рыл через Generic тип: при обыч&shy;ном перек&shy;ры&shy;тии в момент заг&shy;рузки дан&shy;ного типа в домен при&shy;ло&shy;же&shy;ния будет сге&shy;не&shy;ри&shy;ро&shy;вано исклю&shy;че&shy;ние <code>Type&shy;Load&shy;Exception</code>. На самом деле это только внешне выг&shy;ля&shy;дит как брешь в безо&shy;пас&shy;ности при&shy;ло&shy;же&shy;ния (осо&shy;бенно со сто&shy;роны &laquo;пла&shy;ги&shy;нов&raquo; к при&shy;ло&shy;же&shy;нию), однако если мы поп&shy;ро&shy;буем запус&shy;тить этот код из-под защищённого домена, то мы полу&shy;чим все тот же самый <code>Type&shy;Load&shy;Exception</code>.</p>
 <div class="paragraph-right-side">27</div>
 </div>
-<h2 id="section-5">Разница в аллокации</h2>
+<h2 id="section-5">Раз&shy;ница в алло&shy;ка&shy;ции</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
-<p >
-Ещё одним важ&shy;ным свой&shy;с&shy;твом, кар&shy;ди&shy;нально раз&shy;ли&shy;ча&shy;ющимся для обоих типов, явля&shy;ется выде&shy;ле&shy;ние памяти под объ&shy;ект или струк&shy;туру. Все дело в том, что для того чтобы выде&shy;лить память под объ&shy;ект, CLR обя&shy;зана для начала отве&shy;тить себе на ряд воп&shy;ро&shy;сов. Пер&shy;вый, - какого раз&shy;мера объ&shy;ект? Меньше он или больше 85К байт? Если меньше, то явля&shy;ется ли коли&shy;чес&shy;тво остав&shy;ше&shy;гося места в Small Objects Heap дос&shy;та&shy;точ&shy;ным, чтобы раз&shy;мес&shy;тить объ&shy;ект? Если нет, запус&shy;ка&shy;ется Garbage Collec&shy;tion, кото&shy;рый для своей работы, по сути, дол&shy;жен сна&shy;чала обойти граф объ&shy;ек&shy;тов, а потом сжать их, пере&shy;мес&shy;тив на осво&shy;бо&shy;див&shy;ше&shy;еся место. Если и после этой опе&shy;ра&shy;ции нет места в SOH (нап&shy;ри&shy;мер, ничего не было осво&shy;бож&shy;дено), то ини&shy;ци&shy;и&shy;ру&shy;ется про&shy;цесс выде&shy;ле&shy;ния допол&shy;ни&shy;тель&shy;ных стра&shy;ниц вир&shy;ту&shy;альной памяти, чтобы нарас&shy;тить раз&shy;мер Small Objects Heap. И только после того как все срастётся, выде&shy;ля&shy;ется место под объ&shy;ект, а выде&shy;лен&shy;ный учас&shy;ток памяти очи&shy;ща&shy;ется от мусора (обну&shy;ля&shy;ется), раз&shy;ме&shy;ча&shy;ется Sync&shy;Block&shy;Index и Virtual&shy;Methods&shy;Table, после чего ссылка на объ&shy;ект возв&shy;ра&shy;ща&shy;ется поль&shy;зо&shy;ва&shy;телю.</p>
+<p>Ещё одним важ&shy;ным свой&shy;с&shy;твом, кар&shy;ди&shy;нально раз&shy;ли&shy;ча&shy;ющимся для обоих типов, явля&shy;ется выде&shy;ле&shy;ние памяти под объ&shy;ект или струк&shy;туру. Все дело в том, что для того чтобы выде&shy;лить память под объ&shy;ект, CLR обя&shy;зана для начала отве&shy;тить себе на ряд воп&shy;ро&shy;сов. Пер&shy;вый,  &mdash;  какого раз&shy;мера объ&shy;ект? Меньше он или больше 85К байт? Если меньше, то явля&shy;ется ли коли&shy;чес&shy;тво остав&shy;ше&shy;гося места в Small Objects Heap дос&shy;та&shy;точ&shy;ным, чтобы раз&shy;мес&shy;тить объ&shy;ект? Если нет, запус&shy;ка&shy;ется Garbage Collection&shy;, кото&shy;рый для своей работы, по сути, дол&shy;жен сна&shy;чала обойти граф объ&shy;ек&shy;тов, а потом сжать их, пере&shy;мес&shy;тив на осво&shy;бо&shy;див&shy;ше&shy;еся место. Если и после этой опе&shy;ра&shy;ции нет места в SOH (нап&shy;ри&shy;мер, ничего не было осво&shy;бож&shy;дено), то ини&shy;ци&shy;и&shy;ру&shy;ется про&shy;цесс выде&shy;ле&shy;ния допол&shy;ни&shy;тель&shy;ных стра&shy;ниц вир&shy;ту&shy;альной памяти, чтобы нарас&shy;тить раз&shy;мер Small Objects Heap&shy;. И только после того как все срастётся, выде&shy;ля&shy;ется место под объ&shy;ект, а выде&shy;лен&shy;ный учас&shy;ток памяти очи&shy;ща&shy;ется от мусора (обну&shy;ля&shy;ется), раз&shy;ме&shy;ча&shy;ется Sync&shy;Block&shy;Index и Virtual&shy;Methods&shy;Table&shy;, после чего ссылка на объ&shy;ект возв&shy;ра&shy;ща&shy;ется поль&shy;зо&shy;ва&shy;телю.</p>
 <div class="paragraph-right-side">28</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">29</div>
-<p >
-Если же выде&shy;ля&shy;е&shy;мый объ&shy;ект имеет раз&shy;меры, пре&shy;вы&shy;ша&shy;ю&shy;щие 85K, то мы имеем дело с Large Objects Heap. Это, нап&shy;ри&shy;мер, слу&shy;чай огром&shy;ных строк и мас&shy;си&shy;вов. В этом слу&shy;чае мы дол&shy;жны найти мак&shy;си&shy;мально под&shy;хо&shy;дя&shy;щий кусок памяти из списка осво&shy;бождённых и, если тако&shy;вых нет, выде&shy;лить новый учас&shy;ток. Эти про&shy;це&shy;дуры по умол&shy;ча&shy;нию не быс&shy;т&shy;рые, но мы пред&shy;по&shy;ла&shy;гаем, что с объ&shy;ек&shy;тами такого раз&shy;мера мы будем рабо&shy;тать осо&shy;бенно осто&shy;рожно и они вне кон&shy;тек&shy;ста дан&shy;ной беседы</p>
+<p>Если же выде&shy;ля&shy;е&shy;мый объ&shy;ект имеет раз&shy;меры, пре&shy;вы&shy;ша&shy;ю&shy;щие 85K, то мы имеем дело с Large Objects Heap&shy;. Это, нап&shy;ри&shy;мер, слу&shy;чай огром&shy;ных строк и мас&shy;си&shy;вов. В этом слу&shy;чае мы дол&shy;жны найти мак&shy;си&shy;мально под&shy;хо&shy;дя&shy;щий кусок памяти из списка осво&shy;бождённых и, если тако&shy;вых нет, выде&shy;лить новый учас&shy;ток. Эти про&shy;це&shy;дуры по умол&shy;ча&shy;нию не быс&shy;т&shy;рые, но мы пред&shy;по&shy;ла&shy;гаем, что с объ&shy;ек&shy;тами такого раз&shy;мера мы будем рабо&shy;тать осо&shy;бенно осто&shy;рожно и они вне кон&shy;тек&shy;ста дан&shy;ной беседы</p>
 <div class="paragraph-right-side">29</div>
 </div>
-<p >
-Т.е. для Ref&shy;Types мы имеем нес&shy;колько слу&shy;чаев:</p>
+<p>Т.е. для Ref&shy;Types мы имеем нес&shy;колько слу&shy;чаев:</p>
 <ul>
-<li>
-<p >
-Раз&shy;мер Ref&shy;Type < 85K, место в SOH есть: выде&shy;ле&shy;ние памяти идёт дос&shy;та&shy;точно быс&shy;тро;</p>
-</li>
-<li>
-<p >
-Раз&shy;мер Ref&shy;Type < 85K, место в SOH закан&shy;чи&shy;ва&shy;ется: выде&shy;ле&shy;ние памяти идёт очень мед&shy;ленно;</p>
-</li>
-<li>
-<p >
-Раз&shy;мер Ref&shy;Type > 85K, выде&shy;ле&shy;ние памяти идёт отно&shy;си&shy;тельно мед&shy;ленно. А с учётом того, что дан&shy;ные опе&shy;ра&shy;ции редки и не могут ввиду своих раз&shy;ме&shy;ров кон&shy;ку&shy;ри&shy;ро&shy;вать с Val&shy;Types, нас это сей&shy;час не сильно вол&shy;нует.</p>
-</li>
+<li>Раз&shy;мер Ref&shy;Type < 85K, место в SOH есть: выде&shy;ле&shy;ние памяти идёт дос&shy;та&shy;точно быс&shy;тро;</li>
+<li>Раз&shy;мер Ref&shy;Type < 85K, место в SOH закан&shy;чи&shy;ва&shy;ется: выде&shy;ле&shy;ние памяти идёт очень мед&shy;ленно;</li>
+<li>Раз&shy;мер Ref&shy;Type > 85K, выде&shy;ле&shy;ние памяти идёт отно&shy;си&shy;тельно мед&shy;ленно. А с учётом того, что дан&shy;ные опе&shy;ра&shy;ции редки и не могут ввиду своих раз&shy;ме&shy;ров кон&shy;ку&shy;ри&shy;ро&shy;вать с Val&shy;Types&shy;, нас это сей&shy;час не сильно вол&shy;нует.</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">30</div>
-<p >
-Каков же алго&shy;ритм выде&shy;ле&shy;ния памяти под Value Types? А нет его. Выде&shy;ле&shy;ние памяти под Value Types не стоит абсо&shy;лютно ничего. Един&shy;ствен&shy;ное, что про&shy;ис&shy;хо&shy;дит при его &laquo;выде&shy;ле&shy;нии&raquo; - это обну&shy;ле&shy;ние полей. Давайте раз&shy;берёмся, почему так про&shy;ис&shy;хо&shy;дит:</p>
+<p>Каков же алго&shy;ритм выде&shy;ле&shy;ния памяти под Value Types&shy;? А нет его. Выде&shy;ле&shy;ние памяти под Value Types не стоит абсо&shy;лютно ничего. Един&shy;ствен&shy;ное, что про&shy;ис&shy;хо&shy;дит при его &laquo;выде&shy;ле&shy;нии&raquo;  &mdash;  это обну&shy;ле&shy;ние полей. Давайте раз&shy;берёмся, почему так про&shy;ис&shy;хо&shy;дит:</p>
 <div class="paragraph-right-side">30</div>
 </div>
 <ol>
-<li>
-<p >
-В слу&shy;чае объ&shy;яв&shy;ле&shy;ния пере&shy;мен&shy;ной в теле метода время на выде&shy;ле&shy;ние места под струк&shy;туру можно счи&shy;тать около нуле&shy;вым. Ведь время на выде&shy;ле&shy;ние места под локаль&shy;ные пере&shy;мен&shy;ные почти не зави&shy;сит от их коли&shy;чес&shy;тва;</p>
-</li>
-<li>
-<p >
-В слу&shy;чае раз&shy;ме&shy;ще&shy;ния Val&shy;Types в качес&shy;тве полей Ref&shy;Types просто уве&shy;ли&shy;чит их раз&shy;мер. Зна&shy;чи&shy;мый тип раз&shy;ме&shy;ща&shy;ется цели&shy;ком, ста&shy;но&shy;вясь его частью;</p>
-</li>
-<li>
-<p >
-Если Val&shy;Types пере&shy;да&shy;ются как пара&shy;метры метода - тут, как и в слу&shy;чае копи&shy;ро&shy;ва&shy;ния, воз&shy;ник&shy;нет неко&shy;то&shy;рая раз&shy;ница - в зави&shy;си&shy;мости от раз&shy;мера и поло&shy;же&shy;ния пара&shy;метра.</p>
-</li>
+<li>В слу&shy;чае объ&shy;яв&shy;ле&shy;ния пере&shy;мен&shy;ной в теле метода время на выде&shy;ле&shy;ние места под струк&shy;туру можно счи&shy;тать около нуле&shy;вым. Ведь время на выде&shy;ле&shy;ние места под локаль&shy;ные пере&shy;мен&shy;ные почти не зави&shy;сит от их коли&shy;чес&shy;тва;</li>
+<li>В слу&shy;чае раз&shy;ме&shy;ще&shy;ния Val&shy;Types в качес&shy;тве полей Ref&shy;Types просто уве&shy;ли&shy;чит их раз&shy;мер. Зна&shy;чи&shy;мый тип раз&shy;ме&shy;ща&shy;ется цели&shy;ком, ста&shy;но&shy;вясь его частью;</li>
+<li>Если Val&shy;Types пере&shy;да&shy;ются как пара&shy;метры метода  &mdash;  тут, как и в слу&shy;чае копи&shy;ро&shy;ва&shy;ния, воз&shy;ник&shy;нет неко&shy;то&shy;рая раз&shy;ница  &mdash;  в зави&shy;си&shy;мости от раз&shy;мера и поло&shy;же&shy;ния пара&shy;метра.</li>
 </ol>
-<p >
-Но в любом слу&shy;чае это не дольше копи&shy;ро&shy;ва&shy;ния из одной пере&shy;мен&shy;ной в дру&shy;гую.</p>
-<h2 id="classstruct">Особенности выбора между class/struct</h2>
+<p>Но в любом слу&shy;чае это не дольше копи&shy;ро&shy;ва&shy;ния из одной пере&shy;мен&shy;ной в дру&shy;гую.</p>
+<h2 id="classstruct">Осо&shy;бен&shy;ности выбора между class/struct</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">31</div>
-<p >
-Давайте поду&shy;маем об осо&shy;бен&shy;нос&shy;тях обоих типов, об их дос&shy;то&shy;и&shy;нствах и недос&shy;тат&shy;ках и решим, где ими лучше поль&shy;зо&shy;ваться. Тут, конечно же, стоит вспом&shy;нить клас&shy;си&shy;ков, даю&shy;щих утверж&shy;де&shy;ние, что выбор в сто&shy;рону зна&shy;чи&shy;мых типов стоит сде&shy;лать, если у нас тип не пла&shy;ни&shy;рует быть нас&shy;ле&shy;ду&shy;е&shy;мым, он не ста&shy;нет меняться в тече&shy;нии своей жизни, а его раз&shy;мер не пре&shy;вы&shy;шает 16 байт. Но не все так оче&shy;видно. Чтобы сде&shy;лать пол&shy;но&shy;цен&shy;ное срав&shy;не&shy;ние, нам необ&shy;хо&shy;димо заду&shy;маться о выборе типа с раз&shy;ных сто&shy;рон, мыс&shy;ленно про&shy;ду&shy;мав сце&shy;на&shy;рии его буду&shy;щего исполь&shy;зо&shy;ва&shy;ния. Пред&shy;ла&shy;гаю раз&shy;де&shy;лить кри&shy;те&shy;рии выбора на три группы:</p>
+<p>Давайте поду&shy;маем об осо&shy;бен&shy;нос&shy;тях обоих типов, об их дос&shy;то&shy;и&shy;нствах и недос&shy;тат&shy;ках и решим, где ими лучше поль&shy;зо&shy;ваться. Тут, конечно же, стоит вспом&shy;нить клас&shy;си&shy;ков, даю&shy;щих утверж&shy;де&shy;ние, что выбор в сто&shy;рону зна&shy;чи&shy;мых типов стоит сде&shy;лать, если у нас тип не пла&shy;ни&shy;рует быть нас&shy;ле&shy;ду&shy;е&shy;мым, он не ста&shy;нет меняться в тече&shy;нии своей жизни, а его раз&shy;мер не пре&shy;вы&shy;шает 16 байт. Но не все так оче&shy;видно. Чтобы сде&shy;лать пол&shy;но&shy;цен&shy;ное срав&shy;не&shy;ние, нам необ&shy;хо&shy;димо заду&shy;маться о выборе типа с раз&shy;ных сто&shy;рон, мыс&shy;ленно про&shy;ду&shy;мав сце&shy;на&shy;рии его буду&shy;щего исполь&shy;зо&shy;ва&shy;ния. Пред&shy;ла&shy;гаю раз&shy;де&shy;лить кри&shy;те&shy;рии выбора на три группы:</p>
 <div class="paragraph-right-side">31</div>
 </div>
 <ul>
-<li>
-<p >
-с точки зре&shy;ния архи&shy;тек&shy;туры сис&shy;темы типов, в кото&shy;рой ваш тип будет вза&shy;и&shy;мо&shy;дейс&shy;твовать;</p>
-</li>
-<li>
-<p >
-с точки зре&shy;ния под&shy;хода вас как сис&shy;тем&shy;ного прог&shy;рам&shy;миста: каков выбор будет опти&shy;маль&shy;ным с точки зре&shy;ния про&shy;из&shy;во&shy;ди&shy;тель&shy;ности;</p>
-</li>
-<li>
-<p >
-по-дру&shy;гому просто невоз&shy;можно.</p>
-</li>
+<li>с точки зре&shy;ния архи&shy;тек&shy;туры сис&shy;темы типов, в кото&shy;рой ваш тип будет вза&shy;и&shy;мо&shy;дейс&shy;твовать;</li>
+<li>с точки зре&shy;ния под&shy;хода вас как сис&shy;тем&shy;ного прог&shy;рам&shy;миста: каков выбор будет опти&shy;маль&shy;ным с точки зре&shy;ния про&shy;из&shy;во&shy;ди&shy;тель&shy;ности;</li>
+<li>по-дру&shy;гому просто невоз&shy;можно.</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">32</div>
-<p >
-Каж&shy;дая сущ&shy;ность, кото&shy;рая про&shy;ек&shy;ти&shy;ру&shy;ется вами, дол&shy;жна в пол&shy;ной мере отра&shy;жать её наз&shy;на&shy;че&shy;ние. И это каса&shy;ется не только её наз&shy;ва&shy;ния или интер&shy;фейса вза&shy;и&shy;мо&shy;д&shy;ействия (методы, свой&shy;ства), но даже выбор между зна&shy;чи&shy;мым и ссы&shy;лоч&shy;ным типом может быть сде&shy;лан из архи&shy;тек&shy;тур&shy;ных сооб&shy;ра&shy;же&shy;ний. Давайте порас&shy;суж&shy;даем, почему с точки зре&shy;ния архи&shy;тек&shy;туры сис&shy;темы типов может быть выб&shy;рана струк&shy;тура, а не класс:</p>
+<p>Каж&shy;дая сущ&shy;ность, кото&shy;рая про&shy;ек&shy;ти&shy;ру&shy;ется вами, дол&shy;жна в пол&shy;ной мере отра&shy;жать её наз&shy;на&shy;че&shy;ние. И это каса&shy;ется не только её наз&shy;ва&shy;ния или интер&shy;фейса вза&shy;и&shy;мо&shy;д&shy;ействия (методы, свой&shy;ства), но даже выбор между зна&shy;чи&shy;мым и ссы&shy;лоч&shy;ным типом может быть сде&shy;лан из архи&shy;тек&shy;тур&shy;ных сооб&shy;ра&shy;же&shy;ний. Давайте порас&shy;суж&shy;даем, почему с точки зре&shy;ния архи&shy;тек&shy;туры сис&shy;темы типов может быть выб&shy;рана струк&shy;тура, а не класс:</p>
 <div class="paragraph-right-side">32</div>
 </div>
 <ol>
-<li>
-<p >
-Если наш про&shy;ек&shy;ти&shy;ру&shy;е&shy;мый тип будет обла&shy;дать инва&shy;ри&shy;ан&shy;т&shy;ностью по отно&shy;ше&shy;нию к смыс&shy;ло&shy;вой наг&shy;рузке сво&shy;его сос&shy;то&shy;я&shy;ния, то это будет зна&shy;чить, что его сос&shy;то&shy;я&shy;ние пол&shy;ностью отра&shy;жает неко&shy;то&shy;рый про&shy;цесс или явля&shy;ется зна&shy;че&shy;нием чего-либо. Дру&shy;гими сло&shy;вами, экземп&shy;ляр типа пол&shy;ностью конс&shy;тан&shy;тен и не может быть изменён по своей сути. Мы можем соз&shy;дать на основе этой конс&shy;танты дру&shy;гой экземп&shy;ляр типа, ука&shy;зав неко&shy;то&shy;рое сме&shy;ще&shy;ние, либо соз&shy;дать с нуля, ука&shy;зав его свой&shy;ства. Но изме&shy;нять его мы не имеем права. Я прошу заме&shy;тить, что не под&shy;ра&shy;зу&shy;ме&shy;ваю струк&shy;туру неиз&shy;ме&shy;ня&shy;е&shy;мым типом. Вы можете менять поля, как хотите. Мало того вы можете отдать ссылку на струк&shy;туру в метод через <code>ref</code> пара&shy;метр и полу&shy;чить изменённые поля по выходу из метода. Однако, я про смысл с точки зре&shy;ния архи&shy;тек&shy;туры. Поясню на при&shy;ме&shy;рах:</p>
+<li><p>Если наш про&shy;ек&shy;ти&shy;ру&shy;е&shy;мый тип будет обла&shy;дать инва&shy;ри&shy;ан&shy;т&shy;ностью по отно&shy;ше&shy;нию к смыс&shy;ло&shy;вой наг&shy;рузке сво&shy;его сос&shy;то&shy;я&shy;ния, то это будет зна&shy;чить, что его сос&shy;то&shy;я&shy;ние пол&shy;ностью отра&shy;жает неко&shy;то&shy;рый про&shy;цесс или явля&shy;ется зна&shy;че&shy;нием чего-либо. Дру&shy;гими сло&shy;вами, экземп&shy;ляр типа пол&shy;ностью конс&shy;тан&shy;тен и не может быть изменён по своей сути. Мы можем соз&shy;дать на основе этой конс&shy;танты дру&shy;гой экземп&shy;ляр типа, ука&shy;зав неко&shy;то&shy;рое сме&shy;ще&shy;ние, либо соз&shy;дать с нуля, ука&shy;зав его свой&shy;ства. Но изме&shy;нять его мы не имеем права. Я прошу заме&shy;тить, что не под&shy;ра&shy;зу&shy;ме&shy;ваю струк&shy;туру неиз&shy;ме&shy;ня&shy;е&shy;мым типом. Вы можете менять поля, как хотите. Мало того вы можете отдать ссылку на струк&shy;туру в метод через <code>ref</code> пара&shy;метр и полу&shy;чить изменённые поля по выходу из метода. Однако, я про смысл с точки зре&shy;ния архи&shy;тек&shy;туры. Поясню на при&shy;ме&shy;рах:</p>
 <ul>
-<li>
-<p >
-Date&shy;Time - это струк&shy;тура, кото&shy;рая инкап&shy;су&shy;ли&shy;рует в себе поня&shy;тие момента вре&shy;мени. Она хра&shy;нит эти дан&shy;ные в виде <code>uint</code>, однако пре&shy;дос&shy;тав&shy;ляет дос&shy;туп к отдель&shy;ным харак&shy;те&shy;рис&shy;ти&shy;кам момента вре&shy;мени. Нап&shy;ри&shy;мер: год, месяц, день, час, минуты, секунды, мил&shy;ли&shy;се&shy;кунды и даже про&shy;цес&shy;сор&shy;ные тики. Однако, исходя из того что она инкап&shy;су&shy;ли&shy;рует, она не может быть изме&shy;ня&shy;е&shy;мой по своей при&shy;роде. Мы не можем изме&shy;нить конк&shy;рет&shy;ный момент вре&shy;мени, чтобы он стал дру&shy;гим. Я не могу про&shy;жить сле&shy;ду&shy;ю&shy;щую минуту своей жизни в луч&shy;ший день рож&shy;де&shy;ния сво&shy;его детства. Время неиз&shy;менно. Именно поэ&shy;тому выбор для типа дан&shy;ных может стать либо класс с rea&shy;donly интер&shy;фей&shy;сом вза&shy;и&shy;мо&shy;д&shy;ействия, кото&shy;рый на каж&shy;дое изме&shy;не&shy;ние свойств отдаёт новый экземп&shy;ляр, либо струк&shy;тура, кото&shy;рая, нес&shy;мотря на воз&shy;мож&shy;ность изме&shy;не&shy;ния полей своих экземп&shy;ля&shy;ров делать этого не дол&shy;жна: опи&shy;са&shy;ние момента вре&shy;мени явля&shy;ется <em>значением</em>. Как число. Вы же не можете залезть в струк&shy;туру числа и поме&shy;нять его? Если вы хотите полу&shy;чить дру&shy;гой момент вре&shy;мени, кото&shy;рый явля&shy;ется сме&shy;ще&shy;нием отно&shy;си&shy;тельно ори&shy;ги&shy;наль&shy;ного на один день, вы просто полу&shy;ча&shy;ете новый экземп&shy;ляр струк&shy;туры;</p>
-</li>
-<li>
-<p >
-Key&shy;Value&shy;Pair<TKey, TValue> - это струк&shy;тура, инкап&shy;су&shy;ли&shy;ру&shy;ю&shy;щая в себе поня&shy;тие связ&shy;ной пары ключ-зна&shy;че&shy;ние. Замечу, что эта струк&shy;тура исполь&shy;зу&shy;ется только для выдачи поль&shy;зо&shy;ва&shy;телю при пере&shy;чис&shy;ле&shy;нии содер&shy;жи&shy;мого сло&shy;варя. Почему выб&shy;рана струк&shy;тура с точки зре&shy;ния архи&shy;тек&shy;туры? Ответ прост: потому что в рам&shy;ках Dicti&shy;o&shy;nary<T> ключ и зна&shy;че&shy;ние, нераз&shy;де&shy;ли&shy;мые поня&shy;тия. Да, внутри все устро&shy;ено иначе. Внутри мы имеем слож&shy;ную струк&shy;туру, где ключ лежит отдельно от зна&shy;че&shy;ния. Однако для внеш&shy;него поль&shy;зо&shy;ва&shy;теля, с точки зре&shy;ния интер&shy;фейса вза&shy;и&shy;мо&shy;д&shy;ействия и смысла самой струк&shy;туры дан&shy;ных, пара ключ-зна&shy;че&shy;ние явля&shy;ется нераз&shy;де&shy;ли&shy;мым поня&shy;тием. Явл&shy;яе&shy;тся <em>значением</em> цели&shy;ком. Если мы по этому ключу рас&shy;по&shy;ло&shy;жили дру&shy;гое зна&shy;че&shy;ние, это зна&shy;чит, что изме&shy;ни&shy;лась вся пара. Для внеш&shy;него наб&shy;лю&shy;да&shy;теля нет отдельно клю&shy;чей, а отдельно - зна&shy;че&shy;ний, они явля&shy;ются еди&shy;ным целым. Именно поэ&shy;тому струк&shy;тура в дан&shy;ном слу&shy;чае - иде&shy;альный вари&shy;ант.</p>
-</li>
+<li>Date&shy;Time  &mdash;  это струк&shy;тура, кото&shy;рая инкап&shy;су&shy;ли&shy;рует в себе поня&shy;тие момента вре&shy;мени. Она хра&shy;нит эти дан&shy;ные в виде <code>uint</code>, однако пре&shy;дос&shy;тав&shy;ляет дос&shy;туп к отдель&shy;ным харак&shy;те&shy;рис&shy;ти&shy;кам момента вре&shy;мени. Нап&shy;ри&shy;мер: год, месяц, день, час, минуты, секунды, мил&shy;ли&shy;се&shy;кунды и даже про&shy;цес&shy;сор&shy;ные тики. Однако, исходя из того что она инкап&shy;су&shy;ли&shy;рует, она не может быть изме&shy;ня&shy;е&shy;мой по своей при&shy;роде. Мы не можем изме&shy;нить конк&shy;рет&shy;ный момент вре&shy;мени, чтобы он стал дру&shy;гим. Я не могу про&shy;жить сле&shy;ду&shy;ю&shy;щую минуту своей жизни в луч&shy;ший день рож&shy;де&shy;ния сво&shy;его детства. Время неиз&shy;менно. Именно поэ&shy;тому выбор для типа дан&shy;ных может стать либо класс с rea&shy;donly интер&shy;фей&shy;сом вза&shy;и&shy;мо&shy;д&shy;ействия, кото&shy;рый на каж&shy;дое изме&shy;не&shy;ние свойств отдаёт новый экземп&shy;ляр, либо струк&shy;тура, кото&shy;рая, нес&shy;мотря на воз&shy;мож&shy;ность изме&shy;не&shy;ния полей своих экземп&shy;ля&shy;ров делать этого не дол&shy;жна: опи&shy;са&shy;ние момента вре&shy;мени явля&shy;ется <em>зна&shy;че&shy;нием</em>. Как число. Вы же не можете залезть в струк&shy;туру числа и поме&shy;нять его? Если вы хотите полу&shy;чить дру&shy;гой момент вре&shy;мени, кото&shy;рый явля&shy;ется сме&shy;ще&shy;нием отно&shy;си&shy;тельно ори&shy;ги&shy;наль&shy;ного на один день, вы просто полу&shy;ча&shy;ете новый экземп&shy;ляр струк&shy;туры;</li>
+<li>Key&shy;Value&shy;Pair&shy;<TKey&shy;, TValue&shy;>  &mdash;  это струк&shy;тура, инкап&shy;су&shy;ли&shy;ру&shy;ю&shy;щая в себе поня&shy;тие связ&shy;ной пары ключ-зна&shy;че&shy;ние. Замечу, что эта струк&shy;тура исполь&shy;зу&shy;ется только для выдачи поль&shy;зо&shy;ва&shy;телю при пере&shy;чис&shy;ле&shy;нии содер&shy;жи&shy;мого сло&shy;варя. Почему выб&shy;рана струк&shy;тура с точки зре&shy;ния архи&shy;тек&shy;туры? Ответ прост: потому что в рам&shy;ках Dicti&shy;o&shy;nary<T> ключ и зна&shy;че&shy;ние, нераз&shy;де&shy;ли&shy;мые поня&shy;тия. Да, внутри все устро&shy;ено иначе. Внутри мы имеем слож&shy;ную струк&shy;туру, где ключ лежит отдельно от зна&shy;че&shy;ния. Однако для внеш&shy;него поль&shy;зо&shy;ва&shy;теля, с точки зре&shy;ния интер&shy;фейса вза&shy;и&shy;мо&shy;д&shy;ействия и смысла самой струк&shy;туры дан&shy;ных, пара ключ-зна&shy;че&shy;ние явля&shy;ется нераз&shy;де&shy;ли&shy;мым поня&shy;тием. Явл&shy;яе&shy;тся <em>зна&shy;че&shy;нием</em> цели&shy;ком. Если мы по этому ключу рас&shy;по&shy;ло&shy;жили дру&shy;гое зна&shy;че&shy;ние, это зна&shy;чит, что изме&shy;ни&shy;лась вся пара. Для внеш&shy;него наб&shy;лю&shy;да&shy;теля нет отдельно клю&shy;чей, а отдельно  &mdash;  зна&shy;че&shy;ний, они явля&shy;ются еди&shy;ным целым. Именно поэ&shy;тому струк&shy;тура в дан&shy;ном слу&shy;чае  &mdash;  иде&shy;альный вари&shy;ант.</li>
 </ul>
 </li>
-<li>
-<p >
-Если наш про&shy;ек&shy;ти&shy;ру&shy;е&shy;мый тип явля&shy;ется неотъ&shy;ем&shy;ле&shy;мой частью внеш&shy;него типа. Но при этом он струк&shy;турно неотъ&shy;ем&shy;лем. Т.е. было бы некор&shy;рект&shy;ным ска&shy;зать, что внеш&shy;ний тип ссы&shy;ла&shy;ется на экземп&shy;ляр инкап&shy;су&shy;ли&shy;ру&shy;е&shy;мого, но совер&shy;шенно кор&shy;рек&shy;тно - что инкап&shy;су&shy;ли&shy;ру&shy;е&shy;мый явля&shy;ется пол&shy;ноп&shy;рав&shy;ной частью внеш&shy;него вместе со всеми сво&shy;ими свой&shy;ствами. Как пра&shy;вило, это исполь&shy;зу&shy;ется при про&shy;ек&shy;ти&shy;ро&shy;ва&shy;нии струк&shy;тур, кото&shy;рые явля&shy;ются частью дру&shy;гой струк&shy;туры.</p>
+<li><p>Если наш про&shy;ек&shy;ти&shy;ру&shy;е&shy;мый тип явля&shy;ется неотъ&shy;ем&shy;ле&shy;мой частью внеш&shy;него типа. Но при этом он струк&shy;турно неотъ&shy;ем&shy;лем. Т.е. было бы некор&shy;рект&shy;ным ска&shy;зать, что внеш&shy;ний тип ссы&shy;ла&shy;ется на экземп&shy;ляр инкап&shy;су&shy;ли&shy;ру&shy;е&shy;мого, но совер&shy;шенно кор&shy;рек&shy;тно  &mdash;  что инкап&shy;су&shy;ли&shy;ру&shy;е&shy;мый явля&shy;ется пол&shy;ноп&shy;рав&shy;ной частью внеш&shy;него вместе со всеми сво&shy;ими свой&shy;ствами. Как пра&shy;вило, это исполь&shy;зу&shy;ется при про&shy;ек&shy;ти&shy;ро&shy;ва&shy;нии струк&shy;тур, кото&shy;рые явля&shy;ются частью дру&shy;гой струк&shy;туры.</p>
 <ul>
-<li>
-<p >
-Как, нап&shy;ри&shy;мер, если взять струк&shy;туру заго&shy;ловка файла, было бы нечес&shy;тно дать ссылку из одного файла в дру&shy;гой. Мол, заго&shy;ло&shy;вок нахо&shy;дится в файле <code>header.txt</code>. Это было бы умес&shy;тно при вставке доку&shy;мента в некий дру&shy;гой, но не вжи&shy;ва&shy;нием файла, а по отно&shy;си&shy;тель&shy;ной ссылке на фай&shy;ло&shy;вой сис&shy;теме. Хоро&shy;ший при&shy;мер - файл ярлыка ОС Windows. Однако если мы гово&shy;рим о заго&shy;ловке файла (нап&shy;ри&shy;мер, о заго&shy;ловке JPEG файла, в кото&shy;ром ука&shy;заны раз&shy;мер изоб&shy;ра&shy;же&shy;ния, мето&shy;дика сжа&shy;тия, пара&shy;метры съёмки, коор&shy;ди&shy;наты GPS и про&shy;чая мета&shy;ин&shy;фор&shy;ма&shy;ция), то при про&shy;ек&shy;ти&shy;ро&shy;ва&shy;нии типов, кото&shy;рые будут исполь&shy;зо&shy;ваны для пар&shy;синга заго&shy;ловка, будет крайне полезно исполь&shy;зо&shy;вать струк&shy;туры. Ведь, опи&shy;сав все заго&shy;ловки в струк&shy;ту&shy;рах, вы полу&shy;чите в памяти абсо&shy;лютно такое же поло&shy;же&shy;ние всех полей как в файле. И через прос&shy;тое unsafe пре&shy;об&shy;ра&shy;зо&shy;ва&shy;ние <code>*(Header *)readedBuffer</code> без каких-либо десе&shy;ри&shy;а&shy;ли&shy;за&shy;ций - пол&shy;ностью запол&shy;нен&shy;ные струк&shy;туры дан&shy;ных.</p>
-</li>
+<li>Как, нап&shy;ри&shy;мер, если взять струк&shy;туру заго&shy;ловка файла, было бы нечес&shy;тно дать ссылку из одного файла в дру&shy;гой. Мол, заго&shy;ло&shy;вок нахо&shy;дится в файле <code>header.txt</code>. Это было бы умес&shy;тно при вставке доку&shy;мента в некий дру&shy;гой, но не вжи&shy;ва&shy;нием файла, а по отно&shy;си&shy;тель&shy;ной ссылке на фай&shy;ло&shy;вой сис&shy;теме. Хоро&shy;ший при&shy;мер  &mdash;  файл ярлыка ОС Windows&shy;. Однако если мы гово&shy;рим о заго&shy;ловке файла (нап&shy;ри&shy;мер, о заго&shy;ловке JPEG файла, в кото&shy;ром ука&shy;заны раз&shy;мер изоб&shy;ра&shy;же&shy;ния, мето&shy;дика сжа&shy;тия, пара&shy;метры съёмки, коор&shy;ди&shy;наты GPS и про&shy;чая мета&shy;ин&shy;фор&shy;ма&shy;ция), то при про&shy;ек&shy;ти&shy;ро&shy;ва&shy;нии типов, кото&shy;рые будут исполь&shy;зо&shy;ваны для пар&shy;синга заго&shy;ловка, будет крайне полезно исполь&shy;зо&shy;вать струк&shy;туры. Ведь, опи&shy;сав все заго&shy;ловки в струк&shy;ту&shy;рах, вы полу&shy;чите в памяти абсо&shy;лютно такое же поло&shy;же&shy;ние всех полей как в файле. И через прос&shy;тое unsafe пре&shy;об&shy;ра&shy;зо&shy;ва&shy;ние <code>*(Header *)readed&shy;Buffer</code> без каких-либо десе&shy;ри&shy;а&shy;ли&shy;за&shy;ций  &mdash;  пол&shy;ностью запол&shy;нен&shy;ные струк&shy;туры дан&shy;ных.</li>
 </ul>
 </li>
-<li>
-<p >
-При этом заметьте, ни один из при&shy;ме&shy;ров не обла&shy;дает свой&shy;с&shy;твом нас&shy;ле&shy;до&shy;ва&shy;ния пове&shy;де&shy;ния чего-либо. Мало того все эти при&shy;меры также пока&shy;зы&shy;вают, что нет абсо&shy;лютно ника&shy;кого смысла нас&shy;ле&shy;до&shy;вать пове&shy;де&shy;ние этих сущ&shy;нос&shy;тей. Они пол&shy;ностью само&shy;дос&shy;та&shy;точны, как еди&shy;ницы чего-либо.</p>
+<li><p>При этом заметьте, ни один из при&shy;ме&shy;ров не обла&shy;дает свой&shy;с&shy;твом нас&shy;ле&shy;до&shy;ва&shy;ния пове&shy;де&shy;ния чего-либо. Мало того все эти при&shy;меры также пока&shy;зы&shy;вают, что нет абсо&shy;лютно ника&shy;кого смысла нас&shy;ле&shy;до&shy;вать пове&shy;де&shy;ние этих сущ&shy;нос&shy;тей. Они пол&shy;ностью само&shy;дос&shy;та&shy;точны, как еди&shy;ницы чего-либо.</p>
 </li>
 </ol>
 <div class="paragraph-container">
 <div class="paragraph-left-side">33</div>
-<p >
-Если же мы взгл&shy;янем на проб&shy;ле&shy;ма&shy;тику с точки зре&shy;ния эффек&shy;тив&shy;ности работы кода, то перед нами выбор предс&shy;та&shy;нет с дру&shy;гой сто&shy;роны:</p>
+<p>Если же мы взгл&shy;янем на проб&shy;ле&shy;ма&shy;тику с точки зре&shy;ния эффек&shy;тив&shy;ности работы кода, то перед нами выбор предс&shy;та&shy;нет с дру&shy;гой сто&shy;роны:</p>
 <div class="paragraph-right-side">33</div>
 </div>
 <ol>
-<li>
-<p >
-Струк&shy;туры необ&shy;хо&shy;димо выби&shy;рать, если необ&shy;хо&shy;димо заб&shy;рать из неуп&shy;рав&shy;ля&shy;е&shy;мого кода какие-то струк&shy;ту&shy;ри&shy;ро&shy;ван&shy;ные дан&shy;ные. Либо отдать unsafe методу струк&shy;туру дан&shy;ных. Ссы&shy;лоч&shy;ный тип для этого сов&shy;сем не подойдёт;</p>
-</li>
-<li>
-<p >
-Если тип будет часто исполь&shy;зо&shy;ваться для пере&shy;дачи дан&shy;ных в вызо&shy;вах мето&shy;дов (пусть в качес&shy;тве возв&shy;ра&shy;ща&shy;е&shy;мых зна&shy;че&shy;ний или как пара&shy;метр метода), но при этом нет ника&shy;кой необ&shy;хо&shy;ди&shy;мости ссы&shy;латься на одно зна&shy;че&shy;ние с раз&shy;ных мест, то ваш выбор - струк&shy;тура. Как при&shy;мер я могу при&shy;вести кор&shy;тежи. Если метод через кор&shy;теж возв&shy;ра&shy;щает вам нес&shy;колько зна&shy;че&shy;ний, это зна&shy;чит, что возв&shy;ра&shy;щать он будет Value&shy;Tuple, кото&shy;рый объ&shy;яв&shy;лен как струк&shy;тура. Т.е. при возв&shy;рате метод не будет выде&shy;лять память в куче, а исполь&shy;зо&shy;вать он будет стек потока, выде&shy;ле&shy;ние памяти в кото&shy;ром не стоит вам абсо&shy;лютно ничего;</p>
-</li>
-<li>
-<p >
-Если вы про&shy;ек&shy;ти&shy;ру&shy;ете сис&shy;тему, кото&shy;рая создаёт некий боль&shy;ший тра&shy;фик экземп&shy;ля&shy;ров про&shy;ек&shy;ти&shy;ру&shy;е&shy;мого типа. При этом сами экземп&shy;ляры имеют дос&shy;та&shy;точно малый раз&shy;мер, а время жизни экземп&shy;ля&shy;ров очень корот&shy;кое, то исполь&shy;зо&shy;ва&shy;ние ссы&shy;лоч&shy;ных типов при&shy;ведёт либо к исполь&shy;зо&shy;ва&shy;нию пула объ&shy;ек&shy;тов, либо, если без пула, к неконт&shy;ро&shy;ли&shy;ру&shy;е&shy;мому заму&shy;со&shy;ри&shy;ва&shy;нию кучи. При этом часть объ&shy;ек&shy;тов перейдёт в стар&shy;шие поко&shy;ле&shy;ния, чем вызо&shy;вет про&shy;се&shy;да&shy;ние на GC. Испол&shy;ьз&shy;ов&shy;ание зна&shy;чи&shy;мых типов в таких мес&shy;тах (если это воз&shy;можно) даст при&shy;рост про&shy;из&shy;во&shy;ди&shy;тель&shy;ности просто потому, что в SOH ничего не уйдёт, а это разг&shy;ру&shy;зит GC, и алго&shy;ритм отра&shy;бо&shy;тает быс&shy;т&shy;рее;</p>
-</li>
+<li>Струк&shy;туры необ&shy;хо&shy;димо выби&shy;рать, если необ&shy;хо&shy;димо заб&shy;рать из неуп&shy;рав&shy;ля&shy;е&shy;мого кода какие-то струк&shy;ту&shy;ри&shy;ро&shy;ван&shy;ные дан&shy;ные. Либо отдать unsafe методу струк&shy;туру дан&shy;ных. Ссы&shy;лоч&shy;ный тип для этого сов&shy;сем не подойдёт;</li>
+<li>Если тип будет часто исполь&shy;зо&shy;ваться для пере&shy;дачи дан&shy;ных в вызо&shy;вах мето&shy;дов (пусть в качес&shy;тве возв&shy;ра&shy;ща&shy;е&shy;мых зна&shy;че&shy;ний или как пара&shy;метр метода), но при этом нет ника&shy;кой необ&shy;хо&shy;ди&shy;мости ссы&shy;латься на одно зна&shy;че&shy;ние с раз&shy;ных мест, то ваш выбор  &mdash;  струк&shy;тура. Как при&shy;мер я могу при&shy;вести кор&shy;тежи. Если метод через кор&shy;теж возв&shy;ра&shy;щает вам нес&shy;колько зна&shy;че&shy;ний, это зна&shy;чит, что возв&shy;ра&shy;щать он будет Value&shy;Tuple&shy;, кото&shy;рый объ&shy;яв&shy;лен как струк&shy;тура. Т.е. при возв&shy;рате метод не будет выде&shy;лять память в куче, а исполь&shy;зо&shy;вать он будет стек потока, выде&shy;ле&shy;ние памяти в кото&shy;ром не стоит вам абсо&shy;лютно ничего;</li>
+<li>Если вы про&shy;ек&shy;ти&shy;ру&shy;ете сис&shy;тему, кото&shy;рая создаёт некий боль&shy;ший тра&shy;фик экземп&shy;ля&shy;ров про&shy;ек&shy;ти&shy;ру&shy;е&shy;мого типа. При этом сами экземп&shy;ляры имеют дос&shy;та&shy;точно малый раз&shy;мер, а время жизни экземп&shy;ля&shy;ров очень корот&shy;кое, то исполь&shy;зо&shy;ва&shy;ние ссы&shy;лоч&shy;ных типов при&shy;ведёт либо к исполь&shy;зо&shy;ва&shy;нию пула объ&shy;ек&shy;тов, либо, если без пула, к неконт&shy;ро&shy;ли&shy;ру&shy;е&shy;мому заму&shy;со&shy;ри&shy;ва&shy;нию кучи. При этом часть объ&shy;ек&shy;тов перейдёт в стар&shy;шие поко&shy;ле&shy;ния, чем вызо&shy;вет про&shy;се&shy;да&shy;ние на GC. Испол&shy;ьз&shy;ов&shy;ание зна&shy;чи&shy;мых типов в таких мес&shy;тах (если это воз&shy;можно) даст при&shy;рост про&shy;из&shy;во&shy;ди&shy;тель&shy;ности просто потому, что в SOH ничего не уйдёт, а это разг&shy;ру&shy;зит GC, и алго&shy;ритм отра&shy;бо&shy;тает быс&shy;т&shy;рее;</li>
 </ol>
 <div class="paragraph-container">
 <div class="paragraph-left-side">34</div>
-<p >
-Сов&shy;ме&shy;щая все вышес&shy;ка&shy;зан&shy;ное, могу пред&shy;ло&shy;жить неко&shy;то&shy;рые советы и заме&shy;ча&shy;ния в исполь&shy;зо&shy;ва&shy;нии струк&shy;тур:</p>
+<p>Сов&shy;ме&shy;щая все вышес&shy;ка&shy;зан&shy;ное, могу пред&shy;ло&shy;жить неко&shy;то&shy;рые советы и заме&shy;ча&shy;ния в исполь&shy;зо&shy;ва&shy;нии струк&shy;тур:</p>
 <div class="paragraph-right-side">34</div>
 </div>
 <ol>
-<li>
-<p >
-При выборе кол&shy;лек&shy;ций стоит избе&shy;гать боль&shy;ших мас&shy;си&shy;вов, внутри кото&shy;рых нахо&shy;дятся боль&shy;шие струк&shy;туры. Это каса&shy;ется и тех струк&shy;тур дан&shy;ных, кото&shy;рые на мас&shy;си&shy;вах осно&shy;ваны (а их - боль&shy;шинство). Это может при&shy;вести к уходу в Large Objects Heap и его фраг&shy;мен&shy;та&shy;ции. Мало подс&shy;чи&shy;тать, что, если у вашей струк&shy;туры 4 поля типа byte, зна&shy;чит, займёт она 4 байта. Вовсе нет. Надо пони&shy;мать, что для 32-раз&shy;ряд&shy;ных сис&shy;тем каж&shy;дое поле струк&shy;туры будет выров&shy;нено по 4 бай&shy;там (адрес каж&shy;дого поля дол&shy;жен делиться на 4 без остатка), а на 64-раз&shy;ряд&shy;ных сис&shy;те&shy;мах - по 8 бай&shy;там. Т.е. раз&shy;мер мас&shy;сива дол&shy;жен зави&shy;сеть от раз&shy;мера струк&shy;туры и от плат&shy;формы, на кото&shy;рой запу&shy;щено при&shy;ло&shy;же&shy;ние. В нашем при&shy;мере с 4 бай&shy;тами - 85К / (от 4 до 8 байт на поле * коли&shy;чес&shy;тво полей = 4) минус раз&shy;мер заго&shy;ловка мас&shy;сива: при&shy;мерно до 2600 эле&shy;мен&shy;тов на мас&shy;сив в зави&shy;си&shy;мости от плат&shy;формы (а брать понят&shy;ное дело надо в мень&shy;шую сто&shy;рону). Всего-то! Не так и много! А ведь могло пока&shy;заться, что маги&shy;чес&shy;кая конс&shy;танта в 20,000 эле&shy;мен&shy;тов вполне могла подойти!</p>
-</li>
-<li>
-<p >
-Также стоит отда&shy;вать себе отчёт, что если вы исполь&shy;зу&shy;ете струк&shy;туру, кото&shy;рая имеет неко&shy;то&shy;рый дос&shy;та&shy;точно боль&shy;шой раз&shy;мер, как источ&shy;ник дан&shy;ных, и раз&shy;ме&shy;ща&shy;ете её в неко&shy;то&shy;ром классе как поле, и при этом, нап&shy;ри&shy;мер, одна и та же копия рас&shy;ти&shy;ра&shy;жи&shy;ро&shy;вана на тысячу экземп&shy;ля&shy;ров (просто потому, что вам удобно дер&shy;жать все под рукой), то вы тем самым уве&shy;ли&shy;чи&shy;ва&shy;ете каж&shy;дый экземп&shy;ляр класса на раз&shy;мер струк&shy;туры, что в конеч&shy;ном счёте при&shy;ведёт к рас&shy;пу&shy;ха&shy;нию 0-го поко&shy;ле&shy;ния и уходу в поко&shy;ле&shy;ние 1 или даже 2. При этом если на самом деле экземп&shy;ляры класса корот&shy;ко&shy;жи&shy;ву&shy;щие, и вы расс&shy;чи&shy;ты&shy;ва&shy;ете на то, что они будут соб&shy;раны GC в нуле&shy;вом поко&shy;ле&shy;нии - за 1 мс, то будете сильно разо&shy;ча&shy;ро&shy;ваны тем, что они на самом деле успели попасть в пер&shy;вое или даже во вто&shy;рое поко&shy;ле&shy;ние. А какая, собст&shy;венно, раз&shy;ница? Раз&shy;ница в том, что если поко&shy;ле&shy;ние 0 соби&shy;ра&shy;ется за 1 мс, то пер&shy;вое и вто&shy;рое - очень мед&shy;ленно, что при&shy;ведёт к про&shy;се&shy;да&shy;ниям на пус&shy;том месте;</p>
-</li>
-<li>
-<p >
-По при&shy;мерно той же при&shy;чине стоит избе&shy;гать проб&shy;роса боль&shy;ших струк&shy;тур через цепочку вызо&shy;вов мето&shy;дов. Потому как если все начнёт друг друга вызы&shy;вать, то такие вызовы зай&shy;мут нам&shy;ного больше места в стеке, под&shy;водя жизнь вашего при&shy;ло&shy;же&shy;ния к смерти через <code>StackOverflowException</code>. Вто&shy;рая при&shy;чина - про&shy;из&shy;во&shy;ди&shy;тель&shy;ность. Чем больше копи&shy;ро&shy;ва&shy;ний, тем мед&shy;лен&shy;нее все рабо&shy;тает;</p>
-</li>
+<li>При выборе кол&shy;лек&shy;ций стоит избе&shy;гать боль&shy;ших мас&shy;си&shy;вов, внутри кото&shy;рых нахо&shy;дятся боль&shy;шие струк&shy;туры. Это каса&shy;ется и тех струк&shy;тур дан&shy;ных, кото&shy;рые на мас&shy;си&shy;вах осно&shy;ваны (а их  &mdash;  боль&shy;шинство). Это может при&shy;вести к уходу в Large Objects Heap и его фраг&shy;мен&shy;та&shy;ции. Мало подс&shy;чи&shy;тать, что, если у вашей струк&shy;туры 4 поля типа byte, зна&shy;чит, займёт она 4 байта. Вовсе нет. Надо пони&shy;мать, что для 32-раз&shy;ряд&shy;ных сис&shy;тем каж&shy;дое поле струк&shy;туры будет выров&shy;нено по 4 бай&shy;там (адрес каж&shy;дого поля дол&shy;жен делиться на 4 без остатка), а на 64-раз&shy;ряд&shy;ных сис&shy;те&shy;мах  &mdash;  по 8 бай&shy;там. Т.е. раз&shy;мер мас&shy;сива дол&shy;жен зави&shy;сеть от раз&shy;мера струк&shy;туры и от плат&shy;формы, на кото&shy;рой запу&shy;щено при&shy;ло&shy;же&shy;ние. В нашем при&shy;мере с 4 бай&shy;тами  &mdash;  85К / (от 4 до 8 байт на поле * коли&shy;чес&shy;тво полей = 4) минус раз&shy;мер заго&shy;ловка мас&shy;сива: при&shy;мерно до 2600 эле&shy;мен&shy;тов на мас&shy;сив в зави&shy;си&shy;мости от плат&shy;формы (а брать понят&shy;ное дело надо в мень&shy;шую сто&shy;рону). Всего-то! Не так и много! А ведь могло пока&shy;заться, что маги&shy;чес&shy;кая конс&shy;танта в 20,000 эле&shy;мен&shy;тов вполне могла подойти!</li>
+<li>Также стоит отда&shy;вать себе отчёт, что если вы исполь&shy;зу&shy;ете струк&shy;туру, кото&shy;рая имеет неко&shy;то&shy;рый дос&shy;та&shy;точно боль&shy;шой раз&shy;мер, как источ&shy;ник дан&shy;ных, и раз&shy;ме&shy;ща&shy;ете её в неко&shy;то&shy;ром классе как поле, и при этом, нап&shy;ри&shy;мер, одна и та же копия рас&shy;ти&shy;ра&shy;жи&shy;ро&shy;вана на тысячу экземп&shy;ля&shy;ров (просто потому, что вам удобно дер&shy;жать все под рукой), то вы тем самым уве&shy;ли&shy;чи&shy;ва&shy;ете каж&shy;дый экземп&shy;ляр класса на раз&shy;мер струк&shy;туры, что в конеч&shy;ном счёте при&shy;ведёт к рас&shy;пу&shy;ха&shy;нию 0-го поко&shy;ле&shy;ния и уходу в поко&shy;ле&shy;ние 1 или даже 2. При этом если на самом деле экземп&shy;ляры класса корот&shy;ко&shy;жи&shy;ву&shy;щие, и вы расс&shy;чи&shy;ты&shy;ва&shy;ете на то, что они будут соб&shy;раны GC в нуле&shy;вом поко&shy;ле&shy;нии  &mdash;  за 1 мс, то будете сильно разо&shy;ча&shy;ро&shy;ваны тем, что они на самом деле успели попасть в пер&shy;вое или даже во вто&shy;рое поко&shy;ле&shy;ние. А какая, собст&shy;венно, раз&shy;ница? Раз&shy;ница в том, что если поко&shy;ле&shy;ние 0 соби&shy;ра&shy;ется за 1 мс, то пер&shy;вое и вто&shy;рое  &mdash;  очень мед&shy;ленно, что при&shy;ведёт к про&shy;се&shy;да&shy;ниям на пус&shy;том месте;</li>
+<li>По при&shy;мерно той же при&shy;чине стоит избе&shy;гать проб&shy;роса боль&shy;ших струк&shy;тур через цепочку вызо&shy;вов мето&shy;дов. Потому как если все начнёт друг друга вызы&shy;вать, то такие вызовы зай&shy;мут нам&shy;ного больше места в стеке, под&shy;водя жизнь вашего при&shy;ло&shy;же&shy;ния к смерти через <code>Stack&shy;Overflow&shy;Exception</code>. Вто&shy;рая при&shy;чина  &mdash;  про&shy;из&shy;во&shy;ди&shy;тель&shy;ность. Чем больше копи&shy;ро&shy;ва&shy;ний, тем мед&shy;лен&shy;нее все рабо&shy;тает;</li>
 </ol>
 <div class="paragraph-container">
 <div class="paragraph-left-side">35</div>
-<p >
-Потому в целом выбор между типами дан&shy;ных - дос&shy;та&shy;точно нет&shy;ри&shy;ви&shy;альный про&shy;цесс. Зачас&shy;тую это может отно&shy;ситься к преж&shy;дев&shy;ре&shy;мен&shy;ной опти&shy;ми&shy;за&shy;ции, чего делать не реко&shy;мен&shy;ду&shy;ется. Однако, если вы зна&shy;ете, что ваша ситу&shy;а&shy;ция попа&shy;дает под выше изло&shy;жен&shy;ные прин&shy;ципы, то можете спо&shy;койно делать выбор в сто&shy;рону зна&shy;чи&shy;мого типа.</p>
+<p>Потому в целом выбор между типами дан&shy;ных  &mdash;  дос&shy;та&shy;точно нет&shy;ри&shy;ви&shy;альный про&shy;цесс. Зачас&shy;тую это может отно&shy;ситься к преж&shy;дев&shy;ре&shy;мен&shy;ной опти&shy;ми&shy;за&shy;ции, чего делать не реко&shy;мен&shy;ду&shy;ется. Однако, если вы зна&shy;ете, что ваша ситу&shy;а&shy;ция попа&shy;дает под выше изло&shy;жен&shy;ные прин&shy;ципы, то можете спо&shy;койно делать выбор в сто&shy;рону зна&shy;чи&shy;мого типа.</p>
 <div class="paragraph-right-side">35</div>
 </div>
-<h2 id="object.boxing">Базовый тип - Object и возможность реализации интерфейсов. Boxing.</h2>
+<h2 id="object.boxing">Базо&shy;вый тип  &mdash;  Object и воз&shy;мож&shy;ность реа&shy;ли&shy;за&shy;ции интер&shy;фей&shy;сов. Boxing&shy;.</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">36</div>
-<p >
-Мы с вами прошли, как может пока&shy;заться и огонь, и воду и можем пройти любое собе&shy;се&shy;до&shy;ва&shy;ние. Воз&shy;можно даже в команду .NET CLR. Но давайте не будем спе&shy;шить наби&shy;рать micro&shy;soft.com и искать там раз&shy;дел вакан&shy;сий: успеем. Давайте лучше отве&shy;тим на такой воп&shy;рос. Если зна&shy;чи&shy;мые типы не содер&shy;жат ни ссылки на Sync&shy;Block&shy;Index, ни ука&shy;за&shy;теля на таб&shy;лицу вир&shy;ту&shy;альных мето&shy;дов&hellip; То, прос&shy;тите, как они нас&shy;ле&shy;дуют тип <code>object</code>? Ведь по всем кано&shy;нам любой тип нас&shy;ле&shy;дует именно его. Ответ на этот воп&shy;рос к сожа&shy;ле&shy;нию не будет вмещён в одно пред&shy;ло&shy;же&shy;ние, но даст такое пони&shy;ма&shy;ние о нашей сис&shy;теме типов, что пос&shy;лед&shy;ние кусочки пазла нако&shy;нец вста&shy;нут на свои места.</p>
+<p>Мы с вами прошли, как может пока&shy;заться и огонь, и воду и можем пройти любое собе&shy;се&shy;до&shy;ва&shy;ние. Воз&shy;можно даже в команду .NET CLR. Но давайте не будем спе&shy;шить наби&shy;рать micro&shy;soft.com и искать там раз&shy;дел вакан&shy;сий: успеем. Давайте лучше отве&shy;тим на такой воп&shy;рос. Если зна&shy;чи&shy;мые типы не содер&shy;жат ни ссылки на Sync&shy;Block&shy;Index&shy;, ни ука&shy;за&shy;теля на таб&shy;лицу вир&shy;ту&shy;альных мето&shy;дов&hellip; То, прос&shy;тите, как они нас&shy;ле&shy;дуют тип <code>object</code>? Ведь по всем кано&shy;нам любой тип нас&shy;ле&shy;дует именно его. Ответ на этот воп&shy;рос к сожа&shy;ле&shy;нию не будет вмещён в одно пред&shy;ло&shy;же&shy;ние, но даст такое пони&shy;ма&shy;ние о нашей сис&shy;теме типов, что пос&shy;лед&shy;ние кусочки пазла нако&shy;нец вста&shy;нут на свои места.</p>
 <div class="paragraph-right-side">36</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">37</div>
-<p >
-Итак, давайте ещё раз вспом&shy;ним про раз&shy;ме&shy;ще&shy;ние зна&shy;чи&shy;мых типов в памяти. Везде, где бы они ни нахо&shy;ди&shy;лись, они вжив&shy;ля&shy;ются в то место, где нахо&shy;дятся. Они ста&shy;но&shy;вятся его частью. В отли&shy;чии от ссы&shy;лоч&shy;ных типов, для кото&shy;рых закон твер&shy;дит быть в куче малых или боль&shy;ших объ&shy;ек&shy;тов, а в место уста&shy;новки зна&shy;че&shy;ния - всегда ста&shy;вить ссылку на место в куче, где рас&shy;по&shy;ло&shy;жился наш объ&shy;ект.</p>
+<p>Итак, давайте ещё раз вспом&shy;ним про раз&shy;ме&shy;ще&shy;ние зна&shy;чи&shy;мых типов в памяти. Везде, где бы они ни нахо&shy;ди&shy;лись, они вжив&shy;ля&shy;ются в то место, где нахо&shy;дятся. Они ста&shy;но&shy;вятся его частью. В отли&shy;чии от ссы&shy;лоч&shy;ных типов, для кото&shy;рых закон твер&shy;дит быть в куче малых или боль&shy;ших объ&shy;ек&shy;тов, а в место уста&shy;новки зна&shy;че&shy;ния  &mdash;  всегда ста&shy;вить ссылку на место в куче, где рас&shy;по&shy;ло&shy;жился наш объ&shy;ект.</p>
 <div class="paragraph-right-side">37</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">38</div>
-<p >
-Так вот если заду&shy;маться, то у любого зна&shy;чи&shy;мого типа есть методы <code>ToString</code>, <code>Equals</code> и <code>GetHashCode</code>, кото&shy;рые явля&shy;ются вир&shy;ту&shy;ал&shy;ьными, пере&shy;оп&shy;ре&shy;де&shy;ля&shy;е&shy;мыми, но нам не дают нас&shy;ле&shy;до&shy;вать зна&shy;чи&shy;мые типы, пере&shy;оп&shy;ре&shy;де&shy;ляя методы. Почему? Потому что если зна&shy;чи&shy;мые типы сде&shy;лать с пере&shy;оп&shy;ре&shy;де&shy;ля&shy;е&shy;мыми мето&shy;дами, то им пона&shy;до&shy;бится таб&shy;лица вир&shy;ту&shy;альных мето&shy;дов, через кото&shy;рую будет осу&shy;щ&shy;еств&shy;ляться роу&shy;тинг вызо&shy;вов. А это в свою оче&shy;редь пов&shy;лечёт за собой проб&shy;лемы проб&shy;роса струк&shy;тур в unma&shy;naged мир: туда уйдут лиш&shy;ние поля. В итоге полу&shy;ча&shy;ется, что опи&shy;са&shy;ние мето&shy;дов зна&shy;чи&shy;мых типов где-то лежат, но к ним нет пря&shy;мого дос&shy;тупа через таб&shy;лицу вир&shy;ту&shy;альных мето&shy;дов.</p>
+<p>Так вот если заду&shy;маться, то у любого зна&shy;чи&shy;мого типа есть методы <code>To&shy;String</code>, <code>Equals</code> и <code>Get&shy;Hash&shy;Code</code>, кото&shy;рые явля&shy;ются вир&shy;ту&shy;ал&shy;ьными, пере&shy;оп&shy;ре&shy;де&shy;ля&shy;е&shy;мыми, но нам не дают нас&shy;ле&shy;до&shy;вать зна&shy;чи&shy;мые типы, пере&shy;оп&shy;ре&shy;де&shy;ляя методы. Почему? Потому что если зна&shy;чи&shy;мые типы сде&shy;лать с пере&shy;оп&shy;ре&shy;де&shy;ля&shy;е&shy;мыми мето&shy;дами, то им пона&shy;до&shy;бится таб&shy;лица вир&shy;ту&shy;альных мето&shy;дов, через кото&shy;рую будет осу&shy;щ&shy;еств&shy;ляться роу&shy;тинг вызо&shy;вов. А это в свою оче&shy;редь пов&shy;лечёт за собой проб&shy;лемы проб&shy;роса струк&shy;тур в unma&shy;naged мир: туда уйдут лиш&shy;ние поля. В итоге полу&shy;ча&shy;ется, что опи&shy;са&shy;ние мето&shy;дов зна&shy;чи&shy;мых типов где-то лежат, но к ним нет пря&shy;мого дос&shy;тупа через таб&shy;лицу вир&shy;ту&shy;альных мето&shy;дов.</p>
 <div class="paragraph-right-side">38</div>
 </div>
-<p >
-Это наво&shy;дит на мысль что отс&shy;утствие нас&shy;ле&shy;до&shy;ва&shy;ния искусст&shy;венно:</p>
+<p>Это наво&shy;дит на мысль что отс&shy;утствие нас&shy;ле&shy;до&shy;ва&shy;ния искусст&shy;венно:</p>
 <ul>
-<li>
-<p >
-Нас&shy;ле&shy;до&shy;ва&shy;ние от object есть, хоть и не пря&shy;мое;</p>
-</li>
-<li>
-<p >
-В базо&shy;вом типе есть To&shy;String, Equals и Get&shy;Hash&shy;Code, кото&shy;рые по-сво&shy;ему рабо&shy;тают в зна&shy;чи&shy;мых типах: у этих мето&shy;дов своё пове&shy;де&shy;ние в каж&shy;дом из них. А зна&shy;чит, что методы пере&shy;оп&shy;ре&shy;де&shy;лены отно&shy;си&shy;тельно object;</p>
-</li>
-<li>
-<p >
-более того, если вы сде&shy;ла&shy;ете при&shy;ве&shy;де&shy;ние типа в <code>object</code>, вы все ещё можете на пол&shy;ных пра&shy;вах вызы&shy;вать To&shy;String, Equals и Get&shy;Hash&shy;Code.</p>
-</li>
-<li>
-<p >
-При вызове экземп&shy;ляр&shy;ного метода над зна&shy;чи&shy;мым типом не про&shy;ис&shy;хо&shy;дит копи&shy;ро&shy;ва&shy;ния в метод. Т.е. вызов экземп&shy;ляр&shy;ного метода ана&shy;ло&shy;ги&shy;чен вызову ста&shy;ти&shy;чес&shy;кого метода: <code>Method(ref structInstance, newInternalFieldValue)</code>. А это ведь, по сути, вызов с пере&shy;да&shy;чей <code>this</code> за одним исклю&shy;че&shy;нием: JIT дол&shy;жен соб&shy;рать тело метода так, чтобы не делать допол&shy;ни&shy;тель&shy;ного сме&shy;ще&shy;ния на поля струк&shy;туры, переп&shy;ры&shy;ги&shy;вая через ука&shy;за&shy;тель на таб&shy;лицу вир&shy;ту&shy;альных мето&shy;дов, кото&shy;рой в самой струк&shy;туре нет. <em>Для значимых типов она находится в другом месте</em>.</p>
-</li>
+<li>Нас&shy;ле&shy;до&shy;ва&shy;ние от object есть, хоть и не пря&shy;мое;</li>
+<li>В базо&shy;вом типе есть To&shy;String&shy;, Equals и Get&shy;Hash&shy;Code&shy;, кото&shy;рые по-сво&shy;ему рабо&shy;тают в зна&shy;чи&shy;мых типах: у этих мето&shy;дов своё пове&shy;де&shy;ние в каж&shy;дом из них. А зна&shy;чит, что методы пере&shy;оп&shy;ре&shy;де&shy;лены отно&shy;си&shy;тельно object;</li>
+<li>более того, если вы сде&shy;ла&shy;ете при&shy;ве&shy;де&shy;ние типа в <code>object</code>, вы все ещё можете на пол&shy;ных пра&shy;вах вызы&shy;вать To&shy;String&shy;, Equals и Get&shy;Hash&shy;Code&shy;.</li>
+<li>При вызове экземп&shy;ляр&shy;ного метода над зна&shy;чи&shy;мым типом не про&shy;ис&shy;хо&shy;дит копи&shy;ро&shy;ва&shy;ния в метод. Т.е. вызов экземп&shy;ляр&shy;ного метода ана&shy;ло&shy;ги&shy;чен вызову ста&shy;ти&shy;чес&shy;кого метода: <code>Method&shy;(ref struct&shy;Instance, newIn&shy;ter&shy;na&shy;lF&shy;iel&shy;dValue)</code>. А это ведь, по сути, вызов с пере&shy;да&shy;чей <code>this</code> за одним исклю&shy;че&shy;нием: JIT дол&shy;жен соб&shy;рать тело метода так, чтобы не делать допол&shy;ни&shy;тель&shy;ного сме&shy;ще&shy;ния на поля струк&shy;туры, переп&shy;ры&shy;ги&shy;вая через ука&shy;за&shy;тель на таб&shy;лицу вир&shy;ту&shy;альных мето&shy;дов, кото&shy;рой в самой струк&shy;туре нет. <em>Для зна&shy;чи&shy;мых типов она нахо&shy;дится в дру&shy;гом месте</em>.</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">39</div>
-<p >
-Т.е. в неко&shy;то&shy;ром смысле нас не то чтобы обма&shy;ны&shy;вают, но недо&shy;го&shy;ва&shy;ри&shy;вают: типы сильно отли&shy;ча&shy;ются пове&shy;ден&shy;чески, но на уровне реа&shy;ли&shy;за&shy;ции в CLR раз&shy;ница между ними не столь сущест&shy;венна. Но об этом нем&shy;ного позже.</p>
+<p>Т.е. в неко&shy;то&shy;ром смысле нас не то чтобы обма&shy;ны&shy;вают, но недо&shy;го&shy;ва&shy;ри&shy;вают: типы сильно отли&shy;ча&shy;ются пове&shy;ден&shy;чески, но на уровне реа&shy;ли&shy;за&shy;ции в CLR раз&shy;ница между ними не столь сущест&shy;венна. Но об этом нем&shy;ного позже.</p>
 <div class="paragraph-right-side">39</div>
 </div>
-<p >
-Если мы напи&shy;шем сле&shy;ду&shy;ю&shy;щую строчку в нашей прог&shy;рамме:</p>
+<p>Если мы напи&shy;шем сле&shy;ду&shy;ю&shy;щую строчку в нашей прог&shy;рамме:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">var</span> obj = (<span style="color:Blue;">object</span>)10;
 </pre></div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">40</div>
-<p >
-То мы перес&shy;та&shy;нем иметь дело с чис&shy;лом <code>10</code>. Про&shy;и&shy;зойдёт так назы&shy;ва&shy;е&shy;мый boxing: упа&shy;ковка. Т.е. мы начнём иметь воз&shy;мож&shy;ность рабо&shy;тать с ним через базо&shy;вый класс. А если мы полу&shy;чили такие воз&shy;мож&shy;ности, это зна&shy;чит, что нам стала дос&shy;тупна VMT, через кото&shy;рую можно спо&shy;койно вызы&shy;вать вир&shy;ту&shy;альные методы To&shy;String(), Equals и Get&shy;Hash&shy;Code. Причём пос&shy;кольку ори&shy;ги&shy;наль&shy;ное зна&shy;че&shy;ние у нас может хра&shy;ниться где угодно: хоть на стеке, хоть как поле класса, а при&shy;водя к типу <code>object</code> мы полу&shy;чаем воз&shy;мож&shy;ность хра&shy;нить ссылку на это число веки веч&shy;ные, то в реаль&shy;ности boxing создаёт копию зна&shy;чи&shy;мого типа, а не делает ука&shy;за&shy;тель на ори&shy;ги&shy;нал. Т.е. когда про&shy;ис&shy;хо&shy;дит boxing, то:</p>
+<p>То мы перес&shy;та&shy;нем иметь дело с чис&shy;лом <code>10</code>. Про&shy;и&shy;зойдёт так назы&shy;ва&shy;е&shy;мый boxing: упа&shy;ковка. Т.е. мы начнём иметь воз&shy;мож&shy;ность рабо&shy;тать с ним через базо&shy;вый класс. А если мы полу&shy;чили такие воз&shy;мож&shy;ности, это зна&shy;чит, что нам стала дос&shy;тупна VMT, через кото&shy;рую можно спо&shy;койно вызы&shy;вать вир&shy;ту&shy;альные методы To&shy;String&shy;(), Equals и Get&shy;Hash&shy;Code&shy;. Причём пос&shy;кольку ори&shy;ги&shy;наль&shy;ное зна&shy;че&shy;ние у нас может хра&shy;ниться где угодно: хоть на стеке, хоть как поле класса, а при&shy;водя к типу <code>object</code> мы полу&shy;чаем воз&shy;мож&shy;ность хра&shy;нить ссылку на это число веки веч&shy;ные, то в реаль&shy;ности boxing создаёт копию зна&shy;чи&shy;мого типа, а не делает ука&shy;за&shy;тель на ори&shy;ги&shy;нал. Т.е. когда про&shy;ис&shy;хо&shy;дит boxing, то:</p>
 <div class="paragraph-right-side">40</div>
 </div>
 <ul>
-<li>
-<p >
-CLR выде&shy;ляет место в куче под струк&shy;туру + Sync&shy;Block&shy;Index + VMT зна&shy;чи&shy;мого типа (чтобы иметь воз&shy;мож&shy;ность выз&shy;вать To&shy;String, Get&shy;Hash&shy;Code, Equals);</p>
-</li>
-<li>
-<p >
-копи&shy;рует туда экземп&shy;ляр зна&shy;чи&shy;мого типа.</p>
-</li>
+<li>CLR выде&shy;ляет место в куче под струк&shy;туру + Sync&shy;Block&shy;Index + VMT зна&shy;чи&shy;мого типа (чтобы иметь воз&shy;мож&shy;ность выз&shy;вать To&shy;String&shy;, Get&shy;Hash&shy;Code&shy;, Equals&shy;);</li>
+<li>копи&shy;рует туда экземп&shy;ляр зна&shy;чи&shy;мого типа.</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">41</div>
-<p >
-Дамы и гос&shy;пода. В при&shy;лич&shy;ном общес&shy;тве такое не при&shy;нято гово&shy;рить, но мы полу&shy;чили ссы&shy;лоч&shy;ный вари&shy;ант зна&shy;чи&shy;мого типа. Я пов&shy;торю ещё раз: совер&shy;шив boxing струк&shy;тура полу&shy;чила <strong>абсолютно такой же набор системных полей, что и ссылочный тип</strong>, став пол&shy;но&shy;цен&shy;ным ссы&shy;лоч&shy;ным типом. Струк&shy;тура стала клас&shy;сом. Давайте назовём это явле&shy;ние Куль&shy;бит Дот&shy;нетс&shy;кого. Мне кажется, это наз&shy;ва&shy;ние будет дос&shy;той&shy;ным такого хит&shy;рого пово&shy;рота дел.</p>
+<p>Дамы и гос&shy;пода. В при&shy;лич&shy;ном общес&shy;тве такое не при&shy;нято гово&shy;рить, но мы полу&shy;чили ссы&shy;лоч&shy;ный вари&shy;ант зна&shy;чи&shy;мого типа. Я пов&shy;торю ещё раз: совер&shy;шив boxing струк&shy;тура полу&shy;чила <strong>абсо&shy;лютно такой же набор сис&shy;тем&shy;ных полей, что и ссы&shy;лоч&shy;ный тип</strong>, став пол&shy;но&shy;цен&shy;ным ссы&shy;лоч&shy;ным типом. Струк&shy;тура стала клас&shy;сом. Давайте назовём это явле&shy;ние Куль&shy;бит Дот&shy;нетс&shy;кого. Мне кажется, это наз&shy;ва&shy;ние будет дос&shy;той&shy;ным такого хит&shy;рого пово&shy;рота дел.</p>
 <div class="paragraph-right-side">41</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">42</div>
-<p >
-Кстати, чтобы вы пове&shy;рили в чест&shy;ность моих слов, дос&shy;та&shy;точно разоб&shy;раться, что про&shy;ис&shy;хо&shy;дит если вы исполь&shy;зу&shy;ете струк&shy;туру, кото&shy;рая реа&shy;ли&shy;зует некий интер&shy;фейс - по этому самому интер&shy;фейсу.</p>
+<p>Кстати, чтобы вы пове&shy;рили в чест&shy;ность моих слов, дос&shy;та&shy;точно разоб&shy;раться, что про&shy;ис&shy;хо&shy;дит если вы исполь&shy;зу&shy;ете струк&shy;туру, кото&shy;рая реа&shy;ли&shy;зует некий интер&shy;фейс  &mdash;  по этому самому интер&shy;фейсу.</p>
 <div class="paragraph-right-side">42</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2113,8 +1948,7 @@ boo.Boo();
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">43</div>
-<p >
-Итак, когда создаётся экземп&shy;ляр Foo, то его зна&shy;че&shy;ние, по сути, нахо&shy;дится на стеке. После чего мы кладём эту пере&shy;мен&shy;ную в пере&shy;мен&shy;ную интер&shy;фейс&shy;ного типа. Струк&shy;туру - в пере&shy;мен&shy;ную ссы&shy;лоч&shy;ного типа. Про&shy;ис&shy;хо&shy;дит <code>boxing</code>. Хорошо. На выходе мы полу&shy;чили тип <code>object</code>. Но пере&shy;мен&shy;ная у нас - интер&shy;фейс&shy;ного типа. А это зна&shy;чит, что необ&shy;хо&shy;димо пре&shy;об&shy;ра&shy;зо&shy;ва&shy;ние типа. Т.е. вызов, ско&shy;рее, про&shy;ис&shy;хо&shy;дит как-то так:</p>
+<p>Итак, когда создаётся экземп&shy;ляр Foo&shy;, то его зна&shy;че&shy;ние, по сути, нахо&shy;дится на стеке. После чего мы кладём эту пере&shy;мен&shy;ную в пере&shy;мен&shy;ную интер&shy;фейс&shy;ного типа. Струк&shy;туру  &mdash;  в пере&shy;мен&shy;ную ссы&shy;лоч&shy;ного типа. Про&shy;ис&shy;хо&shy;дит <code>boxing</code>. Хорошо. На выходе мы полу&shy;чили тип <code>object</code>. Но пере&shy;мен&shy;ная у нас  &mdash;  интер&shy;фейс&shy;ного типа. А это зна&shy;чит, что необ&shy;хо&shy;димо пре&shy;об&shy;ра&shy;зо&shy;ва&shy;ние типа. Т.е. вызов, ско&shy;рее, про&shy;ис&shy;хо&shy;дит как-то так:</p>
 <div class="paragraph-right-side">43</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2126,8 +1960,7 @@ boo.Boo();
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">44</div>
-<p >
-Т.е. напи&shy;са&shy;ние такого кода - это крайне не эффек&shy;тивно. Мало того что вы будете менять копию вместо ори&shy;ги&shy;нала:</p>
+<p>Т.е. напи&shy;са&shy;ние такого кода  &mdash;  это крайне не эффек&shy;тивно. Мало того что вы будете менять копию вместо ори&shy;ги&shy;нала:</p>
 <div class="paragraph-right-side">44</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2159,20 +1992,17 @@ boo.Boo();
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">45</div>
-<p >
-Выг&shy;ля&shy;дит как обман дважды. Пер&shy;вый раз - глядя на код мы не обя&shy;заны знать, с чем имеем дело в <em>чужом</em> коде, и видим ниже при&shy;ве&shy;де&shy;ние к интер&shy;фейсу <code>IBoo</code>. Что фак&shy;ти&shy;чески гаран&shy;ти&shy;ро&shy;ванно наво&shy;дит нас на мысль, что Foo - класс, а не струк&shy;тура. Далее - пол&shy;ное отс&shy;утствие визу&shy;ал&shy;ьного раз&shy;де&shy;ле&shy;ния на струк&shy;туры и классы даёт пол&shy;ное ощу&shy;ще&shy;ние, что резуль&shy;таты моди&shy;фи&shy;ка&shy;ции по интер&shy;фейсу обя&shy;заны попасть в foo, чего не про&shy;ис&shy;хо&shy;дит потому, что boo - копия foo. Что фак&shy;ти&shy;чески вво&shy;дит нас в заб&shy;луж&shy;де&shy;ние. На мой взгляд, такой код стоит снаб&shy;жать ком&shy;мен&shy;та&shy;ри&shy;ями, чтоб внеш&shy;ний раз&shy;ра&shy;бот&shy;чик смог бы в нем пра&shy;вильно разоб&shy;раться.</p>
+<p>Выг&shy;ля&shy;дит как обман дважды. Пер&shy;вый раз  &mdash;  глядя на код мы не обя&shy;заны знать, с чем имеем дело в <em>чужом</em> коде, и видим ниже при&shy;ве&shy;де&shy;ние к интер&shy;фейсу <code>IBoo</code>. Что фак&shy;ти&shy;чески гаран&shy;ти&shy;ро&shy;ванно наво&shy;дит нас на мысль, что Foo  &mdash;  класс, а не струк&shy;тура. Далее  &mdash;  пол&shy;ное отс&shy;утствие визу&shy;ал&shy;ьного раз&shy;де&shy;ле&shy;ния на струк&shy;туры и классы даёт пол&shy;ное ощу&shy;ще&shy;ние, что резуль&shy;таты моди&shy;фи&shy;ка&shy;ции по интер&shy;фейсу обя&shy;заны попасть в foo, чего не про&shy;ис&shy;хо&shy;дит потому, что boo  &mdash;  копия foo. Что фак&shy;ти&shy;чески вво&shy;дит нас в заб&shy;луж&shy;де&shy;ние. На мой взгляд, такой код стоит снаб&shy;жать ком&shy;мен&shy;та&shy;ри&shy;ями, чтоб внеш&shy;ний раз&shy;ра&shy;бот&shy;чик смог бы в нем пра&shy;вильно разоб&shy;раться.</p>
 <div class="paragraph-right-side">45</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">46</div>
-<p >
-Вто&shy;рое наб&shy;лю&shy;де&shy;ние, свя&shy;зан&shy;ное с нашими, более ран&shy;ними рас&shy;суж&shy;де&shy;ни&shy;ями, а именно с тем, что мы можем сде&shy;лать при&shy;ве&shy;де&shy;ние типа из <code>object</code> в <code>IBoo</code>. Это - ещё одно дока&shy;за&shy;тельство, что boxed зна&shy;чи&shy;мый тип не что-то осо&shy;бен&shy;ное, а на самом деле ссы&shy;лоч&shy;ный вари&shy;ант зна&shy;чи&shy;мого типа. Либо если пос&shy;мот&shy;реть с дру&shy;гого угла - все типы в сис&shy;теме типов явля&shy;ются ссы&shy;лоч&shy;ными. Просто со струк&shy;ту&shy;рами мы можем рабо&shy;тать как со зна&shy;чи&shy;мыми, &laquo;отгру&shy;жая&raquo; их зна&shy;че&shy;ние цели&shy;ком. Как бы ска&shy;зали в мире C++, разы&shy;ме&shy;но&shy;вы&shy;вая ука&shy;за&shy;тель на объ&shy;ект.</p>
+<p>Вто&shy;рое наб&shy;лю&shy;де&shy;ние, свя&shy;зан&shy;ное с нашими, более ран&shy;ними рас&shy;суж&shy;де&shy;ни&shy;ями, а именно с тем, что мы можем сде&shy;лать при&shy;ве&shy;де&shy;ние типа из <code>object</code> в <code>IBoo</code>. Это  &mdash;  ещё одно дока&shy;за&shy;тельство, что boxed зна&shy;чи&shy;мый тип не что-то осо&shy;бен&shy;ное, а на самом деле ссы&shy;лоч&shy;ный вари&shy;ант зна&shy;чи&shy;мого типа. Либо если пос&shy;мот&shy;реть с дру&shy;гого угла  &mdash;  все типы в сис&shy;теме типов явля&shy;ются ссы&shy;лоч&shy;ными. Просто со струк&shy;ту&shy;рами мы можем рабо&shy;тать как со зна&shy;чи&shy;мыми, &laquo;отгру&shy;жая&raquo; их зна&shy;че&shy;ние цели&shy;ком. Как бы ска&shy;зали в мире C++, разы&shy;ме&shy;но&shy;вы&shy;вая ука&shy;за&shy;тель на объ&shy;ект.</p>
 <div class="paragraph-right-side">46</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">47</div>
-<p >
-Но вы можете воз&shy;ра&shy;зить: дес&shy;кать, если бы все было именно так, как я говорю, то можно было бы напи&shy;сать как-то так:</p>
+<p>Но вы можете воз&shy;ра&shy;зить: дес&shy;кать, если бы все было именно так, как я говорю, то можно было бы напи&shy;сать как-то так:</p>
 <div class="paragraph-right-side">47</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2181,8 +2011,7 @@ boo.Boo();
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">48</div>
-<p >
-И мы полу&shy;чили бы не просто <code>object</code>, а типи&shy;зи&shy;ро&shy;ван&shy;ную ссылку на упа&shy;ко&shy;ван&shy;ный зна&shy;чи&shy;мый тип. Но тогда бы это раз&shy;ру&shy;шило всю идею зна&shy;чи&shy;мых типов, друзья. А основ&shy;ная идея - это целост&shy;ность их зна&shy;че&shy;ния, поз&shy;во&shy;ля&shy;ю&shy;щее делать отлич&shy;ные опти&shy;ми&shy;за&shy;ции, осно&shy;вы&shy;ва&shy;ясь на их свой&shy;с&shy;твах. Так не будем сидеть сложа руки! Давайте раз&shy;ру&shy;шим эту идею!</p>
+<p>И мы полу&shy;чили бы не просто <code>object</code>, а типи&shy;зи&shy;ро&shy;ван&shy;ную ссылку на упа&shy;ко&shy;ван&shy;ный зна&shy;чи&shy;мый тип. Но тогда бы это раз&shy;ру&shy;шило всю идею зна&shy;чи&shy;мых типов, друзья. А основ&shy;ная идея  &mdash;  это целост&shy;ность их зна&shy;че&shy;ния, поз&shy;во&shy;ля&shy;ю&shy;щее делать отлич&shy;ные опти&shy;ми&shy;за&shy;ции, осно&shy;вы&shy;ва&shy;ясь на их свой&shy;с&shy;твах. Так не будем сидеть сложа руки! Давайте раз&shy;ру&shy;шим эту идею!</p>
 <div class="paragraph-right-side">48</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2212,8 +2041,7 @@ boo.Boo();
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">49</div>
-<p >
-Что мы только что полу&shy;чили? Мы полу&shy;чили абсо&shy;лютно пол&shy;ный ана&shy;лог бок&shy;синга. Но теперь у нас есть воз&shy;мож&shy;ность менять его содер&shy;жи&shy;мое путём вызова его экземп&shy;ляр&shy;ных мето&shy;дов. И эти изме&shy;не&shy;ния полу&shy;чат все, у кого будет ссылка на эту струк&shy;туру дан&shy;ных.</p>
+<p>Что мы только что полу&shy;чили? Мы полу&shy;чили абсо&shy;лютно пол&shy;ный ана&shy;лог бок&shy;синга. Но теперь у нас есть воз&shy;мож&shy;ность менять его содер&shy;жи&shy;мое путём вызова его экземп&shy;ляр&shy;ных мето&shy;дов. И эти изме&shy;не&shy;ния полу&shy;чат все, у кого будет ссылка на эту струк&shy;туру дан&shy;ных.</p>
 <div class="paragraph-right-side">49</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2223,12 +2051,10 @@ boo.Boo();
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">50</div>
-<p >
-Пер&shy;вый вари&shy;ант, сог&shy;ла&shy;си&shy;тесь, выг&shy;ля&shy;дит нес&shy;колько неу&shy;ве&shy;ренно. Вместо при&shy;выч&shy;ного при&shy;ве&shy;де&shy;ния типа мы горо&shy;дим не пойми что. То ли дело вто&shy;рая строчка. Лако&shy;нична как японс&shy;кий стих. Однако они на самом деле почти пол&shy;ностью иден&shy;тичны. Раз&shy;ница сос&shy;тоит только в том, что во время обыч&shy;ной упа&shy;ковки после выде&shy;ле&shy;ния памяти в куче не про&shy;ис&shy;хо&shy;дит очис&shy;тки памяти нулями: память сразу зани&shy;ма&shy;ется необ&shy;хо&shy;ди&shy;мой струк&shy;ту&shy;рой. Тогда как в пер&shy;вом вари&shy;анте очис&shy;тка есть. Только из-за этого наш вари&shy;ант мед&shy;лен&shy;нее обыч&shy;ной упа&shy;ковки на 10%.</p>
+<p>Пер&shy;вый вари&shy;ант, сог&shy;ла&shy;си&shy;тесь, выг&shy;ля&shy;дит нес&shy;колько неу&shy;ве&shy;ренно. Вместо при&shy;выч&shy;ного при&shy;ве&shy;де&shy;ния типа мы горо&shy;дим не пойми что. То ли дело вто&shy;рая строчка. Лако&shy;нична как японс&shy;кий стих. Однако они на самом деле почти пол&shy;ностью иден&shy;тичны. Раз&shy;ница сос&shy;тоит только в том, что во время обыч&shy;ной упа&shy;ковки после выде&shy;ле&shy;ния памяти в куче не про&shy;ис&shy;хо&shy;дит очис&shy;тки памяти нулями: память сразу зани&shy;ма&shy;ется необ&shy;хо&shy;ди&shy;мой струк&shy;ту&shy;рой. Тогда как в пер&shy;вом вари&shy;анте очис&shy;тка есть. Только из-за этого наш вари&shy;ант мед&shy;лен&shy;нее обыч&shy;ной упа&shy;ковки на 10%.</p>
 <div class="paragraph-right-side">50</div>
 </div>
-<p >
-Зато теперь мы можем вызы&shy;вать у нашего упа&shy;ко&shy;ван&shy;ного зна&shy;че&shy;ния какие-то методы:</p>
+<p>Зато теперь мы можем вызы&shy;вать у нашего упа&shy;ко&shy;ван&shy;ного зна&shy;че&shy;ния какие-то методы:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">struct</span> Foo
 {
@@ -2247,32 +2073,18 @@ boxed.Value.ChangeTo(10);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">51</div>
-<p >
-Мы полу&shy;чили новый инст&shy;румент, но пока не знаем, что с ним делать. Давайте добьёмся ответа рас&shy;суж&shy;де&shy;ни&shy;ями:</p>
+<p>Мы полу&shy;чили новый инст&shy;румент, но пока не знаем, что с ним делать. Давайте добьёмся ответа рас&shy;суж&shy;де&shy;ни&shy;ями:</p>
 <div class="paragraph-right-side">51</div>
 </div>
 <ul>
-<li>
-<p >
-Наш тип <code>Boxed&lt;T&gt;</code> по сути, осу&shy;щес&shy;твляет все то же самое, что и обыч&shy;ный: выде&shy;ляет память в куче, отдаёт туда зна&shy;че&shy;ние и поз&shy;во&shy;ляет его заб&shy;рать, выпол&shy;нив сво&shy;еоб&shy;разный <code>unbox</code>;</p>
-</li>
-<li>
-<p >
-Точно также, если поте&shy;рять ссылку на упа&shy;ко&shy;ван&shy;ную струк&shy;туру, GC её соберёт;</p>
-</li>
-<li>
-<p >
-Однако у нас теперь есть воз&shy;мож&shy;ность работы с упа&shy;ко&shy;ван&shy;ным типом: вызы&shy;вать у него методы;</p>
-</li>
-<li>
-<p >
-Также теперь мы имеем воз&shy;мож&shy;ность под&shy;ме&shy;нить экземп&shy;ляр зна&shy;чи&shy;мого типа в SOH/LOH на дру&shy;гой. Этого мы не могли сде&shy;лать раньше: нам приш&shy;лось бы делать <code>unboxing</code>, менять струк&shy;туру на дру&shy;гую и делать <code>boxing</code> обратно, раз&shy;дав новую ссылку пот&shy;ре&shy;би&shy;те&shy;лям.</p>
-</li>
+<li>Наш тип <code>Boxed&shy;<T></code> по сути, осу&shy;щес&shy;твляет все то же самое, что и обыч&shy;ный: выде&shy;ляет память в куче, отдаёт туда зна&shy;че&shy;ние и поз&shy;во&shy;ляет его заб&shy;рать, выпол&shy;нив сво&shy;еоб&shy;разный <code>unbox</code>;</li>
+<li>Точно также, если поте&shy;рять ссылку на упа&shy;ко&shy;ван&shy;ную струк&shy;туру, GC её соберёт;</li>
+<li>Однако у нас теперь есть воз&shy;мож&shy;ность работы с упа&shy;ко&shy;ван&shy;ным типом: вызы&shy;вать у него методы;</li>
+<li>Также теперь мы имеем воз&shy;мож&shy;ность под&shy;ме&shy;нить экземп&shy;ляр зна&shy;чи&shy;мого типа в SOH/LOH на дру&shy;гой. Этого мы не могли сде&shy;лать раньше: нам приш&shy;лось бы делать <code>unbo&shy;xing</code>, менять струк&shy;туру на дру&shy;гую и делать <code>boxing</code> обратно, раз&shy;дав новую ссылку пот&shy;ре&shy;би&shy;те&shy;лям.</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">52</div>
-<p >
-Также давайте поду&shy;маем, какая основ&shy;ная проб&shy;лема у упа&shy;ковки? Соз&shy;да&shy;ние тра&shy;фика в памяти. Тра&shy;фика непо&shy;нят&shy;ного коли&shy;чес&shy;тва объ&shy;ек&shy;тов, часть из кото&shy;рых может выжить до пер&shy;вого поко&shy;ле&shy;ния, где мы полу&shy;чим проб&shy;лемы со сбор&shy;кой мусора: он там будет, его там будет много, и этого явно можно было избе&shy;жать. А когда мы имеем тра&shy;фик корот&shy;ко&shy;жи&shy;ву&shy;щих объ&shy;ек&shy;тов, пер&shy;вое реше&shy;ние, кото&shy;рое при&shy;хо&shy;дит в голову, - пул&shy;линг. Вот это будет отлич&shy;ным завер&shy;ше&shy;нием Куль&shy;бита Дот&shy;нетс&shy;кого.</p>
+<p>Также давайте поду&shy;маем, какая основ&shy;ная проб&shy;лема у упа&shy;ковки? Соз&shy;да&shy;ние тра&shy;фика в памяти. Тра&shy;фика непо&shy;нят&shy;ного коли&shy;чес&shy;тва объ&shy;ек&shy;тов, часть из кото&shy;рых может выжить до пер&shy;вого поко&shy;ле&shy;ния, где мы полу&shy;чим проб&shy;лемы со сбор&shy;кой мусора: он там будет, его там будет много, и этого явно можно было избе&shy;жать. А когда мы имеем тра&shy;фик корот&shy;ко&shy;жи&shy;ву&shy;щих объ&shy;ек&shy;тов, пер&shy;вое реше&shy;ние, кото&shy;рое при&shy;хо&shy;дит в голову,  &mdash;  пул&shy;линг. Вот это будет отлич&shy;ным завер&shy;ше&shy;нием Куль&shy;бита Дот&shy;нетс&shy;кого.</p>
 <div class="paragraph-right-side">52</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2287,24 +2099,15 @@ pool.Free(boxed);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">53</div>
-<p >
-Т.е. мы полу&shy;чили воз&shy;мож&shy;ность работы бок&shy;синга через пул, тем самым уда&shy;лив тра&shy;фик памяти по части бок&shy;синга до нуля. Шутки ради можно даже сде&shy;лать, чтобы в методе фина&shy;ли&shy;за&shy;ции объ&shy;екты воск&shy;ре&shy;шали бы себя, засо&shy;вы&shy;вая обратно в пул объ&shy;ек&shy;тов. Это при&shy;го&shy;ди&shy;лось бы для ситу&shy;а&shy;ций, когда <code>boxed</code> струк&shy;тура ухо&shy;дит в чужой асинх&shy;рон&shy;ный код и нет воз&shy;мож&shy;ности понять, когда она стала не нужна. В этом слу&shy;чае она сама себя вернёт в пул во время GC.</p>
+<p>Т.е. мы полу&shy;чили воз&shy;мож&shy;ность работы бок&shy;синга через пул, тем самым уда&shy;лив тра&shy;фик памяти по части бок&shy;синга до нуля. Шутки ради можно даже сде&shy;лать, чтобы в методе фина&shy;ли&shy;за&shy;ции объ&shy;екты воск&shy;ре&shy;шали бы себя, засо&shy;вы&shy;вая обратно в пул объ&shy;ек&shy;тов. Это при&shy;го&shy;ди&shy;лось бы для ситу&shy;а&shy;ций, когда <code>boxed</code> струк&shy;тура ухо&shy;дит в чужой асинх&shy;рон&shy;ный код и нет воз&shy;мож&shy;ности понять, когда она стала не нужна. В этом слу&shy;чае она сама себя вернёт в пул во время GC.</p>
 <div class="paragraph-right-side">53</div>
 </div>
-<p >
-А теперь давайте сде&shy;лаем выводы:</p>
+<p>А теперь давайте сде&shy;лаем выводы:</p>
 <ul>
-<li>
-<p >
-Если упа&shy;ковка - слу&shy;чайна и такого не дол&shy;жно было про&shy;изойти, будьте акку&shy;ратны и не допус&shy;кайте её воз&shy;ник&shy;но&shy;ве&shy;ния: она может при&shy;вести к проб&shy;ле&shy;мам про&shy;из&shy;во&shy;ди&shy;тель&shy;ности;</p>
-</li>
-<li>
-<p >
-Если упа&shy;ковка - дань тре&shy;бо&shy;ва&shy;ниям архи&shy;тек&shy;туры той сис&shy;темы, кото&shy;рую вы дела&shy;ете, то тут могут воз&shy;ник&shy;нуть вари&shy;анты: если тра&shy;фик упа&shy;ко&shy;ван&shy;ных струк&shy;тур мал, и не заме&shy;тен, можно не обра&shy;щать ника&shy;кого вни&shy;ма&shy;ния и рабо&shy;тать через упа&shy;ковку. Если же тра&shy;фик ста&shy;но&shy;вится замет&shy;ным, то воз&shy;можно стоит сде&shy;лать пул&shy;линг бок&shy;синга через реше&shy;ние, ука&shy;зан&shy;ное выше. Да, оно даёт неко&shy;то&shy;рые рас&shy;ходы на про&shy;из&shy;во&shy;ди&shy;тель&shy;ности пул&shy;линга, зато GC спо&shy;коен и не рабо&shy;тает на износ;</p>
-</li>
+<li>Если упа&shy;ковка  &mdash;  слу&shy;чайна и такого не дол&shy;жно было про&shy;изойти, будьте акку&shy;ратны и не допус&shy;кайте её воз&shy;ник&shy;но&shy;ве&shy;ния: она может при&shy;вести к проб&shy;ле&shy;мам про&shy;из&shy;во&shy;ди&shy;тель&shy;ности;</li>
+<li>Если упа&shy;ковка  &mdash;  дань тре&shy;бо&shy;ва&shy;ниям архи&shy;тек&shy;туры той сис&shy;темы, кото&shy;рую вы дела&shy;ете, то тут могут воз&shy;ник&shy;нуть вари&shy;анты: если тра&shy;фик упа&shy;ко&shy;ван&shy;ных струк&shy;тур мал, и не заме&shy;тен, можно не обра&shy;щать ника&shy;кого вни&shy;ма&shy;ния и рабо&shy;тать через упа&shy;ковку. Если же тра&shy;фик ста&shy;но&shy;вится замет&shy;ным, то воз&shy;можно стоит сде&shy;лать пул&shy;линг бок&shy;синга через реше&shy;ние, ука&shy;зан&shy;ное выше. Да, оно даёт неко&shy;то&shy;рые рас&shy;ходы на про&shy;из&shy;во&shy;ди&shy;тель&shy;ности пул&shy;линга, зато GC спо&shy;коен и не рабо&shy;тает на износ;</li>
 </ul>
-<p >
-Напос&shy;ле&shy;док, давайте расс&shy;мот&shy;рим при&shy;мер из мира совер&shy;шенно не прак&shy;тич&shy;ного кода</p>
+<p>Напос&shy;ле&shy;док, давайте расс&shy;мот&shy;рим при&shy;мер из мира совер&shy;шенно не прак&shy;тич&shy;ного кода</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">static</span> <span style="color:Blue;">unsafe</span> <span style="color:Blue;">void</span> Main()
 {
@@ -2346,47 +2149,26 @@ pool.Free(boxed);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">54</div>
-<p >
-Этот код напи&shy;сан при помощи малень&shy;кой фун&shy;к&shy;ции, кото&shy;рая умеет полу&shy;чать ука&shy;за&shy;тель из ссылки на объ&shy;ект. Биб&shy;ли&shy;о&shy;тека нахо&shy;дится <a href="https://github.com/mumusan/dotnetex/blob/master/libs/">по адресу на github</a>. Этот код пока&shy;зы&shy;вает, что обыч&shy;ный boxing прев&shy;ра&shy;щает int в типи&shy;зи&shy;ро&shy;ван&shy;ный refe&shy;rence type. Расс&shy;мот&shy;рим его по шагам:</p>
+<p>Этот код напи&shy;сан при помощи малень&shy;кой фун&shy;к&shy;ции, кото&shy;рая умеет полу&shy;чать ука&shy;за&shy;тель из ссылки на объ&shy;ект. Биб&shy;ли&shy;о&shy;тека нахо&shy;дится <a href="https://github.com/mumusan/dotnetex/blob/master/libs/">по адресу на github</a>. Этот код пока&shy;зы&shy;вает, что обыч&shy;ный boxing прев&shy;ра&shy;щает int в типи&shy;зи&shy;ро&shy;ван&shy;ный refe&shy;rence type. Расс&shy;мот&shy;рим его по шагам:</p>
 <div class="paragraph-right-side">54</div>
 </div>
 <ol>
-<li>
-<p >
-Делаем boxing для целого числа</p>
-</li>
-<li>
-<p >
-Достаём адрес полу&shy;чен&shy;ного объ&shy;екта (по этому адресу нахо&shy;дится VMT Int32)</p>
-</li>
-<li>
-<p >
-Полу&shy;чаем VMT струк&shy;туры Simple&shy;Int&shy;Holder</p>
-</li>
-<li>
-<p >
-Под&shy;ме&shy;няем VMT запа&shy;ко&shy;ван&shy;ного целого числа на VMT струк&shy;туры</p>
-</li>
-<li>
-<p >
-Делаем unbox в тип струк&shy;туры</p>
-</li>
-<li>
-<p >
-Выво&shy;дим зна&shy;че&shy;ние поля - на экран, дос&shy;та&shy;вая тем самым тот Int32, кото&shy;рый был изна&shy;чально запа&shy;ко&shy;ван.</p>
-</li>
+<li>Делаем boxing для целого числа</li>
+<li>Достаём адрес полу&shy;чен&shy;ного объ&shy;екта (по этому адресу нахо&shy;дится VMT Int32)</li>
+<li>Полу&shy;чаем VMT струк&shy;туры Simple&shy;Int&shy;Holder</li>
+<li>Под&shy;ме&shy;няем VMT запа&shy;ко&shy;ван&shy;ного целого числа на VMT струк&shy;туры</li>
+<li>Делаем unbox в тип струк&shy;туры</li>
+<li>Выво&shy;дим зна&shy;че&shy;ние поля  &mdash;  на экран, дос&shy;та&shy;вая тем самым тот Int32, кото&shy;рый был изна&shy;чально запа&shy;ко&shy;ван.</li>
 </ol>
 <div class="paragraph-container">
 <div class="paragraph-left-side">55</div>
-<p >
-Причём заметьте, что делаю я это наме&shy;ренно через интер&shy;фейс, пока&shy;зав, что так тоже будет рабо&shy;тать.</p>
+<p>Причём заметьте, что делаю я это наме&shy;ренно через интер&shy;фейс, пока&shy;зав, что так тоже будет рабо&shy;тать.</p>
 <div class="paragraph-right-side">55</div>
 </div>
-<h3 id="nullablet">Nullable&lt;T&gt;</h3>
+<h3 id="nullablet">Nullable<T></h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">56</div>
-<p >
-Также стоит ска&shy;зать про то, как ведёт себя <code>boxing</code> для Nullable зна&shy;чи&shy;мых типов. Это очень при&shy;ят&shy;ная осо&shy;бен&shy;ность Nullable зна&shy;чи&shy;мых типов, пос&shy;кольку boxing зна&shy;чи&shy;мого типа, кото&shy;рый как бы null - просто возв&shy;ра&shy;тит null:</p>
+<p>Также стоит ска&shy;зать про то, как ведёт себя <code>boxing</code> для Nullable зна&shy;чи&shy;мых типов. Это очень при&shy;ят&shy;ная осо&shy;бен&shy;ность Nullable зна&shy;чи&shy;мых типов, пос&shy;кольку boxing зна&shy;чи&shy;мого типа, кото&shy;рый как бы null  &mdash;  просто возв&shy;ра&shy;тит null:</p>
 <div class="paragraph-right-side">56</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2399,8 +2181,7 @@ pool.Free(boxed);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">57</div>
-<p >
-Отсюда сле&shy;дует забав&shy;ный вывод: т.к. null не имеет типа, то единст&shy;венный вари&shy;ант выта&shy;щить из boxing'a дру&shy;гой тип, нежели был запа&shy;ко&shy;ван, такой:</p>
+<p>Отсюда сле&shy;дует забав&shy;ный вывод: т.к. null не имеет типа, то единст&shy;венный вари&shy;ант выта&shy;щить из boxing'a дру&shy;гой тип, нежели был запа&shy;ко&shy;ван, такой:</p>
 <div class="paragraph-right-side">57</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2411,15 +2192,13 @@ pool.Free(boxed);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">58</div>
-<p >
-Код рабо&shy;чий просто потому, что с null можно сде&shy;лать при&shy;ве&shy;де&shy;ние типа куда угодно. Но зато таким кодом можно зап&shy;росто уди&shy;вить своих кол&shy;лег и скра&shy;сить вечер забав&shy;ным фак&shy;том.</p>
+<p>Код рабо&shy;чий просто потому, что с null можно сде&shy;лать при&shy;ве&shy;де&shy;ние типа куда угодно. Но зато таким кодом можно зап&shy;росто уди&shy;вить своих кол&shy;лег и скра&shy;сить вечер забав&shy;ным фак&shy;том.</p>
 <div class="paragraph-right-side">58</div>
 </div>
-<h2 id="boxing">Погружаемся в boxing ещё глубже</h2>
+<h2 id="boxing">Пог&shy;ру&shy;жа&shy;емся в boxing ещё глубже</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">59</div>
-<p >
-На закуску хочу вам расс&shy;ка&shy;зать про тип <a href="http://referencesource.microsoft.com/#mscorlib/system/enum.cs,36729210e317a805">System.Enum</a>. Не про&shy;ходя по ссылке, ска&shy;жите, пожа&shy;луй&shy;ста, явля&shy;ется ли тип Value Type или же Refe&shy;rence Type? По всем кано&shy;нам и логике тип просто обя&shy;зан быть зна&shy;чи&shy;мым. Ведь это обыч&shy;ное пере&shy;чис&shy;ле&shy;ние: набор ali&shy;ases с чисел на наз&shy;ва&shy;ния в языке прог&shy;рам&shy;ми&shy;ро&shy;ва&shy;ния. И мы бы закон&shy;чили этот раз&shy;го&shy;вор сло&shy;вами: "вы все дума&shy;ете абсо&shy;лютно пра&shy;вильно! Так не будем терять вре&shy;мени и пойдём дальше!", - но нет. <code>System.Enum</code>, от кото&shy;рого нас&shy;ле&shy;ду&shy;ются все <code>enum</code> типы дан&shy;ных, опре&shy;делённых как в вашем коде, так и в .NET Frame&shy;work, явля&shy;ется ссы&shy;лоч&shy;ным типом. Т.е. типом дан&shy;ных <code>class</code>. Мало того (!) класс этот абстр&shy;актный и нас&shy;ле&shy;ду&shy;ется от <code>System.ValueType</code>.</p>
+<p>На закуску хочу вам расс&shy;ка&shy;зать про тип <a href="http://referencesource.microsoft.com/#mscorlib/system/enum.cs,36729210e317a805">System&shy;.Enum</a>. Не про&shy;ходя по ссылке, ска&shy;жите, пожа&shy;луй&shy;ста, явля&shy;ется ли тип Value Type или же Refe&shy;rence Type&shy;? По всем кано&shy;нам и логике тип просто обя&shy;зан быть зна&shy;чи&shy;мым. Ведь это обыч&shy;ное пере&shy;чис&shy;ле&shy;ние: набор ali&shy;ases с чисел на наз&shy;ва&shy;ния в языке прог&shy;рам&shy;ми&shy;ро&shy;ва&shy;ния. И мы бы закон&shy;чили этот раз&shy;го&shy;вор сло&shy;вами: "вы все дума&shy;ете абсо&shy;лютно пра&shy;вильно! Так не будем терять вре&shy;мени и пойдём дальше!",  &mdash;  но нет. <code>System&shy;.Enum</code>, от кото&shy;рого нас&shy;ле&shy;ду&shy;ются все <code>enum</code> типы дан&shy;ных, опре&shy;делённых как в вашем коде, так и в .NET Framework&shy;, явля&shy;ется ссы&shy;лоч&shy;ным типом. Т.е. типом дан&shy;ных <code>class</code>. Мало того (!) класс этот абстр&shy;актный и нас&shy;ле&shy;ду&shy;ется от <code>System&shy;.Value&shy;Type</code>.</p>
 <div class="paragraph-right-side">59</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2433,14 +2212,12 @@ pool.Free(boxed);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">60</div>
-<p >
-Зна&shy;чит ли это, что все пере&shy;чис&shy;ле&shy;ния выде&shy;ля&shy;ются в куче SOH? Зна&shy;чит ли это, что, исполь&shy;зуя пере&shy;чис&shy;ле&shy;ния, мы заби&shy;ваем кучу, а вместе и с ней - GC? Ведь мы просто исполь&shy;зуем их. Нет, такого не может быть. Тогда, полу&shy;ча&shy;ется, что есть где-то пул пере&shy;чис&shy;ле&shy;ний, в кото&shy;рых они лежат, и что нам отда&shy;ются их экземп&shy;ляры. И снова нет: пере&shy;чис&shy;ле&shy;ния можно исполь&shy;зо&shy;вать в струк&shy;ту&shy;рах при мар&shy;шал&shy;линге. Пере&shy;чис&shy;ле&shy;ния - обыч&shy;ные числа.</p>
+<p>Зна&shy;чит ли это, что все пере&shy;чис&shy;ле&shy;ния выде&shy;ля&shy;ются в куче SOH? Зна&shy;чит ли это, что, исполь&shy;зуя пере&shy;чис&shy;ле&shy;ния, мы заби&shy;ваем кучу, а вместе и с ней  &mdash;  GC? Ведь мы просто исполь&shy;зуем их. Нет, такого не может быть. Тогда, полу&shy;ча&shy;ется, что есть где-то пул пере&shy;чис&shy;ле&shy;ний, в кото&shy;рых они лежат, и что нам отда&shy;ются их экземп&shy;ляры. И снова нет: пере&shy;чис&shy;ле&shy;ния можно исполь&shy;зо&shy;вать в струк&shy;ту&shy;рах при мар&shy;шал&shy;линге. Пере&shy;чис&shy;ле&shy;ния  &mdash;  обыч&shy;ные числа.</p>
 <div class="paragraph-right-side">60</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">61</div>
-<p >
-А правда зак&shy;лю&shy;ча&shy;ется в том, что CLR при фор&shy;ми&shy;ро&shy;ва&shy;нии струк&shy;тур типа дан&shy;ных прямо ска&shy;жем под&shy;ха&shy;чи&shy;вает её, если встр&shy;еч&shy;ае&shy;тся <code>enum</code> <a href="https://github.com/dotnet/coreclr/blob/4b49e4330441db903e6a5b6efab3e1dbb5b64ff3/src/vm/methodtablebuilder.cpp#L1425-L1445">превращая класс в значимый тип</a>:</p>
+<p>А правда зак&shy;лю&shy;ча&shy;ется в том, что CLR при фор&shy;ми&shy;ро&shy;ва&shy;нии струк&shy;тур типа дан&shy;ных прямо ска&shy;жем под&shy;ха&shy;чи&shy;вает её, если встр&shy;еч&shy;ае&shy;тся <code>enum</code> <a href="https://github.com/dotnet/coreclr/blob/4b49e4330441db903e6a5b6efab3e1dbb5b64ff3/src/vm/methodtablebuilder.cpp#L1425-L1445">прев&shy;ра&shy;щая класс в зна&shy;чи&shy;мый тип</a>:</p>
 <div class="paragraph-right-side">61</div>
 </div>
 <div class="wide lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2469,109 +2246,71 @@ pool.Free(boxed);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">62</div>
-<p >
-Зачем это дела&shy;ется? В част&shy;ности из-за идеи нас&shy;ле&shy;до&shy;ва&shy;ния: чтобы сде&shy;лать поль&shy;зо&shy;ва&shy;т&shy;ельский <code>enum</code>, необ&shy;хо&shy;димо снаб&shy;дить его инфор&shy;ма&shy;цией об име&shy;нах его воз&shy;мож&shy;ных зна&shy;че&shy;ний, нап&shy;ри&shy;мер. А как сде&shy;лать нас&shy;ле&shy;до&shy;ва&shy;ние у зна&shy;чи&shy;мых типов? Никак. Вот и при&shy;ду&shy;мали они сде&shy;лать его ссы&shy;лоч&shy;ным, но на этапе работы JIT прев&shy;ра&shy;щать его в зна&shy;чи&shy;мый. Чтобы никто не дога&shy;дался.</p>
+<p>Зачем это дела&shy;ется? В част&shy;ности из-за идеи нас&shy;ле&shy;до&shy;ва&shy;ния: чтобы сде&shy;лать поль&shy;зо&shy;ва&shy;т&shy;ельский <code>enum</code>, необ&shy;хо&shy;димо снаб&shy;дить его инфор&shy;ма&shy;цией об име&shy;нах его воз&shy;мож&shy;ных зна&shy;че&shy;ний, нап&shy;ри&shy;мер. А как сде&shy;лать нас&shy;ле&shy;до&shy;ва&shy;ние у зна&shy;чи&shy;мых типов? Никак. Вот и при&shy;ду&shy;мали они сде&shy;лать его ссы&shy;лоч&shy;ным, но на этапе работы JIT прев&shy;ра&shy;щать его в зна&shy;чи&shy;мый. Чтобы никто не дога&shy;дался.</p>
 <div class="paragraph-right-side">62</div>
 </div>
-<h2 id="boxing-1">Что если хочется лично посмотреть как работает boxing?</h2>
+<h2 id="boxing-1">Что если хочется лично пос&shy;мот&shy;реть как рабо&shy;тает boxing?</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">63</div>
-<p >
-В наше время для того чтобы пос&shy;мот&shy;реть на реа&shy;ли&shy;за&shy;цию упа&shy;ковки зна&shy;чи&shy;мых типов, к счастью, нет необ&shy;хо&shy;ди&shy;мости заг&shy;ру&shy;жать дизас&shy;семб&shy;лер и лезть в самые дебри не пойми чего. В наше прек&shy;рас&shy;ное время у нас есть исход&shy;ные тек&shy;сты всего ядра плат&shy;формы .NET и мно&shy;гие его части абсо&shy;лютно иден&shy;тичны между .NET Frame&shy;work CLR и Core&shy;CLR. Вы можете пройти по ссыл&shy;кам ниже и пос&shy;мот&shy;реть на реа&shy;ли&shy;за&shy;ции упа&shy;ковки прямо в исход&shy;ных кодах:</p>
+<p>В наше время для того чтобы пос&shy;мот&shy;реть на реа&shy;ли&shy;за&shy;цию упа&shy;ковки зна&shy;чи&shy;мых типов, к счастью, нет необ&shy;хо&shy;ди&shy;мости заг&shy;ру&shy;жать дизас&shy;семб&shy;лер и лезть в самые дебри не пойми чего. В наше прек&shy;рас&shy;ное время у нас есть исход&shy;ные тек&shy;сты всего ядра плат&shy;формы .NET и мно&shy;гие его части абсо&shy;лютно иден&shy;тичны между .NET Frame&shy;work CLR и Core&shy;CLR. Вы можете пройти по ссыл&shy;кам ниже и пос&shy;мот&shy;реть на реа&shy;ли&shy;за&shy;ции упа&shy;ковки прямо в исход&shy;ных кодах:</p>
 <div class="paragraph-right-side">63</div>
 </div>
 <ul>
-<li>
-<p >
-Сущес&shy;твует отдель&shy;ная группа опти&shy;ми&shy;за&shy;ций, каж&shy;дая из кото&shy;рых исполь&shy;зу&shy;ется на отдель&shy;ном типе про&shy;цес&shy;сора:</p>
+<li>Сущес&shy;твует отдель&shy;ная группа опти&shy;ми&shy;за&shy;ций, каж&shy;дая из кото&shy;рых исполь&shy;зу&shy;ется на отдель&shy;ном типе про&shy;цес&shy;сора:
 <ul>
-<li>
-<p >
-<em><a href="https://github.com/dotnet/coreclr/blob/master/src/vm/amd64/JitHelpers_InlineGetThread.asm#L86-L148">JIT_BoxFastMP_InlineGetThread</a></em> (AMD64 - мно&shy;гоп&shy;ро&shy;цес&shy;сор&shy;ный или Server GC, implicit Thread Local Storage)</p>
-</li>
-<li>
-<p >
-<em><a href="https://github.com/dotnet/coreclr/blob/8cc7e35dd0a625a3b883703387291739a148e8c8/src/vm/amd64/JitHelpers_Slow.asm#L201-L271">JIT_BoxFastMP</a></em> (AMD64 - мно&shy;гоп&shy;ро&shy;цес&shy;сор&shy;ный или Server GC)</p>
-</li>
-<li>
-<p >
-<em><a href="https://github.com/dotnet/coreclr/blob/8cc7e35dd0a625a3b883703387291739a148e8c8/src/vm/amd64/JitHelpers_Slow.asm#L485-L554">JIT_BoxFastUP</a></em> (AMD64 - одноп&shy;ро&shy;цес&shy;сор&shy;ный или Work&shy;st&shy;ation GC)</p>
-</li>
-<li>
-<p >
-<em><a href="https://github.com/dotnet/coreclr/blob/38a2a69c786e4273eb1339d7a75f939c410afd69/src/vm/i386/jitinterfacex86.cpp#L756-L886">JIT_TrialAlloc::GenBox(..)</a></em> (x86), кото&shy;рая при&shy;со&shy;е&shy;ди&shy;ня&shy;ется через Jit&shy;Helpers</p>
-</li>
+<li><em><a href="https://github.com/dotnet/coreclr/blob/master/src/vm/amd64/JitHelpers_InlineGetThread.asm#L86-L148">JIT_Box&shy;Fast&shy;MP_Inline&shy;Get&shy;Thread</a></em> (AMD64  &mdash;  мно&shy;гоп&shy;ро&shy;цес&shy;сор&shy;ный или Server GC, implicit Thread Local Storage&shy;)</li>
+<li><em><a href="https://github.com/dotnet/coreclr/blob/8cc7e35dd0a625a3b883703387291739a148e8c8/src/vm/amd64/JitHelpers_Slow.asm#L201-L271">JIT_Box&shy;Fast&shy;MP</a></em> (AMD64  &mdash;  мно&shy;гоп&shy;ро&shy;цес&shy;сор&shy;ный или Server GC)</li>
+<li><em><a href="https://github.com/dotnet/coreclr/blob/8cc7e35dd0a625a3b883703387291739a148e8c8/src/vm/amd64/JitHelpers_Slow.asm#L485-L554">JIT_Box&shy;Fast&shy;UP</a></em> (AMD64  &mdash;  одноп&shy;ро&shy;цес&shy;сор&shy;ный или Work&shy;st&shy;ation GC)</li>
+<li><em><a href="https://github.com/dotnet/coreclr/blob/38a2a69c786e4273eb1339d7a75f939c410afd69/src/vm/i386/jitinterfacex86.cpp#L756-L886">JIT_Trial&shy;Alloc::Gen&shy;Box&shy;(..)</a></em> (x86), кото&shy;рая при&shy;со&shy;е&shy;ди&shy;ня&shy;ется через Jit&shy;Helpers</li>
 </ul>
 </li>
-<li>
-<p >
-В общем слу&shy;чае JIT инлай&shy;нит вызов вспо&shy;мо&shy;га&shy;тель&shy;ной фун&shy;к&shy;ции <a href="https://github.com/dotnet/coreclr/blob/a14608efbad1bcb4e9d36a418e1e5ac267c083fb/src/jit/importer.cpp#L5212-L5221">Compiler::impImportAndPushBox(..)</a></p>
-</li>
-<li>
-<p >
-Generic-вер&shy;сия, исполь&shy;зует менее опти&shy;ми&shy;зи&shy;ро&shy;ван&shy;ную <a href="https://github.com/dotnet/coreclr/blob/master/src/vm/methodtable.cpp#L3734-L3783">MethodTable::Box(..)</a></p>
+<li>В общем слу&shy;чае JIT инлай&shy;нит вызов вспо&shy;мо&shy;га&shy;тель&shy;ной фун&shy;к&shy;ции <a href="https://github.com/dotnet/coreclr/blob/a14608efbad1bcb4e9d36a418e1e5ac267c083fb/src/jit/importer.cpp#L5212-L5221">Compiler::im&shy;pImp&shy;ortAndPushBox(..)</a></li>
+<li>Generic&shy;-вер&shy;сия, исполь&shy;зует менее опти&shy;ми&shy;зи&shy;ро&shy;ван&shy;ную <a href="https://github.com/dotnet/coreclr/blob/master/src/vm/methodtable.cpp#L3734-L3783">Method&shy;Table::Box&shy;(..)</a>
 <ul>
-<li>
-<p >
-И нако&shy;нец вызы&shy;ва&shy;ется <a href="https://github.com/dotnet/coreclr/blob/master/src/vm/object.cpp#L1514-L1581">CopyValueClassUnchecked(..)</a>, по коду кото&shy;рой прек&shy;расно видно, почему лучше всего выби&shy;рать раз&shy;мер струк&shy;тур до 8 байт вклю&shy;чи&shy;тельно.</p>
-</li>
+<li>И нако&shy;нец вызы&shy;ва&shy;ется <a href="https://github.com/dotnet/coreclr/blob/master/src/vm/object.cpp#L1514-L1581">Copy&shy;Value&shy;Class&shy;Unchecked&shy;(..)</a>, по коду кото&shy;рой прек&shy;расно видно, почему лучше всего выби&shy;рать раз&shy;мер струк&shy;тур до 8 байт вклю&shy;чи&shy;тельно.</li>
 </ul>
 </li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">64</div>
-<p >
-Для срав&shy;не&shy;ния чтобы сде&shy;лать рас&shy;па&shy;ковку реа&shy;ли&shy;зо&shy;ван всего один метод: <em><a href="https://github.com/dotnet/coreclr/blob/03bec77fb4efaa397248a2b9a35c547522221447/src/vm/jithelpers.cpp#L3603-L3626">JIT_Unbox(..)</a></em>, кото&shy;рый явля&shy;ется обёрткой вок&shy;руг <em><a href="https://github.com/dotnet/coreclr/blob/03bec77fb4efaa397248a2b9a35c547522221447/src/vm/jithelpers.cpp#L3574-L3600">JIT_Unbox_Helper(..)</a></em>.</p>
+<p>Для срав&shy;не&shy;ния чтобы сде&shy;лать рас&shy;па&shy;ковку реа&shy;ли&shy;зо&shy;ван всего один метод: <em><a href="https://github.com/dotnet/coreclr/blob/03bec77fb4efaa397248a2b9a35c547522221447/src/vm/jithelpers.cpp#L3603-L3626">JIT_Unbox&shy;(..)</a></em>, кото&shy;рый явля&shy;ется обёрткой вок&shy;руг <em><a href="https://github.com/dotnet/coreclr/blob/03bec77fb4efaa397248a2b9a35c547522221447/src/vm/jithelpers.cpp#L3574-L3600">JIT_Unbox&shy;_Helper&shy;(..)</a></em>.</p>
 <div class="paragraph-right-side">64</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">65</div>
-<p >
-Также <a href="https://stackoverflow.com/questions/3743762/unboxing-does-not-create-a-copy-of-the-value-is-this-right">интересным фактом является то</a>, что сам про&shy;цесс рас&shy;па&shy;ковки не явля&shy;ется копи&shy;ро&shy;ва&shy;нием дан&shy;ных из кучи: рас&shy;па&shy;ковка явля&shy;ется пере&shy;да&shy;чей ука&shy;за&shy;теля на кучу с про&shy;вер&shy;кой сов&shy;мес&shy;ти&shy;мости типов. А вот сле&shy;ду&shy;ю&shy;щий за рас&shy;па&shy;ков&shy;кой опкод IL опре&shy;де&shy;лит, что будет с этим адре&shy;сом: воз&shy;можно, дан&shy;ные будут ско&shy;пи&shy;ро&shy;ваны в локаль&shy;ную пере&shy;мен&shy;ную, а может быть - ско&shy;пи&shy;ро&shy;ваны в стек для вызова метода. Ведь если бы это было не так, мы бы имели дело с двой&shy;ным копи&shy;ро&shy;ва&shy;нием: сна&shy;чала при копи&shy;ро&shy;ва&shy;нии куда-то из кучи, а затем - при копи&shy;ро&shy;ва&shy;нии в место наз&shy;на&shy;че&shy;ния.</p>
+<p>Также <a href="https://stackoverflow.com/questions/3743762/unboxing-does-not-create-a-copy-of-the-value-is-this-right">инте&shy;рес&shy;ным фак&shy;том явля&shy;ется то</a>, что сам про&shy;цесс рас&shy;па&shy;ковки не явля&shy;ется копи&shy;ро&shy;ва&shy;нием дан&shy;ных из кучи: рас&shy;па&shy;ковка явля&shy;ется пере&shy;да&shy;чей ука&shy;за&shy;теля на кучу с про&shy;вер&shy;кой сов&shy;мес&shy;ти&shy;мости типов. А вот сле&shy;ду&shy;ю&shy;щий за рас&shy;па&shy;ков&shy;кой опкод IL опре&shy;де&shy;лит, что будет с этим адре&shy;сом: воз&shy;можно, дан&shy;ные будут ско&shy;пи&shy;ро&shy;ваны в локаль&shy;ную пере&shy;мен&shy;ную, а может быть  &mdash;  ско&shy;пи&shy;ро&shy;ваны в стек для вызова метода. Ведь если бы это было не так, мы бы имели дело с двой&shy;ным копи&shy;ро&shy;ва&shy;нием: сна&shy;чала при копи&shy;ро&shy;ва&shy;нии куда-то из кучи, а затем  &mdash;  при копи&shy;ро&shy;ва&shy;нии в место наз&shy;на&shy;че&shy;ния.</p>
 <div class="paragraph-right-side">65</div>
 </div>
-<h2 id="ref">Ключевое слово ref</h2>
+<h2 id="ref">Клю&shy;че&shy;вое слово ref</h2>
 <blockquote>
-<p >
-TODO</p>
+<p>TODO</p>
 </blockquote>
-<h2 id="spant-memoryt">Span&lt;T&gt;, Memory&lt;T&gt;</h2>
+<h2 id="spant-memoryt">Span<T>, Memory<T></h2>
 <blockquote>
-<p >
-TODO</p>
+<p>TODO</p>
 </blockquote>
-<h2 id="makeref_reftype_refvalue_arglist">__makeref, __reftype, __refvalue, __arglist</h2>
+<h2 id="makeref_reftype_refvalue_arglist">__makeref, __reftype, __refvalue, __arg&shy;list</h2>
 <blockquote>
-<p >
-TODO</p>
+<p>TODO</p>
 </blockquote>
-<h2 id="boxing-2">Неявный Boxing</h2>
+<h2 id="boxing-2">Неяв&shy;ный Boxing</h2>
 <blockquote>
-<p >
-TODO</p>
+<p>TODO</p>
 </blockquote>
-<h3 id="section-6">Раздел вопросов по теме</h3>
-<h2 id="net-clr">Почему .NET CLR не делает пуллинга для боксинга самостоятельно?</h2>
+<h3 id="section-6">Раз&shy;дел воп&shy;ро&shy;сов по теме</h3>
+<h2 id="net-clr">Почему .NET CLR не делает пул&shy;линга для бок&shy;синга самос&shy;то&shy;я&shy;тельно?</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">66</div>
-<p >
-Если мы пого&shy;во&shy;рим с любым Java раз&shy;ра&shy;бот&shy;чи&shy;ком, то мы с удив&shy;ле&shy;нием узнаем две вещи:</p>
+<p>Если мы пого&shy;во&shy;рим с любым Java раз&shy;ра&shy;бот&shy;чи&shy;ком, то мы с удив&shy;ле&shy;нием узнаем две вещи:</p>
 <div class="paragraph-right-side">66</div>
 </div>
 <ul>
-<li>
-<p >
-В Java все Value Types запа&shy;ко&shy;ваны и по сути не явля&shy;ются зна&shy;чи&shy;мыми. Т.е. целые числа - тоже запа&shy;ко&shy;ваны;</p>
-</li>
-<li>
-<p >
-Для опти&shy;ми&shy;за&shy;ции числа от -128 до 127 берутся из пула объ&shy;ек&shy;тов.</p>
-</li>
+<li>В Java все Value Types запа&shy;ко&shy;ваны и по сути не явля&shy;ются зна&shy;чи&shy;мыми. Т.е. целые числа  &mdash;  тоже запа&shy;ко&shy;ваны;</li>
+<li>Для опти&shy;ми&shy;за&shy;ции числа от -128 до 127 берутся из пула объ&shy;ек&shy;тов.</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">67</div>
-<p >
-Так почему же в .NET CLR во время упа&shy;ковки не про&shy;ис&shy;хо&shy;дит того же самого? Ответ прост: потому что мы можем менять содер&shy;жи&shy;мое упа&shy;ко&shy;ван&shy;ного зна&shy;чи&shy;мого типа. Т.е. дру&shy;гими сло&shy;вами, мы можем сде&shy;лать так:</p>
+<p>Так почему же в .NET CLR во время упа&shy;ковки не про&shy;ис&shy;хо&shy;дит того же самого? Ответ прост: потому что мы можем менять содер&shy;жи&shy;мое упа&shy;ко&shy;ван&shy;ного зна&shy;чи&shy;мого типа. Т.е. дру&shy;гими сло&shy;вами, мы можем сде&shy;лать так:</p>
 <div class="paragraph-right-side">67</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2580,8 +2319,7 @@ x.GetType().GetField(<span style="color:#A31515;">&quot;m_value&quot;</span>, Bi
 Console.WriteLine(x); <span style="color:Green;">// -&gt; 138</span>
 </pre></div>
 </div>
-<p >
-или так (С++/CLI):</p>
+<p>или так (С++/CLI):</p>
 <div class="lang-cpp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">void</span> ChangeValue(Object^ obj)
 {
@@ -2592,28 +2330,24 @@ Console.WriteLine(x); <span style="color:Green;">// -&gt; 138</span>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">68</div>
-<p >
-Т.е. если бы мы имели дело с пул&shy;лин&shy;гом, то мы бы поме&shy;няли все еди&shy;ницы в при&shy;ло&shy;же&shy;нии на 138! Сог&shy;ла&shy;си&shy;тесь, ситу&shy;а&shy;ция не из при&shy;ят&shy;ных.</p>
+<p>Т.е. если бы мы имели дело с пул&shy;лин&shy;гом, то мы бы поме&shy;няли все еди&shy;ницы в при&shy;ло&shy;же&shy;нии на 138! Сог&shy;ла&shy;си&shy;тесь, ситу&shy;а&shy;ция не из при&shy;ят&shy;ных.</p>
 <div class="paragraph-right-side">68</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">69</div>
-<p >
-Вто&shy;рая при&shy;чина - это сама суть зна&shy;чи&shy;мых типов в .NET. Они рабо&shy;тают по зна&shy;че&shy;нию, а зна&shy;чит - быс&shy;т&shy;рее. Упа&shy;ковка для нас - ред&shy;кая опе&shy;ра&shy;ция и сло&shy;же&shy;ние упа&shy;ко&shy;ван&shy;ных чисел - это ско&shy;рее что-то из фан&shy;тас&shy;тики и очень пло&shy;хой архи&shy;тек&shy;туры. Это просто не будет чем-то хоть как-то полез&shy;ным, чтобы зани&shy;маться реа&shy;ли&shy;за&shy;цией дан&shy;ного фун&shy;кци&shy;о&shy;нала.</p>
+<p>Вто&shy;рая при&shy;чина  &mdash;  это сама суть зна&shy;чи&shy;мых типов в .NET. Они рабо&shy;тают по зна&shy;че&shy;нию, а зна&shy;чит  &mdash;  быс&shy;т&shy;рее. Упа&shy;ковка для нас  &mdash;  ред&shy;кая опе&shy;ра&shy;ция и сло&shy;же&shy;ние упа&shy;ко&shy;ван&shy;ных чисел  &mdash;  это ско&shy;рее что-то из фан&shy;тас&shy;тики и очень пло&shy;хой архи&shy;тек&shy;туры. Это просто не будет чем-то хоть как-то полез&shy;ным, чтобы зани&shy;маться реа&shy;ли&shy;за&shy;цией дан&shy;ного фун&shy;кци&shy;о&shy;нала.</p>
 <div class="paragraph-right-side">69</div>
 </div>
-<h2 id="object-boxing">Почему при вызове метода, принимающего тип object, а по факту - значимый тип нет возможности сделать boxing на стеке, разгрузив кучу?</h2>
+<h2 id="object-boxing">Почему при вызове метода, при&shy;ни&shy;ма&shy;ю&shy;щего тип object, а по факту  &mdash;  зна&shy;чи&shy;мый тип нет воз&shy;мож&shy;ности сде&shy;лать boxing на стеке, разг&shy;ру&shy;зив кучу?</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">70</div>
-<p >
-Потому что если про&shy;и&shy;зойдёт упа&shy;ковка зна&shy;чи&shy;мого типа на стеке, после чего ссылка уйдёт в кучу, то внутри метода ссылка может уйти в какое-либо дру&shy;гое место, нап&shy;ри&shy;мер метод может запи&shy;сать при&shy;шед&shy;шую ссылку в поле какого-либо класса. Далее метод завер&shy;шит работу, после чего завер&shy;шит работу метод, кото&shy;рый сде&shy;лал упа&shy;ковку. Как резуль&shy;тат - с внеш&shy;него класса ссылка будет ука&shy;зы&shy;вать на &laquo;вымер&shy;ший&raquo; учас&shy;ток стека.</p>
+<p>Потому что если про&shy;и&shy;зойдёт упа&shy;ковка зна&shy;чи&shy;мого типа на стеке, после чего ссылка уйдёт в кучу, то внутри метода ссылка может уйти в какое-либо дру&shy;гое место, нап&shy;ри&shy;мер метод может запи&shy;сать при&shy;шед&shy;шую ссылку в поле какого-либо класса. Далее метод завер&shy;шит работу, после чего завер&shy;шит работу метод, кото&shy;рый сде&shy;лал упа&shy;ковку. Как резуль&shy;тат  &mdash;  с внеш&shy;него класса ссылка будет ука&shy;зы&shy;вать на &laquo;вымер&shy;ший&raquo; учас&shy;ток стека.</p>
 <div class="paragraph-right-side">70</div>
 </div>
-<h2 id="value-type">Почему нельзя использовать в качестве поля Value Type его самого?</h2>
+<h2 id="value-type">Почему нельзя исполь&shy;зо&shy;вать в качес&shy;тве поля Value Type его самого?</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">71</div>
-<p >
-Иногда воз&shy;ни&shy;кает дер&shy;з&shy;кое жела&shy;ние в качес&shy;тве поля струк&shy;туры исполь&shy;зо&shy;вать дру&shy;гую струк&shy;туру, кото&shy;рая исполь&shy;зует пер&shy;вую. Или же ещё проще: В качес&shy;тве поля струк&shy;туры исполь&shy;зо&shy;вать её саму. Не зада&shy;вайте мне воп&shy;ро&shy;сов, почему такое может пона&shy;до&shy;биться: на самом деле не может :) Но почему так сде&shy;лать нельзя? Ответ прост: когда вы исполь&shy;зу&shy;ете струк&shy;туру в качес&shy;тве поля её же самой либо через зави&shy;си&shy;мость от дру&shy;гой струк&shy;туры, то фак&shy;ти&shy;чески создаёте рекур&shy;сию: вы создаёте струк&shy;туру бес&shy;ко&shy;неч&shy;ных раз&shy;ме&shy;ров. Однако, в .NET Frame&shy;work есть места, в кото&shy;рых так сде&shy;лано. При&shy;ме&shy;ром может слу&shy;жить струк&shy;тура <code>System.Char</code>, <a href="http://referencesource.microsoft.com/#mscorlib/system/char.cs,02f2b1a33b09362d">которая содержит саму себя</a>:</p>
+<p>Иногда воз&shy;ни&shy;кает дер&shy;з&shy;кое жела&shy;ние в качес&shy;тве поля струк&shy;туры исполь&shy;зо&shy;вать дру&shy;гую струк&shy;туру, кото&shy;рая исполь&shy;зует пер&shy;вую. Или же ещё проще: В качес&shy;тве поля струк&shy;туры исполь&shy;зо&shy;вать её саму. Не зада&shy;вайте мне воп&shy;ро&shy;сов, почему такое может пона&shy;до&shy;биться: на самом деле не может :) Но почему так сде&shy;лать нельзя? Ответ прост: когда вы исполь&shy;зу&shy;ете струк&shy;туру в качес&shy;тве поля её же самой либо через зави&shy;си&shy;мость от дру&shy;гой струк&shy;туры, то фак&shy;ти&shy;чески создаёте рекур&shy;сию: вы создаёте струк&shy;туру бес&shy;ко&shy;неч&shy;ных раз&shy;ме&shy;ров. Однако, в .NET Frame&shy;work есть места, в кото&shy;рых так сде&shy;лано. При&shy;ме&shy;ром может слу&shy;жить струк&shy;тура <code>System&shy;.Char</code>, <a href="http://referencesource.microsoft.com/#mscorlib/system/char.cs,02f2b1a33b09362d">кото&shy;рая содер&shy;жит саму себя</a>:</p>
 <div class="paragraph-right-side">71</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2627,20 +2361,15 @@ Console.WriteLine(x); <span style="color:Green;">// -&gt; 138</span>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">72</div>
-<p >
-Кстати говоря, так сде&shy;ланы прак&shy;ти&shy;чески все при&shy;ми&shy;тив&shy;ные типы CLR. Нам смерт&shy;ным так сде&shy;лать невоз&shy;можно, да и нет ника&shy;кой надоб&shy;ности: в CLR это сде&shy;лано, чтобы доба&shy;вить при&shy;ми&shy;тив&shy;ным типам дух ООП.</p>
+<p>Кстати говоря, так сде&shy;ланы прак&shy;ти&shy;чески все при&shy;ми&shy;тив&shy;ные типы CLR. Нам смерт&shy;ным так сде&shy;лать невоз&shy;можно, да и нет ника&shy;кой надоб&shy;ности: в CLR это сде&shy;лано, чтобы доба&shy;вить при&shy;ми&shy;тив&shy;ным типам дух ООП.</p>
 <div class="paragraph-right-side">72</div>
 </div>
 <h2 id="section-7">Ссылки</h2>
 <ul>
-<li>
-<p >
-<a href="https://github.com/mumusan/dotnetex/blob/master/libs/">Библиотечка для получения чистого указателя на объект</a></p>
-</li>
+<li><a href="https://github.com/mumusan/dotnetex/blob/master/libs/">Биб&shy;ли&shy;отечка для полу&shy;че&shy;ния чис&shy;того ука&shy;за&shy;теля на объ&shy;ект</a></li>
 </ul>
 <blockquote>
-<p >
-Далее: <a href="./2-ObjectsStructure.html">Структура объектов в памяти</a></p>
+<p>Далее: <a href="./2-ObjectsStructure.html">Струк&shy;тура объ&shy;ек&shy;тов в памяти</a></p>
 </blockquote>
 
         </div>

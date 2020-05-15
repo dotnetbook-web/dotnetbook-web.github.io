@@ -133,12 +133,12 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 p code:not(.highlight), li code:not(.highlight) {
     font-size: 0.7em;
-    padding: 3px;
     color: darkslateblue;
 }
 
 /* style for manual selecting */
 .box {
+    padding: 3px;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
@@ -233,6 +233,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     font-weight: 400;
     font-family: inherit;
+    hyphens: none;
 }
 
 h1 {
@@ -246,23 +247,32 @@ h1 {
 
 h2 {
     padding-top: 1.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    margin-bottom: 0.5em;
     font-family: Charter, Arial, Helvetica Neue, sans-serif;
-    font-size: 1.25em;
-    width: 70%;
+    font-size: 1.4em;
+    text-align: center;
 }
 
 h3 {
-    padding-top: 1em;
-    font-size: 1.3em;
+    padding-top: 1.2em;
+    font-family: Charter, Arial, Helvetica Neue, sans-serif;
+    font-size: 1.15em;
+    width: 70%;
+}
+
+h4 {
+    padding: 1em 0 0 0;
+    font-size: 1.2em;
     font-weight: 300;
     font-style: italic;
 }
 
-h4 {
-    margin: 20px 0 10px 0;
-    font-size: 16pt;
-    font-weight: 500;
-    font-style: italic;
+h5 {
+    padding: 0.6em 0 0 0;
+    font-weight: 300;
+    font-size: 1.1em;
 }
 
 /* Sidenotes */
@@ -677,7 +687,7 @@ footer > div {
 /* MD */
 @media (max-width: 991px) {
     
-    h2 {
+    h3 {
         width:80%;
     }
 
@@ -904,7 +914,17 @@ footer > div {
         font-size: 10pt;
         padding: 3px;
     }
-   
+
+    *[class*='lang-'] > div, pre > code {
+        padding-left: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    
+    ol li, ul li {
+        padding-left: 0.2em;	
+    }
+    
     p, li {
         line-height: 24px;
     }    
@@ -1214,7 +1234,7 @@ footer > div {
                             </li>
                             <li>
                                 <p>
-                                <a href="..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></p>
+                                <a href="..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон IDisposable</a></p>
                             </li>
                             <li>
                                 <p>
@@ -1276,154 +1296,67 @@ footer > div {
             <p class="d-none d-sm-block d-md-none">MD</p>
             <p class="d-none d-lg-block d-xl-none">LG</p>
             <p class="d-none d-xl-block">XL</p> -->
-            <p >
-<img src="../../bin/BookCover-ch.png" alt="" /></p>
+            <p><img src="../../bin/BookCover-ch.png" alt="" /></p>
 <h1 id="section">目录</h1>
 <ol>
-<li>
-<p >
-公共语言运行时（Common Language Runtime）</p>
-</li>
-<li>
-<p >
-内存管理基础：用户层</p>
+<li>公共语言运行时（Common Language Runtime）</li>
+<li>内存管理基础：用户层
 <ol>
-<li>
-<p >
-堆（Heap）基础</p>
-</li>
-<li>
-<p >
-线程栈</p>
-</li>
-<li>
-<p >
-<a href="./ReferenceTypesVsValueTypes.html">引用类型，值类型，装箱&amp;拆箱</a></p>
-</li>
-<li>
-<p >
-<a href="./MemorySpan.html">Memory, Span</a></p>
-</li>
-<li>
-<p >
-Types and objects struc&shy;ture</p>
-</li>
-<li>
-<p >
-Small Objects Heap</p>
-</li>
-<li>
-<p >
-Large Objects Heap</p>
-</li>
-<li>
-<p >
-Garbage Collec&shy;tion</p>
-</li>
-<li>
-<p >
-Statics</p>
-</li>
+<li>堆（Heap）基础</li>
+<li>线程栈</li>
+<li><a href="./ReferenceTypesVsValueTypes.html">引用类型，值类型，装箱&拆箱</a></li>
+<li><a href="./MemorySpan.html">Memory&shy;, Span</a></li>
+<li>Types and objects struc&shy;ture</li>
+<li>Small Objects Heap</li>
+<li>Large Objects Heap</li>
+<li>Garbage Collec&shy;tion</li>
+<li>Statics</li>
 </ol>
 </li>
-<li>
-<p >
-内存管理层: CLR如何工作</p>
+<li>内存管理层: CLR如何工作
 <ol>
-<li>
-<p >
-Small Objects Heap deta&shy;iled</p>
+<li>Small Objects Heap deta&shy;iled
 <ol>
-<li>
-<p >
-Sample: getting memory dump, pinned objects</p>
-</li>
+<li>Sample&shy;: getting memory dump, pinned objects</li>
 </ol>
 </li>
-<li>
-<p >
-Large Objects Heap</p>
+<li>Large Objects Heap
 <ol>
-<li>
-<p >
-Sample: getting slow heap and how to avoid this</p>
-</li>
+<li>Sample&shy;: getting slow heap and how to avoid this</li>
 </ol>
 </li>
-<li>
-<p >
-Garbage Collec&shy;tion</p>
+<li>Garbage Collec&shy;tion
 <ol>
-<li>
-<p >
-Mark & Sweep</p>
-</li>
-<li>
-<p >
-Opti&shy;mi&shy;za&shy;tions</p>
-</li>
-<li>
-<p >
-Fina&shy;li&shy;za&shy;tion</p>
-</li>
-<li>
-<p >
-<a href="./LifetimeManagement/2-Disposable.html">IDisposable: Disposable设计原则</a></p>
-</li>
+<li>Mark & Sweep</li>
+<li>Opti&shy;mi&shy;za&shy;tions</li>
+<li>Fina&shy;li&shy;za&shy;tion</li>
+<li><a href="./LifetimeManagement/2-Disposable.html">IDisposable&shy;: Dispo&shy;sable设计原则</a></li>
 </ol>
 </li>
 </ol>
 </li>
-<li>
-<p >
-Commands flow</p>
+<li>Commands flow
 <ol>
-<li>
-<p >
-Appl&shy;ic&shy;ation Domains</p>
+<li>Appl&shy;ic&shy;ation Domains
 <ol>
-<li>
-<p >
-Intr&shy;odu&shy;ction</p>
-</li>
-<li>
-<p >
-Isola&shy;tion</p>
-</li>
-<li>
-<p >
-Secu&shy;rity model</p>
-</li>
+<li>Intr&shy;odu&shy;ction</li>
+<li>Isola&shy;tion</li>
+<li>Secu&shy;rity model</li>
 </ol>
 </li>
-<li>
-<p >
-Excep&shy;ti&shy;onal situ&shy;a&shy;tions</p>
+<li>Excep&shy;ti&shy;onal situ&shy;a&shy;tions
 <ol>
-<li>
-<p >
-Intr&shy;odu&shy;ction to excep&shy;ti&shy;onal situ&shy;a&shy;tions</p>
-</li>
-<li>
-<p >
-Arch&shy;it&shy;ecture</p>
-</li>
-<li>
-<p >
-Excep&shy;tions events</p>
-</li>
-<li>
-<p >
-Types of excep&shy;ti&shy;onal situ&shy;a&shy;tions</p>
-</li>
+<li>Intr&shy;odu&shy;ction to excep&shy;ti&shy;onal situ&shy;a&shy;tions</li>
+<li>Arch&shy;it&shy;ecture</li>
+<li>Excep&shy;tions events</li>
+<li>Types of excep&shy;ti&shy;onal situ&shy;a&shy;tions</li>
 </ol>
 </li>
 </ol>
 </li>
 </ol>
 <h1 id="license">License</h1>
-<p >
-You can find here: <a href="../../LICENSE">LICENSE</a></p>
+<p>You can find here: <a href="../../LICENSE">LICENSE</a></p>
 
         </div>
         <footer>

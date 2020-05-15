@@ -133,12 +133,12 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 p code:not(.highlight), li code:not(.highlight) {
     font-size: 0.7em;
-    padding: 3px;
     color: darkslateblue;
 }
 
 /* style for manual selecting */
 .box {
+    padding: 3px;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
@@ -233,6 +233,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     font-weight: 400;
     font-family: inherit;
+    hyphens: none;
 }
 
 h1 {
@@ -246,23 +247,32 @@ h1 {
 
 h2 {
     padding-top: 1.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    margin-bottom: 0.5em;
     font-family: Charter, Arial, Helvetica Neue, sans-serif;
-    font-size: 1.25em;
-    width: 70%;
+    font-size: 1.4em;
+    text-align: center;
 }
 
 h3 {
-    padding-top: 1em;
-    font-size: 1.3em;
+    padding-top: 1.2em;
+    font-family: Charter, Arial, Helvetica Neue, sans-serif;
+    font-size: 1.15em;
+    width: 70%;
+}
+
+h4 {
+    padding: 1em 0 0 0;
+    font-size: 1.2em;
     font-weight: 300;
     font-style: italic;
 }
 
-h4 {
-    margin: 20px 0 10px 0;
-    font-size: 16pt;
-    font-weight: 500;
-    font-style: italic;
+h5 {
+    padding: 0.6em 0 0 0;
+    font-weight: 300;
+    font-size: 1.1em;
 }
 
 /* Sidenotes */
@@ -677,7 +687,7 @@ footer > div {
 /* MD */
 @media (max-width: 991px) {
     
-    h2 {
+    h3 {
         width:80%;
     }
 
@@ -904,7 +914,17 @@ footer > div {
         font-size: 10pt;
         padding: 3px;
     }
-   
+
+    *[class*='lang-'] > div, pre > code {
+        padding-left: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    
+    ol li, ul li {
+        padding-left: 0.2em;	
+    }
+    
     p, li {
         line-height: 24px;
     }    
@@ -1214,7 +1234,7 @@ footer > div {
                             </li>
                             <li>
                                 <p>
-                                <a href="../../..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></p>
+                                <a href="../../..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон IDisposable</a></p>
                             </li>
                             <li>
                                 <p>
@@ -1276,17 +1296,15 @@ footer > div {
             <p class="d-none d-sm-block d-md-none">MD</p>
             <p class="d-none d-lg-block d-xl-none">LG</p>
             <p class="d-none d-xl-block">XL</p> -->
-            <h2 id="section">Архитектура изоляции</h2>
+            <h2 id="section">Архи&shy;тек&shy;тура изо&shy;ля&shy;ции</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p >
-Как я уже гово&shy;рил, нам нет ника&shy;кой необ&shy;хо&shy;ди&shy;мости делать изо&shy;ля&shy;цию по памяти: т.к. конт&shy;роль над испол&shy;не&shy;нием кода (путём его самос&shy;то&shy;я&shy;тель&shy;ной ком&shy;пи&shy;ля&shy;ции) даёт домену все воз&shy;мож&shy;ности для конт&shy;роля всего при&shy;ло&shy;же&shy;ния. Но как это дос&shy;ти&shy;га&shy;ется? Домен - это некий изо&shy;ли&shy;ру&shy;ю&shy;щий кон&shy;тей&shy;нер. Потому, если мы имеем дело с заг&shy;ру&shy;жа&shy;е&shy;мыми биб&shy;ли&shy;о&shy;те&shy;ками, было бы логично если бы эти биб&shy;ли&shy;о&shy;теки заг&shy;ру&shy;жа&shy;лись бы не в общее для всех место, а в эту песоч&shy;ницу.</p>
+<p>Как я уже гово&shy;рил, нам нет ника&shy;кой необ&shy;хо&shy;ди&shy;мости делать изо&shy;ля&shy;цию по памяти: т.к. конт&shy;роль над испол&shy;не&shy;нием кода (путём его самос&shy;то&shy;я&shy;тель&shy;ной ком&shy;пи&shy;ля&shy;ции) даёт домену все воз&shy;мож&shy;ности для конт&shy;роля всего при&shy;ло&shy;же&shy;ния. Но как это дос&shy;ти&shy;га&shy;ется? Домен - это некий изо&shy;ли&shy;ру&shy;ю&shy;щий кон&shy;тей&shy;нер. Потому, если мы имеем дело с заг&shy;ру&shy;жа&shy;е&shy;мыми биб&shy;ли&shy;о&shy;те&shy;ками, было бы логично если бы эти биб&shy;ли&shy;о&shy;теки заг&shy;ру&shy;жа&shy;лись бы не в общее для всех место, а в эту песоч&shy;ницу.</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p >
-Давайте расс&shy;мот&shy;рим при&shy;мер с заг&shy;руз&shy;кой экземп&shy;ляра типа в два домена. Тогда при таком раск&shy;ладе мы имеем один и тот же тип:</p>
+<p>Давайте расс&shy;мот&shy;рим при&shy;мер с заг&shy;руз&shy;кой экземп&shy;ляра типа в два домена. Тогда при таком раск&shy;ладе мы имеем один и тот же тип:</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1298,8 +1316,7 @@ footer > div {
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p >
-Кото&shy;рый мы заг&shy;ру&shy;зим в оба домена, при этом мы полу&shy;чим дважды ском&shy;пи&shy;ли&shy;ро&shy;ван&shy;ный код. Что это будет озна&shy;чать? Что у экземп&shy;ля&shy;ров этих типов адрес таб&shy;лицы вир&shy;ту&shy;альных мето&shy;дов сов&shy;па&shy;дать не будет:</p>
+<p>Кото&shy;рый мы заг&shy;ру&shy;зим в оба домена, при этом мы полу&shy;чим дважды ском&shy;пи&shy;ли&shy;ро&shy;ван&shy;ный код. Что это будет озна&shy;чать? Что у экземп&shy;ля&shy;ров этих типов адрес таб&shy;лицы вир&shy;ту&shy;альных мето&shy;дов сов&shy;па&shy;дать не будет:</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1318,8 +1335,7 @@ Console.WriteLine(handle1 == handle2);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p >
-Это зна&shy;чит что если мы полу&shy;чим каким-либо обра&shy;зом из вто&shy;рого домена ссылку на объ&shy;ект и в пер&shy;вом домене поп&shy;ро&shy;буем при&shy;вести к типу <code>SomeHandle</code>, то ничего не полу&shy;чится: типы не сов&shy;па&shy;дут. Ведь из-за того что таб&shy;лицы вир&shy;ту&shy;альных мето&shy;дов раз&shy;ные, то и типы будут счи&shy;таться раз&shy;ными и не сов&shy;мес&shy;ти&shy;мыми. Полу&shy;ча&shy;ется, что заг&shy;ру&shy;зив код в раз&shy;ные домены вместо заг&shy;рузки в некое меж&shy;до&shy;мен&shy;ное прост&shy;ранство <code>CLR</code> стр&shy;оит пер&shy;вый бар&shy;ьер защиты. Вто&shy;рой бар&shy;ьер защиты: нам необ&shy;хо&shy;димо орга&shy;ни&shy;зо&shy;вать вза&shy;и&shy;мо&shy;д&shy;ействие между доме&shy;нами: быть пол&shy;ностью изо&shy;ли&shy;ро&shy;ван&shy;ными - так себе воз&shy;мож&shy;ности и хочется иметь не пол&shy;ную изо&shy;ля&shy;цию, а конт&shy;ро&shy;ли&shy;ру&shy;е&shy;мое вза&shy;и&shy;мо&shy;д&shy;ействие. Инте&shy;рес&shy;нее полу&shy;чать дан&shy;ные из пла&shy;гина для неких расчётов или действий и полу&shy;чать резуль&shy;таты работы - назад. Это можно орга&shy;ни&shy;зо&shy;вать при помощи сис&shy;тем&shy;ных (орга&shy;ни&shy;зо&shy;ван&shy;ных JITом)прокси-мето&shy;дов, кото&shy;рые будут пере&shy;но&shy;сить дан&shy;ные между двумя несов&shy;мес&shy;ти&shy;мыми типами (а по сут - одним и тем же типом, заг&shy;ру&shy;жен&shy;ным в раз&shy;ные домены). Пос&shy;мот&shy;рим на при&shy;мер такого вызова с исполь&shy;зо&shy;ва&shy;нием псев&shy;до&shy;кода:</p>
+<p>Это зна&shy;чит что если мы полу&shy;чим каким-либо обра&shy;зом из вто&shy;рого домена ссылку на объ&shy;ект и в пер&shy;вом домене поп&shy;ро&shy;буем при&shy;вести к типу <code>Some&shy;Handle</code>, то ничего не полу&shy;чится: типы не сов&shy;па&shy;дут. Ведь из-за того что таб&shy;лицы вир&shy;ту&shy;альных мето&shy;дов раз&shy;ные, то и типы будут счи&shy;таться раз&shy;ными и не сов&shy;мес&shy;ти&shy;мыми. Полу&shy;ча&shy;ется, что заг&shy;ру&shy;зив код в раз&shy;ные домены вместо заг&shy;рузки в некое меж&shy;до&shy;мен&shy;ное прост&shy;ранство <code>CLR</code> стр&shy;оит пер&shy;вый бар&shy;ьер защиты. Вто&shy;рой бар&shy;ьер защиты: нам необ&shy;хо&shy;димо орга&shy;ни&shy;зо&shy;вать вза&shy;и&shy;мо&shy;д&shy;ействие между доме&shy;нами: быть пол&shy;ностью изо&shy;ли&shy;ро&shy;ван&shy;ными - так себе воз&shy;мож&shy;ности и хочется иметь не пол&shy;ную изо&shy;ля&shy;цию, а конт&shy;ро&shy;ли&shy;ру&shy;е&shy;мое вза&shy;и&shy;мо&shy;д&shy;ействие. Инте&shy;рес&shy;нее полу&shy;чать дан&shy;ные из пла&shy;гина для неких расчётов или действий и полу&shy;чать резуль&shy;таты работы - назад. Это можно орга&shy;ни&shy;зо&shy;вать при помощи сис&shy;тем&shy;ных (орга&shy;ни&shy;зо&shy;ван&shy;ных JITом)прокси-мето&shy;дов, кото&shy;рые будут пере&shy;но&shy;сить дан&shy;ные между двумя несов&shy;мес&shy;ти&shy;мыми типами (а по сут - одним и тем же типом, заг&shy;ру&shy;жен&shy;ным в раз&shy;ные домены). Пос&shy;мот&shy;рим на при&shy;мер такого вызова с исполь&shy;зо&shy;ва&shy;нием псев&shy;до&shy;кода:</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <pre><code>TODO: изображение, поясняющее процесс взаимодействия между доменами
@@ -1367,65 +1383,39 @@ Console.WriteLine(handle1 == handle2);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p >
-Хорошо: теперь мы знаем обо всех вызо&shy;вах, кото&shy;рые про&shy;ис&shy;хо&shy;дят в сис&shy;теме. Однако, это нак&shy;ла&shy;ды&shy;вает огром&shy;ные рас&shy;ходы: нам ведь каж&shy;дый раз необ&shy;хо&shy;димо пони&shy;мать, что мы вызы&shy;ваем метод именно в дру&shy;гом домене, а не в теку&shy;щем. А таких вызо&shy;вов будет боль&shy;шинство: меж&shy;до&shy;мен&shy;ного вза&shy;и&shy;мо&shy;д&shy;ействия очень мало. Зна&shy;чит, чтобы такие рас&shy;ходы ложи&shy;лись бы только на необ&shy;хо&shy;димо ввести некий спе&shy;ци&shy;альный тип, при нас&shy;ле&shy;до&shy;ва&shy;нии от кото&shy;рого CLR поймёт, что он будет участ&shy;во&shy;вать в меж&shy;до&shy;мен&shy;ном вза&shy;и&shy;мо&shy;д&shy;ействии и соз&shy;даст прокси-методы только для него. Тип этот - <code>MarshalByRefObject</code> и это реше&shy;ние также соз&shy;даст ещё один бар&shy;ьер безо&shy;паст&shy;ности: вы не можете вызы&shy;вать методы, ском&shy;пи&shy;ли&shy;ро&shy;ван&shy;ные для дру&shy;гих доме&shy;нов нап&shy;ря&shy;мую: только для <code>MarshalByRefObject</code> типов.</p>
+<p>Хорошо: теперь мы знаем обо всех вызо&shy;вах, кото&shy;рые про&shy;ис&shy;хо&shy;дят в сис&shy;теме. Однако, это нак&shy;ла&shy;ды&shy;вает огром&shy;ные рас&shy;ходы: нам ведь каж&shy;дый раз необ&shy;хо&shy;димо пони&shy;мать, что мы вызы&shy;ваем метод именно в дру&shy;гом домене, а не в теку&shy;щем. А таких вызо&shy;вов будет боль&shy;шинство: меж&shy;до&shy;мен&shy;ного вза&shy;и&shy;мо&shy;д&shy;ействия очень мало. Зна&shy;чит, чтобы такие рас&shy;ходы ложи&shy;лись бы только на необ&shy;хо&shy;димо ввести некий спе&shy;ци&shy;альный тип, при нас&shy;ле&shy;до&shy;ва&shy;нии от кото&shy;рого CLR поймёт, что он будет участ&shy;во&shy;вать в меж&shy;до&shy;мен&shy;ном вза&shy;и&shy;мо&shy;д&shy;ействии и соз&shy;даст прокси-методы только для него. Тип этот - <code>Marshal&shy;By&shy;Ref&shy;Object</code> и это реше&shy;ние также соз&shy;даст ещё один бар&shy;ьер безо&shy;паст&shy;ности: вы не можете вызы&shy;вать методы, ском&shy;пи&shy;ли&shy;ро&shy;ван&shy;ные для дру&shy;гих доме&shy;нов нап&shy;ря&shy;мую: только для <code>Marshal&shy;By&shy;Ref&shy;Object</code> типов.</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p >
-Что мы имеем на дан&shy;ный момент? Во-пер&shy;вых, если наш код заг&shy;ру&shy;жен в два и более доме&shy;нов, то ском&shy;пи&shy;ли&shy;ро&shy;ван он будет соот&shy;вет&shy;с&shy;твующее число раз, а зна&shy;чит с точки зре&shy;ния типов один и тот же тип, ском&shy;пи&shy;ли&shy;ро&shy;ван&shy;ных для нес&shy;коль&shy;ких доме&shy;нов - это нес&shy;колько раз&shy;ных типов. Далее, вво&shy;дятся про&shy;верки для вызо&shy;вов мето&shy;дов из одного домена в дру&shy;гой. Можно наз&shy;вать это сло&shy;вом &laquo;таможня&raquo;. При пере&shy;се&shy;че&shy;нии гра&shy;ницы всё, что про&shy;хо&shy;дит через такую вот таможню дол&shy;жно дос&shy;мат&shy;ри&shy;ваться: этим дей&shy;ствием конт&shy;ро&shy;ли&shy;ру&shy;ется, что все огра&shy;ни&shy;че&shy;ния соб&shy;лю&shy;дены. Ну и чтобы CLR пони&shy;мала, какие типы могут участ&shy;во&shy;вать во вза&shy;и&shy;мо&shy;д&shy;ействии между доме&shy;нами про&shy;хо&shy;дить гра&shy;ницу могут не все типы, а только те, кото&shy;рые унас&shy;ле&shy;до&shy;вали <code>MarshalByRefObject</code>. Дос&shy;та&shy;точно ли этого? Навер&shy;ное, нет: мы отдаём в метод, ском&shy;пи&shy;ли&shy;ро&shy;ван&shy;ный для дру&shy;гого домена некую ссылку на свой объ&shy;ект, тот его при&shy;ни&shy;мает, но в дру&shy;гом домене рабо&shy;тать с таким доме&shy;ном нет ника&shy;кой воз&shy;мож&shy;ности: его сис&shy;тема типов отлична и при&shy;ве&shy;де&shy;ние типов рабо&shy;тать не будет. Как тогда орга&shy;ни&shy;зо&shy;вать вза&shy;и&shy;мо&shy;д&shy;ействие?</p>
+<p>Что мы имеем на дан&shy;ный момент? Во-пер&shy;вых, если наш код заг&shy;ру&shy;жен в два и более доме&shy;нов, то ском&shy;пи&shy;ли&shy;ро&shy;ван он будет соот&shy;вет&shy;с&shy;твующее число раз, а зна&shy;чит с точки зре&shy;ния типов один и тот же тип, ском&shy;пи&shy;ли&shy;ро&shy;ван&shy;ных для нес&shy;коль&shy;ких доме&shy;нов - это нес&shy;колько раз&shy;ных типов. Далее, вво&shy;дятся про&shy;верки для вызо&shy;вов мето&shy;дов из одного домена в дру&shy;гой. Можно наз&shy;вать это сло&shy;вом &laquo;таможня&raquo;. При пере&shy;се&shy;че&shy;нии гра&shy;ницы всё, что про&shy;хо&shy;дит через такую вот таможню дол&shy;жно дос&shy;мат&shy;ри&shy;ваться: этим дей&shy;ствием конт&shy;ро&shy;ли&shy;ру&shy;ется, что все огра&shy;ни&shy;че&shy;ния соб&shy;лю&shy;дены. Ну и чтобы CLR пони&shy;мала, какие типы могут участ&shy;во&shy;вать во вза&shy;и&shy;мо&shy;д&shy;ействии между доме&shy;нами про&shy;хо&shy;дить гра&shy;ницу могут не все типы, а только те, кото&shy;рые унас&shy;ле&shy;до&shy;вали <code>Marshal&shy;By&shy;Ref&shy;Object</code>. Дос&shy;та&shy;точно ли этого? Навер&shy;ное, нет: мы отдаём в метод, ском&shy;пи&shy;ли&shy;ро&shy;ван&shy;ный для дру&shy;гого домена некую ссылку на свой объ&shy;ект, тот его при&shy;ни&shy;мает, но в дру&shy;гом домене рабо&shy;тать с таким доме&shy;ном нет ника&shy;кой воз&shy;мож&shy;ности: его сис&shy;тема типов отлична и при&shy;ве&shy;де&shy;ние типов рабо&shy;тать не будет. Как тогда орга&shy;ни&shy;зо&shy;вать вза&shy;и&shy;мо&shy;д&shy;ействие?</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p >
-Реше&shy;ния для такой проб&shy;ле&shy;ма&shy;тики два. Перо&shy;вое реше&shy;ние - необ&shy;хо&shy;димо сде&shy;лать так, чтобы пере&shy;да&shy;ва&shy;е&shy;мые дан&shy;ные пол&shy;ностью бы отра&shy;жали содер&shy;жа&shy;ние объ&shy;екта, но при этом не были бы самим объ&shy;ек&shy;том - раз. И при этом были бы дос&shy;та&shy;точно прос&shy;тыми чтобы не предс&shy;тав&shy;лять опас&shy;ности - два. Такими дан&shy;ными яввя&shy;ются сери&shy;а&shy;ли&shy;зо&shy;ван&shy;ные дан&shy;ные:</p>
+<p>Реше&shy;ния для такой проб&shy;ле&shy;ма&shy;тики два. Перо&shy;вое реше&shy;ние - необ&shy;хо&shy;димо сде&shy;лать так, чтобы пере&shy;да&shy;ва&shy;е&shy;мые дан&shy;ные пол&shy;ностью бы отра&shy;жали содер&shy;жа&shy;ние объ&shy;екта, но при этом не были бы самим объ&shy;ек&shy;том - раз. И при этом были бы дос&shy;та&shy;точно прос&shy;тыми чтобы не предс&shy;тав&shy;лять опас&shy;ности - два. Такими дан&shy;ными яввя&shy;ются сери&shy;а&shy;ли&shy;зо&shy;ван&shy;ные дан&shy;ные:</p>
 <div class="paragraph-right-side">07</div>
 </div>
 <ul>
-<li>
-<p >
-При сери&shy;а&shy;ли&shy;за&shy;ции CLR прев&shy;ра&shy;щает дан&shy;ные в некий фор&shy;мат. Т.е. мы не можем пере&shy;дать ссылку на объ&shy;ект, обла&shy;да&shy;ю&shy;щий <em>повышенными</em> при&shy;ви&shy;ле&shy;ги&shy;ями в код, обла&shy;да&shy;ю&shy;щий более низ&shy;кими при&shy;ви&shy;ле&shy;ги&shy;ями;</p>
-</li>
-<li>
-<p >
-При десе&shy;ри&shy;а&shy;ли&shy;за&shy;ции мы можем сфор&shy;ми&shy;ро&shy;вать объ&shy;екты только из того что было пере&shy;дано через сери&shy;а&shy;ли&shy;зо&shy;ван&shy;ный объ&shy;ект. Ничего опас&shy;ного мы оттуда полу&shy;чить не смо&shy;жем именно бла&shy;го&shy;даря про&shy;цессу сери&shy;а&shy;ли&shy;за&shy;ции.</p>
-</li>
+<li>При сери&shy;а&shy;ли&shy;за&shy;ции CLR прев&shy;ра&shy;щает дан&shy;ные в некий фор&shy;мат. Т.е. мы не можем пере&shy;дать ссылку на объ&shy;ект, обла&shy;да&shy;ю&shy;щий <em>повы&shy;шен&shy;ными</em> при&shy;ви&shy;ле&shy;ги&shy;ями в код, обла&shy;да&shy;ю&shy;щий более низ&shy;кими при&shy;ви&shy;ле&shy;ги&shy;ями;</li>
+<li>При десе&shy;ри&shy;а&shy;ли&shy;за&shy;ции мы можем сфор&shy;ми&shy;ро&shy;вать объ&shy;екты только из того что было пере&shy;дано через сери&shy;а&shy;ли&shy;зо&shy;ван&shy;ный объ&shy;ект. Ничего опас&shy;ного мы оттуда полу&shy;чить не смо&shy;жем именно бла&shy;го&shy;даря про&shy;цессу сери&shy;а&shy;ли&shy;за&shy;ции.</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p >
-Вто&shy;рое реше&shy;ние - орга&shy;ни&shy;зо&shy;вать сред&shy;ство повы&shy;шен&shy;ного дове&shy;рия к пере&shy;да&shy;ва&shy;е&shy;мым между доме&shy;нами дан&shy;ным. Такого дове&shy;рия, что можно не вол&shy;ну&shy;ясь отда&shy;вать без вся&shy;кой сери&shy;а&shy;ли&shy;за&shy;ции и десе&shy;ри&shy;а&shy;ли&shy;за&shy;ции ссылки на объ&shy;екты в сосед&shy;ний домен и не вол&shy;но&shy;ваться, что это как-то пов&shy;лияет на безо&shy;пас&shy;ность. Чтобы решить эту задачу, был раз&shy;ра&shy;бо&shy;тан Full&shy;Trust, кото&shy;рый может быть при&shy;менён к отдель&shy;ным сбор&shy;кам домена.</p>
+<p>Вто&shy;рое реше&shy;ние - орга&shy;ни&shy;зо&shy;вать сред&shy;ство повы&shy;шен&shy;ного дове&shy;рия к пере&shy;да&shy;ва&shy;е&shy;мым между доме&shy;нами дан&shy;ным. Такого дове&shy;рия, что можно не вол&shy;ну&shy;ясь отда&shy;вать без вся&shy;кой сери&shy;а&shy;ли&shy;за&shy;ции и десе&shy;ри&shy;а&shy;ли&shy;за&shy;ции ссылки на объ&shy;екты в сосед&shy;ний домен и не вол&shy;но&shy;ваться, что это как-то пов&shy;лияет на безо&shy;пас&shy;ность. Чтобы решить эту задачу, был раз&shy;ра&shy;бо&shy;тан Full&shy;Trust&shy;, кото&shy;рый может быть при&shy;менён к отдель&shy;ным сбор&shy;кам домена.</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
-<p >
-Каса&shy;тельно Shared App&shy;Domains мы пого&shy;во&shy;рим нем&shy;ного позже: слово за слово мне придётся напи&shy;сать о мно&shy;гих воп&shy;ро&shy;сах. А потому эта тема пос&shy;тав&shy;лена на вре&shy;мен&shy;ную паузу. Сей&shy;час же поп&shy;ро&shy;буем обос&shy;но&shy;вать, соз&shy;дали ли мы иде&shy;альную песоч&shy;ницу:</p>
+<p>Каса&shy;тельно Shared App&shy;Domains мы пого&shy;во&shy;рим нем&shy;ного позже: слово за слово мне придётся напи&shy;сать о мно&shy;гих воп&shy;ро&shy;сах. А потому эта тема пос&shy;тав&shy;лена на вре&shy;мен&shy;ную паузу. Сей&shy;час же поп&shy;ро&shy;буем обос&shy;но&shy;вать, соз&shy;дали ли мы иде&shy;альную песоч&shy;ницу:</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <ul>
-<li>
-<p >
-Итак, для начала мы расс&shy;мот&shy;рели поня&shy;тие домена как места, соз&shy;да&shy;ю&shy;щего изо&shy;ля&shy;цию в воп&shy;ро&shy;сах испол&shy;не&shy;ния кода. Внеш&shy;ние биб&shy;ли&shy;о&shy;теки заг&shy;ру&shy;жа&shy;ются отдельно в каж&shy;дый их доме&shy;нов и нет воз&shy;мож&shy;ности кода одного домена рабо&shy;тать с кодом дру&shy;гого наря&shy;мую, т.к. ука&shy;за&shy;тели на таб&shy;лицы вир&shy;ту&shy;альных мето&shy;дов (VMT) будут раз&shy;ными;</p>
-</li>
-<li>
-<p >
-Из-за этого воз&shy;ни&shy;кает в неко&shy;то&shy;рой сте&shy;пени изо&shy;ля&shy;ция по памяти: код <code>домена 1</code> не смо&shy;жет рабо&shy;тать с объ&shy;ек&shy;тами, соз&shy;дан&shy;ными в рам&shy;ках <code>домена 2</code> по ранее ука&shy;зан&shy;ной при&shy;чине;</p>
-</li>
-<li>
-<p >
-Чтобы это обес&shy;пе&shy;чить, между точ&shy;кой вызова метода и его реальным вызо&shy;вом встаёт прокси фун&shy;к&shy;ция, кото&shy;рая про&shy;ве&shy;ряет пара&shy;метры метода и возв&shy;ра&shy;ща&shy;е&shy;мое зна&shy;че&shy;ние на кор&shy;рект&shy;ность, осу&shy;щес&shy;твляет мар&shy;шил&shy;линг и пере&shy;дачу дан&shy;ных через Remo&shy;ting;</p>
-</li>
-<li>
-<p >
-Домены могут быть отгру&shy;жены: вместе со всеми сбор&shy;ками, дина&shy;ми&shy;чески ском&shy;пи&shy;ли&shy;ро&shy;ван&shy;ным кодом, а также всеми объ&shy;ек&shy;тами, кото&shy;рые были соз&shy;даны в рам&shy;ках этого домена. Эта воз&shy;мож&shy;ность - след&shy;с&shy;твие изо&shy;ли&shy;ро&shy;ван&shy;ности домена друг от друга;</p>
-</li>
-<li>
-<p >
-Каж&shy;дая под&shy;сис&shy;тема домена может быть инди&shy;ви&shy;ду&shy;ально раз&shy;ре&shy;шена или зап&shy;ре&shy;щена для испол&shy;не&shy;ния кода в зави&shy;си&shy;мости от нас&shy;троек домена, выдан&shy;ных ему при старте при&shy;ло&shy;же&shy;ния. Этот фун&shy;кци&shy;о&shy;нал рас&shy;ши&shy;ряем и может быть допол&shy;нен наст&shy;рой&shy;ками безо&shy;пас&shy;ности для ваших биб&shy;ли&shy;о&shy;тек, кото&shy;рые будут исполь&shy;зо&shy;ваны в этих доме&shy;нах;</p>
-</li>
+<li>Итак, для начала мы расс&shy;мот&shy;рели поня&shy;тие домена как места, соз&shy;да&shy;ю&shy;щего изо&shy;ля&shy;цию в воп&shy;ро&shy;сах испол&shy;не&shy;ния кода. Внеш&shy;ние биб&shy;ли&shy;о&shy;теки заг&shy;ру&shy;жа&shy;ются отдельно в каж&shy;дый их доме&shy;нов и нет воз&shy;мож&shy;ности кода одного домена рабо&shy;тать с кодом дру&shy;гого наря&shy;мую, т.к. ука&shy;за&shy;тели на таб&shy;лицы вир&shy;ту&shy;альных мето&shy;дов (VMT) будут раз&shy;ными;</li>
+<li>Из-за этого воз&shy;ни&shy;кает в неко&shy;то&shy;рой сте&shy;пени изо&shy;ля&shy;ция по памяти: код <code>домена 1</code> не смо&shy;жет рабо&shy;тать с объ&shy;ек&shy;тами, соз&shy;дан&shy;ными в рам&shy;ках <code>домена 2</code> по ранее ука&shy;зан&shy;ной при&shy;чине;</li>
+<li>Чтобы это обес&shy;пе&shy;чить, между точ&shy;кой вызова метода и его реальным вызо&shy;вом встаёт прокси фун&shy;к&shy;ция, кото&shy;рая про&shy;ве&shy;ряет пара&shy;метры метода и возв&shy;ра&shy;ща&shy;е&shy;мое зна&shy;че&shy;ние на кор&shy;рект&shy;ность, осу&shy;щес&shy;твляет мар&shy;шил&shy;линг и пере&shy;дачу дан&shy;ных через Remoting&shy;;</li>
+<li>Домены могут быть отгру&shy;жены: вместе со всеми сбор&shy;ками, дина&shy;ми&shy;чески ском&shy;пи&shy;ли&shy;ро&shy;ван&shy;ным кодом, а также всеми объ&shy;ек&shy;тами, кото&shy;рые были соз&shy;даны в рам&shy;ках этого домена. Эта воз&shy;мож&shy;ность - след&shy;с&shy;твие изо&shy;ли&shy;ро&shy;ван&shy;ности домена друг от друга;</li>
+<li>Каж&shy;дая под&shy;сис&shy;тема домена может быть инди&shy;ви&shy;ду&shy;ально раз&shy;ре&shy;шена или зап&shy;ре&shy;щена для испол&shy;не&shy;ния кода в зави&shy;си&shy;мости от нас&shy;троек домена, выдан&shy;ных ему при старте при&shy;ло&shy;же&shy;ния. Этот фун&shy;кци&shy;о&shy;нал рас&shy;ши&shy;ряем и может быть допол&shy;нен наст&shy;рой&shy;ками безо&shy;пас&shy;ности для ваших биб&shy;ли&shy;о&shy;тек, кото&shy;рые будут исполь&shy;зо&shy;ваны в этих доме&shy;нах;</li>
 </ul>
 
         </div>

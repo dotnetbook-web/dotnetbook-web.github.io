@@ -133,12 +133,12 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 p code:not(.highlight), li code:not(.highlight) {
     font-size: 0.7em;
-    padding: 3px;
     color: darkslateblue;
 }
 
 /* style for manual selecting */
 .box {
+    padding: 3px;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
@@ -233,6 +233,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     font-weight: 400;
     font-family: inherit;
+    hyphens: none;
 }
 
 h1 {
@@ -246,23 +247,32 @@ h1 {
 
 h2 {
     padding-top: 1.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    margin-bottom: 0.5em;
     font-family: Charter, Arial, Helvetica Neue, sans-serif;
-    font-size: 1.25em;
-    width: 70%;
+    font-size: 1.4em;
+    text-align: center;
 }
 
 h3 {
-    padding-top: 1em;
-    font-size: 1.3em;
+    padding-top: 1.2em;
+    font-family: Charter, Arial, Helvetica Neue, sans-serif;
+    font-size: 1.15em;
+    width: 70%;
+}
+
+h4 {
+    padding: 1em 0 0 0;
+    font-size: 1.2em;
     font-weight: 300;
     font-style: italic;
 }
 
-h4 {
-    margin: 20px 0 10px 0;
-    font-size: 16pt;
-    font-weight: 500;
-    font-style: italic;
+h5 {
+    padding: 0.6em 0 0 0;
+    font-weight: 300;
+    font-size: 1.1em;
 }
 
 /* Sidenotes */
@@ -677,7 +687,7 @@ footer > div {
 /* MD */
 @media (max-width: 991px) {
     
-    h2 {
+    h3 {
         width:80%;
     }
 
@@ -904,7 +914,17 @@ footer > div {
         font-size: 10pt;
         padding: 3px;
     }
-   
+
+    *[class*='lang-'] > div, pre > code {
+        padding-left: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    
+    ol li, ul li {
+        padding-left: 0.2em;	
+    }
+    
     p, li {
         line-height: 24px;
     }    
@@ -1216,7 +1236,7 @@ footer > div {
                             </li>
                             <li>
                                 <p>
-                                <a href="../..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></p>
+                                <a href="../..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон IDisposable</a></p>
                             </li>
                             <li>
                                 <p>
@@ -1278,129 +1298,68 @@ footer > div {
             <p class="d-none d-sm-block d-md-none">MD</p>
             <p class="d-none d-lg-block d-xl-none">LG</p>
             <p class="d-none d-xl-block">XL</p> -->
-            <blockquote class="breadcrumbs">
-<p >
- <a href="../readme.html">Содержание</a> / <a href="./01-00-MemoryManagement-Intro.html">Основы управления памятью</a></p>
-</blockquote>
-<h2 id="lifetime">Шаблон Lifetime</h2>
+            <h2 id="lifetime">Шаб&shy;лон Life&shy;time</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p >
-После того как мы так под&shy;робно расс&shy;мот&shy;рели шаб&shy;лон осво&shy;бож&shy;де&shy;ния ресур&shy;сов под наз&shy;ва&shy;нием IDis&shy;po&shy;sable, мы сфор&shy;му&shy;ли&shy;ро&shy;вали ряд проб&shy;лем&shy;ных зон этого шаб&shy;лона, кото&shy;рые услож&shy;няют его исполь&shy;зо&shy;ва&shy;ние. Чтобы решить эти проб&shy;лемы, мы дол&shy;жны раз&shy;ра&shy;бо&shy;тать некие про&shy;ти&shy;во&shy;д&shy;ействия, кото&shy;рые при&shy;ве&shy;дут нас к абсо&shy;лютно новому и мощ&shy;ному инст&shy;рум&shy;енту. Итак, если предс&shy;та&shy;вить что мы хотим изме&shy;нить шаб&shy;лон IDis&shy;po&shy;sable или заме&shy;нить чем-то дру&shy;гим, изба&shy;вив при этом его от при&shy;су&shy;щих ему недос&shy;тат&shy;ков, то что мы дол&shy;жны сде&shy;лать? Давайте возь&shy;мем группу мину&shy;сов из пре&shy;ды&shy;ду&shy;щей главы и поп&shy;ро&shy;буем где это вообще воз&shy;можно пере&shy;де&shy;лать пове&shy;де&shy;ние так, чтобы полу&shy;чить плюсы:</p>
+<p>После того как мы так под&shy;робно расс&shy;мот&shy;рели шаб&shy;лон осво&shy;бож&shy;де&shy;ния ресур&shy;сов под наз&shy;ва&shy;нием IDisposable&shy;, мы сфор&shy;му&shy;ли&shy;ро&shy;вали ряд проб&shy;лем&shy;ных зон этого шаб&shy;лона, кото&shy;рые услож&shy;няют его исполь&shy;зо&shy;ва&shy;ние. Чтобы решить эти проб&shy;лемы, мы дол&shy;жны раз&shy;ра&shy;бо&shy;тать некие про&shy;ти&shy;во&shy;д&shy;ействия, кото&shy;рые при&shy;ве&shy;дут нас к абсо&shy;лютно новому и мощ&shy;ному инст&shy;рум&shy;енту. Итак, если предс&shy;та&shy;вить что мы хотим изме&shy;нить шаб&shy;лон IDis&shy;po&shy;sable или заме&shy;нить чем-то дру&shy;гим, изба&shy;вив при этом его от при&shy;су&shy;щих ему недос&shy;тат&shy;ков, то что мы дол&shy;жны сде&shy;лать? Давайте возь&shy;мем группу мину&shy;сов из пре&shy;ды&shy;ду&shy;щей главы и поп&shy;ро&shy;буем где это вообще воз&shy;можно пере&shy;де&shy;лать пове&shy;де&shy;ние так, чтобы полу&shy;чить плюсы:</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <ol>
-<li>
-<p >
-Чтобы избе&shy;жать не явности объ&shy;яв&shy;ле&shy;ния раз&shy;ру&shy;ша&shy;емости объ&shy;екта, мы дол&shy;жны ввести новый спо&shy;соб уве&shy;дом&shy;ле&shy;ния о том, что класс раз&shy;ру&shy;шаем. При&shy;чем необ&shy;хо&shy;димо сде&shy;лать это так, чтобы поль&shy;зо&shy;ва&shy;тель экземп&shy;ляра не смог бы обойти этот меха&shy;низм сто&shy;ро&shy;ной. А какой код экземп&shy;ляра типа отра&shy;ба&shy;ты&shy;вает в любом слу&shy;чае? Только конст&shy;руктор. Полу&shy;ча&shy;ется, конст&shy;руктор дол&shy;жен обла&shy;дать такими свой&shy;ствами, кото&shy;рые подс&shy;ка&shy;жут выз&shy;вав&shy;шему его коду что экземп&shy;ляр раз&shy;ру&shy;шаем. И меха&shy;низ&shy;мов тут может быть целых два: либо имя класса дол&shy;жно содер&shy;жать клю&shy;че&shy;вое слово (нап&shy;ри&shy;мер, по ана&shy;ло&shy;гии с <code>Async</code>, слово <code>Disposable</code>) либо дол&shy;жен быть некий пара&shy;метр, кото&shy;рый необ&shy;хо&shy;димо пере&shy;дать конст&shy;ру&shy;ктору;</p>
-</li>
-<li>
-<p >
-Проб&shy;лема необ&shy;хо&shy;ди&shy;мости тянуть за собой некий интер&shy;фейс чтобы раз&shy;ру&shy;шить сущ&shy;ность может быть решена выно&shy;сом конт&shy;роля за вре&shy;ме&shy;нем жизни сущ&shy;ности из самой сущ&shy;ности. По сути, реа&shy;ли&shy;за&shy;цией inver&shy;sion of control про&shy;цесса раз&shy;ру&shy;ше&shy;ния объ&shy;екта в некий сто&shy;рон&shy;ний меха&shy;низм;</p>
-</li>
-<li>
-<p >
-Третья проб&shy;лема - сущест&shy;во&shy;ва&shy;ние объ&shy;екта после его раз&shy;ру&shy;ше&shy;ния. Её, к сожа&shy;ле&shy;нию, решить просто не воз&shy;можно: неде&shy;тер&shy;ми&shy;ни&shy;ро&shy;ван&shy;ное уда&shy;ле&shy;ние памяти из-под объ&shy;екта делает эту задачу нере&shy;ша&shy;е&shy;мой;</p>
-</li>
-<li>
-<p >
-Воп&shy;рос с <code>explicit</code> реа&shy;ли&shy;за&shy;цией <code>IDisposable</code> ухо&shy;дит сам собой если IDis&shy;po&shy;sable не реа&shy;ли&shy;зо&shy;вы&shy;вать;</p>
-</li>
-<li>
-<p >
-Проб&shy;ле&shy;ма&shy;тика раз&shy;де&shy;ле&shy;ния выде&shy;ле&shy;ния ресур&shy;сов и их осво&shy;бож&shy;де&shy;ния по раз&shy;ным мето&shy;дам может быть решена регист&shy;ра&shy;цией ресур&shy;сов в неко&shy;то&shy;ром кон&shy;тей&shy;нере, осво&shy;бож&shy;де&shy;ние кото&shy;рого будет про&shy;ис&shy;хо&shy;дить авто&shy;ма&shy;ти&shy;чески;</p>
-</li>
-<li>
-<p >
-Если гово&shy;рить о слож&shy;ности раз&shy;ру&shy;ше&shy;ния графа объ&shy;ек&shy;тов, раз&shy;де&shy;лен&shy;ных на некие слои, кото&shy;рые раз&shy;ру&shy;ша&shy;ются сами по себе (нап&shy;ри&shy;мер, может быть необ&shy;хо&shy;димо чтобы был раз&shy;ру&shy;шен какой-то один слой графа, а осталь&shy;ные дол&shy;жны кор&shy;рек&shy;тно сущест&shy;во&shy;вать дальше), отпи&shy;сы&shy;ва&shy;ясь от изме&shy;не&shy;ний в сосед&shy;них слоях, то тут можно явно выде&shy;лить одну общую осо&shy;бен&shy;ность: о чём бы ни шла речь, логи&shy;чески мы гово&shy;рим о неких груп&shy;пах объ&shy;ек&shy;тов, время жизни кото&shy;рых зави&shy;сит друг от друга. Т.е. введя поня&shy;тие зави&shy;си&shy;мости вре&shy;мени жизни одной сущ&shy;ности от вре&shy;мени жизни дру&shy;гой сущ&shy;ности мы решим проб&shy;лему очис&shy;тки конк&shy;рет&shy;ной группы объ&shy;ек&shy;тов не зат&shy;ра&shy;ги&shy;вая дру&shy;гую группу;</p>
-</li>
+<li>Чтобы избе&shy;жать не явности объ&shy;яв&shy;ле&shy;ния раз&shy;ру&shy;ша&shy;емости объ&shy;екта, мы дол&shy;жны ввести новый спо&shy;соб уве&shy;дом&shy;ле&shy;ния о том, что класс раз&shy;ру&shy;шаем. При&shy;чем необ&shy;хо&shy;димо сде&shy;лать это так, чтобы поль&shy;зо&shy;ва&shy;тель экземп&shy;ляра не смог бы обойти этот меха&shy;низм сто&shy;ро&shy;ной. А какой код экземп&shy;ляра типа отра&shy;ба&shy;ты&shy;вает в любом слу&shy;чае? Только конст&shy;руктор. Полу&shy;ча&shy;ется, конст&shy;руктор дол&shy;жен обла&shy;дать такими свой&shy;ствами, кото&shy;рые подс&shy;ка&shy;жут выз&shy;вав&shy;шему его коду что экземп&shy;ляр раз&shy;ру&shy;шаем. И меха&shy;низ&shy;мов тут может быть целых два: либо имя класса дол&shy;жно содер&shy;жать клю&shy;че&shy;вое слово (нап&shy;ри&shy;мер, по ана&shy;ло&shy;гии с <code>Async</code>, слово <code>Dispo&shy;sable</code>) либо дол&shy;жен быть некий пара&shy;метр, кото&shy;рый необ&shy;хо&shy;димо пере&shy;дать конст&shy;ру&shy;ктору;</li>
+<li>Проб&shy;лема необ&shy;хо&shy;ди&shy;мости тянуть за собой некий интер&shy;фейс чтобы раз&shy;ру&shy;шить сущ&shy;ность может быть решена выно&shy;сом конт&shy;роля за вре&shy;ме&shy;нем жизни сущ&shy;ности из самой сущ&shy;ности. По сути, реа&shy;ли&shy;за&shy;цией inver&shy;sion of control про&shy;цесса раз&shy;ру&shy;ше&shy;ния объ&shy;екта в некий сто&shy;рон&shy;ний меха&shy;низм;</li>
+<li>Третья проб&shy;лема  &mdash;  сущест&shy;во&shy;ва&shy;ние объ&shy;екта после его раз&shy;ру&shy;ше&shy;ния. Её, к сожа&shy;ле&shy;нию, решить просто не воз&shy;можно: неде&shy;тер&shy;ми&shy;ни&shy;ро&shy;ван&shy;ное уда&shy;ле&shy;ние памяти из-под объ&shy;екта делает эту задачу нере&shy;ша&shy;е&shy;мой;</li>
+<li>Воп&shy;рос с <code>explicit</code> реа&shy;ли&shy;за&shy;цией <code>IDis&shy;po&shy;sable</code> ухо&shy;дит сам собой если IDis&shy;po&shy;sable не реа&shy;ли&shy;зо&shy;вы&shy;вать;</li>
+<li>Проб&shy;ле&shy;ма&shy;тика раз&shy;де&shy;ле&shy;ния выде&shy;ле&shy;ния ресур&shy;сов и их осво&shy;бож&shy;де&shy;ния по раз&shy;ным мето&shy;дам может быть решена регист&shy;ра&shy;цией ресур&shy;сов в неко&shy;то&shy;ром кон&shy;тей&shy;нере, осво&shy;бож&shy;де&shy;ние кото&shy;рого будет про&shy;ис&shy;хо&shy;дить авто&shy;ма&shy;ти&shy;чески;</li>
+<li>Если гово&shy;рить о слож&shy;ности раз&shy;ру&shy;ше&shy;ния графа объ&shy;ек&shy;тов, раз&shy;де&shy;лен&shy;ных на некие слои, кото&shy;рые раз&shy;ру&shy;ша&shy;ются сами по себе (нап&shy;ри&shy;мер, может быть необ&shy;хо&shy;димо чтобы был раз&shy;ру&shy;шен какой-то один слой графа, а осталь&shy;ные дол&shy;жны кор&shy;рек&shy;тно сущест&shy;во&shy;вать дальше), отпи&shy;сы&shy;ва&shy;ясь от изме&shy;не&shy;ний в сосед&shy;них слоях, то тут можно явно выде&shy;лить одну общую осо&shy;бен&shy;ность: о чём бы ни шла речь, логи&shy;чески мы гово&shy;рим о неких груп&shy;пах объ&shy;ек&shy;тов, время жизни кото&shy;рых зави&shy;сит друг от друга. Т.е. введя поня&shy;тие зави&shy;си&shy;мости вре&shy;мени жизни одной сущ&shy;ности от вре&shy;мени жизни дру&shy;гой сущ&shy;ности мы решим проб&shy;лему очис&shy;тки конк&shy;рет&shy;ной группы объ&shy;ек&shy;тов не зат&shy;ра&shy;ги&shy;вая дру&shy;гую группу;</li>
 </ol>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p >
-Объ&shy;единяя все выше ска&shy;зан&shy;ное, можно сде&shy;лать базо&shy;вый вывод что IDis&shy;po&shy;sable не дает нам пол&shy;ной гиб&shy;кости в управ&shy;ле&shy;нии раз&shy;ру&shy;ше&shy;нием сос&shy;то&shy;я&shy;ния объ&shy;ек&shy;тов. Он безус&shy;ловно поле&shy;зен в рам&shy;ках неко&shy;то&shy;рой группы сце&shy;на&shy;риев, но не явля&shy;ется уни&shy;вер&shy;саль&shy;ным инст&shy;рум&shy;ентом, кото&shy;рый спо&shy;со&shy;бен решить все задачи.</p>
+<p>Объ&shy;единяя все выше ска&shy;зан&shy;ное, можно сде&shy;лать базо&shy;вый вывод что IDis&shy;po&shy;sable не дает нам пол&shy;ной гиб&shy;кости в управ&shy;ле&shy;нии раз&shy;ру&shy;ше&shy;нием сос&shy;то&shy;я&shy;ния объ&shy;ек&shy;тов. Он безус&shy;ловно поле&shy;зен в рам&shy;ках неко&shy;то&shy;рой группы сце&shy;на&shy;риев, но не явля&shy;ется уни&shy;вер&shy;саль&shy;ным инст&shy;рум&shy;ентом, кото&shy;рый спо&shy;со&shy;бен решить все задачи.</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p >
-Давайте же най&shy;дем тот меха&shy;низм, кото&shy;рый приз&shy;ван помочь нам в раз&shy;ру&shy;ше&shy;нии слож&shy;ных струк&shy;тур объ&shy;ек&shy;тов. Итак, осно&shy;вы&shy;ва&shy;ясь на ранее пере&shy;чис&shy;лен&shy;ных рас&shy;суж&shy;де&shy;ниях о меха&shy;низ&shy;мах улуч&shy;ше&shy;ния шаб&shy;лона IDis&shy;po&shy;sable, сос&shy;та&shy;вим спи&shy;сок тези&shy;сов:</p>
+<p>Давайте же най&shy;дем тот меха&shy;низм, кото&shy;рый приз&shy;ван помочь нам в раз&shy;ру&shy;ше&shy;нии слож&shy;ных струк&shy;тур объ&shy;ек&shy;тов. Итак, осно&shy;вы&shy;ва&shy;ясь на ранее пере&shy;чис&shy;лен&shy;ных рас&shy;суж&shy;де&shy;ниях о меха&shy;низ&shy;мах улуч&shy;ше&shy;ния шаб&shy;лона IDisposable&shy;, сос&shy;та&shy;вим спи&shy;сок тези&shy;сов:</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <ul>
-<li>
-<p >
-Наш класс либо дол&shy;жен как-то особо назы&shy;ваться либо что-либо при&shy;ни&shy;мать в качес&shy;тве пара&shy;метра конст&shy;ру&shy;ктора;</p>
-</li>
-<li>
-<p >
-Про&shy;цесс раз&shy;ру&shy;ше&shy;ния дол&shy;жен быть отдан на сто&shy;рону;</p>
-</li>
-<li>
-<p >
-Про&shy;цесс раз&shy;ру&shy;ше&shy;ния дол&shy;жен быть авто&shy;ма&shy;ти&shy;зи&shy;ро&shy;ван;</p>
-</li>
-<li>
-<p >
-Также дол&shy;жна сущест&shy;во&shy;вать некая зави&shy;си&shy;мость вре&shy;мени жизни одних объ&shy;ек&shy;тов от вре&shy;мени жизни дру&shy;гих дру&shy;гих;</p>
-</li>
-<li>
-<p >
-Мы при этом не дол&shy;жны каж&shy;дый раз писать всю инф&shy;раст&shy;рук&shy;туру, как мы делаем это для слу&shy;чая с IDis&shy;po&shy;sable;</p>
-</li>
+<li>Наш класс либо дол&shy;жен как-то особо назы&shy;ваться либо что-либо при&shy;ни&shy;мать в качес&shy;тве пара&shy;метра конст&shy;ру&shy;ктора;</li>
+<li>Про&shy;цесс раз&shy;ру&shy;ше&shy;ния дол&shy;жен быть отдан на сто&shy;рону;</li>
+<li>Про&shy;цесс раз&shy;ру&shy;ше&shy;ния дол&shy;жен быть авто&shy;ма&shy;ти&shy;зи&shy;ро&shy;ван;</li>
+<li>Также дол&shy;жна сущест&shy;во&shy;вать некая зави&shy;си&shy;мость вре&shy;мени жизни одних объ&shy;ек&shy;тов от вре&shy;мени жизни дру&shy;гих дру&shy;гих;</li>
+<li>Мы при этом не дол&shy;жны каж&shy;дый раз писать всю инф&shy;раст&shy;рук&shy;туру, как мы делаем это для слу&shy;чая с IDisposable&shy;;</li>
 </ul>
-<p >
-Поэ&shy;тому:</p>
+<p>Поэ&shy;тому:</p>
 <ul>
-<li>
-<p >
-Про&shy;цес&shy;сом раз&shy;ру&shy;ше&shy;ния дол&shy;жна зани&shy;маться отдель&shy;ная сущ&shy;ность. Назовём её <code>Lifetime</code>;</p>
-</li>
-<li>
-<p >
-Конст&shy;руктор класса дол&shy;жен при&shy;ни&shy;мать на вход экземп&shy;ляр типа <code>Lifetime</code> если жизнь экземп&shy;ляра нашего класса зави&shy;сит от вре&shy;мени жизни внеш&shy;него <code>Lifetime</code> либо соз&shy;да&shy;вать свой собст&shy;венный если зави&shy;си&shy;мос&shy;тей не сущес&shy;твует;</p>
-</li>
+<li>Про&shy;цес&shy;сом раз&shy;ру&shy;ше&shy;ния дол&shy;жна зани&shy;маться отдель&shy;ная сущ&shy;ность. Назовём её <code>Life&shy;time</code>;</li>
+<li>Конст&shy;руктор класса дол&shy;жен при&shy;ни&shy;мать на вход экземп&shy;ляр типа <code>Life&shy;time</code> если жизнь экземп&shy;ляра нашего класса зави&shy;сит от вре&shy;мени жизни внеш&shy;него <code>Life&shy;time</code> либо соз&shy;да&shy;вать свой собст&shy;венный если зави&shy;си&shy;мос&shy;тей не сущес&shy;твует;</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p >
-Теперь, в новых реа&shy;лиях, внеш&shy;ний код будет пере&shy;да&shy;вать нам спе&shy;ци&shy;альный экземп&shy;ляр <code>Lifetime</code>, от кото&shy;рого мы будем зави&shy;сеть и отно&shy;си&shy;тельно вре&shy;мени жизни кото&shy;рого мы будем сущест&shy;во&shy;вать. А чтобы нас раз&shy;ру&shy;шить, внеш&shy;ний тип не будет раз&shy;ру&shy;шать нас нап&shy;ря&shy;мую: вместо этого он закон&shy;чит время жизни экземп&shy;ляра <code>Lifetime</code>, кото&shy;рый самос&shy;то&shy;я&shy;тельно завер&shy;шить время жизни всех, кто на него под&shy;пи&shy;сан.</p>
+<p>Теперь, в новых реа&shy;лиях, внеш&shy;ний код будет пере&shy;да&shy;вать нам спе&shy;ци&shy;альный экземп&shy;ляр <code>Life&shy;time</code>, от кото&shy;рого мы будем зави&shy;сеть и отно&shy;си&shy;тельно вре&shy;мени жизни кото&shy;рого мы будем сущест&shy;во&shy;вать. А чтобы нас раз&shy;ру&shy;шить, внеш&shy;ний тип не будет раз&shy;ру&shy;шать нас нап&shy;ря&shy;мую: вместо этого он закон&shy;чит время жизни экземп&shy;ляра <code>Life&shy;time</code>, кото&shy;рый самос&shy;то&shy;я&shy;тельно завер&shy;шить время жизни всех, кто на него под&shy;пи&shy;сан.</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p >
-С таким под&shy;хо&shy;дом мы более не отдаем каж&shy;дому, кто имеет ссылку на наш объ&shy;ект воз&shy;мож&shy;ность раз&shy;ру&shy;шить нас. Пом&shy;ните что мы имели в шаб&shy;лоне IDis&shy;po&shy;sable? При про&shy;ек&shy;ти&shy;ро&shy;ва&shy;нии класса мы дол&shy;жны были реа&shy;ли&shy;зо&shy;вать интер&shy;фейс IDis&shy;po&shy;sable: сде&shy;лать метод <code>Dispose()</code> пуб&shy;лич&shy;ным для всех. Это зна&shy;чит что любой, кто полу&shy;чал ссылку на экземп&shy;ляр нашего типа полу&shy;чал также сред&shy;ство унич&shy;то&shy;же&shy;ния экземп&shy;ляра нашего типа. Теперь ситу&shy;а&shy;ция совер&shy;шенно иная: конст&shy;руктор экземп&shy;ляра типа полу&shy;чает в качес&shy;тве пара&shy;метра отре&shy;зок собст&shy;венной жизни как внеш&shy;нюю зави&shy;си&shy;мость. Не выс&shy;тав&shy;ляя при этом ника&shy;ких мето&shy;дов наружу. Полу&shy;ча&shy;ется, что в дан&shy;ном сце&shy;на&shy;рии вре&shy;ме&shy;нем жизни нашего экземп&shy;ляра типа вла&shy;деет только тот, кто его соз&shy;дал и никто иной. С шаб&shy;ло&shy;ном IDis&shy;po&shy;sable единст&shy;венный путь обойти пуб&shy;ли&shy;ка&shy;цию метода - реа&shy;ли&shy;зо&shy;вать этот интер&shy;фейс неявно, скрыв таким обра&shy;зом метод <code>Dispose</code>. Однако, неяв&shy;ная реа&shy;ли&shy;за&shy;ция интер&shy;фейса будет вызы&shy;вать много воп&shy;ро&shy;сов, т.к. сов&shy;ре&shy;мен&shy;ные IDE поз&shy;во&shy;ляют легко и просто уви&shy;деть нали&shy;чие этого метода в струк&shy;туре типа.</p>
+<p>С таким под&shy;хо&shy;дом мы более не отдаем каж&shy;дому, кто имеет ссылку на наш объ&shy;ект воз&shy;мож&shy;ность раз&shy;ру&shy;шить нас. Пом&shy;ните что мы имели в шаб&shy;лоне IDisposable&shy;? При про&shy;ек&shy;ти&shy;ро&shy;ва&shy;нии класса мы дол&shy;жны были реа&shy;ли&shy;зо&shy;вать интер&shy;фейс IDisposable&shy;: сде&shy;лать метод <code>Dispose&shy;()</code> пуб&shy;лич&shy;ным для всех. Это зна&shy;чит что любой, кто полу&shy;чал ссылку на экземп&shy;ляр нашего типа полу&shy;чал также сред&shy;ство унич&shy;то&shy;же&shy;ния экземп&shy;ляра нашего типа. Теперь ситу&shy;а&shy;ция совер&shy;шенно иная: конст&shy;руктор экземп&shy;ляра типа полу&shy;чает в качес&shy;тве пара&shy;метра отре&shy;зок собст&shy;венной жизни как внеш&shy;нюю зави&shy;си&shy;мость. Не выс&shy;тав&shy;ляя при этом ника&shy;ких мето&shy;дов наружу. Полу&shy;ча&shy;ется, что в дан&shy;ном сце&shy;на&shy;рии вре&shy;ме&shy;нем жизни нашего экземп&shy;ляра типа вла&shy;деет только тот, кто его соз&shy;дал и никто иной. С шаб&shy;ло&shy;ном IDis&shy;po&shy;sable единст&shy;венный путь обойти пуб&shy;ли&shy;ка&shy;цию метода  &mdash;  реа&shy;ли&shy;зо&shy;вать этот интер&shy;фейс неявно, скрыв таким обра&shy;зом метод <code>Dispose</code>. Однако, неяв&shy;ная реа&shy;ли&shy;за&shy;ция интер&shy;фейса будет вызы&shy;вать много воп&shy;ро&shy;сов, т.к. сов&shy;ре&shy;мен&shy;ные IDE поз&shy;во&shy;ляют легко и просто уви&shy;деть нали&shy;чие этого метода в струк&shy;туре типа.</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p >
-Теперь оста&shy;лось зак&shy;рыть еще один воп&shy;рос: раз&shy;де&shy;ле&shy;ние зон ответст&shy;вен&shy;ности. Ведь если у нас появ&shy;ля&shy;ется задача пере&shy;дать кому-либо свой <code>Lifetime</code>, не хоте&shy;лось бы отда&shy;вать конт&shy;роль над воз&shy;мож&shy;ностью вызова метода запуска раз&shy;ру&shy;ше&shy;ния, кото&shy;рый закон&shy;чит жизнь всех, кто под&shy;пи&shy;сан на пере&shy;дан&shy;ный экземп&shy;ляр <code>Lifetime</code>.</p>
+<p>Теперь оста&shy;лось зак&shy;рыть еще один воп&shy;рос: раз&shy;де&shy;ле&shy;ние зон ответст&shy;вен&shy;ности. Ведь если у нас появ&shy;ля&shy;ется задача пере&shy;дать кому-либо свой <code>Life&shy;time</code>, не хоте&shy;лось бы отда&shy;вать конт&shy;роль над воз&shy;мож&shy;ностью вызова метода запуска раз&shy;ру&shy;ше&shy;ния, кото&shy;рый закон&shy;чит жизнь всех, кто под&shy;пи&shy;сан на пере&shy;дан&shy;ный экземп&shy;ляр <code>Life&shy;time</code>.</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p >
-Также, чтобы исполь&shy;зу&shy;ю&shy;щие <code>Lifetime</code> сущ&shy;ности не могли прер&shy;вать время его жизни самос&shy;то&shy;я&shy;тельно, необ&shy;хо&shy;димо ввести раз&shy;де&shy;ле&shy;ние зон ответст&shy;вен&shy;ности между участ&shy;ни&shy;ками про&shy;цесса:</p>
+<p>Также, чтобы исполь&shy;зу&shy;ю&shy;щие <code>Life&shy;time</code> сущ&shy;ности не могли прер&shy;вать время его жизни самос&shy;то&shy;я&shy;тельно, необ&shy;хо&shy;димо ввести раз&shy;де&shy;ле&shy;ние зон ответст&shy;вен&shy;ности между участ&shy;ни&shy;ками про&shy;цесса:</p>
 <div class="paragraph-right-side">07</div>
 </div>
 <ol>
-<li>
-<p >
-<code>LifetimeDef</code>. Экзем&shy;пляр дан&shy;ного типа хра&shy;нится у того объ&shy;екта, кото&shy;рый будет вла&shy;деть завер&shy;ше&shy;нием вре&shy;мени жизни зави&shy;ся&shy;щих от него объ&shy;ек&shy;тов;</p>
-</li>
-<li>
-<p >
-<code>Lifetime</code> соз&shy;да&shy;ется экземп&shy;ля&shy;ром <code>LifetimeDef</code> и будет пере&shy;дан всем тем, кто будет так или иначе зави&shy;сеть от вла&shy;дельца. Сами они не могут выз&shy;вать метод <code>Terminate</code>: он дос&shy;ту&shy;пен только у <code>LifetimeDef</code>. Забота экземп&shy;ля&shy;ров типов, кото&shy;рые полу&shy;чили <code>Lifetime</code> - просто наки&shy;дать внутрь него действий, кото&shy;рые будут их раз&shy;ру&shy;шать.</p>
-</li>
-<li>
-<p >
-<code>OuterLifetime</code> - инкап&shy;су&shy;ли&shy;рует поня&shy;тие rea&shy;donly <code>Lifetime</code>. Дру&shy;гими сло&shy;вами, это сред&shy;ство защиты от конеч&shy;ного прог&shy;рам&shy;миста: чтобы он не мог в пере&shy;дан&shy;ную зави&shy;си&shy;мость доба&shy;вить действия по унич&shy;то&shy;же&shy;нию своей. Этот тип исполь&shy;зу&shy;ется, когда вы отда&shy;ете кому-либо экземп&shy;ляр <code>Lifetime</code> так, чтобы отно&shy;си&shy;тельно него можно было бы только соз&shy;дать новый, зави&shy;си&shy;мый <code>LifetimeDef</code>. Но доба&shy;вить туда свои собст&shy;венные было бы не воз&shy;можно. Пуб&shy;лично, как и <code>Lifetime</code>, <code>OuterLifetime</code> содер&shy;жит только свой&shy;ство <code>IsTerminated</code>, однако на основе него можно соз&shy;дать зави&shy;си&shy;мый экземп&shy;ляр <code>LifetimeDef</code>, на основе кото&shy;рого можно осу&shy;щ&shy;ествлять менедж&shy;мент жизни собст&shy;ве&shy;нного экземп&shy;ляра.</p>
-</li>
+<li><code>Lifetime&shy;Def</code>. Экзем&shy;пляр дан&shy;ного типа хра&shy;нится у того объ&shy;екта, кото&shy;рый будет вла&shy;деть завер&shy;ше&shy;нием вре&shy;мени жизни зави&shy;ся&shy;щих от него объ&shy;ек&shy;тов;</li>
+<li><code>Life&shy;time</code> соз&shy;да&shy;ется экземп&shy;ля&shy;ром <code>Lifetime&shy;Def</code> и будет пере&shy;дан всем тем, кто будет так или иначе зави&shy;сеть от вла&shy;дельца. Сами они не могут выз&shy;вать метод <code>Termi&shy;nate</code>: он дос&shy;ту&shy;пен только у <code>Lifetime&shy;Def</code>. Забота экземп&shy;ля&shy;ров типов, кото&shy;рые полу&shy;чили <code>Life&shy;time</code>  &mdash;  просто наки&shy;дать внутрь него действий, кото&shy;рые будут их раз&shy;ру&shy;шать.</li>
+<li><code>Outer&shy;Lifetime</code>  &mdash;  инкап&shy;су&shy;ли&shy;рует поня&shy;тие rea&shy;donly <code>Life&shy;time</code>. Дру&shy;гими сло&shy;вами, это сред&shy;ство защиты от конеч&shy;ного прог&shy;рам&shy;миста: чтобы он не мог в пере&shy;дан&shy;ную зави&shy;си&shy;мость доба&shy;вить действия по унич&shy;то&shy;же&shy;нию своей. Этот тип исполь&shy;зу&shy;ется, когда вы отда&shy;ете кому-либо экземп&shy;ляр <code>Life&shy;time</code> так, чтобы отно&shy;си&shy;тельно него можно было бы только соз&shy;дать новый, зави&shy;си&shy;мый <code>Lifetime&shy;Def</code>. Но доба&shy;вить туда свои собст&shy;венные было бы не воз&shy;можно. Пуб&shy;лично, как и <code>Life&shy;time</code>, <code>Outer&shy;Lifetime</code> содер&shy;жит только свой&shy;ство <code>Is&shy;Terminated</code>, однако на основе него можно соз&shy;дать зави&shy;си&shy;мый экземп&shy;ляр <code>Lifetime&shy;Def</code>, на основе кото&shy;рого можно осу&shy;щ&shy;ествлять менедж&shy;мент жизни собст&shy;ве&shy;нного экземп&shy;ляра.</li>
 </ol>
-<p >
-Расс&shy;мот&shy;рим самый базо&shy;вый вари&shy;ант интер&shy;фейса типа:</p>
+<p>Расс&shy;мот&shy;рим самый базо&shy;вый вари&shy;ант интер&shy;фейса типа:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">class</span> Lifetime
 {
@@ -1414,14 +1373,12 @@ footer > div {
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p >
-Что мы здесь видим? Есть новая сущ&shy;ность, <code>Lifetime</code>. Сущ&shy;ность эта имеет свой&shy;ство <code>IsTerminated</code>, кото&shy;рое приз&shy;вано помочь в пони&shy;ма&shy;нии, закон&shy;чи&shy;лось ли время жизни Life&shy;time и всех, кто от него зави&shy;сит или еще нет. Задать спи&shy;сок действий, кото&shy;рые дол&shy;жны про&shy;изойти в слу&shy;чае смерти экземп&shy;ляра типа <code>Lifetime</code> можно путем их добав&shy;ле&shy;ния во внут&shy;рен&shy;ний спи&shy;сок мето&shy;дом <code>Add</code>.</p>
+<p>Что мы здесь видим? Есть новая сущ&shy;ность, <code>Life&shy;time</code>. Сущ&shy;ность эта имеет свой&shy;ство <code>Is&shy;Terminated</code>, кото&shy;рое приз&shy;вано помочь в пони&shy;ма&shy;нии, закон&shy;чи&shy;лось ли время жизни Life&shy;time и всех, кто от него зави&shy;сит или еще нет. Задать спи&shy;сок действий, кото&shy;рые дол&shy;жны про&shy;изойти в слу&shy;чае смерти экземп&shy;ляра типа <code>Life&shy;time</code> можно путем их добав&shy;ле&shy;ния во внут&shy;рен&shy;ний спи&shy;сок мето&shy;дом <code>Add</code>.</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
-<p >
-Также давайте расс&shy;мот&shy;рим вто&shy;рой кр&shy;аеуг&shy;ольный камень этого шаб&shy;лона: класс <code>LifetimeDef</code>, кото&shy;рый вла&shy;деет пра&shy;вом на оста&shy;нов срока жизни экземп&shy;ляра <code>Lifetime</code>, кото&shy;рым вла&shy;деет.</p>
+<p>Также давайте расс&shy;мот&shy;рим вто&shy;рой кр&shy;аеуг&shy;ольный камень этого шаб&shy;лона: класс <code>Lifetime&shy;Def</code>, кото&shy;рый вла&shy;деет пра&shy;вом на оста&shy;нов срока жизни экземп&shy;ляра <code>Life&shy;time</code>, кото&shy;рым вла&shy;деет.</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1452,8 +1409,7 @@ footer > div {
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
-<p >
-Для удоб&shy;ности он содер&shy;жит нео&shy;бя&shy;за&shy;тель&shy;ное поле <code>Name</code>. Это вве&shy;дено чтобы при отладке мно&shy;жест&shy;вен&shy;ные экземп&shy;ляры типа <code>LifetimeDef</code> не вво&shy;дили бы в заб&shy;лу&shy;же&shy;ние и поз&shy;во&shy;ляли бы легко нахо&shy;дить необ&shy;хо&shy;ди&shy;мые сущ&shy;ности. Метод <code>Terminate</code> обры&shy;вает жизнь экземп&shy;ляру класса Life&shy;time, а реа&shy;ли&shy;за&shy;ция шаб&shy;лона <code>IDisposable</code> поз&shy;во&shy;ляет исполь&shy;зо&shy;вать <code>LifetimeDef</code> в клас&shy;си&shy;чес&shy;ких сце&shy;на&shy;риях. Нап&shy;ри&shy;мер, в блоке <code>using</code>:</p>
+<p>Для удоб&shy;ности он содер&shy;жит нео&shy;бя&shy;за&shy;тель&shy;ное поле <code>Name</code>. Это вве&shy;дено чтобы при отладке мно&shy;жест&shy;вен&shy;ные экземп&shy;ляры типа <code>Lifetime&shy;Def</code> не вво&shy;дили бы в заб&shy;лу&shy;же&shy;ние и поз&shy;во&shy;ляли бы легко нахо&shy;дить необ&shy;хо&shy;ди&shy;мые сущ&shy;ности. Метод <code>Termi&shy;nate</code> обры&shy;вает жизнь экземп&shy;ляру класса Lifetime&shy;, а реа&shy;ли&shy;за&shy;ция шаб&shy;лона <code>IDis&shy;po&shy;sable</code> поз&shy;во&shy;ляет исполь&shy;зо&shy;вать <code>Lifetime&shy;Def</code> в клас&shy;си&shy;чес&shy;ких сце&shy;на&shy;риях. Нап&shy;ри&shy;мер, в блоке <code>using</code>:</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1472,14 +1428,13 @@ footer > div {
 }
 </pre></div>
 </div>
-<h2 id="section">Сценарии использования</h2>
+<h2 id="section">Сце&shy;на&shy;рии исполь&shy;зо&shy;ва&shy;ния</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
-<p >
-Для того чтобы разоб&shy;раться, с чем мы имеем дело, я пред&shy;ла&shy;гаю расс&shy;мот&shy;реть ряд при&shy;ме&shy;ров.</p>
+<p>Для того чтобы разоб&shy;раться, с чем мы имеем дело, я пред&shy;ла&shy;гаю расс&shy;мот&shy;реть ряд при&shy;ме&shy;ров.</p>
 <div class="paragraph-right-side">11</div>
 </div>
-<h3 id="section-1">Пример 1</h3>
+<h3 id="section-1">При&shy;мер 1</h3>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 
 <span style="color:Blue;">public</span> <span style="color:Blue;">class</span> Subscriber

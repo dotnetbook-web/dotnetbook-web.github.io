@@ -133,12 +133,12 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 p code:not(.highlight), li code:not(.highlight) {
     font-size: 0.7em;
-    padding: 3px;
     color: darkslateblue;
 }
 
 /* style for manual selecting */
 .box {
+    padding: 3px;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
@@ -233,6 +233,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     font-weight: 400;
     font-family: inherit;
+    hyphens: none;
 }
 
 h1 {
@@ -246,23 +247,32 @@ h1 {
 
 h2 {
     padding-top: 1.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    margin-bottom: 0.5em;
     font-family: Charter, Arial, Helvetica Neue, sans-serif;
-    font-size: 1.25em;
-    width: 70%;
+    font-size: 1.4em;
+    text-align: center;
 }
 
 h3 {
-    padding-top: 1em;
-    font-size: 1.3em;
+    padding-top: 1.2em;
+    font-family: Charter, Arial, Helvetica Neue, sans-serif;
+    font-size: 1.15em;
+    width: 70%;
+}
+
+h4 {
+    padding: 1em 0 0 0;
+    font-size: 1.2em;
     font-weight: 300;
     font-style: italic;
 }
 
-h4 {
-    margin: 20px 0 10px 0;
-    font-size: 16pt;
-    font-weight: 500;
-    font-style: italic;
+h5 {
+    padding: 0.6em 0 0 0;
+    font-weight: 300;
+    font-size: 1.1em;
 }
 
 /* Sidenotes */
@@ -677,7 +687,7 @@ footer > div {
 /* MD */
 @media (max-width: 991px) {
     
-    h2 {
+    h3 {
         width:80%;
     }
 
@@ -904,7 +914,17 @@ footer > div {
         font-size: 10pt;
         padding: 3px;
     }
-   
+
+    *[class*='lang-'] > div, pre > code {
+        padding-left: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    
+    ol li, ul li {
+        padding-left: 0.2em;	
+    }
+    
     p, li {
         line-height: 24px;
     }    
@@ -1228,7 +1248,7 @@ StackOverflowException</a></li>
                             </li>
                             <li>
                                 <p>
-                                <a href="../../..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></p>
+                                <a href="../../..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон IDisposable</a></p>
                             </li>
                             <li>
                                 <p>
@@ -1290,52 +1310,34 @@ StackOverflowException</a></li>
             <p class="d-none d-sm-block d-md-none">MD</p>
             <p class="d-none d-lg-block d-xl-none">LG</p>
             <p class="d-none d-xl-block">XL</p> -->
-            <h3 id="clr-exceptions">CLR Exceptions</h3>
+            <h3 id="clr-exceptions">CLR Excep&shy;tions</h3>
 <blockquote>
-<p >
-<a href="https://github.com/sidristij/dotnetbook/issues/51">Ссылка на обсуждение</a></p>
+<p><a href="https://github.com/sidristij/dotnetbook/issues/51">Ссылка на обсуж&shy;де&shy;ние</a></p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p >
-Сущес&shy;твует ряд исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций, кото&shy;рые ска&shy;жем так&hellip; Нес&shy;колько более исклю&shy;чи&shy;тельны, чем дру&shy;гие. При&shy;чем если попы&shy;таться их клас&shy;си&shy;фи&shy;ци&shy;ро&shy;вать, то, как и было ска&shy;зано в самом начале главы, есть исклю&shy;че&shy;ния родом из самого .NET при&shy;ло&shy;же&shy;ния, а есть исклю&shy;че&shy;ния родом из unsafe мира. Их в свою оче&shy;редь можно раз&shy;де&shy;лить на две под&shy;ка&shy;те&shy;го&shy;рии: иcклю&shy;чи&shy;тель&shy;ные ситу&shy;а&shy;ции ядра CLR (кото&shy;рое по своей сути - unsafe) и любой unsafe код внеш&shy;них биб&shy;ли&shy;о&shy;тек.</p>
+<p>Сущес&shy;твует ряд исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций, кото&shy;рые ска&shy;жем так&hellip; Нес&shy;колько более исклю&shy;чи&shy;тельны, чем дру&shy;гие. При&shy;чем если попы&shy;таться их клас&shy;си&shy;фи&shy;ци&shy;ро&shy;вать, то, как и было ска&shy;зано в самом начале главы, есть исклю&shy;че&shy;ния родом из самого .NET при&shy;ло&shy;же&shy;ния, а есть исклю&shy;че&shy;ния родом из unsafe мира. Их в свою оче&shy;редь можно раз&shy;де&shy;лить на две под&shy;ка&shy;те&shy;го&shy;рии: иcклю&shy;чи&shy;тель&shy;ные ситу&shy;а&shy;ции ядра CLR (кото&shy;рое по своей сути  &mdash;  unsafe) и любой unsafe код внеш&shy;них биб&shy;ли&shy;о&shy;тек.</p>
 <div class="paragraph-right-side">01</div>
 </div>
-<p >
-[todo]</p>
-<h4 id="threadabortexception">ThreadAbortException</h4>
+<p>[todo]</p>
+<h4 id="threadabortexception">Thread&shy;Abort&shy;Exception</h4>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p >
-Вообще, это может пока&shy;заться не оче&shy;вид&shy;ным, но сущес&shy;твует четыре типа Thread Abort.</p>
+<p>Вообще, это может пока&shy;заться не оче&shy;вид&shy;ным, но сущес&shy;твует четыре типа Thread Abort&shy;.</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <ul>
-<li>
-<p >
-Гру&shy;бый вари&shy;ант Thread&shy;Abort, кото&shy;рый, отра&shy;ба&shy;ты&shy;вая, не может быть никак оста&shy;нов&shy;лен и кото&shy;рый не запус&shy;кает обра&shy;бот&shy;чи&shy;ков исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций вообще вклю&shy;чая сек&shy;ции <code>finally</code></p>
-</li>
-<li>
-<p >
-Вызов метода Thread.Abort() на теку&shy;щем потоке</p>
-</li>
-<li>
-<p >
-Асинх&shy;рон&shy;ное исклю&shy;че&shy;ние Thread&shy;Abort&shy;Exception, выз&shy;ван&shy;ное из дру&shy;гого потока</p>
-</li>
-<li>
-<p >
-Если во время выг&shy;рузки App&shy;Domain сущес&shy;твуют потоки, в рам&shy;ках кото&shy;рых запу&shy;щены методы, ском&shy;пи&shy;ли&shy;ро&shy;ван&shy;ные для этого домена, будет про&shy;из&shy;ведён Thread&shy;Abort тех пото&shy;ков, в кото&shy;рых эти методы запу&shy;щены</p>
-</li>
+<li>Гру&shy;бый вари&shy;ант Thread&shy;Abort&shy;, кото&shy;рый, отра&shy;ба&shy;ты&shy;вая, не может быть никак оста&shy;нов&shy;лен и кото&shy;рый не запус&shy;кает обра&shy;бот&shy;чи&shy;ков исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций вообще вклю&shy;чая сек&shy;ции <code>finally</code></li>
+<li>Вызов метода Thread&shy;.Abort&shy;() на теку&shy;щем потоке</li>
+<li>Асинх&shy;рон&shy;ное исклю&shy;че&shy;ние Thread&shy;Abort&shy;Exception&shy;, выз&shy;ван&shy;ное из дру&shy;гого потока</li>
+<li>Если во время выг&shy;рузки App&shy;Domain сущес&shy;твуют потоки, в рам&shy;ках кото&shy;рых запу&shy;щены методы, ском&shy;пи&shy;ли&shy;ро&shy;ван&shy;ные для этого домена, будет про&shy;из&shy;ведён Thread&shy;Abort тех пото&shy;ков, в кото&shy;рых эти методы запу&shy;щены</li>
 </ul>
 <blockquote>
-<p >
-Стоит заме&shy;тить, что Thread&shy;Abort&shy;Exception довольно часто исполь&shy;зу&shy;ется в <em>большом</em> .NET Frame&shy;work, однако его не сущес&shy;твует на Core&shy;CLR, .NET Core или же под Windows 8 &laquo;Modern app profile&raquo;. Поп&shy;ро&shy;буем узнать, почему.</p>
+<p>Стоит заме&shy;тить, что Thread&shy;Abort&shy;Exception довольно часто исполь&shy;зу&shy;ется в <em>боль&shy;шом</em> .NET Framework&shy;, однако его не сущес&shy;твует на Core&shy;CLR, .NET Core или же под Windows 8 &laquo;Modern app profile&raquo;. Поп&shy;ро&shy;буем узнать, почему.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p >
-Итак, если мы имеем дело с не прин&shy;ци&shy;пи&shy;альным типом обрыва потока, когда мы ещё можем с ним что-то сде&shy;лать (т.е. вто&shy;рой, тре&shy;тий и четвёртый вари&shy;ант), вир&shy;ту&shy;альная машина при воз&shy;ник&shy;но&shy;ве&shy;нии такого исклю&shy;че&shy;ния начи&shy;нает идти по всем обра&shy;бот&shy;чи&shy;кам исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций и искать как обычно те, тип исклю&shy;че&shy;ния кото&shy;рых явля&shy;ется тем, что было выб&shy;ро&shy;шено либо более базо&shy;вым. В нашем слу&shy;чае это три типа: <code>ThreadAbortException</code>, <code>Exception</code> и <code>object</code> (пом&shy;ним что Excep&shy;tion - это по своей сути - хра&shy;ни&shy;лище дан&shy;ных и тип исклю&shy;че&shy;ния может быть любым. Даже <code>int</code>). Отра&shy;ба&shy;ты&shy;вая <em>все</em> под&shy;хо&shy;дя&shy;щие <code>catch</code> блоки вир&shy;ту&shy;альная машина проб&shy;ра&shy;сы&shy;ват <code>ThreadAbortException</code> дальше по цепочке обра&shy;ботки исклю&shy;че&shy;ний попутно входя во все <code>finally</code> блоки. В целом, ситу&shy;а&shy;ции в двух при&shy;ме&shy;рах, опи&shy;сан&shy;ных ниже абсо&shy;лютно оди&shy;на&shy;ко&shy;вые:</p>
+<p>Итак, если мы имеем дело с не прин&shy;ци&shy;пи&shy;альным типом обрыва потока, когда мы ещё можем с ним что-то сде&shy;лать (т.е. вто&shy;рой, тре&shy;тий и четвёртый вари&shy;ант), вир&shy;ту&shy;альная машина при воз&shy;ник&shy;но&shy;ве&shy;нии такого исклю&shy;че&shy;ния начи&shy;нает идти по всем обра&shy;бот&shy;чи&shy;кам исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций и искать как обычно те, тип исклю&shy;че&shy;ния кото&shy;рых явля&shy;ется тем, что было выб&shy;ро&shy;шено либо более базо&shy;вым. В нашем слу&shy;чае это три типа: <code>Thread&shy;Abort&shy;Exception</code>, <code>Excep&shy;tion</code> и <code>object</code> (пом&shy;ним что Excep&shy;tion  &mdash;  это по своей сути  &mdash;  хра&shy;ни&shy;лище дан&shy;ных и тип исклю&shy;че&shy;ния может быть любым. Даже <code>int</code>). Отра&shy;ба&shy;ты&shy;вая <em>все</em> под&shy;хо&shy;дя&shy;щие <code>catch</code> блоки вир&shy;ту&shy;альная машина проб&shy;ра&shy;сы&shy;ват <code>Thread&shy;Abort&shy;Exception</code> дальше по цепочке обра&shy;ботки исклю&shy;че&shy;ний попутно входя во все <code>finally</code> блоки. В целом, ситу&shy;а&shy;ции в двух при&shy;ме&shy;рах, опи&shy;сан&shy;ных ниже абсо&shy;лютно оди&shy;на&shy;ко&shy;вые:</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1372,8 +1374,7 @@ thread.Abort();
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p >
-Конечно же, всегда воз&shy;ник&shy;нет ситу&shy;а&shy;ция, когда воз&shy;ни&shy;ка&shy;ю&shy;щий Thread&shy;Abort может быть нами вполне ожи&shy;даем. Тогда может воз&shy;ник&shy;нуть понят&shy;ное жела&shy;ние его всё-таки обра&shy;бо&shy;тать. Как раз для таких слу&shy;чаев был раз&shy;ра&shy;бо&shy;тан и отк&shy;рыт метод <code>Thread.ResetAbort()</code>, кото&shy;рый делает именно то, что нам нужно: оста&shy;нав&shy;ли&shy;вает сквоз&shy;ной проб&shy;рос исклю&shy;че&shy;ния через всю цепочку обра&shy;бот&shy;чи&shy;ков, делая его обра&shy;бо&shy;тан&shy;ным:</p>
+<p>Конечно же, всегда воз&shy;ник&shy;нет ситу&shy;а&shy;ция, когда воз&shy;ни&shy;ка&shy;ю&shy;щий Thread&shy;Abort может быть нами вполне ожи&shy;даем. Тогда может воз&shy;ник&shy;нуть понят&shy;ное жела&shy;ние его всё-таки обра&shy;бо&shy;тать. Как раз для таких слу&shy;чаев был раз&shy;ра&shy;бо&shy;тан и отк&shy;рыт метод <code>Thread&shy;.Reset&shy;Abort&shy;()</code>, кото&shy;рый делает именно то, что нам нужно: оста&shy;нав&shy;ли&shy;вает сквоз&shy;ной проб&shy;рос исклю&shy;че&shy;ния через всю цепочку обра&shy;бот&shy;чи&shy;ков, делая его обра&shy;бо&shy;тан&shy;ным:</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1411,26 +1412,22 @@ Catched successfully
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p >
-Однако реально ли стоит этим поль&shy;зо&shy;ваться? И стоит ли оби&shy;жаться на раз&shy;ра&shy;бот&shy;чи&shy;ков Core&shy;CLR что там этот код поп&shy;росту выпи&shy;лен? Предс&shy;тавьте что вы - поль&shy;зо&shy;ва&shy;тель кода, кото&shy;рый по вашему мне&shy;нию &laquo;повис&raquo; и у вас воз&shy;никло неп&shy;ре&shy;о&shy;до&shy;ли&shy;мое жела&shy;ние выз&shy;вать для него <code>ThreadAbortException</code>. Когда вы хотите обор&shy;вать жизнь потока все чего вы хотите - чтобы он дейс&shy;твит&shy;ельно завер&shy;шил свою работу. Мало того, ред&shy;кий алго&shy;ритм просто обры&shy;вает поток и бро&shy;сает его, уходя к своим делам. Обычно внеш&shy;ний алго&shy;ритм решает дож&shy;даться кор&shy;рект&shy;ного завер&shy;ше&shy;ния опе&shy;ра&shy;ций. Или же нао&shy;бо&shy;рот: может решить, что поток более уже ничего делать не будет, дек&shy;ре&shy;мен&shy;ти&shy;рует некие внут&shy;рен&shy;ние счётчики и более не будет завя&shy;зы&shy;ваться на то, что есть какая-то мно&shy;го&shy;по&shy;точ&shy;ная обра&shy;ботка какого-либо кода. Тут, в общем, не ска&shy;жешь, что хуже. Я даже так вам скажу: отра&shy;бо&shy;тав много лет прог&shy;рам&shy;мис&shy;том я до сих пор не могу вам дать прек&shy;рас&shy;ный спо&shy;соб его вызова и обра&shy;ботки. Сами посу&shy;дите: вы бро&shy;са&shy;ете <code>ThreadAbort</code> не <em>прямо сейчас</em> а в любом слу&shy;чае спустя неко&shy;то&shy;рое время после осоз&shy;на&shy;ния без&shy;вы&shy;ход&shy;ности ситу&shy;а&shy;ции. Т.е. вы можете как попасть по обра&shy;бот&shy;чику <code>ThreadAbortException</code>, так и про&shy;мах&shy;нуться мимо него: &laquo;завис&shy;ший код&raquo; мог ока&shy;заться вовсе не завис&shy;шим, а поп&shy;росту долго рабо&shy;та&shy;ю&shy;щим. И как раз в тот момент, когда вы хотели обор&shy;вать его жизнь, он мог выр&shy;ваться из ожи&shy;да&shy;ния и кор&shy;рек&shy;тно про&shy;дол&shy;жить работу. Т.е. без лиш&shy;ней лирики выйти из блока <code>try-catch(ThreadAbortException) { Thread.ResetAbort(); }</code>. Что мы полу&shy;чим? Обор&shy;ван&shy;ный поток, кото&shy;рый ни в чем не вино&shy;ват. Шла убор&shy;щица, выдер&shy;нула про&shy;вод, сеть про&shy;пала. Метод ожи&shy;дал тай&shy;ма&shy;ута, убор&shy;щица вер&shy;нула про&shy;вод, все зара&shy;бо&shy;тало, но ваш конт&shy;ро&shy;ли&shy;ру&shy;ю&shy;щий код не дож&shy;дался и убил поток. Хорошо? Нет. Как-то можно защи&shy;титься? Нет. Но вернёмся к навяз&shy;чи&shy;вой идее лега&shy;ли&shy;за&shy;ции <code>Thread.Abort()</code>: мы кинули кувал&shy;дой в поток и ожи&shy;даем что он с веро&shy;ят&shy;ностью 100% оборвётся, но этого может не про&shy;изойти. Во-пер&shy;вых, ста&shy;но&shy;вится не понятно как его обор&shy;вать в таком слу&shy;чае. Ведь тут все может быть нам&shy;ного слож&shy;нее: в повис&shy;шем потоке может быть такая логика, кото&shy;рая перех&shy;ва&shy;ты&shy;вает <code>ThreadAbortException</code>, оста&shy;нав&shy;ли&shy;вает его при помощи <code>ResetAbort</code>, однако про&shy;дол&shy;жает висеть из-за сло&shy;ман&shy;ной логики. Что тогда? Делать безус&shy;лов&shy;ный <code>thread.Interrupt()</code>? Попа&shy;хи&shy;вает попыт&shy;кой обойти ошибку в логике прог&shy;раммы гру&shy;быми мето&shy;дами. Плюс, я вам гаран&shy;ти&shy;рую что у вас поп&shy;лы&shy;вут утечки: <code>thread.Interrupt()</code> не будет зани&shy;маться вызо&shy;вом <code>catch</code> и <code>finally</code>, а это зна&shy;чит что при всем опыте и сно&shy;ровке очис&shy;тить ресурсы вы не смо&shy;жете: ваш поток просто исчез&shy;нет, а нахо&shy;дясь в сосед&shy;нем потоке вы можете не знать ссы&shy;лок на все ресурсы, кото&shy;рые были заняты уми&shy;ра&shy;ю&shy;щим пото&shy;ком. Также прошу заме&shy;тить что в слу&shy;чае про&shy;маха <code>ThreadAbortException</code> мимо <code>catch(ThreadAbortException) { Thread.ResetAbort(); }</code> у вас точно также поте&shy;кут ресурсы.</p>
+<p>Однако реально ли стоит этим поль&shy;зо&shy;ваться? И стоит ли оби&shy;жаться на раз&shy;ра&shy;бот&shy;чи&shy;ков Core&shy;CLR что там этот код поп&shy;росту выпи&shy;лен? Предс&shy;тавьте что вы  &mdash;  поль&shy;зо&shy;ва&shy;тель кода, кото&shy;рый по вашему мне&shy;нию &laquo;повис&raquo; и у вас воз&shy;никло неп&shy;ре&shy;о&shy;до&shy;ли&shy;мое жела&shy;ние выз&shy;вать для него <code>Thread&shy;Abort&shy;Exception</code>. Когда вы хотите обор&shy;вать жизнь потока все чего вы хотите  &mdash;  чтобы он дейс&shy;твит&shy;ельно завер&shy;шил свою работу. Мало того, ред&shy;кий алго&shy;ритм просто обры&shy;вает поток и бро&shy;сает его, уходя к своим делам. Обычно внеш&shy;ний алго&shy;ритм решает дож&shy;даться кор&shy;рект&shy;ного завер&shy;ше&shy;ния опе&shy;ра&shy;ций. Или же нао&shy;бо&shy;рот: может решить, что поток более уже ничего делать не будет, дек&shy;ре&shy;мен&shy;ти&shy;рует некие внут&shy;рен&shy;ние счётчики и более не будет завя&shy;зы&shy;ваться на то, что есть какая-то мно&shy;го&shy;по&shy;точ&shy;ная обра&shy;ботка какого-либо кода. Тут, в общем, не ска&shy;жешь, что хуже. Я даже так вам скажу: отра&shy;бо&shy;тав много лет прог&shy;рам&shy;мис&shy;том я до сих пор не могу вам дать прек&shy;рас&shy;ный спо&shy;соб его вызова и обра&shy;ботки. Сами посу&shy;дите: вы бро&shy;са&shy;ете <code>Thread&shy;Abort</code> не <em>прямо сей&shy;час</em> а в любом слу&shy;чае спустя неко&shy;то&shy;рое время после осоз&shy;на&shy;ния без&shy;вы&shy;ход&shy;ности ситу&shy;а&shy;ции. Т.е. вы можете как попасть по обра&shy;бот&shy;чику <code>Thread&shy;Abort&shy;Exception</code>, так и про&shy;мах&shy;нуться мимо него: &laquo;завис&shy;ший код&raquo; мог ока&shy;заться вовсе не завис&shy;шим, а поп&shy;росту долго рабо&shy;та&shy;ю&shy;щим. И как раз в тот момент, когда вы хотели обор&shy;вать его жизнь, он мог выр&shy;ваться из ожи&shy;да&shy;ния и кор&shy;рек&shy;тно про&shy;дол&shy;жить работу. Т.е. без лиш&shy;ней лирики выйти из блока <code>try-catch(Thread&shy;Abort&shy;Exception&shy;) { Thread&shy;.Reset&shy;Abort&shy;(); }</code>. Что мы полу&shy;чим? Обор&shy;ван&shy;ный поток, кото&shy;рый ни в чем не вино&shy;ват. Шла убор&shy;щица, выдер&shy;нула про&shy;вод, сеть про&shy;пала. Метод ожи&shy;дал тай&shy;ма&shy;ута, убор&shy;щица вер&shy;нула про&shy;вод, все зара&shy;бо&shy;тало, но ваш конт&shy;ро&shy;ли&shy;ру&shy;ю&shy;щий код не дож&shy;дался и убил поток. Хорошо? Нет. Как-то можно защи&shy;титься? Нет. Но вернёмся к навяз&shy;чи&shy;вой идее лега&shy;ли&shy;за&shy;ции <code>Thread&shy;.Abort&shy;()</code>: мы кинули кувал&shy;дой в поток и ожи&shy;даем что он с веро&shy;ят&shy;ностью 100% оборвётся, но этого может не про&shy;изойти. Во-пер&shy;вых, ста&shy;но&shy;вится не понятно как его обор&shy;вать в таком слу&shy;чае. Ведь тут все может быть нам&shy;ного слож&shy;нее: в повис&shy;шем потоке может быть такая логика, кото&shy;рая перех&shy;ва&shy;ты&shy;вает <code>Thread&shy;Abort&shy;Exception</code>, оста&shy;нав&shy;ли&shy;вает его при помощи <code>Reset&shy;Abort</code>, однако про&shy;дол&shy;жает висеть из-за сло&shy;ман&shy;ной логики. Что тогда? Делать безус&shy;лов&shy;ный <code>thread.Interrupt&shy;()</code>? Попа&shy;хи&shy;вает попыт&shy;кой обойти ошибку в логике прог&shy;раммы гру&shy;быми мето&shy;дами. Плюс, я вам гаран&shy;ти&shy;рую что у вас поп&shy;лы&shy;вут утечки: <code>thread.Interrupt&shy;()</code> не будет зани&shy;маться вызо&shy;вом <code>catch</code> и <code>finally</code>, а это зна&shy;чит что при всем опыте и сно&shy;ровке очис&shy;тить ресурсы вы не смо&shy;жете: ваш поток просто исчез&shy;нет, а нахо&shy;дясь в сосед&shy;нем потоке вы можете не знать ссы&shy;лок на все ресурсы, кото&shy;рые были заняты уми&shy;ра&shy;ю&shy;щим пото&shy;ком. Также прошу заме&shy;тить что в слу&shy;чае про&shy;маха <code>Thread&shy;Abort&shy;Exception</code> мимо <code>catch(Thread&shy;Abort&shy;Exception&shy;) { Thread&shy;.Reset&shy;Abort&shy;(); }</code> у вас точно также поте&shy;кут ресурсы.</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p >
-После того что вы про&shy;чи&shy;тали чуть выше я наде&shy;юсь, вы оста&shy;лись в неко&shy;то&shy;ром сос&shy;то&shy;я&shy;нии запу&shy;тан&shy;ности и жела&shy;ния пере&shy;чи&shy;тать абзац. И это будет совер&shy;шенно пра&shy;виль&shy;ная мысль: это будет дока&shy;за&shy;т&shy;ельством того, что поль&shy;зо&shy;ваться <code>Thread.Abort()</code> поп&shy;росту нельзя. Как и нельзя поль&shy;зо&shy;ваться <code>thread.Interrupt();</code>. Оба метода при&shy;во&shy;дят к неконт&shy;ро&shy;ли&shy;ру&shy;е&shy;мому пове&shy;де&shy;нию вашего при&shy;ло&shy;же&shy;ния. По своей сути они нару&shy;шают прин&shy;цип целост&shy;ности: основ&shy;ной прин&shy;цип .NET Frame&shy;work.</p>
+<p>После того что вы про&shy;чи&shy;тали чуть выше я наде&shy;юсь, вы оста&shy;лись в неко&shy;то&shy;ром сос&shy;то&shy;я&shy;нии запу&shy;тан&shy;ности и жела&shy;ния пере&shy;чи&shy;тать абзац. И это будет совер&shy;шенно пра&shy;виль&shy;ная мысль: это будет дока&shy;за&shy;т&shy;ельством того, что поль&shy;зо&shy;ваться <code>Thread&shy;.Abort&shy;()</code> поп&shy;росту нельзя. Как и нельзя поль&shy;зо&shy;ваться <code>thread.Interrupt&shy;();</code>. Оба метода при&shy;во&shy;дят к неконт&shy;ро&shy;ли&shy;ру&shy;е&shy;мому пове&shy;де&shy;нию вашего при&shy;ло&shy;же&shy;ния. По своей сути они нару&shy;шают прин&shy;цип целост&shy;ности: основ&shy;ной прин&shy;цип .NET Framework&shy;.</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p >
-Однако, чтобы понять для каких целей этот метод введён в экс&shy;п&shy;лу&shy;атацию дос&shy;та&shy;точно пос&shy;мот&shy;реть исход&shy;ные коды .NET Frame&shy;work и найти места исполь&shy;зо&shy;ва&shy;ния <code>Thread.ResetAbort()</code>. Ведь именно его нали&shy;чие по сути лега&shy;ли&shy;зует <code>thread.Abort()</code>.</p>
+<p>Однако, чтобы понять для каких целей этот метод введён в экс&shy;п&shy;лу&shy;атацию дос&shy;та&shy;точно пос&shy;мот&shy;реть исход&shy;ные коды .NET Frame&shy;work и найти места исполь&shy;зо&shy;ва&shy;ния <code>Thread&shy;.Reset&shy;Abort&shy;()</code>. Ведь именно его нали&shy;чие по сути лега&shy;ли&shy;зует <code>thread.Abort&shy;()</code>.</p>
 <div class="paragraph-right-side">07</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p >
-<strong>Класс ISAPIRuntime</strong> <a href="https://referencesource.microsoft.com/#System.Web/Hosting/ISAPIRuntime.cs,192">ISAPIRuntime.cs</a></p>
+<p><strong>Класс ISAPI&shy;Ru&shy;ntime</strong> <a href="https://referencesource.microsoft.com/#System.Web/Hosting/ISAPIRuntime.cs,192">ISAPIRuntime&shy;.cs</a></p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1467,14 +1464,12 @@ Catched successfully
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
-<p >
-В дан&shy;ном при&shy;мере про&shy;ис&shy;хо&shy;дит вызов неко&shy;то&shy;рого внеш&shy;него кода и если тот был завершён не кор&shy;рек&shy;тно: с <code>ThreadAbortException</code>, то при опре&shy;делённых усло&shy;виях поме&shy;чаем поток как более не пре&shy;ры&shy;ва&shy;е&shy;мый. Т.е. по сути обра&shy;ба&shy;ты&shy;ваем <code>ThreadAbort</code>. Почему в дан&shy;ном конк&shy;ретно слу&shy;чае мы обры&shy;ваем <code>Thread.Abort</code>? Потому что в дан&shy;ном слу&shy;чае мы имеем дело с сер&shy;вер&shy;ным кодом, а он в свою оче&shy;редь вне зави&shy;си&shy;мости от наших оши&shy;бок вер&shy;нуть кор&shy;рек&shy;т&shy;ные коды оши&shy;бок вызы&shy;ва&shy;ю&shy;щей сто&shy;роне. Обрыв потока привёл бы к тому что сер&shy;вер не смог бы вер&shy;нуть нуж&shy;ный код ошибки поль&shy;зо&shy;ва&shy;телю, а это совер&shy;шенно не пра&shy;вильно. Также остав&shy;лен ком&shy;мен&shy;та&shy;рий о <code>Thread.Abort()</code> во время <code>AppDomin.Unload()</code>, что явля&shy;ется экст&shy;рема&shy;льной ситу&shy;а&shy;цией для Thread&shy;Abort пос&shy;кольку такой про&shy;цесс не оста&shy;но&shy;вить и даже если вы сде&shy;ла&shy;ете <code>Thread.ResetAbort</code>. Это хоть и оста&shy;но&shy;вит сам Abor&shy;tion, но не оста&shy;но&shy;вит выг&shy;рузку потока с доме&shy;ном, в кото&shy;ром он нахо&shy;дится: поток же не может испол&shy;нять инстр&shy;укции кода, заг&shy;ру&shy;жен&shy;ного в домен, кото&shy;рый отгру&shy;жен.</p>
+<p>В дан&shy;ном при&shy;мере про&shy;ис&shy;хо&shy;дит вызов неко&shy;то&shy;рого внеш&shy;него кода и если тот был завершён не кор&shy;рек&shy;тно: с <code>Thread&shy;Abort&shy;Exception</code>, то при опре&shy;делённых усло&shy;виях поме&shy;чаем поток как более не пре&shy;ры&shy;ва&shy;е&shy;мый. Т.е. по сути обра&shy;ба&shy;ты&shy;ваем <code>Thread&shy;Abort</code>. Почему в дан&shy;ном конк&shy;ретно слу&shy;чае мы обры&shy;ваем <code>Thread&shy;.Abort</code>? Потому что в дан&shy;ном слу&shy;чае мы имеем дело с сер&shy;вер&shy;ным кодом, а он в свою оче&shy;редь вне зави&shy;си&shy;мости от наших оши&shy;бок вер&shy;нуть кор&shy;рек&shy;т&shy;ные коды оши&shy;бок вызы&shy;ва&shy;ю&shy;щей сто&shy;роне. Обрыв потока привёл бы к тому что сер&shy;вер не смог бы вер&shy;нуть нуж&shy;ный код ошибки поль&shy;зо&shy;ва&shy;телю, а это совер&shy;шенно не пра&shy;вильно. Также остав&shy;лен ком&shy;мен&shy;та&shy;рий о <code>Thread&shy;.Abort&shy;()</code> во время <code>App&shy;Domin&shy;.Unload&shy;()</code>, что явля&shy;ется экст&shy;рема&shy;льной ситу&shy;а&shy;цией для Thread&shy;Abort пос&shy;кольку такой про&shy;цесс не оста&shy;но&shy;вить и даже если вы сде&shy;ла&shy;ете <code>Thread&shy;.Reset&shy;Abort</code>. Это хоть и оста&shy;но&shy;вит сам Abortion&shy;, но не оста&shy;но&shy;вит выг&shy;рузку потока с доме&shy;ном, в кото&shy;ром он нахо&shy;дится: поток же не может испол&shy;нять инстр&shy;укции кода, заг&shy;ру&shy;жен&shy;ного в домен, кото&shy;рый отгру&shy;жен.</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
-<p >
-<strong>Класс HttpContext</strong> <a href="https://referencesource.microsoft.com/#System.Web/HttpContext.cs,1864">HttpContext.cs</a></p>
+<p><strong>Класс Http&shy;Context</strong> <a href="https://referencesource.microsoft.com/#System.Web/HttpContext.cs,1864">Http&shy;Context&shy;.cs</a></p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1508,14 +1503,12 @@ Catched successfully
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
-<p >
-Здесь при&shy;ведён прек&shy;рас&shy;ный при&shy;мер пере&shy;хода от неуп&shy;рав&shy;ля&shy;е&shy;мого асинх&shy;рон&shy;ного исклю&shy;че&shy;ния <code>ThreadAbortException</code> к управ&shy;ля&shy;е&shy;мому <code>HttpException</code> с лог&shy;ги&shy;ро&shy;ва&shy;нием ситу&shy;а&shy;ции в жур&shy;нал счётчи&shy;ков про&shy;из&shy;во&shy;ди&shy;тель&shy;ности.</p>
+<p>Здесь при&shy;ведён прек&shy;рас&shy;ный при&shy;мер пере&shy;хода от неуп&shy;рав&shy;ля&shy;е&shy;мого асинх&shy;рон&shy;ного исклю&shy;че&shy;ния <code>Thread&shy;Abort&shy;Exception</code> к управ&shy;ля&shy;е&shy;мому <code>Http&shy;Exception</code> с лог&shy;ги&shy;ро&shy;ва&shy;нием ситу&shy;а&shy;ции в жур&shy;нал счётчи&shy;ков про&shy;из&shy;во&shy;ди&shy;тель&shy;ности.</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
-<p >
-<strong>Класс HttpApplication</strong> <a href="https://referencesource.microsoft.com/#System.Web/HttpApplication.cs,2270">HttpApplication.cs</a></p>
+<p><strong>Класс Http&shy;Application</strong> <a href="https://referencesource.microsoft.com/#System.Web/HttpApplication.cs,2270">Http&shy;Application&shy;.cs</a></p>
 <div class="paragraph-right-side">12</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1569,20 +1562,17 @@ Catched successfully
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
-<p >
-Здесь опи&shy;сы&shy;ва&shy;ется очень инте&shy;рес&shy;ный слу&shy;чай: когда мы ждём не нас&shy;то&shy;я&shy;щий <code>ThreadAbort</code> (мне вот в неко&shy;то&shy;ром смысле жалко команду CLR и .NET Frame&shy;work. Сколько не стан&shy;дарт&shy;ных ситу&shy;а&shy;ций им при&shy;хо&shy;дится обра&shy;ба&shy;ты&shy;вать, поду&shy;мать страшно). Обра&shy;ботка ситу&shy;а&shy;ции идёт в два этапа: внут&shy;рен&shy;ним обра&shy;бот&shy;чи&shy;ком мы ловим <code>ThreadAbortException</code> но при этом про&shy;ве&shy;ряем наш поток на флаг реальной пре&shy;ры&shy;ва&shy;емости. Если поток не поме&shy;чен как пре&shy;ры&shy;ва&shy;ющийся, то на самом деле это не нас&shy;то&shy;я&shy;щий Thread&shy;Abort&shy;Exception. Такие ситу&shy;а&shy;ции мы дол&shy;жны обра&shy;бо&shy;тать соот&shy;вет&shy;с&shy;твующим обра&shy;зом: спо&shy;койно пой&shy;мать исклю&shy;че&shy;ние и обра&shy;бо&shy;тать его. Если же мы полу&shy;чаем нас&shy;то&shy;я&shy;щий Thread&shy;Abort, то он уйдёт во внеш&shy;ний <code>catch</code> пос&shy;кольку <code>ThreadAbortException</code> дол&shy;жен войти во все под&shy;хо&shy;дя&shy;щие обра&shy;бот&shy;чики. Если он удов&shy;лет&shy;во&shy;ряет необ&shy;хо&shy;ди&shy;мым усло&shy;виям, он также будет обра&shy;бо&shy;тан путём очис&shy;тки флага <code>ThreadState.AbortRequested</code> мето&shy;дом <code>Thread.ResetAbort()</code>.</p>
+<p>Здесь опи&shy;сы&shy;ва&shy;ется очень инте&shy;рес&shy;ный слу&shy;чай: когда мы ждём не нас&shy;то&shy;я&shy;щий <code>Thread&shy;Abort</code> (мне вот в неко&shy;то&shy;ром смысле жалко команду CLR и .NET Framework&shy;. Сколько не стан&shy;дарт&shy;ных ситу&shy;а&shy;ций им при&shy;хо&shy;дится обра&shy;ба&shy;ты&shy;вать, поду&shy;мать страшно). Обра&shy;ботка ситу&shy;а&shy;ции идёт в два этапа: внут&shy;рен&shy;ним обра&shy;бот&shy;чи&shy;ком мы ловим <code>Thread&shy;Abort&shy;Exception</code> но при этом про&shy;ве&shy;ряем наш поток на флаг реальной пре&shy;ры&shy;ва&shy;емости. Если поток не поме&shy;чен как пре&shy;ры&shy;ва&shy;ющийся, то на самом деле это не нас&shy;то&shy;я&shy;щий Thread&shy;Abort&shy;Exception&shy;. Такие ситу&shy;а&shy;ции мы дол&shy;жны обра&shy;бо&shy;тать соот&shy;вет&shy;с&shy;твующим обра&shy;зом: спо&shy;койно пой&shy;мать исклю&shy;че&shy;ние и обра&shy;бо&shy;тать его. Если же мы полу&shy;чаем нас&shy;то&shy;я&shy;щий Thread&shy;Abort&shy;, то он уйдёт во внеш&shy;ний <code>catch</code> пос&shy;кольку <code>Thread&shy;Abort&shy;Exception</code> дол&shy;жен войти во все под&shy;хо&shy;дя&shy;щие обра&shy;бот&shy;чики. Если он удов&shy;лет&shy;во&shy;ряет необ&shy;хо&shy;ди&shy;мым усло&shy;виям, он также будет обра&shy;бо&shy;тан путём очис&shy;тки флага <code>Thread&shy;State&shy;.Abort&shy;Requested</code> мето&shy;дом <code>Thread&shy;.Reset&shy;Abort&shy;()</code>.</p>
 <div class="paragraph-right-side">13</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
-<p >
-Если гово&shy;рить про при&shy;меры самого вызова <code>Thread.Abort()</code>, то все при&shy;меры кода в .NET Frame&shy;work напи&shy;саны так, что могут быть пере&shy;пи&shy;саны без его исполь&shy;зо&shy;ва&shy;ния. Для наг&shy;ляд&shy;ности при&shy;веду только один:</p>
+<p>Если гово&shy;рить про при&shy;меры самого вызова <code>Thread&shy;.Abort&shy;()</code>, то все при&shy;меры кода в .NET Frame&shy;work напи&shy;саны так, что могут быть пере&shy;пи&shy;саны без его исполь&shy;зо&shy;ва&shy;ния. Для наг&shy;ляд&shy;ности при&shy;веду только один:</p>
 <div class="paragraph-right-side">14</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
-<p >
-<strong>Класс QueuePathDialog</strong> <a href="https://referencesource.microsoft.com/#System.Messaging/System/Messaging/Design/QueuePathDialog.cs,364">QueuePathDialog.cs</a></p>
+<p><strong>Класс Queue&shy;Path&shy;Dialog</strong> <a href="https://referencesource.microsoft.com/#System.Messaging/System/Messaging/Design/QueuePathDialog.cs,364">Queue&shy;Path&shy;Dialog&shy;.cs</a></p>
 <div class="paragraph-right-side">15</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1633,11 +1623,10 @@ Catched successfully
 }
 </pre></div>
 </div>
-<h5 id="theradabortexception-appdomain.unload">TheradAbortException во время AppDomain.Unload</h5>
+<h5 id="theradabortexception-appdomain.unload">Therad&shy;Abort&shy;Exception во время App&shy;Domain&shy;.Unload</h5>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
-<p >
-Поп&shy;ро&shy;буем отгру&shy;зить App&shy;Domain во время испол&shy;не&shy;ния кода, кото&shy;рый в него заг&shy;ру&shy;жен. Для этого искусст&shy;венно соз&shy;да&shy;дим не вполне нор&shy;маль&shy;ную ситу&shy;а&shy;цию, но дос&shy;та&shy;точно инте&shy;рес&shy;ную с точки зре&shy;ния испол&shy;не&shy;ния кода. В дан&shy;ном при&shy;мере у нас два потока: один соз&shy;дан для того чтобы полу&shy;чить в нем Thread&shy;Abort&shy;Exception, а дру&shy;гой - основ&shy;ной. В основ&shy;ном мы создаём новый домен, в кото&shy;ром запус&shy;каем новый поток. Задача этого потока - уйти в основ&shy;ной домен. Чтобы методы дочер&shy;него домена оста&shy;лись бы только в Stack Trace. После этого основ&shy;ной домен отгру&shy;жает дочер&shy;ний:</p>
+<p>Поп&shy;ро&shy;буем отгру&shy;зить App&shy;Domain во время испол&shy;не&shy;ния кода, кото&shy;рый в него заг&shy;ру&shy;жен. Для этого искусст&shy;венно соз&shy;да&shy;дим не вполне нор&shy;маль&shy;ную ситу&shy;а&shy;цию, но дос&shy;та&shy;точно инте&shy;рес&shy;ную с точки зре&shy;ния испол&shy;не&shy;ния кода. В дан&shy;ном при&shy;мере у нас два потока: один соз&shy;дан для того чтобы полу&shy;чить в нем Thread&shy;Abort&shy;Exception&shy;, а дру&shy;гой  &mdash;  основ&shy;ной. В основ&shy;ном мы создаём новый домен, в кото&shy;ром запус&shy;каем новый поток. Задача этого потока  &mdash;  уйти в основ&shy;ной домен. Чтобы методы дочер&shy;него домена оста&shy;лись бы только в Stack Trace&shy;. После этого основ&shy;ной домен отгру&shy;жает дочер&shy;ний:</p>
 <div class="paragraph-right-side">16</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1705,44 +1694,25 @@ Catched successfully
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
-<p >
-Про&shy;ис&shy;хо&shy;дит крайне инте&shy;рес&shy;ная вещь. Код выг&shy;рузки домена помимо самой выг&shy;рузки ищет выз&shy;ван&shy;ные в этом домене методы, кото&shy;рые ещё не завер&shy;шили работу в том числе в глу&shy;бине стека вызова мето&shy;дов и вызы&shy;вает <code>ThreadAbortException</code> в этих пото&shy;ках. Это важно, хоть и не оче&shy;видно: если домен отгру&shy;жен, нельзя осу&shy;щест&shy;вить возв&shy;рат в метод, из кото&shy;рого был выз&shy;ван метод основ&shy;ного домена, но кото&shy;рый нахо&shy;дится в выг&shy;ру&shy;жа&shy;е&shy;мом. Т.е. дру&shy;гими сло&shy;вами App&shy;Domain.Unload может выб&shy;ра&shy;сы&shy;вать потоки, испол&shy;ня&shy;ю&shy;щие в дан&shy;ный момент код из дру&shy;гих доме&shy;нов. Прер&shy;вать <code>Thread.Abort</code> в таком слу&shy;чае не полу&shy;чится: испол&shy;нять код выг&shy;ру&shy;жен&shy;ного домена вы не смо&shy;жете, а зна&shy;чит <code>Thread.Abort</code> завер&shy;шит своё дело, даже если вы вызо&shy;вите <code>Thread.ResetAbort</code>.</p>
+<p>Про&shy;ис&shy;хо&shy;дит крайне инте&shy;рес&shy;ная вещь. Код выг&shy;рузки домена помимо самой выг&shy;рузки ищет выз&shy;ван&shy;ные в этом домене методы, кото&shy;рые ещё не завер&shy;шили работу в том числе в глу&shy;бине стека вызова мето&shy;дов и вызы&shy;вает <code>Thread&shy;Abort&shy;Exception</code> в этих пото&shy;ках. Это важно, хоть и не оче&shy;видно: если домен отгру&shy;жен, нельзя осу&shy;щест&shy;вить возв&shy;рат в метод, из кото&shy;рого был выз&shy;ван метод основ&shy;ного домена, но кото&shy;рый нахо&shy;дится в выг&shy;ру&shy;жа&shy;е&shy;мом. Т.е. дру&shy;гими сло&shy;вами App&shy;Domain&shy;.Unload может выб&shy;ра&shy;сы&shy;вать потоки, испол&shy;ня&shy;ю&shy;щие в дан&shy;ный момент код из дру&shy;гих доме&shy;нов. Прер&shy;вать <code>Thread&shy;.Abort</code> в таком слу&shy;чае не полу&shy;чится: испол&shy;нять код выг&shy;ру&shy;жен&shy;ного домена вы не смо&shy;жете, а зна&shy;чит <code>Thread&shy;.Abort</code> завер&shy;шит своё дело, даже если вы вызо&shy;вите <code>Thread&shy;.Reset&shy;Abort</code>.</p>
 <div class="paragraph-right-side">17</div>
 </div>
-<h5 id="threadabortexception-1">Выводы по ThreadAbortException</h5>
+<h5 id="threadabortexception-1">Выводы по Thread&shy;Abort&shy;Exception</h5>
 <ul>
-<li>
-<p >
-Это - асинх&shy;рон&shy;ное исклю&shy;че&shy;ние, а зна&shy;чит, оно может воз&shy;ник&shy;нуть в любой точке вашего кода (но, стоит отме&shy;тить, что для этого надо пос&shy;та&shy;раться);</p>
-</li>
-<li>
-<p >
-Обычно код обра&shy;ба&shy;ты&shy;вает только те ошибки, кото&shy;рые ждёт: нет дос&shy;тупа к файлу, ошибка пар&shy;синга строки и про&shy;чие подоб&shy;ные. Нали&shy;чие асинх&shy;рон&shy;ного (в плане воз&shy;ник&shy;но&shy;ве&shy;ния в любом месте кода) исклю&shy;че&shy;ния создаёт ситу&shy;а&shy;цию, когда try-catch могут быть не обра&shy;бо&shy;таны: вы же не можете быть гото&shy;вым к Thread&shy;Abort в любом месте при&shy;ло&shy;же&shy;ния. И полу&shy;ча&shy;ется, что это исклю&shy;че&shy;ние в любом слу&shy;чае поро&shy;дит утечки;</p>
-</li>
-<li>
-<p >
-Обрыв потока может также про&shy;ис&shy;хо&shy;дить из-за выг&shy;рузки какого-либо домена. Если в Stack Trace потока сущес&shy;твуют вызовы мето&shy;дов отгру&shy;жа&shy;е&shy;мого домена, поток полу&shy;чит Thread&shy;Abort&shy;Exception без воз&shy;мож&shy;ности <code>ResetAbort</code>;</p>
-</li>
-<li>
-<p >
-В общем слу&shy;чае не дол&shy;жно воз&shy;ни&shy;кать ситу&shy;а&shy;ций, когда вам нужно выз&shy;вать Thread.Abort(), пос&shy;кольку резуль&shy;тат прак&shy;ти&shy;чески всегда - не предс&shy;ка&shy;зуем.</p>
-</li>
-<li>
-<p >
-Core&shy;CLR более не содер&shy;жит руч&shy;ной вызов <code>Thread.Abort()</code>: он просто удалён из класса. Но это не озна&shy;чает, что его нет воз&shy;мож&shy;ности полу&shy;чить.</p>
-</li>
+<li>Это  &mdash;  асинх&shy;рон&shy;ное исклю&shy;че&shy;ние, а зна&shy;чит, оно может воз&shy;ник&shy;нуть в любой точке вашего кода (но, стоит отме&shy;тить, что для этого надо пос&shy;та&shy;раться);</li>
+<li>Обычно код обра&shy;ба&shy;ты&shy;вает только те ошибки, кото&shy;рые ждёт: нет дос&shy;тупа к файлу, ошибка пар&shy;синга строки и про&shy;чие подоб&shy;ные. Нали&shy;чие асинх&shy;рон&shy;ного (в плане воз&shy;ник&shy;но&shy;ве&shy;ния в любом месте кода) исклю&shy;че&shy;ния создаёт ситу&shy;а&shy;цию, когда try-catch могут быть не обра&shy;бо&shy;таны: вы же не можете быть гото&shy;вым к Thread&shy;Abort в любом месте при&shy;ло&shy;же&shy;ния. И полу&shy;ча&shy;ется, что это исклю&shy;че&shy;ние в любом слу&shy;чае поро&shy;дит утечки;</li>
+<li>Обрыв потока может также про&shy;ис&shy;хо&shy;дить из-за выг&shy;рузки какого-либо домена. Если в Stack Trace потока сущес&shy;твуют вызовы мето&shy;дов отгру&shy;жа&shy;е&shy;мого домена, поток полу&shy;чит Thread&shy;Abort&shy;Exception без воз&shy;мож&shy;ности <code>Reset&shy;Abort</code>;</li>
+<li>В общем слу&shy;чае не дол&shy;жно воз&shy;ни&shy;кать ситу&shy;а&shy;ций, когда вам нужно выз&shy;вать Thread&shy;.Abort&shy;(), пос&shy;кольку резуль&shy;тат прак&shy;ти&shy;чески всегда  &mdash;  не предс&shy;ка&shy;зуем.</li>
+<li>Core&shy;CLR более не содер&shy;жит руч&shy;ной вызов <code>Thread&shy;.Abort&shy;()</code>: он просто удалён из класса. Но это не озна&shy;чает, что его нет воз&shy;мож&shy;ности полу&shy;чить.</li>
 </ul>
-<h4 id="executionengineexception">ExecutionEngineException</h4>
-<p >
-В ком&shy;мен&shy;та&shy;рии к этому исклю&shy;че&shy;нию стоит атри&shy;бут <code>Obsolete</code> с ком&shy;мен&shy;та&shy;рием:</p>
+<h4 id="executionengineexception">Execution&shy;Engine&shy;Exception</h4>
+<p>В ком&shy;мен&shy;та&shy;рии к этому исклю&shy;че&shy;нию стоит атри&shy;бут <code>Obso&shy;lete</code> с ком&shy;мен&shy;та&shy;рием:</p>
 <blockquote>
-<p >
-This type previously indi&shy;cated an unspe&shy;ci&shy;fied fatal error in the runtime. The runtime no longer raises this excep&shy;tion so this type is obso&shy;lete</p>
+<p>This type previously indi&shy;cated an unspe&shy;ci&shy;fied fatal error in the runtime. The runtime no longer raises this excep&shy;tion so this type is obso&shy;lete</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
-<p >
-И вообще-то это - неп&shy;равда. Воз&shy;можно, автору ком&shy;мен&shy;та&shy;рия очень бы хоте&shy;лось чтобы это когда-либо стало прав&shy;дой, однако чтобы про&shy;де&shy;монс&shy;тр&shy;ировать что это не так, дос&shy;та&shy;точно вер&shy;нуться к при&shy;меру исклю&shy;че&shy;ния в <code>FirstChanceException</code>:</p>
+<p>И вообще-то это  &mdash;  неп&shy;равда. Воз&shy;можно, автору ком&shy;мен&shy;та&shy;рия очень бы хоте&shy;лось чтобы это когда-либо стало прав&shy;дой, однако чтобы про&shy;де&shy;монс&shy;тр&shy;ировать что это не так, дос&shy;та&shy;точно вер&shy;нуться к при&shy;меру исклю&shy;че&shy;ния в <code>First&shy;Chance&shy;Exception</code>:</p>
 <div class="paragraph-right-side">18</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1763,78 +1733,56 @@ This type previously indi&shy;cated an unspe&shy;ci&shy;fied fatal error in the 
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
-<p >
-Резуль&shy;та&shy;том дан&shy;ного кода будет <code>ExecutionEngineException</code>, хотя ожи&shy;да&shy;е&shy;мое мной пове&shy;де&shy;ние Unh&shy;andled Excep&shy;tion <code>ArgumentOutOfRangeException</code> из инстр&shy;укции <code>throw new Exception(&quot;Hello!&quot;)</code>. Воз&shy;можно это пока&shy;за&shy;лось стра&shy;ным раз&shy;ра&shy;бот&shy;чи&shy;кам ядра и они пос&shy;чи&shy;тали что кор&shy;рек&shy;т&shy;нее выб&shy;ро&shy;сить <code>ExecutionEngineException</code>.</p>
+<p>Резуль&shy;та&shy;том дан&shy;ного кода будет <code>Execution&shy;Engine&shy;Exception</code>, хотя ожи&shy;да&shy;е&shy;мое мной пове&shy;де&shy;ние Unh&shy;andled Excep&shy;tion <code>Argument&shy;Out&shy;Of&shy;Range&shy;Exception</code> из инстр&shy;укции <code>throw new Exception&shy;("Hello&shy;!")</code>. Воз&shy;можно это пока&shy;за&shy;лось стра&shy;ным раз&shy;ра&shy;бот&shy;чи&shy;кам ядра и они пос&shy;чи&shy;тали что кор&shy;рек&shy;т&shy;нее выб&shy;ро&shy;сить <code>Execution&shy;Engine&shy;Exception</code>.</p>
 <div class="paragraph-right-side">19</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
-<p >
-Вто&shy;рой вполне прос&shy;той путь полу&shy;чить <code>ExecutionEngineException</code> - это не кор&shy;рек&shy;тно нас&shy;тро&shy;ить мар&shy;шал&shy;линг в мир unsafe. Если вы напу&shy;та&shy;ете с раз&shy;ме&shy;рами типов, пере&shy;да&shy;дите больше чем надо, чем испор&shy;тите, нап&shy;ри&shy;мер, стек потока, ждите <code>ExecutionEngineException</code>. И это будет логич&shy;ный, пра&shy;виль&shy;ный резуль&shy;тат: ведь в дан&shy;ной ситу&shy;а&shy;ции CLR вошла в сос&shy;то&shy;я&shy;ние, кото&shy;рое она нашла не кон&shy;сис&shy;тент&shy;ным. Не понят&shy;ным, как его восс&shy;та&shy;нав&shy;ли&shy;вать. И как резуль&shy;тат, <code>ExecutionEngineException</code>.</p>
+<p>Вто&shy;рой вполне прос&shy;той путь полу&shy;чить <code>Execution&shy;Engine&shy;Exception</code>  &mdash;  это не кор&shy;рек&shy;тно нас&shy;тро&shy;ить мар&shy;шал&shy;линг в мир unsafe. Если вы напу&shy;та&shy;ете с раз&shy;ме&shy;рами типов, пере&shy;да&shy;дите больше чем надо, чем испор&shy;тите, нап&shy;ри&shy;мер, стек потока, ждите <code>Execution&shy;Engine&shy;Exception</code>. И это будет логич&shy;ный, пра&shy;виль&shy;ный резуль&shy;тат: ведь в дан&shy;ной ситу&shy;а&shy;ции CLR вошла в сос&shy;то&shy;я&shy;ние, кото&shy;рое она нашла не кон&shy;сис&shy;тент&shy;ным. Не понят&shy;ным, как его восс&shy;та&shy;нав&shy;ли&shy;вать. И как резуль&shy;тат, <code>Execution&shy;Engine&shy;Exception</code>.</p>
 <div class="paragraph-right-side">20</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
-<p >
-Отдел&shy;ьно стоит пого&shy;во&shy;рить про диаг&shy;нос&shy;тику <code>ExecutionEngineException</code>. Каковы могут быть при&shy;чины его воз&shy;ник&shy;но&shy;ве&shy;ния? Если исклю&shy;че&shy;ние вдруг воз&shy;никло в вашем коде, необ&shy;хо&shy;димо отве&shy;тить на нес&shy;колько воп&shy;ро&shy;сов:</p>
+<p>Отдел&shy;ьно стоит пого&shy;во&shy;рить про диаг&shy;нос&shy;тику <code>Execution&shy;Engine&shy;Exception</code>. Каковы могут быть при&shy;чины его воз&shy;ник&shy;но&shy;ве&shy;ния? Если исклю&shy;че&shy;ние вдруг воз&shy;никло в вашем коде, необ&shy;хо&shy;димо отве&shy;тить на нес&shy;колько воп&shy;ро&shy;сов:</p>
 <div class="paragraph-right-side">21</div>
 </div>
 <ul>
-<li>
-<p >
-Испол&shy;ьз&shy;ую&shy;тся ли в вашем при&shy;ло&shy;же&shy;нии unsafe биб&shy;ли&shy;о&shy;теки? Вами или же может сто&shy;рон&shy;ними биб&shy;ли&shy;о&shy;те&shy;ками. Поп&shy;ро&shy;буйте для начала выяс&shy;нить, где конк&shy;ретно при&shy;ло&shy;же&shy;ние полу&shy;чает дан&shy;ную ошибку. Если код ухо&shy;дит в unsafe мир и полу&shy;чает <code>ExecutionEngineException</code> там, тогда необ&shy;хо&shy;димо тща&shy;тельно про&shy;ве&shy;рить схо&shy;ди&shy;мость сиг&shy;на&shy;тур мето&shy;дов: в нашем коде и в импор&shy;ти&shy;ру&shy;е&shy;мом. Пом&shy;ните, что если импор&shy;ти&shy;ру&shy;ются модули, напи&shy;сан&shy;ные на Delphi и про&shy;чих вари&shy;а&shy;циях языка Pascal, то аргу&shy;менты дол&shy;жны идти в обрат&shy;ном порядке (наст&shy;ройка про&shy;из&shy;во&shy;дится в <code>DllImport</code>: <code>CallingConvention.StdCall</code>);</p>
-</li>
-<li>
-<p >
-Под&shy;пи&shy;саны ли вы на First&shy;Chance&shy;Exception? Воз&shy;можно, его код выз&shy;вал исклю&shy;че&shy;ние. В таком слу&shy;чае просто обер&shy;ните обра&shy;бот&shy;чик в <code>try-catch(Exception)</code> и обя&shy;за&shy;тельно сох&shy;ра&shy;ните в жур&shy;нал оши&shy;бок про&shy;ис&shy;хо&shy;дя&shy;щее;</p>
-</li>
-<li>
-<p >
-Может быть ваше при&shy;ло&shy;же&shy;ние час&shy;тично соб&shy;рано под одну плат&shy;форму, а час&shy;тично - под дру&shy;гую. Поп&shy;ро&shy;буйте очис&shy;тить кэш nuget паке&shy;тов, пол&shy;ностью пере&shy;соб&shy;рать при&shy;ло&shy;же&shy;ние с нуля: с очи&shy;щен&shy;ными вруч&shy;ную пап&shy;ками obj/bin</p>
-</li>
-<li>
-<p >
-Проб&shy;лема иногда бывает в самом фрейм&shy;ворке. Нап&shy;ри&shy;мер, в ран&shy;них вер&shy;сиях .NET Frame&shy;work 4.0. В этом слу&shy;чае стоит про&shy;тес&shy;ти&shy;ро&shy;вать отдель&shy;ный учас&shy;ток кода, кото&shy;рый вызы&shy;вает ошибку - на более новой вер&shy;сии фрейм&shy;ворка;</p>
-</li>
+<li>Испол&shy;ьз&shy;ую&shy;тся ли в вашем при&shy;ло&shy;же&shy;нии unsafe биб&shy;ли&shy;о&shy;теки? Вами или же может сто&shy;рон&shy;ними биб&shy;ли&shy;о&shy;те&shy;ками. Поп&shy;ро&shy;буйте для начала выяс&shy;нить, где конк&shy;ретно при&shy;ло&shy;же&shy;ние полу&shy;чает дан&shy;ную ошибку. Если код ухо&shy;дит в unsafe мир и полу&shy;чает <code>Execution&shy;Engine&shy;Exception</code> там, тогда необ&shy;хо&shy;димо тща&shy;тельно про&shy;ве&shy;рить схо&shy;ди&shy;мость сиг&shy;на&shy;тур мето&shy;дов: в нашем коде и в импор&shy;ти&shy;ру&shy;е&shy;мом. Пом&shy;ните, что если импор&shy;ти&shy;ру&shy;ются модули, напи&shy;сан&shy;ные на Delphi и про&shy;чих вари&shy;а&shy;циях языка Pascal&shy;, то аргу&shy;менты дол&shy;жны идти в обрат&shy;ном порядке (наст&shy;ройка про&shy;из&shy;во&shy;дится в <code>Dll&shy;Import</code>: <code>Calling&shy;Convention&shy;.Std&shy;Call</code>);</li>
+<li>Под&shy;пи&shy;саны ли вы на First&shy;Chance&shy;Exception&shy;? Воз&shy;можно, его код выз&shy;вал исклю&shy;че&shy;ние. В таком слу&shy;чае просто обер&shy;ните обра&shy;бот&shy;чик в <code>try-catch(Exception&shy;)</code> и обя&shy;за&shy;тельно сох&shy;ра&shy;ните в жур&shy;нал оши&shy;бок про&shy;ис&shy;хо&shy;дя&shy;щее;</li>
+<li>Может быть ваше при&shy;ло&shy;же&shy;ние час&shy;тично соб&shy;рано под одну плат&shy;форму, а час&shy;тично  &mdash;  под дру&shy;гую. Поп&shy;ро&shy;буйте очис&shy;тить кэш nuget паке&shy;тов, пол&shy;ностью пере&shy;соб&shy;рать при&shy;ло&shy;же&shy;ние с нуля: с очи&shy;щен&shy;ными вруч&shy;ную пап&shy;ками obj/bin</li>
+<li>Проб&shy;лема иногда бывает в самом фрейм&shy;ворке. Нап&shy;ри&shy;мер, в ран&shy;них вер&shy;сиях .NET Frame&shy;work 4.0. В этом слу&shy;чае стоит про&shy;тес&shy;ти&shy;ро&shy;вать отдель&shy;ный учас&shy;ток кода, кото&shy;рый вызы&shy;вает ошибку  &mdash;  на более новой вер&shy;сии фрейм&shy;ворка;</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
-<p >
-В целом бояться этого исклю&shy;че&shy;ния не стоит: оно воз&shy;ни&shy;кает дос&shy;та&shy;точно редко чтобы поза&shy;быть о нем до сле&shy;ду&shy;ю&shy;щей радост&shy;ной с ним встр&shy;ечи.</p>
+<p>В целом бояться этого исклю&shy;че&shy;ния не стоит: оно воз&shy;ни&shy;кает дос&shy;та&shy;точно редко чтобы поза&shy;быть о нем до сле&shy;ду&shy;ю&shy;щей радост&shy;ной с ним встр&shy;ечи.</p>
 <div class="paragraph-right-side">22</div>
 </div>
-<h4 id="nullreferenceexception">NullReferenceException</h4>
+<h4 id="nullreferenceexception">Null&shy;Reference&shy;Exception</h4>
 <blockquote>
-<p >
-TODO</p>
+<p>TODO</p>
 </blockquote>
-<h4 id="securityexception">SecurityException</h4>
+<h4 id="securityexception">Security&shy;Exception</h4>
 <blockquote>
-<p >
-TODO</p>
+<p>TODO</p>
 </blockquote>
-<h4 id="outofmemoryexception">OutOfMemoryException</h4>
+<h4 id="outofmemoryexception">Out&shy;Of&shy;Memory&shy;Exception</h4>
 <blockquote>
-<p >
-TODO</p>
+<p>TODO</p>
 </blockquote>
-<h3 id="corrupted-state-exceptions">Corrupted State Exceptions</h3>
+<h3 id="corrupted-state-exceptions">Corrupted State Excep&shy;tions</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
-<p >
-После ста&shy;нов&shy;ле&shy;ния плат&shy;формы и её попу&shy;ля&shy;ри&shy;за&shy;ции, после того как огром&shy;ная масса прог&shy;рам&shy;мис&shy;тов начала миг&shy;ри&shy;ро&shy;вать с C/C++ и MFC (Micro&shy;soft Foun&shy;da&shy;tion Classes) на более при&shy;ят&shy;ные мозгу среды раз&shy;ра&shy;ботки: сюда помимо .NET Frame&shy;work можно отнести в пер&shy;вую оче&shy;редь Qt, Java и С++ Builder, нам был дан век&shy;тор на вир&shy;ту&shy;а&shy;ли&shy;за&shy;цию испол&shy;не&shy;ния кода при&shy;ло&shy;же&shy;ния от окру&shy;жа&shy;ю&shy;щей среды. Со вре&shy;ме&shy;нем, удачно свёрстан&shy;ный архи&shy;тек&shy;турно, .NET Frame&shy;work начал зани&shy;мать свою нишу. С годами, окреп&shy;нув и наби&shy;рая массу, можно начи&shy;нать рас&shy;суж&shy;дать не с точки зре&shy;ния прис&shy;по&shy;соб&shy;ленца, а с точки зре&shy;ния силы. И если раньше мы в боль&shy;шинстве слу&shy;чаев были вынуж&shy;дены рабо&shy;тать с фее&shy;ри&shy;чес&shy;ким плас&shy;том ком&shy;по&shy;нен&shy;тов, напи&shy;сан&shy;ных на COM/ATL/Active&shy;X (вы пом&shy;ните пере&shy;тас&shy;ки&shy;ва&shy;ние на фор&shy;мочки ико&shy;нок COM/Active&shy;X ком&shy;по&shy;нент в Borland C++ Builder?), то теперь всем нам стало сильно легче жить. Ведь теперь соот&shy;вет&shy;с&shy;твующие тех&shy;но&shy;ло&shy;гии <em>достаточно</em> редки чтобы вол&shy;но&shy;ваться и поя&shy;ви&shy;лась воз&shy;мож&shy;ность сде&shy;лать их нес&shy;колько не удоб&shy;ными чтобы от них начали отка&shy;зы&shy;ваться пол&shy;ностью, пере&shy;ходя на сов&shy;ре&shy;мен&shy;ный и лад&shy;ный .NET Frame&shy;work. Ста&shy;рые тех&shy;но&shy;ло&shy;гии, кото&shy;рые не то что сущест&shy;во&shy;вали 5-10 лет назад, а на самом деле сущес&shy;твуют и здра&shy;вст&shy;вуют и ныне, кажется нам чем-то арха&shy;ич&shy;ным, забы&shy;тым, &laquo;кри&shy;вым&raquo; и допо&shy;топ&shy;ным. А потому можно сде&shy;лать ещё один шаг к зак&shy;ры&shy;тию песоч&shy;ницы: сде&shy;лать её ещё более неп&shy;ро&shy;би&shy;ва&shy;е&shy;мой, сде&shy;лать её ещё более managed.</p>
+<p>После ста&shy;нов&shy;ле&shy;ния плат&shy;формы и её попу&shy;ля&shy;ри&shy;за&shy;ции, после того как огром&shy;ная масса прог&shy;рам&shy;мис&shy;тов начала миг&shy;ри&shy;ро&shy;вать с C/C++ и MFC (Micro&shy;soft Foun&shy;da&shy;tion Classes&shy;) на более при&shy;ят&shy;ные мозгу среды раз&shy;ра&shy;ботки: сюда помимо .NET Frame&shy;work можно отнести в пер&shy;вую оче&shy;редь Qt&shy;, Java и С++ Builder&shy;, нам был дан век&shy;тор на вир&shy;ту&shy;а&shy;ли&shy;за&shy;цию испол&shy;не&shy;ния кода при&shy;ло&shy;же&shy;ния от окру&shy;жа&shy;ю&shy;щей среды. Со вре&shy;ме&shy;нем, удачно свёрстан&shy;ный архи&shy;тек&shy;турно, .NET Frame&shy;work начал зани&shy;мать свою нишу. С годами, окреп&shy;нув и наби&shy;рая массу, можно начи&shy;нать рас&shy;суж&shy;дать не с точки зре&shy;ния прис&shy;по&shy;соб&shy;ленца, а с точки зре&shy;ния силы. И если раньше мы в боль&shy;шинстве слу&shy;чаев были вынуж&shy;дены рабо&shy;тать с фее&shy;ри&shy;чес&shy;ким плас&shy;том ком&shy;по&shy;нен&shy;тов, напи&shy;сан&shy;ных на COM/ATL/Active&shy;X (вы пом&shy;ните пере&shy;тас&shy;ки&shy;ва&shy;ние на фор&shy;мочки ико&shy;нок COM/Active&shy;X ком&shy;по&shy;нент в Borland C++ Builder&shy;?), то теперь всем нам стало сильно легче жить. Ведь теперь соот&shy;вет&shy;с&shy;твующие тех&shy;но&shy;ло&shy;гии <em>дос&shy;та&shy;точно</em> редки чтобы вол&shy;но&shy;ваться и поя&shy;ви&shy;лась воз&shy;мож&shy;ность сде&shy;лать их нес&shy;колько не удоб&shy;ными чтобы от них начали отка&shy;зы&shy;ваться пол&shy;ностью, пере&shy;ходя на сов&shy;ре&shy;мен&shy;ный и лад&shy;ный .NET Framework&shy;. Ста&shy;рые тех&shy;но&shy;ло&shy;гии, кото&shy;рые не то что сущест&shy;во&shy;вали 5-10 лет назад, а на самом деле сущес&shy;твуют и здра&shy;вст&shy;вуют и ныне, кажется нам чем-то арха&shy;ич&shy;ным, забы&shy;тым, &laquo;кри&shy;вым&raquo; и допо&shy;топ&shy;ным. А потому можно сде&shy;лать ещё один шаг к зак&shy;ры&shy;тию песоч&shy;ницы: сде&shy;лать её ещё более неп&shy;ро&shy;би&shy;ва&shy;е&shy;мой, сде&shy;лать её ещё более managed.</p>
 <div class="paragraph-right-side">23</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">24</div>
-<p >
-И один из этих шагов - вве&shy;де&shy;ние поня&shy;тия <code>Corrupted State Exceptions</code>, что по сути ста&shy;вит ряд исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций вне закона. Давайте раз&shy;берёмся, что это за исклю&shy;чи&shy;тель&shy;ные ситу&shy;а&shy;ции, а саму исто&shy;рию ещё раз прос&shy;ле&shy;дим на одной из них - <code>AccessViolationException</code>:</p>
+<p>И один из этих шагов  &mdash;  вве&shy;де&shy;ние поня&shy;тия <code>Corrupted State Excep&shy;tions</code>, что по сути ста&shy;вит ряд исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций вне закона. Давайте раз&shy;берёмся, что это за исклю&shy;чи&shy;тель&shy;ные ситу&shy;а&shy;ции, а саму исто&shy;рию ещё раз прос&shy;ле&shy;дим на одной из них  &mdash;  <code>Access&shy;Violation&shy;Exception</code>:</p>
 <div class="paragraph-right-side">24</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
-<p >
-<strong>Файл util.cpp</strong> <a href="https://github.com/dotnet/coreclr/blob/479b1e654cd5a13bb1ce47288cf78776b858bced/src/utilcode/util.cpp#L3163-L3197">util.cpp</a></p>
+<p><strong>Файл util.cpp</strong> <a href="https://github.com/dotnet/coreclr/blob/479b1e654cd5a13bb1ce47288cf78776b858bced/src/utilcode/util.cpp#L3163-L3197">util.cpp</a></p>
 <div class="paragraph-right-side">25</div>
 </div>
 <div class="lang-cpp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1867,103 +1815,48 @@ BOOL IsProcessCorruptedStateException(DWORD dwExceptionCode, BOOL fCheckForSO <s
 }
 </pre></div>
 </div>
-<p >
-Расс&shy;мот&shy;рим опи&shy;са&shy;ния наших исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций:</p>
+<p>Расс&shy;мот&shy;рим опи&shy;са&shy;ния наших исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций:</p>
 <div class="row">
 <div class="offset-0 col-12">
 <table>
 <thead>
 <tr>
-<th>
-<p >
-Код ошибки</p>
-</th>
-<th>
-<p >
-Опи&shy;са&shy;ние</p>
-</th>
+<th>Код ошибки</th>
+<th>Опи&shy;са&shy;ние</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>
-<p >
-STATUS_ACCESS_VIOLATION</p>
-</td>
-<td>
-<p >
-Дос&shy;та&shy;точно час&shy;тая ошибка попытки работы с участ&shy;ком памяти, на кото&shy;рый нет прав. Память с точки зре&shy;ния про&shy;цесса линей&shy;ная, но рабо&shy;тать можно далеко не со всем диа&shy;па&shy;зо&shy;ном: только с теми &laquo;остров&shy;ками&raquo;, кото&shy;рые были выде&shy;лены опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мой, а также с теми, на кото&shy;рые хва&shy;тает прав (нап&shy;ри&shy;мер, есть диа&shy;па&shy;зоны, кото&shy;рыми вла&shy;деет только опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;тема или же можно только испол&shy;нять код но не читать как дан&shy;ные)</p>
-</td>
+<td>STATUS_ACCESS_VIOLATION</td>
+<td>Дос&shy;та&shy;точно час&shy;тая ошибка попытки работы с участ&shy;ком памяти, на кото&shy;рый нет прав. Память с точки зре&shy;ния про&shy;цесса линей&shy;ная, но рабо&shy;тать можно далеко не со всем диа&shy;па&shy;зо&shy;ном: только с теми &laquo;остров&shy;ками&raquo;, кото&shy;рые были выде&shy;лены опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мой, а также с теми, на кото&shy;рые хва&shy;тает прав (нап&shy;ри&shy;мер, есть диа&shy;па&shy;зоны, кото&shy;рыми вла&shy;деет только опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;тема или же можно только испол&shy;нять код но не читать как дан&shy;ные)</td>
 </tr>
 <tr>
-<td>
-<p >
-STATUS_STACK_OVERFLOW</p>
-</td>
-<td>
-<p >
-Эта ошибка извес&shy;тна всем: ошибка нех&shy;ватки памяти в стеке потока под вызов оче&shy;ред&shy;ного метода</p>
-</td>
+<td>STATUS_STACK_OVERFLOW</td>
+<td>Эта ошибка извес&shy;тна всем: ошибка нех&shy;ватки памяти в стеке потока под вызов оче&shy;ред&shy;ного метода</td>
 </tr>
 <tr>
-<td>
-<p >
-EXCEPTION_ILLEGAL_INSTRUCTION</p>
-</td>
-<td>
-<p >
-Оче&shy;ред&shy;ной код, счи&shy;тан&shy;ный про&shy;цес&shy;со&shy;ром из тела метода не был рас&shy;поз&shy;нан как инстр&shy;укция</p>
-</td>
+<td>EXCEPTION_ILLEGAL_INSTRUCTION</td>
+<td>Оче&shy;ред&shy;ной код, счи&shy;тан&shy;ный про&shy;цес&shy;со&shy;ром из тела метода не был рас&shy;поз&shy;нан как инстр&shy;укция</td>
 </tr>
 <tr>
-<td>
-<p >
-EXCEPTION_IN_PAGE_ERROR</p>
-</td>
-<td>
-<p >
-Поток предп&shy;ри&shy;нял попытку работы со стра&shy;ни&shy;цей памяти, кото&shy;рой не сущес&shy;твует</p>
-</td>
+<td>EXCEPTION_IN_PAGE_ERROR</td>
+<td>Поток предп&shy;ри&shy;нял попытку работы со стра&shy;ни&shy;цей памяти, кото&shy;рой не сущес&shy;твует</td>
 </tr>
 <tr>
-<td>
-<p >
-EXCEPTION_INVALID_DISPOSITION</p>
-</td>
-<td>
-<p >
-Меха&shy;низм обра&shy;ботки исклю&shy;че&shy;ний вер&shy;нул не пра&shy;виль&shy;ный обра&shy;бот&shy;чик. Такое исклю&shy;че&shy;ние никогда не дол&shy;жно воз&shy;ни&shy;кать в прог&shy;рам&shy;мах, напи&shy;сан&shy;ных на высо&shy;ко&shy;уров&shy;не&shy;вых язы&shy;ках (нап&shy;ри&shy;мер, С++)</p>
-</td>
+<td>EXCEPTION_INVALID_DISPOSITION</td>
+<td>Меха&shy;низм обра&shy;ботки исклю&shy;че&shy;ний вер&shy;нул не пра&shy;виль&shy;ный обра&shy;бот&shy;чик. Такое исклю&shy;че&shy;ние никогда не дол&shy;жно воз&shy;ни&shy;кать в прог&shy;рам&shy;мах, напи&shy;сан&shy;ных на высо&shy;ко&shy;уров&shy;не&shy;вых язы&shy;ках (нап&shy;ри&shy;мер, С++)</td>
 </tr>
 <tr>
-<td>
-<p >
-EXCEPTION_NONCONTINUABLE_EXCEPTION</p>
-</td>
-<td>
-<p >
-Поток сде&shy;лал попытку про&shy;дол&shy;жить испол&shy;не&shy;ние прог&shy;раммы после воз&shy;ник&shy;но&shy;ве&shy;ния исклю&shy;че&shy;ния, про&shy;дол&shy;жить испол&shy;не&shy;ние кода после кото&shy;рого не воз&shy;можно. Тут име&shy;ется ввиду не блоки catch/fault/finally, а подо&shy;бие фильтров исклю&shy;че&shy;ний, кото&shy;рые поз&shy;во&shy;ляют испра&shy;вить ошибку, кото&shy;рая при&shy;вела к исклю&shy;че&shy;нию и предп&shy;ри&shy;нять ещё одну попытку выпол&shy;нить код, при&shy;вед&shy;ший к ошибке</p>
-</td>
+<td>EXCEPTION_NONCONTINUABLE_EXCEPTION</td>
+<td>Поток сде&shy;лал попытку про&shy;дол&shy;жить испол&shy;не&shy;ние прог&shy;раммы после воз&shy;ник&shy;но&shy;ве&shy;ния исклю&shy;че&shy;ния, про&shy;дол&shy;жить испол&shy;не&shy;ние кода после кото&shy;рого не воз&shy;можно. Тут име&shy;ется ввиду не блоки catch/fault/finally, а подо&shy;бие фильтров исклю&shy;че&shy;ний, кото&shy;рые поз&shy;во&shy;ляют испра&shy;вить ошибку, кото&shy;рая при&shy;вела к исклю&shy;че&shy;нию и предп&shy;ри&shy;нять ещё одну попытку выпол&shy;нить код, при&shy;вед&shy;ший к ошибке</td>
 </tr>
 <tr>
-<td>
-<p >
-EXCEPTION_PRIV_INSTRUCTION</p>
-</td>
-<td>
-<p >
-Попытка выпол&shy;нить при&shy;ви&shy;ле&shy;ги&shy;ро&shy;ван&shy;ную инстр&shy;укцию про&shy;цес&shy;сора</p>
-</td>
+<td>EXCEPTION_PRIV_INSTRUCTION</td>
+<td>Попытка выпол&shy;нить при&shy;ви&shy;ле&shy;ги&shy;ро&shy;ван&shy;ную инстр&shy;укцию про&shy;цес&shy;сора</td>
 </tr>
 <tr>
-<td>
-<p >
-STATUS_UNWIND_CONSOLIDATE</p>
-</td>
-<td>
-<p >
-Искл&shy;юч&shy;ение, отно&shy;ся&shy;ще&shy;еся к раз&shy;мотке стека и не явля&shy;ю&shy;ще&shy;еся пред&shy;ме&shy;том наших обсуж&shy;де&shy;ний</p>
-</td>
+<td>STATUS_UNWIND_CONSOLIDATE</td>
+<td>Искл&shy;юч&shy;ение, отно&shy;ся&shy;ще&shy;еся к раз&shy;мотке стека и не явля&shy;ю&shy;ще&shy;еся пред&shy;ме&shy;том наших обсуж&shy;де&shy;ний</td>
 </tr>
 </tbody>
 </table>
@@ -1971,31 +1864,22 @@ STATUS_UNWIND_CONSOLIDATE</p>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
-<p >
-Прошу заме&shy;тить, что по своей сути только два из них дос&shy;тойны перех&shy;вата: это <code>STATUS_ACCESS_VIOLATION</code> и <code>STATUS_STACK_OVERFLOW</code>. Остал&shy;ьные ошибки исклю&shy;чи&shy;тельны даже для исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций. Они ско&shy;рее отно&shy;сятся к классу фаталь&shy;ных оши&shy;бок и нами расс&shy;мат&shy;ри&shy;ваться не могут. А потому, давайте оста&shy;но&shy;вимся на этих двух более под&shy;робно:</p>
+<p>Прошу заме&shy;тить, что по своей сути только два из них дос&shy;тойны перех&shy;вата: это <code>STATUS_ACCESS_VIOLATION</code> и <code>STATUS_STACK_OVERFLOW</code>. Остал&shy;ьные ошибки исклю&shy;чи&shy;тельны даже для исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций. Они ско&shy;рее отно&shy;сятся к классу фаталь&shy;ных оши&shy;бок и нами расс&shy;мат&shy;ри&shy;ваться не могут. А потому, давайте оста&shy;но&shy;вимся на этих двух более под&shy;робно:</p>
 <div class="paragraph-right-side">26</div>
 </div>
-<h4 id="accessviolationexception">AccessViolationException</h4>
+<h4 id="accessviolationexception">Access&shy;Violation&shy;Exception</h4>
 <div class="paragraph-container">
 <div class="paragraph-left-side">27</div>
-<p >
-Полу&shy;че&shy;ние этого исклю&shy;че&shy;ния - одна из тех новос&shy;тей, кото&shy;рые не хоте&shy;лось бы никому полу&shy;чить. А когда полу&shy;ча&shy;ешь, ста&shy;но&shy;вится сов&shy;сем не ясно что с этим делать. <code>AccessViolationException</code> - это исклю&shy;че&shy;ние &laquo;про&shy;маха&raquo; мимо выде&shy;лен&shy;ного для при&shy;ло&shy;же&shy;ния учас&shy;тка памяти и по своей сути выб&shy;ра&shy;сы&shy;ва&shy;ется при попытке чте&shy;ния или записи в защищённую область памяти. Здесь под сло&shy;вом &laquo;защита&raquo; лучше пони&shy;мать именно попытку работы с ещё не выде&shy;лен&shy;ным участ&shy;ком памяти или же уже осво&shy;бождённым. Тут, заметьте не име&shy;ется ввиду про&shy;цесс выде&shy;ле&shy;ния и осво&shy;бож&shy;де&shy;ния памяти сбор&shy;щи&shy;ком мусора. Тот просто раз&shy;ме&shy;чает уже выде&shy;лен&shy;ную память под свои и ваши нужды. Память - она имеет в неко&shy;то&shy;рой сте&shy;пени сло&shy;ис&shy;тую струк&shy;туру. Когда после слоя управ&shy;ле&shy;ния памятью сбор&shy;щи&shy;ком мусора идёт слой управ&shy;ле&shy;ния выде&shy;ле&shy;нием памяти биб&shy;ли&shy;о&shy;те&shy;ками ядра CLR, а за ними - опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мой - из пула дос&shy;туп&shy;ных фраг&shy;мен&shy;тов линей&shy;ного адрес&shy;ного прост&shy;ранства. Так вот когда при&shy;ло&shy;же&shy;ние про&shy;ма&shy;хи&shy;ва&shy;ется мимо своей памяти и пыта&shy;ется рабо&shy;тать с невы&shy;де&shy;лен&shy;ным участ&shy;ком либо с участ&shy;ком, при&shy;ло&shy;же&shy;нию не пред&shy;наз&shy;на&shy;чен&shy;ному, тогда и воз&shy;ни&shy;кает это исклю&shy;че&shy;ние. Когда оно воз&shy;ни&shy;кает, вам дос&shy;тупно не так много вари&shy;ан&shy;тов для ана&shy;лиза:</p>
+<p>Полу&shy;че&shy;ние этого исклю&shy;че&shy;ния  &mdash;  одна из тех новос&shy;тей, кото&shy;рые не хоте&shy;лось бы никому полу&shy;чить. А когда полу&shy;ча&shy;ешь, ста&shy;но&shy;вится сов&shy;сем не ясно что с этим делать. <code>Access&shy;Violation&shy;Exception</code>  &mdash;  это исклю&shy;че&shy;ние &laquo;про&shy;маха&raquo; мимо выде&shy;лен&shy;ного для при&shy;ло&shy;же&shy;ния учас&shy;тка памяти и по своей сути выб&shy;ра&shy;сы&shy;ва&shy;ется при попытке чте&shy;ния или записи в защищённую область памяти. Здесь под сло&shy;вом &laquo;защита&raquo; лучше пони&shy;мать именно попытку работы с ещё не выде&shy;лен&shy;ным участ&shy;ком памяти или же уже осво&shy;бождённым. Тут, заметьте не име&shy;ется ввиду про&shy;цесс выде&shy;ле&shy;ния и осво&shy;бож&shy;де&shy;ния памяти сбор&shy;щи&shy;ком мусора. Тот просто раз&shy;ме&shy;чает уже выде&shy;лен&shy;ную память под свои и ваши нужды. Память  &mdash;  она имеет в неко&shy;то&shy;рой сте&shy;пени сло&shy;ис&shy;тую струк&shy;туру. Когда после слоя управ&shy;ле&shy;ния памятью сбор&shy;щи&shy;ком мусора идёт слой управ&shy;ле&shy;ния выде&shy;ле&shy;нием памяти биб&shy;ли&shy;о&shy;те&shy;ками ядра CLR, а за ними  &mdash;  опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мой  &mdash;  из пула дос&shy;туп&shy;ных фраг&shy;мен&shy;тов линей&shy;ного адрес&shy;ного прост&shy;ранства. Так вот когда при&shy;ло&shy;же&shy;ние про&shy;ма&shy;хи&shy;ва&shy;ется мимо своей памяти и пыта&shy;ется рабо&shy;тать с невы&shy;де&shy;лен&shy;ным участ&shy;ком либо с участ&shy;ком, при&shy;ло&shy;же&shy;нию не пред&shy;наз&shy;на&shy;чен&shy;ному, тогда и воз&shy;ни&shy;кает это исклю&shy;че&shy;ние. Когда оно воз&shy;ни&shy;кает, вам дос&shy;тупно не так много вари&shy;ан&shy;тов для ана&shy;лиза:</p>
 <div class="paragraph-right-side">27</div>
 </div>
 <ul>
-<li>
-<p >
-Если Stack&shy;Trace ухо&shy;дит в недра CLR, вам сильно не повезло: это ско&shy;рее всего ошибка ядра. Однако этот слу&shy;чай почти никогда не сра&shy;ба&shy;ты&shy;вает. Из вари&shy;ан&shy;тов обхода - либо дейс&shy;твовать как-то иначе либо обно&shy;вить вер&shy;сию ядра если воз&shy;можно;</p>
-</li>
-<li>
-<p >
-Если же Stack&shy;Trace ухо&shy;дит в unsafe код неко&shy;то&shy;рой биб&shy;ли&shy;о&shy;теки, тут дос&shy;тупны такие вари&shy;анты: либо вы напу&shy;тали с наст&shy;рой&shy;кой мар&shy;шал&shy;линга либо же в unsafe биб&shy;ли&shy;о&shy;теке зак&shy;ра&shy;лась серьёзная ошибка. Тща&shy;тельно про&shy;верьте аргу&shy;менты метода: воз&shy;можно аргу&shy;менты натив&shy;ного метода имеют дру&shy;гую раз&shy;ряд&shy;ность или же дру&shy;гой поря&shy;док или поп&shy;росту раз&shy;мер. Про&shy;верьте что струк&shy;туры пере&shy;да&shy;ются там где надо - по ссылке, а там, где надо - по зна&shy;че&shy;нию</p>
-</li>
+<li>Если Stack&shy;Trace ухо&shy;дит в недра CLR, вам сильно не повезло: это ско&shy;рее всего ошибка ядра. Однако этот слу&shy;чай почти никогда не сра&shy;ба&shy;ты&shy;вает. Из вари&shy;ан&shy;тов обхода  &mdash;  либо дейс&shy;твовать как-то иначе либо обно&shy;вить вер&shy;сию ядра если воз&shy;можно;</li>
+<li>Если же Stack&shy;Trace ухо&shy;дит в unsafe код неко&shy;то&shy;рой биб&shy;ли&shy;о&shy;теки, тут дос&shy;тупны такие вари&shy;анты: либо вы напу&shy;тали с наст&shy;рой&shy;кой мар&shy;шал&shy;линга либо же в unsafe биб&shy;ли&shy;о&shy;теке зак&shy;ра&shy;лась серьёзная ошибка. Тща&shy;тельно про&shy;верьте аргу&shy;менты метода: воз&shy;можно аргу&shy;менты натив&shy;ного метода имеют дру&shy;гую раз&shy;ряд&shy;ность или же дру&shy;гой поря&shy;док или поп&shy;росту раз&shy;мер. Про&shy;верьте что струк&shy;туры пере&shy;да&shy;ются там где надо  &mdash;  по ссылке, а там, где надо  &mdash;  по зна&shy;че&shy;нию</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
-<p >
-Чтобы перех&shy;ва&shy;тить такое исклю&shy;че&shy;ние на дан&shy;ный момент необ&shy;хо&shy;димо пока&shy;зать JIT ком&shy;пи&shy;ля&shy;тору что это реально необ&shy;хо&shy;димо. В про&shy;тив&shy;ном слу&shy;чае оно перех&shy;ва&shy;чено никак не будет и вы полу&shy;чите упав&shy;шее при&shy;ло&shy;же&shy;ние. Однако, конечно же, его стоит перех&shy;ва&shy;ты&shy;вать только тогда, когда вы пони&shy;ма&shy;ете что вы смо&shy;жете его пра&shy;вильно обра&shy;бо&shy;тать: его нали&shy;чие может сви&shy;де&shy;тель&shy;ствовать о про&shy;и&shy;зо&shy;шед&shy;шей утечке памяти если она была выде&shy;лена unsafe мето&shy;дом между точ&shy;кой его вызова и точ&shy;кой выб&shy;роса <code>AccessViolationException</code> и тогда хоть при&shy;ло&shy;же&shy;ние и не будет &laquo;зава&shy;лено&raquo;, но его работа воз&shy;можно ста&shy;нет не кор&shy;рект&shy;ной: ведь перех&shy;ва&shy;тив поломку вызова метода вы навер&shy;няка поп&shy;ро&shy;бу&shy;ете выз&shy;вать этот метод ещё раз, в буду&shy;щем. А в этом слу&shy;чае что может пойти не так не извес&shy;тно никому: вы не можете знать каким обра&shy;зом было нару&shy;шено сос&shy;то&shy;я&shy;ние при&shy;ло&shy;же&shy;ния в прош&shy;лый раз. Однако, если жела&shy;ние перех&shy;ва&shy;тить такое исклю&shy;че&shy;ние у вас сох&shy;ра&shy;ни&shy;лось, прошу пос&shy;мот&shy;реть на таб&shy;лицу воз&shy;мож&shy;ности перех&shy;вата этого исклю&shy;че&shy;ния в раз&shy;лич&shy;ных вер&shy;сиях .NET Frame&shy;work:</p>
+<p>Чтобы перех&shy;ва&shy;тить такое исклю&shy;че&shy;ние на дан&shy;ный момент необ&shy;хо&shy;димо пока&shy;зать JIT ком&shy;пи&shy;ля&shy;тору что это реально необ&shy;хо&shy;димо. В про&shy;тив&shy;ном слу&shy;чае оно перех&shy;ва&shy;чено никак не будет и вы полу&shy;чите упав&shy;шее при&shy;ло&shy;же&shy;ние. Однако, конечно же, его стоит перех&shy;ва&shy;ты&shy;вать только тогда, когда вы пони&shy;ма&shy;ете что вы смо&shy;жете его пра&shy;вильно обра&shy;бо&shy;тать: его нали&shy;чие может сви&shy;де&shy;тель&shy;ствовать о про&shy;и&shy;зо&shy;шед&shy;шей утечке памяти если она была выде&shy;лена unsafe мето&shy;дом между точ&shy;кой его вызова и точ&shy;кой выб&shy;роса <code>Access&shy;Violation&shy;Exception</code> и тогда хоть при&shy;ло&shy;же&shy;ние и не будет &laquo;зава&shy;лено&raquo;, но его работа воз&shy;можно ста&shy;нет не кор&shy;рект&shy;ной: ведь перех&shy;ва&shy;тив поломку вызова метода вы навер&shy;няка поп&shy;ро&shy;бу&shy;ете выз&shy;вать этот метод ещё раз, в буду&shy;щем. А в этом слу&shy;чае что может пойти не так не извес&shy;тно никому: вы не можете знать каким обра&shy;зом было нару&shy;шено сос&shy;то&shy;я&shy;ние при&shy;ло&shy;же&shy;ния в прош&shy;лый раз. Однако, если жела&shy;ние перех&shy;ва&shy;тить такое исклю&shy;че&shy;ние у вас сох&shy;ра&shy;ни&shy;лось, прошу пос&shy;мот&shy;реть на таб&shy;лицу воз&shy;мож&shy;ности перех&shy;вата этого исклю&shy;че&shy;ния в раз&shy;лич&shy;ных вер&shy;сиях .NET Framework&shy;:</p>
 <div class="paragraph-right-side">28</div>
 </div>
 <div class="row">
@@ -2003,56 +1887,26 @@ STATUS_UNWIND_CONSOLIDATE</p>
 <table>
 <thead>
 <tr>
-<th>
-<p >
-Вер&shy;сия .NET Frame&shy;work</p>
-</th>
-<th>
-<p >
-Access&shy;Violation&shy;Exeception</p>
-</th>
+<th>Вер&shy;сия .NET Frame&shy;work</th>
+<th>Access&shy;Violation&shy;Exeception</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>
-<p >
-1.0</p>
-</td>
-<td>
-<p >
-Null&shy;Reference&shy;Exception</p>
-</td>
+<td>1.0</td>
+<td>Null&shy;Reference&shy;Exception</td>
 </tr>
 <tr>
-<td>
-<p >
-2.0, 3.5</p>
-</td>
-<td>
-<p >
-Access&shy;Violation перех&shy;ва&shy;тить можно</p>
-</td>
+<td>2.0, 3.5</td>
+<td>Access&shy;Violation перех&shy;ва&shy;тить можно</td>
 </tr>
 <tr>
-<td>
-<p >
-4.0+</p>
-</td>
-<td>
-<p >
-Access&shy;Violation перех&shy;ва&shy;тить можно, но необ&shy;хо&shy;дима наст&shy;ройка</p>
-</td>
+<td>4.0+</td>
+<td>Access&shy;Violation перех&shy;ва&shy;тить можно, но необ&shy;хо&shy;дима наст&shy;ройка</td>
 </tr>
 <tr>
-<td>
-<p >
-.NET Core</p>
-</td>
-<td>
-<p >
-Access&shy;Violation перех&shy;ва&shy;тить <em>нельзя</em></p>
-</td>
+<td>.NET Core</td>
+<td>Access&shy;Violation перех&shy;ва&shy;тить <em>нельзя</em></td>
 </tr>
 </tbody>
 </table>
@@ -2060,54 +1914,32 @@ Access&shy;Violation перех&shy;ва&shy;тить <em>нельзя</em></p>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">29</div>
-<p >
-Т.е. дру&shy;гими сло&shy;вами, если вам попа&shy;ло&shy;ось очень ста&shy;рое при&shy;ло&shy;же&shy;ние на .NET Frame&shy;work 1.0, <del>покажите его мне</del> вы полу&shy;чите NRE, что будет в неко&shy;то&shy;рой сте&shy;пени обма&shy;ном: вы отдали ука&shy;за&shy;тель со зна&shy;че&shy;нием больше нуля, а полу&shy;чили Null&shy;Reference&shy;Exception. Однако, на мой взгляд, такое пове&shy;де&shy;ние обос&shy;но&shy;вано: нахо&shy;дясь в мире управ&shy;ля&shy;е&shy;мого кода вам меньше всего дол&shy;жно хотеться изу&shy;чать типы оши&shy;бок неуп&shy;рав&shy;ля&shy;е&shy;мого кода и NRE - что по сути и есть &laquo;пло&shy;хой ука&shy;за&shy;тель на объ&shy;ект&raquo; в мире .NET - тут вполне под&shy;хо&shy;дит. Однако, мир был бы прек&shy;ра&shy;сен если бы все так было просто. В реальных ситу&shy;а&shy;циях поль&shy;зо&shy;ва&shy;те&shy;лям реши&shy;тельно не хва&shy;тало этого типа исклю&shy;че&shy;ний и потому - дос&shy;та&shy;точно скоро - его ввели в вер&shy;сии 2.0. Про&shy;су&shy;щест&shy;во&shy;вав нес&shy;колько лет в перех&shy;ва&shy;ты&shy;ва&shy;е&shy;мом вари&shy;анте, исклю&shy;че&shy;ние перес&shy;тало быть перех&shy;ва&shy;ты&shy;ва&shy;е&shy;мым, однако поя&shy;ви&shy;лась спе&shy;ци&shy;альная наст&shy;ройка, кото&shy;рая поз&shy;во&shy;ляет вклю&shy;чить перех&shy;ват. Такой поря&shy;док выбора в команде CLR в целом на каж&shy;дом этапе выг&shy;ля&shy;дит дос&shy;та&shy;точно обос&shy;но&shy;ван&shy;ным. Посу&shy;дите сами:</p>
+<p>Т.е. дру&shy;гими сло&shy;вами, если вам попа&shy;ло&shy;ось очень ста&shy;рое при&shy;ло&shy;же&shy;ние на .NET Frame&shy;work 1.0, <del>пока&shy;жите его мне</del> вы полу&shy;чите NRE, что будет в неко&shy;то&shy;рой сте&shy;пени обма&shy;ном: вы отдали ука&shy;за&shy;тель со зна&shy;че&shy;нием больше нуля, а полу&shy;чили Null&shy;Reference&shy;Exception&shy;. Однако, на мой взгляд, такое пове&shy;де&shy;ние обос&shy;но&shy;вано: нахо&shy;дясь в мире управ&shy;ля&shy;е&shy;мого кода вам меньше всего дол&shy;жно хотеться изу&shy;чать типы оши&shy;бок неуп&shy;рав&shy;ля&shy;е&shy;мого кода и NRE  &mdash;  что по сути и есть &laquo;пло&shy;хой ука&shy;за&shy;тель на объ&shy;ект&raquo; в мире .NET  &mdash;  тут вполне под&shy;хо&shy;дит. Однако, мир был бы прек&shy;ра&shy;сен если бы все так было просто. В реальных ситу&shy;а&shy;циях поль&shy;зо&shy;ва&shy;те&shy;лям реши&shy;тельно не хва&shy;тало этого типа исклю&shy;че&shy;ний и потому  &mdash;  дос&shy;та&shy;точно скоро  &mdash;  его ввели в вер&shy;сии 2.0. Про&shy;су&shy;щест&shy;во&shy;вав нес&shy;колько лет в перех&shy;ва&shy;ты&shy;ва&shy;е&shy;мом вари&shy;анте, исклю&shy;че&shy;ние перес&shy;тало быть перех&shy;ва&shy;ты&shy;ва&shy;е&shy;мым, однако поя&shy;ви&shy;лась спе&shy;ци&shy;альная наст&shy;ройка, кото&shy;рая поз&shy;во&shy;ляет вклю&shy;чить перех&shy;ват. Такой поря&shy;док выбора в команде CLR в целом на каж&shy;дом этапе выг&shy;ля&shy;дит дос&shy;та&shy;точно обос&shy;но&shy;ван&shy;ным. Посу&shy;дите сами:</p>
 <div class="paragraph-right-side">29</div>
 </div>
 <ul>
-<li>
-<p >
-<code>1.0</code> Ошибка про&shy;маха мимо выде&shy;лен&shy;ных участ&shy;ков памяти дол&shy;жна быть именно исклю&shy;чи&shy;тель&shy;ной ситу&shy;а&shy;цией потому как если при&shy;ло&shy;же&shy;ние рабо&shy;тает с каким-либо адре&shy;сом, оно его откуда-то полу&shy;чило. В managed мире этим мес&shy;том явля&shy;ется опе&shy;ра&shy;тор <code>new</code>. В unma&shy;naged мире - в целом любой учас&shy;ток кода может выс&shy;ту&shy;пать точ&shy;кой для воз&shy;ник&shy;но&shy;ве&shy;ния такой ошибки. И хотя с точки зре&shy;ния фило&shy;со&shy;фии смысл обоих исклю&shy;че&shy;ний диамет&shy;рально про&shy;ти&shy;во&shy;по&shy;ло&shy;жен (NRE - работа с не про&shy;и&shy;ни&shy;ци&shy;а&shy;ли&shy;зи&shy;ро&shy;ван&shy;ным ука&shy;за&shy;те&shy;лем, AVE - работа с некор&shy;рек&shy;тно про&shy;и&shy;ни&shy;ци&shy;а&shy;ли&shy;зи&shy;ро&shy;ван&shy;ным ука&shy;за&shy;те&shy;лем), с точки зре&shy;ния иде&shy;о&shy;ло&shy;гии .NET некор&shy;рек&shy;тно про&shy;и&shy;ни&shy;ци&shy;а&shy;ли&shy;зи&shy;ро&shy;ван&shy;ных ука&shy;за&shy;те&shy;лей быть не может. Оба слу&shy;чая можно свести к одному и при&shy;дать фило&shy;софс&shy;кий смысл: не кор&shy;рек&shy;тно задан&shy;ный ука&shy;за&shy;тель. А потому давайте так и сде&shy;лаем: в обоих слу&shy;чаях будем выб&shy;ра&shy;сы&shy;вать <code>NullReferenceException</code>.</p>
-</li>
-<li>
-<p >
-<code>2.0</code> На ран&shy;них эта&shy;пах сущест&shy;во&shy;ва&shy;ния .NET Frame&shy;work ока&shy;за&shy;лось что кода, кото&shy;рый нас&shy;ле&shy;ду&shy;ется через COM биб&shy;ли&shy;о&shy;теки больше собст&shy;ве&shy;нного: сущес&shy;твует огром&shy;ная кодо&shy;вая база ком&shy;мер&shy;чес&shy;ких ком&shy;по&shy;нент для вза&shy;и&shy;мо&shy;д&shy;ействия с сетью, UI, БД и про&shy;чими под&shy;сис&shy;те&shy;мами. А зна&shy;чит, воп&shy;рос полу&shy;че&shy;ния именно <code>AccessViolationException</code> всё-таки стоит: невер&shy;ная диаг&shy;нос&shy;тика проб&shy;лем может сде&shy;лать про&shy;цесс поимки проб&shy;лемы более доро&shy;гим. В .NET Frame&shy;work вве&shy;дено исклю&shy;че&shy;ние <code>AccessViolationException</code>.</p>
-</li>
-<li>
-<p >
-<code>4.0</code> .NET Frame&shy;work уко&shy;ре&shy;нился, потес&shy;нив тра&shy;ди&shy;ци&shy;он&shy;ную раз&shy;ра&shy;ботку на низ&shy;ко&shy;уров&shy;не&shy;вых язы&shy;ках прог&shy;рам&shy;ми&shy;ро&shy;ва&shy;ния. Резко сок&shy;ра&shy;щено коли&shy;чес&shy;тво COM ком&shy;по&shy;нент: прак&shy;ти&shy;чески все основ&shy;ные задачи уже реша&shy;ются в рам&shy;ках самого фрейм&shy;ворка, а работа в unsafe кодом начи&shy;нает счи&shy;таться чем-то стран&shy;ным, неп&shy;ра&shy;виль&shy;ным. В этих усло&shy;виях можно вер&shy;нуться к иде&shy;о&shy;ло&shy;гии, введённой в фрейм&shy;ворк с самого начала: .NET - он только для .NET. Unsafe код - это не норма, а вынуж&shy;ден&shy;ное сос&shy;то&shy;я&shy;ние, а потому иде&shy;о&shy;ло&shy;гич&shy;ность нали&shy;чия перех&shy;вата <code>AccessViolationException</code> идёт враз&shy;рез с иде&shy;о&shy;ло&shy;гией поня&shy;тия фрейм&shy;ворк - как плат&shy;форма (т.е. ими&shy;та&shy;ция пол&shy;ной песоч&shy;ницы со сво&shy;ими зако&shy;нами). Однако мы все ещё нахо&shy;димся в реа&shy;лиях плат&shy;формы, на кото&shy;рой рабо&shy;таем и во мно&shy;гих ситу&shy;а&shy;циях перех&shy;ва&shy;ты&shy;вать это исклю&shy;че&shy;ние все ещё необ&shy;хо&shy;димо: вво&shy;дим спе&shy;ци&shy;альный режим перех&shy;вата: только если вве&shy;дена соот&shy;вет&shy;с&shy;твующая кон&shy;фи&shy;гу&shy;ра&shy;ция;</p>
-</li>
-<li>
-<p >
-<code>.NET Core</code> Нако&shy;нец, сбы&shy;лась мечта команды CLR: .NET более не пред&shy;по&shy;ла&shy;гает закон&shy;ности работы с unsafe кодом, а потому сущест&shy;во&shy;ва&shy;ние <code>AccessViolationException</code> теперь вне закона даже на уровне кон&shy;фи&shy;гу&shy;ра&shy;ции. .NET вырос нас&shy;только, чтобы самос&shy;то&shy;я&shy;тельно уста&shy;нав&shy;ли&shy;вать пра&shy;вила. Теперь сущест&shy;во&shy;ва&shy;ние этого исклю&shy;че&shy;ния в при&shy;ло&shy;же&shy;нии при&shy;ведёт его к гибели, а потому любой unsafe код (т.е. сам CLR) обя&shy;зан быть безо&shy;пас&shy;ным с точки зре&shy;ния этого исклю&shy;че&shy;ния. Если оно появ&shy;ля&shy;ется в unsafe биб&shy;ли&shy;о&shy;теке, с ней просто не будут рабо&shy;тать, а зна&shy;чит, раз&shy;ра&shy;бот&shy;чики сто&shy;рон&shy;них ком&shy;по&shy;нент на unsafe язы&shy;ках будут более акку&shy;рат&shy;ными и обра&shy;ба&shy;ты&shy;вать его - у себя.</p>
-</li>
+<li><code>1.0</code> Ошибка про&shy;маха мимо выде&shy;лен&shy;ных участ&shy;ков памяти дол&shy;жна быть именно исклю&shy;чи&shy;тель&shy;ной ситу&shy;а&shy;цией потому как если при&shy;ло&shy;же&shy;ние рабо&shy;тает с каким-либо адре&shy;сом, оно его откуда-то полу&shy;чило. В managed мире этим мес&shy;том явля&shy;ется опе&shy;ра&shy;тор <code>new</code>. В unma&shy;naged мире  &mdash;  в целом любой учас&shy;ток кода может выс&shy;ту&shy;пать точ&shy;кой для воз&shy;ник&shy;но&shy;ве&shy;ния такой ошибки. И хотя с точки зре&shy;ния фило&shy;со&shy;фии смысл обоих исклю&shy;че&shy;ний диамет&shy;рально про&shy;ти&shy;во&shy;по&shy;ло&shy;жен (NRE  &mdash;  работа с не про&shy;и&shy;ни&shy;ци&shy;а&shy;ли&shy;зи&shy;ро&shy;ван&shy;ным ука&shy;за&shy;те&shy;лем, AVE  &mdash;  работа с некор&shy;рек&shy;тно про&shy;и&shy;ни&shy;ци&shy;а&shy;ли&shy;зи&shy;ро&shy;ван&shy;ным ука&shy;за&shy;те&shy;лем), с точки зре&shy;ния иде&shy;о&shy;ло&shy;гии .NET некор&shy;рек&shy;тно про&shy;и&shy;ни&shy;ци&shy;а&shy;ли&shy;зи&shy;ро&shy;ван&shy;ных ука&shy;за&shy;те&shy;лей быть не может. Оба слу&shy;чая можно свести к одному и при&shy;дать фило&shy;софс&shy;кий смысл: не кор&shy;рек&shy;тно задан&shy;ный ука&shy;за&shy;тель. А потому давайте так и сде&shy;лаем: в обоих слу&shy;чаях будем выб&shy;ра&shy;сы&shy;вать <code>Null&shy;Reference&shy;Exception</code>.</li>
+<li><code>2.0</code> На ран&shy;них эта&shy;пах сущест&shy;во&shy;ва&shy;ния .NET Frame&shy;work ока&shy;за&shy;лось что кода, кото&shy;рый нас&shy;ле&shy;ду&shy;ется через COM биб&shy;ли&shy;о&shy;теки больше собст&shy;ве&shy;нного: сущес&shy;твует огром&shy;ная кодо&shy;вая база ком&shy;мер&shy;чес&shy;ких ком&shy;по&shy;нент для вза&shy;и&shy;мо&shy;д&shy;ействия с сетью, UI, БД и про&shy;чими под&shy;сис&shy;те&shy;мами. А зна&shy;чит, воп&shy;рос полу&shy;че&shy;ния именно <code>Access&shy;Violation&shy;Exception</code> всё-таки стоит: невер&shy;ная диаг&shy;нос&shy;тика проб&shy;лем может сде&shy;лать про&shy;цесс поимки проб&shy;лемы более доро&shy;гим. В .NET Frame&shy;work вве&shy;дено исклю&shy;че&shy;ние <code>Access&shy;Violation&shy;Exception</code>.</li>
+<li><code>4.0</code> .NET Frame&shy;work уко&shy;ре&shy;нился, потес&shy;нив тра&shy;ди&shy;ци&shy;он&shy;ную раз&shy;ра&shy;ботку на низ&shy;ко&shy;уров&shy;не&shy;вых язы&shy;ках прог&shy;рам&shy;ми&shy;ро&shy;ва&shy;ния. Резко сок&shy;ра&shy;щено коли&shy;чес&shy;тво COM ком&shy;по&shy;нент: прак&shy;ти&shy;чески все основ&shy;ные задачи уже реша&shy;ются в рам&shy;ках самого фрейм&shy;ворка, а работа в unsafe кодом начи&shy;нает счи&shy;таться чем-то стран&shy;ным, неп&shy;ра&shy;виль&shy;ным. В этих усло&shy;виях можно вер&shy;нуться к иде&shy;о&shy;ло&shy;гии, введённой в фрейм&shy;ворк с самого начала: .NET  &mdash;  он только для .NET. Unsafe код  &mdash;  это не норма, а вынуж&shy;ден&shy;ное сос&shy;то&shy;я&shy;ние, а потому иде&shy;о&shy;ло&shy;гич&shy;ность нали&shy;чия перех&shy;вата <code>Access&shy;Violation&shy;Exception</code> идёт враз&shy;рез с иде&shy;о&shy;ло&shy;гией поня&shy;тия фрейм&shy;ворк  &mdash;  как плат&shy;форма (т.е. ими&shy;та&shy;ция пол&shy;ной песоч&shy;ницы со сво&shy;ими зако&shy;нами). Однако мы все ещё нахо&shy;димся в реа&shy;лиях плат&shy;формы, на кото&shy;рой рабо&shy;таем и во мно&shy;гих ситу&shy;а&shy;циях перех&shy;ва&shy;ты&shy;вать это исклю&shy;че&shy;ние все ещё необ&shy;хо&shy;димо: вво&shy;дим спе&shy;ци&shy;альный режим перех&shy;вата: только если вве&shy;дена соот&shy;вет&shy;с&shy;твующая кон&shy;фи&shy;гу&shy;ра&shy;ция;</li>
+<li><code>.NET Core</code> Нако&shy;нец, сбы&shy;лась мечта команды CLR: .NET более не пред&shy;по&shy;ла&shy;гает закон&shy;ности работы с unsafe кодом, а потому сущест&shy;во&shy;ва&shy;ние <code>Access&shy;Violation&shy;Exception</code> теперь вне закона даже на уровне кон&shy;фи&shy;гу&shy;ра&shy;ции. .NET вырос нас&shy;только, чтобы самос&shy;то&shy;я&shy;тельно уста&shy;нав&shy;ли&shy;вать пра&shy;вила. Теперь сущест&shy;во&shy;ва&shy;ние этого исклю&shy;че&shy;ния в при&shy;ло&shy;же&shy;нии при&shy;ведёт его к гибели, а потому любой unsafe код (т.е. сам CLR) обя&shy;зан быть безо&shy;пас&shy;ным с точки зре&shy;ния этого исклю&shy;че&shy;ния. Если оно появ&shy;ля&shy;ется в unsafe биб&shy;ли&shy;о&shy;теке, с ней просто не будут рабо&shy;тать, а зна&shy;чит, раз&shy;ра&shy;бот&shy;чики сто&shy;рон&shy;них ком&shy;по&shy;нент на unsafe язы&shy;ках будут более акку&shy;рат&shy;ными и обра&shy;ба&shy;ты&shy;вать его  &mdash;  у себя.</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">30</div>
-<p >
-Вот так, на при&shy;мере одного исклю&shy;че&shy;ния можно прос&shy;ле&shy;дить исто&shy;рию ста&shy;нов&shy;ле&shy;ния .NET Frame&shy;work как плат&shy;формы: от неу&shy;ве&shy;рен&shy;ного под&shy;чи&shy;не&shy;ния внеш&shy;ним пра&shy;ви&shy;лам до самос&shy;то&shy;я&shy;тель&shy;ного уста&shy;нов&shy;ле&shy;ния пра&shy;вил самой плат&shy;фор&shy;мой.</p>
+<p>Вот так, на при&shy;мере одного исклю&shy;че&shy;ния можно прос&shy;ле&shy;дить исто&shy;рию ста&shy;нов&shy;ле&shy;ния .NET Frame&shy;work как плат&shy;формы: от неу&shy;ве&shy;рен&shy;ного под&shy;чи&shy;не&shy;ния внеш&shy;ним пра&shy;ви&shy;лам до самос&shy;то&shy;я&shy;тель&shy;ного уста&shy;нов&shy;ле&shy;ния пра&shy;вил самой плат&shy;фор&shy;мой.</p>
 <div class="paragraph-right-side">30</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">31</div>
-<p >
-После всего ска&shy;зан&shy;ного оста&shy;лось раск&shy;рыть пос&shy;лед&shy;нюю тему: как вклю&shy;чить обра&shy;ботку дан&shy;ного исклю&shy;че&shy;ния в <code>4.0+</code>. Итак, чтобы вклю&shy;чить обра&shy;ботку исклю&shy;че&shy;ния дан&shy;ного типа в конк&shy;рет&shy;ном методе, необ&shy;хо&shy;димо:</p>
+<p>После всего ска&shy;зан&shy;ного оста&shy;лось раск&shy;рыть пос&shy;лед&shy;нюю тему: как вклю&shy;чить обра&shy;ботку дан&shy;ного исклю&shy;че&shy;ния в <code>4.0+</code>. Итак, чтобы вклю&shy;чить обра&shy;ботку исклю&shy;че&shy;ния дан&shy;ного типа в конк&shy;рет&shy;ном методе, необ&shy;хо&shy;димо:</p>
 <div class="paragraph-right-side">31</div>
 </div>
 <ul>
-<li>
-<p >
-Доба&shy;вить в сек&shy;цию <code>configuration/runtime</code> сле&shy;ду&shy;ю&shy;щий код: <code>&lt;legacyCorruptedStateExceptionsPolicy enabled=&quot;true|false&quot;/&gt;</code></p>
-</li>
-<li>
-<p >
-Для каж&shy;дого метода, где <em>необходимо</em> обра&shy;бо&shy;тать <code>AccessViolationException</code>, надо доба&shy;вить два атри&shy;бута: <code>HandleProcessCorruptedStateExceptions</code> и <code>SecurityCritical</code>. Эти атри&shy;буты поз&shy;во&shy;ляют вклю&shy;чить обра&shy;ботку Corrupted State Excep&shy;tions, для <em>конкретных</em> мето&shy;дов, а не для всех вообще. Эта схема очень пра&shy;виль&shy;ная, пос&shy;кольку вы дол&shy;жны быть точно уве&shy;рены, что хотите их обра&shy;ба&shy;ты&shy;вать и знать, где: иногда более пра&shy;виль&shy;ный вари&shy;ант - просто зава&shy;лить при&shy;ло&shy;же&shy;ние на бок.</p>
-</li>
+<li>Доба&shy;вить в сек&shy;цию <code>confi&shy;gu&shy;ra&shy;tion/runtime</code> сле&shy;ду&shy;ю&shy;щий код: <code><legacy&shy;Cor&shy;rup&shy;tedS&shy;ta&shy;teEx&shy;cep&shy;ti&shy;on&shy;sPo&shy;licy enabled="true|false"/></code></li>
+<li>Для каж&shy;дого метода, где <em>необ&shy;хо&shy;димо</em> обра&shy;бо&shy;тать <code>Access&shy;Violation&shy;Exception</code>, надо доба&shy;вить два атри&shy;бута: <code>Handle&shy;Process&shy;Corrupted&shy;State&shy;Exceptions</code> и <code>Security&shy;Critical</code>. Эти атри&shy;буты поз&shy;во&shy;ляют вклю&shy;чить обра&shy;ботку Corrupted State Exceptions&shy;, для <em>конк&shy;рет&shy;ных</em> мето&shy;дов, а не для всех вообще. Эта схема очень пра&shy;виль&shy;ная, пос&shy;кольку вы дол&shy;жны быть точно уве&shy;рены, что хотите их обра&shy;ба&shy;ты&shy;вать и знать, где: иногда более пра&shy;виль&shy;ный вари&shy;ант  &mdash;  просто зава&shy;лить при&shy;ло&shy;же&shy;ние на бок.</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">32</div>
-<p >
-Для при&shy;мера вклю&shy;че&shy;ния обра&shy;бот&shy;чика <code>CSE</code> и их при&shy;ми&shy;тив&shy;ной обра&shy;ботки расс&shy;мот&shy;рим сле&shy;ду&shy;ю&shy;щий код:</p>
+<p>Для при&shy;мера вклю&shy;че&shy;ния обра&shy;бот&shy;чика <code>CSE</code> и их при&shy;ми&shy;тив&shy;ной обра&shy;ботки расс&shy;мот&shy;рим сле&shy;ду&shy;ю&shy;щий код:</p>
 <div class="paragraph-right-side">32</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2129,23 +1961,20 @@ Access&shy;Violation перех&shy;ва&shy;тить <em>нельзя</em></p>
 }
 </pre></div>
 </div>
-<h4 id="stackoverflowexception">StackOverflowException</h4>
+<h4 id="stackoverflowexception">Stack&shy;Overflow&shy;Exception</h4>
 <div class="paragraph-container">
 <div class="paragraph-left-side">33</div>
-<p >
-Пос&shy;лед&shy;ний тип исклю&shy;че&shy;ний, о кото&shy;ром стоит пого&shy;во&shy;рить - это ошибка пере&shy;пол&shy;не&shy;ния стека. Она воз&shy;ни&shy;кает тогда, когда, по сути, в мас&shy;сиве, выде&shy;лен&shy;ном под стек кон&shy;ча&shy;ется память. Само стр&shy;о&shy;ение стека мы под&shy;робно обсу&shy;дили в соот&shy;вет&shy;с&shy;твующей главе (<a href="./ThreadStack.html">Стек потока</a>), а здесь без силь&shy;ного углуб&shy;ле&shy;ния оста&shy;но&shy;вимся на самой ошибке.</p>
+<p>Пос&shy;лед&shy;ний тип исклю&shy;че&shy;ний, о кото&shy;ром стоит пого&shy;во&shy;рить  &mdash;  это ошибка пере&shy;пол&shy;не&shy;ния стека. Она воз&shy;ни&shy;кает тогда, когда, по сути, в мас&shy;сиве, выде&shy;лен&shy;ном под стек кон&shy;ча&shy;ется память. Само стр&shy;о&shy;ение стека мы под&shy;робно обсу&shy;дили в соот&shy;вет&shy;с&shy;твующей главе (<a href="./ThreadStack.html">Стек потока</a>), а здесь без силь&shy;ного углуб&shy;ле&shy;ния оста&shy;но&shy;вимся на самой ошибке.</p>
 <div class="paragraph-right-side">33</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">34</div>
-<p >
-Итак, когда нас&shy;ту&shy;пает нех&shy;ватка памяти под стек потока (либо упёрлись в сле&shy;ду&shy;ю&shy;щий заня&shy;тый учас&shy;ток памяти и нет воз&shy;мож&shy;ности выде&shy;лить сле&shy;ду&shy;ю&shy;щую стра&shy;ницу вир&shy;ту&shy;альной памяти) или же поток упёрся в раз&shy;решённый диа&shy;па&shy;зон памяти, про&shy;ис&shy;хо&shy;дит попытка дос&shy;тупа к адрес&shy;ному прост&shy;ранству, кото&shy;рое назы&shy;ва&shy;ется Guard page. По сути, этот диа&shy;па&shy;зон - ловушка и не зани&shy;мает ника&shy;кой физи&shy;чес&shy;кой памяти. Вместо реал&shy;ьного чте&shy;ния или записи про&shy;цес&shy;сор вызы&shy;вает спе&shy;ци&shy;а&shy;ли&shy;зи&shy;ро&shy;ван&shy;ное пре&shy;ры&shy;ва&shy;ние, кото&shy;рое дол&shy;жно зап&shy;ро&shy;сить у опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;темы новый учас&shy;ток памяти под рост стека потока. В слу&shy;чае дос&shy;ти&shy;же&shy;ния мак&shy;си&shy;мально-раз&shy;ре&shy;шен&shy;ных зна&shy;че&shy;ний опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;тема вместо выде&shy;ле&shy;ния нового учас&shy;тка гене&shy;ри&shy;рует исклю&shy;чи&shy;тель&shy;ную ситу&shy;а&shy;цию с кодом <code>STATUS_STACK_OVERFLOW</code>, кото&shy;рая будучи проб&shy;ро&shy;шен&shy;ной через <code>Structured Exception Handling</code> меха&shy;низм в .NET обру&shy;ши&shy;вает теку&shy;щий поток испол&shy;не&shy;ния как более не кор&shy;рект&shy;ный.</p>
+<p>Итак, когда нас&shy;ту&shy;пает нех&shy;ватка памяти под стек потока (либо упёрлись в сле&shy;ду&shy;ю&shy;щий заня&shy;тый учас&shy;ток памяти и нет воз&shy;мож&shy;ности выде&shy;лить сле&shy;ду&shy;ю&shy;щую стра&shy;ницу вир&shy;ту&shy;альной памяти) или же поток упёрся в раз&shy;решённый диа&shy;па&shy;зон памяти, про&shy;ис&shy;хо&shy;дит попытка дос&shy;тупа к адрес&shy;ному прост&shy;ранству, кото&shy;рое назы&shy;ва&shy;ется Guard page. По сути, этот диа&shy;па&shy;зон  &mdash;  ловушка и не зани&shy;мает ника&shy;кой физи&shy;чес&shy;кой памяти. Вместо реал&shy;ьного чте&shy;ния или записи про&shy;цес&shy;сор вызы&shy;вает спе&shy;ци&shy;а&shy;ли&shy;зи&shy;ро&shy;ван&shy;ное пре&shy;ры&shy;ва&shy;ние, кото&shy;рое дол&shy;жно зап&shy;ро&shy;сить у опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;темы новый учас&shy;ток памяти под рост стека потока. В слу&shy;чае дос&shy;ти&shy;же&shy;ния мак&shy;си&shy;мально-раз&shy;ре&shy;шен&shy;ных зна&shy;че&shy;ний опе&shy;ра&shy;ци&shy;он&shy;ная сис&shy;тема вместо выде&shy;ле&shy;ния нового учас&shy;тка гене&shy;ри&shy;рует исклю&shy;чи&shy;тель&shy;ную ситу&shy;а&shy;цию с кодом <code>STATUS_STACK_OVERFLOW</code>, кото&shy;рая будучи проб&shy;ро&shy;шен&shy;ной через <code>Struc&shy;tured Excep&shy;tion Hand&shy;ling</code> меха&shy;низм в .NET обру&shy;ши&shy;вает теку&shy;щий поток испол&shy;не&shy;ния как более не кор&shy;рект&shy;ный.</p>
 <div class="paragraph-right-side">34</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">35</div>
-<p >
-Прошу заме&shy;тить что хоть дан&shy;ное исклю&shy;че&shy;ние и явля&shy;ется <code>Corrupted State Exception</code>, перех&shy;ва&shy;тить его при помощи <code>HandleProcessCorruptedStateExceptions</code> не предс&shy;тав&shy;ля&shy;ется воз&shy;мож&shy;ным. Т.е. сле&shy;ду&shy;ю&shy;щий код не отра&shy;бо&shy;тает:</p>
+<p>Прошу заме&shy;тить что хоть дан&shy;ное исклю&shy;че&shy;ние и явля&shy;ется <code>Corrupted State Excep&shy;tion</code>, перех&shy;ва&shy;тить его при помощи <code>Handle&shy;Process&shy;Corrupted&shy;State&shy;Exceptions</code> не предс&shy;тав&shy;ля&shy;ется воз&shy;мож&shy;ным. Т.е. сле&shy;ду&shy;ю&shy;щий код не отра&shy;бо&shy;тает:</p>
 <div class="paragraph-right-side">35</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2177,8 +2006,7 @@ Access&shy;Violation перех&shy;ва&shy;тить <em>нельзя</em></p>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">36</div>
-<p >
-А не предс&shy;тав&shy;ля&shy;ется воз&shy;мож&shy;ным потому что пере&shy;пол&shy;не&shy;ние стека может быть выз&shy;вано двумя путями: пер&shy;вый - это наме&shy;рен&shy;ный вызов рекур&shy;сив&shy;ного метода, кото&shy;рый не слиш&shy;ком акку&shy;ра&shy;тен чтобы конт&shy;ро&shy;ли&shy;ро&shy;вать собст&shy;венную глу&shy;бину. Тут может воз&shy;ник&shy;нуть жела&shy;ние испра&shy;вить ситу&shy;а&shy;цию, перех&shy;ва&shy;тив выб&shy;рос исклю&shy;че&shy;ния. Однако, если поду&shy;мать, мы тем самым лега&shy;ли&shy;зуем дан&shy;ную ситу&shy;а&shy;цию, поз&shy;во&shy;ляя ей слу&shy;читься вновь, что выг&shy;ля&shy;дит ско&shy;рее не даль&shy;но&shy;вид&shy;ным чем слу&shy;чаем про&shy;яв&shy;ле&shy;ния заботы. И вто&shy;рая - слу&shy;чай&shy;ность - полу&shy;че&shy;ние Stack&shy;Overflow&shy;Exception при вполне себе обыч&shy;ном вызове. Просто в дан&shy;ный момент глу&shy;бина стека вызо&shy;вов ока&shy;за&shy;лась слиш&shy;ком кри&shy;тич&shy;ной. В дан&shy;ном при&shy;мере перех&shy;ва&shy;ты&shy;вать исклю&shy;че&shy;ние выг&shy;ля&shy;дит как что-то сов&shy;сем дикое: при&shy;ло&shy;же&shy;ние рабо&shy;тало штатно, все шло хорошо, как вдруг легаль&shy;ный вызов метода при кор&shy;рек&shy;тно рабо&shy;та&shy;ю&shy;щих алго&shy;рит&shy;мах выз&shy;вал выб&shy;рос исклю&shy;че&shy;ния с даль&shy;ней&shy;шей развёрткой стека до ожи&shy;да&shy;ю&shy;щего такого пове&shy;де&shy;ния учас&shy;тка кода. Хм&hellip; Ещё раз: мы ждём, что на сле&shy;ду&shy;ю&shy;щем учас&shy;тке ничего не отра&shy;бо&shy;тает потому что в стеке кон&shy;чится память. Как по мне, это пол&shy;ный абсурд.</p>
+<p>А не предс&shy;тав&shy;ля&shy;ется воз&shy;мож&shy;ным потому что пере&shy;пол&shy;не&shy;ние стека может быть выз&shy;вано двумя путями: пер&shy;вый  &mdash;  это наме&shy;рен&shy;ный вызов рекур&shy;сив&shy;ного метода, кото&shy;рый не слиш&shy;ком акку&shy;ра&shy;тен чтобы конт&shy;ро&shy;ли&shy;ро&shy;вать собст&shy;венную глу&shy;бину. Тут может воз&shy;ник&shy;нуть жела&shy;ние испра&shy;вить ситу&shy;а&shy;цию, перех&shy;ва&shy;тив выб&shy;рос исклю&shy;че&shy;ния. Однако, если поду&shy;мать, мы тем самым лега&shy;ли&shy;зуем дан&shy;ную ситу&shy;а&shy;цию, поз&shy;во&shy;ляя ей слу&shy;читься вновь, что выг&shy;ля&shy;дит ско&shy;рее не даль&shy;но&shy;вид&shy;ным чем слу&shy;чаем про&shy;яв&shy;ле&shy;ния заботы. И вто&shy;рая  &mdash;  слу&shy;чай&shy;ность  &mdash;  полу&shy;че&shy;ние Stack&shy;Overflow&shy;Exception при вполне себе обыч&shy;ном вызове. Просто в дан&shy;ный момент глу&shy;бина стека вызо&shy;вов ока&shy;за&shy;лась слиш&shy;ком кри&shy;тич&shy;ной. В дан&shy;ном при&shy;мере перех&shy;ва&shy;ты&shy;вать исклю&shy;че&shy;ние выг&shy;ля&shy;дит как что-то сов&shy;сем дикое: при&shy;ло&shy;же&shy;ние рабо&shy;тало штатно, все шло хорошо, как вдруг легаль&shy;ный вызов метода при кор&shy;рек&shy;тно рабо&shy;та&shy;ю&shy;щих алго&shy;рит&shy;мах выз&shy;вал выб&shy;рос исклю&shy;че&shy;ния с даль&shy;ней&shy;шей развёрткой стека до ожи&shy;да&shy;ю&shy;щего такого пове&shy;де&shy;ния учас&shy;тка кода. Хм&hellip; Ещё раз: мы ждём, что на сле&shy;ду&shy;ю&shy;щем учас&shy;тке ничего не отра&shy;бо&shy;тает потому что в стеке кон&shy;чится память. Как по мне, это пол&shy;ный абсурд.</p>
 <div class="paragraph-right-side">36</div>
 </div>
 

@@ -133,12 +133,12 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 p code:not(.highlight), li code:not(.highlight) {
     font-size: 0.7em;
-    padding: 3px;
     color: darkslateblue;
 }
 
 /* style for manual selecting */
 .box {
+    padding: 3px;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
@@ -233,6 +233,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     font-weight: 400;
     font-family: inherit;
+    hyphens: none;
 }
 
 h1 {
@@ -246,23 +247,32 @@ h1 {
 
 h2 {
     padding-top: 1.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    margin-bottom: 0.5em;
     font-family: Charter, Arial, Helvetica Neue, sans-serif;
-    font-size: 1.25em;
-    width: 70%;
+    font-size: 1.4em;
+    text-align: center;
 }
 
 h3 {
-    padding-top: 1em;
-    font-size: 1.3em;
+    padding-top: 1.2em;
+    font-family: Charter, Arial, Helvetica Neue, sans-serif;
+    font-size: 1.15em;
+    width: 70%;
+}
+
+h4 {
+    padding: 1em 0 0 0;
+    font-size: 1.2em;
     font-weight: 300;
     font-style: italic;
 }
 
-h4 {
-    margin: 20px 0 10px 0;
-    font-size: 16pt;
-    font-weight: 500;
-    font-style: italic;
+h5 {
+    padding: 0.6em 0 0 0;
+    font-weight: 300;
+    font-size: 1.1em;
 }
 
 /* Sidenotes */
@@ -677,7 +687,7 @@ footer > div {
 /* MD */
 @media (max-width: 991px) {
     
-    h2 {
+    h3 {
         width:80%;
     }
 
@@ -904,7 +914,17 @@ footer > div {
         font-size: 10pt;
         padding: 3px;
     }
-   
+
+    *[class*='lang-'] > div, pre > code {
+        padding-left: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    
+    ol li, ul li {
+        padding-left: 0.2em;	
+    }
+    
     p, li {
         line-height: 24px;
     }    
@@ -1234,7 +1254,7 @@ General results</a></li>
                             </li>
                             <li>
                                 <p>
-                                <a href="../..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></p>
+                                <a href="../..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон IDisposable</a></p>
                             </li>
                             <li>
                                 <p>
@@ -1296,22 +1316,18 @@ General results</a></li>
             <p class="d-none d-sm-block d-md-none">MD</p>
             <p class="d-none d-lg-block d-xl-none">LG</p>
             <p class="d-none d-xl-block">XL</p> -->
-            <p >
-<img src="./imgs/Disposable-Cover.png" alt="IDisposable cover" /></p>
-<h1 id="disposable-pattern-disposable-design-principle">Disposable pattern (Disposable Design Principle)</h1>
+            <p><img src="./imgs/Disposable-Cover.png" alt="IDis&shy;po&shy;sable cover" /></p>
+<h1 id="disposable-pattern-disposable-design-principle">Dispo&shy;sable pattern (Dispo&shy;sable Design Principle&shy;)</h1>
 <blockquote>
-<p >
-<a href="https://github.com/sidristij/dotnetbook/issues/54">A link to the discussion</a></p>
+<p><a href="https://github.com/sidristij/dotnetbook/issues/54">A link to the discus&shy;sion</a></p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p >
-I guess almost any prog&shy;rammer who uses .NET will now say this pattern is a piece of cake. That it is the best-known pattern used on the plat&shy;form. However, even the simp&shy;lest and well-known problem domain will have secret areas which you have never looked at. So, let’s desc&shy;ribe the whole thing from the begin&shy;ning for the first-timers and all the rest (so that each of you could remember the basics). Don’t skip these parag&shy;raphs — I am watching you!</p>
+<p>I guess almost any prog&shy;rammer who uses .NET will now say this pattern is a piece of cake. That it is the best-known pattern used on the plat&shy;form. However&shy;, even the simp&shy;lest and well-known problem domain will have secret areas which you have never looked at. So&shy;, let’s desc&shy;ribe the whole thing from the begin&shy;ning for the first-timers and all the rest (so that each of you could remember the basics). Don’t skip these parag&shy;raphs — I am watching you!</p>
 <div class="paragraph-right-side">01</div>
 </div>
-<h2 id="idisposable">IDisposable</h2>
-<p >
-If I ask what is IDis&shy;po&shy;sable, you will surely say that it is</p>
+<h2 id="idisposable">IDis&shy;po&shy;sable</h2>
+<p>If I ask what is IDisposable&shy;, you will surely say that it is</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">interface</span> IDisposable
 {
@@ -1321,56 +1337,47 @@ If I ask what is IDis&shy;po&shy;sable, you will surely say that it is</p>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p >
-What is the purpose of the inter&shy;face? I mean, why do we need to clear up memory at all if we have a smart Garbage Collector that clears the memory instead of us, so we even don’t have to think about it. However, there are some small details.</p>
+<p>What is the purpose of the inter&shy;face? I mean, why do we need to clear up memory at all if we have a smart Garbage Collector that clears the memory instead of us, so we even don’t have to think about it. However&shy;, there are some small details.</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p >
-There is a miscon&shy;cep&shy;tion that <code>IDisposable</code> serves to release unma&shy;naged reso&shy;urces. This is only parti&shy;ally true and to unders&shy;tand it, you just need to remember the examples of unma&shy;naged reso&shy;urces. Is <code>File</code> class an unma&shy;naged reso&shy;urce? No. Maybe <code>DbContext</code> is an unma&shy;naged reso&shy;urce? No, again. An unma&shy;naged reso&shy;urce is something that doesn’t belong to .NET type system. Something the plat&shy;form didn’t create, something that exists out of its scope. A simple example is an opened file handle in an ope&shy;ra&shy;ting system. A handle is a number that uni&shy;quely iden&shy;ti&shy;fies a file opened – no, not by you – by an ope&shy;ra&shy;ting system. That is, all control struc&shy;tures (e.g. the posi&shy;tion of a file in a file system, file frag&shy;ments in case of frag&shy;men&shy;ta&shy;tion and other service infor&shy;ma&shy;tion, the numbers of a cylinder, a head or a sector of an HDD) are inside an OS but not .NET plat&shy;form. The only unma&shy;naged reso&shy;urce that is passed to .NET plat&shy;form is Int&shy;Ptr number. This number is wrapped by File&shy;Safe&shy;Handle, which is in its turn wrapped by the File class. It means the File class is not an unma&shy;naged reso&shy;urce on its own, but uses an addi&shy;ti&shy;onal layer in the form of Int&shy;Ptr to include an unma&shy;naged reso&shy;urce — the handle of an opened file. How do you read that file? Using a set of methods in Win&shy;API or Linux OS.</p>
+<p>There is a miscon&shy;cep&shy;tion that <code>IDis&shy;po&shy;sable</code> serves to release unma&shy;naged reso&shy;urces. This is only parti&shy;ally true and to unders&shy;tand it, you just need to remember the examples of unma&shy;naged reso&shy;urces. Is <code>File</code> class an unma&shy;naged reso&shy;urce? No&shy;. Maybe <code>Db&shy;Context</code> is an unma&shy;naged reso&shy;urce? No&shy;, again. An unma&shy;naged reso&shy;urce is something that doesn’t belong to .NET type system. Something the plat&shy;form didn’t create, something that exists out of its scope. A simple example is an opened file handle in an ope&shy;ra&shy;ting system. A handle is a number that uni&shy;quely iden&shy;ti&shy;fies a file opened – no, not by you – by an ope&shy;ra&shy;ting system. That is, all control struc&shy;tures (e.g. the posi&shy;tion of a file in a file system, file frag&shy;ments in case of frag&shy;men&shy;ta&shy;tion and other service infor&shy;ma&shy;tion, the numbers of a cylinder, a head or a sector of an HDD) are inside an OS but not .NET plat&shy;form. The only unma&shy;naged reso&shy;urce that is passed to .NET plat&shy;form is Int&shy;Ptr number. This number is wrapped by File&shy;Safe&shy;Handle&shy;, which is in its turn wrapped by the File class. It means the File class is not an unma&shy;naged reso&shy;urce on its own, but uses an addi&shy;ti&shy;onal layer in the form of Int&shy;Ptr to include an unma&shy;naged reso&shy;urce — the handle of an opened file. How do you read that file? Using a set of methods in Win&shy;API or Linux OS.</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p >
-Sync&shy;hr&shy;on&shy;ization primi&shy;tives in multith&shy;re&shy;aded or multip&shy;ro&shy;cessor prog&shy;rams are the second example of unma&shy;naged reso&shy;urces. Here belong data arrays that are passed through P/Invoke and also mutexes or semap&shy;h&shy;ores.</p>
+<p>Sync&shy;hr&shy;on&shy;ization primi&shy;tives in multith&shy;re&shy;aded or multip&shy;ro&shy;cessor prog&shy;rams are the second example of unma&shy;naged reso&shy;urces. Here belong data arrays that are passed through P/Invoke and also mutexes or semap&shy;h&shy;ores.</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <blockquote>
-<p >
-Note that OS doesn’t simply pass the handle of an unma&shy;naged reso&shy;urce to an appli&shy;ca&shy;tion. It also saves that handle in the table of han&shy;dles opened by the process. Thus, OS can correctly close the reso&shy;urces after the appli&shy;ca&shy;tion termi&shy;na&shy;tion. This ensures the reso&shy;urces will be closed anyway after you exit the appli&shy;ca&shy;tion. However, the running time of an appli&shy;ca&shy;tion can be diffe&shy;rent which can cause long reso&shy;urce locking.</p>
+<p>Note that OS doesn’t simply pass the handle of an unma&shy;naged reso&shy;urce to an appli&shy;ca&shy;tion. It also saves that handle in the table of han&shy;dles opened by the process. Thus&shy;, OS can correctly close the reso&shy;urces after the appli&shy;ca&shy;tion termi&shy;na&shy;tion. This ensures the reso&shy;urces will be closed anyway after you exit the appli&shy;ca&shy;tion. However&shy;, the running time of an appli&shy;ca&shy;tion can be diffe&shy;rent which can cause long reso&shy;urce locking.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p >
-Ok. Now we covered unma&shy;naged reso&shy;urces. Why do we need to use IDis&shy;po&shy;sable in these cases? Because .NET Frame&shy;work has no idea what’s going on outside its terri&shy;tory. If you open a file using OS API, .NET will know nothing about it. If you allo&shy;cate a memory range for your own needs (for example using Virtual&shy;Alloc), .NET will also know nothing. If it doesn’t know, it will not release the memory occu&shy;pied by a Virtual&shy;Alloc call. Or, it will not close a file opened directly via an OS API call. These can cause diffe&shy;rent and unex&shy;pected conse&shy;qu&shy;ences. You can get Out&shy;Of&shy;Memory if you allo&shy;cate too much memory without rele&shy;a&shy;sing it (e.g. just by setting a pointer to null). Or, if you open a file on a file share through OS without closing it, you will lock the file on that file share for a long time. The file share example is espe&shy;ci&shy;ally good as the lock will remain on the IIS side even after you close a connec&shy;tion with a server. You don’t have rights to release the lock and you will have to ask admi&shy;nist&shy;ra&shy;tors to perform <code>iisreset</code> or to close reso&shy;urce manu&shy;ally using special soft&shy;ware.
+<p>Ok&shy;. Now we covered unma&shy;naged reso&shy;urces. Why do we need to use IDis&shy;po&shy;sable in these cases? Because .NET Frame&shy;work has no idea what’s going on outside its terri&shy;tory. If you open a file using OS API, .NET will know nothing about it. If you allo&shy;cate a memory range for your own needs (for example using Virtual&shy;Alloc&shy;), .NET will also know nothing. If it doesn’t know, it will not release the memory occu&shy;pied by a Virtual&shy;Alloc call. Or&shy;, it will not close a file opened directly via an OS API call. These can cause diffe&shy;rent and unex&shy;pected conse&shy;qu&shy;ences. You can get Out&shy;Of&shy;Memory if you allo&shy;cate too much memory without rele&shy;a&shy;sing it (e.g. just by setting a pointer to null). Or&shy;, if you open a file on a file share through OS without closing it, you will lock the file on that file share for a long time. The file share example is espe&shy;ci&shy;ally good as the lock will remain on the IIS side even after you close a connec&shy;tion with a server. You don’t have rights to release the lock and you will have to ask admi&shy;nist&shy;ra&shy;tors to perform <code>iisr&shy;eset</code> or to close reso&shy;urce manu&shy;ally using special soft&shy;ware.
 This problem on a remote server can become a complex task to solve.</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p >
-All these cases need a uni&shy;versal and fami&shy;liar <em>protocol for interaction</em> between a type system and a prog&shy;rammer. It should clearly iden&shy;tify the types that require forced closing. The IDis&shy;po&shy;sable inter&shy;face serves exactly this purpose. It functions the follo&shy;wing way: if a type contains the imple&shy;men&shy;ta&shy;tion of the IDis&shy;po&shy;sable inter&shy;face, you must call Dispose() after you finish work with an instance of that type.</p>
+<p>All these cases need a uni&shy;versal and fami&shy;liar <em>protocol for inte&shy;rac&shy;tion</em> between a type system and a prog&shy;rammer. It should clearly iden&shy;tify the types that require forced closing. The IDis&shy;po&shy;sable inter&shy;face serves exactly this purpose. It functions the follo&shy;wing way: if a type contains the imple&shy;men&shy;ta&shy;tion of the IDis&shy;po&shy;sable inter&shy;face, you must call Dispose&shy;() after you finish work with an instance of that type.</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p >
-So, there are two stan&shy;dard ways to call it. Usually you create an entity instance to use it quickly within one method or within the life&shy;time of the entity instance.</p>
+<p>So&shy;, there are two stan&shy;dard ways to call it. Usually you create an entity instance to use it quickly within one method or within the life&shy;time of the entity instance.</p>
 <div class="paragraph-right-side">07</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p >
-The first way is to wrap an instance into <code>using(...){ ...  }</code>. It means you instruct to destroy an object after the using-related block is over, i.e. to call Dispose(). The second way is to destroy the object, when its life&shy;time is over, with a refe&shy;rence to the object we want to release. But .NET has nothing but a fina&shy;li&shy;za&shy;tion method that implies aut&shy;om&shy;atic dest&shy;ruc&shy;tion of an object, right? However, fina&shy;li&shy;za&shy;tion is not suitable at all as we don’t know when it will be called. Meanwhile, we need to release an object at a certain time, for example just after we finish work with an opened file. That is why we also need to imple&shy;ment IDis&shy;po&shy;sable and call Dispose to release all reso&shy;urces we owned. Thus, we follow the <em>protocol</em>, and it is very impor&shy;tant. Because if some&shy;body follows it, all the parti&shy;ci&shy;pants should do the same to avoid prob&shy;lems.</p>
+<p>The first way is to wrap an instance into <code>using(...){ ...  }</code>. It means you instruct to destroy an object after the using-related block is over, i.e. to call Dispose&shy;(). The second way is to destroy the object, when its life&shy;time is over, with a refe&shy;rence to the object we want to release. But .NET has nothing but a fina&shy;li&shy;za&shy;tion method that implies aut&shy;om&shy;atic dest&shy;ruc&shy;tion of an object, right? However&shy;, fina&shy;li&shy;za&shy;tion is not suitable at all as we don’t know when it will be called. Meanwhile&shy;, we need to release an object at a certain time, for example just after we finish work with an opened file. That is why we also need to imple&shy;ment IDis&shy;po&shy;sable and call Dispose to release all reso&shy;urces we owned. Thus&shy;, we follow the <em>protocol</em>, and it is very impor&shy;tant. Because if some&shy;body follows it, all the parti&shy;ci&shy;pants should do the same to avoid prob&shy;lems.</p>
 <div class="paragraph-right-side">08</div>
 </div>
-<h2 id="different-ways-to-implement-idisposable">Different ways to implement IDisposable</h2>
+<h2 id="different-ways-to-implement-idisposable">Diffe&shy;rent ways to imple&shy;ment IDis&shy;po&shy;sable</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
-<p >
-Let’s look at the imple&shy;men&shy;ta&shy;tions of IDis&shy;po&shy;sable from simple to comp&shy;li&shy;cated. The first and the simp&shy;lest is to use IDis&shy;po&shy;sable as it is:</p>
+<p>Let’s look at the imple&shy;men&shy;ta&shy;tions of IDis&shy;po&shy;sable from simple to comp&shy;li&shy;cated. The first and the simp&shy;lest is to use IDis&shy;po&shy;sable as it is:</p>
 <div class="paragraph-right-side">09</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1387,8 +1394,7 @@ Let’s look at the imple&shy;men&shy;ta&shy;tions of IDis&shy;po&shy;sable from
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
-<p >
-Here, we create an instance of a reso&shy;urce that is further rele&shy;ased by Dispose(). The only thing that makes this imple&shy;men&shy;ta&shy;tion incon&shy;sis&shy;tent is that you still can work with the instance after its dest&shy;ruc&shy;tion by <code>Dispose()</code>:</p>
+<p>Here&shy;, we create an instance of a reso&shy;urce that is further rele&shy;ased by Dispose&shy;(). The only thing that makes this imple&shy;men&shy;ta&shy;tion incon&shy;sis&shy;tent is that you still can work with the instance after its dest&shy;ruc&shy;tion by <code>Dispose&shy;()</code>:</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1417,8 +1423,7 @@ Here, we create an instance of a reso&shy;urce that is further rele&shy;ased by 
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
-<p >
-Check&shy;Disposed() must be called as a first expres&shy;sion in all public methods of a class. The obta&shy;ined <code>ResourceHolder</code> class struc&shy;ture looks good to destroy an unma&shy;naged reso&shy;urce, which is <code>DisposableResource</code>. However, this struc&shy;ture is not suitable for a wrapped-in unma&shy;naged reso&shy;urce. Let’s look at the example with an unma&shy;naged reso&shy;urce.</p>
+<p>Check&shy;Disposed&shy;() must be called as a first expres&shy;sion in all public methods of a class. The obta&shy;ined <code>Resource&shy;Holder</code> class struc&shy;ture looks good to destroy an unma&shy;naged reso&shy;urce, which is <code>Disposable&shy;Resource</code>. However&shy;, this struc&shy;ture is not suitable for a wrapped-in unma&shy;naged reso&shy;urce. Let’s look at the example with an unma&shy;naged reso&shy;urce.</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1450,36 +1455,25 @@ Check&shy;Disposed() must be called as a first expres&shy;sion in all public met
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
-<p >
-What is the diffe&shy;rence in the beh&shy;avior of the last two examples? The first one desc&shy;ribes the inte&shy;rac&shy;tion of two managed reso&shy;urces. This means that if a program works correctly, the reso&shy;urce will be rele&shy;ased anyway. Since <code>DisposableResource</code> is managed, .NET CLR knows about it and will release the memory from it if its behaviour is incor&shy;rect. Note that I cons&shy;ciously don’t assume what <code>DisposableResource</code> type encap&shy;su&shy;lates. There can be any kind of logic and struc&shy;ture. It can contain both managed and unma&shy;naged reso&shy;urces. <em>This shouldn't concern us at all</em>. Nobody asks us to decom&shy;pile third party’s libra&shy;ries each time and see whether they use managed or unma&shy;naged reso&shy;urces. And if <em>our type</em> uses an unma&shy;naged reso&shy;urce, we cannot be una&shy;ware of this. We do this in <code>FileWrapper</code> class. So, what happens in this case? If we use unma&shy;naged reso&shy;urces, we have two scena&shy;rios. The first one is when everything is OK and Dispose is called. The second one is when something goes wrong and Dispose failed.</p>
+<p>What is the diffe&shy;rence in the beh&shy;avior of the last two examples? The first one desc&shy;ribes the inte&shy;rac&shy;tion of two managed reso&shy;urces. This means that if a program works correctly, the reso&shy;urce will be rele&shy;ased anyway. Since <code>Disposable&shy;Resource</code> is managed, .NET CLR knows about it and will release the memory from it if its behaviour is incor&shy;rect. Note that I cons&shy;ciously don’t assume what <code>Disposable&shy;Resource</code> type encap&shy;su&shy;lates. There can be any kind of logic and struc&shy;ture. It can contain both managed and unma&shy;naged reso&shy;urces. <em>This shouldn't concern us at all</em>. Nobody asks us to decom&shy;pile third party’s libra&shy;ries each time and see whether they use managed or unma&shy;naged reso&shy;urces. And if <em>our type</em> uses an unma&shy;naged reso&shy;urce, we cannot be una&shy;ware of this. We do this in <code>File&shy;Wrapper</code> class. So&shy;, what happens in this case? If we use unma&shy;naged reso&shy;urces, we have two scena&shy;rios. The first one is when everything is OK and Dispose is called. The second one is when something goes wrong and Dispose failed.</p>
 <div class="paragraph-right-side">12</div>
 </div>
-<p >
-Let’s say straight away why this may go wrong:</p>
+<p>Let’s say straight away why this may go wrong:</p>
 <ul>
-<li>
-<p >
-If we use <code>using(obj) { ... }</code>, an excep&shy;tion may appear in an inner block of code. This excep&shy;tion is caught by <code>finally</code> block, which we cannot see (this is synta&shy;ctic sugar of C#). This block calls Dispose impli&shy;citly. However, there are cases when this doesn’t happen. For example, neither <code>catch</code> nor <code>finally</code> catch <code>StackOverflowException</code>. You should always remember this. Because if some thread becomes recur&shy;sive and <code>StackOverflowException</code> occurs at some point, .NET will forget about the reso&shy;urces that it used but not rele&shy;ased. It doesn’t know how to release unma&shy;naged reso&shy;urces. They will stay in memory until OS rele&shy;ases them, i.e. when you exit a program, or even some time after the termi&shy;na&shy;tion of an appli&shy;ca&shy;tion.</p>
-</li>
-<li>
-<p >
-If we call Dispose() from another Dispose(). Again, we may happen to fail to get to it. This is not the case of an absent-minded app deve&shy;loper, who forgot to call Dispose(). It is the ques&shy;tion of excep&shy;tions. However, these are not only the excep&shy;tions that crash a thread of an appli&shy;ca&shy;tion. Here we talk about all excep&shy;tions that will prevent an algo&shy;rithm from calling an external Dispose() that will call our Dispose().</p>
-</li>
+<li>If we use <code>using(obj) { ... }</code>, an excep&shy;tion may appear in an inner block of code. This excep&shy;tion is caught by <code>finally</code> block, which we cannot see (this is synta&shy;ctic sugar of C#). This block calls Dispose impli&shy;citly. However&shy;, there are cases when this doesn’t happen. For example, neither <code>catch</code> nor <code>finally</code> catch <code>Stack&shy;Overflow&shy;Exception</code>. You should always remember this. Because if some thread becomes recur&shy;sive and <code>Stack&shy;Overflow&shy;Exception</code> occurs at some point, .NET will forget about the reso&shy;urces that it used but not rele&shy;ased. It doesn’t know how to release unma&shy;naged reso&shy;urces. They will stay in memory until OS rele&shy;ases them, i.e. when you exit a program, or even some time after the termi&shy;na&shy;tion of an appli&shy;ca&shy;tion.</li>
+<li>If we call Dispose&shy;() from another Dispose&shy;(). Again&shy;, we may happen to fail to get to it. This is not the case of an absent-minded app deve&shy;loper, who forgot to call Dispose&shy;(). It is the ques&shy;tion of excep&shy;tions. However&shy;, these are not only the excep&shy;tions that crash a thread of an appli&shy;ca&shy;tion. Here we talk about all excep&shy;tions that will prevent an algo&shy;rithm from calling an external Dispose&shy;() that will call our Dispose&shy;().</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
-<p >
-All these cases will create suspended unma&shy;naged reso&shy;urces. That is because Garbage Collector doesn’t know it should collect them. All it can do upon next check is to discover that the last refe&shy;rence to an object graph with our <code>FileWrapper</code> type is lost. In this case, the memory will be real&shy;lo&shy;cated for objects with refe&shy;rences. How can we prevent it?</p>
+<p>All these cases will create suspended unma&shy;naged reso&shy;urces. That is because Garbage Collector doesn’t know it should collect them. All it can do upon next check is to discover that the last refe&shy;rence to an object graph with our <code>File&shy;Wrapper</code> type is lost. In this case, the memory will be real&shy;lo&shy;cated for objects with refe&shy;rences. How can we prevent it?</p>
 <div class="paragraph-right-side">13</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
-<p >
-We must imple&shy;ment the fina&shy;lizer of an object. The &lsquo;fina&shy;lizer&rsquo; is named this way on purpose. It is not a dest&shy;ructor as it may seem because of similar ways to call fina&shy;li&shy;zers in C# and dest&shy;ruc&shy;tors in C++. The diffe&shy;rence is that a fina&shy;lizer will be called <em>anyway</em>, cont&shy;rary to a dest&shy;ructor (as well as <code>Dispose()</code>). A fina&shy;lizer is called when Garbage Collec&shy;tion is ini&shy;ti&shy;ated (now it is enough to know this, but things are a bit more comp&shy;li&shy;cated). It is used for a guaran&shy;teed release of reso&shy;urces if <em>something goes wrong</em>. We <em>must</em> imple&shy;ment a fina&shy;lizer to release unma&shy;naged reso&shy;urces. Again, because a fina&shy;lizer is called when GC is ini&shy;ti&shy;ated, we don’t know when this happens in general.</p>
+<p>We must imple&shy;ment the fina&shy;lizer of an object. The &lsquo;fina&shy;lizer&rsquo; is named this way on purpose. It is not a dest&shy;ructor as it may seem because of similar ways to call fina&shy;li&shy;zers in C# and dest&shy;ruc&shy;tors in C++. The diffe&shy;rence is that a fina&shy;lizer will be called <em>anyway</em>, cont&shy;rary to a dest&shy;ructor (as well as <code>Dispose&shy;()</code>). A fina&shy;lizer is called when Garbage Collec&shy;tion is ini&shy;ti&shy;ated (now it is enough to know this, but things are a bit more comp&shy;li&shy;cated). It is used for a guaran&shy;teed release of reso&shy;urces if <em>something goes wrong</em>. We <em>must</em> imple&shy;ment a fina&shy;lizer to release unma&shy;naged reso&shy;urces. Again&shy;, because a fina&shy;lizer is called when GC is ini&shy;ti&shy;ated, we don’t know when this happens in general.</p>
 <div class="paragraph-right-side">14</div>
 </div>
-<p >
-Let’s expand our code:</p>
+<p>Let’s expand our code:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">class</span> FileWrapper : IDisposable
 {
@@ -1512,8 +1506,7 @@ Let’s expand our code:</p>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
-<p >
-We enhanced the example with the know&shy;ledge about the fina&shy;li&shy;za&shy;tion process and secured the appli&shy;ca&shy;tion aga&shy;inst losing reso&shy;urce infor&shy;ma&shy;tion if Dispose() is not called. We also called GC.Suppress&shy;Finalize to disable the fina&shy;li&shy;za&shy;tion of the instance of the type if Dispose() is success&shy;fully called. There is no need to release the same reso&shy;urce twice, right? Thus, we also reduce the fina&shy;li&shy;za&shy;tion queue by letting go a random region of code that is likely to run with fina&shy;li&shy;za&shy;tion in parallel, some time later. Now, let’s enhance the example even more.</p>
+<p>We enhanced the example with the know&shy;ledge about the fina&shy;li&shy;za&shy;tion process and secured the appli&shy;ca&shy;tion aga&shy;inst losing reso&shy;urce infor&shy;ma&shy;tion if Dispose&shy;() is not called. We also called GC.Suppress&shy;Finalize to disable the fina&shy;li&shy;za&shy;tion of the instance of the type if Dispose&shy;() is success&shy;fully called. There is no need to release the same reso&shy;urce twice, right? Thus&shy;, we also reduce the fina&shy;li&shy;za&shy;tion queue by letting go a random region of code that is likely to run with fina&shy;li&shy;za&shy;tion in parallel, some time later. Now&shy;, let’s enhance the example even more.</p>
 <div class="paragraph-right-side">15</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1561,58 +1554,40 @@ We enhanced the example with the know&shy;ledge about the fina&shy;li&shy;za&shy
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
-<p >
-Now our example of a type that encap&shy;su&shy;lates an unma&shy;naged reso&shy;urce looks comp&shy;lete. Unfor&shy;tu&shy;na&shy;tely, the second <code>Dispose()</code> is in fact a stan&shy;dard of the plat&shy;form and we allow to call it. Note that people often allow the second call of <code>Dispose()</code> to avoid prob&shy;lems with a calling code and this is wrong. However, a user of your library who looks at MS docu&shy;men&shy;ta&shy;tion may not think so and will allow multiple calls of Dispose(). Calling other public methods will destroy the integ&shy;rity of an object anyway. If we dest&shy;royed the object, we cannot work with it anymore. This means we must call <code>CheckDisposed</code> at the begin&shy;ning of each public method.</p>
+<p>Now our example of a type that encap&shy;su&shy;lates an unma&shy;naged reso&shy;urce looks comp&shy;lete. Unfortunately&shy;, the second <code>Dispose&shy;()</code> is in fact a stan&shy;dard of the plat&shy;form and we allow to call it. Note that people often allow the second call of <code>Dispose&shy;()</code> to avoid prob&shy;lems with a calling code and this is wrong. However&shy;, a user of your library who looks at MS docu&shy;men&shy;ta&shy;tion may not think so and will allow multiple calls of Dispose&shy;(). Calling other public methods will destroy the integ&shy;rity of an object anyway. If we dest&shy;royed the object, we cannot work with it anymore. This means we must call <code>Check&shy;Disposed</code> at the begin&shy;ning of each public method.</p>
 <div class="paragraph-right-side">16</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
-<p >
-However, this code contains a severe problem that prevents it from working as we intended. If we remember how garbage collec&shy;tion works, we will notice one fea&shy;ture. When collec&shy;ting garbage, GC <em>primarily</em> fina&shy;lizes everything inhe&shy;rited directly from <em>Object</em>. Next it deals with objects that imple&shy;ment <em>CriticalFinalizerObject</em>. This becomes a problem as both classes that we designed inherit Object. We don’t know in which order they will come to the “last mile”. However, a higher-level object can use its fina&shy;lizer to fina&shy;lize an object with an unma&shy;naged reso&shy;urce. Although, this doesn’t sound like a great idea. The order of fina&shy;li&shy;za&shy;tion would be very hel&shy;pful here. To set it, the lower-level type with an encap&shy;su&shy;lated unma&shy;naged reso&shy;urce must be inhe&shy;rited from <code>CriticalFinalizerObject</code>.</p>
+<p>However&shy;, this code contains a severe problem that prevents it from working as we intended. If we remember how garbage collec&shy;tion works, we will notice one fea&shy;ture. When collec&shy;ting garbage, GC <em>prima&shy;rily</em> fina&shy;lizes everything inhe&shy;rited directly from <em>Object</em>. Next it deals with objects that imple&shy;ment <em>Critical&shy;Finalizer&shy;Object</em>. This becomes a problem as both classes that we designed inherit Object&shy;. We don’t know in which order they will come to the “last mile”. However&shy;, a higher-level object can use its fina&shy;lizer to fina&shy;lize an object with an unma&shy;naged reso&shy;urce. Although&shy;, this doesn’t sound like a great idea. The order of fina&shy;li&shy;za&shy;tion would be very hel&shy;pful here. To set it, the lower-level type with an encap&shy;su&shy;lated unma&shy;naged reso&shy;urce must be inhe&shy;rited from <code>Critical&shy;Finalizer&shy;Object</code>.</p>
 <div class="paragraph-right-side">17</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
-<p >
-The second reason is more profound. Imagine that you dared to write an appli&shy;ca&shy;tion that doesn’t take much care of memory. It allo&shy;cates memory in huge quan&shy;ti&shy;ties, without cashing and other subt&shy;le&shy;ties. One day this appli&shy;ca&shy;tion will crash with Out&shy;Of&shy;Memory&shy;Exception. When it occurs, code runs speci&shy;fi&shy;cally. It cannot allo&shy;cate anything, since it will lead to a repe&shy;ated excep&shy;tion, even if the first one is caught. This doesn’t mean we shouldn’t create new instances of objects. Even a simple method call can throw this excep&shy;tion, e.g. that of fina&shy;li&shy;za&shy;tion. I remind you that methods are compiled when you call them for the first time. This is usual beh&shy;avior. How can we prevent this problem? Quite easily. If your object is inhe&shy;rited from <em>CriticalFinalizerObject</em>, then <em>all</em> methods of this type will be compiled straight away upon loa&shy;ding it in memory. More&shy;over, if you mark methods with <em>[PrePrepareMethod]</em> attri&shy;bute, they will be also pre-compiled and will be secure to call in a low reso&shy;urce situ&shy;a&shy;tion.</p>
+<p>The second reason is more profound. Imagine that you dared to write an appli&shy;ca&shy;tion that doesn’t take much care of memory. It allo&shy;cates memory in huge quan&shy;ti&shy;ties, without cashing and other subt&shy;le&shy;ties. One day this appli&shy;ca&shy;tion will crash with Out&shy;Of&shy;Memory&shy;Exception&shy;. When it occurs, code runs speci&shy;fi&shy;cally. It cannot allo&shy;cate anything, since it will lead to a repe&shy;ated excep&shy;tion, even if the first one is caught. This doesn’t mean we shouldn’t create new instances of objects. Even a simple method call can throw this excep&shy;tion, e.g. that of fina&shy;li&shy;za&shy;tion. I remind you that methods are compiled when you call them for the first time. This is usual beh&shy;avior. How can we prevent this problem? Quite easily. If your object is inhe&shy;rited from <em>Critical&shy;Finalizer&shy;Object</em>, then <em>all</em> methods of this type will be compiled straight away upon loa&shy;ding it in memory. Moreover&shy;, if you mark methods with <em>[Pre&shy;Prepare&shy;Method&shy;]</em> attri&shy;bute, they will be also pre-compiled and will be secure to call in a low reso&shy;urce situ&shy;a&shy;tion.</p>
 <div class="paragraph-right-side">18</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
-<p >
-Why is that impor&shy;tant? Why spend too much effort on those that pass away? Because unma&shy;naged reso&shy;urces can be suspended in a system for long. Even after you restart a computer. If a user opens a file from a file share in your appli&shy;ca&shy;tion, the former will be locked by a remote host and rele&shy;ased on the timeout or when you release a reso&shy;urce by closing the file. If your appli&shy;ca&shy;tion crashes when the file is opened, it won't be rele&shy;ased even after reboot. You will have to wait long until the remote host rele&shy;ases it. Also, you shouldn’t allow excep&shy;tions in fina&shy;li&shy;zers. This leads to an acce&shy;le&shy;rated crash of the CLR and of an appli&shy;ca&shy;tion as you cannot wrap the call of a fina&shy;lizer in <em>try .. catch</em>. I mean, when you try to release a reso&shy;urce, you must be sure it can be rele&shy;ased. The last but not less impor&shy;tant fact: if the CLR unloads a domain abnor&shy;mally, the fina&shy;li&shy;zers of types, derived from <em>CriticalFinalizerObject</em> will be also called, unlike those inhe&shy;rited directly from <em>Object</em>.</p>
+<p>Why is that impor&shy;tant? Why spend too much effort on those that pass away? Because unma&shy;naged reso&shy;urces can be suspended in a system for long. Even after you restart a computer. If a user opens a file from a file share in your appli&shy;ca&shy;tion, the former will be locked by a remote host and rele&shy;ased on the timeout or when you release a reso&shy;urce by closing the file. If your appli&shy;ca&shy;tion crashes when the file is opened, it won't be rele&shy;ased even after reboot. You will have to wait long until the remote host rele&shy;ases it. Also&shy;, you shouldn’t allow excep&shy;tions in fina&shy;li&shy;zers. This leads to an acce&shy;le&shy;rated crash of the CLR and of an appli&shy;ca&shy;tion as you cannot wrap the call of a fina&shy;lizer in <em>try .. catch</em>. I mean, when you try to release a reso&shy;urce, you must be sure it can be rele&shy;ased. The last but not less impor&shy;tant fact: if the CLR unloads a domain abnor&shy;mally, the fina&shy;li&shy;zers of types, derived from <em>Critical&shy;Finalizer&shy;Object</em> will be also called, unlike those inhe&shy;rited directly from <em>Object</em>.</p>
 <div class="paragraph-right-side">19</div>
 </div>
-<h2 id="safehandle-criticalhandle-safebuffer-derived-types">SafeHandle / CriticalHandle / SafeBuffer / derived types</h2>
+<h2 id="safehandle-criticalhandle-safebuffer-derived-types">Safe&shy;Handle / Critical&shy;Handle / Safe&shy;Buffer / derived types</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
-<p >
-I feel I’m going to open the Pandora’s box for you. Let’s talk about special types: Safe&shy;Handle, Critical&shy;Handle and their derived types.
-This is the last thing about the pattern of a type that gives access to an unma&shy;naged reso&shy;urce. But first, let’s list everything we <em>usually</em> get from unma&shy;naged world:</p>
+<p>I feel I’m going to open the Pandora’s box for you. Let’s talk about special types: Safe&shy;Handle&shy;, Critical&shy;Handle and their derived types.
+This is the last thing about the pattern of a type that gives access to an unma&shy;naged reso&shy;urce. But first, let’s list everything we <em>usu&shy;ally</em> get from unma&shy;naged world:</p>
 <div class="paragraph-right-side">20</div>
 </div>
 <ul>
-<li>
-<p >
-The first and obvious thing is han&shy;dles. This may be an mea&shy;ning&shy;less word for a .NET deve&shy;loper, but it is a very impor&shy;tant compo&shy;nent of the ope&shy;ra&shy;ting system world. A handle is a 32- or 64-bit number by nature. It desig&shy;nates an opened session of inte&shy;rac&shy;tion with an ope&shy;ra&shy;ting system.   For example, when you open a file you get a handle from the Win&shy;Api function. Then you can work with it and do <em>Seek</em>, <em>Read</em> or <em>Write</em> ope&shy;ra&shy;tions. Or, you may open a socket for network access. Again an ope&shy;ra&shy;ting system will pass you a handle. In .NET han&shy;dles are stored as <em>IntPtr</em> type;</p>
-</li>
-<li>
-<p >
-The second thing is data arrays. You can work with unma&shy;naged arrays either through unsafe code (unsafe is a key word here) or use Safe&shy;Buffer which will wrap a data buffer into a suitable .NET class. Note that the first way is faster (e.g. you can opti&shy;mize loops greatly), but the second one is much safer, as it is based on Safe&shy;Handle;</p>
-</li>
-<li>
-<p >
-Then go strings. Strings are simple as we need to deter&shy;mine the format and enco&shy;ding of the string we capture. It is then copied for us (a string is an immu&shy;table class) and we don’t worry about it anymore.</p>
-</li>
-<li>
-<p >
-The last thing is Value&shy;Types that are just copied so we don’t need to think about them at all.</p>
-</li>
+<li>The first and obvious thing is han&shy;dles. This may be an mea&shy;ning&shy;less word for a .NET deve&shy;loper, but it is a very impor&shy;tant compo&shy;nent of the ope&shy;ra&shy;ting system world. A handle is a 32- or 64-bit number by nature. It desig&shy;nates an opened session of inte&shy;rac&shy;tion with an ope&shy;ra&shy;ting system.   For example, when you open a file you get a handle from the Win&shy;Api function. Then you can work with it and do <em>Seek</em>, <em>Read</em> or <em>Write</em> ope&shy;ra&shy;tions. Or&shy;, you may open a socket for network access. Again an ope&shy;ra&shy;ting system will pass you a handle. In .NET han&shy;dles are stored as <em>Int&shy;Ptr</em> type;</li>
+<li>The second thing is data arrays. You can work with unma&shy;naged arrays either through unsafe code (unsafe is a key word here) or use Safe&shy;Buffer which will wrap a data buffer into a suitable .NET class. Note that the first way is faster (e.g. you can opti&shy;mize loops greatly), but the second one is much safer, as it is based on Safe&shy;Handle&shy;;</li>
+<li>Then go strings. Strings are simple as we need to deter&shy;mine the format and enco&shy;ding of the string we capture. It is then copied for us (a string is an immu&shy;table class) and we don’t worry about it anymore.</li>
+<li>The last thing is Value&shy;Types that are just copied so we don’t need to think about them at all.</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
-<p >
-Safe&shy;Handle is a special .NET CLR class that inhe&shy;rits Critical&shy;Finalizer&shy;Object and should wrap the han&shy;dles of an ope&shy;ra&shy;ting system in the safest and most comfor&shy;table way.</p>
+<p>Safe&shy;Handle is a special .NET CLR class that inhe&shy;rits Critical&shy;Finalizer&shy;Object and should wrap the han&shy;dles of an ope&shy;ra&shy;ting system in the safest and most comfor&shy;table way.</p>
 <div class="paragraph-right-side">21</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1719,14 +1694,12 @@ Safe&shy;Handle is a special .NET CLR class that inhe&shy;rits Critical&shy;Fina
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
-<p >
-To unders&shy;tand the use&shy;ful&shy;ness of the classes derived from Safe&shy;Handle you need to remember why .NET types are so great: GC can collect their instances aut&shy;om&shy;at&shy;ically. As Safe&shy;Handle is managed, the unma&shy;naged reso&shy;urce it wrapped inhe&shy;rits all char&shy;ac&shy;ter&shy;istics of the managed world. It also contains an internal counter of external refe&shy;rences which are una&shy;va&shy;ilable to CLR. I mean refe&shy;rences from unsafe code.  You don’t need to incre&shy;ment or decre&shy;ment a counter manu&shy;ally at all. When you declare a type derived from Safe&shy;Handle as a para&shy;meter of an unsafe method, the counter incre&shy;ments when ente&shy;ring that method or decre&shy;ments after exi&shy;ting.  The reason is that when you go to an unsafe code by passing a handle there, you may get this Safe&shy;Handle collected by GC, by reset&shy;ting the refe&shy;rence to this handle in another thread (if you deal with one handle from several threads). Things work even easier with a refe&shy;rence counter: Safe&shy;Handle will not be created until the counter is zeroed. That’s why you don’t need to change the counter manu&shy;ally. Or, you should do it very care&shy;fully by retur&shy;ning it when possible.</p>
+<p>To unders&shy;tand the use&shy;ful&shy;ness of the classes derived from Safe&shy;Handle you need to remember why .NET types are so great: GC can collect their instances aut&shy;om&shy;at&shy;ically. As Safe&shy;Handle is managed, the unma&shy;naged reso&shy;urce it wrapped inhe&shy;rits all char&shy;ac&shy;ter&shy;istics of the managed world. It also contains an internal counter of external refe&shy;rences which are una&shy;va&shy;ilable to CLR. I mean refe&shy;rences from unsafe code.  You don’t need to incre&shy;ment or decre&shy;ment a counter manu&shy;ally at all. When you declare a type derived from Safe&shy;Handle as a para&shy;meter of an unsafe method, the counter incre&shy;ments when ente&shy;ring that method or decre&shy;ments after exi&shy;ting.  The reason is that when you go to an unsafe code by passing a handle there, you may get this Safe&shy;Handle collected by GC, by reset&shy;ting the refe&shy;rence to this handle in another thread (if you deal with one handle from several threads). Things work even easier with a refe&shy;rence counter: Safe&shy;Handle will not be created until the counter is zeroed. That’s why you don’t need to change the counter manu&shy;ally. Or&shy;, you should do it very care&shy;fully by retur&shy;ning it when possible.</p>
 <div class="paragraph-right-side">22</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
-<p >
-The second purpose of a refe&shy;rence counter is to set the order of fina&shy;li&shy;za&shy;tion of <code>CriticalFinalizerObject</code> that refe&shy;rence each other. If one Safe&shy;Handle-based type refe&shy;rences another, then you need to addi&shy;ti&shy;o&shy;nally incre&shy;ment a refe&shy;rence counter in the const&shy;ructor of the refe&shy;ren&shy;cing type and decrease the counter in the Release&shy;Handle method. Thus, your object will exist until the object to which your object refe&shy;rences is not dest&shy;royed. However, it's better to avoid such puzz&shy;le&shy;ments. Let’s use the know&shy;ledge about Safe&shy;Handlers and write the final variant of our class:</p>
+<p>The second purpose of a refe&shy;rence counter is to set the order of fina&shy;li&shy;za&shy;tion of <code>Critical&shy;Finalizer&shy;Object</code> that refe&shy;rence each other. If one Safe&shy;Handle&shy;-based type refe&shy;rences another, then you need to addi&shy;ti&shy;o&shy;nally incre&shy;ment a refe&shy;rence counter in the const&shy;ructor of the refe&shy;ren&shy;cing type and decrease the counter in the Release&shy;Handle method. Thus&shy;, your object will exist until the object to which your object refe&shy;rences is not dest&shy;royed. However&shy;, it's better to avoid such puzz&shy;le&shy;ments. Let’s use the know&shy;ledge about Safe&shy;Handlers and write the final variant of our class:</p>
 <div class="paragraph-right-side">23</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1768,15 +1741,13 @@ The second purpose of a refe&shy;rence counter is to set the order of fina&shy;l
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">24</div>
-<p >
-How is it diffe&shy;rent? If you set <strong>any</strong> Safe&shy;Handle-based type (inclu&shy;ding your own) as the return value in the Dll&shy;Import method, then Marshal will correctly create and ini&shy;ti&shy;a&shy;lize this type and set a counter to 1. Knowing this we set the Safe&shy;File&shy;Handle type as a return type for the Create&shy;File kernel function. When we get it, we will use it exactly to call Read&shy;File and Write&shy;File (as a counter value incre&shy;ments when calling and decre&shy;ments when exi&shy;ting it will ensure that the handle still exist throughout rea&shy;ding from and writing to a file). This is a correctly designed type and it will reli&shy;ably close a file handle if a thread is aborted. This means we don’t need to imple&shy;ment our own fina&shy;lizer and everything connected with it. The whole type is simp&shy;li&shy;fied.</p>
+<p>How is it diffe&shy;rent? If you set <strong>any</strong> Safe&shy;Handle&shy;-based type (inclu&shy;ding your own) as the return value in the Dll&shy;Import method, then Marshal will correctly create and ini&shy;ti&shy;a&shy;lize this type and set a counter to 1. Knowing this we set the Safe&shy;File&shy;Handle type as a return type for the Create&shy;File kernel function. When we get it, we will use it exactly to call Read&shy;File and Write&shy;File (as a counter value incre&shy;ments when calling and decre&shy;ments when exi&shy;ting it will ensure that the handle still exist throughout rea&shy;ding from and writing to a file). This is a correctly designed type and it will reli&shy;ably close a file handle if a thread is aborted. This means we don’t need to imple&shy;ment our own fina&shy;lizer and everything connected with it. The whole type is simp&shy;li&shy;fied.</p>
 <div class="paragraph-right-side">24</div>
 </div>
-<h3 id="the-execution-of-a-finalizer-when-instance-methods-work">The execution of a finalizer when instance methods work</h3>
+<h3 id="the-execution-of-a-finalizer-when-instance-methods-work">The exe&shy;cu&shy;tion of a fina&shy;lizer when instance methods work</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
-<p >
-There is one opti&shy;mi&shy;za&shy;tion tech&shy;nique used during garbage collec&shy;tion that is designed to collect more objects in less time.  Let’s look at the follo&shy;wing code:</p>
+<p>There is one opti&shy;mi&shy;za&shy;tion tech&shy;nique used during garbage collec&shy;tion that is designed to collect more objects in less time.  Let’s look at the follo&shy;wing code:</p>
 <div class="paragraph-right-side">25</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1796,8 +1767,7 @@ There is one opti&shy;mi&shy;za&shy;tion tech&shy;nique used during garbage coll
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
-<p >
-On the one hand, the code looks safe, and it’s not clear strai&shy;ghtaway why should we care. However, if you remember that there are classes that wrap unma&shy;naged reso&shy;urces, you will unders&shy;tand that an incor&shy;rectly designed class may cause an excep&shy;tion from the unma&shy;naged world. This excep&shy;tion will report that a previously obta&shy;ined handle is not active:</p>
+<p>On the one hand, the code looks safe, and it’s not clear strai&shy;ghtaway why should we care. However&shy;, if you remember that there are classes that wrap unma&shy;naged reso&shy;urces, you will unders&shy;tand that an incor&shy;rectly designed class may cause an excep&shy;tion from the unma&shy;naged world. This excep&shy;tion will report that a previously obta&shy;ined handle is not active:</p>
 <div class="paragraph-right-side">26</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1868,15 +1838,13 @@ On the one hand, the code looks safe, and it’s not clear strai&shy;ghtaway why
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">27</div>
-<p >
-Admit that this code looks decent more or less. Anyway, it doesn’t look like there is a problem. In fact, there is a serious problem. A class fina&shy;lizer may attempt to close a file while rea&shy;ding it, which almost ine&shy;vi&shy;tably leads to an error. Because in this case the error is expli&shy;citly returned (<code>IntPtr == -1</code>) we will not see this. The <code>_handle</code> will be set to zero, the follo&shy;wing <code>Dispose</code> will fail to close the file and the reso&shy;urce will leak. To solve this problem, you should use <code>SafeHandle</code>, <code>CriticalHandle</code>, <code>SafeBuffer</code> and their derived classes. Besides that these classes have coun&shy;ters of usage in unma&shy;naged code, these coun&shy;ters also aut&shy;om&shy;at&shy;ically incre&shy;ment when passing with methods' para&shy;me&shy;ters to the unma&shy;naged world and decre&shy;ment when lea&shy;ving it.</p>
+<p>Admit that this code looks decent more or less. Anyway&shy;, it doesn’t look like there is a problem. In fact, there is a serious problem. A class fina&shy;lizer may attempt to close a file while rea&shy;ding it, which almost ine&shy;vi&shy;tably leads to an error. Because in this case the error is expli&shy;citly returned (<code>Int&shy;Ptr == -1</code>) we will not see this. The <code>_handle</code> will be set to zero, the follo&shy;wing <code>Dispose</code> will fail to close the file and the reso&shy;urce will leak. To solve this problem, you should use <code>Safe&shy;Handle</code>, <code>Critical&shy;Handle</code>, <code>Safe&shy;Buffer</code> and their derived classes. Besides that these classes have coun&shy;ters of usage in unma&shy;naged code, these coun&shy;ters also aut&shy;om&shy;at&shy;ically incre&shy;ment when passing with methods' para&shy;me&shy;ters to the unma&shy;naged world and decre&shy;ment when lea&shy;ving it.</p>
 <div class="paragraph-right-side">27</div>
 </div>
-<h2 id="multithreading">Multithreading</h2>
+<h2 id="multithreading">Multith&shy;re&shy;a&shy;ding</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
-<p >
-Now let’s talk about thin ice. In the previous sections about IDis&shy;po&shy;sable we touched one very impor&shy;tant concept that under&shy;lies not only the design prin&shy;ciples of Dispo&shy;sable types but any type in general. This is the object’s integ&shy;rity concept. It means that at any given moment of time an object is in a strictly deter&shy;mined state and any action with this object turns its state into one of the vari&shy;ants that were pre-deter&shy;mined while desig&shy;ning a type of this object. In other words, no action with the object should turn it into an unde&shy;fined state. This results in a problem with the types designed in the above examples. They are not thread-safe. There is a chance the public methods of these types will be called when the dest&shy;ruc&shy;tion of an object is in prog&shy;ress. Let’s solve this problem and decide whether we should solve it at all.</p>
+<p>Now let’s talk about thin ice. In the previous sections about IDis&shy;po&shy;sable we touched one very impor&shy;tant concept that under&shy;lies not only the design prin&shy;ciples of Dispo&shy;sable types but any type in general. This is the object’s integ&shy;rity concept. It means that at any given moment of time an object is in a strictly deter&shy;mined state and any action with this object turns its state into one of the vari&shy;ants that were pre-deter&shy;mined while desig&shy;ning a type of this object. In other words, no action with the object should turn it into an unde&shy;fined state. This results in a problem with the types designed in the above examples. They are not thread-safe. There is a chance the public methods of these types will be called when the dest&shy;ruc&shy;tion of an object is in prog&shy;ress. Let’s solve this problem and decide whether we should solve it at all.</p>
 <div class="paragraph-right-side">28</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1939,28 +1907,17 @@ Now let’s talk about thin ice. In the previous sections about IDis&shy;po&shy;
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">29</div>
-<p >
-The <code>_disposed</code> vali&shy;da&shy;tion code in Dispose() should be ini&shy;ti&shy;a&shy;lized as a critical section. In fact, the whole code of public methods should be ini&shy;ti&shy;a&shy;lized as a critical section. This will solve the problem of concur&shy;rent access to a public method of an instance type and to a method of its dest&shy;ruc&shy;tion. However, it brings other prob&shy;lems that become a time&shy;bomb:</p>
+<p>The <code>_disposed</code> vali&shy;da&shy;tion code in Dispose&shy;() should be ini&shy;ti&shy;a&shy;lized as a critical section. In fact, the whole code of public methods should be ini&shy;ti&shy;a&shy;lized as a critical section. This will solve the problem of concur&shy;rent access to a public method of an instance type and to a method of its dest&shy;ruc&shy;tion. However&shy;, it brings other prob&shy;lems that become a time&shy;bomb:</p>
 <div class="paragraph-right-side">29</div>
 </div>
 <ul>
-<li>
-<p >
-The inten&shy;sive use of type instance methods as well as the crea&shy;tion and dest&shy;ruc&shy;tion of objects will lower the perfor&shy;mance signi&shy;fi&shy;cantly. This is because taking a lock consumes time. This time is neces&shy;sary to allo&shy;cate Sync&shy;Block&shy;Index tables, check current thread and many other things (we will deal with them in the chapter about multith&shy;re&shy;a&shy;ding). That means we will have to sacri&shy;fice the object’s perfor&shy;mance throughout its life&shy;time for the “last mile” of its life.</p>
-</li>
-<li>
-<p >
-Addi&shy;ti&shy;onal memory traffic for sync&shy;hr&shy;on&shy;ization objects.</p>
-</li>
-<li>
-<p >
-Addi&shy;ti&shy;onal steps GC should take to go through an object graph.</p>
-</li>
+<li>The inten&shy;sive use of type instance methods as well as the crea&shy;tion and dest&shy;ruc&shy;tion of objects will lower the perfor&shy;mance signi&shy;fi&shy;cantly. This is because taking a lock consumes time. This time is neces&shy;sary to allo&shy;cate Sync&shy;Block&shy;Index tables, check current thread and many other things (we will deal with them in the chapter about multith&shy;re&shy;a&shy;ding). That means we will have to sacri&shy;fice the object’s perfor&shy;mance throughout its life&shy;time for the “last mile” of its life.</li>
+<li>Addi&shy;ti&shy;onal memory traffic for sync&shy;hr&shy;on&shy;ization objects.</li>
+<li>Addi&shy;ti&shy;onal steps GC should take to go through an object graph.</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">30</div>
-<p >
-Now, let’s name the second and, in my opi&shy;nion, the most impor&shy;tant thing. We allow the dest&shy;ruc&shy;tion of an object and at the same time expect to work with it again. What do we hope for in this situ&shy;a&shy;tion? that it will fail? Because if Dispose runs first, then the follo&shy;wing use of object methods will defi&shy;ni&shy;tely result in <code>ObjectDisposedException</code>. So, you should dele&shy;gate the sync&shy;hr&shy;on&shy;ization between Dispose() calls and other public methods of a type to the service side, i.e. to the code that created the instance of <code>FileWrapper</code> class. It is because only the crea&shy;ting side knows what it will do with an instance of a class and when to destroy it. On the other hand, a Dispose call should produce only critical errors, such as <code>OutOfMemoryException</code>, but not IOExc&shy;ep&shy;tion for example. This is because of the requ&shy;i&shy;re&shy;ments for the arch&shy;it&shy;ecture of classes that imple&shy;ment IDis&shy;po&shy;sable. It means that if Dispose is called from more than one thread at a time, the dest&shy;ruc&shy;tion of an entity may happen from two threads simul&shy;ta&shy;neously (we skip the check of <code>if(_disposed) return;</code>). It depends on the situ&shy;a&shy;tion: if a reso&shy;urce <em>can be</em> rele&shy;ased several times, there is no need in addi&shy;ti&shy;onal checks. Othe&shy;rwise, protec&shy;tion is neces&shy;sary:</p>
+<p>Now&shy;, let’s name the second and, in my opi&shy;nion, the most impor&shy;tant thing. We allow the dest&shy;ruc&shy;tion of an object and at the same time expect to work with it again. What do we hope for in this situ&shy;a&shy;tion? that it will fail? Because if Dispose runs first, then the follo&shy;wing use of object methods will defi&shy;ni&shy;tely result in <code>Object&shy;Disposed&shy;Exception</code>. So&shy;, you should dele&shy;gate the sync&shy;hr&shy;on&shy;ization between Dispose&shy;() calls and other public methods of a type to the service side, i.e. to the code that created the instance of <code>File&shy;Wrapper</code> class. It is because only the crea&shy;ting side knows what it will do with an instance of a class and when to destroy it. On the other hand, a Dispose call should produce only critical errors, such as <code>Out&shy;Of&shy;Memory&shy;Exception</code>, but not IOExc&shy;ep&shy;tion for example. This is because of the requ&shy;i&shy;re&shy;ments for the arch&shy;it&shy;ecture of classes that imple&shy;ment IDisposable&shy;. It means that if Dispose is called from more than one thread at a time, the dest&shy;ruc&shy;tion of an entity may happen from two threads simul&shy;ta&shy;neously (we skip the check of <code>if(_disposed) return;</code>). It depends on the situ&shy;a&shy;tion: if a reso&shy;urce <em>can be</em> rele&shy;ased several times, there is no need in addi&shy;ti&shy;onal checks. Otherwise&shy;, protec&shy;tion is neces&shy;sary:</p>
 <div class="paragraph-right-side">30</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1980,11 +1937,10 @@ Now, let’s name the second and, in my opi&shy;nion, the most impor&shy;tant th
 }
 </pre></div>
 </div>
-<h2 id="two-levels-of-disposable-design-principle">Two levels of Disposable Design Principle</h2>
+<h2 id="two-levels-of-disposable-design-principle">Two levels of Dispo&shy;sable Design Prin&shy;ciple</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">31</div>
-<p >
-What is the most popular pattern to imple&shy;ment <code>IDisposable</code> that you can meet in .NET books and the Internet? What pattern is expected from you during inter&shy;views for a poten&shy;tial new job? Most probably this one:</p>
+<p>What is the most popular pattern to imple&shy;ment <code>IDis&shy;po&shy;sable</code> that you can meet in .NET books and the Internet&shy;? What pattern is expected from you during inter&shy;views for a poten&shy;tial new job? Most probably this one:</p>
 <div class="paragraph-right-side">31</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2024,86 +1980,48 @@ What is the most popular pattern to imple&shy;ment <code>IDisposable</code> that
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">32</div>
-<p >
-What is wrong with this example and why we haven’t written like this before? In fact, this is a good pattern suitable for all situ&shy;a&shy;tions. However, its ubi&shy;qu&shy;i&shy;tous use is not a good style in my opi&shy;nion as we almost don’t deal with unma&shy;naged reso&shy;urces in prac&shy;tice that makes half of the pattern serve no purpose. More&shy;over, since it simul&shy;ta&shy;neously manages both managed and unma&shy;naged reso&shy;urces, it vio&shy;lates the prin&shy;ciple of respon&shy;si&shy;bi&shy;lity divi&shy;sion. I think this is wrong. Let’s look at a slightly diffe&shy;rent approach. <em>Disposable Design Principle</em>. In brief, it works as follows:</p>
+<p>What is wrong with this example and why we haven’t written like this before? In fact, this is a good pattern suitable for all situ&shy;a&shy;tions. However&shy;, its ubi&shy;qu&shy;i&shy;tous use is not a good style in my opi&shy;nion as we almost don’t deal with unma&shy;naged reso&shy;urces in prac&shy;tice that makes half of the pattern serve no purpose. Moreover&shy;, since it simul&shy;ta&shy;neously manages both managed and unma&shy;naged reso&shy;urces, it vio&shy;lates the prin&shy;ciple of respon&shy;si&shy;bi&shy;lity divi&shy;sion. I think this is wrong. Let’s look at a slightly diffe&shy;rent approach. <em>Dispo&shy;sable Design Prin&shy;ciple</em>. In brief, it works as follows:</p>
 <div class="paragraph-right-side">32</div>
 </div>
-<p >
-Dispo&shy;sing is divided into two levels of classes:</p>
+<p>Dispo&shy;sing is divided into two levels of classes:</p>
 <ul>
-<li>
-<p >
-Level 0 types directly encap&shy;su&shy;late unma&shy;naged reso&shy;urces</p>
+<li>Level 0 types directly encap&shy;su&shy;late unma&shy;naged reso&shy;urces
 <ul>
-<li>
-<p >
-They are either abstract or packed.</p>
-</li>
-<li>
-<p >
-All methods should be marked:
-– Pre&shy;Prepare&shy;Method, so that a method could be compiled when loa&shy;ding a type</p>
+<li>They are either abstract or packed.</li>
+<li>All methods should be marked:
+– Pre&shy;Prepare&shy;Method&shy;, so that a method could be compiled when loa&shy;ding a type
 <ul>
-<li>
-<p >
-Security&shy;Safe&shy;Critical to protect aga&shy;inst a call from the code, working under rest&shy;ric&shy;tions</p>
-</li>
-<li>
-<p >
-Reliability&shy;Contract(Consis&shy;tency.Will&shy;Not&shy;Corrupt&shy;State, Cer.Success / May&shy;Fail)] to put CER for a method and all its child calls
-– They can refe&shy;rence Level 0 types, but should incre&shy;ment the counter of refe&shy;ren&shy;cing objects to guarantee the right order of ente&shy;ring the “last mile”</p>
-</li>
+<li>Security&shy;Safe&shy;Critical to protect aga&shy;inst a call from the code, working under rest&shy;ric&shy;tions</li>
+<li>Reliability&shy;Contract&shy;(Consistency&shy;.Will&shy;Not&shy;Corrupt&shy;State&shy;, Cer&shy;.Success / May&shy;Fail&shy;)] to put CER for a method and all its child calls
+– They can refe&shy;rence Level 0 types, but should incre&shy;ment the counter of refe&shy;ren&shy;cing objects to guarantee the right order of ente&shy;ring the “last mile”</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>
-<p >
-Level 1 types encap&shy;su&shy;late only managed reso&shy;urces</p>
+<li>Level 1 types encap&shy;su&shy;late only managed reso&shy;urces
 <ul>
-<li>
-<p >
-They are inhe&shy;rited only from Level 1 types or directly imple&shy;ment IDis&shy;po&shy;sable</p>
-</li>
-<li>
-<p >
-They cannot inherit Level 0 types or Critical&shy;Finalizer&shy;Object</p>
-</li>
-<li>
-<p >
-They can encap&shy;su&shy;late Level 1 and Level 0 managed types</p>
-</li>
-<li>
-<p >
-They imple&shy;ment IDis&shy;po&shy;sable.Dispose by dest&shy;ro&shy;ying encap&shy;su&shy;lated objects star&shy;ting from Level 0 types and going to Level 1</p>
-</li>
-<li>
-<p >
-They don’t imple&shy;ment a fina&shy;lizer as they don’t deal with unma&shy;naged reso&shy;urces</p>
-</li>
-<li>
-<p >
-They should contain a protected property that gives access to Level 0 types.</p>
-</li>
+<li>They are inhe&shy;rited only from Level 1 types or directly imple&shy;ment IDis&shy;po&shy;sable</li>
+<li>They cannot inherit Level 0 types or Critical&shy;Finalizer&shy;Object</li>
+<li>They can encap&shy;su&shy;late Level 1 and Level 0 managed types</li>
+<li>They imple&shy;ment IDisposable&shy;.Dispose by dest&shy;ro&shy;ying encap&shy;su&shy;lated objects star&shy;ting from Level 0 types and going to Level 1</li>
+<li>They don’t imple&shy;ment a fina&shy;lizer as they don’t deal with unma&shy;naged reso&shy;urces</li>
+<li>They should contain a protected property that gives access to Level 0 types.</li>
 </ul>
 </li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">33</div>
-<p >
-That is why I used the divi&shy;sion into two types from the begin&shy;ning: the one that contains a managed reso&shy;urce and the one with unma&shy;naged reso&shy;urce. They should function diffe&shy;rently.</p>
+<p>That is why I used the divi&shy;sion into two types from the begin&shy;ning: the one that contains a managed reso&shy;urce and the one with unma&shy;naged reso&shy;urce. They should function diffe&shy;rently.</p>
 <div class="paragraph-right-side">33</div>
 </div>
 <h2 id="other-ways-to-use-dispose">Other ways to use Dispose</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">34</div>
-<p >
-The idea behind the crea&shy;tion of IDis&shy;po&shy;sable was to release unma&shy;naged reso&shy;urces. But as with many other patterns it is very hel&shy;pful for other tasks, e.g. to release refe&shy;rences to managed reso&shy;urces. Though rele&shy;a&shy;sing managed reso&shy;urces doesn’t sound very hel&shy;pful. I mean they are called managed on purpose so we would relax with a grin regar&shy;ding C/C++ deve&shy;lo&shy;pers, right?  However, it is not so.  There always may be a situ&shy;a&shy;tion where we lose a refe&shy;rence to an object but at the same time think that everything is OK: GC will collect garbage, inclu&shy;ding our object. However, it turns out that memory grows. We get into the memory analysis program and see that something else holds this object. The thing is that there can be a logic for implicit capture of a refe&shy;rence to your entity in both .NET plat&shy;form and the arch&shy;it&shy;ecture of external classes. As the capture is implicit, a prog&shy;rammer can miss the neces&shy;sity of its release and then get a memory leak.</p>
+<p>The idea behind the crea&shy;tion of IDis&shy;po&shy;sable was to release unma&shy;naged reso&shy;urces. But as with many other patterns it is very hel&shy;pful for other tasks, e.g. to release refe&shy;rences to managed reso&shy;urces. Though rele&shy;a&shy;sing managed reso&shy;urces doesn’t sound very hel&shy;pful. I mean they are called managed on purpose so we would relax with a grin regar&shy;ding C/C++ deve&shy;lo&shy;pers, right?  However&shy;, it is not so.  There always may be a situ&shy;a&shy;tion where we lose a refe&shy;rence to an object but at the same time think that everything is OK: GC will collect garbage, inclu&shy;ding our object. However&shy;, it turns out that memory grows. We get into the memory analysis program and see that something else holds this object. The thing is that there can be a logic for implicit capture of a refe&shy;rence to your entity in both .NET plat&shy;form and the arch&shy;it&shy;ecture of external classes. As the capture is implicit, a prog&shy;rammer can miss the neces&shy;sity of its release and then get a memory leak.</p>
 <div class="paragraph-right-side">34</div>
 </div>
-<h3 id="delegates-events">Delegates, events</h3>
-<p >
-Let’s look at this synthetic example:</p>
+<h3 id="delegates-events">Delegates&shy;, events</h3>
+<p>Let’s look at this synthetic example:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">class</span> Secondary
 {
@@ -2143,8 +2061,7 @@ Let’s look at this synthetic example:</p>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">35</div>
-<p >
-Which problem does this code show? Secon&shy;dary class stores <code>Action</code> type dele&shy;gate in <code>_action</code> field that is accepted in <code>SaveForUseInFuture</code> method. Next, <code>PlanSayHello</code> method inside <code>Primary</code> class passes pointer to <code>Strategy</code> method to <code>Secondary</code> class. It is curious but if, in this example, you pass somew&shy;here a static method or an instance method, the passed <code>SaveForUseInFuture</code> will not be changed, but a <code>Primary</code> class instance will be refe&shy;renced <em>implicitly</em> or not refe&shy;renced at all. Outwardly it looks like you instr&shy;ucted which method to call. But in fact, a dele&shy;gate is built not only using a method pointer but also using the pointer to an instance of a class. A calling party should unders&shy;tand for which instance of a class it has to call the <code>Strategy</code> method! That is the instance of <code>Secondary</code> class has impli&shy;citly accepted and holds the pointer to the instance of <code>Primary</code> class, though it is not indi&shy;cated expli&shy;citly. For us it means only that if we pass <code>_foo</code> pointer somew&shy;here else and lose the refe&shy;rence to <code>Primary</code>, then GC <em>will not collect</em> <code>Primary</code> object, as <code>Secondary</code> will hold it. How can we avoid such situ&shy;a&shy;tions? We need a deter&shy;mined approach to release a refe&shy;rence to us.  A mech&shy;anism that perfectly fits this purpose is <code>IDisposable</code></p>
+<p>Which problem does this code show? Secon&shy;dary class stores <code>Action</code> type dele&shy;gate in <code>_action</code> field that is accepted in <code>Save&shy;For&shy;Use&shy;In&shy;Future</code> method. Next&shy;, <code>Plan&shy;Say&shy;Hello</code> method inside <code>Primary</code> class passes pointer to <code>Stra&shy;tegy</code> method to <code>Secon&shy;dary</code> class. It is curious but if, in this example, you pass somew&shy;here a static method or an instance method, the passed <code>Save&shy;For&shy;Use&shy;In&shy;Future</code> will not be changed, but a <code>Primary</code> class instance will be refe&shy;renced <em>impli&shy;citly</em> or not refe&shy;renced at all. Outwardly it looks like you instr&shy;ucted which method to call. But in fact, a dele&shy;gate is built not only using a method pointer but also using the pointer to an instance of a class. A calling party should unders&shy;tand for which instance of a class it has to call the <code>Stra&shy;tegy</code> method! That is the instance of <code>Secon&shy;dary</code> class has impli&shy;citly accepted and holds the pointer to the instance of <code>Primary</code> class, though it is not indi&shy;cated expli&shy;citly. For us it means only that if we pass <code>_foo</code> pointer somew&shy;here else and lose the refe&shy;rence to <code>Primary</code>, then GC <em>will not collect</em> <code>Primary</code> object, as <code>Secon&shy;dary</code> will hold it. How can we avoid such situ&shy;a&shy;tions? We need a deter&shy;mined approach to release a refe&shy;rence to us.  A mech&shy;anism that perfectly fits this purpose is <code>IDis&shy;po&shy;sable</code></p>
 <div class="paragraph-right-side">35</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2175,8 +2092,7 @@ Which problem does this code show? Secon&shy;dary class stores <code>Action</cod
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">36</div>
-<p >
-Now the example looks accep&shy;table. If an instance of a class is passed to a third party and the refe&shy;rence to <code>_action</code> dele&shy;gate will be lost during this process, we will set it to zero and the third party will be noti&shy;fied about the dest&shy;ruc&shy;tion of the instance and delete the refe&shy;rence to it.
+<p>Now the example looks accep&shy;table. If an instance of a class is passed to a third party and the refe&shy;rence to <code>_action</code> dele&shy;gate will be lost during this process, we will set it to zero and the third party will be noti&shy;fied about the dest&shy;ruc&shy;tion of the instance and delete the refe&shy;rence to it.
 The second danger of code that runs on dele&shy;gates is the functi&shy;o&shy;ning prin&shy;ciples of <code>event</code>.  Let’s look what they result in:</p>
 <div class="paragraph-right-side">36</div>
 </div>
@@ -2194,37 +2110,30 @@ The second danger of code that runs on dele&shy;gates is the functi&shy;o&shy;ni
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">37</div>
-<p >
-C# messa&shy;ging hides the inter&shy;nals of events and holds all the objects that subs&shy;cribed to update through <code>event</code>. If something goes wrong, a refe&shy;rence to a signed object remains in <code>OnDisposed</code> and will hold the object. It is a strange situ&shy;a&shy;tion as in terms of arch&shy;it&shy;ecture we get a concept of “events source” that shouldn’t hold anything logi&shy;cally.  But in fact, objects subs&shy;cribed to update are held impli&shy;citly. In addi&shy;tion, we cannot change something inside this array of dele&shy;gates though the entity belongs to us. The only thing we can do is to delete this list by assig&shy;ning null to an events source.</p>
+<p>C# messa&shy;ging hides the inter&shy;nals of events and holds all the objects that subs&shy;cribed to update through <code>event</code>. If something goes wrong, a refe&shy;rence to a signed object remains in <code>On&shy;Disposed</code> and will hold the object. It is a strange situ&shy;a&shy;tion as in terms of arch&shy;it&shy;ecture we get a concept of “events source” that shouldn’t hold anything logi&shy;cally.  But in fact, objects subs&shy;cribed to update are held impli&shy;citly. In addi&shy;tion, we cannot change something inside this array of dele&shy;gates though the entity belongs to us. The only thing we can do is to delete this list by assig&shy;ning null to an events source.</p>
 <div class="paragraph-right-side">37</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">38</div>
-<p >
-The second way is to imple&shy;ment <code>add</code>/<code>remove</code> methods expli&shy;citly, so we could control a collec&shy;tion of dele&shy;gates.</p>
+<p>The second way is to imple&shy;ment <code>add</code>/<code>remove</code> methods expli&shy;citly, so we could control a collec&shy;tion of dele&shy;gates.</p>
 <div class="paragraph-right-side">38</div>
 </div>
 <blockquote>
-<p >
-Another implicit situ&shy;a&shy;tion may appear here. It may seem that if you assign null to an events source, the follo&shy;wing subsc&shy;ri&shy;ption to events will cause <code>NullReferenceException</code>. I think this would be more logical.</p>
+<p>Another implicit situ&shy;a&shy;tion may appear here. It may seem that if you assign null to an events source, the follo&shy;wing subsc&shy;ri&shy;ption to events will cause <code>Null&shy;Reference&shy;Exception</code>. I think this would be more logical.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">39</div>
-<p >
-However, this is not true. If external code subs&shy;cribes to events after an events source is cleared, FCL will create a new instance of Action class and store it in <code>OnDisposed</code>. This impli&shy;cit&shy;ness in C# can mislead a prog&shy;rammer: dea&shy;ling with nulled fields should produce a sort of alert&shy;ness rather than calm&shy;ness. Here we also demons&shy;trate an approach when the care&shy;less&shy;ness of a prog&shy;rammer can lead to memory leaks.</p>
+<p>However&shy;, this is not true. If external code subs&shy;cribes to events after an events source is cleared, FCL will create a new instance of Action class and store it in <code>On&shy;Disposed</code>. This impli&shy;cit&shy;ness in C# can mislead a prog&shy;rammer: dea&shy;ling with nulled fields should produce a sort of alert&shy;ness rather than calm&shy;ness. Here we also demons&shy;trate an approach when the care&shy;less&shy;ness of a prog&shy;rammer can lead to memory leaks.</p>
 <div class="paragraph-right-side">39</div>
 </div>
-<h3 id="lambdas-closures">Lambdas, closures</h3>
-<p >
-Using such synta&shy;ctic sugar as lambdas is espe&shy;ci&shy;ally dange&shy;rous.</p>
+<h3 id="lambdas-closures">Lambdas&shy;, closures</h3>
+<p>Using such synta&shy;ctic sugar as lambdas is espe&shy;ci&shy;ally dange&shy;rous.</p>
 <blockquote>
-<p >
-I would like to touch upon synta&shy;ctic sugar as a whole. I think you should use it rather care&shy;fully and only if you know the outcome exactly. Examples with lambda expres&shy;sions are closures, closures in Expre&shy;ss&shy;ions and many other mise&shy;ries you can inf&shy;lict upon your&shy;self.</p>
+<p>I would like to touch upon synta&shy;ctic sugar as a whole. I think you should use it rather care&shy;fully and only if you know the outcome exactly. Examples with lambda expres&shy;sions are closures, closures in Expre&shy;ss&shy;ions and many other mise&shy;ries you can inf&shy;lict upon your&shy;self.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">40</div>
-<p >
-Of course, you may say you know that a lambda expres&shy;sion creates a closure and can result in a risk of reso&shy;urce leak. But it is so neat, so plea&shy;sant that it is hard to avoid using lambda instead of allo&shy;ca&shy;ting the entire method, that will be desc&shy;ribed in a place diffe&shy;rent from where it will be used. In fact, you shouldn’t buy into this provo&shy;ca&shy;tion, though not every&shy;body can resist. Let’s look at the example:</p>
+<p>Of course, you may say you know that a lambda expres&shy;sion creates a closure and can result in a risk of reso&shy;urce leak. But it is so neat, so plea&shy;sant that it is hard to avoid using lambda instead of allo&shy;ca&shy;ting the entire method, that will be desc&shy;ribed in a place diffe&shy;rent from where it will be used. In fact, you shouldn’t buy into this provo&shy;ca&shy;tion, though not every&shy;body can resist. Let’s look at the example:</p>
 <div class="paragraph-right-side">40</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2233,8 +2142,7 @@ Of course, you may say you know that a lambda expres&shy;sion creates a closure 
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">41</div>
-<p >
-Agree, this line looks very safe. But it hides a big problem: now <code>button</code> vari&shy;able impli&shy;citly refe&shy;rences <code>service</code> and holds it. Even if we decide that we don’t need <code>service</code> anymore, <code>button</code> will still hold the refe&shy;rence while this vari&shy;able is alive. One of the ways to solve this problem is to use a pattern for crea&shy;ting <code>IDisposable</code> from any <code>Action</code> (<code>System.Reactive.Disposables</code>):</p>
+<p>Agree&shy;, this line looks very safe. But it hides a big problem: now <code>button</code> vari&shy;able impli&shy;citly refe&shy;rences <code>service</code> and holds it. Even if we decide that we don’t need <code>service</code> anymore, <code>button</code> will still hold the refe&shy;rence while this vari&shy;able is alive. One of the ways to solve this problem is to use a pattern for crea&shy;ting <code>IDis&shy;po&shy;sable</code> from any <code>Action</code> (<code>System&shy;.Reactive&shy;.Disposables</code>):</p>
 <div class="paragraph-right-side">41</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2253,15 +2161,13 @@ subscription.Dispose();
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">42</div>
-<p >
-Admit, this looks a bit lengthy and we lose the whole purpose of using lambda expres&shy;sions. It is much safer and simpler to use common private methods to capture vari&shy;ables impli&shy;citly.</p>
+<p>Admit&shy;, this looks a bit lengthy and we lose the whole purpose of using lambda expres&shy;sions. It is much safer and simpler to use common private methods to capture vari&shy;ables impli&shy;citly.</p>
 <div class="paragraph-right-side">42</div>
 </div>
-<h3 id="threadabort-protection">ThreadAbort protection</h3>
+<h3 id="threadabort-protection">Thread&shy;Abort protec&shy;tion</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">43</div>
-<p >
-When you create a library for an third-party deve&shy;loper, you cannot predict its beh&shy;avior in a third-party appli&shy;ca&shy;tion. Some&shy;times you can only guess what a prog&shy;rammer did to your library that caused a parti&shy;cular outcome. One example is functi&shy;o&shy;ning in a multith&shy;re&shy;aded envi&shy;ron&shy;ment when the consis&shy;tency of reso&shy;urces cleanup can become a critical issue. Note that when we write the <code>Dispose()</code> method, we can guarantee the absence of excep&shy;tions. However, we cannot ensure that while running the <code>Dispose()</code> method no <code>ThreadAbortException</code> will occur that disables our thread of exe&shy;cu&shy;tion. Here we should remember that when <code>ThreadAbortException</code> occurs, all catch/finally blocks are exe&shy;cuted anyway (at the end of a catch/finally block Thread&shy;Abort occurs further along). So, to ensure exe&shy;cu&shy;tion of a certain code by using Thread.Abort you need to wrap a critical section in <code>try { ... } finally { ... }</code>, see the example below:</p>
+<p>When you create a library for an third-party deve&shy;loper, you cannot predict its beh&shy;avior in a third-party appli&shy;ca&shy;tion. Some&shy;times you can only guess what a prog&shy;rammer did to your library that caused a parti&shy;cular outcome. One example is functi&shy;o&shy;ning in a multith&shy;re&shy;aded envi&shy;ron&shy;ment when the consis&shy;tency of reso&shy;urces cleanup can become a critical issue. Note that when we write the <code>Dispose&shy;()</code> method, we can guarantee the absence of excep&shy;tions. However&shy;, we cannot ensure that while running the <code>Dispose&shy;()</code> method no <code>Thread&shy;Abort&shy;Exception</code> will occur that disables our thread of exe&shy;cu&shy;tion. Here we should remember that when <code>Thread&shy;Abort&shy;Exception</code> occurs, all catch/finally blocks are exe&shy;cuted anyway (at the end of a catch/finally block Thread&shy;Abort occurs further along). So&shy;, to ensure exe&shy;cu&shy;tion of a certain code by using Thread&shy;.Abort you need to wrap a critical section in <code>try { ... } finally { ... }</code>, see the example below:</p>
 <div class="paragraph-right-side">43</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2276,8 +2182,7 @@ When you create a library for an third-party deve&shy;loper, you cannot predict 
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">44</div>
-<p >
-One can abort this at any point using <code>Thread.Abort</code>. It parti&shy;ally dest&shy;roys an object, though you can still work with it in the future. At the same time, the follo&shy;wing code:</p>
+<p>One can abort this at any point using <code>Thread&shy;.Abort</code>. It parti&shy;ally dest&shy;roys an object, though you can still work with it in the future. At the same time, the follo&shy;wing code:</p>
 <div class="paragraph-right-side">44</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2297,86 +2202,47 @@ One can abort this at any point using <code>Thread.Abort</code>. It parti&shy;al
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">45</div>
-<p >
-is protected from such an abort and will run smoothly and for sure, even if <code>Thread.Abort</code> appears between calling <code>Unsubscribe</code> method and exe&shy;cu&shy;ting its instr&shy;uc&shy;tions.</p>
+<p>is protected from such an abort and will run smoothly and for sure, even if <code>Thread&shy;.Abort</code> appears between calling <code>Unsu&shy;bscribe</code> method and exe&shy;cu&shy;ting its instr&shy;uc&shy;tions.</p>
 <div class="paragraph-right-side">45</div>
 </div>
 <h2 id="results">Results</h2>
-<h3 id="advantages">Advantages</h3>
+<h3 id="advantages">Advan&shy;tages</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">46</div>
-<p >
-Well, we learned a lot about this simp&shy;lest pattern. Let’s deter&shy;mine its advan&shy;tages:</p>
+<p>Well&shy;, we learned a lot about this simp&shy;lest pattern. Let’s deter&shy;mine its advan&shy;tages:</p>
 <div class="paragraph-right-side">46</div>
 </div>
 <ol>
-<li>
-<p >
-The main advan&shy;tage of the pattern is the capa&shy;bi&shy;lity to release reso&shy;urces deter&shy;mi&shy;na&shy;tely i.e. when you need them.</p>
-</li>
-<li>
-<p >
-The second advan&shy;tage is the intro&shy;duc&shy;tion of a proven way to check if a specific instance requ&shy;ires to destroy its instances after using.</p>
-</li>
-<li>
-<p >
-If you imple&shy;ment the pattern correctly, a designed type will function safely in terms of use by third-party compo&shy;nents as well as in terms of unlo&shy;a&shy;ding and dest&shy;ro&shy;ying reso&shy;urces when a process crashes (for example because of lack of memory). This is the last advan&shy;tage.</p>
-</li>
+<li>The main advan&shy;tage of the pattern is the capa&shy;bi&shy;lity to release reso&shy;urces deter&shy;mi&shy;na&shy;tely i.e. when you need them.</li>
+<li>The second advan&shy;tage is the intro&shy;duc&shy;tion of a proven way to check if a specific instance requ&shy;ires to destroy its instances after using.</li>
+<li>If you imple&shy;ment the pattern correctly, a designed type will function safely in terms of use by third-party compo&shy;nents as well as in terms of unlo&shy;a&shy;ding and dest&shy;ro&shy;ying reso&shy;urces when a process crashes (for example because of lack of memory). This is the last advan&shy;tage.</li>
 </ol>
-<h3 id="disadvantages">Disadvantages</h3>
-<p >
-In my opi&shy;nion, this pattern has more disad&shy;van&shy;tages than advan&shy;tages.</p>
+<h3 id="disadvantages">Disad&shy;van&shy;tages</h3>
+<p>In my opi&shy;nion, this pattern has more disad&shy;van&shy;tages than advan&shy;tages.</p>
 <ol>
-<li>
-<p >
-On the one hand, any type that imple&shy;ments this pattern instructs other parts that if they use it they take a sort of public offer. This is so implicit that as in case of public offers a user of a type doesn’t always know that the type has this inter&shy;face. Thus you have to follow IDE prompts (type a period, Dis.. and check if there is a method in the filtered member list of a class). If you see a Dispose pattern, you should imple&shy;ment it in your code. Some&shy;times it doesn’t happen straight away and in this case you should imple&shy;ment a pattern through a system of types that adds functi&shy;o&shy;na&shy;lity. A good example is that <code>IEnumerator&lt;T&gt;</code> entails <code>IDisposable</code>.</p>
-</li>
-<li>
-<p >
-Usually when you design an inter&shy;face there is a need to insert IDis&shy;po&shy;sable into the system of a type’s inter&shy;faces when one of the inter&shy;faces have to inherit IDis&shy;po&shy;sable. In my opi&shy;nion, this damages the inter&shy;faces we designed. I mean when you design an inter&shy;face you create an inte&shy;rac&shy;tion protocol first. This is a set of actions you can perform with <em>something</em> hidden behind the inter&shy;face. <code>Dispose()</code> is a method for dest&shy;ro&shy;ying an instance of a class. This cont&shy;ra&shy;dicts the essence of an <em>interaction protocol</em>. In fact, these are the details of imple&shy;men&shy;ta&shy;tion that infilt&shy;rated into the inter&shy;face.</p>
-</li>
-<li>
-<p >
-Despite being deter&shy;mined, Dispose() doesn’t mean direct dest&shy;ruc&shy;tion of an object. The object will still exist after its <em>destruction</em> but in another state. To make it true Check&shy;Disposed() must be the first command of each public method. This looks like a tempo&shy;rary solu&shy;tion that some&shy;body gave us saying: “Go forth and multiply”;</p>
-</li>
-<li>
-<p >
-There is also a small chance to get a type that imple&shy;ments <code>IDisposable</code> through <em>explicit</em> imple&shy;men&shy;ta&shy;tion. Or you can get a type that imple&shy;ments IDis&shy;po&shy;sable without a chance to deter&shy;mine who must destroy it: you or the party that gave it to you. This resulted in an anti&shy;pat&shy;tern of multiple calls of Dispose() that allows to destroy a dest&shy;royed object;</p>
-</li>
-<li>
-<p >
-The comp&shy;lete imple&shy;men&shy;ta&shy;tion is diffi&shy;cult, and it is diffe&shy;rent for managed and unma&shy;naged reso&shy;urces. Here the attempt to faci&shy;li&shy;tate the work of deve&shy;lo&shy;pers through GC looks awk&shy;ward. You can over&shy;ride <code>virtual void Dispose()</code> method and intro&shy;duce some Disposable&shy;Object type that imple&shy;ments the whole pattern, but that doesn’t solve other prob&shy;lems connected with the pattern;</p>
-</li>
-<li>
-<p >
-As a rule Dispose() method is imple&shy;mented at the end of a file while &lsquo;.ctor&rsquo; is declared at the begin&shy;ning. If you modify a class or intro&shy;duce new reso&shy;urces, it is easy to forget to add disposal for them.</p>
-</li>
-<li>
-<p >
-Finally, it is diffi&shy;cult to deter&shy;mine the order of <em>destruction</em> in a multith&shy;re&shy;aded envi&shy;ron&shy;ment when you use a pattern for object graphs where objects fully or parti&shy;ally imple&shy;ment that pattern. I mean situ&shy;a&shy;tions when Dispose() can start at diffe&shy;rent ends of a graph. Here it is better to use other patterns, e.g. the Life&shy;time pattern.</p>
-</li>
-<li>
-<p >
-The wish of plat&shy;form deve&shy;lo&shy;pers to aut&shy;omate memory control combined with rea&shy;li&shy;ties: appli&shy;ca&shy;tions inte&shy;ract with unma&shy;naged code very often + you need to control the release of refe&shy;rences to objects so Garbage Collector could collect them. This adds great confu&shy;sion in unders&shy;tan&shy;ding such ques&shy;tions as: “How should we imple&shy;ment a pattern correctly”? “Is there a reli&shy;able pattern at all”? Maybe calling <code>delete obj; delete[] arr;</code> is simpler?</p>
-</li>
+<li>On the one hand, any type that imple&shy;ments this pattern instructs other parts that if they use it they take a sort of public offer. This is so implicit that as in case of public offers a user of a type doesn’t always know that the type has this inter&shy;face. Thus you have to follow IDE prompts (type a period, Dis&shy;.. and check if there is a method in the filtered member list of a class). If you see a Dispose pattern, you should imple&shy;ment it in your code. Some&shy;times it doesn’t happen straight away and in this case you should imple&shy;ment a pattern through a system of types that adds functi&shy;o&shy;na&shy;lity. A good example is that <code>IEnumerator&shy;<T></code> entails <code>IDis&shy;po&shy;sable</code>.</li>
+<li>Usually when you design an inter&shy;face there is a need to insert IDis&shy;po&shy;sable into the system of a type’s inter&shy;faces when one of the inter&shy;faces have to inherit IDisposable&shy;. In my opi&shy;nion, this damages the inter&shy;faces we designed. I mean when you design an inter&shy;face you create an inte&shy;rac&shy;tion protocol first. This is a set of actions you can perform with <em>something</em> hidden behind the inter&shy;face. <code>Dispose&shy;()</code> is a method for dest&shy;ro&shy;ying an instance of a class. This cont&shy;ra&shy;dicts the essence of an <em>inte&shy;rac&shy;tion protocol</em>. In fact, these are the details of imple&shy;men&shy;ta&shy;tion that infilt&shy;rated into the inter&shy;face.</li>
+<li>Despite being deter&shy;mined, Dispose&shy;() doesn’t mean direct dest&shy;ruc&shy;tion of an object. The object will still exist after its <em>dest&shy;ruc&shy;tion</em> but in another state. To make it true Check&shy;Disposed&shy;() must be the first command of each public method. This looks like a tempo&shy;rary solu&shy;tion that some&shy;body gave us saying: “Go forth and multiply”;</li>
+<li>There is also a small chance to get a type that imple&shy;ments <code>IDis&shy;po&shy;sable</code> through <em>explicit</em> imple&shy;men&shy;ta&shy;tion. Or you can get a type that imple&shy;ments IDis&shy;po&shy;sable without a chance to deter&shy;mine who must destroy it: you or the party that gave it to you. This resulted in an anti&shy;pat&shy;tern of multiple calls of Dispose&shy;() that allows to destroy a dest&shy;royed object;</li>
+<li>The comp&shy;lete imple&shy;men&shy;ta&shy;tion is diffi&shy;cult, and it is diffe&shy;rent for managed and unma&shy;naged reso&shy;urces. Here the attempt to faci&shy;li&shy;tate the work of deve&shy;lo&shy;pers through GC looks awk&shy;ward. You can over&shy;ride <code>virtual void Dispose&shy;()</code> method and intro&shy;duce some Disposable&shy;Object type that imple&shy;ments the whole pattern, but that doesn’t solve other prob&shy;lems connected with the pattern;</li>
+<li>As a rule Dispose&shy;() method is imple&shy;mented at the end of a file while &lsquo;.ctor&rsquo; is declared at the begin&shy;ning. If you modify a class or intro&shy;duce new reso&shy;urces, it is easy to forget to add disposal for them.</li>
+<li>Finally&shy;, it is diffi&shy;cult to deter&shy;mine the order of <em>dest&shy;ruc&shy;tion</em> in a multith&shy;re&shy;aded envi&shy;ron&shy;ment when you use a pattern for object graphs where objects fully or parti&shy;ally imple&shy;ment that pattern. I mean situ&shy;a&shy;tions when Dispose&shy;() can start at diffe&shy;rent ends of a graph. Here it is better to use other patterns, e.g. the Life&shy;time pattern.</li>
+<li>The wish of plat&shy;form deve&shy;lo&shy;pers to aut&shy;omate memory control combined with rea&shy;li&shy;ties: appli&shy;ca&shy;tions inte&shy;ract with unma&shy;naged code very often + you need to control the release of refe&shy;rences to objects so Garbage Collector could collect them. This adds great confu&shy;sion in unders&shy;tan&shy;ding such ques&shy;tions as: “How should we imple&shy;ment a pattern correctly”? “Is there a reli&shy;able pattern at all”? Maybe calling <code>delete obj; delete[] arr;</code> is simpler?</li>
 </ol>
-<h2 id="domain-unloading-and-exit-from-an-application">Domain unloading and exit from an application</h2>
+<h2 id="domain-unloading-and-exit-from-an-application">Domain unlo&shy;a&shy;ding and exit from an appli&shy;ca&shy;tion</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">47</div>
-<p >
-If you got to this part, you became more confi&shy;dent in the success of future job inter&shy;views. However, we didn’t discuss all the ques&shy;tions connected with this simple, as it may seem, pattern. The last ques&shy;tion is whether the beh&shy;avior of an appli&shy;ca&shy;tion differs in case of simple garbage collec&shy;tion and when garbage is collected during domain unlo&shy;a&shy;ding and while exi&shy;ting the appli&shy;ca&shy;tion. This ques&shy;tion merely touches upon <code>Dispose()</code>&hellip; However <code>Dispose()</code> and fina&shy;li&shy;za&shy;tion go hand in hand and we rarely meet an imple&shy;men&shy;ta&shy;tion of a class which has fina&shy;li&shy;za&shy;tion but doesn't have <code>Dispose()</code> method. So, let’s desc&shy;ribe fina&shy;li&shy;za&shy;tion in a sepa&shy;rate section. Here we just add a few impor&shy;tant details.</p>
+<p>If you got to this part, you became more confi&shy;dent in the success of future job inter&shy;views. However&shy;, we didn’t discuss all the ques&shy;tions connected with this simple, as it may seem, pattern. The last ques&shy;tion is whether the beh&shy;avior of an appli&shy;ca&shy;tion differs in case of simple garbage collec&shy;tion and when garbage is collected during domain unlo&shy;a&shy;ding and while exi&shy;ting the appli&shy;ca&shy;tion. This ques&shy;tion merely touches upon <code>Dispose&shy;()</code>&hellip; However <code>Dispose&shy;()</code> and fina&shy;li&shy;za&shy;tion go hand in hand and we rarely meet an imple&shy;men&shy;ta&shy;tion of a class which has fina&shy;li&shy;za&shy;tion but doesn't have <code>Dispose&shy;()</code> method. So&shy;, let’s desc&shy;ribe fina&shy;li&shy;za&shy;tion in a sepa&shy;rate section. Here we just add a few impor&shy;tant details.</p>
 <div class="paragraph-right-side">47</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">48</div>
-<p >
-During appli&shy;ca&shy;tion domain unlo&shy;a&shy;ding you unload both assem&shy;blies loaded into the appli&shy;ca&shy;tion domain and all objects that were created as part of the domain to be unlo&shy;aded. In fact, this means the cleanup (collec&shy;tion by GC) of these objects and calling fina&shy;li&shy;zers for them. If the logic of a fina&shy;lizer waits for fina&shy;li&shy;za&shy;tion of other objects to be dest&shy;royed in the right order, you may pay atten&shy;tion to <code>Environment.HasShutdownStarted</code> property indi&shy;ca&shy;ting that an appli&shy;ca&shy;tion is unlo&shy;aded from memory and to <code>AppDomain.CurrentDomain.IsFinalizingForUnload()</code> method indi&shy;ca&shy;ting that this domain is unlo&shy;aded which is the reason for fina&shy;li&shy;za&shy;tion. If these events occur the order of reso&shy;urces fina&shy;li&shy;za&shy;tion gene&shy;rally becomes unim&shy;por&shy;tant. We cannot delay either the unlo&shy;a&shy;ding of domain or an appli&shy;ca&shy;tion as we should do everything as quickly as possible.</p>
+<p>During appli&shy;ca&shy;tion domain unlo&shy;a&shy;ding you unload both assem&shy;blies loaded into the appli&shy;ca&shy;tion domain and all objects that were created as part of the domain to be unlo&shy;aded. In fact, this means the cleanup (collec&shy;tion by GC) of these objects and calling fina&shy;li&shy;zers for them. If the logic of a fina&shy;lizer waits for fina&shy;li&shy;za&shy;tion of other objects to be dest&shy;royed in the right order, you may pay atten&shy;tion to <code>Environment&shy;.Has&shy;Shutdown&shy;Started</code> property indi&shy;ca&shy;ting that an appli&shy;ca&shy;tion is unlo&shy;aded from memory and to <code>App&shy;Domain&shy;.Current&shy;Domain&shy;.Is&shy;Finalizing&shy;For&shy;Unload&shy;()</code> method indi&shy;ca&shy;ting that this domain is unlo&shy;aded which is the reason for fina&shy;li&shy;za&shy;tion. If these events occur the order of reso&shy;urces fina&shy;li&shy;za&shy;tion gene&shy;rally becomes unim&shy;por&shy;tant. We cannot delay either the unlo&shy;a&shy;ding of domain or an appli&shy;ca&shy;tion as we should do everything as quickly as possible.</p>
 <div class="paragraph-right-side">48</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">49</div>
-<p >
-This is the way this task is solved as part of a class <a href="http://referencesource.microsoft.com/#mscorlib/system/reflection/loaderallocator.cs,25551b0f6db5f579">LoaderAllocatorScout</a></p>
+<p>This is the way this task is solved as part of a class <a href="http://referencesource.microsoft.com/#mscorlib/system/reflection/loaderallocator.cs,25551b0f6db5f579">Loader&shy;Allocator&shy;Scout</a></p>
 <div class="paragraph-right-side">49</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2397,22 +2263,19 @@ This is the way this task is solved as part of a class <a href="http://reference
 }
 </pre></div>
 </div>
-<h2 id="typical-implementation-faults">Typical implementation faults</h2>
+<h2 id="typical-implementation-faults">Typical imple&shy;men&shy;ta&shy;tion faults</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">50</div>
-<p >
-As I showed you there is no uni&shy;versal pattern to imple&shy;ment IDis&shy;po&shy;sable. More&shy;over, some reli&shy;ance on aut&shy;om&shy;atic memory control misleads people and they make confu&shy;sing deci&shy;sions when imple&shy;men&shy;ting a pattern. The whole .NET Frame&shy;work is riddled with errors in its imple&shy;men&shy;ta&shy;tion. To prove my point, let’s look at these errors using the example of .NET Frame&shy;work exactly. All imple&shy;men&shy;ta&shy;tions are ava&shy;ilable via: <a href="http://referencesource.microsoft.com/#mscorlib/system/idisposable.cs,1f55292c3174123d,references">IDisposable Usages</a></p>
+<p>As I showed you there is no uni&shy;versal pattern to imple&shy;ment IDisposable&shy;. Moreover&shy;, some reli&shy;ance on aut&shy;om&shy;atic memory control misleads people and they make confu&shy;sing deci&shy;sions when imple&shy;men&shy;ting a pattern. The whole .NET Frame&shy;work is riddled with errors in its imple&shy;men&shy;ta&shy;tion. To prove my point, let’s look at these errors using the example of .NET Frame&shy;work exactly. All imple&shy;men&shy;ta&shy;tions are ava&shy;ilable via: <a href="http://referencesource.microsoft.com/#mscorlib/system/idisposable.cs,1f55292c3174123d,references">IDis&shy;po&shy;sable Usages</a></p>
 <div class="paragraph-right-side">50</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">51</div>
-<p >
-<strong>FileEntry Class</strong> <a href="http://referencesource.microsoft.com/#mscorlib/system/deployment/cmsinterop.cs,eeedb7095d7d3053,references">cmsinterop.cs</a></p>
+<p><strong>File&shy;Entry Class</strong> <a href="http://referencesource.microsoft.com/#mscorlib/system/deployment/cmsinterop.cs,eeedb7095d7d3053,references">cmsin&shy;terop.cs</a></p>
 <div class="paragraph-right-side">51</div>
 </div>
 <blockquote>
-<p >
-This code is written in a hurry just to close the issue. Obviously, the author wanted to do something but changed their mind and kept a flawed solu&shy;tion</p>
+<p>This code is written in a hurry just to close the issue. Obviously&shy;, the author wanted to do something but changed their mind and kept a flawed solu&shy;tion</p>
 </blockquote>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">internal</span> <span style="color:Blue;">class</span> FileEntry : IDisposable
@@ -2456,13 +2319,11 @@ This code is written in a hurry just to close the issue. Obviously, the author w
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">52</div>
-<p >
-<strong>SemaphoreSlim Class</strong> <a href="https://github.com/dotnet/coreclr/blob/cbcdbd25e74ff9d963eafa202dd63504ca537f7e/src/mscorlib/src/System/Threading/SemaphoreSlim.cs">System/Threading/SemaphoreSlim.cs</a></p>
+<p><strong>Semaphore&shy;Slim Class</strong> <a href="https://github.com/dotnet/coreclr/blob/cbcdbd25e74ff9d963eafa202dd63504ca537f7e/src/mscorlib/src/System/Threading/SemaphoreSlim.cs">System&shy;/Threading&shy;/Semaphore&shy;Slim&shy;.cs</a></p>
 <div class="paragraph-right-side">52</div>
 </div>
 <blockquote>
-<p >
-This error is in the top of errors of .NET Frame&shy;work regar&shy;ding IDis&shy;po&shy;sable: Suppress&shy;Finalize for classes where there is no fina&shy;lizer. It is very common.</p>
+<p>This error is in the top of errors of .NET Frame&shy;work regar&shy;ding IDisposable&shy;: Suppress&shy;Finalize for classes where there is no fina&shy;lizer. It is very common.</p>
 </blockquote>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">void</span> Dispose()
@@ -2493,18 +2354,15 @@ This error is in the top of errors of .NET Frame&shy;work regar&shy;ding IDis&sh
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">53</div>
-<p >
-<strong>Calling Close+Dispose</strong> <a href="https://github.com/alexguirre/NativeWatcher/blob/7208d463c41a709f29c60264bc518c6c0c5713cc/NativeWatcher/Forms/FormsManager.cs">Some NativeWatcher project code</a></p>
+<p><strong>Calling Close&shy;+Dispose</strong> <a href="https://github.com/alexguirre/NativeWatcher/blob/7208d463c41a709f29c60264bc518c6c0c5713cc/NativeWatcher/Forms/FormsManager.cs">Some Native&shy;Watcher project code</a></p>
 <div class="paragraph-right-side">53</div>
 </div>
 <blockquote>
-<p >
-Some&shy;times people call both Close and Dispose. This is wrong though it will not produce an error as the second Dispose doesn’t gene&shy;rate an excep&shy;tion.</p>
+<p>Some&shy;times people call both Close and Dispose&shy;. This is wrong though it will not produce an error as the second Dispose doesn’t gene&shy;rate an excep&shy;tion.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">54</div>
-<p >
-In fact, Close is another pattern to make things clearer for people. However, it made everything more unclear.</p>
+<p>In fact, Close is another pattern to make things clearer for people. However&shy;, it made everything more unclear.</p>
 <div class="paragraph-right-side">54</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2521,30 +2379,12 @@ In fact, Close is another pattern to make things clearer for people. However, it
 </div>
 <h2 id="general-results">General results</h2>
 <ol>
-<li>
-<p >
-IDis&shy;po&shy;sable is a stan&shy;dard of the plat&shy;form and the qua&shy;lity of its imple&shy;men&shy;ta&shy;tion influ&shy;ences the qua&shy;lity of the whole appli&shy;ca&shy;tion. More&shy;over, in some situ&shy;a&shy;tion it influ&shy;ences the safety of your appli&shy;ca&shy;tion that can be attacked via unma&shy;naged reso&shy;urces.</p>
-</li>
-<li>
-<p >
-The imple&shy;men&shy;ta&shy;tion of IDis&shy;po&shy;sable must be maxi&shy;mally produc&shy;tive. This is espe&shy;ci&shy;ally true about the section of fina&shy;li&shy;za&shy;tion, that works in parallel with the rest of code, loa&shy;ding Garbage Collector.</p>
-</li>
-<li>
-<p >
-When imple&shy;men&shy;ting IDis&shy;po&shy;sable you shouldn't use Dispose() simul&shy;ta&shy;neously with public methods of a class. The dest&shy;ruc&shy;tion cannot go along with usage. This should be consi&shy;dered when desig&shy;ning a type that will use IDis&shy;po&shy;sable object.</p>
-</li>
-<li>
-<p >
-However, there should be a protec&shy;tion aga&shy;inst calling ‘Dispose()’ from two threads simul&shy;ta&shy;neously. This results from the state&shy;ment that Dispose() shouldn’t produce errors.</p>
-</li>
-<li>
-<p >
-Types that contain unma&shy;naged reso&shy;urces should be sepa&shy;rated from other types. I mean if you wrap an unma&shy;naged reso&shy;urce, you should allo&shy;cate a sepa&shy;rate type for it. This type should contain fina&shy;li&shy;za&shy;tion and should be inhe&shy;rited from <code>SafeHandle / CriticalHandle / CriticalFinalizerObject</code>. This sepa&shy;ra&shy;tion of respon&shy;si&shy;bi&shy;lity will result in improved support of the type system and will simp&shy;lify the imple&shy;men&shy;ta&shy;tion to destroy instances of types via Dispose(): the types with this imple&shy;men&shy;ta&shy;tion won't need to imple&shy;ment a fina&shy;lizer.</p>
-</li>
-<li>
-<p >
-In general, this pattern is not comfor&shy;table in use as well as in code main&shy;te&shy;nance. Probably, we should use Inver&shy;sion of Control approach when we destroy the state of objects via <code>Lifetime</code> pattern. However, we will talk about it in the next section.</p>
-</li>
+<li>IDis&shy;po&shy;sable is a stan&shy;dard of the plat&shy;form and the qua&shy;lity of its imple&shy;men&shy;ta&shy;tion influ&shy;ences the qua&shy;lity of the whole appli&shy;ca&shy;tion. Moreover&shy;, in some situ&shy;a&shy;tion it influ&shy;ences the safety of your appli&shy;ca&shy;tion that can be attacked via unma&shy;naged reso&shy;urces.</li>
+<li>The imple&shy;men&shy;ta&shy;tion of IDis&shy;po&shy;sable must be maxi&shy;mally produc&shy;tive. This is espe&shy;ci&shy;ally true about the section of fina&shy;li&shy;za&shy;tion, that works in parallel with the rest of code, loa&shy;ding Garbage Collector&shy;.</li>
+<li>When imple&shy;men&shy;ting IDis&shy;po&shy;sable you shouldn't use Dispose&shy;() simul&shy;ta&shy;neously with public methods of a class. The dest&shy;ruc&shy;tion cannot go along with usage. This should be consi&shy;dered when desig&shy;ning a type that will use IDis&shy;po&shy;sable object.</li>
+<li>However&shy;, there should be a protec&shy;tion aga&shy;inst calling ‘Dispose&shy;()’ from two threads simul&shy;ta&shy;neously. This results from the state&shy;ment that Dispose&shy;() shouldn’t produce errors.</li>
+<li>Types that contain unma&shy;naged reso&shy;urces should be sepa&shy;rated from other types. I mean if you wrap an unma&shy;naged reso&shy;urce, you should allo&shy;cate a sepa&shy;rate type for it. This type should contain fina&shy;li&shy;za&shy;tion and should be inhe&shy;rited from <code>Safe&shy;Handle / Critical&shy;Handle / Critical&shy;Finalizer&shy;Object</code>. This sepa&shy;ra&shy;tion of respon&shy;si&shy;bi&shy;lity will result in improved support of the type system and will simp&shy;lify the imple&shy;men&shy;ta&shy;tion to destroy instances of types via Dispose&shy;(): the types with this imple&shy;men&shy;ta&shy;tion won't need to imple&shy;ment a fina&shy;lizer.</li>
+<li>In general, this pattern is not comfor&shy;table in use as well as in code main&shy;te&shy;nance. Probably&shy;, we should use Inver&shy;sion of Control approach when we destroy the state of objects via <code>Life&shy;time</code> pattern. However&shy;, we will talk about it in the next section.</li>
 </ol>
 
         </div>

@@ -133,12 +133,12 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 p code:not(.highlight), li code:not(.highlight) {
     font-size: 0.7em;
-    padding: 3px;
     color: darkslateblue;
 }
 
 /* style for manual selecting */
 .box {
+    padding: 3px;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
@@ -233,6 +233,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     font-weight: 400;
     font-family: inherit;
+    hyphens: none;
 }
 
 h1 {
@@ -246,23 +247,32 @@ h1 {
 
 h2 {
     padding-top: 1.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    margin-bottom: 0.5em;
     font-family: Charter, Arial, Helvetica Neue, sans-serif;
-    font-size: 1.25em;
-    width: 70%;
+    font-size: 1.4em;
+    text-align: center;
 }
 
 h3 {
-    padding-top: 1em;
-    font-size: 1.3em;
+    padding-top: 1.2em;
+    font-family: Charter, Arial, Helvetica Neue, sans-serif;
+    font-size: 1.15em;
+    width: 70%;
+}
+
+h4 {
+    padding: 1em 0 0 0;
+    font-size: 1.2em;
     font-weight: 300;
     font-style: italic;
 }
 
-h4 {
-    margin: 20px 0 10px 0;
-    font-size: 16pt;
-    font-weight: 500;
-    font-style: italic;
+h5 {
+    padding: 0.6em 0 0 0;
+    font-weight: 300;
+    font-size: 1.1em;
 }
 
 /* Sidenotes */
@@ -677,7 +687,7 @@ footer > div {
 /* MD */
 @media (max-width: 991px) {
     
-    h2 {
+    h3 {
         width:80%;
     }
 
@@ -904,7 +914,17 @@ footer > div {
         font-size: 10pt;
         padding: 3px;
     }
-   
+
+    *[class*='lang-'] > div, pre > code {
+        padding-left: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    
+    ol li, ul li {
+        padding-left: 0.2em;	
+    }
+    
     p, li {
         line-height: 24px;
     }    
@@ -1220,7 +1240,7 @@ Try-Catch-Finally in brief</a></li>
                             </li>
                             <li>
                                 <p>
-                                <a href="../..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></p>
+                                <a href="../..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон IDisposable</a></p>
                             </li>
                             <li>
                                 <p>
@@ -1282,27 +1302,23 @@ Try-Catch-Finally in brief</a></li>
             <p class="d-none d-sm-block d-md-none">MD</p>
             <p class="d-none d-lg-block d-xl-none">LG</p>
             <p class="d-none d-xl-block">XL</p> -->
-            <h1 id="exceptions">Exceptions</h1>
+            <h1 id="exceptions">Excep&shy;tions</h1>
 <blockquote>
-<p >
-<a href="https://github.com/sidristij/dotnetbook/issues/51">A link to the discussion</a></p>
+<p><a href="https://github.com/sidristij/dotnetbook/issues/51">A link to the discus&shy;sion</a></p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p >
-It’s time to talk about excep&shy;tions or, rather, excep&shy;ti&shy;onal situ&shy;a&shy;tions. Before we start, let’s look at the defi&shy;ni&shy;tion. What is an excep&shy;ti&shy;onal situ&shy;a&shy;tion?</p>
+<p>It’s time to talk about excep&shy;tions or, rather, excep&shy;ti&shy;onal situ&shy;a&shy;tions. Before we start, let’s look at the defi&shy;ni&shy;tion. What is an excep&shy;ti&shy;onal situ&shy;a&shy;tion?</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p >
-This is a situ&shy;a&shy;tion that makes the exe&shy;cu&shy;tion of current or subse&shy;quent code incor&shy;rect. I mean diffe&shy;rent from how it was designed or intended. Such a situ&shy;a&shy;tion comp&shy;ro&shy;mises the integ&shy;rity of an appli&shy;ca&shy;tion or its part, e.g. an object. It brings the appli&shy;ca&shy;tion into an extra&shy;or&shy;di&shy;nary or excep&shy;ti&shy;onal state.</p>
+<p>This is a situ&shy;a&shy;tion that makes the exe&shy;cu&shy;tion of current or subse&shy;quent code incor&shy;rect. I mean diffe&shy;rent from how it was designed or intended. Such a situ&shy;a&shy;tion comp&shy;ro&shy;mises the integ&shy;rity of an appli&shy;ca&shy;tion or its part, e.g. an object. It brings the appli&shy;ca&shy;tion into an extra&shy;or&shy;di&shy;nary or excep&shy;ti&shy;onal state.</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p >
-But why do we need to define this termi&shy;no&shy;logy? Because it will keep us in some boun&shy;da&shy;ries. If we don’t follow the termi&shy;no&shy;logy, we can get too far from a designed concept which may result in many ambi&shy;guous situ&shy;a&shy;tions. Let’s see some prac&shy;tical examples:</p>
+<p>But why do we need to define this termi&shy;no&shy;logy? Because it will keep us in some boun&shy;da&shy;ries. If we don’t follow the termi&shy;no&shy;logy, we can get too far from a designed concept which may result in many ambi&shy;guous situ&shy;a&shy;tions. Let’s see some prac&shy;tical examples:</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1328,82 +1344,55 @@ But why do we need to define this termi&shy;no&shy;logy? Because it will keep us
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p >
-This example seems a little strange, and it is for a reason. I made this code slightly arti&shy;fi&shy;cial to show the impor&shy;tance of prob&shy;lems appe&shy;a&shy;ring in it. First, let’s look at the <code>Parse</code> method. Why should it throw an excep&shy;tion?</p>
+<p>This example seems a little strange, and it is for a reason. I made this code slightly arti&shy;fi&shy;cial to show the impor&shy;tance of prob&shy;lems appe&shy;a&shy;ring in it. First&shy;, let’s look at the <code>Parse</code> method. Why should it throw an excep&shy;tion?</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <ul>
-<li>
-<p >
-Because the para&shy;meter it accepts is a string, but its output is a number, which is a value type. This number can’t indi&shy;cate vali&shy;dity of calcu&shy;la&shy;tions: it just exists. In other words, the method has no means in its inter&shy;face to commu&shy;ni&shy;cate a poten&shy;tial problem.</p>
-</li>
-<li>
-<p >
-On the other hand, the method expects a correct string that contains some number and no redun&shy;dant char&shy;acters. If it doesn’t contain, there is a problem in prere&shy;qu&shy;i&shy;sites to the method: the code which calls our method has passed wrong data.</p>
-</li>
+<li>Because the para&shy;meter it accepts is a string, but its output is a number, which is a value type. This number can’t indi&shy;cate vali&shy;dity of calcu&shy;la&shy;tions: it just exists. In other words, the method has no means in its inter&shy;face to commu&shy;ni&shy;cate a poten&shy;tial problem.</li>
+<li>On the other hand, the method expects a correct string that contains some number and no redun&shy;dant char&shy;acters. If it doesn’t contain, there is a problem in prere&shy;qu&shy;i&shy;sites to the method: the code which calls our method has passed wrong data.</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p >
-Thus, the situ&shy;a&shy;tion when this method gets a string with incor&shy;rect data is excep&shy;ti&shy;onal because the method can return neither a correct value nor anything.  Thus, the only way is to throw an excep&shy;tion.</p>
+<p>Thus&shy;, the situ&shy;a&shy;tion when this method gets a string with incor&shy;rect data is excep&shy;ti&shy;onal because the method can return neither a correct value nor anything.  Thus&shy;, the only way is to throw an excep&shy;tion.</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p >
-The second variant of the method can signal some prob&shy;lems with input data: the return value here is <code>boolean</code> which indi&shy;cates successful exe&shy;cu&shy;tion of the method. This method doesn’t need to use excep&shy;tions to signal any prob&shy;lems: they are all covered by the <code>false</code> return value.</p>
+<p>The second variant of the method can signal some prob&shy;lems with input data: the return value here is <code>boo&shy;lean</code> which indi&shy;cates successful exe&shy;cu&shy;tion of the method. This method doesn’t need to use excep&shy;tions to signal any prob&shy;lems: they are all covered by the <code>false</code> return value.</p>
 <div class="paragraph-right-side">06</div>
 </div>
-<h2 id="overview">Overview</h2>
+<h2 id="overview">Over&shy;view</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p >
-Excep&shy;tions han&shy;dling might look as easy as ABC: we just need to place <code>try-catch</code> blocks and wait for corres&shy;pon&shy;ding events. However, this simp&shy;li&shy;city became possible due to the tremen&shy;dous work of CLR and Core&shy;CLR teams that uni&shy;fied all the errors that come from all direc&shy;tions and sources into the CLR. To unders&shy;tand what we are going to talk about next, let’s look at a diagram:</p>
+<p>Excep&shy;tions han&shy;dling might look as easy as ABC: we just need to place <code>try-catch</code> blocks and wait for corres&shy;pon&shy;ding events. However&shy;, this simp&shy;li&shy;city became possible due to the tremen&shy;dous work of CLR and Core&shy;CLR teams that uni&shy;fied all the errors that come from all direc&shy;tions and sources into the CLR. To unders&shy;tand what we are going to talk about next, let’s look at a diagram:</p>
 <div class="paragraph-right-side">07</div>
 </div>
-<p >
-<img src="./imgs/CommonScheme.png" alt="" /></p>
+<p><img src="./imgs/CommonScheme.png" alt="" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p >
-We can see that inside big .NET Frame&shy;work there are two worlds: everything that belongs to CLR and everything that doesn’t, inclu&shy;ding all possible errors appe&shy;a&shy;ring in Windows and other parts of the unsafe world.</p>
+<p>We can see that inside big .NET Frame&shy;work there are two worlds: everything that belongs to CLR and everything that doesn’t, inclu&shy;ding all possible errors appe&shy;a&shy;ring in Windows and other parts of the unsafe world.</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <ul>
-<li>
-<p >
-Struc&shy;tured Excep&shy;tion Hand&shy;ling (SEH) is a stan&shy;dard way Windows han&shy;dles excep&shy;tions. When <code>unsafe</code> methods are called and excep&shy;tions are thrown, there is the unsafe <-> CLR conver&shy;sion of excep&shy;tions in both direc&shy;tions: from unsafe to CLR and back&shy;ward. This is because CLR can call an unsafe method which can call a CLR method in turn.</p>
-</li>
-<li>
-<p >
-Vectored Excep&shy;tion Hand&shy;ling (VEH) is a root of SEH and allows you to put your han&shy;dlers in places where excep&shy;tions might be thrown. In parti&shy;cular, it used for placing <code>FirstChanceException</code>.</p>
-</li>
-<li>
-<p >
-COM+ excep&shy;tions appear when the source of a problem is a COM compo&shy;nent. In this case, a layer between COM and a .NET method must convert a COM error into a .NET excep&shy;tion.</p>
-</li>
-<li>
-<p >
-And, of course, wrap&shy;pers for HRESULT. They are intro&shy;duced to convert a Win&shy;API model (an error code is conta&shy;ined in a return value, while return values are obta&shy;ined using method para&shy;me&shy;ters) into a model of excep&shy;tions because it is an excep&shy;tion that is stan&shy;dard for .NET.</p>
-</li>
+<li>Struc&shy;tured Excep&shy;tion Hand&shy;ling (SEH) is a stan&shy;dard way Windows han&shy;dles excep&shy;tions. When <code>unsafe</code> methods are called and excep&shy;tions are thrown, there is the unsafe <-> CLR conver&shy;sion of excep&shy;tions in both direc&shy;tions: from unsafe to CLR and back&shy;ward. This is because CLR can call an unsafe method which can call a CLR method in turn.</li>
+<li>Vectored Excep&shy;tion Hand&shy;ling (VEH) is a root of SEH and allows you to put your han&shy;dlers in places where excep&shy;tions might be thrown. In parti&shy;cular, it used for placing <code>First&shy;Chance&shy;Exception</code>.</li>
+<li>COM+ excep&shy;tions appear when the source of a problem is a COM compo&shy;nent. In this case, a layer between COM and a .NET method must convert a COM error into a .NET excep&shy;tion.</li>
+<li>And&shy;, of course, wrap&shy;pers for HRESULT. They are intro&shy;duced to convert a Win&shy;API model (an error code is conta&shy;ined in a return value, while return values are obta&shy;ined using method para&shy;me&shy;ters) into a model of excep&shy;tions because it is an excep&shy;tion that is stan&shy;dard for .NET.</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
-<p >
-On the other hand, there are langu&shy;ages above CLI each of which more or less have functions for han&shy;dling excep&shy;tions. For example, recently VB.NET or F# had a richer excep&shy;tion han&shy;dling functi&shy;o&shy;na&shy;lity expressed in a number of filters that didn’t exist in C#.</p>
+<p>On the other hand, there are langu&shy;ages above CLI each of which more or less have functions for han&shy;dling excep&shy;tions. For example, recently VB.NET or F# had a richer excep&shy;tion han&shy;dling functi&shy;o&shy;na&shy;lity expressed in a number of filters that didn’t exist in C#.</p>
 <div class="paragraph-right-side">09</div>
 </div>
-<h2 id="return-codes-vs.exception">Return codes vs. exception</h2>
+<h2 id="return-codes-vs.exception">Return codes vs. excep&shy;tion</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
-<p >
-Sepa&shy;ra&shy;tely, I should mention a model of han&shy;dling appli&shy;ca&shy;tion errors using return codes. The idea of simply retur&shy;ning an error is plain and clear. More&shy;over, if we treat excep&shy;tions as a <code>goto</code> ope&shy;rator, the use of return codes becomes more rea&shy;so&shy;nable: in this case, the user of a method sees the possi&shy;bi&shy;lity of errors and can unders&shy;tand which errors may occur. However, let’s not guess what is better and for what, but discuss the problem of choice using a well rea&shy;soned theory.</p>
+<p>Separately&shy;, I should mention a model of han&shy;dling appli&shy;ca&shy;tion errors using return codes. The idea of simply retur&shy;ning an error is plain and clear. Moreover&shy;, if we treat excep&shy;tions as a <code>goto</code> ope&shy;rator, the use of return codes becomes more rea&shy;so&shy;nable: in this case, the user of a method sees the possi&shy;bi&shy;lity of errors and can unders&shy;tand which errors may occur. However&shy;, let’s not guess what is better and for what, but discuss the problem of choice using a well rea&shy;soned theory.</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
-<p >
-Let’s suppose that all methods have inter&shy;faces to deal with errors. Then all methods would look like:</p>
+<p>Let’s suppose that all methods have inter&shy;faces to deal with errors. Then all methods would look like:</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1416,8 +1405,7 @@ Let’s suppose that all methods have inter&shy;faces to deal with errors. Then 
 <span style="color:Blue;">public</span> <span style="color:Blue;">class</span> WebServiceResult : ResultBase { ... }
 </pre></div>
 </div>
-<p >
-And their use would look like:</p>
+<p>And their use would look like:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 
 <span style="color:Blue;">public</span> ShowClientsResult ShowClients(<span style="color:Blue;">string</span> <span style="color:Blue;">group</span>)
@@ -1443,14 +1431,12 @@ And their use would look like:</p>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
-<p >
-You may think this code is over&shy;lo&shy;aded with error han&shy;dling. However, I would like you to recon&shy;sider your posi&shy;tion: everything here is an emu&shy;la&shy;tion of a mech&shy;anism that throws and han&shy;dles excep&shy;tions.</p>
+<p>You may think this code is over&shy;lo&shy;aded with error han&shy;dling. However&shy;, I would like you to recon&shy;sider your posi&shy;tion: everything here is an emu&shy;la&shy;tion of a mech&shy;anism that throws and han&shy;dles excep&shy;tions.</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
-<p >
-How can a method report a problem? It can do it by using an inter&shy;face for repor&shy;ting errors. For example, in <code>TryParseInteger</code> method such inter&shy;face is repre&shy;sented by a return value: if everything is OK, the method will return <code>true</code>. If it’s not OK, it will return <code>false</code>. However, there is a disad&shy;van&shy;tage here: the real value is returned via <code>out int result</code> para&shy;meter. The disad&shy;van&shy;tage is that on the one hand the return value is logi&shy;cally and by percep&shy;tion has more "return value” essence than that of <code>out</code> para&shy;meter. On the other hand, we don’t always care about errors. Indeed, if a string intended for parsing comes from a service that gene&shy;rated this string, we don’t need to check it for errors: the string will always be correct and good for parsing. However, suppose we take another imple&shy;men&shy;ta&shy;tion of the method:</p>
+<p>How can a method report a problem? It can do it by using an inter&shy;face for repor&shy;ting errors. For example, in <code>Try&shy;Parse&shy;Integer</code> method such inter&shy;face is repre&shy;sented by a return value: if everything is OK, the method will return <code>true</code>. If it’s not OK, it will return <code>false</code>. However&shy;, there is a disad&shy;van&shy;tage here: the real value is returned via <code>out int result</code> para&shy;meter. The disad&shy;van&shy;tage is that on the one hand the return value is logi&shy;cally and by percep&shy;tion has more "return value” essence than that of <code>out</code> para&shy;meter. On the other hand, we don’t always care about errors. Indeed&shy;, if a string intended for parsing comes from a service that gene&shy;rated this string, we don’t need to check it for errors: the string will always be correct and good for parsing. However&shy;, suppose we take another imple&shy;men&shy;ta&shy;tion of the method:</p>
 <div class="paragraph-right-side">13</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1459,43 +1445,36 @@ How can a method report a problem? It can do it by using an inter&shy;face for r
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
-<p >
-Then, there is a ques&shy;tion: if a string does have errors, what should the method do? Should it return zero? This won’t be correct: there is no zero in the string. In this case, we have a conf&shy;lict of inte&shy;rests: the first variant has too much code, while the second variant has no means to report errors. However, it’s actu&shy;ally easy to decide when to use return codes and when to use excep&shy;tions.</p>
+<p>Then&shy;, there is a ques&shy;tion: if a string does have errors, what should the method do? Should it return zero? This won’t be correct: there is no zero in the string. In this case, we have a conf&shy;lict of inte&shy;rests: the first variant has too much code, while the second variant has no means to report errors. However&shy;, it’s actu&shy;ally easy to decide when to use return codes and when to use excep&shy;tions.</p>
 <div class="paragraph-right-side">14</div>
 </div>
 <blockquote>
-<p >
-If getting an error is a norm, choose a return code. For example, it is normal when a text parsing algo&shy;rithm enco&shy;un&shy;ters errors in a text, but if another algo&shy;rithm that works with a parsed string gets an error from a parser, it can be critical or, in other words, excep&shy;ti&shy;onal.</p>
+<p>If getting an error is a norm, choose a return code. For example, it is normal when a text parsing algo&shy;rithm enco&shy;un&shy;ters errors in a text, but if another algo&shy;rithm that works with a parsed string gets an error from a parser, it can be critical or, in other words, excep&shy;ti&shy;onal.</p>
 </blockquote>
-<h2 id="try-catch-finally-in-brief">Try-Catch-Finally in brief</h2>
+<h2 id="try-catch-finally-in-brief">Try&shy;-Catch&shy;-Finally in brief</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
-<p >
-A <code>try</code> block covers a section where a prog&shy;rammer expects to get a critical situ&shy;a&shy;tion which is treated as a norm by external code. In other words, if some code consi&shy;ders its internal state incon&shy;sis&shy;tent based on some rules and throws an excep&shy;tion, an external system, which has a broader view of the same situ&shy;a&shy;tion, can catch this excep&shy;tion using a <code>catch</code> block and norma&shy;lize the exe&shy;cu&shy;tion of appli&shy;ca&shy;tion code. Thus, <em>you legalize exceptions in this section of code by catching them</em>. I think it is an impor&shy;tant idea that justi&shy;fies the ban on catching all <code>try-catch(Exception ex){ ...}</code> excep&shy;tions <em>just in case</em>.</p>
+<p>A <code>try</code> block covers a section where a prog&shy;rammer expects to get a critical situ&shy;a&shy;tion which is treated as a norm by external code. In other words, if some code consi&shy;ders its internal state incon&shy;sis&shy;tent based on some rules and throws an excep&shy;tion, an external system, which has a broader view of the same situ&shy;a&shy;tion, can catch this excep&shy;tion using a <code>catch</code> block and norma&shy;lize the exe&shy;cu&shy;tion of appli&shy;ca&shy;tion code. Thus&shy;, <em>you lega&shy;lize excep&shy;tions in this section of code by catching them</em>. I think it is an impor&shy;tant idea that justi&shy;fies the ban on catching all <code>try-catch(Excep&shy;tion ex){ ...}</code> excep&shy;tions <em>just in case</em>.</p>
 <div class="paragraph-right-side">15</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
-<p >
-It doesn’t mean that catching excep&shy;tions cont&shy;ra&shy;dicts some ide&shy;o&shy;logy. I say that you should catch only the errors that you expect from a parti&shy;cular section of code. For example, you can’t expect all types of excep&shy;tions inhe&shy;rited from <code>ArgumentException</code> or you can’t get <code>NullReferenceException</code>, because often it means that a problem is rather in <em>your</em> code than in a called one. But it’s approp&shy;riate to expect that you won’t be able to open an intended file. Even if you 200% sure you will be able, don’t forget to check.</p>
+<p>It doesn’t mean that catching excep&shy;tions cont&shy;ra&shy;dicts some ide&shy;o&shy;logy. I say that you should catch only the errors that you expect from a parti&shy;cular section of code. For example, you can’t expect all types of excep&shy;tions inhe&shy;rited from <code>Argument&shy;Exception</code> or you can’t get <code>Null&shy;Reference&shy;Exception</code>, because often it means that a problem is rather in <em>your</em> code than in a called one. But it’s approp&shy;riate to expect that you won’t be able to open an intended file. Even if you 200% sure you will be able, don’t forget to check.</p>
 <div class="paragraph-right-side">16</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
-<p >
-The <code>finally</code> block is also well known. It is suitable for all cases covered by <code>try-catch</code> blocks. Except for several rare <em>special</em> situ&shy;a&shy;tions, this block will <em>always</em> work. Why was such a guarantee of perfor&shy;mance intro&shy;duced? To clean up those reso&shy;urces and groups of objects which were allo&shy;cated or captured in <code>try</code> block and which this block has respon&shy;si&shy;bi&shy;lity for.</p>
+<p>The <code>finally</code> block is also well known. It is suitable for all cases covered by <code>try-catch</code> blocks. Except for several rare <em>special</em> situ&shy;a&shy;tions, this block will <em>always</em> work. Why was such a guarantee of perfor&shy;mance intro&shy;duced? To clean up those reso&shy;urces and groups of objects which were allo&shy;cated or captured in <code>try</code> block and which this block has respon&shy;si&shy;bi&shy;lity for.</p>
 <div class="paragraph-right-side">17</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
-<p >
-This block is often used without <code>catch</code> block when we don’t care which error broke an algo&shy;rithm, but we need to clean up all reso&shy;urces allo&shy;cated for this algo&shy;rithm. Let’s look at a simple example: a file copying algo&shy;rithm needs two open files and a memory range for a cash buffer. Imagine that we allo&shy;cated memory and opened one file, but couldn’t open another one. To wrap everything in one "tran&shy;sac&shy;tion” ato&shy;mi&shy;cally we put all three ope&shy;ra&shy;tions in a single <code>try</code> block (as a variant of imple&shy;men&shy;ta&shy;tion) with reso&shy;urces cleaned in <code>finally</code>. It may seem like a simp&shy;li&shy;fied example but the most impor&shy;tant is to show the essence.</p>
+<p>This block is often used without <code>catch</code> block when we don’t care which error broke an algo&shy;rithm, but we need to clean up all reso&shy;urces allo&shy;cated for this algo&shy;rithm. Let’s look at a simple example: a file copying algo&shy;rithm needs two open files and a memory range for a cash buffer. Imagine that we allo&shy;cated memory and opened one file, but couldn’t open another one. To wrap everything in one "tran&shy;sac&shy;tion” ato&shy;mi&shy;cally we put all three ope&shy;ra&shy;tions in a single <code>try</code> block (as a variant of imple&shy;men&shy;ta&shy;tion) with reso&shy;urces cleaned in <code>finally</code>. It may seem like a simp&shy;li&shy;fied example but the most impor&shy;tant is to show the essence.</p>
 <div class="paragraph-right-side">18</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
-<p >
-What C# actu&shy;ally lacks is a <code>fault</code> block which is acti&shy;vated whe&shy;never an error occurs. It’s like <code>finally</code> on steroids. If we had this, we could, for example, create a single entry point to log excep&shy;ti&shy;onal situ&shy;a&shy;tions:</p>
+<p>What C# actu&shy;ally lacks is a <code>fault</code> block which is acti&shy;vated whe&shy;never an error occurs. It’s like <code>finally</code> on steroids. If we had this, we could, for example, create a single entry point to log excep&shy;ti&shy;onal situ&shy;a&shy;tions:</p>
 <div class="paragraph-right-side">19</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1510,8 +1489,7 @@ What C# actu&shy;ally lacks is a <code>fault</code> block which is acti&shy;vate
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
-<p >
-Another thing I should touch in this intro&shy;duc&shy;tion is excep&shy;tion filters. It is not a new fea&shy;ture on the .NET plat&shy;form but C# deve&shy;lo&shy;pers may be new to it: excep&shy;tion filte&shy;ring appe&shy;ared only in v. 6.0. Filters should norma&shy;lize a situ&shy;a&shy;tion when there is a single type of excep&shy;tion that combines several types of errors. It should help us when we want to deal with a parti&shy;cular scenario but have to catch the whole group of errors first and filter them later. Of course, I mean the code of the follo&shy;wing type:</p>
+<p>Another thing I should touch in this intro&shy;duc&shy;tion is excep&shy;tion filters. It is not a new fea&shy;ture on the .NET plat&shy;form but C# deve&shy;lo&shy;pers may be new to it: excep&shy;tion filte&shy;ring appe&shy;ared only in v. 6.0. Filters should norma&shy;lize a situ&shy;a&shy;tion when there is a single type of excep&shy;tion that combines several types of errors. It should help us when we want to deal with a parti&shy;cular scenario but have to catch the whole group of errors first and filter them later. Of course, I mean the code of the follo&shy;wing type:</p>
 <div class="paragraph-right-side">20</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1534,8 +1512,7 @@ Another thing I should touch in this intro&shy;duc&shy;tion is excep&shy;tion fi
 }
 </pre></div>
 </div>
-<p >
-Well, we can now rewrite this code properly:</p>
+<p>Well&shy;, we can now rewrite this code properly:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">try</span> {
     <span style="color:Green;">//...</span>
@@ -1552,28 +1529,17 @@ Well, we can now rewrite this code properly:</p>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
-<p >
-The impro&shy;ve&shy;ment here is not in the lack of <code>switch</code> construct. I believe this new construct is better in several things:</p>
+<p>The impro&shy;ve&shy;ment here is not in the lack of <code>switch</code> construct. I believe this new construct is better in several things:</p>
 <div class="paragraph-right-side">21</div>
 </div>
 <ul>
-<li>
-<p >
-using <code>when</code> for filte&shy;ring we catch exactly what we want and it’s right in terms of ide&shy;o&shy;logy;</p>
-</li>
-<li>
-<p >
-the code becomes more readable in this new form. Loo&shy;king through code our brain can iden&shy;tify blocks for han&shy;dling errors more easily as it ini&shy;ti&shy;ally searches for <code>catch</code> and not <code>switch-case</code>;</p>
-</li>
-<li>
-<p >
-the last but not least: a preli&shy;mi&shy;nary compa&shy;rison is BEFORE ente&shy;ring the catch block. It means that if we make wrong guesses about poten&shy;tial situ&shy;a&shy;tions, this construct will work faster than <code>switch</code> in the case of throwing an excep&shy;tion again.</p>
-</li>
+<li>using <code>when</code> for filte&shy;ring we catch exactly what we want and it’s right in terms of ide&shy;o&shy;logy;</li>
+<li>the code becomes more readable in this new form. Loo&shy;king through code our brain can iden&shy;tify blocks for han&shy;dling errors more easily as it ini&shy;ti&shy;ally searches for <code>catch</code> and not <code>switch-case</code>;</li>
+<li>the last but not least: a preli&shy;mi&shy;nary compa&shy;rison is BEFORE ente&shy;ring the catch block. It means that if we make wrong guesses about poten&shy;tial situ&shy;a&shy;tions, this construct will work faster than <code>switch</code> in the case of throwing an excep&shy;tion again.</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
-<p >
-Many sources say that the pecu&shy;liar fea&shy;ture of this code is that filte&shy;ring happens <em>before</em> stack unrol&shy;ling. You can see this in situ&shy;a&shy;tions when there are no other calls except usual between the place where an excep&shy;tion is thrown and the place where filte&shy;ring check occurs.</p>
+<p>Many sources say that the pecu&shy;liar fea&shy;ture of this code is that filte&shy;ring happens <em>before</em> stack unrol&shy;ling. You can see this in situ&shy;a&shy;tions when there are no other calls except usual between the place where an excep&shy;tion is thrown and the place where filte&shy;ring check occurs.</p>
 <div class="paragraph-right-side">22</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1605,19 +1571,16 @@ Many sources say that the pecu&shy;liar fea&shy;ture of this code is that filte&
 }
 </pre></div>
 </div>
-<p >
-<img src="./imgs/StackWOutUnrolling.png" alt="Stack without unrolling" /></p>
+<p><img src="./imgs/StackWOutUnrolling.png" alt="Stack without unrol&shy;ling" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
-<p >
-You can see from the image that the stack trace contains not only the first call of <code>Main</code> as the point to catch an excep&shy;tion, but the whole stack before the point of throwing an excep&shy;tion plus the second ente&shy;ring into <code>Main</code> via unma&shy;naged code. We can suppose that this code is exactly the code for throwing excep&shy;tions that is in the stage of filte&shy;ring and choosing a final han&shy;dler. However, <em>not all calls can be handled without stack unrolling</em>. I believe that exces&shy;sive uni&shy;for&shy;mity of the plat&shy;form gene&shy;rates too much confi&shy;dence in it. For example, when one domain calls a method from another domain it is abso&shy;lu&shy;tely trans&shy;pa&shy;rent in terms of code. However, the way methods calls work is an abso&shy;lu&shy;tely diffe&shy;rent story. We are going to talk about them in the next part.</p>
+<p>You can see from the image that the stack trace contains not only the first call of <code>Main</code> as the point to catch an excep&shy;tion, but the whole stack before the point of throwing an excep&shy;tion plus the second ente&shy;ring into <code>Main</code> via unma&shy;naged code. We can suppose that this code is exactly the code for throwing excep&shy;tions that is in the stage of filte&shy;ring and choosing a final han&shy;dler. However&shy;, <em>not all calls can be han&shy;dled without stack unrol&shy;ling</em>. I believe that exces&shy;sive uni&shy;for&shy;mity of the plat&shy;form gene&shy;rates too much confi&shy;dence in it. For example, when one domain calls a method from another domain it is abso&shy;lu&shy;tely trans&shy;pa&shy;rent in terms of code. However&shy;, the way methods calls work is an abso&shy;lu&shy;tely diffe&shy;rent story. We are going to talk about them in the next part.</p>
 <div class="paragraph-right-side">23</div>
 </div>
-<h3 id="serialization">Serialization</h3>
+<h3 id="serialization">Seri&shy;a&shy;li&shy;za&shy;tion</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">24</div>
-<p >
-Let’s start by loo&shy;king at the results of running the follo&shy;wing code (I added the transfer of a call across the boun&shy;dary between two appli&shy;ca&shy;tion domains).</p>
+<p>Let’s start by loo&shy;king at the results of running the follo&shy;wing code (I added the transfer of a call across the boun&shy;dary between two appli&shy;ca&shy;tion domains).</p>
 <div class="paragraph-right-side">24</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1664,20 +1627,15 @@ Let’s start by loo&shy;king at the results of running the follo&shy;wing code 
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
-<p >
-We can see that stack unrol&shy;ling happens before we get to filte&shy;ring. Let’s look at screenshots. The first is taken before the gene&shy;ra&shy;tion of an excep&shy;tion:</p>
+<p>We can see that stack unrol&shy;ling happens before we get to filte&shy;ring. Let’s look at screenshots. The first is taken before the gene&shy;ra&shy;tion of an excep&shy;tion:</p>
 <div class="paragraph-right-side">25</div>
 </div>
-<p >
-<img src="./imgs/StackUnroll.png" alt="StackUnroll" /></p>
-<p >
-The second one is after it:</p>
-<p >
-<img src="./imgs/StackUnroll2.png" alt="StackUnroll2" /></p>
+<p><img src="./imgs/StackUnroll.png" alt="Stack&shy;Unroll" /></p>
+<p>The second one is after it:</p>
+<p><img src="./imgs/StackUnroll2.png" alt="Stack&shy;Unroll2" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
-<p >
-Let’s study call tracing before and after excep&shy;tions are filtered. What happens here? We can see that plat&shy;form deve&shy;lo&shy;pers made something that at first glance looks like the protec&shy;tion of a subdo&shy;main. The tracing is cut after the last method in the call chain and then there is the transfer to another domain. But I think this looks strange. To unders&shy;tand why this happens let’s remember the main rule for types that orga&shy;nize the inte&shy;rac&shy;tion between domains. These types should inherit <code>MarshalByRefObject</code> and be seri&shy;a&shy;li&shy;zable. However, despite the stric&shy;tness of C# excep&shy;tion types can be of any nature. What does it mean? This means that situ&shy;a&shy;tions may occur when an excep&shy;tion inside a subdo&shy;main can be caught in a parent domain. Also, if a data object that can get into an excep&shy;ti&shy;onal situ&shy;a&shy;tion has some methods that are dange&shy;rous in terms of secu&shy;rity they can be called in a parent domain. To avoid this, the excep&shy;tion is first seri&shy;a&shy;lized and then it crosses the boun&shy;dary between appli&shy;ca&shy;tion domains and appears again with a new stack. Let’s check this theory:</p>
+<p>Let’s study call tracing before and after excep&shy;tions are filtered. What happens here? We can see that plat&shy;form deve&shy;lo&shy;pers made something that at first glance looks like the protec&shy;tion of a subdo&shy;main. The tracing is cut after the last method in the call chain and then there is the transfer to another domain. But I think this looks strange. To unders&shy;tand why this happens let’s remember the main rule for types that orga&shy;nize the inte&shy;rac&shy;tion between domains. These types should inherit <code>Marshal&shy;By&shy;Ref&shy;Object</code> and be seri&shy;a&shy;li&shy;zable. However&shy;, despite the stric&shy;tness of C# excep&shy;tion types can be of any nature. What does it mean? This means that situ&shy;a&shy;tions may occur when an excep&shy;tion inside a subdo&shy;main can be caught in a parent domain. Also&shy;, if a data object that can get into an excep&shy;ti&shy;onal situ&shy;a&shy;tion has some methods that are dange&shy;rous in terms of secu&shy;rity they can be called in a parent domain. To avoid this, the excep&shy;tion is first seri&shy;a&shy;lized and then it crosses the boun&shy;dary between appli&shy;ca&shy;tion domains and appears again with a new stack. Let’s check this theory:</p>
 <div class="paragraph-right-side">26</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1732,26 +1690,21 @@ Let’s study call tracing before and after excep&shy;tions are filtered. What h
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">27</div>
-<p >
-For C# code could throw an excep&shy;tion of any type (I don’t want to torture you with MSIL) I performed a trick in this example casting a type to a noncom&shy;pa&shy;rable one, so we could throw an excep&shy;tion of any type, but the trans&shy;lator would think that we use <code>Exception</code> type. We create an instance of the <code>Program</code> type, which is not seri&shy;a&shy;li&shy;zable for sure, and throw an excep&shy;tion using this type as workload. The good news is that you get a wrapper for non-Excep&shy;tion excep&shy;tions of <code>RuntimeWrappedException</code> which will store an instance of our <code>Program</code> type object inside and we will be able to catch this excep&shy;tion. However, there is bad news that supports our idea: calling <code>proxy.MethodInsideAppDomain();</code> will gene&shy;rate <code>SerializationException</code>:</p>
+<p>For C# code could throw an excep&shy;tion of any type (I don’t want to torture you with MSIL) I performed a trick in this example casting a type to a noncom&shy;pa&shy;rable one, so we could throw an excep&shy;tion of any type, but the trans&shy;lator would think that we use <code>Excep&shy;tion</code> type. We create an instance of the <code>Program</code> type, which is not seri&shy;a&shy;li&shy;zable for sure, and throw an excep&shy;tion using this type as workload. The good news is that you get a wrapper for non-Excep&shy;tion excep&shy;tions of <code>Runtime&shy;Wrapped&shy;Exception</code> which will store an instance of our <code>Program</code> type object inside and we will be able to catch this excep&shy;tion. However&shy;, there is bad news that supports our idea: calling <code>proxy.Method&shy;Inside&shy;App&shy;Domain&shy;();</code> will gene&shy;rate <code>Serialization&shy;Exception</code>:</p>
 <div class="paragraph-right-side">27</div>
 </div>
-<p >
-<img src="./imgs/SerializationError.png" alt="" /></p>
+<p><img src="./imgs/SerializationError.png" alt="" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
-<p >
-Thus, you can’t transfer such an excep&shy;tion between domains as it is not possible to seri&shy;a&shy;lize it. This, in turn, means that using excep&shy;tion filters for wrap&shy;ping methods calls in other domains will anyway lead to stack unrol&shy;ling despite that the seri&shy;a&shy;li&shy;za&shy;tion seems to be unne&shy;ces&shy;sary with <code>FullTrust</code> settings of a subdo&shy;main.</p>
+<p>Thus&shy;, you can’t transfer such an excep&shy;tion between domains as it is not possible to seri&shy;a&shy;lize it. This&shy;, in turn, means that using excep&shy;tion filters for wrap&shy;ping methods calls in other domains will anyway lead to stack unrol&shy;ling despite that the seri&shy;a&shy;li&shy;za&shy;tion seems to be unne&shy;ces&shy;sary with <code>Full&shy;Trust</code> settings of a subdo&shy;main.</p>
 <div class="paragraph-right-side">28</div>
 </div>
 <blockquote>
-<p >
-We should pay addi&shy;ti&shy;onal atten&shy;tion to the reason why seri&shy;a&shy;li&shy;za&shy;tion between domains is so neces&shy;sary. In our arti&shy;fi&shy;cial example, we create a subdo&shy;main which doesn’t have any settings. It means it works in Full&shy;Trust way. CLR fully trusts its content and doesn’t run any addi&shy;ti&shy;onal checks. However, when you insert at least one secu&shy;rity setting, the full trust will disap&shy;pear and CLR will start cont&shy;rol&shy;ling everything that happens inside a subdo&shy;main. So, when you have a fully trusted domain you don’t need a seri&shy;a&shy;li&shy;za&shy;tion. Admit, we don’t need to protect ourse&shy;lves. But seri&shy;a&shy;li&shy;za&shy;tion exists not only for protec&shy;tion. Each domain loads all neces&shy;sary assem&shy;blies a second time and creates their copies. Thus, it creates copies of all types and all VMTs. Of course, when passing an object from domain to domain you will get the same object. But its VMTs won’t be its own and this object can’t be cast to another type. In other words, if we create an instance of a <code>Boo</code> type and get it in another domain the casting of <code>(Boo)boo</code> won’t work. In this case, seri&shy;a&shy;li&shy;za&shy;tion and dese&shy;ri&shy;a&shy;li&shy;za&shy;tion will solve the problem as the object will exist in two domains simul&shy;ta&shy;neously. It will exist with all its data where it was created and it will exist in the domain of usage as a proxy object, ensu&shy;ring that methods of an ori&shy;ginal object are called.</p>
+<p>We should pay addi&shy;ti&shy;onal atten&shy;tion to the reason why seri&shy;a&shy;li&shy;za&shy;tion between domains is so neces&shy;sary. In our arti&shy;fi&shy;cial example, we create a subdo&shy;main which doesn’t have any settings. It means it works in Full&shy;Trust way. CLR fully trusts its content and doesn’t run any addi&shy;ti&shy;onal checks. However&shy;, when you insert at least one secu&shy;rity setting, the full trust will disap&shy;pear and CLR will start cont&shy;rol&shy;ling everything that happens inside a subdo&shy;main. So&shy;, when you have a fully trusted domain you don’t need a seri&shy;a&shy;li&shy;za&shy;tion. Admit&shy;, we don’t need to protect ourse&shy;lves. But seri&shy;a&shy;li&shy;za&shy;tion exists not only for protec&shy;tion. Each domain loads all neces&shy;sary assem&shy;blies a second time and creates their copies. Thus&shy;, it creates copies of all types and all VMTs&shy;. Of course, when passing an object from domain to domain you will get the same object. But its VMTs won’t be its own and this object can’t be cast to another type. In other words, if we create an instance of a <code>Boo</code> type and get it in another domain the casting of <code>(Boo&shy;)boo</code> won’t work. In this case, seri&shy;a&shy;li&shy;za&shy;tion and dese&shy;ri&shy;a&shy;li&shy;za&shy;tion will solve the problem as the object will exist in two domains simul&shy;ta&shy;neously. It will exist with all its data where it was created and it will exist in the domain of usage as a proxy object, ensu&shy;ring that methods of an ori&shy;ginal object are called.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">29</div>
-<p >
-By trans&shy;fer&shy;ring a seri&shy;a&shy;lized object between domains you get a full copy of the object from one domain in another one while kee&shy;ping some deli&shy;mi&shy;ta&shy;tion in memory. However, this deli&shy;mi&shy;ta&shy;tion is ficti&shy;onal. It is used only for those types that are not in <code>Shared AppDomain</code>. Thus, if you throw something non-seri&shy;a&shy;li&shy;zable as an excep&shy;tion, but from <code>Shared AppDomain</code>, you won’t get an error of seri&shy;a&shy;li&shy;za&shy;tion (we can try throwing <code>Action</code> instead of <code>Program</code>). However, stack unrol&shy;ling will anyway occur in this case: as both vari&shy;ants should work in a stan&shy;dard way. So that nobody will be confused.</p>
+<p>By trans&shy;fer&shy;ring a seri&shy;a&shy;lized object between domains you get a full copy of the object from one domain in another one while kee&shy;ping some deli&shy;mi&shy;ta&shy;tion in memory. However&shy;, this deli&shy;mi&shy;ta&shy;tion is ficti&shy;onal. It is used only for those types that are not in <code>Shared App&shy;Domain</code>. Thus&shy;, if you throw something non-seri&shy;a&shy;li&shy;zable as an excep&shy;tion, but from <code>Shared App&shy;Domain</code>, you won’t get an error of seri&shy;a&shy;li&shy;za&shy;tion (we can try throwing <code>Action</code> instead of <code>Program</code>). However&shy;, stack unrol&shy;ling will anyway occur in this case: as both vari&shy;ants should work in a stan&shy;dard way. So that nobody will be confused.</p>
 <div class="paragraph-right-side">29</div>
 </div>
 

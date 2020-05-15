@@ -133,12 +133,12 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 p code:not(.highlight), li code:not(.highlight) {
     font-size: 0.7em;
-    padding: 3px;
     color: darkslateblue;
 }
 
 /* style for manual selecting */
 .box {
+    padding: 3px;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
@@ -233,6 +233,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     font-weight: 400;
     font-family: inherit;
+    hyphens: none;
 }
 
 h1 {
@@ -246,23 +247,32 @@ h1 {
 
 h2 {
     padding-top: 1.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    margin-bottom: 0.5em;
     font-family: Charter, Arial, Helvetica Neue, sans-serif;
-    font-size: 1.25em;
-    width: 70%;
+    font-size: 1.4em;
+    text-align: center;
 }
 
 h3 {
-    padding-top: 1em;
-    font-size: 1.3em;
+    padding-top: 1.2em;
+    font-family: Charter, Arial, Helvetica Neue, sans-serif;
+    font-size: 1.15em;
+    width: 70%;
+}
+
+h4 {
+    padding: 1em 0 0 0;
+    font-size: 1.2em;
     font-weight: 300;
     font-style: italic;
 }
 
-h4 {
-    margin: 20px 0 10px 0;
-    font-size: 16pt;
-    font-weight: 500;
-    font-style: italic;
+h5 {
+    padding: 0.6em 0 0 0;
+    font-weight: 300;
+    font-size: 1.1em;
 }
 
 /* Sidenotes */
@@ -677,7 +687,7 @@ footer > div {
 /* MD */
 @media (max-width: 991px) {
     
-    h2 {
+    h3 {
         width:80%;
     }
 
@@ -904,7 +914,17 @@ footer > div {
         font-size: 10pt;
         padding: 3px;
     }
-   
+
+    *[class*='lang-'] > div, pre > code {
+        padding-left: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    
+    ol li, ul li {
+        padding-left: 0.2em;	
+    }
+    
     p, li {
         line-height: 24px;
     }    
@@ -1220,7 +1240,7 @@ footer > div {
                             </li>
                             <li>
                                 <p>
-                                <a href="../../..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон Disposable</a></p>
+                                <a href="../../..//ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон IDisposable</a></p>
                             </li>
                             <li>
                                 <p>
@@ -1282,27 +1302,23 @@ footer > div {
             <p class="d-none d-sm-block d-md-none">MD</p>
             <p class="d-none d-lg-block d-xl-none">LG</p>
             <p class="d-none d-xl-block">XL</p> -->
-            <h1 id="section">Исключения</h1>
+            <h1 id="section">Искл&shy;юч&shy;ения</h1>
 <blockquote>
-<p >
-<a href="https://github.com/sidristij/dotnetbook/issues/51">Ссылка на обсуждение</a></p>
+<p><a href="https://github.com/sidristij/dotnetbook/issues/51">Ссылка на обсуж&shy;де&shy;ние</a></p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p >
-В нашем раз&shy;го&shy;воре о потоке испол&shy;не&shy;ния команд раз&shy;лич&shy;ными под&shy;сис&shy;те&shy;мами пришло время пого&shy;во&shy;рить про исклю&shy;че&shy;ния или, ско&shy;рее, исклю&shy;чи&shy;тель&shy;ные ситу&shy;а&shy;ции. И прежде чем про&shy;дол&shy;жить стоит сов&shy;сем нем&shy;ного оста&shy;но&shy;виться именно на самом опре&shy;де&shy;ле&shy;нии. Что такое исклю&shy;чи&shy;тель&shy;ная ситу&shy;а&shy;ция?</p>
+<p>В нашем раз&shy;го&shy;воре о потоке испол&shy;не&shy;ния команд раз&shy;лич&shy;ными под&shy;сис&shy;те&shy;мами пришло время пого&shy;во&shy;рить про исклю&shy;че&shy;ния или, ско&shy;рее, исклю&shy;чи&shy;тель&shy;ные ситу&shy;а&shy;ции. И прежде чем про&shy;дол&shy;жить стоит сов&shy;сем нем&shy;ного оста&shy;но&shy;виться именно на самом опре&shy;де&shy;ле&shy;нии. Что такое исклю&shy;чи&shy;тель&shy;ная ситу&shy;а&shy;ция?</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p >
-Искл&shy;юч&shy;ител&shy;ьной назы&shy;вают такую ситу&shy;а&shy;цию, кото&shy;рая делает испол&shy;не&shy;ние даль&shy;ней&shy;шего или теку&shy;щего кода абсо&shy;лютно не кор&shy;рект&shy;ным. Не таким как заду&shy;мы&shy;ва&shy;лось, про&shy;ек&shy;ти&shy;ро&shy;ва&shy;лось. Пере&shy;во&shy;дит сос&shy;то&shy;я&shy;ние при&shy;ло&shy;же&shy;ния в целом или же его отдель&shy;ной части (нап&shy;ри&shy;мер, объ&shy;екта) в сос&shy;то&shy;я&shy;ние нару&shy;шен&shy;ной целост&shy;ности. Т.е. что-то экс&shy;тр&shy;ао&shy;рди&shy;нарное, исклю&shy;чи&shy;тель&shy;ное.</p>
+<p>Искл&shy;юч&shy;ител&shy;ьной назы&shy;вают такую ситу&shy;а&shy;цию, кото&shy;рая делает испол&shy;не&shy;ние даль&shy;ней&shy;шего или теку&shy;щего кода абсо&shy;лютно не кор&shy;рект&shy;ным. Не таким как заду&shy;мы&shy;ва&shy;лось, про&shy;ек&shy;ти&shy;ро&shy;ва&shy;лось. Пере&shy;во&shy;дит сос&shy;то&shy;я&shy;ние при&shy;ло&shy;же&shy;ния в целом или же его отдель&shy;ной части (нап&shy;ри&shy;мер, объ&shy;екта) в сос&shy;то&shy;я&shy;ние нару&shy;шен&shy;ной целост&shy;ности. Т.е. что-то экс&shy;тр&shy;ао&shy;рди&shy;нарное, исклю&shy;чи&shy;тель&shy;ное.</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p >
-Почему же это так важно - опре&shy;де&shy;лить тер&shy;ми&shy;но&shy;ло&shy;гию? Работа с тер&shy;ми&shy;но&shy;ло&shy;гией очень важна, т.к. она дер&shy;жит нас в рам&shy;ках. Если не сле&shy;до&shy;вать тер&shy;ми&shy;но&shy;ло&shy;гии можно уйти далеко от соз&shy;дан&shy;ного про&shy;ек&shy;ти&shy;ров&shy;щи&shy;ками кон&shy;цепта и полу&shy;чить мно&shy;жес&shy;тво неод&shy;ноз&shy;нач&shy;ных ситу&shy;а&shy;ций. А чтобы зак&shy;ре&shy;пить пони&shy;ма&shy;ние воп&shy;роса давайте обра&shy;тимся к при&shy;ме&shy;рам:</p>
+<p>Почему же это так важно  &mdash;  опре&shy;де&shy;лить тер&shy;ми&shy;но&shy;ло&shy;гию? Работа с тер&shy;ми&shy;но&shy;ло&shy;гией очень важна, т.к. она дер&shy;жит нас в рам&shy;ках. Если не сле&shy;до&shy;вать тер&shy;ми&shy;но&shy;ло&shy;гии можно уйти далеко от соз&shy;дан&shy;ного про&shy;ек&shy;ти&shy;ров&shy;щи&shy;ками кон&shy;цепта и полу&shy;чить мно&shy;жес&shy;тво неод&shy;ноз&shy;нач&shy;ных ситу&shy;а&shy;ций. А чтобы зак&shy;ре&shy;пить пони&shy;ма&shy;ние воп&shy;роса давайте обра&shy;тимся к при&shy;ме&shy;рам:</p>
 <div class="paragraph-right-side">03</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1328,82 +1344,55 @@ footer > div {
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p >
-Этот при&shy;мер кажется нем&shy;ного стран&shy;ным: и это не просто так. Для того чтобы пока&shy;зать исклю&shy;чи&shy;тель&shy;ность проб&shy;лем, воз&shy;ни&shy;ка&shy;ю&shy;щих в дан&shy;ном коде я сде&shy;лал его нес&shy;колько утри&shy;ро&shy;ван&shy;ным. Для начала пос&shy;мот&shy;рим на метод <code>Parse</code>. Почему он дол&shy;жен выб&shy;ра&shy;сы&shy;вать исклю&shy;че&shy;ние?</p>
+<p>Этот при&shy;мер кажется нем&shy;ного стран&shy;ным: и это не просто так. Для того чтобы пока&shy;зать исклю&shy;чи&shy;тель&shy;ность проб&shy;лем, воз&shy;ни&shy;ка&shy;ю&shy;щих в дан&shy;ном коде я сде&shy;лал его нес&shy;колько утри&shy;ро&shy;ван&shy;ным. Для начала пос&shy;мот&shy;рим на метод <code>Parse</code>. Почему он дол&shy;жен выб&shy;ра&shy;сы&shy;вать исклю&shy;че&shy;ние?</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <ul>
-<li>
-<p >
-Он при&shy;ни&shy;мает в качес&shy;тве пара&shy;метра строку, а в качес&shy;тве резуль&shy;тата - неко&shy;то&shy;рое число, кото&shy;рое явля&shy;ется зна&shy;чи&shy;мым типом. По этому числу мы никак не можем опре&shy;де&shy;лить, явля&shy;ется ли оно резуль&shy;та&shy;том кор&shy;рект&shy;ных вычис&shy;ле&shy;ний или же нет: оно просто есть. Дру&shy;гими сло&shy;вами, в интер&shy;фейсе метода отсут&shy;ствует воз&shy;мож&shy;ность сооб&shy;щить о проб&shy;леме;</p>
-</li>
-<li>
-<p >
-С дру&shy;гой сто&shy;роны метод, при&shy;ни&shy;мая строку под&shy;ра&shy;зу&shy;ме&shy;вает что её для него кор&shy;рек&shy;тно под&shy;го&shy;то&shy;вили: там нет лиш&shy;них сим&shy;во&shy;лов и строка содер&shy;жит неко&shy;то&shy;рое число. Если это не так, то воз&shy;ни&shy;кает проб&shy;лема пре&shy;дус&shy;ло&shy;вий к методу: тот код, кото&shy;рый выз&shy;вал наш метод отдал не кор&shy;рек&shy;т&shy;ные дан&shy;ные.</p>
-</li>
+<li>Он при&shy;ни&shy;мает в качес&shy;тве пара&shy;метра строку, а в качес&shy;тве резуль&shy;тата  &mdash;  неко&shy;то&shy;рое число, кото&shy;рое явля&shy;ется зна&shy;чи&shy;мым типом. По этому числу мы никак не можем опре&shy;де&shy;лить, явля&shy;ется ли оно резуль&shy;та&shy;том кор&shy;рект&shy;ных вычис&shy;ле&shy;ний или же нет: оно просто есть. Дру&shy;гими сло&shy;вами, в интер&shy;фейсе метода отсут&shy;ствует воз&shy;мож&shy;ность сооб&shy;щить о проб&shy;леме;</li>
+<li>С дру&shy;гой сто&shy;роны метод, при&shy;ни&shy;мая строку под&shy;ра&shy;зу&shy;ме&shy;вает что её для него кор&shy;рек&shy;тно под&shy;го&shy;то&shy;вили: там нет лиш&shy;них сим&shy;во&shy;лов и строка содер&shy;жит неко&shy;то&shy;рое число. Если это не так, то воз&shy;ни&shy;кает проб&shy;лема пре&shy;дус&shy;ло&shy;вий к методу: тот код, кото&shy;рый выз&shy;вал наш метод отдал не кор&shy;рек&shy;т&shy;ные дан&shy;ные.</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p >
-Полу&shy;ча&shy;ется, что для дан&shy;ного метода ситу&shy;а&shy;ция полу&shy;че&shy;ния строки с не кор&shy;рект&shy;ными дан&shy;ными явля&shy;ется исклю&shy;чи&shy;тель&shy;ной: метод не может вер&shy;нуть кор&shy;рект&shy;ного зна&shy;че&shy;ния, но и вер&shy;нуть абы что он не может. А потому единст&shy;венный выход - бро&shy;сить исклю&shy;че&shy;ние.</p>
+<p>Полу&shy;ча&shy;ется, что для дан&shy;ного метода ситу&shy;а&shy;ция полу&shy;че&shy;ния строки с не кор&shy;рект&shy;ными дан&shy;ными явля&shy;ется исклю&shy;чи&shy;тель&shy;ной: метод не может вер&shy;нуть кор&shy;рект&shy;ного зна&shy;че&shy;ния, но и вер&shy;нуть абы что он не может. А потому единст&shy;венный выход  &mdash;  бро&shy;сить исклю&shy;че&shy;ние.</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p >
-Вто&shy;рой вари&shy;ант метода обла&shy;дает кана&shy;лом сиг&shy;на&shy;ли&shy;за&shy;ции о нали&shy;чии проб&shy;лем с вход&shy;ными дан&shy;ными: возв&shy;ра&shy;ща&shy;е&shy;мое зна&shy;че&shy;ние тут <code>boolean</code> и явля&shy;ется приз&shy;на&shy;ком успеш&shy;ности выпол&shy;не&shy;ния метода. Сиг&shy;на&shy;ли&shy;зи&shy;ро&shy;вать о каких-либо проб&shy;ле&shy;мах при помощи меха&shy;низма исклю&shy;че&shy;ний дан&shy;ный метод не имеет ни малей&shy;шего повода: все виды проб&shy;лем легко умес&shy;тятся в возв&shy;ра&shy;ща&shy;е&shy;мое зна&shy;че&shy;ние <code>false</code>.</p>
+<p>Вто&shy;рой вари&shy;ант метода обла&shy;дает кана&shy;лом сиг&shy;на&shy;ли&shy;за&shy;ции о нали&shy;чии проб&shy;лем с вход&shy;ными дан&shy;ными: возв&shy;ра&shy;ща&shy;е&shy;мое зна&shy;че&shy;ние тут <code>boo&shy;lean</code> и явля&shy;ется приз&shy;на&shy;ком успеш&shy;ности выпол&shy;не&shy;ния метода. Сиг&shy;на&shy;ли&shy;зи&shy;ро&shy;вать о каких-либо проб&shy;ле&shy;мах при помощи меха&shy;низма исклю&shy;че&shy;ний дан&shy;ный метод не имеет ни малей&shy;шего повода: все виды проб&shy;лем легко умес&shy;тятся в возв&shy;ра&shy;ща&shy;е&shy;мое зна&shy;че&shy;ние <code>false</code>.</p>
 <div class="paragraph-right-side">06</div>
 </div>
-<h2 id="section-1">Общая картина</h2>
+<h2 id="section-1">Общая кар&shy;тина</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p >
-Обра&shy;ботка исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций может пока&shy;заться воп&shy;ро&shy;сом дос&shy;та&shy;точно эле&shy;мен&shy;тар&shy;ным: ведь все что нам необ&shy;хо&shy;димо сде&shy;лать - это уста&shy;но&shy;вить <code>try-catch</code> блоки и ждать соот&shy;вет&shy;с&shy;тв&shy;ующего собы&shy;тия. Однако воп&shy;рос кажется эле&shy;мен&shy;тар&shy;ным только бла&shy;го&shy;даря огром&shy;ной работе, про&shy;де&shy;лан&shy;ной коман&shy;дами CLR и Core&shy;CLR чтобы уни&shy;фи&shy;ци&shy;ро&shy;вать все ошибки, кото&shy;рые лезут в CLR со всех щелей - из самых раз&shy;ных источ&shy;ни&shy;ков. Чтобы иметь предс&shy;тав&shy;ле&shy;ние, о чем мы будем далее вести беседу, давайте взгл&shy;янем на диаг&shy;рамму:</p>
+<p>Обра&shy;ботка исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций может пока&shy;заться воп&shy;ро&shy;сом дос&shy;та&shy;точно эле&shy;мен&shy;тар&shy;ным: ведь все что нам необ&shy;хо&shy;димо сде&shy;лать  &mdash;  это уста&shy;но&shy;вить <code>try-catch</code> блоки и ждать соот&shy;вет&shy;с&shy;тв&shy;ующего собы&shy;тия. Однако воп&shy;рос кажется эле&shy;мен&shy;тар&shy;ным только бла&shy;го&shy;даря огром&shy;ной работе, про&shy;де&shy;лан&shy;ной коман&shy;дами CLR и Core&shy;CLR чтобы уни&shy;фи&shy;ци&shy;ро&shy;вать все ошибки, кото&shy;рые лезут в CLR со всех щелей  &mdash;  из самых раз&shy;ных источ&shy;ни&shy;ков. Чтобы иметь предс&shy;тав&shy;ле&shy;ние, о чем мы будем далее вести беседу, давайте взгл&shy;янем на диаг&shy;рамму:</p>
 <div class="paragraph-right-side">07</div>
 </div>
-<p >
-<img src="./imgs/CommonScheme.png" alt="" /></p>
+<p><img src="./imgs/CommonScheme.png" alt="" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p >
-На этой схеме мы видим, что в боль&shy;шом .NET Frame&shy;work сущес&shy;твует по сути два мира: все, что отно&shy;сится к CLR и все, что нахо&shy;дится за ней: все воз&shy;мож&shy;ные ошибки, воз&shy;ни&shy;ка&shy;ю&shy;щие в Windows и про&shy;чем unsafe мире:</p>
+<p>На этой схеме мы видим, что в боль&shy;шом .NET Frame&shy;work сущес&shy;твует по сути два мира: все, что отно&shy;сится к CLR и все, что нахо&shy;дится за ней: все воз&shy;мож&shy;ные ошибки, воз&shy;ни&shy;ка&shy;ю&shy;щие в Windows и про&shy;чем unsafe мире:</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <ul>
-<li>
-<p >
-Struc&shy;tured Excep&shy;tion Hand&shy;ling (SEH) - струк&shy;ту&shy;ри&shy;ро&shy;ван&shy;ная обра&shy;ботка исклю&shy;че&shy;ний - стан&shy;дарт плат&shy;формы Windows для обра&shy;ботки исклю&shy;че&shy;ний. Во время вызо&shy;вов unsafe мето&shy;дов и пос&shy;ле&shy;ду&shy;ю&shy;щем выб&shy;росе исклю&shy;че&shy;ний про&shy;ис&shy;хо&shy;дит кон&shy;вер&shy;та&shy;ция исклю&shy;че&shy;ний unsafe <-> CLR в обе сто&shy;роны: из unsafe в CLR и обратно, т.к. CLR может выз&shy;вать unsafe метод, а тот в свою оче&shy;редь - CLR метод.</p>
-</li>
-<li>
-<p >
-Vectored Excep&shy;tion Hand&shy;ling (VEH) - по своей сути явля&shy;ется кор&shy;нем SEH, поз&shy;во&shy;ляя встав&shy;лять свои обра&shy;бот&shy;чики в точку выб&shy;роса исклю&shy;че&shy;ния. Испол&shy;ьз&shy;уе&shy;тся в част&shy;ности для уста&shy;новки <code>FirstChanceException</code>.</p>
-</li>
-<li>
-<p >
-COM+ исклю&shy;че&shy;ния - когда источ&shy;ни&shy;ком проб&shy;лемы явля&shy;ется неко&shy;то&shy;рый COM ком&shy;по&shy;нент, то прос&shy;лойка между COM и .NET мето&shy;дом дол&shy;жна скон&shy;вер&shy;ти&shy;ро&shy;вать COM ошибку в исклю&shy;че&shy;ние .NET</p>
-</li>
-<li>
-<p >
-И, нако&shy;нец, обёртки для HRESULT. Вве&shy;дены для кон&shy;вер&shy;та&shy;ции модели Win&shy;API (код ошибки - в возв&shy;ра&shy;ща&shy;е&shy;мом зна&shy;че&shy;нии, а возв&shy;ра&shy;ща&shy;е&shy;мые зна&shy;че&shy;ния - через пара&shy;метры метода) в модель исклю&shy;че&shy;ний: для .NET стар&shy;дар&shy;том явля&shy;ется именно исклю&shy;чи&shy;тель&shy;ная ситу&shy;а&shy;ция</p>
-</li>
+<li>Struc&shy;tured Excep&shy;tion Hand&shy;ling (SEH)  &mdash;  струк&shy;ту&shy;ри&shy;ро&shy;ван&shy;ная обра&shy;ботка исклю&shy;че&shy;ний  &mdash;  стан&shy;дарт плат&shy;формы Windows для обра&shy;ботки исклю&shy;че&shy;ний. Во время вызо&shy;вов unsafe мето&shy;дов и пос&shy;ле&shy;ду&shy;ю&shy;щем выб&shy;росе исклю&shy;че&shy;ний про&shy;ис&shy;хо&shy;дит кон&shy;вер&shy;та&shy;ция исклю&shy;че&shy;ний unsafe <-> CLR в обе сто&shy;роны: из unsafe в CLR и обратно, т.к. CLR может выз&shy;вать unsafe метод, а тот в свою оче&shy;редь  &mdash;  CLR метод.</li>
+<li>Vectored Excep&shy;tion Hand&shy;ling (VEH)  &mdash;  по своей сути явля&shy;ется кор&shy;нем SEH, поз&shy;во&shy;ляя встав&shy;лять свои обра&shy;бот&shy;чики в точку выб&shy;роса исклю&shy;че&shy;ния. Испол&shy;ьз&shy;уе&shy;тся в част&shy;ности для уста&shy;новки <code>First&shy;Chance&shy;Exception</code>.</li>
+<li>COM+ исклю&shy;че&shy;ния  &mdash;  когда источ&shy;ни&shy;ком проб&shy;лемы явля&shy;ется неко&shy;то&shy;рый COM ком&shy;по&shy;нент, то прос&shy;лойка между COM и .NET мето&shy;дом дол&shy;жна скон&shy;вер&shy;ти&shy;ро&shy;вать COM ошибку в исклю&shy;че&shy;ние .NET</li>
+<li>И, нако&shy;нец, обёртки для HRESULT. Вве&shy;дены для кон&shy;вер&shy;та&shy;ции модели Win&shy;API (код ошибки  &mdash;  в возв&shy;ра&shy;ща&shy;е&shy;мом зна&shy;че&shy;нии, а возв&shy;ра&shy;ща&shy;е&shy;мые зна&shy;че&shy;ния  &mdash;  через пара&shy;метры метода) в модель исклю&shy;че&shy;ний: для .NET стар&shy;дар&shy;том явля&shy;ется именно исклю&shy;чи&shy;тель&shy;ная ситу&shy;а&shy;ция</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">09</div>
-<p >
-С дру&shy;гой сто&shy;роны, поверх CLI рас&shy;по&shy;ла&shy;га&shy;ются языки прог&shy;рам&shy;ми&shy;ро&shy;ва&shy;ния, каж&shy;дый из кото&shy;рых час&shy;тично или же пол&shy;ностью - пред&shy;ла&shy;гает фун&shy;кци&shy;о&shy;нал по обра&shy;ботке исклю&shy;че&shy;ний конеч&shy;ному поль&shy;зо&shy;ва&shy;телю языка. Так, нап&shy;ри&shy;мер, языки VB.NET и F# до недав&shy;него вре&shy;мени обла&shy;дали более бога&shy;тым фун&shy;кци&shy;о&shy;на&shy;лом по части обра&shy;ботки исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций, пред&shy;ла&shy;гая фун&shy;кци&shy;о&shy;нал фильтров, кото&shy;рых не сущест&shy;во&shy;вало в языке C#.</p>
+<p>С дру&shy;гой сто&shy;роны, поверх CLI рас&shy;по&shy;ла&shy;га&shy;ются языки прог&shy;рам&shy;ми&shy;ро&shy;ва&shy;ния, каж&shy;дый из кото&shy;рых час&shy;тично или же пол&shy;ностью  &mdash;  пред&shy;ла&shy;гает фун&shy;кци&shy;о&shy;нал по обра&shy;ботке исклю&shy;че&shy;ний конеч&shy;ному поль&shy;зо&shy;ва&shy;телю языка. Так, нап&shy;ри&shy;мер, языки VB.NET и F# до недав&shy;него вре&shy;мени обла&shy;дали более бога&shy;тым фун&shy;кци&shy;о&shy;на&shy;лом по части обра&shy;ботки исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций, пред&shy;ла&shy;гая фун&shy;кци&shy;о&shy;нал фильтров, кото&shy;рых не сущест&shy;во&shy;вало в языке C#.</p>
 <div class="paragraph-right-side">09</div>
 </div>
-<h2 id="vs">Коды возврата vs. исключение</h2>
+<h2 id="vs">Коды возв&shy;рата vs. исклю&shy;че&shy;ние</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
-<p >
-Стоит отдельно отме&shy;тить модель работы с ошиб&shy;ками в при&shy;ло&shy;же&shy;нии через коды возв&shy;рата. Эта идея - просто вер&shy;нуть ошибку - очень проста и понятна. Мало того, если оттал&shy;ки&shy;ваться от отно&shy;ше&shy;ния к исклю&shy;че&shy;ниям как к опе&shy;ра&shy;тору <code>goto</code>, то коды возв&shy;рата ста&shy;но&shy;вятся нам&shy;ного более кор&shy;рект&shy;ной реа&shy;ли&shy;за&shy;цией: ведь в этом слу&shy;чае поль&shy;зо&shy;ва&shy;тель метода видит и воз&shy;мож&shy;ность самой ошибки, а также может сразу понять, какие ошибки воз&shy;можны. Но давайте не будет гадать на кофей&shy;ной гуще, что лучше и для чего, а лучше обсу&shy;дим проб&shy;ле&shy;ма&shy;тику выбора ака&shy;де&shy;ми&shy;чески.</p>
+<p>Стоит отдельно отме&shy;тить модель работы с ошиб&shy;ками в при&shy;ло&shy;же&shy;нии через коды возв&shy;рата. Эта идея  &mdash;  просто вер&shy;нуть ошибку  &mdash;  очень проста и понятна. Мало того, если оттал&shy;ки&shy;ваться от отно&shy;ше&shy;ния к исклю&shy;че&shy;ниям как к опе&shy;ра&shy;тору <code>goto</code>, то коды возв&shy;рата ста&shy;но&shy;вятся нам&shy;ного более кор&shy;рект&shy;ной реа&shy;ли&shy;за&shy;цией: ведь в этом слу&shy;чае поль&shy;зо&shy;ва&shy;тель метода видит и воз&shy;мож&shy;ность самой ошибки, а также может сразу понять, какие ошибки воз&shy;можны. Но давайте не будет гадать на кофей&shy;ной гуще, что лучше и для чего, а лучше обсу&shy;дим проб&shy;ле&shy;ма&shy;тику выбора ака&shy;де&shy;ми&shy;чески.</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
-<p >
-Предс&shy;та&shy;вим, что все методы обла&shy;дают интер&shy;фей&shy;сом для полу&shy;че&shy;ния ошибки. Тогда все наши методы выг&shy;ля&shy;дели бы как-то так:</p>
+<p>Предс&shy;та&shy;вим, что все методы обла&shy;дают интер&shy;фей&shy;сом для полу&shy;че&shy;ния ошибки. Тогда все наши методы выг&shy;ля&shy;дели бы как-то так:</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1416,8 +1405,7 @@ COM+ исклю&shy;че&shy;ния - когда источ&shy;ни&shy;ком 
 <span style="color:Blue;">public</span> <span style="color:Blue;">class</span> WebServiceResult : ResultBase { ... }
 </pre></div>
 </div>
-<p >
-А их исполь&shy;зо&shy;ва&shy;ние выг&shy;ля&shy;дело бы как-то так:</p>
+<p>А их исполь&shy;зо&shy;ва&shy;ние выг&shy;ля&shy;дело бы как-то так:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 
 <span style="color:Blue;">public</span> ShowClientsResult ShowClients(<span style="color:Blue;">string</span> <span style="color:Blue;">group</span>)
@@ -1443,14 +1431,12 @@ COM+ исклю&shy;че&shy;ния - когда источ&shy;ни&shy;ком 
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
-<p >
-Воз&shy;можно, вам пока&shy;жется, что этот код перег&shy;ру&shy;жен обра&shy;бот&shy;кой оши&shy;бок. Однако я поп&shy;рошу вас не сог&shy;ла&shy;ситься с такой пози&shy;цией: все, что здесь про&shy;ис&shy;хо&shy;дит - это эму&shy;ля&shy;ция работы меха&shy;низма выб&shy;роса и обра&shy;ботки исклю&shy;че&shy;ний.</p>
+<p>Воз&shy;можно, вам пока&shy;жется, что этот код перег&shy;ру&shy;жен обра&shy;бот&shy;кой оши&shy;бок. Однако я поп&shy;рошу вас не сог&shy;ла&shy;ситься с такой пози&shy;цией: все, что здесь про&shy;ис&shy;хо&shy;дит  &mdash;  это эму&shy;ля&shy;ция работы меха&shy;низма выб&shy;роса и обра&shy;ботки исклю&shy;че&shy;ний.</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
-<p >
-Как любой метод может сооб&shy;щить о воз&shy;ник&shy;шей проб&shy;леме? Пос&shy;р&shy;едством неко&shy;то&shy;рого интер&shy;фейса сооб&shy;ще&shy;ния об ошибки. Нап&shy;ри&shy;мер, в методе <code>TryParseInteger</code> интер&shy;фей&shy;сом явля&shy;ется возв&shy;ра&shy;ща&shy;е&shy;мое зна&shy;че&shy;ние: если все хорошо, метод вернёт <code>true</code>. Если все плохо, вернёт <code>false</code>. Однако дан&shy;ный спо&shy;соб обла&shy;дает и мину&shy;сом: реальное зна&shy;че&shy;ние возв&shy;ра&shy;ща&shy;ется через <code>out int result</code> пара&shy;метр. Минус под&shy;хода с одной сто&shy;роны сос&shy;тоит в том, что возв&shy;ра&shy;ща&shy;е&shy;мое зна&shy;че&shy;ние чисто логи&shy;чески и по вос&shy;при&shy;я&shy;тию явля&shy;ется более &laquo;возв&shy;ра&shy;ща&shy;е&shy;мым зна&shy;че&shy;нием&raquo; чем <code>out</code> пара&shy;метр. А с дру&shy;гой - сам факт ошибки нам не всегда инте&shy;ре&shy;сен. Ведь если строка для пар&shy;синга пришла из сер&shy;виса, кото&shy;рый сге&shy;не&shy;ри&shy;ро&shy;вал эту строку, зна&shy;чит про&shy;ве&shy;рять на ошибки пар&shy;синг нет необ&shy;хо&shy;ди&shy;мости: там всегда будет лежать пра&shy;виль&shy;ная, при&shy;год&shy;ная для раз&shy;бора строка. С дру&shy;гой сто&shy;роны, если взять дру&shy;гую реа&shy;ли&shy;за&shy;цию метода:</p>
+<p>Как любой метод может сооб&shy;щить о воз&shy;ник&shy;шей проб&shy;леме? Пос&shy;р&shy;едством неко&shy;то&shy;рого интер&shy;фейса сооб&shy;ще&shy;ния об ошибки. Нап&shy;ри&shy;мер, в методе <code>Try&shy;Parse&shy;Integer</code> интер&shy;фей&shy;сом явля&shy;ется возв&shy;ра&shy;ща&shy;е&shy;мое зна&shy;че&shy;ние: если все хорошо, метод вернёт <code>true</code>. Если все плохо, вернёт <code>false</code>. Однако дан&shy;ный спо&shy;соб обла&shy;дает и мину&shy;сом: реальное зна&shy;че&shy;ние возв&shy;ра&shy;ща&shy;ется через <code>out int result</code> пара&shy;метр. Минус под&shy;хода с одной сто&shy;роны сос&shy;тоит в том, что возв&shy;ра&shy;ща&shy;е&shy;мое зна&shy;че&shy;ние чисто логи&shy;чески и по вос&shy;при&shy;я&shy;тию явля&shy;ется более &laquo;возв&shy;ра&shy;ща&shy;е&shy;мым зна&shy;че&shy;нием&raquo; чем <code>out</code> пара&shy;метр. А с дру&shy;гой  &mdash;  сам факт ошибки нам не всегда инте&shy;ре&shy;сен. Ведь если строка для пар&shy;синга пришла из сер&shy;виса, кото&shy;рый сге&shy;не&shy;ри&shy;ро&shy;вал эту строку, зна&shy;чит про&shy;ве&shy;рять на ошибки пар&shy;синг нет необ&shy;хо&shy;ди&shy;мости: там всегда будет лежать пра&shy;виль&shy;ная, при&shy;год&shy;ная для раз&shy;бора строка. С дру&shy;гой сто&shy;роны, если взять дру&shy;гую реа&shy;ли&shy;за&shy;цию метода:</p>
 <div class="paragraph-right-side">13</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1459,43 +1445,36 @@ COM+ исклю&shy;че&shy;ния - когда источ&shy;ни&shy;ком 
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
-<p >
-То воз&shy;ни&shy;кает резон&shy;ный воп&shy;рос: если пар&shy;синг всё-таки будет содер&shy;жать ошибку по неиз&shy;вест&shy;ной нам при&shy;чине, что делать методу тогда? Вер&shy;нуть ноль? Будет не кор&shy;рек&shy;тно: нуля в строке не было. Тогда ста&shy;но&shy;вится ясно что мы имеем конф&shy;ликт инте&shy;ре&shy;сов: пер&shy;вый вари&shy;ант мно&shy;гос&shy;ло&shy;вен, а вто&shy;рой - не содер&shy;жит канала сиг&shy;на&shy;ли&shy;за&shy;ции об ошиб&shy;ках. Однако, можно легко прийти к выводу, когда надо рабо&shy;тать с кодами возв&shy;ра&shy;тов, а когда - с исклю&shy;че&shy;ни&shy;ями:</p>
+<p>То воз&shy;ни&shy;кает резон&shy;ный воп&shy;рос: если пар&shy;синг всё-таки будет содер&shy;жать ошибку по неиз&shy;вест&shy;ной нам при&shy;чине, что делать методу тогда? Вер&shy;нуть ноль? Будет не кор&shy;рек&shy;тно: нуля в строке не было. Тогда ста&shy;но&shy;вится ясно что мы имеем конф&shy;ликт инте&shy;ре&shy;сов: пер&shy;вый вари&shy;ант мно&shy;гос&shy;ло&shy;вен, а вто&shy;рой  &mdash;  не содер&shy;жит канала сиг&shy;на&shy;ли&shy;за&shy;ции об ошиб&shy;ках. Однако, можно легко прийти к выводу, когда надо рабо&shy;тать с кодами возв&shy;ра&shy;тов, а когда  &mdash;  с исклю&shy;че&shy;ни&shy;ями:</p>
 <div class="paragraph-right-side">14</div>
 </div>
 <blockquote>
-<p >
-Код возв&shy;рата необ&shy;хо&shy;димо внед&shy;рять тогда, кода факт ошибки явля&shy;ется нор&shy;мой пове&shy;де&shy;ния. Нап&shy;ри&shy;мер, в алго&shy;ритме пар&shy;синга тек&shy;ста ошибки в тек&shy;сте явля&shy;ются нор&shy;мой пове&shy;де&shy;ния, тогда как в алго&shy;ритме работы с разоб&shy;ран&shy;ной стро&shy;кой полу&shy;че&shy;ние от пар&shy;сера ошибки может являться кри&shy;тич&shy;ным или, дру&shy;гими сло&shy;вами, чем-то исклю&shy;чи&shy;тель&shy;ным.</p>
+<p>Код возв&shy;рата необ&shy;хо&shy;димо внед&shy;рять тогда, кода факт ошибки явля&shy;ется нор&shy;мой пове&shy;де&shy;ния. Нап&shy;ри&shy;мер, в алго&shy;ритме пар&shy;синга тек&shy;ста ошибки в тек&shy;сте явля&shy;ются нор&shy;мой пове&shy;де&shy;ния, тогда как в алго&shy;ритме работы с разоб&shy;ран&shy;ной стро&shy;кой полу&shy;че&shy;ние от пар&shy;сера ошибки может являться кри&shy;тич&shy;ным или, дру&shy;гими сло&shy;вами, чем-то исклю&shy;чи&shy;тель&shy;ным.</p>
 </blockquote>
-<h2 id="try-catch-finally">Блоки Try-Catch-Finally коротко</h2>
+<h2 id="try-catch-finally">Блоки Try&shy;-Catch&shy;-Finally коротко</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
-<p >
-Блок <code>try</code> создаёт сек&shy;цию, от кото&shy;рой прог&shy;рам&shy;мист ожи&shy;дает воз&shy;ник&shy;но&shy;ве&shy;ния кри&shy;ти&shy;чес&shy;ких ситу&shy;а&shy;ций, кото&shy;рые с точки зре&shy;ния внеш&shy;него кода явля&shy;ются нор&shy;мой пове&shy;де&shy;ния. Т.е. дру&shy;гими сло&shy;вами, если мы рабо&shy;таем с неко&shy;то&shy;рым кодом, кото&shy;рый в рам&shy;ках своих пра&shy;вил счи&shy;тает внут&shy;рен&shy;нее сос&shy;то&shy;я&shy;ние более не кон&shy;сис&shy;тент&shy;ным и в связи с этим выб&shy;ра&shy;сы&shy;вает исклю&shy;че&shy;ние, то внеш&shy;няя сис&shy;тема, кото&shy;рая обла&shy;дает более широ&shy;ким виде&shy;нием той же ситу&shy;а&shy;ции воз&shy;ник&shy;шее исклю&shy;че&shy;ние может перех&shy;ва&shy;тить бло&shy;ком <code>catch</code> тем самым нор&shy;ма&shy;ли&shy;зо&shy;вав испол&shy;не&shy;ние кода при&shy;ло&shy;же&shy;ния. А потому, <em>перехватом исключений вы легализуете их наличие на данном участке кода</em>. Это, на мой взгляд, очень важ&shy;ная мысль, кото&shy;рая обос&shy;но&shy;вы&shy;вает зап&shy;рет на перех&shy;ват всех типов исклю&shy;че&shy;ний <code>try-catch(Exception ex){ ... }</code> <em>на всякий случай</em>.</p>
+<p>Блок <code>try</code> создаёт сек&shy;цию, от кото&shy;рой прог&shy;рам&shy;мист ожи&shy;дает воз&shy;ник&shy;но&shy;ве&shy;ния кри&shy;ти&shy;чес&shy;ких ситу&shy;а&shy;ций, кото&shy;рые с точки зре&shy;ния внеш&shy;него кода явля&shy;ются нор&shy;мой пове&shy;де&shy;ния. Т.е. дру&shy;гими сло&shy;вами, если мы рабо&shy;таем с неко&shy;то&shy;рым кодом, кото&shy;рый в рам&shy;ках своих пра&shy;вил счи&shy;тает внут&shy;рен&shy;нее сос&shy;то&shy;я&shy;ние более не кон&shy;сис&shy;тент&shy;ным и в связи с этим выб&shy;ра&shy;сы&shy;вает исклю&shy;че&shy;ние, то внеш&shy;няя сис&shy;тема, кото&shy;рая обла&shy;дает более широ&shy;ким виде&shy;нием той же ситу&shy;а&shy;ции воз&shy;ник&shy;шее исклю&shy;че&shy;ние может перех&shy;ва&shy;тить бло&shy;ком <code>catch</code> тем самым нор&shy;ма&shy;ли&shy;зо&shy;вав испол&shy;не&shy;ние кода при&shy;ло&shy;же&shy;ния. А потому, <em>перех&shy;ва&shy;том исклю&shy;че&shy;ний вы лега&shy;ли&shy;зу&shy;ете их нали&shy;чие на дан&shy;ном учас&shy;тке кода</em>. Это, на мой взгляд, очень важ&shy;ная мысль, кото&shy;рая обос&shy;но&shy;вы&shy;вает зап&shy;рет на перех&shy;ват всех типов исклю&shy;че&shy;ний <code>try-catch(Excep&shy;tion ex){ ... }</code> <em>на вся&shy;кий слу&shy;чай</em>.</p>
 <div class="paragraph-right-side">15</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
-<p >
-Это вовсе не озна&shy;чает, что перех&shy;ва&shy;ты&shy;вать исклю&shy;че&shy;ния иде&shy;о&shy;ло&shy;ги&shy;чески плохо: я всего лишь хочу ска&shy;зать о необ&shy;хо&shy;ди&shy;мости перех&shy;ва&shy;ты&shy;вать то и только то, что вы ожи&shy;да&shy;ете от конк&shy;рет&shy;ного учас&shy;тка кода и ничего больше. Нап&shy;ри&shy;мер, вы не можете ожи&shy;дать все типы исклю&shy;че&shy;ний, кото&shy;рые нас&shy;ле&shy;ду&shy;ется от <code>ArgumentException</code> или же полу&shy;че&shy;ние <code>NullReferenceException</code> пос&shy;кольку это озна&shy;чает что проб&shy;лема чаще всего не в вызы&shy;ва&shy;е&shy;мом коде, а <em>в вашем</em>. Зато вполне кор&shy;рек&shy;тно ожи&shy;дать, что жела&shy;е&shy;мый файл отк&shy;рыть вы не смо&shy;жете. Даже если на 200% уве&shy;рены, что смо&shy;жете, не забудьте сде&shy;лать про&shy;верку.</p>
+<p>Это вовсе не озна&shy;чает, что перех&shy;ва&shy;ты&shy;вать исклю&shy;че&shy;ния иде&shy;о&shy;ло&shy;ги&shy;чески плохо: я всего лишь хочу ска&shy;зать о необ&shy;хо&shy;ди&shy;мости перех&shy;ва&shy;ты&shy;вать то и только то, что вы ожи&shy;да&shy;ете от конк&shy;рет&shy;ного учас&shy;тка кода и ничего больше. Нап&shy;ри&shy;мер, вы не можете ожи&shy;дать все типы исклю&shy;че&shy;ний, кото&shy;рые нас&shy;ле&shy;ду&shy;ется от <code>Argument&shy;Exception</code> или же полу&shy;че&shy;ние <code>Null&shy;Reference&shy;Exception</code> пос&shy;кольку это озна&shy;чает что проб&shy;лема чаще всего не в вызы&shy;ва&shy;е&shy;мом коде, а <em>в вашем</em>. Зато вполне кор&shy;рек&shy;тно ожи&shy;дать, что жела&shy;е&shy;мый файл отк&shy;рыть вы не смо&shy;жете. Даже если на 200% уве&shy;рены, что смо&shy;жете, не забудьте сде&shy;лать про&shy;верку.</p>
 <div class="paragraph-right-side">16</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
-<p >
-Тре&shy;тий блок - <code>finally</code> - также не дол&shy;жен нуж&shy;даться в предс&shy;тав&shy;ле&shy;нии. Этот блок сра&shy;ба&shy;ты&shy;вает для всех слу&shy;чаев работы бло&shy;ков <code>try-catch</code>. Кроме неко&shy;то&shy;рых дос&shy;та&shy;точно ред&shy;ких <em>особых</em> ситу&shy;а&shy;ций, этот блок отра&shy;ба&shy;ты&shy;вает <em>всегда</em>. Для чего вве&shy;дена такая гаран&shy;тия испол&shy;не&shy;ния? Для зачис&shy;тки тех ресур&shy;сов и тех групп объ&shy;ек&shy;тов, кото&shy;рые были выде&shy;лены или же зах&shy;ва&shy;чены в блоке <code>try</code> и при этом явля&shy;ются зоной его ответст&shy;вен&shy;ности.</p>
+<p>Тре&shy;тий блок  &mdash;  <code>finally</code>  &mdash;  также не дол&shy;жен нуж&shy;даться в предс&shy;тав&shy;ле&shy;нии. Этот блок сра&shy;ба&shy;ты&shy;вает для всех слу&shy;чаев работы бло&shy;ков <code>try-catch</code>. Кроме неко&shy;то&shy;рых дос&shy;та&shy;точно ред&shy;ких <em>осо&shy;бых</em> ситу&shy;а&shy;ций, этот блок отра&shy;ба&shy;ты&shy;вает <em>всегда</em>. Для чего вве&shy;дена такая гаран&shy;тия испол&shy;не&shy;ния? Для зачис&shy;тки тех ресур&shy;сов и тех групп объ&shy;ек&shy;тов, кото&shy;рые были выде&shy;лены или же зах&shy;ва&shy;чены в блоке <code>try</code> и при этом явля&shy;ются зоной его ответст&shy;вен&shy;ности.</p>
 <div class="paragraph-right-side">17</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
-<p >
-Этот блок очень часто исполь&shy;зу&shy;ется без блока <code>catch</code>, когда нам не важно, какая ошибка уро&shy;нила алго&shy;ритм, но важно очис&shy;тить все выде&shy;лен&shy;ные для этого конк&shy;ретно алго&shy;ритма ресурсы. Прос&shy;той при&shy;мер: для алго&shy;ритма копи&shy;ро&shy;ва&shy;ния файла необ&shy;хо&shy;димо: два откры&shy;тых файла и учас&shy;ток памяти под кэш-буфер копи&shy;ро&shy;ва&shy;ния. Память мы выде&shy;лить смогли, один файл отк&shy;рыть смогли, а вот со вто&shy;рым воз&shy;никли какие-то проб&shy;лемы. Чтобы запе&shy;ча&shy;тать все в одну &laquo;тран&shy;зак&shy;цию&raquo;, мы поме&shy;щаем все три опе&shy;ра&shy;ции в еди&shy;ный <code>try</code> блок (как вари&shy;ант реа&shy;ли&shy;за&shy;ции), с очист&shy;кой ресур&shy;сов - в <code>finally</code>. При&shy;мер может пока&shy;заться упрощённым, но тут глав&shy;ное - пока&shy;зать суть.</p>
+<p>Этот блок очень часто исполь&shy;зу&shy;ется без блока <code>catch</code>, когда нам не важно, какая ошибка уро&shy;нила алго&shy;ритм, но важно очис&shy;тить все выде&shy;лен&shy;ные для этого конк&shy;ретно алго&shy;ритма ресурсы. Прос&shy;той при&shy;мер: для алго&shy;ритма копи&shy;ро&shy;ва&shy;ния файла необ&shy;хо&shy;димо: два откры&shy;тых файла и учас&shy;ток памяти под кэш-буфер копи&shy;ро&shy;ва&shy;ния. Память мы выде&shy;лить смогли, один файл отк&shy;рыть смогли, а вот со вто&shy;рым воз&shy;никли какие-то проб&shy;лемы. Чтобы запе&shy;ча&shy;тать все в одну &laquo;тран&shy;зак&shy;цию&raquo;, мы поме&shy;щаем все три опе&shy;ра&shy;ции в еди&shy;ный <code>try</code> блок (как вари&shy;ант реа&shy;ли&shy;за&shy;ции), с очист&shy;кой ресур&shy;сов  &mdash;  в <code>finally</code>. При&shy;мер может пока&shy;заться упрощённым, но тут глав&shy;ное  &mdash;  пока&shy;зать суть.</p>
 <div class="paragraph-right-side">18</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
-<p >
-Чего не хва&shy;тает в языке прог&shy;рам&shy;ми&shy;ро&shy;ва&shy;ния C#, так это блока <code>fault</code>, суть кото&shy;рого - сра&shy;ба&shy;ты&shy;вать всегда, когда про&shy;изошла любая ошибка. Т.е. тот же <code>finally</code>, только на сте&shy;ро&shy;и&shy;дах. Если бы такое было, мы бы смогли, как клас&shy;си&shy;чес&shy;кий при&shy;мер делать еди&shy;ную точку входа в логи&shy;ро&shy;ва&shy;ние исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций:</p>
+<p>Чего не хва&shy;тает в языке прог&shy;рам&shy;ми&shy;ро&shy;ва&shy;ния C#, так это блока <code>fault</code>, суть кото&shy;рого  &mdash;  сра&shy;ба&shy;ты&shy;вать всегда, когда про&shy;изошла любая ошибка. Т.е. тот же <code>finally</code>, только на сте&shy;ро&shy;и&shy;дах. Если бы такое было, мы бы смогли, как клас&shy;си&shy;чес&shy;кий при&shy;мер делать еди&shy;ную точку входа в логи&shy;ро&shy;ва&shy;ние исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций:</p>
 <div class="paragraph-right-side">19</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1510,8 +1489,7 @@ COM+ исклю&shy;че&shy;ния - когда источ&shy;ни&shy;ком 
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
-<p >
-Также, о чем хоте&shy;лось бы упо&shy;мя&shy;нуть во ввод&shy;ной части - это фильтры исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций. Для плат&shy;формы .NET это нов&shy;шест&shy;вом не явля&shy;ется, однако явля&shy;ется тако&shy;вым для раз&shy;ра&shy;бот&shy;чи&shy;ков на языке прог&shy;рам&shy;ми&shy;ро&shy;ва&shy;ния C#: фил&shy;ьтрация исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций поя&shy;ви&shy;лась у нас только в шес&shy;той вер&shy;сии языка. Фильтры приз&shy;ваны нор&shy;ма&shy;ли&shy;зо&shy;вать ситу&shy;а&shy;цию, когда есть еди&shy;ный тип исклю&shy;че&shy;ния, кото&shy;рый объ&shy;е&shy;ди&shy;няет в себе нес&shy;колько видов оши&shy;бок. И в то время как мы хотим отра&shy;ба&shy;ты&shy;вать на конк&shy;рет&shy;ный сце&shy;на&shy;рий, вынуж&shy;дены перех&shy;ва&shy;ты&shy;вать всю группу и фил&shy;ьтровать её - уже после перех&shy;вата. Я, конечно же, имею в виду код сле&shy;ду&shy;ю&shy;щего вида:</p>
+<p>Также, о чем хоте&shy;лось бы упо&shy;мя&shy;нуть во ввод&shy;ной части  &mdash;  это фильтры исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций. Для плат&shy;формы .NET это нов&shy;шест&shy;вом не явля&shy;ется, однако явля&shy;ется тако&shy;вым для раз&shy;ра&shy;бот&shy;чи&shy;ков на языке прог&shy;рам&shy;ми&shy;ро&shy;ва&shy;ния C#: фил&shy;ьтрация исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций поя&shy;ви&shy;лась у нас только в шес&shy;той вер&shy;сии языка. Фильтры приз&shy;ваны нор&shy;ма&shy;ли&shy;зо&shy;вать ситу&shy;а&shy;цию, когда есть еди&shy;ный тип исклю&shy;че&shy;ния, кото&shy;рый объ&shy;е&shy;ди&shy;няет в себе нес&shy;колько видов оши&shy;бок. И в то время как мы хотим отра&shy;ба&shy;ты&shy;вать на конк&shy;рет&shy;ный сце&shy;на&shy;рий, вынуж&shy;дены перех&shy;ва&shy;ты&shy;вать всю группу и фил&shy;ьтровать её  &mdash;  уже после перех&shy;вата. Я, конечно же, имею в виду код сле&shy;ду&shy;ю&shy;щего вида:</p>
 <div class="paragraph-right-side">20</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1534,8 +1512,7 @@ COM+ исклю&shy;че&shy;ния - когда источ&shy;ни&shy;ком 
 }
 </pre></div>
 </div>
-<p >
-Так вот теперь мы можем пере&shy;пи&shy;сать этот код нор&shy;мально:</p>
+<p>Так вот теперь мы можем пере&shy;пи&shy;сать этот код нор&shy;мально:</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">try</span> {
     <span style="color:Green;">//...</span>
@@ -1552,28 +1529,17 @@ COM+ исклю&shy;че&shy;ния - когда источ&shy;ни&shy;ком 
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
-<p >
-И воп&shy;рос улуч&shy;ше&shy;ния тут вовсе не в отс&shy;утствии конст&shy;рукции <code>switch</code>. Новая конст&shy;рукция как по мне лучше по нес&shy;коль&shy;ким пунк&shy;там:</p>
+<p>И воп&shy;рос улуч&shy;ше&shy;ния тут вовсе не в отс&shy;утствии конст&shy;рукции <code>switch</code>. Новая конст&shy;рукция как по мне лучше по нес&shy;коль&shy;ким пунк&shy;там:</p>
 <div class="paragraph-right-side">21</div>
 </div>
 <ul>
-<li>
-<p >
-фильтруя по when мы перех&shy;ва&shy;ты&shy;ваем ровно то что хотим пой&shy;мать и не более того. Это пра&shy;вильно иде&shy;о&shy;ло&shy;ги&shy;чески;</p>
-</li>
-<li>
-<p >
-в новом виде код стал более читаем. Прос&shy;мат&shy;ри&shy;вая взгл&shy;ядом, мозг более легко нахо&shy;дит опре&shy;де&shy;ле&shy;ния оши&shy;бок, т.к. изна&shy;чально он их ищет не в <code>switch-case</code>, а в <code>catch</code>;</p>
-</li>
-<li>
-<p >
-и менее явное, но также очень важ&shy;ное: пред&shy;ва&shy;ри&shy;тель&shy;ное срав&shy;не&shy;ние идёт ДО входа в catch блок. А это зна&shy;чит, что работа такой конст&shy;рукции для слу&shy;чая про&shy;маха мимо всех усло&shy;вий будет идти нам&shy;ного быс&shy;т&shy;рее чем <code>switch</code> с пере&shy;выб&shy;ро&shy;сом исклю&shy;че&shy;ния.</p>
-</li>
+<li>фильтруя по when мы перех&shy;ва&shy;ты&shy;ваем ровно то что хотим пой&shy;мать и не более того. Это пра&shy;вильно иде&shy;о&shy;ло&shy;ги&shy;чески;</li>
+<li>в новом виде код стал более читаем. Прос&shy;мат&shy;ри&shy;вая взгл&shy;ядом, мозг более легко нахо&shy;дит опре&shy;де&shy;ле&shy;ния оши&shy;бок, т.к. изна&shy;чально он их ищет не в <code>switch-case</code>, а в <code>catch</code>;</li>
+<li>и менее явное, но также очень важ&shy;ное: пред&shy;ва&shy;ри&shy;тель&shy;ное срав&shy;не&shy;ние идёт ДО входа в catch блок. А это зна&shy;чит, что работа такой конст&shy;рукции для слу&shy;чая про&shy;маха мимо всех усло&shy;вий будет идти нам&shy;ного быс&shy;т&shy;рее чем <code>switch</code> с пере&shy;выб&shy;ро&shy;сом исклю&shy;че&shy;ния.</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
-<p >
-Осо&shy;бен&shy;ностью испол&shy;не&shy;ния кода по уве&shy;ре&shy;ниям мно&shy;гих источ&shy;ни&shy;ков явля&shy;ется то, что код фил&shy;ьтрации про&shy;ис&shy;хо&shy;дит <em>до</em> того как про&shy;и&shy;зойдёт развёртка стека. Это можно наб&shy;лю&shy;дать в ситу&shy;а&shy;циях, когда между мес&shy;том выб&shy;роса исклю&shy;че&shy;ния и мес&shy;том про&shy;верки на фил&shy;ьтрацию нет ника&shy;ких дру&shy;гих вызо&shy;вов кроме обыч&shy;ных:</p>
+<p>Осо&shy;бен&shy;ностью испол&shy;не&shy;ния кода по уве&shy;ре&shy;ниям мно&shy;гих источ&shy;ни&shy;ков явля&shy;ется то, что код фил&shy;ьтрации про&shy;ис&shy;хо&shy;дит <em>до</em> того как про&shy;и&shy;зойдёт развёртка стека. Это можно наб&shy;лю&shy;дать в ситу&shy;а&shy;циях, когда между мес&shy;том выб&shy;роса исклю&shy;че&shy;ния и мес&shy;том про&shy;верки на фил&shy;ьтрацию нет ника&shy;ких дру&shy;гих вызо&shy;вов кроме обыч&shy;ных:</p>
 <div class="paragraph-right-side">22</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1605,19 +1571,16 @@ COM+ исклю&shy;че&shy;ния - когда источ&shy;ни&shy;ком 
 }
 </pre></div>
 </div>
-<p >
-<img src="./imgs/StackWOutUnrolling.png" alt="Stack without unrolling" /></p>
+<p><img src="./imgs/StackWOutUnrolling.png" alt="Stack without unrol&shy;ling" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
-<p >
-Как видно на изоб&shy;ра&shy;же&shy;нии трас&shy;си&shy;ровка стека содер&shy;жит не только пер&shy;вый вызов <code>Main</code> как место отлова исклю&shy;чи&shy;тель&shy;ной ситу&shy;а&shy;ции, но и весь стек до точки выб&shy;роса исклю&shy;че&shy;ния плюс пов&shy;тор&shy;ный вход в <code>Main</code> через неко&shy;то&shy;рый неуп&shy;рав&shy;ля&shy;е&shy;мый код. Можно пред&shy;по&shy;ло&shy;жить, что этот код и есть код выб&shy;роса исклю&shy;че&shy;ний, кото&shy;рый просто нахо&shy;дится в ста&shy;дии фил&shy;ьтрации и выбора конеч&shy;ного обра&shy;бот&shy;чика. Однако стоит отме&shy;тить что <em>не все вызовы позволяют работать без раскрутки стека</em>. На мой скром&shy;ный взгляд, внеш&shy;няя уни&shy;фи&shy;ци&shy;ро&shy;ван&shy;ность плат&shy;формы порож&shy;дает излиш&shy;нее к ней дове&shy;рие. Нап&shy;ри&shy;мер, вызов мето&shy;дов между доме&shy;нами с точки зре&shy;ния кода выг&shy;ля&shy;дит абсо&shy;лютно проз&shy;рачно. Тем не менее, работа вызо&shy;вов мето&shy;дов про&shy;ис&shy;хо&shy;дит сов&shy;сем по дру&shy;гим зако&shy;нам. О них мы и пого&shy;во&shy;рим в сле&shy;ду&shy;ю&shy;щей части.</p>
+<p>Как видно на изоб&shy;ра&shy;же&shy;нии трас&shy;си&shy;ровка стека содер&shy;жит не только пер&shy;вый вызов <code>Main</code> как место отлова исклю&shy;чи&shy;тель&shy;ной ситу&shy;а&shy;ции, но и весь стек до точки выб&shy;роса исклю&shy;че&shy;ния плюс пов&shy;тор&shy;ный вход в <code>Main</code> через неко&shy;то&shy;рый неуп&shy;рав&shy;ля&shy;е&shy;мый код. Можно пред&shy;по&shy;ло&shy;жить, что этот код и есть код выб&shy;роса исклю&shy;че&shy;ний, кото&shy;рый просто нахо&shy;дится в ста&shy;дии фил&shy;ьтрации и выбора конеч&shy;ного обра&shy;бот&shy;чика. Однако стоит отме&shy;тить что <em>не все вызовы поз&shy;во&shy;ляют рабо&shy;тать без раск&shy;рутки стека</em>. На мой скром&shy;ный взгляд, внеш&shy;няя уни&shy;фи&shy;ци&shy;ро&shy;ван&shy;ность плат&shy;формы порож&shy;дает излиш&shy;нее к ней дове&shy;рие. Нап&shy;ри&shy;мер, вызов мето&shy;дов между доме&shy;нами с точки зре&shy;ния кода выг&shy;ля&shy;дит абсо&shy;лютно проз&shy;рачно. Тем не менее, работа вызо&shy;вов мето&shy;дов про&shy;ис&shy;хо&shy;дит сов&shy;сем по дру&shy;гим зако&shy;нам. О них мы и пого&shy;во&shy;рим в сле&shy;ду&shy;ю&shy;щей части.</p>
 <div class="paragraph-right-side">23</div>
 </div>
-<h3 id="section-2">Сериализация</h3>
+<h3 id="section-2">Сери&shy;а&shy;ли&shy;за&shy;ция</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">24</div>
-<p >
-Давайте начнём нес&shy;колько изда&shy;лека и пос&shy;мот&shy;рим на резуль&shy;таты работы сле&shy;ду&shy;ю&shy;щего кода (я доба&shy;вил проб&shy;рос вызова через гра&shy;ницу между доме&shy;нами при&shy;ло&shy;же&shy;ния):</p>
+<p>Давайте начнём нес&shy;колько изда&shy;лека и пос&shy;мот&shy;рим на резуль&shy;таты работы сле&shy;ду&shy;ю&shy;щего кода (я доба&shy;вил проб&shy;рос вызова через гра&shy;ницу между доме&shy;нами при&shy;ло&shy;же&shy;ния):</p>
 <div class="paragraph-right-side">24</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1664,20 +1627,15 @@ COM+ исклю&shy;че&shy;ния - когда источ&shy;ни&shy;ком 
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
-<p >
-Если обра&shy;тить вни&shy;ма&shy;ние на раз&shy;мотку стека, то ста&shy;нет ясно, что в дан&shy;ном слу&shy;чае она про&shy;ис&shy;хо&shy;дит ещё до того, как мы попа&shy;даем в фильтр. Взгл&shy;янем на скрин&shy;шоты. Пер&shy;вый взят до того, как гене&shy;ри&shy;ру&shy;ется исклю&shy;че&shy;ние:</p>
+<p>Если обра&shy;тить вни&shy;ма&shy;ние на раз&shy;мотку стека, то ста&shy;нет ясно, что в дан&shy;ном слу&shy;чае она про&shy;ис&shy;хо&shy;дит ещё до того, как мы попа&shy;даем в фильтр. Взгл&shy;янем на скрин&shy;шоты. Пер&shy;вый взят до того, как гене&shy;ри&shy;ру&shy;ется исклю&shy;че&shy;ние:</p>
 <div class="paragraph-right-side">25</div>
 </div>
-<p >
-<img src="./imgs/StackUnroll.png" alt="StackUnroll" /></p>
-<p >
-А вто&shy;рой - после:</p>
-<p >
-<img src="./imgs/StackUnroll2.png" alt="StackUnroll2" /></p>
+<p><img src="./imgs/StackUnroll.png" alt="Stack&shy;Unroll" /></p>
+<p>А вто&shy;рой  &mdash;  после:</p>
+<p><img src="./imgs/StackUnroll2.png" alt="Stack&shy;Unroll2" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
-<p >
-Изу&shy;чим трас&shy;си&shy;ровку вызо&shy;вов до и после попа&shy;да&shy;ния в фильтр исклю&shy;че&shy;ний. Что же здесь про&shy;ис&shy;хо&shy;дит? Здесь мы видим, что раз&shy;ра&shy;бот&shy;чики плат&shy;формы сде&shy;лали неко&shy;то&shy;рую с пер&shy;вого взгл&shy;яда защиту дочер&shy;него домена. Трас&shy;си&shy;ровка обре&shy;зана по край&shy;ний метод в цепочке вызо&shy;вов, после кото&shy;рого идёт пере&shy;ход в дру&shy;гой домен. Но на самом деле, как по мне так это выг&shy;ля&shy;дит нес&shy;колько странно. Чтобы понять, почему так про&shy;ис&shy;хо&shy;дит, вспом&shy;ним основ&shy;ное пра&shy;вило для типов, орга&shy;ни&shy;зу&shy;ю&shy;щих вза&shy;и&shy;мо&shy;д&shy;ействие между доме&shy;нами. Эти типы дол&shy;жны нас&shy;ле&shy;до&shy;вать <code>MarshalByRefObject</code> плюс - быть сери&shy;а&shy;ли&shy;зу&shy;е&shy;мыми. Однако, как бы ни был строг C#, типы исклю&shy;че&shy;ний могут быть какими угодно. А что это зна&shy;чит? Это зна&shy;чит, что могут быть ситу&shy;а&shy;ции, когда исклю&shy;чи&shy;тель&shy;ная ситу&shy;а&shy;ция внутри дочер&shy;него домена может при&shy;вести к её перех&shy;вату в роди&shy;т&shy;ельском домене. И если у объ&shy;екта дан&shy;ных исклю&shy;чи&shy;тель&shy;ной ситу&shy;а&shy;ции есть какие-либо опас&shy;ные методы с точки зре&shy;ния безо&shy;пас&shy;ности, они могут быть выз&shy;ваны в роди&shy;т&shy;ельском домене. Чтобы такого избе&shy;жать, исклю&shy;че&shy;ние сери&shy;а&shy;ли&shy;зу&shy;ется, про&shy;хо&shy;дит через гра&shy;ницу доме&shy;нов при&shy;ло&shy;же&shy;ний и воз&shy;ни&shy;кает вновь - с новым сте&shy;ком. Давайте про&shy;ве&shy;рим эту строй&shy;ную тео&shy;рию:</p>
+<p>Изу&shy;чим трас&shy;си&shy;ровку вызо&shy;вов до и после попа&shy;да&shy;ния в фильтр исклю&shy;че&shy;ний. Что же здесь про&shy;ис&shy;хо&shy;дит? Здесь мы видим, что раз&shy;ра&shy;бот&shy;чики плат&shy;формы сде&shy;лали неко&shy;то&shy;рую с пер&shy;вого взгл&shy;яда защиту дочер&shy;него домена. Трас&shy;си&shy;ровка обре&shy;зана по край&shy;ний метод в цепочке вызо&shy;вов, после кото&shy;рого идёт пере&shy;ход в дру&shy;гой домен. Но на самом деле, как по мне так это выг&shy;ля&shy;дит нес&shy;колько странно. Чтобы понять, почему так про&shy;ис&shy;хо&shy;дит, вспом&shy;ним основ&shy;ное пра&shy;вило для типов, орга&shy;ни&shy;зу&shy;ю&shy;щих вза&shy;и&shy;мо&shy;д&shy;ействие между доме&shy;нами. Эти типы дол&shy;жны нас&shy;ле&shy;до&shy;вать <code>Marshal&shy;By&shy;Ref&shy;Object</code> плюс  &mdash;  быть сери&shy;а&shy;ли&shy;зу&shy;е&shy;мыми. Однако, как бы ни был строг C#, типы исклю&shy;че&shy;ний могут быть какими угодно. А что это зна&shy;чит? Это зна&shy;чит, что могут быть ситу&shy;а&shy;ции, когда исклю&shy;чи&shy;тель&shy;ная ситу&shy;а&shy;ция внутри дочер&shy;него домена может при&shy;вести к её перех&shy;вату в роди&shy;т&shy;ельском домене. И если у объ&shy;екта дан&shy;ных исклю&shy;чи&shy;тель&shy;ной ситу&shy;а&shy;ции есть какие-либо опас&shy;ные методы с точки зре&shy;ния безо&shy;пас&shy;ности, они могут быть выз&shy;ваны в роди&shy;т&shy;ельском домене. Чтобы такого избе&shy;жать, исклю&shy;че&shy;ние сери&shy;а&shy;ли&shy;зу&shy;ется, про&shy;хо&shy;дит через гра&shy;ницу доме&shy;нов при&shy;ло&shy;же&shy;ний и воз&shy;ни&shy;кает вновь  &mdash;  с новым сте&shy;ком. Давайте про&shy;ве&shy;рим эту строй&shy;ную тео&shy;рию:</p>
 <div class="paragraph-right-side">26</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1732,26 +1690,21 @@ COM+ исклю&shy;че&shy;ния - когда источ&shy;ни&shy;ком 
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">27</div>
-<p >
-В дан&shy;ном при&shy;мере, для того чтобы выб&shy;ро&shy;сить исклю&shy;че&shy;ние любого типа из C# кода (я не хочу никого мучить встав&shy;ками на MSIL) был про&shy;де&shy;лан трюк с при&shy;ве&shy;де&shy;нием типа к не сопос&shy;та&shy;ви&shy;мому: чтобы мы бро&shy;сили исклю&shy;че&shy;ние любого типа, а транс&shy;ля&shy;тор C# думал бы, что мы исполь&shy;зуем тип <code>Exception</code>. Мы создаём экземп&shy;ляр типа <code>Program</code> - гаран&shy;ти&shy;ро&shy;ванно не сери&shy;а&shy;ли&shy;зу&shy;е&shy;мого и бро&shy;саем исклю&shy;че&shy;ние с ним в виде полез&shy;ной наг&shy;рузки. Хоро&shy;шие новости зак&shy;лю&shy;ча&shy;ются в том, что вы полу&shy;чите обёртку над не-Excep&shy;tion исклю&shy;че&shy;ни&shy;ями <code>RuntimeWrappedException</code>, кото&shy;рый внутри себя сох&shy;ра&shy;нит экземп&shy;ляр нашего объ&shy;екта типа <code>Program</code> и в C# перех&shy;ва&shy;тить такое исклю&shy;че&shy;ние мы смо&shy;жем. Однако есть и пло&shy;хая новость, кото&shy;рая подт&shy;вер&shy;ждает наше пред&shy;по&shy;ло&shy;же&shy;ние: вызов <code>proxy.MethodInsideAppDomain();</code> при&shy;ведёт к исклю&shy;че&shy;нию <code>SerializationException</code>:</p>
+<p>В дан&shy;ном при&shy;мере, для того чтобы выб&shy;ро&shy;сить исклю&shy;че&shy;ние любого типа из C# кода (я не хочу никого мучить встав&shy;ками на MSIL) был про&shy;де&shy;лан трюк с при&shy;ве&shy;де&shy;нием типа к не сопос&shy;та&shy;ви&shy;мому: чтобы мы бро&shy;сили исклю&shy;че&shy;ние любого типа, а транс&shy;ля&shy;тор C# думал бы, что мы исполь&shy;зуем тип <code>Excep&shy;tion</code>. Мы создаём экземп&shy;ляр типа <code>Program</code>  &mdash;  гаран&shy;ти&shy;ро&shy;ванно не сери&shy;а&shy;ли&shy;зу&shy;е&shy;мого и бро&shy;саем исклю&shy;че&shy;ние с ним в виде полез&shy;ной наг&shy;рузки. Хоро&shy;шие новости зак&shy;лю&shy;ча&shy;ются в том, что вы полу&shy;чите обёртку над не-Excep&shy;tion исклю&shy;че&shy;ни&shy;ями <code>Runtime&shy;Wrapped&shy;Exception</code>, кото&shy;рый внутри себя сох&shy;ра&shy;нит экземп&shy;ляр нашего объ&shy;екта типа <code>Program</code> и в C# перех&shy;ва&shy;тить такое исклю&shy;че&shy;ние мы смо&shy;жем. Однако есть и пло&shy;хая новость, кото&shy;рая подт&shy;вер&shy;ждает наше пред&shy;по&shy;ло&shy;же&shy;ние: вызов <code>proxy.Method&shy;Inside&shy;App&shy;Domain&shy;();</code> при&shy;ведёт к исклю&shy;че&shy;нию <code>Serialization&shy;Exception</code>:</p>
 <div class="paragraph-right-side">27</div>
 </div>
-<p >
-<img src="./imgs/SerializationError.png" alt="" /></p>
+<p><img src="./imgs/SerializationError.png" alt="" /></p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
-<p >
-Т.е. проб&shy;рос между доме&shy;нами такого исклю&shy;че&shy;ния не воз&shy;мо&shy;жен, т.к. его нет воз&shy;мож&shy;ности сери&shy;а&shy;ли&shy;зо&shy;вать. А это в свою оче&shy;редь зна&shy;чит, что обо&shy;ра&shy;чи&shy;ва&shy;ние вызо&shy;вов мето&shy;дов, нахо&shy;дя&shy;щихся в дру&shy;гих доме&shy;нах фил&shy;ьтрами исклю&shy;че&shy;ний все равно при&shy;ведёт к развёртке стека нес&shy;мотря на то что при <code>FullTrust</code> наст&shy;рой&shy;ках дочер&shy;него домена сери&shy;а&shy;ли&shy;за&shy;ция каза&shy;лось бы не нужна.</p>
+<p>Т.е. проб&shy;рос между доме&shy;нами такого исклю&shy;че&shy;ния не воз&shy;мо&shy;жен, т.к. его нет воз&shy;мож&shy;ности сери&shy;а&shy;ли&shy;зо&shy;вать. А это в свою оче&shy;редь зна&shy;чит, что обо&shy;ра&shy;чи&shy;ва&shy;ние вызо&shy;вов мето&shy;дов, нахо&shy;дя&shy;щихся в дру&shy;гих доме&shy;нах фил&shy;ьтрами исклю&shy;че&shy;ний все равно при&shy;ведёт к развёртке стека нес&shy;мотря на то что при <code>Full&shy;Trust</code> наст&shy;рой&shy;ках дочер&shy;него домена сери&shy;а&shy;ли&shy;за&shy;ция каза&shy;лось бы не нужна.</p>
 <div class="paragraph-right-side">28</div>
 </div>
 <blockquote>
-<p >
-Стоит допол&shy;ни&shy;тельно обра&shy;тить вни&shy;ма&shy;ние на при&shy;чину, по кото&shy;рой сери&shy;а&shy;ли&shy;за&shy;ция между доме&shy;нами так необ&shy;хо&shy;дима. В нашем син&shy;те&shy;ти&shy;чес&shy;ком при&shy;мере мы создаём дочер&shy;ний домен, кото&shy;рый не имеет ника&shy;ких нас&shy;троек. А это зна&shy;чит, что он рабо&shy;тает в Full&shy;Trust. Т.е. CLR пол&shy;ностью дове&shy;ряет его содер&shy;жи&shy;мому как себе и ника&shy;ких допол&shy;ни&shy;тель&shy;ных про&shy;ве&shy;рок делать не будет. Но как только вы выс&shy;та&shy;вите хоть одну наст&shy;ройку безо&shy;пас&shy;ности, пол&shy;ная дове&shy;рен&shy;ность про&shy;падёт и CLR начнёт конт&shy;ро&shy;ли&shy;ро&shy;вать все что про&shy;ис&shy;хо&shy;дит внутри этого дочер&shy;него домена. Так вот когда домен пол&shy;ностью дове&shy;рен&shy;ный, сери&shy;а&shy;ли&shy;за&shy;ция по идее не нужна. Нам нет необ&shy;хо&shy;ди&shy;мости как-то защи&shy;щаться, сог&shy;ла&shy;си&shy;тесь. Но сери&shy;а&shy;ли&shy;за&shy;ция соз&shy;дана не только для защиты. Каж&shy;дый домен гру&shy;зит в себя все необ&shy;хо&shy;ди&shy;мые сборки по вто&shy;рому разу, соз&shy;да&shy;вая их копии. Тем самым соз&shy;да&shy;вая копии всех типов и всех таб&shy;лиц вир&shy;ту&shy;альных мето&shy;дов. Пере&shy;да&shy;вая объ&shy;ект по ссылке из домена в домен, вы полу&shy;чите, конечно, тот же объ&shy;ект. Но у него будут чужие таб&shy;лицы вир&shy;ту&shy;альных мето&shy;дов и как резуль&shy;тат - этот объ&shy;ект не смо&shy;жет быть при&shy;ведён к дру&shy;гому типу. Дру&shy;гими сло&shy;вами, если вы соз&shy;дали экземп&shy;ляр типа <code>Boo</code>, то полу&shy;чив его в дру&shy;гом домене при&shy;ве&shy;де&shy;ние типа <code>(Boo)boo</code> не сра&shy;бо&shy;тает. А сери&shy;а&shy;ли&shy;за&shy;ция и десе&shy;ри&shy;а&shy;ли&shy;за&shy;ция решает проб&shy;лему: объ&shy;ект будет сущест&shy;во&shy;вать однов&shy;ре&shy;менно в двух доме&shy;нах. Там где он был соз&shy;дан - со всеми сво&shy;ими дан&shy;ными и в доме&shy;нах исполь&shy;зо&shy;ва&shy;ния - в виде прокси-объ&shy;екта, обес&shy;пе&shy;чи&shy;ва&shy;ю&shy;щего вызов мето&shy;дов ори&shy;ги&shy;наль&shy;ного объ&shy;екта.</p>
+<p>Стоит допол&shy;ни&shy;тельно обра&shy;тить вни&shy;ма&shy;ние на при&shy;чину, по кото&shy;рой сери&shy;а&shy;ли&shy;за&shy;ция между доме&shy;нами так необ&shy;хо&shy;дима. В нашем син&shy;те&shy;ти&shy;чес&shy;ком при&shy;мере мы создаём дочер&shy;ний домен, кото&shy;рый не имеет ника&shy;ких нас&shy;троек. А это зна&shy;чит, что он рабо&shy;тает в Full&shy;Trust&shy;. Т.е. CLR пол&shy;ностью дове&shy;ряет его содер&shy;жи&shy;мому как себе и ника&shy;ких допол&shy;ни&shy;тель&shy;ных про&shy;ве&shy;рок делать не будет. Но как только вы выс&shy;та&shy;вите хоть одну наст&shy;ройку безо&shy;пас&shy;ности, пол&shy;ная дове&shy;рен&shy;ность про&shy;падёт и CLR начнёт конт&shy;ро&shy;ли&shy;ро&shy;вать все что про&shy;ис&shy;хо&shy;дит внутри этого дочер&shy;него домена. Так вот когда домен пол&shy;ностью дове&shy;рен&shy;ный, сери&shy;а&shy;ли&shy;за&shy;ция по идее не нужна. Нам нет необ&shy;хо&shy;ди&shy;мости как-то защи&shy;щаться, сог&shy;ла&shy;си&shy;тесь. Но сери&shy;а&shy;ли&shy;за&shy;ция соз&shy;дана не только для защиты. Каж&shy;дый домен гру&shy;зит в себя все необ&shy;хо&shy;ди&shy;мые сборки по вто&shy;рому разу, соз&shy;да&shy;вая их копии. Тем самым соз&shy;да&shy;вая копии всех типов и всех таб&shy;лиц вир&shy;ту&shy;альных мето&shy;дов. Пере&shy;да&shy;вая объ&shy;ект по ссылке из домена в домен, вы полу&shy;чите, конечно, тот же объ&shy;ект. Но у него будут чужие таб&shy;лицы вир&shy;ту&shy;альных мето&shy;дов и как резуль&shy;тат  &mdash;  этот объ&shy;ект не смо&shy;жет быть при&shy;ведён к дру&shy;гому типу. Дру&shy;гими сло&shy;вами, если вы соз&shy;дали экземп&shy;ляр типа <code>Boo</code>, то полу&shy;чив его в дру&shy;гом домене при&shy;ве&shy;де&shy;ние типа <code>(Boo&shy;)boo</code> не сра&shy;бо&shy;тает. А сери&shy;а&shy;ли&shy;за&shy;ция и десе&shy;ри&shy;а&shy;ли&shy;за&shy;ция решает проб&shy;лему: объ&shy;ект будет сущест&shy;во&shy;вать однов&shy;ре&shy;менно в двух доме&shy;нах. Там где он был соз&shy;дан  &mdash;  со всеми сво&shy;ими дан&shy;ными и в доме&shy;нах исполь&shy;зо&shy;ва&shy;ния  &mdash;  в виде прокси-объ&shy;екта, обес&shy;пе&shy;чи&shy;ва&shy;ю&shy;щего вызов мето&shy;дов ори&shy;ги&shy;наль&shy;ного объ&shy;екта.</p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">29</div>
-<p >
-Пере&shy;да&shy;вая сери&shy;а&shy;ли&shy;зу&shy;е&shy;мый объ&shy;ект между доме&shy;нами, вы полу&shy;чите в дру&shy;гом домене пол&shy;ную копию объ&shy;екта из пер&shy;вого сох&shy;ра&shy;нив неко&shy;то&shy;рую разг&shy;ра&shy;ни&shy;чен&shy;ность по памяти. Разг&shy;ра&shy;ни&shy;чен&shy;ность тоже мни&shy;мая. Она - только для тех типов, кото&shy;рые не нахо&shy;дятся в <code>Shared AppDomain</code>. Т.е., нап&shy;ри&shy;мер, если в качес&shy;тве исклю&shy;че&shy;ния бро&shy;сить что-нибудь несе&shy;ри&shy;а&shy;ли&shy;зу&shy;е&shy;мое, но из <code>Shared AppDomain</code>, то ошибки сери&shy;а&shy;ли&shy;за&shy;ции не будет (можно поп&shy;ро&shy;бо&shy;вать вместо <code>Program</code> бро&shy;сить <code>Action</code>). Однако раск&shy;рутка стека при этом все равно про&shy;и&shy;зойдёт: оба слу&shy;чая дол&shy;жны рабо&shy;тать стан&shy;дар&shy;тно. Чтобы никого не путать.</p>
+<p>Пере&shy;да&shy;вая сери&shy;а&shy;ли&shy;зу&shy;е&shy;мый объ&shy;ект между доме&shy;нами, вы полу&shy;чите в дру&shy;гом домене пол&shy;ную копию объ&shy;екта из пер&shy;вого сох&shy;ра&shy;нив неко&shy;то&shy;рую разг&shy;ра&shy;ни&shy;чен&shy;ность по памяти. Разг&shy;ра&shy;ни&shy;чен&shy;ность тоже мни&shy;мая. Она  &mdash;  только для тех типов, кото&shy;рые не нахо&shy;дятся в <code>Shared App&shy;Domain</code>. Т.е., нап&shy;ри&shy;мер, если в качес&shy;тве исклю&shy;че&shy;ния бро&shy;сить что-нибудь несе&shy;ри&shy;а&shy;ли&shy;зу&shy;е&shy;мое, но из <code>Shared App&shy;Domain</code>, то ошибки сери&shy;а&shy;ли&shy;за&shy;ции не будет (можно поп&shy;ро&shy;бо&shy;вать вместо <code>Program</code> бро&shy;сить <code>Action</code>). Однако раск&shy;рутка стека при этом все равно про&shy;и&shy;зойдёт: оба слу&shy;чая дол&shy;жны рабо&shy;тать стан&shy;дар&shy;тно. Чтобы никого не путать.</p>
 <div class="paragraph-right-side">29</div>
 </div>
 
