@@ -85,13 +85,30 @@ ol li, ul li {
     text-align: justify;
 }
 
+.image-container {
+    margin-top: 2em;
+    margin-bottom: 1.0em;
+    text-align: center;
+}
+
+.image-container p {
+    margin: 0;
+}
+
+.image-container img {
+    width: fit-content;
+    max-width: 100%;
+    max-height: 21em;
+    object-fit: contain;
+}
+
 .table-container {
     display: block;
     margin-top: 2.1em;
     width: 100%;
 }
 
-.table-container + p.description {
+.table-container + p.description, .paragraph-container + p.description {
     font-size: 0.8em;
     font-style: italic;
     text-align: center;
@@ -388,10 +405,6 @@ h5 {
 /* Paragraphs numbering */
 .paragraph-container {
     position: relative;
-}
-.paragraph-container p {
-    position: relative;
-    top: 9px;
 }
 
 .paragraph-container p, .aside-container > p {
@@ -1045,7 +1058,7 @@ footer > div {
     .paragraph-container .paragraph-right-side 
     {
         padding-left: 21px;
-        top: 14px;
+        top: 4px;
 	    font-size: 8pt;
     }
     .footer-container img {
@@ -1454,7 +1467,8 @@ footer > div {
 <li>Далее, пос&shy;лед&shy;ним эта&shy;пом осу&shy;щес&shy;тв&shy;ляется выход из метода через инстр&shy;укцию <code>ret</code>. Она заби&shy;рает со стека адрес возв&shy;рата, забот&shy;ливо остав&shy;лен&shy;ный ранее инстр&shy;ук&shy;цией <code>call</code> и делает <code>jmp</code> по этому адресу.</li>
 </ol>
 <p>Те же самые про&shy;цессы можно пос&shy;мот&shy;реть на изоб&shy;ра&shy;же&shy;нии:</p>
-<p><img src="./imgs/ThreadStack/AnyMethodCall.png" alt="" /></p>
+<div class="image-container"><p><img src="./imgs/ThreadStack/AnyMethodCall.png" alt="" /></p>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
 <p>Также замечу, что стек &laquo;растёт&raquo;, начи&shy;ная со стар&shy;ших адре&shy;сов и закан&shy;чи&shy;вая млад&shy;шими, т.е. в обрат&shy;ную сто&shy;рону.</p>
@@ -1627,37 +1641,43 @@ ThreadPool -&gt; MakeFork
 <p>Итак, как будет выг&shy;ля&shy;деть стек потока, когда наш код вызо&shy;вет Make&shy;Fork&shy;, кото&shy;рый вызо&shy;вет Clone&shy;Thread&shy;, кото&shy;рый уйдёт в unma&shy;naged мир CLI/C++ и вызо&shy;вет метод кло&shy;ни&shy;ро&shy;ва&shy;ние (саму реа&shy;ли&shy;за&shy;цию)  &mdash;  там? Давайте пос&shy;мот&shy;рим на схему (ещё раз напомню, что стек растёт от стар&shy;ших адре&shy;сов к млад&shy;шим. Справа налево):</p>
 <div class="paragraph-right-side">15</div>
 </div>
-<p><img src="./imgs/ThreadStack/step1.png" alt="" /></p>
+<div class="image-container"><p><img src="./imgs/ThreadStack/step1.png" alt="" /></p>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
 <p>Ну а для того чтобы не тащить всю прос&shy;тыню со схемы на схему, упрос&shy;тим, отбро&shy;сив то, что нам не нужно:</p>
 <div class="paragraph-right-side">16</div>
 </div>
-<p><img src="./imgs/ThreadStack/step2.png" alt="" /></p>
+<div class="image-container"><p><img src="./imgs/ThreadStack/step2.png" alt="" /></p>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
 <p>Когда мы соз&shy;да&shy;дим поток либо возьмём гото&shy;вый из пула пото&shy;ков, в нашей схеме появ&shy;ля&shy;ется ещё один стек, пока ещё ничем не про&shy;и&shy;ни&shy;ци&shy;а&shy;ли&shy;зи&shy;ро&shy;ван&shy;ный:</p>
 <div class="paragraph-right-side">17</div>
 </div>
-<p><img src="./imgs/ThreadStack/step3.png" alt="" /></p>
+<div class="image-container"><p><img src="./imgs/ThreadStack/step3.png" alt="" /></p>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
 <p>Теперь наша задача  &mdash;  сыми&shy;ти&shy;ро&shy;вать запуск метода <code>Fork&shy;.Clone&shy;Thread&shy;()</code> в новом потоке. Для этого мы дол&shy;жны в конец его стека потока допи&shy;сать серию кад&shy;ров: как будто из деле&shy;гата, пере&shy;дан&shy;ного Thread&shy;Pool&shy;'у был выз&shy;ван <code>Fork&shy;.Clone&shy;Thread&shy;()</code>, из кото&shy;рого через врап&shy;пер C++ кода managed обёрткой был выз&shy;ван CLI/C++ метод. Для этого мы просто ско&shy;пи&shy;руем необ&shy;хо&shy;ди&shy;мый учас&shy;ток стека в мас&shy;сив (замечу, что со скло&shy;ни&shy;ро&shy;ван&shy;ного учас&shy;тка на ста&shy;рый &laquo;смот&shy;рят&raquo; копии регист&shy;ров EBP, обес&shy;пе&shy;чи&shy;ва&shy;ю&shy;щих пос&shy;тро&shy;е&shy;ние цепочки кад&shy;ров):</p>
 <div class="paragraph-right-side">18</div>
 </div>
-<p><img src="./imgs/ThreadStack/step4.png" alt="" /></p>
+<div class="image-container"><p><img src="./imgs/ThreadStack/step4.png" alt="" /></p>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
 <p>Далее чтобы обес&shy;пе&shy;чить целост&shy;ность стека после опе&shy;ра&shy;ции копи&shy;ро&shy;ва&shy;ния скло&shy;ни&shy;ро&shy;ван&shy;ного на пре&shy;ды&shy;ду&shy;щем шаге учас&shy;тка, мы зара&shy;нее расс&shy;чи&shy;ты&shy;ваем, по каким адре&shy;сам будут нахо&shy;диться поля <code>EBP</code> на новом месте, и сразу же исправ&shy;ляем их, прямо на копии:</p>
 <div class="paragraph-right-side">19</div>
 </div>
-<p><img src="./imgs/ThreadStack/step5.png" alt="" /></p>
+<div class="image-container"><p><img src="./imgs/ThreadStack/step5.png" alt="" /></p>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
 <p>Пос&shy;лед&shy;ним шагом, очень акку&shy;ратно, зад&shy;ействуя мини&shy;маль&shy;ное коли&shy;чес&shy;тво регист&shy;ров, копи&shy;руем наш мас&shy;сив в конец стека дочер&shy;него потока, после чего сдви&shy;гаем регис&shy;тры ESP и EBP на новые места. С точки зре&shy;ния стека мы сыми&shy;ти&shy;ро&shy;вали вызов всех этих мето&shy;дов:</p>
 <div class="paragraph-right-side">20</div>
 </div>
-<p><img src="./imgs/ThreadStack/step6.png" alt="" /></p>
+<div class="image-container"><p><img src="./imgs/ThreadStack/step6.png" alt="" /></p>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
 <p>Но пока не с точки зре&shy;ния кода. С точки зре&shy;ния кода нам надо попасть в те методы, кото&shy;рые только что соз&shy;дали. Самое прос&shy;тое  &mdash;  просто сыми&shy;ти&shy;ро&shy;вать выход из метода: восс&shy;та&shy;но&shy;вить <code>ESP</code> до <code>EBP</code>, в <code>EBP</code> поло&shy;жить то, на что он ука&shy;зы&shy;вает и выз&shy;вать инстр&shy;укцию <code>ret</code>, ини&shy;ци&shy;и&shy;ро&shy;вав выход из якобы выз&shy;ван&shy;ного C++ метода кло&shy;ни&shy;ро&shy;ва&shy;ния потока, что при&shy;ведёт к возв&shy;рату в реальный wrapper CLI/C++ вызова, кото&shy;рый вернёт управ&shy;ле&shy;ние в <code>Make&shy;Fork&shy;()</code>, но в дочер&shy;нем потоке. Тех&shy;ника сра&shy;бо&shy;тала.</p>
@@ -2030,9 +2050,11 @@ RestorePointAfterClonnedExited:
 </pre></div>
 </div>
 <p>Про&shy;ве&shy;рим? Это  &mdash;  скрин&shy;шот до вызова кло&shy;ни&shy;ро&shy;ва&shy;ния потока:</p>
-<p><img src="./imgs/ThreadStack/ForkBeforeEnter.png" alt="" /></p>
+<div class="image-container"><p><img src="./imgs/ThreadStack/ForkBeforeEnter.png" alt="" /></p>
+</div>
 <p>И после:</p>
-<p><img src="./imgs/ThreadStack/ForkAfterEnter.png" alt="" /></p>
+<div class="image-container"><p><img src="./imgs/ThreadStack/ForkAfterEnter.png" alt="" /></p>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">40</div>
 <p>Как мы видим, теперь вместо одного потока внутри Fork&shy;Impl мы видим два. И оба  &mdash;  вышли из этого метода.</p>

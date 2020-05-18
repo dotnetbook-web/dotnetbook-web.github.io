@@ -85,13 +85,30 @@ ol li, ul li {
     text-align: justify;
 }
 
+.image-container {
+    margin-top: 2em;
+    margin-bottom: 1.0em;
+    text-align: center;
+}
+
+.image-container p {
+    margin: 0;
+}
+
+.image-container img {
+    width: fit-content;
+    max-width: 100%;
+    max-height: 21em;
+    object-fit: contain;
+}
+
 .table-container {
     display: block;
     margin-top: 2.1em;
     width: 100%;
 }
 
-.table-container + p.description {
+.table-container + p.description, .paragraph-container + p.description {
     font-size: 0.8em;
     font-style: italic;
     text-align: center;
@@ -388,10 +405,6 @@ h5 {
 /* Paragraphs numbering */
 .paragraph-container {
     position: relative;
-}
-.paragraph-container p {
-    position: relative;
-    top: 9px;
 }
 
 .paragraph-container p, .aside-container > p {
@@ -1045,7 +1058,7 @@ footer > div {
     .paragraph-container .paragraph-right-side 
     {
         padding-left: 21px;
-        top: 14px;
+        top: 4px;
 	    font-size: 8pt;
     }
     .footer-container img {
@@ -1425,7 +1438,8 @@ SafeHandle / CriticalHandle / SafeBuffer / 派生类型</a></li>
             <p class="d-none d-sm-block d-md-none">MD</p>
             <p class="d-none d-lg-block d-xl-none">LG</p>
             <p class="d-none d-xl-block">XL</p> -->
-            <p><img src="./imgs/Disposable-Cover.png" alt="IDis&shy;po&shy;sable cover" /></p>
+            <div class="image-container"><p><img src="./imgs/Disposable-Cover.png" alt="IDis&shy;po&shy;sable cover" /></p>
+</div>
 <h1 id="section">一次性模式（一次性设计原则）</h1>
 <blockquote>
 <p><a href="https://github.com/sidristij/dotnetbook/issues/54">讨论链接</a></p>

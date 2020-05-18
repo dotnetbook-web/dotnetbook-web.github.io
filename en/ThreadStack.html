@@ -85,13 +85,30 @@ ol li, ul li {
     text-align: justify;
 }
 
+.image-container {
+    margin-top: 2em;
+    margin-bottom: 1.0em;
+    text-align: center;
+}
+
+.image-container p {
+    margin: 0;
+}
+
+.image-container img {
+    width: fit-content;
+    max-width: 100%;
+    max-height: 21em;
+    object-fit: contain;
+}
+
 .table-container {
     display: block;
     margin-top: 2.1em;
     width: 100%;
 }
 
-.table-container + p.description {
+.table-container + p.description, .paragraph-container + p.description {
     font-size: 0.8em;
     font-style: italic;
     text-align: center;
@@ -388,10 +405,6 @@ h5 {
 /* Paragraphs numbering */
 .paragraph-container {
     position: relative;
-}
-.paragraph-container p {
-    position: relative;
-    top: 9px;
 }
 
 .paragraph-container p, .aside-container > p {
@@ -1045,7 +1058,7 @@ footer > div {
     .paragraph-container .paragraph-right-side 
     {
         padding-left: 21px;
-        top: 14px;
+        top: 4px;
 	    font-size: 8pt;
     }
     .footer-container img {
@@ -1457,7 +1470,8 @@ Conclusions on </a></li>
 <li>And finally, we use <code>ret</code> instr&shy;uc&shy;tion to exit the method.  It takes the return add&shy;ress that was put on the stack by the <code>call</code> instr&shy;uc&shy;tion and makes <code>jmp</code> based on this add&shy;ress.</li>
 </ol>
 <p>The figure shows these processes:</p>
-<p><img src="../imgs/ThreadStack/AnyMethodCall.png" alt="" /></p>
+<div class="image-container"><p><img src="../imgs/ThreadStack/AnyMethodCall.png" alt="" /></p>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
 <p>Note that the stack grows star&shy;ting from higher and finishing with lower addresses, i.e. in reverse.</p>
@@ -1638,37 +1652,43 @@ ThreadPool -&gt; MakeFork
 <p>So&shy;, how will a thread stack look like, when our code will call <code>Make&shy;Fork</code> which will call <code>Clone&shy;Thread</code> which will go to the unma&shy;naged world of CLI/C++ and call the cloning method (the imple&shy;men&shy;ta&shy;tion itself) there? Let’s look at the figure (note once again that the stack is growing from higher to lower addresses. From left to right):</p>
 <div class="paragraph-right-side">16</div>
 </div>
-<p><img src="../imgs/ThreadStack/step1.png" alt="" /></p>
+<div class="image-container"><p><img src="../imgs/ThreadStack/step1.png" alt="" /></p>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">17</div>
 <p>In order not to move the whole thing from figure to figure, let’s simp&shy;lify it and keep only what we need:</p>
 <div class="paragraph-right-side">17</div>
 </div>
-<p><img src="../imgs/ThreadStack/step2.png" alt="" /></p>
+<div class="image-container"><p><img src="../imgs/ThreadStack/step2.png" alt="" /></p>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
 <p>When we create a thread or take a made-up thread from the pool, another stack appears in our figure. However&shy;, this stack is not ini&shy;ti&shy;a&shy;lized yet.</p>
 <div class="paragraph-right-side">18</div>
 </div>
-<p><img src="../imgs/ThreadStack/step3.png" alt="" /></p>
+<div class="image-container"><p><img src="../imgs/ThreadStack/step3.png" alt="" /></p>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
 <p>Now&shy;, we need to imi&shy;tate the running of <code>Fork&shy;.Clone&shy;Thread&shy;()</code> method in a new thread. To do this, we need to add a series of frames to the end of its thread stack: as if CLI/C++ method was called by a managed wrapper through a C++ wrapper from <code>Fork&shy;.Clone&shy;Thread&shy;()</code> which was in turn called from a dele&shy;gate trans&shy;ferred to <code>Thread&shy;Pool</code>. To do this, we will copy a neces&shy;sary stack region to an array (note that the copies of EBP regis&shy;ters, used for buil&shy;ding a frame chain, in the cloned region “over&shy;look” the former region):</p>
 <div class="paragraph-right-side">19</div>
 </div>
-<p><img src="../imgs/ThreadStack/step4.png" alt="" /></p>
+<div class="image-container"><p><img src="../imgs/ThreadStack/step4.png" alt="" /></p>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
 <p>To ensure the integ&shy;rity of stack after copying the previously cloned region, we esti&shy;mate in advance which addresses will be taken by EBP fields in a new place and change them to copies imme&shy;di&shy;a&shy;tely:</p>
 <div class="paragraph-right-side">20</div>
 </div>
-<p><img src="../imgs/ThreadStack/step5.png" alt="" /></p>
+<div class="image-container"><p><img src="../imgs/ThreadStack/step5.png" alt="" /></p>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
 <p>The last step is to copy our array to the end of the child thread stack care&shy;fully, using a minimal number of regis&shy;ters, and move our ESP and EBP regis&shy;ters to new places. We imi&shy;tated the call of all these methods in terms of the stack:</p>
 <div class="paragraph-right-side">21</div>
 </div>
-<p><img src="../imgs/ThreadStack/step6.png" alt="" /></p>
+<div class="image-container"><p><img src="../imgs/ThreadStack/step6.png" alt="" /></p>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
 <p>But not in terms of code. In terms of code, we need to access those methods that we have just created. The simp&shy;lest way is to imi&shy;tate the exit from a method: restore <code>ESP</code> from <code>EBP</code>, put into <code>EBP</code> what it points to and call <code>ret</code> instr&shy;uc&shy;tion, ini&shy;ti&shy;a&shy;ting the exit from a suppo&shy;sedly called C++ method for thread cloning. This will end up with retur&shy;ning to a real wrapper of the CLI/C++ call, which will pass control to <code>Make&shy;Fork&shy;()</code>, but in a child thread. This tech&shy;nique works.</p>
@@ -2042,9 +2062,11 @@ RestorePointAfterClonedExited:
 </pre></div>
 </div>
 <p>Let’s check. This screenshot is made before a thread cloning call:</p>
-<p><img src="../imgs/ThreadStack/ForkBeforeEnter.png" alt="" /></p>
+<div class="image-container"><p><img src="../imgs/ThreadStack/ForkBeforeEnter.png" alt="" /></p>
+</div>
 <p>This screenshot is made after:</p>
-<p><img src="../imgs/ThreadStack/ForkAfterEnter.png" alt="" /></p>
+<div class="image-container"><p><img src="../imgs/ThreadStack/ForkAfterEnter.png" alt="" /></p>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">41</div>
 <p>As we see now, there are two threads in <code>Fork&shy;Impl</code> instead of one. Both of them exited this method.</p>

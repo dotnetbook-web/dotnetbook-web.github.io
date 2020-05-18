@@ -85,13 +85,30 @@ ol li, ul li {
     text-align: justify;
 }
 
+.image-container {
+    margin-top: 2em;
+    margin-bottom: 1.0em;
+    text-align: center;
+}
+
+.image-container p {
+    margin: 0;
+}
+
+.image-container img {
+    width: fit-content;
+    max-width: 100%;
+    max-height: 21em;
+    object-fit: contain;
+}
+
 .table-container {
     display: block;
     margin-top: 2.1em;
     width: 100%;
 }
 
-.table-container + p.description {
+.table-container + p.description, .paragraph-container + p.description {
     font-size: 0.8em;
     font-style: italic;
     text-align: center;
@@ -388,10 +405,6 @@ h5 {
 /* Paragraphs numbering */
 .paragraph-container {
     position: relative;
-}
-.paragraph-container p {
-    position: relative;
-    top: 9px;
 }
 
 .paragraph-container p, .aside-container > p {
@@ -1045,7 +1058,7 @@ footer > div {
     .paragraph-container .paragraph-right-side 
     {
         padding-left: 21px;
-        top: 14px;
+        top: 4px;
 	    font-size: 8pt;
     }
     .footer-container img {
@@ -1476,7 +1489,8 @@ Try-Catch-Finally in brief</a></li>
 <p>Excep&shy;tions han&shy;dling might look as easy as ABC: we just need to place <code>try-catch</code> blocks and wait for corres&shy;pon&shy;ding events. However&shy;, this simp&shy;li&shy;city became possible due to the tremen&shy;dous work of CLR and Core&shy;CLR teams that uni&shy;fied all the errors that come from all direc&shy;tions and sources into the CLR. To unders&shy;tand what we are going to talk about next, let’s look at a diagram:</p>
 <div class="paragraph-right-side">07</div>
 </div>
-<p><img src="./imgs/CommonScheme.png" alt="" /></p>
+<div class="image-container"><p><img src="./imgs/CommonScheme.png" alt="" /></p>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
 <p>We can see that inside big .NET Frame&shy;work there are two worlds: everything that belongs to CLR and everything that doesn’t, inclu&shy;ding all possible errors appe&shy;a&shy;ring in Windows and other parts of the unsafe world.</p>
@@ -1680,7 +1694,8 @@ Try-Catch-Finally in brief</a></li>
 }
 </pre></div>
 </div>
-<p><img src="./imgs/StackWOutUnrolling.png" alt="Stack without unrol&shy;ling" /></p>
+<div class="image-container"><p><img src="./imgs/StackWOutUnrolling.png" alt="Stack without unrol&shy;ling" /></p>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
 <p>You can see from the image that the stack trace contains not only the first call of <code>Main</code> as the point to catch an excep&shy;tion, but the whole stack before the point of throwing an excep&shy;tion plus the second ente&shy;ring into <code>Main</code> via unma&shy;naged code. We can suppose that this code is exactly the code for throwing excep&shy;tions that is in the stage of filte&shy;ring and choosing a final han&shy;dler. However&shy;, <em>not all calls can be han&shy;dled without stack unrol&shy;ling</em>. I believe that exces&shy;sive uni&shy;for&shy;mity of the plat&shy;form gene&shy;rates too much confi&shy;dence in it. For example, when one domain calls a method from another domain it is abso&shy;lu&shy;tely trans&shy;pa&shy;rent in terms of code. However&shy;, the way methods calls work is an abso&shy;lu&shy;tely diffe&shy;rent story. We are going to talk about them in the next part.</p>
@@ -1739,9 +1754,11 @@ Try-Catch-Finally in brief</a></li>
 <p>We can see that stack unrol&shy;ling happens before we get to filte&shy;ring. Let’s look at screenshots. The first is taken before the gene&shy;ra&shy;tion of an excep&shy;tion:</p>
 <div class="paragraph-right-side">25</div>
 </div>
-<p><img src="./imgs/StackUnroll.png" alt="Stack&shy;Unroll" /></p>
+<div class="image-container"><p><img src="./imgs/StackUnroll.png" alt="Stack&shy;Unroll" /></p>
+</div>
 <p>The second one is after it:</p>
-<p><img src="./imgs/StackUnroll2.png" alt="Stack&shy;Unroll2" /></p>
+<div class="image-container"><p><img src="./imgs/StackUnroll2.png" alt="Stack&shy;Unroll2" /></p>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
 <p>Let’s study call tracing before and after excep&shy;tions are filtered. What happens here? We can see that plat&shy;form deve&shy;lo&shy;pers made something that at first glance looks like the protec&shy;tion of a subdo&shy;main. The tracing is cut after the last method in the call chain and then there is the transfer to another domain. But I think this looks strange. To unders&shy;tand why this happens let’s remember the main rule for types that orga&shy;nize the inte&shy;rac&shy;tion between domains. These types should inherit <code>Marshal&shy;By&shy;Ref&shy;Object</code> and be seri&shy;a&shy;li&shy;zable. However&shy;, despite the stric&shy;tness of C# excep&shy;tion types can be of any nature. What does it mean? This means that situ&shy;a&shy;tions may occur when an excep&shy;tion inside a subdo&shy;main can be caught in a parent domain. Also&shy;, if a data object that can get into an excep&shy;ti&shy;onal situ&shy;a&shy;tion has some methods that are dange&shy;rous in terms of secu&shy;rity they can be called in a parent domain. To avoid this, the excep&shy;tion is first seri&shy;a&shy;lized and then it crosses the boun&shy;dary between appli&shy;ca&shy;tion domains and appears again with a new stack. Let’s check this theory:</p>
@@ -1802,7 +1819,8 @@ Try-Catch-Finally in brief</a></li>
 <p>For C# code could throw an excep&shy;tion of any type (I don’t want to torture you with MSIL) I performed a trick in this example casting a type to a noncom&shy;pa&shy;rable one, so we could throw an excep&shy;tion of any type, but the trans&shy;lator would think that we use <code>Excep&shy;tion</code> type. We create an instance of the <code>Program</code> type, which is not seri&shy;a&shy;li&shy;zable for sure, and throw an excep&shy;tion using this type as workload. The good news is that you get a wrapper for non-Excep&shy;tion excep&shy;tions of <code>Runtime&shy;Wrapped&shy;Exception</code> which will store an instance of our <code>Program</code> type object inside and we will be able to catch this excep&shy;tion. However&shy;, there is bad news that supports our idea: calling <code>proxy.Method&shy;Inside&shy;App&shy;Domain&shy;();</code> will gene&shy;rate <code>Serialization&shy;Exception</code>:</p>
 <div class="paragraph-right-side">27</div>
 </div>
-<p><img src="./imgs/SerializationError.png" alt="" /></p>
+<div class="image-container"><p><img src="./imgs/SerializationError.png" alt="" /></p>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
 <p>Thus&shy;, you can’t transfer such an excep&shy;tion between domains as it is not possible to seri&shy;a&shy;lize it. This&shy;, in turn, means that using excep&shy;tion filters for wrap&shy;ping methods calls in other domains will anyway lead to stack unrol&shy;ling despite that the seri&shy;a&shy;li&shy;za&shy;tion seems to be unne&shy;ces&shy;sary with <code>Full&shy;Trust</code> settings of a subdo&shy;main.</p>

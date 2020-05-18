@@ -85,13 +85,30 @@ ol li, ul li {
     text-align: justify;
 }
 
+.image-container {
+    margin-top: 2em;
+    margin-bottom: 1.0em;
+    text-align: center;
+}
+
+.image-container p {
+    margin: 0;
+}
+
+.image-container img {
+    width: fit-content;
+    max-width: 100%;
+    max-height: 21em;
+    object-fit: contain;
+}
+
 .table-container {
     display: block;
     margin-top: 2.1em;
     width: 100%;
 }
 
-.table-container + p.description {
+.table-container + p.description, .paragraph-container + p.description {
     font-size: 0.8em;
     font-style: italic;
     text-align: center;
@@ -388,10 +405,6 @@ h5 {
 /* Paragraphs numbering */
 .paragraph-container {
     position: relative;
-}
-.paragraph-container p {
-    position: relative;
-    top: 9px;
 }
 
 .paragraph-container p, .aside-container > p {
@@ -1045,7 +1058,7 @@ footer > div {
     .paragraph-container .paragraph-right-side 
     {
         padding-left: 21px;
-        top: 14px;
+        top: 4px;
 	    font-size: 8pt;
     }
     .footer-container img {
@@ -2551,7 +2564,8 @@ Hello?
 </pre></div>
 </div>
 <p>После чего изу&shy;чим резуль&shy;таты:</p>
-<p><img src="./imgs/Span/Performance.png" alt="Perfor&shy;mance chart" /></p>
+<div class="image-container"><p><img src="./imgs/Span/Performance.png" alt="Perfor&shy;mance chart" /></p>
+</div>
 <p>Смотря на них можно почерп&shy;нуть сле&shy;ду&shy;ю&shy;щую инфор&shy;ма&shy;цию:</p>
 <ul>
 <li>Array&shy;Segment ужа&shy;сен. Но его можно сде&shy;лать не таким ужас&shy;ным, обер&shy;нув в <code>Span</code>. Про&shy;из&shy;во&shy;ди&shy;тель&shy;ность вырас&shy;тет при этом в 7 раз;</li>

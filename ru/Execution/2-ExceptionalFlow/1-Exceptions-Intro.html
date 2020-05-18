@@ -85,13 +85,30 @@ ol li, ul li {
     text-align: justify;
 }
 
+.image-container {
+    margin-top: 2em;
+    margin-bottom: 1.0em;
+    text-align: center;
+}
+
+.image-container p {
+    margin: 0;
+}
+
+.image-container img {
+    width: fit-content;
+    max-width: 100%;
+    max-height: 21em;
+    object-fit: contain;
+}
+
 .table-container {
     display: block;
     margin-top: 2.1em;
     width: 100%;
 }
 
-.table-container + p.description {
+.table-container + p.description, .paragraph-container + p.description {
     font-size: 0.8em;
     font-style: italic;
     text-align: center;
@@ -388,10 +405,6 @@ h5 {
 /* Paragraphs numbering */
 .paragraph-container {
     position: relative;
-}
-.paragraph-container p {
-    position: relative;
-    top: 9px;
 }
 
 .paragraph-container p, .aside-container > p {
@@ -1045,7 +1058,7 @@ footer > div {
     .paragraph-container .paragraph-right-side 
     {
         padding-left: 21px;
-        top: 14px;
+        top: 4px;
 	    font-size: 8pt;
     }
     .footer-container img {
@@ -1476,7 +1489,8 @@ footer > div {
 <p>Обра&shy;ботка исклю&shy;чи&shy;тель&shy;ных ситу&shy;а&shy;ций может пока&shy;заться воп&shy;ро&shy;сом дос&shy;та&shy;точно эле&shy;мен&shy;тар&shy;ным: ведь все что нам необ&shy;хо&shy;димо сде&shy;лать  &mdash;  это уста&shy;но&shy;вить <code>try-catch</code> блоки и ждать соот&shy;вет&shy;с&shy;тв&shy;ующего собы&shy;тия. Однако воп&shy;рос кажется эле&shy;мен&shy;тар&shy;ным только бла&shy;го&shy;даря огром&shy;ной работе, про&shy;де&shy;лан&shy;ной коман&shy;дами CLR и Core&shy;CLR чтобы уни&shy;фи&shy;ци&shy;ро&shy;вать все ошибки, кото&shy;рые лезут в CLR со всех щелей  &mdash;  из самых раз&shy;ных источ&shy;ни&shy;ков. Чтобы иметь предс&shy;тав&shy;ле&shy;ние, о чем мы будем далее вести беседу, давайте взгл&shy;янем на диаг&shy;рамму:</p>
 <div class="paragraph-right-side">07</div>
 </div>
-<p><img src="./imgs/CommonScheme.png" alt="" /></p>
+<div class="image-container"><p><img src="./imgs/CommonScheme.png" alt="" /></p>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
 <p>На этой схеме мы видим, что в боль&shy;шом .NET Frame&shy;work сущес&shy;твует по сути два мира: все, что отно&shy;сится к CLR и все, что нахо&shy;дится за ней: все воз&shy;мож&shy;ные ошибки, воз&shy;ни&shy;ка&shy;ю&shy;щие в Windows и про&shy;чем unsafe мире:</p>
@@ -1680,7 +1694,8 @@ footer > div {
 }
 </pre></div>
 </div>
-<p><img src="./imgs/StackWOutUnrolling.png" alt="Stack without unrol&shy;ling" /></p>
+<div class="image-container"><p><img src="./imgs/StackWOutUnrolling.png" alt="Stack without unrol&shy;ling" /></p>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
 <p>Как видно на изоб&shy;ра&shy;же&shy;нии трас&shy;си&shy;ровка стека содер&shy;жит не только пер&shy;вый вызов <code>Main</code> как место отлова исклю&shy;чи&shy;тель&shy;ной ситу&shy;а&shy;ции, но и весь стек до точки выб&shy;роса исклю&shy;че&shy;ния плюс пов&shy;тор&shy;ный вход в <code>Main</code> через неко&shy;то&shy;рый неуп&shy;рав&shy;ля&shy;е&shy;мый код. Можно пред&shy;по&shy;ло&shy;жить, что этот код и есть код выб&shy;роса исклю&shy;че&shy;ний, кото&shy;рый просто нахо&shy;дится в ста&shy;дии фил&shy;ьтрации и выбора конеч&shy;ного обра&shy;бот&shy;чика. Однако стоит отме&shy;тить что <em>не все вызовы поз&shy;во&shy;ляют рабо&shy;тать без раск&shy;рутки стека</em>. На мой скром&shy;ный взгляд, внеш&shy;няя уни&shy;фи&shy;ци&shy;ро&shy;ван&shy;ность плат&shy;формы порож&shy;дает излиш&shy;нее к ней дове&shy;рие. Нап&shy;ри&shy;мер, вызов мето&shy;дов между доме&shy;нами с точки зре&shy;ния кода выг&shy;ля&shy;дит абсо&shy;лютно проз&shy;рачно. Тем не менее, работа вызо&shy;вов мето&shy;дов про&shy;ис&shy;хо&shy;дит сов&shy;сем по дру&shy;гим зако&shy;нам. О них мы и пого&shy;во&shy;рим в сле&shy;ду&shy;ю&shy;щей части.</p>
@@ -1739,9 +1754,11 @@ footer > div {
 <p>Если обра&shy;тить вни&shy;ма&shy;ние на раз&shy;мотку стека, то ста&shy;нет ясно, что в дан&shy;ном слу&shy;чае она про&shy;ис&shy;хо&shy;дит ещё до того, как мы попа&shy;даем в фильтр. Взгл&shy;янем на скрин&shy;шоты. Пер&shy;вый взят до того, как гене&shy;ри&shy;ру&shy;ется исклю&shy;че&shy;ние:</p>
 <div class="paragraph-right-side">25</div>
 </div>
-<p><img src="./imgs/StackUnroll.png" alt="Stack&shy;Unroll" /></p>
+<div class="image-container"><p><img src="./imgs/StackUnroll.png" alt="Stack&shy;Unroll" /></p>
+</div>
 <p>А вто&shy;рой  &mdash;  после:</p>
-<p><img src="./imgs/StackUnroll2.png" alt="Stack&shy;Unroll2" /></p>
+<div class="image-container"><p><img src="./imgs/StackUnroll2.png" alt="Stack&shy;Unroll2" /></p>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
 <p>Изу&shy;чим трас&shy;си&shy;ровку вызо&shy;вов до и после попа&shy;да&shy;ния в фильтр исклю&shy;че&shy;ний. Что же здесь про&shy;ис&shy;хо&shy;дит? Здесь мы видим, что раз&shy;ра&shy;бот&shy;чики плат&shy;формы сде&shy;лали неко&shy;то&shy;рую с пер&shy;вого взгл&shy;яда защиту дочер&shy;него домена. Трас&shy;си&shy;ровка обре&shy;зана по край&shy;ний метод в цепочке вызо&shy;вов, после кото&shy;рого идёт пере&shy;ход в дру&shy;гой домен. Но на самом деле, как по мне так это выг&shy;ля&shy;дит нес&shy;колько странно. Чтобы понять, почему так про&shy;ис&shy;хо&shy;дит, вспом&shy;ним основ&shy;ное пра&shy;вило для типов, орга&shy;ни&shy;зу&shy;ю&shy;щих вза&shy;и&shy;мо&shy;д&shy;ействие между доме&shy;нами. Эти типы дол&shy;жны нас&shy;ле&shy;до&shy;вать <code>Marshal&shy;By&shy;Ref&shy;Object</code> плюс  &mdash;  быть сери&shy;а&shy;ли&shy;зу&shy;е&shy;мыми. Однако, как бы ни был строг C#, типы исклю&shy;че&shy;ний могут быть какими угодно. А что это зна&shy;чит? Это зна&shy;чит, что могут быть ситу&shy;а&shy;ции, когда исклю&shy;чи&shy;тель&shy;ная ситу&shy;а&shy;ция внутри дочер&shy;него домена может при&shy;вести к её перех&shy;вату в роди&shy;т&shy;ельском домене. И если у объ&shy;екта дан&shy;ных исклю&shy;чи&shy;тель&shy;ной ситу&shy;а&shy;ции есть какие-либо опас&shy;ные методы с точки зре&shy;ния безо&shy;пас&shy;ности, они могут быть выз&shy;ваны в роди&shy;т&shy;ельском домене. Чтобы такого избе&shy;жать, исклю&shy;че&shy;ние сери&shy;а&shy;ли&shy;зу&shy;ется, про&shy;хо&shy;дит через гра&shy;ницу доме&shy;нов при&shy;ло&shy;же&shy;ний и воз&shy;ни&shy;кает вновь  &mdash;  с новым сте&shy;ком. Давайте про&shy;ве&shy;рим эту строй&shy;ную тео&shy;рию:</p>
@@ -1802,7 +1819,8 @@ footer > div {
 <p>В дан&shy;ном при&shy;мере, для того чтобы выб&shy;ро&shy;сить исклю&shy;че&shy;ние любого типа из C# кода (я не хочу никого мучить встав&shy;ками на MSIL) был про&shy;де&shy;лан трюк с при&shy;ве&shy;де&shy;нием типа к не сопос&shy;та&shy;ви&shy;мому: чтобы мы бро&shy;сили исклю&shy;че&shy;ние любого типа, а транс&shy;ля&shy;тор C# думал бы, что мы исполь&shy;зуем тип <code>Excep&shy;tion</code>. Мы создаём экземп&shy;ляр типа <code>Program</code>  &mdash;  гаран&shy;ти&shy;ро&shy;ванно не сери&shy;а&shy;ли&shy;зу&shy;е&shy;мого и бро&shy;саем исклю&shy;че&shy;ние с ним в виде полез&shy;ной наг&shy;рузки. Хоро&shy;шие новости зак&shy;лю&shy;ча&shy;ются в том, что вы полу&shy;чите обёртку над не-Excep&shy;tion исклю&shy;че&shy;ни&shy;ями <code>Runtime&shy;Wrapped&shy;Exception</code>, кото&shy;рый внутри себя сох&shy;ра&shy;нит экземп&shy;ляр нашего объ&shy;екта типа <code>Program</code> и в C# перех&shy;ва&shy;тить такое исклю&shy;че&shy;ние мы смо&shy;жем. Однако есть и пло&shy;хая новость, кото&shy;рая подт&shy;вер&shy;ждает наше пред&shy;по&shy;ло&shy;же&shy;ние: вызов <code>proxy.Method&shy;Inside&shy;App&shy;Domain&shy;();</code> при&shy;ведёт к исклю&shy;че&shy;нию <code>Serialization&shy;Exception</code>:</p>
 <div class="paragraph-right-side">27</div>
 </div>
-<p><img src="./imgs/SerializationError.png" alt="" /></p>
+<div class="image-container"><p><img src="./imgs/SerializationError.png" alt="" /></p>
+</div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
 <p>Т.е. проб&shy;рос между доме&shy;нами такого исклю&shy;че&shy;ния не воз&shy;мо&shy;жен, т.к. его нет воз&shy;мож&shy;ности сери&shy;а&shy;ли&shy;зо&shy;вать. А это в свою оче&shy;редь зна&shy;чит, что обо&shy;ра&shy;чи&shy;ва&shy;ние вызо&shy;вов мето&shy;дов, нахо&shy;дя&shy;щихся в дру&shy;гих доме&shy;нах фил&shy;ьтрами исклю&shy;че&shy;ний все равно при&shy;ведёт к развёртке стека нес&shy;мотря на то что при <code>Full&shy;Trust</code> наст&shy;рой&shy;ках дочер&shy;него домена сери&shy;а&shy;ли&shy;за&shy;ция каза&shy;лось бы не нужна.</p>
