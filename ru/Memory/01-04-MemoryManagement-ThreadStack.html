@@ -108,7 +108,7 @@ ol li, ul li {
     width: 100%;
 }
 
-.table-container + p.description, .paragraph-container + p.description {
+p.description {
     font-size: 0.8em;
     font-style: italic;
     text-align: center;
@@ -299,7 +299,7 @@ h1 {
 }
 
 h2 {
-    padding-top: 1.5em;
+    padding-top: 1em;
     padding-left: 1.5em;
     padding-right: 1.5em;
     margin-bottom: 0.5em;
@@ -309,7 +309,7 @@ h2 {
 }
 
 h3 {
-    padding-top: 1.2em;
+    padding-top: 1em;
     font-family: Charter, Arial, Helvetica Neue, sans-serif;
     font-size: 1.15em;
     width: 70%;
@@ -317,7 +317,7 @@ h3 {
 
 h4 {
     padding: 1em 0 0 0;
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: 300;
     font-style: italic;
 }
@@ -368,7 +368,7 @@ h5 {
 
 /* media block after h1 */
 .aside-container h1 + .aside-side-container.side-media-block h2 {
-    margin: 7em 0 1em 0;
+    margin: 5em 0 1em 0;
     font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
     font-weight: 600;
 }
@@ -400,6 +400,10 @@ h5 {
 .aside-side-container blockquote {
     border: aliceblue;
     border-left-style: solid;
+}
+
+li blockquote {
+    margin-left: 1.5em;
 }
 
 /* Paragraphs numbering */
@@ -651,6 +655,10 @@ footer {
     margin-top: 2em;
     background-color: black;
     height: 4em;
+    margin-left: -4cm;
+    margin-right: -4cm;
+    padding-left: 4cm;
+    padding-right: 4cm;
 }
 
 footer > div {
@@ -1058,7 +1066,7 @@ footer > div {
     .paragraph-container .paragraph-right-side 
     {
         padding-left: 21px;
-        top: 4px;
+        top: 3px;
 	    font-size: 8pt;
     }
     .footer-container img {
@@ -1324,8 +1332,6 @@ footer > div {
                 <p class="menu__header_current">На странице</p>
                 <ol class="menu__list">
                     <li><a href="#x86" onclick="$('#menu__toggle').click(); return true;">
-Базовая структура, платформа x86</a></li>
-<li><a href="#x86-1" onclick="$('#menu__toggle').click(); return true;">
 Немного про исключения на платформе x86</a></li>
 <li><a href="#x64-amd64-in-progress" onclick="$('#menu__toggle').click(); return true;">
 Базовые сведения про платформы x64, AMD64 </a></li>
@@ -1335,8 +1341,14 @@ footer > div {
 Совсем немного про несовершенство стека потока</a></li>
 <li><a href="#section-2" onclick="$('#menu__toggle').click(); return true;">
 Большой пример: клонирование потока на платформе х86</a></li>
+<li><a href="#section-5" onclick="$('#menu__toggle').click(); return true;">
+Пара слов об уровне пониже</a></li>
+<li><a href="#stackalloc" onclick="$('#menu__toggle').click(); return true;">
+Выделение памяти на стеке: stackalloc</a></li>
 <li><a href="#stackalloc-1" onclick="$('#menu__toggle').click(); return true;">
 Выводы к stackalloc</a></li>
+<li><a href="#section-6" onclick="$('#menu__toggle').click(); return true;">
+Выводы к разделу</a></li>
 
                 </ol>
                 <p class="menu__header_total">Содержание</p>
@@ -1433,7 +1445,6 @@ footer > div {
             <p class="d-none d-lg-block d-xl-none">LG</p>
             <p class="d-none d-xl-block">XL</p> -->
             <h1 id="section">Стек потока</h1>
-<h2 id="x86">Базо&shy;вая струк&shy;тура, плат&shy;форма x86</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
 <p>Сущес&shy;твует область памяти, про кото&shy;рую редко захо&shy;дит раз&shy;го&shy;вор. Однако эта область явля&shy;ется, воз&shy;можно, основ&shy;ной в работе при&shy;ло&shy;же&shy;ния. Самой часто исполь&shy;зу&shy;е&shy;мой, дос&shy;та&shy;точно огра&shy;ни&shy;чен&shy;ной с момен&shy;таль&shy;ным выде&shy;ле&shy;нием и осво&shy;бож&shy;де&shy;нием памяти. Область эта назы&shy;ва&shy;ется &laquo;стек потока&raquo;. Причём пос&shy;кольку ука&shy;за&shy;тель на него коди&shy;ру&shy;ется по своей сути регист&shy;рами про&shy;цес&shy;сора, кото&shy;рые вхо&shy;дят в кон&shy;текст потока, то в рам&shy;ках испол&shy;не&shy;ния любого потока стек потока свой. Зачем он необ&shy;хо&shy;дим?</p>
@@ -1479,7 +1490,7 @@ footer > div {
 <p>Глядя на все это, невольно при&shy;хо&shy;дишь к выводу, что если не боль&shy;шинство, то мини&shy;мум поло&shy;вина всех опе&shy;ра&shy;ций, кото&shy;рыми зани&shy;ма&shy;ется про&shy;цес&shy;сор  &mdash;  это обслу&shy;жи&shy;ва&shy;ние струк&shy;туры прог&shy;раммы, а не её полез&shy;ной наг&shy;рузки. Т.е. обслу&shy;жи&shy;ва&shy;ние вызо&shy;вов мето&shy;дов, про&shy;верки типов на воз&shy;мож&shy;ность при&shy;вести один к дру&shy;гому, ком&shy;пи&shy;ля&shy;цию Generic вари&shy;а&shy;ций, поиск мето&shy;дов в таб&shy;ли&shy;цах интер&shy;фей&shy;сов&hellip; Осо&shy;бенно если мы вспом&shy;ним, что боль&shy;шинство сов&shy;ре&shy;мен&shy;ного кода напи&shy;сано с под&shy;хо&shy;дом работы через интер&shy;фейсы, раз&shy;бивку на мно&shy;жес&shy;тво пусть малень&shy;ких, но выпол&shy;ня&shy;ю&shy;щих каж&shy;дый  &mdash;  своё  &mdash;  мето&shy;дов… А работа при этом часто идёт с базо&shy;выми типами и при&shy;ве&shy;де&shy;нием типов то к интер&shy;фейсу, то к нас&shy;лед&shy;нику. При всех таких вхо&shy;дя&shy;щих усло&shy;виях вывод о рас&shy;то&shy;чи&shy;тель&shy;ности инф&shy;раст&shy;рук&shy;тур&shy;ного кода вполне может наз&shy;реть. Един&shy;ствен&shy;ное, что я могу вам на это все ска&shy;зать: ком&shy;пи&shy;ля&shy;торы, в том числе и JIT, обла&shy;дают мно&shy;жест&shy;вом тех&shy;ник, поз&shy;во&shy;ля&shy;ю&shy;щим им делать более про&shy;дук&shy;тив&shy;ный код. Где можно  &mdash;  вместо вызова метода встав&shy;ля&shy;ется его тело цели&shy;ком, а где воз&shy;можно вместо поиска метода в VSD интер&shy;фейса осу&shy;щес&shy;тв&shy;ляется его пря&shy;мой вызов. Что самое грус&shy;т&shy;ное, инф&shy;раст&shy;рук&shy;тур&shy;ную наг&shy;рузку очень сложно заме&shy;рить: надо чтобы JITter либо какой-либо ком&shy;пи&shy;ля&shy;тор встав&shy;лял бы какие-то мет&shy;рики до и после мест работы инф&shy;раст&shy;рук&shy;тур&shy;ного кода. Т.е. до вызова метода, а внутри метода  &mdash;  после ини&shy;ци&shy;а&shy;ли&shy;за&shy;ции кадра стека. До выхода из метода, после выхода из метода. До ком&shy;пи&shy;ля&shy;ции, после ком&shy;пи&shy;ля&shy;ции. И так далее. Однако, давайте не будем о груст&shy;ном, а пого&shy;во&shy;рим лучше о том, что мы можем с вами сде&shy;лать с полу&shy;чен&shy;ной инфор&shy;ма&shy;цией.</p>
 <div class="paragraph-right-side">04</div>
 </div>
-<h2 id="x86-1">Нем&shy;ного про исклю&shy;че&shy;ния на плат&shy;форме x86</h2>
+<h2 id="x86">Нем&shy;ного про исклю&shy;че&shy;ния на плат&shy;форме x86</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
 <p>Если мы пос&shy;мот&shy;рим внутрь кода мето&shy;дов, то мы заме&shy;тим ещё одну струк&shy;туру, рабо&shy;та&shy;ю&shy;щую со сте&shy;ком потока. Посу&shy;дите сами:</p>
@@ -2060,7 +2071,7 @@ RestorePointAfterClonnedExited:
 <p>Как мы видим, теперь вместо одного потока внутри Fork&shy;Impl мы видим два. И оба  &mdash;  вышли из этого метода.</p>
 <div class="paragraph-right-side">40</div>
 </div>
-<h1 id="section-5">Пара слов об уровне пониже</h1>
+<h2 id="section-5">Пара слов об уровне пониже</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">41</div>
 <p>Если мы заг&shy;ля&shy;нем краем глаза на ещё более низ&shy;кий уро&shy;вень, то узнаем или же вспом&shy;ним, что память на самом деле явля&shy;ется вир&shy;ту&shy;альной и что она поде&shy;лена на стра&shy;ницы объёмом 8 или 4 Кб. Каж&shy;дая такая стра&shy;ница может физи&shy;чески сущест&shy;во&shy;вать или же нет. А если она сущес&shy;твует, то может быть отоб&shy;ра&shy;жена на файл или же реальную опе&shy;ра&shy;тив&shy;ную память. Именно этот меха&shy;низм вир&shy;ту&shy;а&shy;ли&shy;за&shy;ции поз&shy;во&shy;ляет при&shy;ло&shy;же&shy;ниям иметь раз&shy;дель&shy;ную друг от друга память и обес&shy;пе&shy;чи&shy;вает уровни безо&shy;пас&shy;ности между при&shy;ло&shy;же&shy;нием и опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;те&shy;мой. При чем же здесь стек потока? Как и любая дру&shy;гая опе&shy;ра&shy;тив&shy;ная память при&shy;ло&shy;же&shy;ния стек потока явля&shy;ется её частью и также сос&shy;тоит из стра&shy;ниц объёмом 4 или 8 Кб. По краям от выде&shy;лен&shy;ного для стека прост&shy;ранства нахо&shy;дятся две стра&shy;ницы, дос&shy;туп к кото&shy;рым при&shy;во&shy;дит к сис&shy;тем&shy;ному исклю&shy;че&shy;нию, ноти&shy;фи&shy;ци&shy;ру&shy;ю&shy;щему опе&shy;ра&shy;ци&shy;он&shy;ную сис&shy;тему о том, что при&shy;ло&shy;же&shy;ние пыта&shy;ется обра&shy;титься в невы&shy;де&shy;лен&shy;ный учас&shy;ток памяти. Внутри этого реги&shy;она реально выде&shy;лен&shy;ными участ&shy;ками явля&shy;ются только те стра&shy;ницы, к кото&shy;рым обра&shy;ти&shy;лось при&shy;ло&shy;же&shy;ние: т.е. если при&shy;ло&shy;же&shy;ние резер&shy;ви&shy;рует под поток 2Мб памяти, это не зна&shy;чит, что они будут выде&shy;лены сразу же. Отнюдь, они будут выде&shy;лены по тре&shy;бо&shy;ва&shy;нию: если стек потока вырас&shy;тет до 1 Мб, это будет озна&shy;чать, что при&shy;ло&shy;же&shy;ние полу&shy;чило именно 1 Мб опе&shy;ра&shy;тив&shy;ной памяти под стек.</p>
@@ -2071,7 +2082,7 @@ RestorePointAfterClonnedExited:
 <p>Когда при&shy;ло&shy;же&shy;ние резер&shy;ви&shy;рует память под локаль&shy;ные пере&shy;мен&shy;ные, то про&shy;ис&shy;хо&shy;дят две вещи: нара&shy;щи&shy;ва&shy;ется зна&shy;че&shy;ние регис&shy;тра ESP и зану&shy;ля&shy;ется память под сами пере&shy;мен&shy;ные. Поэ&shy;тому, когда вы напи&shy;шете рекур&shy;сив&shy;ный метод, кото&shy;рый ухо&shy;дит в бес&shy;ко&shy;неч&shy;ную рекур&shy;сию, вы полу&shy;чите Stack&shy;Overflow&shy;Exception&shy;: заняв всю выде&shy;лен&shy;ную под стек память (весь дос&shy;туп&shy;ный регион), вы напо&shy;ри&shy;тесь на спе&shy;ци&shy;альную стра&shy;ницу, Guard Page&shy;, дос&shy;туп к кото&shy;рой вызо&shy;вет ноти&shy;фи&shy;ка&shy;цию опе&shy;ра&shy;ци&shy;он&shy;ной сис&shy;темы, кото&shy;рая ини&shy;ци&shy;и&shy;рует Stack&shy;Overflow уровня ОС, кото&shy;рое уйдёт в .NET, будет перех&shy;ва&shy;чено и выб&shy;ро&shy;сется исклю&shy;че&shy;ние Stack&shy;Overflow&shy;Exception для .NET при&shy;ло&shy;же&shy;ния.</p>
 <div class="paragraph-right-side">42</div>
 </div>
-<h1 id="stackalloc">Выде&shy;ле&shy;ние памяти на стеке: stac&shy;kalloc</h1>
+<h2 id="stackalloc">Выде&shy;ле&shy;ние памяти на стеке: stac&shy;kalloc</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">43</div>
 <p>В C# сущес&shy;твует дос&shy;та&shy;точно инте&shy;рес&shy;ное и очень редко исполь&shy;зу&shy;е&shy;мое клю&shy;че&shy;вое слово <code>stac&shy;kalloc</code>. Оно нас&shy;только редко встр&shy;еч&shy;ае&shy;тся в коде (тут я даже со сло&shy;вом &laquo;нем&shy;ного&raquo; пре&shy;у&shy;мень&shy;шил. Ско&shy;рее, &laquo;никогда&raquo;), что найти под&shy;хо&shy;дя&shy;щий при&shy;мер его исполь&shy;зо&shy;ва&shy;ния дос&shy;та&shy;точно трудно, а уж при&shy;ду&shy;мать тем более трудно: ведь если что-то редко исполь&shy;зу&shy;ется, то и опыт работы с ним слиш&shy;ком мал. А все почему? Потому что для тех, кто нако&shy;нец реша&shy;ется выяс&shy;нить, что делает эта команда, <code>stac&shy;kalloc</code> ста&shy;но&shy;вится более пуга&shy;ю&shy;щим чем полез&shy;ным: тёмная сто&shy;рона <code>stac&shy;kalloc</code>  &mdash;  unsafe код. Тот резуль&shy;тат, что он возв&shy;ра&shy;щает не явля&shy;ется managed ука&shy;за&shy;те&shy;лем: зна&shy;че&shy;ние  &mdash;  обыч&shy;ный ука&shy;за&shy;тель на учас&shy;ток не защищённой памяти. Причём если по этому адресу сде&shy;лать запись уже после того, как метод завер&shy;шил работу, вы начнёте писать в локаль&shy;ные пере&shy;мен&shy;ные неко&shy;то&shy;рого метода или же вообще перетрёте адрес возв&shy;рата из метода, после чего при&shy;ло&shy;же&shy;ние закон&shy;чит работу с ошиб&shy;кой. Однако наша задача  &mdash;  про&shy;ник&shy;нуть в самые уголки и разоб&shy;раться, что в них скрыто. И понять, в част&shy;ности, что если нам дали этот инст&shy;румент, то не просто же так, чтобы мы смогли найти сек&shy;рет&shy;ные грабли и нас&shy;ту&shy;пить на них со всего маху. Нао&shy;бо&shy;рот: нам дали этот инст&shy;румент чтобы мы смогли им вос&shy;поль&shy;зо&shy;ваться и делать поис&shy;тине быст&shy;рый софт. Я, наде&shy;юсь, вдох&shy;но&shy;вил вас? Тогда начнём.</p>
@@ -2197,7 +2208,7 @@ RestorePointAfterClonnedExited:
 <p>Испол&shy;ьз&shy;ов&shy;ание дан&shy;ного алло&shy;ка&shy;тора может сильно повы&shy;сить про&shy;из&shy;во&shy;ди&shy;тель&shy;ность ваших при&shy;ло&shy;же&shy;ний.</p>
 <div class="paragraph-right-side">53</div>
 </div>
-<h1 id="section-6">Выводы к раз&shy;делу</h1>
+<h2 id="section-6">Выводы к раз&shy;делу</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">54</div>
 <p>Конечно же, в общем виде нам нет надоб&shy;ности редак&shy;ти&shy;ро&shy;вать стек в про&shy;дук&shy;то&shy;вом коде: только если захо&shy;чется занять своё сво&shy;бод&shy;ное время инте&shy;рес&shy;ной задач&shy;кой. Однако пони&shy;ма&shy;ние его струк&shy;туры даёт нам види&shy;мость прос&shy;тоты задачи полу&shy;че&shy;ния дан&shy;ных из него и его редак&shy;ти&shy;ро&shy;ва&shy;ния. Т.е. если вы раз&shy;ра&shy;бо&shy;та&shy;ете API для рас&shy;ши&shy;ре&shy;ния фун&shy;кци&shy;о&shy;нала вашего при&shy;ло&shy;же&shy;ния и если это API не пре&shy;дос&shy;тав&shy;ляет дос&shy;тупа к каким-либо дан&shy;ным это не зна&shy;чит что эти дан&shy;ные невоз&shy;можно полу&shy;чить. Потому всегда про&shy;ве&shy;ряйте ваше при&shy;ло&shy;же&shy;ние на устой&shy;чи&shy;вость к взло&shy;мам.</p>
