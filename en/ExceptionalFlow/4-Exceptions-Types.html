@@ -85,8 +85,44 @@ ol li, ul li {
     text-align: justify;
 }
 
+.table-container {
+    display: block;
+    margin-top: 2.1em;
+    width: 100%;
+}
+
+.table-container + p.description {
+    font-size: 0.8em;
+    font-style: italic;
+    text-align: center;
+    margin-top: 0.5em;
+}
+
+.table-width-6 
+{
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.table-width-8 
+{
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+}
+
+.table-width-10 
+{
+    margin-left: 6.25%;
+    margin-right: 6.25%;
+}
+
+.table-width-12 
+{
+    margin-left: 0;
+    margin-right: 0;
+}
+
 table {
-    margin: 30px 0;
     width: 100%;
 }
 
@@ -675,6 +711,24 @@ footer > div {
     blockquote.big-quote > p {
         font-size: 2em;
     }
+    
+    .table-width-6 
+    {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+    .table-width-8 
+    {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .table-width-10 
+    {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
 }
 
 /* > MD */
@@ -787,6 +841,24 @@ footer > div {
         margin: 0 0 10px 0;
     }
 
+    .table-width-6 
+    {
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+
+    .table-width-8 
+    {
+        margin-left: 12.5%;
+        margin-right: 12.5%;
+    }
+
+    .table-width-10 
+    {
+        margin-left: 6.25%;
+        margin-right: 6.25%;
+    }
+
     .side-regular-block {
         border-radius: 5px;
         background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
@@ -868,6 +940,25 @@ footer > div {
         margin-right: 30px;
         padding-left: 25px;
     }
+    
+    .table-width-6 
+    {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+    .table-width-8 
+    {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .table-width-10 
+    {
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+    
     .paragraph-container > .paragraph-left-side {
 	    display: block;
         top: 14px;
@@ -928,6 +1019,24 @@ footer > div {
     p, li {
         line-height: 24px;
     }    
+
+    .table-width-6 
+    {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .table-width-8 
+    {
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+
+    .table-width-10 
+    {
+        margin-left: 0%;
+        margin-right: 0%;
+    }
     
     .paragraph-container .paragraph-left-side 
     {
@@ -1812,8 +1921,8 @@ BOOL IsProcessCorruptedStateException(DWORD dwExceptionCode, BOOL fCheckForSO <s
 </pre></div>
 </div>
 <p>Let’s look at the desc&shy;rip&shy;tion of our excep&shy;ti&shy;onal situ&shy;a&shy;tions:</p>
-<div class="row">
-<div class="offset-0 col-12">
+<div class="table-container">
+<div class="table-width-12 table-cols-3">
 <table>
 <thead>
 <tr>
@@ -1880,8 +1989,8 @@ BOOL IsProcessCorruptedStateException(DWORD dwExceptionCode, BOOL fCheckForSO <s
 <p>To catch this excep&shy;tion at the moment you should show a JIT-compiler it’s really neces&shy;sary. Otherwise&shy;, it won’t be caught and you will get a broken appli&shy;ca&shy;tion. However&shy;, you should catch this excep&shy;tion only if you can handle it properly: it may indi&shy;cate a leak of memory if it was allo&shy;cated by an unsafe method between calling this method and throwing <code>Access&shy;Violation&shy;Exception</code>. At this point, an appli&shy;ca&shy;tion may still function but its work may be incor&shy;rect because if you catch an error of a method call you will defi&shy;ni&shy;tely try to call this method again. In this case, nobody knows what may go wrong: you can’t know how the state of an appli&shy;ca&shy;tion was vio&shy;lated previously. However&shy;, if you still want to catch this excep&shy;tion, pay atten&shy;tion to the table of possible options for doing this in diffe&shy;rent versions of .NET Framework&shy;:</p>
 <div class="paragraph-right-side">28</div>
 </div>
-<div class="row">
-<div class="offset-3 col-6">
+<div class="table-container">
+<div class="table-width-6 table-cols-2">
 <table>
 <thead>
 <tr>

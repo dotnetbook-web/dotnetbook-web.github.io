@@ -85,8 +85,44 @@ ol li, ul li {
     text-align: justify;
 }
 
+.table-container {
+    display: block;
+    margin-top: 2.1em;
+    width: 100%;
+}
+
+.table-container + p.description {
+    font-size: 0.8em;
+    font-style: italic;
+    text-align: center;
+    margin-top: 0.5em;
+}
+
+.table-width-6 
+{
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.table-width-8 
+{
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+}
+
+.table-width-10 
+{
+    margin-left: 6.25%;
+    margin-right: 6.25%;
+}
+
+.table-width-12 
+{
+    margin-left: 0;
+    margin-right: 0;
+}
+
 table {
-    margin: 30px 0;
     width: 100%;
 }
 
@@ -675,6 +711,24 @@ footer > div {
     blockquote.big-quote > p {
         font-size: 2em;
     }
+    
+    .table-width-6 
+    {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+    .table-width-8 
+    {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .table-width-10 
+    {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
 }
 
 /* > MD */
@@ -787,6 +841,24 @@ footer > div {
         margin: 0 0 10px 0;
     }
 
+    .table-width-6 
+    {
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+
+    .table-width-8 
+    {
+        margin-left: 12.5%;
+        margin-right: 12.5%;
+    }
+
+    .table-width-10 
+    {
+        margin-left: 6.25%;
+        margin-right: 6.25%;
+    }
+
     .side-regular-block {
         border-radius: 5px;
         background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
@@ -868,6 +940,25 @@ footer > div {
         margin-right: 30px;
         padding-left: 25px;
     }
+    
+    .table-width-6 
+    {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+    .table-width-8 
+    {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .table-width-10 
+    {
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+    
     .paragraph-container > .paragraph-left-side {
 	    display: block;
         top: 14px;
@@ -928,6 +1019,24 @@ footer > div {
     p, li {
         line-height: 24px;
     }    
+
+    .table-width-6 
+    {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .table-width-8 
+    {
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+
+    .table-width-10 
+    {
+        margin-left: 0%;
+        margin-right: 0%;
+    }
     
     .paragraph-container .paragraph-left-side 
     {
@@ -1440,8 +1549,8 @@ footer > div {
 <p>Сущес&shy;твует 6 <em>клас&shy;сов при&shy;о&shy;ри&shy;те&shy;тов</em> про&shy;цес&shy;сов. Класс при&shy;о&shy;ри&shy;те&shy;тов про&shy;цес&shy;сов  &mdash;  это то, отно&shy;си&shy;тельно чего будут соз&shy;да&shy;ваться при&shy;о&shy;ри&shy;теты пото&shy;ков. Все эти классы при&shy;о&shy;ри&shy;те&shy;тов можно уви&shy;деть в &laquo;Дис&shy;пет&shy;чере задач&raquo;, при изме&shy;не&shy;нии при&shy;о&shy;ри&shy;тета какого-либо про&shy;цесса.</p>
 <div class="paragraph-right-side">18</div>
 </div>
-<div class="row">
-<div class="offset-3 col-6">
+<div class="table-container">
+<div class="table-width-6 table-cols-4">
 <table>
 <thead>
 <tr>
@@ -1506,8 +1615,8 @@ footer > div {
 <p>Предс&shy;та&shy;вим, что ваше при&shy;ло&shy;же&shy;ние запус&shy;кает поль&shy;зо&shy;ва&shy;тель и он решает, что ваше при&shy;ло&shy;же&shy;ние пот&shy;реб&shy;ляет слиш&shy;ком много про&shy;цес&shy;сор&shy;ных ресур&shy;сов. Поль&shy;зо&shy;ва&shy;тель счи&shy;тает, что ваше при&shy;ло&shy;же&shy;ние не столь важ&shy;ное в сис&shy;теме, как какие-нибудь дру&shy;гие при&shy;ло&shy;же&shy;ния и пони&shy;жает при&shy;о&shy;ри&shy;тет вашего при&shy;ло&shy;же&shy;ния до Below Normal&shy;. Это озна&shy;чает, что он задаёт базо&shy;вый при&shy;о&shy;ри&shy;тет 6 отно&shy;си&shy;тельно кото&shy;рого будут расс&shy;чи&shy;ты&shy;ваться при&shy;о&shy;ри&shy;теты пото&shy;ков внутри вашего при&shy;ло&shy;же&shy;ния. Но в сис&shy;теме общий при&shy;о&shy;ри&shy;тет упадёт. Как при этом меня&shy;ются при&shy;о&shy;ри&shy;теты пото&shy;ков внутри при&shy;ло&shy;же&shy;ния?</p>
 <div class="paragraph-right-side">21</div>
 </div>
-<div class="row">
-<div class="offset-3 col-6">
+<div class="table-container">
+<div class="table-width-6 table-cols-3">
 <table>
 <thead>
 <tr>
@@ -1548,7 +1657,7 @@ footer > div {
 </table>
 </div>
 </div>
-<p><em>Таб&shy;лица 3</em></p>
+<p class="description">Таб&shy;лица 3</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
 <p>Normal остаётся на уровне +0 отно&shy;си&shy;тельно уровня базо&shy;вого при&shy;о&shy;ри&shy;тета про&shy;цесса. Below normal  &mdash;  это (-1) отно&shy;си&shy;тельно уровня базо&shy;вого. Т.е. в нашем при&shy;мере с пони&shy;же&shy;нием уровня при&shy;о&shy;ри&shy;тета про&shy;цесса до класса <code>Below Normal</code> при&shy;о&shy;ри&shy;тет потока &lsquo;Below Normal&rsquo; перес&shy;чи&shy;та&shy;ется и будет не <code>8 - 1 = 7</code> (каким он был при классе <code>Normal</code>), а  <code>6 - 1 = 5</code>.  Lowest (-2) ста&shy;нет рав&shy;ным <code>4</code>.</p>
@@ -1599,8 +1708,8 @@ Normal (Normal above), чуть пониже Normal (Normal below). Также �
 что если у вас даже Real&shy;-Time потоки, не факт, что им будет выде&shy;лено время.</p>
 <div class="paragraph-right-side">29</div>
 </div>
-<div class="row">
-<div class="offset-2 col-8">
+<div class="table-container">
+<div class="table-width-8 table-cols-8">
 <table>
 <thead>
 <tr>
@@ -1880,8 +1989,8 @@ Normal (Normal above), чуть пониже Normal (Normal below). Также �
 <li>Можно попы&shy;таться прис&shy;во&shy;ить потоки каким-то ядрам и тем самым обес&shy;пе&shy;чить им более дол&shy;гую работу.</li>
 <li>Пере&shy;дача про&shy;цес&shy;сор&shy;ного вре&shy;мени дру&shy;гим пото&shy;кам в слу&shy;чае бло&shy;ки&shy;ровки</li>
 </ol>
-<div class="row">
-<div class="offset-3 col-6">
+<div class="table-container">
+<div class="table-width-6 table-cols-4">
 <table>
 <thead>
 <tr>
@@ -1951,8 +2060,8 @@ Normal (Normal above), чуть пониже Normal (Normal below). Также �
 <div class="paragraph-right-side">49</div>
 </div>
 <p><img src="./img/11_1.png" alt="Рис" /></p>
-<div class="row">
-<div class="offset-3 col-6">
+<div class="table-container">
+<div class="table-width-6 table-cols-4">
 <table>
 <thead>
 <tr>
@@ -1982,8 +2091,8 @@ Normal (Normal above), чуть пониже Normal (Normal below). Также �
 <div class="paragraph-right-side">50</div>
 </div>
 <p><img src="./img/12_1.png" alt="Реестр" /></p>
-<div class="row">
-<div class="offset-3 col-6">
+<div class="table-container">
+<div class="table-width-6 table-cols-4">
 <table>
 <thead>
 <tr>
