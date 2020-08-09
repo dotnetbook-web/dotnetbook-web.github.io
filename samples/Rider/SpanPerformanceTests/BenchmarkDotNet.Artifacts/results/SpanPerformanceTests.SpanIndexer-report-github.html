@@ -7,6 +7,7 @@
     <title>.NET Platform Architecture</title>
 </head>
 <body>
+    <script src="../../../../../res/jquery.js"></script>
     <link rel="stylesheet" href="../../../../../res/bootstrap.css">
     <link rel="stylesheet" href="../../../../../res/awesome.css">
     <style>
@@ -84,8 +85,61 @@ ol li, ul li {
     text-align: justify;
 }
 
+.image-container {
+    margin-top: 2em;
+    margin-bottom: 1.0em;
+    text-align: center;
+}
+
+.image-container p {
+    margin: 0;
+}
+
+.image-container img {
+    width: fit-content;
+    max-width: 100%;
+    max-height: 21em;
+    object-fit: contain;
+}
+
+.table-container {
+    display: block;
+    margin-top: 2.1em;
+    width: 100%;
+}
+
+p.description {
+    font-size: 0.8em;
+    font-style: italic;
+    text-align: center;
+    margin-top: 0.5em;
+}
+
+.table-width-6 
+{
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.table-width-8 
+{
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+}
+
+.table-width-10 
+{
+    margin-left: 6.25%;
+    margin-right: 6.25%;
+}
+
+.table-width-12 
+{
+    margin-left: 0;
+    margin-right: 0;
+}
+
 table {
-    margin: 30px 0;
     width: 100%;
 }
 
@@ -132,11 +186,15 @@ code, *[class*='lang-'] span, *[class*='lang-'] pre {
 
 p code:not(.highlight), li code:not(.highlight) {
     font-size: 0.7em;
+    color: darkslateblue;
+}
+
+/* style for manual selecting */
+.box {
+    padding: 3px;
     border: gainsboro;
     border-width: 1px;
     border-style: solid;
-    padding: 3px;
-    color: darkslateblue;
 }
 
 code.highlight {
@@ -228,6 +286,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
     font-weight: 400;
     font-family: inherit;
+    hyphens: none;
 }
 
 h1 {
@@ -240,23 +299,33 @@ h1 {
 }
 
 h2 {
-    margin-top: 2em;
-    font-family: Charter,Arial,Helvetica Neue,sans-serif;
-    font-size: 1.25em;
-    width: 70%;
+    padding-top: 1em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    margin-bottom: 0.5em;
+    font-family: Charter, Arial, Helvetica Neue, sans-serif;
+    font-size: 1.4em;
+    text-align: center;
 }
 
 h3 {
-    margin: 30px 0 15px 0;
-    font-size: 17pt;
-    font-weight: 500;
+    padding-top: 1em;
+    font-family: Charter, Arial, Helvetica Neue, sans-serif;
+    font-size: 1.15em;
+    width: 70%;
 }
 
 h4 {
-    margin: 20px 0 10px 0;
-    font-size: 16pt;
-    font-weight: 500;
+    padding: 1em 0 0 0;
+    font-size: 1em;
+    font-weight: 300;
     font-style: italic;
+}
+
+h5 {
+    padding: 0.6em 0 0 0;
+    font-weight: 300;
+    font-size: 1.1em;
 }
 
 /* Sidenotes */
@@ -299,7 +368,7 @@ h4 {
 
 /* media block after h1 */
 .aside-container h1 + .aside-side-container.side-media-block h2 {
-    margin: 7em 0 1em 0;
+    margin: 5em 0 1em 0;
     font-family: Proxima Nova,Arial,Helvetica Neue,sans-serif;
     font-weight: 600;
 }
@@ -333,13 +402,13 @@ h4 {
     border-left-style: solid;
 }
 
+li blockquote {
+    margin-left: 1.5em;
+}
+
 /* Paragraphs numbering */
 .paragraph-container {
     position: relative;
-}
-.paragraph-container p {
-    position: relative;
-    top: 9px;
 }
 
 .paragraph-container p, .aside-container > p {
@@ -395,7 +464,7 @@ h4 {
 }
 
 .header {
-    height: 4em;
+    height: 2.5em;
     background-color: white;
     position: relative;
     z-index: 1500;
@@ -458,11 +527,12 @@ h4 {
     position: fixed;
     top: 0;
     right: 0;
-    width: 1.4em;
-    height: 1.0em;
+    width: 2.5em;
+    height: 2.5em;
     cursor: pointer;
     z-index: 1;
-    margin: 1.5em;
+    margin: 0;
+    padding: 0.7em;
 }
 
 .menu__btn > span,
@@ -471,20 +541,20 @@ h4 {
     display: block;
     position: absolute;
 
-    width: 100%;
+    width: 1.1em;
     height: 1px;
 
-    background-color: black;
+    border-bottom: 1px black solid;
 
     transition-duration: .25s;
 }
 .menu__btn > span::before {
     content: '';
-    top: -8px;
+    top: -7px;
 }
 .menu__btn > span::after {
     content: '';
-    top: 8px;
+    top: 7px;
 }
 
 .menu__box {
@@ -506,12 +576,15 @@ h4 {
     box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
 
     transition-duration: .25s;
+
+    overflow-y: auto;
 }
 .menu__box li a:hover {
     text-decoration: none;
     color: inherit;
 }
 .menu__list {
+    font-size: 0.9em;
     margin: 0 2em 0 2em;
 }
 .menu__list li {
@@ -521,10 +594,10 @@ h4 {
 /* X_HEADER */
 
 .conflogo {
-    height: 1.2em;
-    margin: 0.95em 0 0 1em;
-    font-size: 1.5em;
+    margin: 0.5em 0 0 0.8em;
+    font-size: 1.1em;
     font-family: Charter;
+    user-select: none;
 }
 
 .invisible {
@@ -547,16 +620,49 @@ h4 {
 .menu__header_total
 {
     text-align: center;
-    font-size: 2em;
-    margin: 1.5em 0 1em 0;
+    font-size: 2.4em;
+    margin: 1.7em 0 0.3em 0;
 }
-
+.menu__header_list 
+{
+    padding: 0;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+.menu__header_list > li 
+{
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    font-family: charter;
+}
+.menu__header_total_sub
+{
+    font-size: 1.4em;
+    margin: 2em 0 1em 0;
+}
+.menu__header_total_sub2
+{
+    font-size: 1.1em;
+    margin: 1.5em 0 0.6em 1em;
+    text-align: left;
+}
 /* X_FOOTER */
 
 footer {
     margin-top: 2em;
     background-color: black;
     height: 4em;
+    margin-left: -4cm;
+    margin-right: -4cm;
+    padding-left: 4cm;
+    padding-right: 4cm;
+}
+
+footer > div {
+    box-shadow: 0px 2px 2px rgb(0, 0, 0);
 }
 
 .footer-container {
@@ -626,6 +732,24 @@ footer {
     blockquote.big-quote > p {
         font-size: 2em;
     }
+    
+    .table-width-6 
+    {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+    .table-width-8 
+    {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .table-width-10 
+    {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
 }
 
 /* > MD */
@@ -638,7 +762,7 @@ footer {
 /* MD */
 @media (max-width: 991px) {
     
-    h2 {
+    h3 {
         width:80%;
     }
 
@@ -738,6 +862,24 @@ footer {
         margin: 0 0 10px 0;
     }
 
+    .table-width-6 
+    {
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+
+    .table-width-8 
+    {
+        margin-left: 12.5%;
+        margin-right: 12.5%;
+    }
+
+    .table-width-10 
+    {
+        margin-left: 6.25%;
+        margin-right: 6.25%;
+    }
+
     .side-regular-block {
         border-radius: 5px;
         background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
@@ -746,7 +888,14 @@ footer {
 
     .menu__list
     {
-        margin: 0 auto 0 auto;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .menu__list, .menu__header_total_sub2
+    {
+        margin-left: auto;
+        margin-right: auto;
         max-width: 800px;
         width: 80%;
     }
@@ -757,7 +906,7 @@ footer {
         padding: 0 3cm 0 3cm;
         overflow: scroll;
         overflow-x: auto;
-        top: 4em;
+        top: 2.5em;
         bottom: 0;
         width: 100%;
         margin: 0;
@@ -812,6 +961,25 @@ footer {
         margin-right: 30px;
         padding-left: 25px;
     }
+    
+    .table-width-6 
+    {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+    .table-width-8 
+    {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .table-width-10 
+    {
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+    
     .paragraph-container > .paragraph-left-side {
 	    display: block;
         top: 14px;
@@ -858,10 +1026,38 @@ footer {
         font-size: 10pt;
         padding: 3px;
     }
-   
+
+    *[class*='lang-'] > div, pre > code {
+        padding-left: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    
+    ol li, ul li {
+        padding-left: 0.2em;	
+    }
+    
     p, li {
         line-height: 24px;
     }    
+
+    .table-width-6 
+    {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .table-width-8 
+    {
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+
+    .table-width-10 
+    {
+        margin-left: 0%;
+        margin-right: 0%;
+    }
     
     .paragraph-container .paragraph-left-side 
     {
@@ -870,7 +1066,7 @@ footer {
     .paragraph-container .paragraph-right-side 
     {
         padding-left: 21px;
-        top: 14px;
+        top: 3px;
 	    font-size: 8pt;
     }
     .footer-container img {
@@ -878,6 +1074,10 @@ footer {
     } 
     .menu__list {
         margin: 0 1em 0 1em;
+    }
+    .menu__header_total_sub2
+    {
+        margin: 1.5em 0 0.6em 1em;
     }
 }
 
@@ -1109,25 +1309,9 @@ footer {
   src: url("../../../../../res/fonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../../../../../res/fonts/fa-solid-900.woff2") format("woff2"), url("../../../../../res/fonts/fa-solid-900.woff") format("woff"), url("../../../../../res/fonts/fa-solid-900.ttf") format("truetype"), url("../../../../../res/fonts/fa-solid-900.svg#fontawesome") format("svg"); 
 }
 </style>  
-    <!--
-    <div class="book-title-container d-none d-md-block">
-        <div class="book-title">Knowledge Base</div>
-        <div class="book-part-title-block">pt.1 <a href="../../../../..//ru/Memory/01-00-MemoryManagement-Intro.html" class="book-part-title">Управление памятью</a></div>
-        <div class="book-part-title-block">pt.2 <a href="../../../../..//ru/Execution/02-00-ExecutionFlow-Intro.html" class="book-part-title">Поток исполнения команд</a></div>
-        <br><a href="#" class="book-superheading-title">Обоснование выбора</a>
-        / <a href="#" class="book-superheading-title">Упрощенное описание</a>
-        / <a href="#" class="book-superheading-title">Подробное описание</a>
-    </div>
-    -->
-    <header class="header fixed">
+   
+    <header class="header fixed d-block d-lg-none">
         <p class="conflogo">KB</p> 
-        <div class="menu">
-            <div><a href="index.html">О конференции</a></div>
-            <div><a href="mentor.html">Ментор</a></div>
-            <div><a href="practice.html">Практика</a></div>
-            <div><a href="matrix.html">Доклады</a></div>
-            <a href="register.html" class="register_button">РЕГИСТРАЦИЯ</a>
-        </div>
 
         <!-- mobile-menu -->
 
@@ -1143,36 +1327,85 @@ footer {
                     
                 </ol>
                 <p class="menu__header_total">Содержание</p>
-                <ul style="padding: 0;">
-                    <li style="
-                        display: inline-block;
-                        width: 100%;
-                        margin: 0;
-                        text-align: center;
-                        font-size: 1.2em;
-                        font-family: charter;
-                        ">
-                        <p>Управление памятью</p>
-                        <ul>
-                            <li>A</li>
-                            <li>B</li>
-                            <li>C</li>
-                        </ul>
+                <ul class="menu__header_list">
+                    <li>
+                        <p class="menu__header_total_sub">
+                            Управление памятью
+                        </p>
+                        <p class="menu__header_total_sub2">
+                            Теоретические вопросы:
+                        </p>
+                        <ol class="menu__list">
+                            <li><p><a href="../../../../../ru/Memory/01-00-MemoryManagement-Intro.html">
+                                Общие слова
+                            </a></p></li>
+                            <li>
+                                <p>
+                                <a href="../../../../../ru/Memory/01-02-MemoryManagement-Basics.html">Введение в управление памятью</a></p>
+                            </li>
+                            <li>
+                                <p>
+                                <a href="../../../../../ru/Memory/01-04-MemoryManagement-ThreadStack.html">Стек потока</a></p>
+                            </li>
+                            <li>
+                                <p>
+                                <a href="../../../../../ru/Memory/01-06-MemoryManagement-EntitiesLifetime.html">Время жизни сущности</a></p>
+                            </li>
+                            <li>
+                                <p>
+                                <a href="../../../../../ru/Memory/01-08-MemoryManagement-RefVsValueTypes.html">RefTypes, ValueTypes, Boxing &amp; Unboxing</a></p>
+                            </li>
+                            <li>
+                                <p>
+                                <a href="../../../../../ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон IDisposable</a></p>
+                            </li>
+                            <li>
+                                <p>
+                                <a href="../../../../../ru/Memory/01-12-MemoryManagement-Finalizer.html">Финализация</a></p>
+                            </li>
+                            <li>
+                                <p>
+                                <a href="../../../../../ru/Memory/01-14-MemoryManagement-Results.html">Выводы</a></p>
+                            </li>
+                        </ol>
+                        <p class="menu__header_total_sub2">
+                            Практические вопросы:
+                        </p>
+                        <ol class="menu__list" start="9">
+                            <li><p><a href="../../../../../ru/Memory/02-02-MemoryManagement-MemorySpan.html">
+                                Memory&lt;T&gt;, Span&lt;T&gt;
+                            </a></p></li>
+                        </ol> 
                     </li>
-                    <li style="
-                        display: inline-block;
-                        width: 100%;
-                        margin: 0;
-                        text-align: center;
-                        font-family: charter;
-                        font-size: 1.2em;
-                        ">
-                        <p>Поток исполнения команд</p>
-                        <ul>
-                            <li>A</li>
-                            <li>B</li>
-                            <li>C</li>
-                        </ul>
+                    <li>
+                        <p class="menu__header_total_sub">
+                            Поток исполнения команд
+                        </p>
+                        <p class="menu__header_total_sub2">
+                            Многопоточность:
+                        </p>
+                        <ol class="menu__list">
+                            <li><p><a href="../../../../../ru/Execution/1-Threads/1-OS/1-threadsScheduling.html">
+                                Потоки и планирование потоков
+                            </a></p></li>
+                        </ol>
+                        <p class="menu__header_total_sub2">
+                            Искл­юч­ител­ьные си­ту­а­ции:
+                        </p>
+                        <ol class="menu__list" start="2">
+                            <li><p><a href="../../../../../ru/Execution/2-ExceptionalFlow/1-Exceptions-Intro.html">
+                                Введение в исключительные ситуации
+                            </a></p></li>
+                            <li><p><a href="../../../../../ru/Execution/2-ExceptionalFlow/2-Exceptions-Architecture.html">
+                                Архитектура исключительной ситуации
+                            </a></p></li>
+                            <li><p><a href="../../../../../ru/Execution/2-ExceptionalFlow/3-Exceptions-Events.html">
+                                События об исключительных ситуациях
+                            </a></p></li>
+                            <li><p><a href="../../../../../ru/Execution/2-ExceptionalFlow/4-Exceptions-Types.html">
+                                Виды исключительных ситуаций
+                            </a></p></li>
+                        </ol>
                     </li>
                 </ul>
             </div>
@@ -1199,1683 +1432,495 @@ Frequency=3328124 Hz, Resolution=300.4696 ns, Timer=TSC
 
 
 </div>
-<div class="row">
-<div class="offset-1 col-10">
+<div class="table-container">
+<div class="table-width-10 table-cols-10">
 <table>
 <thead>
 <tr>
-<th>
-<p >
-Method</p>
-</th>
-<th>
-<p >
-Job</p>
-</th>
-<th>
-<p >
-Toolchain</p>
-</th>
-<th style="text-align: right;">
-<p >
-Mean</p>
-</th>
-<th style="text-align: right;">
-<p >
-Error</p>
-</th>
-<th style="text-align: right;">
-<p >
-StdDev</p>
-</th>
-<th style="text-align: right;">
-<p >
-Median</p>
-</th>
-<th style="text-align: right;">
-<p >
-Scaled</p>
-</th>
-<th style="text-align: right;">
-<p >
-ScaledSD</p>
-</th>
+<th>Method</th>
+<th>Job</th>
+<th>Toolchain</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">Error</th>
+<th style="text-align: right;">Std&shy;Dev</th>
+<th style="text-align: right;">Median</th>
+<th style="text-align: right;">Scaled</th>
+<th style="text-align: right;">Scaled&shy;SD</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>
-<p >
-ArrayIndexer_Get</p>
-</td>
-<td>
-<p >
-.NET 4.7</p>
-</td>
-<td>
-<p >
-CsProjnet47</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6067 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0121 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0149 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6030 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.00</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.00</p>
-</td>
+<td>Array&shy;Indexer&shy;_Get</td>
+<td>.NET<span class="spacer"> </span>4.7</td>
+<td>Cs&shy;Projnet47</td>
+<td style="text-align: right;">0.6067<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0121<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0149<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.6030<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">0.00</td>
 </tr>
 <tr>
-<td>
-<p >
-ArrayIndexer_Set</p>
-</td>
-<td>
-<p >
-.NET 4.7</p>
-</td>
-<td>
-<p >
-CsProjnet47</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.5861 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0139 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0130 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.5826 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.97</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.03</p>
-</td>
+<td>Array&shy;Indexer&shy;_Set</td>
+<td>.NET<span class="spacer"> </span>4.7</td>
+<td>Cs&shy;Projnet47</td>
+<td style="text-align: right;">0.5861<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0139<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0130<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.5826<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.97</td>
+<td style="text-align: right;">0.03</td>
 </tr>
 <tr>
-<td>
-<p >
-ArraySegmentIndexer_Get</p>
-</td>
-<td>
-<p >
-.NET 4.7</p>
-</td>
-<td>
-<p >
-CsProjnet47</p>
-</td>
-<td style="text-align: right;">
-<p >
-4.1642 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0896 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.1255 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-4.1172 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-6.87</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.26</p>
-</td>
+<td>Array&shy;Segment&shy;Indexer&shy;_Get</td>
+<td>.NET<span class="spacer"> </span>4.7</td>
+<td>Cs&shy;Projnet47</td>
+<td style="text-align: right;">4.1642<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0896<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.1255<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">4.1172<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">6.87</td>
+<td style="text-align: right;">0.26</td>
 </tr>
 <tr>
-<td>
-<p >
-ArraySegmentIndexer_Set</p>
-</td>
-<td>
-<p >
-.NET 4.7</p>
-</td>
-<td>
-<p >
-CsProjnet47</p>
-</td>
-<td style="text-align: right;">
-<p >
-3.7260 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0716 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0704 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-3.7229 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-6.15</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.18</p>
-</td>
+<td>Array&shy;Segment&shy;Indexer&shy;_Set</td>
+<td>.NET<span class="spacer"> </span>4.7</td>
+<td>Cs&shy;Projnet47</td>
+<td style="text-align: right;">3.7260<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0716<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0704<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">3.7229<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">6.15</td>
+<td style="text-align: right;">0.18</td>
 </tr>
 <tr>
-<td>
-<p >
-StringIndexer_Get</p>
-</td>
-<td>
-<p >
-.NET 4.7</p>
-</td>
-<td>
-<p >
-CsProjnet47</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6216 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0128 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0249 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6185 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.03</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.05</p>
-</td>
+<td>String&shy;Indexer&shy;_Get</td>
+<td>.NET<span class="spacer"> </span>4.7</td>
+<td>Cs&shy;Projnet47</td>
+<td style="text-align: right;">0.6216<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0128<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0249<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.6185<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.03</td>
+<td style="text-align: right;">0.05</td>
 </tr>
 <tr>
-<td>
-<p >
-SpanArrayIndexer_Get</p>
-</td>
-<td>
-<p >
-.NET 4.7</p>
-</td>
-<td>
-<p >
-CsProjnet47</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.0164 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0206 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0193 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.0113 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.68</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.05</p>
-</td>
+<td>Span&shy;Array&shy;Indexer&shy;_Get</td>
+<td>.NET<span class="spacer"> </span>4.7</td>
+<td>Cs&shy;Projnet47</td>
+<td style="text-align: right;">1.0164<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0206<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0193<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.0113<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.68</td>
+<td style="text-align: right;">0.05</td>
 </tr>
 <tr>
-<td>
-<p >
-SpanArraySegmentIndexer_Get</p>
-</td>
-<td>
-<p >
-.NET 4.7</p>
-</td>
-<td>
-<p >
-CsProjnet47</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.8996 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0179 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0167 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.9003 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.48</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.04</p>
-</td>
+<td>Span&shy;Array&shy;Segment&shy;Indexer&shy;_Get</td>
+<td>.NET<span class="spacer"> </span>4.7</td>
+<td>Cs&shy;Projnet47</td>
+<td style="text-align: right;">0.8996<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0179<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0167<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.9003<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.48</td>
+<td style="text-align: right;">0.04</td>
 </tr>
 <tr>
-<td>
-<p >
-SpanStringIndexer_Get</p>
-</td>
-<td>
-<p >
-.NET 4.7</p>
-</td>
-<td>
-<p >
-CsProjnet47</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.0267 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0160 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0202 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.0243 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.69</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.05</p>
-</td>
+<td>Span&shy;String&shy;Indexer&shy;_Get</td>
+<td>.NET<span class="spacer"> </span>4.7</td>
+<td>Cs&shy;Projnet47</td>
+<td style="text-align: right;">1.0267<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0160<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0202<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.0243<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.69</td>
+<td style="text-align: right;">0.05</td>
 </tr>
 <tr>
-<td>
-<p >
-SpanArrayIndexer_Set</p>
-</td>
-<td>
-<p >
-.NET 4.7</p>
-</td>
-<td>
-<p >
-CsProjnet47</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.0127 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0200 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0187 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.0094 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.67</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.05</p>
-</td>
+<td>Span&shy;Array&shy;Indexer&shy;_Set</td>
+<td>.NET<span class="spacer"> </span>4.7</td>
+<td>Cs&shy;Projnet47</td>
+<td style="text-align: right;">1.0127<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0200<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0187<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.0094<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.67</td>
+<td style="text-align: right;">0.05</td>
 </tr>
 <tr>
-<td>
-<p >
-SpanArraySegmentIndexer_Set</p>
-</td>
-<td>
-<p >
-.NET 4.7</p>
-</td>
-<td>
-<p >
-CsProjnet47</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.0722 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0218 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0491 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.0671 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.77</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.09</p>
-</td>
+<td>Span&shy;Array&shy;Segment&shy;Indexer&shy;_Set</td>
+<td>.NET<span class="spacer"> </span>4.7</td>
+<td>Cs&shy;Projnet47</td>
+<td style="text-align: right;">1.0722<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0218<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0491<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.0671<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.77</td>
+<td style="text-align: right;">0.09</td>
 </tr>
 <tr>
-<td>
-<p >
-</p>
-</td>
-<td>
-<p >
-</p>
-</td>
-<td>
-<p >
-</p>
-</td>
-<td style="text-align: right;">
-<p >
-</p>
-</td>
-<td style="text-align: right;">
-<p >
-</p>
-</td>
-<td style="text-align: right;">
-<p >
-</p>
-</td>
-<td style="text-align: right;">
-<p >
-</p>
-</td>
-<td style="text-align: right;">
-<p >
-</p>
-</td>
-<td style="text-align: right;">
-<p >
-</p>
-</td>
+<td></td>
+<td></td>
+<td></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
 </tr>
 <tr>
-<td>
-<p >
-ArrayIndexer_Get</p>
-</td>
-<td>
-<p >
-.NET 4.7.2</p>
-</td>
-<td>
-<p >
-CsProjnet472</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6072 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0125 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0149 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6042 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.00</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.00</p>
-</td>
+<td>Array&shy;Indexer&shy;_Get</td>
+<td>.NET<span class="spacer"> </span>4.7.2</td>
+<td>Cs&shy;Projnet472</td>
+<td style="text-align: right;">0.6072<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0125<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0149<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.6042<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">0.00</td>
 </tr>
 <tr>
-<td>
-<p >
-ArrayIndexer_Set</p>
-</td>
-<td>
-<p >
-.NET 4.7.2</p>
-</td>
-<td>
-<p >
-CsProjnet472</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.5849 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0161 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0192 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.5811 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.96</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.04</p>
-</td>
+<td>Array&shy;Indexer&shy;_Set</td>
+<td>.NET<span class="spacer"> </span>4.7.2</td>
+<td>Cs&shy;Projnet472</td>
+<td style="text-align: right;">0.5849<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0161<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0192<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.5811<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.96</td>
+<td style="text-align: right;">0.04</td>
 </tr>
 <tr>
-<td>
-<p >
-ArraySegmentIndexer_Get</p>
-</td>
-<td>
-<p >
-.NET 4.7.2</p>
-</td>
-<td>
-<p >
-CsProjnet472</p>
-</td>
-<td style="text-align: right;">
-<p >
-4.1139 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0823 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.1070 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-4.0840 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-6.78</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.24</p>
-</td>
+<td>Array&shy;Segment&shy;Indexer&shy;_Get</td>
+<td>.NET<span class="spacer"> </span>4.7.2</td>
+<td>Cs&shy;Projnet472</td>
+<td style="text-align: right;">4.1139<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0823<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.1070<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">4.0840<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">6.78</td>
+<td style="text-align: right;">0.24</td>
 </tr>
 <tr>
-<td>
-<p >
-ArraySegmentIndexer_Set</p>
-</td>
-<td>
-<p >
-.NET 4.7.2</p>
-</td>
-<td>
-<p >
-CsProjnet472</p>
-</td>
-<td style="text-align: right;">
-<p >
-3.7793 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0747 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.1206 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-3.7473 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-6.23</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.24</p>
-</td>
+<td>Array&shy;Segment&shy;Indexer&shy;_Set</td>
+<td>.NET<span class="spacer"> </span>4.7.2</td>
+<td>Cs&shy;Projnet472</td>
+<td style="text-align: right;">3.7793<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0747<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.1206<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">3.7473<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">6.23</td>
+<td style="text-align: right;">0.24</td>
 </tr>
 <tr>
-<td>
-<p >
-StringIndexer_Get</p>
-</td>
-<td>
-<p >
-.NET 4.7.2</p>
-</td>
-<td>
-<p >
-CsProjnet472</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6090 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0151 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0141 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6025 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.00</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.03</p>
-</td>
+<td>String&shy;Indexer&shy;_Get</td>
+<td>.NET<span class="spacer"> </span>4.7.2</td>
+<td>Cs&shy;Projnet472</td>
+<td style="text-align: right;">0.6090<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0151<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0141<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.6025<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">0.03</td>
 </tr>
 <tr>
-<td>
-<p >
-SpanArrayIndexer_Get</p>
-</td>
-<td>
-<p >
-.NET 4.7.2</p>
-</td>
-<td>
-<p >
-CsProjnet472</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.0338 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0204 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0362 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.0238 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.70</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.07</p>
-</td>
+<td>Span&shy;Array&shy;Indexer&shy;_Get</td>
+<td>.NET<span class="spacer"> </span>4.7.2</td>
+<td>Cs&shy;Projnet472</td>
+<td style="text-align: right;">1.0338<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0204<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0362<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.0238<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.70</td>
+<td style="text-align: right;">0.07</td>
 </tr>
 <tr>
-<td>
-<p >
-SpanArraySegmentIndexer_Get</p>
-</td>
-<td>
-<p >
-.NET 4.7.2</p>
-</td>
-<td>
-<p >
-CsProjnet472</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.9446 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0193 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0514 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.9431 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.56</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.09</p>
-</td>
+<td>Span&shy;Array&shy;Segment&shy;Indexer&shy;_Get</td>
+<td>.NET<span class="spacer"> </span>4.7.2</td>
+<td>Cs&shy;Projnet472</td>
+<td style="text-align: right;">0.9446<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0193<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0514<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.9431<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.56</td>
+<td style="text-align: right;">0.09</td>
 </tr>
 <tr>
-<td>
-<p >
-SpanStringIndexer_Get</p>
-</td>
-<td>
-<p >
-.NET 4.7.2</p>
-</td>
-<td>
-<p >
-CsProjnet472</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.0588 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0214 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0521 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.0430 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.74</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.09</p>
-</td>
+<td>Span&shy;String&shy;Indexer&shy;_Get</td>
+<td>.NET<span class="spacer"> </span>4.7.2</td>
+<td>Cs&shy;Projnet472</td>
+<td style="text-align: right;">1.0588<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0214<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0521<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.0430<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.74</td>
+<td style="text-align: right;">0.09</td>
 </tr>
 <tr>
-<td>
-<p >
-SpanArrayIndexer_Set</p>
-</td>
-<td>
-<p >
-.NET 4.7.2</p>
-</td>
-<td>
-<p >
-CsProjnet472</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.0172 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0206 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0361 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.0033 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.68</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.07</p>
-</td>
+<td>Span&shy;Array&shy;Indexer&shy;_Set</td>
+<td>.NET<span class="spacer"> </span>4.7.2</td>
+<td>Cs&shy;Projnet472</td>
+<td style="text-align: right;">1.0172<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0206<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0361<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.0033<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.68</td>
+<td style="text-align: right;">0.07</td>
 </tr>
 <tr>
-<td>
-<p >
-SpanArraySegmentIndexer_Set</p>
-</td>
-<td>
-<p >
-.NET 4.7.2</p>
-</td>
-<td>
-<p >
-CsProjnet472</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.0565 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0215 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0528 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.0353 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.74</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.10</p>
-</td>
+<td>Span&shy;Array&shy;Segment&shy;Indexer&shy;_Set</td>
+<td>.NET<span class="spacer"> </span>4.7.2</td>
+<td>Cs&shy;Projnet472</td>
+<td style="text-align: right;">1.0565<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0215<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0528<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.0353<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.74</td>
+<td style="text-align: right;">0.10</td>
 </tr>
 <tr>
-<td>
-<p >
-</p>
-</td>
-<td>
-<p >
-</p>
-</td>
-<td>
-<p >
-</p>
-</td>
-<td style="text-align: right;">
-<p >
-</p>
-</td>
-<td style="text-align: right;">
-<p >
-</p>
-</td>
-<td style="text-align: right;">
-<p >
-</p>
-</td>
-<td style="text-align: right;">
-<p >
-</p>
-</td>
-<td style="text-align: right;">
-<p >
-</p>
-</td>
-<td style="text-align: right;">
-<p >
-</p>
-</td>
+<td></td>
+<td></td>
+<td></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
 </tr>
 <tr>
-<td>
-<p >
-ArrayIndexer_Get</p>
-</td>
-<td>
-<p >
-.NET Core 2.1</p>
-</td>
-<td>
-<p >
-.NET Core 2.1</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.7173 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0144 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0260 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.7185 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.00</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.00</p>
-</td>
+<td>Array&shy;Indexer&shy;_Get</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.1</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.1</td>
+<td style="text-align: right;">0.7173<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0144<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0260<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.7185<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">0.00</td>
 </tr>
 <tr>
-<td>
-<p >
-ArrayIndexer_Set</p>
-</td>
-<td>
-<p >
-.NET Core 2.1</p>
-</td>
-<td>
-<p >
-.NET Core 2.1</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.5920 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0122 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0140 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.5942 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.83</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.04</p>
-</td>
+<td>Array&shy;Indexer&shy;_Set</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.1</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.1</td>
+<td style="text-align: right;">0.5920<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0122<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0140<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.5942<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.83</td>
+<td style="text-align: right;">0.04</td>
 </tr>
 <tr>
-<td>
-<p >
-ArraySegmentIndexer_Get</p>
-</td>
-<td>
-<p >
-.NET Core 2.1</p>
-</td>
-<td>
-<p >
-.NET Core 2.1</p>
-</td>
-<td style="text-align: right;">
-<p >
-3.7554 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0753 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.1653 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-3.7177 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-5.24</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.30</p>
-</td>
+<td>Array&shy;Segment&shy;Indexer&shy;_Get</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.1</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.1</td>
+<td style="text-align: right;">3.7554<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0753<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.1653<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">3.7177<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">5.24</td>
+<td style="text-align: right;">0.30</td>
 </tr>
 <tr>
-<td>
-<p >
-ArraySegmentIndexer_Set</p>
-</td>
-<td>
-<p >
-.NET Core 2.1</p>
-</td>
-<td>
-<p >
-.NET Core 2.1</p>
-</td>
-<td style="text-align: right;">
-<p >
-3.7553 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0733 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.1265 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-3.7574 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-5.24</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.26</p>
-</td>
+<td>Array&shy;Segment&shy;Indexer&shy;_Set</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.1</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.1</td>
+<td style="text-align: right;">3.7553<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0733<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.1265<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">3.7574<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">5.24</td>
+<td style="text-align: right;">0.26</td>
 </tr>
 <tr>
-<td>
-<p >
-StringIndexer_Get</p>
-</td>
-<td>
-<p >
-.NET Core 2.1</p>
-</td>
-<td>
-<p >
-.NET Core 2.1</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6926 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0140 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0177 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6920 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.97</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.04</p>
-</td>
+<td>String&shy;Indexer&shy;_Get</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.1</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.1</td>
+<td style="text-align: right;">0.6926<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0140<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0177<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.6920<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.97</td>
+<td style="text-align: right;">0.04</td>
 </tr>
 <tr>
-<td>
-<p >
-SpanArrayIndexer_Get</p>
-</td>
-<td>
-<p >
-.NET Core 2.1</p>
-</td>
-<td>
-<p >
-.NET Core 2.1</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6209 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0127 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0136 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6228 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.87</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.04</p>
-</td>
+<td>Span&shy;Array&shy;Indexer&shy;_Get</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.1</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.1</td>
+<td style="text-align: right;">0.6209<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0127<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0136<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.6228<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.87</td>
+<td style="text-align: right;">0.04</td>
 </tr>
 <tr>
-<td>
-<p >
-SpanArraySegmentIndexer_Get</p>
-</td>
-<td>
-<p >
-.NET Core 2.1</p>
-</td>
-<td>
-<p >
-.NET Core 2.1</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6320 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0125 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0139 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6301 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.88</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.04</p>
-</td>
+<td>Span&shy;Array&shy;Segment&shy;Indexer&shy;_Get</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.1</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.1</td>
+<td style="text-align: right;">0.6320<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0125<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0139<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.6301<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.88</td>
+<td style="text-align: right;">0.04</td>
 </tr>
 <tr>
-<td>
-<p >
-SpanStringIndexer_Get</p>
-</td>
-<td>
-<p >
-.NET Core 2.1</p>
-</td>
-<td>
-<p >
-.NET Core 2.1</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6363 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0075 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0070 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6351 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.89</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.03</p>
-</td>
+<td>Span&shy;String&shy;Indexer&shy;_Get</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.1</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.1</td>
+<td style="text-align: right;">0.6363<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0075<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0070<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.6351<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.89</td>
+<td style="text-align: right;">0.03</td>
 </tr>
 <tr>
-<td>
-<p >
-SpanArrayIndexer_Set</p>
-</td>
-<td>
-<p >
-.NET Core 2.1</p>
-</td>
-<td>
-<p >
-.NET Core 2.1</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.7311 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0150 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0284 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.7311 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.02</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.05</p>
-</td>
+<td>Span&shy;Array&shy;Indexer&shy;_Set</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.1</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.1</td>
+<td style="text-align: right;">0.7311<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0150<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0284<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.7311<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.02</td>
+<td style="text-align: right;">0.05</td>
 </tr>
 <tr>
-<td>
-<p >
-SpanArraySegmentIndexer_Set</p>
-</td>
-<td>
-<p >
-.NET Core 2.1</p>
-</td>
-<td>
-<p >
-.NET Core 2.1</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6564 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0113 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0105 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6592 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.92</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.04</p>
-</td>
+<td>Span&shy;Array&shy;Segment&shy;Indexer&shy;_Set</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.1</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.1</td>
+<td style="text-align: right;">0.6564<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0113<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0105<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.6592<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.92</td>
+<td style="text-align: right;">0.04</td>
 </tr>
 <tr>
-<td>
-<p >
-</p>
-</td>
-<td>
-<p >
-</p>
-</td>
-<td>
-<p >
-</p>
-</td>
-<td style="text-align: right;">
-<p >
-</p>
-</td>
-<td style="text-align: right;">
-<p >
-</p>
-</td>
-<td style="text-align: right;">
-<p >
-</p>
-</td>
-<td style="text-align: right;">
-<p >
-</p>
-</td>
-<td style="text-align: right;">
-<p >
-</p>
-</td>
-<td style="text-align: right;">
-<p >
-</p>
-</td>
+<td></td>
+<td></td>
+<td></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
 </tr>
 <tr>
-<td>
-<p >
-ArrayIndexer_Get</p>
-</td>
-<td>
-<p >
-.NET Core 2.2</p>
-</td>
-<td>
-<p >
-.NET Core 2.2</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.7160 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0146 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0353 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.7037 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-1.00</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.00</p>
-</td>
+<td>Array&shy;Indexer&shy;_Get</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.2</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.2</td>
+<td style="text-align: right;">0.7160<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0146<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0353<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.7037<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">0.00</td>
 </tr>
 <tr>
-<td>
-<p >
-ArrayIndexer_Set</p>
-</td>
-<td>
-<p >
-.NET Core 2.2</p>
-</td>
-<td>
-<p >
-.NET Core 2.2</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6066 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0118 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0105 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6033 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.85</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.04</p>
-</td>
+<td>Array&shy;Indexer&shy;_Set</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.2</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.2</td>
+<td style="text-align: right;">0.6066<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0118<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0105<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.6033<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.85</td>
+<td style="text-align: right;">0.04</td>
 </tr>
 <tr>
-<td>
-<p >
-ArraySegmentIndexer_Get</p>
-</td>
-<td>
-<p >
-.NET Core 2.2</p>
-</td>
-<td>
-<p >
-.NET Core 2.2</p>
-</td>
-<td style="text-align: right;">
-<p >
-3.5756 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0898 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0840 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-3.5657 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-5.01</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.26</p>
-</td>
+<td>Array&shy;Segment&shy;Indexer&shy;_Get</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.2</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.2</td>
+<td style="text-align: right;">3.5756<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0898<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0840<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">3.5657<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">5.01</td>
+<td style="text-align: right;">0.26</td>
 </tr>
 <tr>
-<td>
-<p >
-ArraySegmentIndexer_Set</p>
-</td>
-<td>
-<p >
-.NET Core 2.2</p>
-</td>
-<td>
-<p >
-.NET Core 2.2</p>
-</td>
-<td style="text-align: right;">
-<p >
-3.5116 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0401 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0375 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-3.5259 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-4.92</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.24</p>
-</td>
+<td>Array&shy;Segment&shy;Indexer&shy;_Set</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.2</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.2</td>
+<td style="text-align: right;">3.5116<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0401<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0375<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">3.5259<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">4.92</td>
+<td style="text-align: right;">0.24</td>
 </tr>
 <tr>
-<td>
-<p >
-StringIndexer_Get</p>
-</td>
-<td>
-<p >
-.NET Core 2.2</p>
-</td>
-<td>
-<p >
-.NET Core 2.2</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6785 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0078 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0073 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6821 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.95</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.05</p>
-</td>
+<td>String&shy;Indexer&shy;_Get</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.2</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.2</td>
+<td style="text-align: right;">0.6785<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0078<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0073<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.6821<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">0.05</td>
 </tr>
 <tr>
-<td>
-<p >
-SpanArrayIndexer_Get</p>
-</td>
-<td>
-<p >
-.NET Core 2.2</p>
-</td>
-<td>
-<p >
-.NET Core 2.2</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6331 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0095 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0089 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6344 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.89</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.04</p>
-</td>
+<td>Span&shy;Array&shy;Indexer&shy;_Get</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.2</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.2</td>
+<td style="text-align: right;">0.6331<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0095<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0089<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.6344<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.89</td>
+<td style="text-align: right;">0.04</td>
 </tr>
 <tr>
-<td>
-<p >
-SpanArraySegmentIndexer_Get</p>
-</td>
-<td>
-<p >
-.NET Core 2.2</p>
-</td>
-<td>
-<p >
-.NET Core 2.2</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6433 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0138 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0234 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6345 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.90</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.05</p>
-</td>
+<td>Span&shy;Array&shy;Segment&shy;Indexer&shy;_Get</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.2</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.2</td>
+<td style="text-align: right;">0.6433<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0138<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0234<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.6345<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">0.05</td>
 </tr>
 <tr>
-<td>
-<p >
-SpanStringIndexer_Get</p>
-</td>
-<td>
-<p >
-.NET Core 2.2</p>
-</td>
-<td>
-<p >
-.NET Core 2.2</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6227 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0109 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0102 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6243 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.87</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.04</p>
-</td>
+<td>Span&shy;String&shy;Indexer&shy;_Get</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.2</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.2</td>
+<td style="text-align: right;">0.6227<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0109<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0102<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.6243<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.87</td>
+<td style="text-align: right;">0.04</td>
 </tr>
 <tr>
-<td>
-<p >
-SpanArrayIndexer_Set</p>
-</td>
-<td>
-<p >
-.NET Core 2.2</p>
-</td>
-<td>
-<p >
-.NET Core 2.2</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6631 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0128 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0119 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6658 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.93</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.05</p>
-</td>
+<td>Span&shy;Array&shy;Indexer&shy;_Set</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.2</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.2</td>
+<td style="text-align: right;">0.6631<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0128<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0119<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.6658<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.93</td>
+<td style="text-align: right;">0.05</td>
 </tr>
 <tr>
-<td>
-<p >
-SpanArraySegmentIndexer_Set</p>
-</td>
-<td>
-<p >
-.NET Core 2.2</p>
-</td>
-<td>
-<p >
-.NET Core 2.2</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6225 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0128 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.0162 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.6201 ns</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.87</p>
-</td>
-<td style="text-align: right;">
-<p >
-0.05</p>
-</td>
+<td>Span&shy;Array&shy;Segment&shy;Indexer&shy;_Set</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.2</td>
+<td>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.2</td>
+<td style="text-align: right;">0.6225<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0128<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.0162<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.6201<span class="spacer"> </span>ns</td>
+<td style="text-align: right;">0.87</td>
+<td style="text-align: right;">0.05</td>
 </tr>
 </tbody>
 </table>

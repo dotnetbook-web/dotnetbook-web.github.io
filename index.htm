@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.NET Platform Architecture</title>
+</head>
+<body>
+    <script src="{RES_PATH}/jquery.js"></script>
+    <link rel="stylesheet" href="./res/bootstrap.css">
+    <link rel="stylesheet" href="./res/awesome.css">
+    <!--clone-from:./default.css-->  
+    <div class="book-title-container d-none d-lg-block">
+        <div class="book-title">Knowledge Base</div>
+        <div class="book-part-title-block">pt.1 <a href="{TARGET_ROOT_PATH}/ru/Memory/01-00-MemoryManagement-Intro.html" class="book-part-title">Управление памятью</a></div>
+        <div class="book-part-title-block">pt.2 <a href="{TARGET_ROOT_PATH}/ru/Execution/02-00-ExecutionFlow-Intro.html" class="book-part-title">Поток исполнения команд</a></div>
+        <br><a href="#" class="book-superheading-title">Обоснование выбора</a>
+        / <a href="#" class="book-superheading-title">Упрощенное описание</a>
+        / <a href="#" class="book-superheading-title">Подробное описание</a>
+    </div>
+    <header class="header fixed d-block d-lg-none">
+        <p class="conflogo">KB</p> 
+
+        <!-- mobile-menu -->
+
+        <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+              <span></span>
+            </label>
+        
+            <div class="menu__box">
+                <p class="menu__header_current">На странице</p>
+                <ol class="menu__list">
+                    <!--structure:2-->
+                </ol>
+                <p class="menu__header_total">Содержание</p>
+                <ul class="menu__header_list">
+                    <li>
+                        <p class="menu__header_total_sub">
+                            Управление памятью
+                        </p>
+                        <p class="menu__header_total_sub2">
+                            Теоретические вопросы:
+                        </p>
+                        <ol class="menu__list">
+                            <li><p><a href="{TARGET_ROOT_PATH}ru/Memory/01-00-MemoryManagement-Intro.html">
+                                Общие слова
+                            </a></p></li>
+                            <li>
+                                <p>
+                                <a href="{TARGET_ROOT_PATH}ru/Memory/01-02-MemoryManagement-Basics.html">Введение в управление памятью</a></p>
+                            </li>
+                            <li>
+                                <p>
+                                <a href="{TARGET_ROOT_PATH}ru/Memory/01-04-MemoryManagement-ThreadStack.html">Стек потока</a></p>
+                            </li>
+                            <li>
+                                <p>
+                                <a href="{TARGET_ROOT_PATH}ru/Memory/01-06-MemoryManagement-EntitiesLifetime.html">Время жизни сущности</a></p>
+                            </li>
+                            <li>
+                                <p>
+                                <a href="{TARGET_ROOT_PATH}ru/Memory/01-08-MemoryManagement-RefVsValueTypes.html">RefTypes, ValueTypes, Boxing &amp; Unboxing</a></p>
+                            </li>
+                            <li>
+                                <p>
+                                <a href="{TARGET_ROOT_PATH}ru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон IDisposable</a></p>
+                            </li>
+                            <li>
+                                <p>
+                                <a href="{TARGET_ROOT_PATH}ru/Memory/01-12-MemoryManagement-Finalizer.html">Финализация</a></p>
+                            </li>
+                            <li>
+                                <p>
+                                <a href="{TARGET_ROOT_PATH}ru/Memory/01-14-MemoryManagement-Results.html">Выводы</a></p>
+                            </li>
+                        </ol>
+                        <p class="menu__header_total_sub2">
+                            Практические вопросы:
+                        </p>
+                        <ol class="menu__list" start="9">
+                            <li><p><a href="{TARGET_ROOT_PATH}ru/Memory/02-02-MemoryManagement-MemorySpan.html">
+                                Memory&lt;T&gt;, Span&lt;T&gt;
+                            </a></p></li>
+                        </ol> 
+                    </li>
+                    <li>
+                        <p class="menu__header_total_sub">
+                            Поток исполнения команд
+                        </p>
+                        <p class="menu__header_total_sub2">
+                            Многопоточность:
+                        </p>
+                        <ol class="menu__list">
+                            <li><p><a href="{TARGET_ROOT_PATH}ru/Execution/1-Threads/1-OS/1-threadsScheduling.html">
+                                Потоки и планирование потоков
+                            </a></p></li>
+                        </ol>
+                        <p class="menu__header_total_sub2">
+                            Искл­юч­ител­ьные си­ту­а­ции:
+                        </p>
+                        <ol class="menu__list" start="2">
+                            <li><p><a href="{TARGET_ROOT_PATH}ru/Execution/2-ExceptionalFlow/1-Exceptions-Intro.html">
+                                Введение в исключительные ситуации
+                            </a></p></li>
+                            <li><p><a href="{TARGET_ROOT_PATH}ru/Execution/2-ExceptionalFlow/2-Exceptions-Architecture.html">
+                                Архитектура исключительной ситуации
+                            </a></p></li>
+                            <li><p><a href="{TARGET_ROOT_PATH}ru/Execution/2-ExceptionalFlow/3-Exceptions-Events.html">
+                                События об исключительных ситуациях
+                            </a></p></li>
+                            <li><p><a href="{TARGET_ROOT_PATH}ru/Execution/2-ExceptionalFlow/4-Exceptions-Types.html">
+                                Виды исключительных ситуаций
+                            </a></p></li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="book-container">
+        <div class="article-container">
+            <!--<p class="d-xs-block d-sm-none">XS</p>
+            <p class="d-none d-xs-block d-sm-none">SM</p>
+            <p class="d-none d-sm-block d-md-none">MD</p>
+            <p class="d-none d-lg-block d-xl-none">LG</p>
+            <p class="d-none d-xl-block">XL</p> -->
+            <!--document-body-->
+        </div>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-wrap">
+                    <img src="./res/img/logo-w-noindex.svg">
+                    <p>
+                        <a class="footer-link" target="_blank" href="mailto:sidristij@clrium.ru"><i class="far fa-envelope" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="https://vk.com/clrium"><i class="fab fa-vk" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="https://youtube.com/clrium"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="https://github.com/clrium"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="skype:stanislav.sidristyi"><i class="fab fa-skype" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="https://t.me/clrium_group"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

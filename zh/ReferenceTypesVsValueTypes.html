@@ -1309,14 +1309,7 @@ footer > div {
   src: url("../res/fonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../res/fonts/fa-solid-900.woff2") format("woff2"), url("../res/fonts/fa-solid-900.woff") format("woff"), url("../res/fonts/fa-solid-900.ttf") format("truetype"), url("../res/fonts/fa-solid-900.svg#fontawesome") format("svg"); 
 }
 </style>  
-    <div class="book-title-container d-none d-lg-block">
-        <div class="book-title">Knowledge Base</div>
-        <div class="book-part-title-block">pt.1 <a href="..//ru/Memory/01-00-MemoryManagement-Intro.html" class="book-part-title">Управление памятью</a></div>
-        <div class="book-part-title-block">pt.2 <a href="..//ru/Execution/02-00-ExecutionFlow-Intro.html" class="book-part-title">Поток исполнения команд</a></div>
-        <br><a href="#" class="book-superheading-title">Обоснование выбора</a>
-        / <a href="#" class="book-superheading-title">Упрощенное описание</a>
-        / <a href="#" class="book-superheading-title">Подробное описание</a>
-    </div>
+   
     <header class="header fixed d-block d-lg-none">
         <p class="conflogo">KB</p> 
 
@@ -1444,7 +1437,7 @@ Object基类型和接口的实现。Boxing</a></li>
             <p class="d-none d-sm-block d-md-none">MD</p>
             <p class="d-none d-lg-block d-xl-none">LG</p>
             <p class="d-none d-xl-block">XL</p> -->
-            <h1 id="reference-types-vs-value-types">Refe&shy;rence Types vs Value Types</h1>
+            <h1 id="reference-types-vs-value-types">Refe&shy;rence<span class="spacer"> </span>Types<span class="spacer"> </span>vs<span class="spacer"> </span>Value<span class="spacer"> </span>Types</h1>
 <blockquote>
 <p><a href="https://github.com/sidristij/dotnetbook/issues/57">讨论链接</a></p>
 </blockquote>
@@ -1524,7 +1517,7 @@ Console.WriteLine(list[0].Data);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p>这段代码的编译将失败，因为当你编写<code>list [0] .Data = 4</code>时，你首先得到结构的副本。实际上，您正在调用<code>List <T></code>类型的实例方法，该方法是索引访问的基础。它从内部数组中获取结构的副本(<code>List <T></code>在数组中存储数据)并使用索引从访问方法返回此副本。接下来，您尝试修改副本，该副本未进一步使用。这段代码毫无意义。知道人们滥用价值类型，编译器会禁止此类行为。我们应该通过以下方式重写这个例子：</p>
+<p>这段代码的编译将失败，因为当你编写<code>list<span class="spacer"> </span>[0]<span class="spacer"> </span>.Data<span class="spacer"> </span>=<span class="spacer"> </span>4</code>时，你首先得到结构的副本。实际上，您正在调用<code>List<span class="spacer"> </span><T></code>类型的实例方法，该方法是索引访问的基础。它从内部数组中获取结构的副本(<code>List<span class="spacer"> </span><T></code>在数组中存储数据)并使用索引从访问方法返回此副本。接下来，您尝试修改副本，该副本未进一步使用。这段代码毫无意义。知道人们滥用价值类型，编译器会禁止此类行为。我们应该通过以下方式重写这个例子：</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1628,11 +1621,11 @@ PersonInfo person;
 <ol>
 <li>您无法在结构中描述和覆盖虚拟方法。</li>
 <li>结构不能继承另一个结构。模拟继承的唯一方法是在第一个字段中放置基类型结构。“继承”结构的字段将位于“基础”结构的字段之后，它将创建逻辑继承。两个结构的字段将基于偏移重合。
-3.您可以将结构传递给非托管代码。但是，您将丢失有关方法的信息。这是因为结构只是内存中的空间，填充了没有类型信息的数据。您可以将其传递给非托管方法，例如，使用C ++编写，无需更改。</li>
+3.您可以将结构传递给非托管代码。但是，您将丢失有关方法的信息。这是因为结构只是内存中的空间，填充了没有类型信息的数据。您可以将其传递给非托管方法，例如，使用C<span class="spacer"> </span>++编写，无需更改。</li>
 </ol>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p>缺少虚拟方法表会从结构中减去继承“魔法”的某一部分，但会给它们带来其他优势。第一个是我们可以将这种结构的实例传递给外部环境(.NET Frame&shy;work之外)。记住，这只是一个记忆
+<p>缺少虚拟方法表会从结构中减去继承“魔法”的某一部分，但会给它们带来其他优势。第一个是我们可以将这种结构的实例传递给外部环境(.NET<span class="spacer"> </span>Frame&shy;work之外)。记住，这只是一个记忆
 范围！我们还可以从非托管代码中获取内存范围，并将类型转换为我们的结构，以使其字段更易于访问。您不能对类执行此操作，因为它们有两个不可访问的字段。这些是Sync&shy;Block&shy;Index和虚方法表地址。如果这两个字段传递给非托管代码，那将是危险的。使用虚拟方法表，可以访问任何类型并更改它以攻击应用程序。</p>
 <div class="paragraph-right-side">04</div>
 </div>
@@ -1670,7 +1663,7 @@ PersonInfo person;
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p>在这里，我们执行强类型中不可能执行的操作。我们将一种类型转换为另一种包含一个额外字段的不兼容类型。我们在Main方法中引入了一个额外的变量。从理论上讲，它的价值是秘密的。但是，示例代码将输出变量的值，而不是在<code>Main&shy;()</code>方法中的任何结构中找到的。您可能会认为这是安全漏洞，但事情并非如此简单。你无法摆脱程序中的非托管代码。主要原因是线程堆栈的结构。可以使用它来访问非托管代码并使用局部变量。您可以通过随机化堆栈帧的大小来保护代码免受这些攻击。或者，您可以删除有关<code>EBP</code>寄存器的信息，以使堆栈帧的返回复杂化。但是，这对我们来说无关紧要。我们对这个例子感兴趣的是以下内容。“秘密”变量在<strong>之前变为</strong> hh变量的定义，<strong>在</strong> Width&shy;Holder结构之后**(实际上在不同的地方)。那么为什么我们很容易获得它的价值呢？答案是堆栈从右向左增长。首先声明的变量将具有更高的地址，而稍后声明的变量将具有更低的地址。</p>
+<p>在这里，我们执行强类型中不可能执行的操作。我们将一种类型转换为另一种包含一个额外字段的不兼容类型。我们在Main方法中引入了一个额外的变量。从理论上讲，它的价值是秘密的。但是，示例代码将输出变量的值，而不是在<code>Main&shy;()</code>方法中的任何结构中找到的。您可能会认为这是安全漏洞，但事情并非如此简单。你无法摆脱程序中的非托管代码。主要原因是线程堆栈的结构。可以使用它来访问非托管代码并使用局部变量。您可以通过随机化堆栈帧的大小来保护代码免受这些攻击。或者，您可以删除有关<code>EBP</code>寄存器的信息，以使堆栈帧的返回复杂化。但是，这对我们来说无关紧要。我们对这个例子感兴趣的是以下内容。“秘密”变量在<strong>之前变为</strong><span class="spacer"> </span>hh变量的定义，<strong>在</strong><span class="spacer"> </span>Width&shy;Holder结构之后**(实际上在不同的地方)。那么为什么我们很容易获得它的价值呢？答案是堆栈从右向左增长。首先声明的变量将具有更高的地址，而稍后声明的变量将具有更低的地址。</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <p>##调用实例方法时的行为</p>
@@ -1750,7 +1743,7 @@ ChangeTo(<span style="color:Blue;">ref</span> strukt, 10);
 <ul>
 <li>在非托管环境中使用外部API，而无需在必要的字段之前插入未使用的字段;</li>
 <li>指示编译器在(<code>[Field&shy;Offset&shy;(0)]</code>)类型的开头找到一个字段。它将使这种类型的工作更快。如果它是一个经常使用的字段，我们可以提高应用程序的性能。但是，这仅适用于值类型。在引用类型中，具有零偏移的字段包含虚拟方法表的地址，该表占用1个机器字。即使您处理类的第一个字段，它也将使用复杂的寻址(地址+偏移)。这是因为最常用的类字段是虚方法表的地址。该表是调用所有虚拟方法所必需的;</li>
-<li>使用一个地址指向多个字段。在这种情况下，相同的值被解释为不同的数据类型。在C ++中，这种数据类型称为联合;</li>
+<li>使用一个地址指向多个字段。在这种情况下，相同的值被解释为不同的数据类型。在C<span class="spacer"> </span>++中，这种数据类型称为联合;</li>
 <li>不要费心声明任何事情：编译器将以最佳方式分配字段。因此，字段的最终顺序可能不同。</li>
 </ul>
 <p><strong>一般评论</strong></p>
@@ -1852,13 +1845,13 @@ ChangeTo(<span style="color:Blue;">ref</span> strukt, 10);
 </div>
 <p>Ref&shy;Types有几种可能的场景：</p>
 <ul>
-<li>Ref&shy;Type <85K，SOH上有空间：快速内存分配;</li>
-<li>Ref&shy;Type <85K，SOH上的空间不足：内存分配很慢;</li>
-<li>Ref&shy;Type&shy;> 85K，内存分配缓慢。</li>
+<li>Ref&shy;Type<span class="spacer"> </span><85K，SOH上有空间：快速内存分配;</li>
+<li>Ref&shy;Type<span class="spacer"> </span><85K，SOH上的空间不足：内存分配很慢;</li>
+<li>Ref&shy;Type&shy;><span class="spacer"> </span>85K，内存分配缓慢。</li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
-<p>此类操作很少见，无法与Val&shy;Types竞争。值类型的内存分配算法不存在。为值类型分配内存不需要任何费用。为此类型分配内存时唯一发生的事情是将字段设置为null。让我们看看为什么会发生这种情况：1。当一个人在方法体中声明一个变量时，结构的内存分配时间接近于零。那是因为局部变量的分配时间并不取决于它们的数量; 2.如果Val&shy;Types被分配为字段，Reftypes将增加字段的大小。价值类型完全分配，成为其中的一部分; 3.如同复制一样，如果Val&shy;Types作为方法参数传递，则会出现差异，具体取决于参数的大小和位置。</p>
+<p>此类操作很少见，无法与Val&shy;Types竞争。值类型的内存分配算法不存在。为值类型分配内存不需要任何费用。为此类型分配内存时唯一发生的事情是将字段设置为null。让我们看看为什么会发生这种情况：1。当一个人在方法体中声明一个变量时，结构的内存分配时间接近于零。那是因为局部变量的分配时间并不取决于它们的数量;<span class="spacer"> </span>2.如果Val&shy;Types被分配为字段，Reftypes将增加字段的大小。价值类型完全分配，成为其中的一部分;<span class="spacer"> </span>3.如同复制一样，如果Val&shy;Types作为方法参数传递，则会出现差异，具体取决于参数的大小和位置。</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <p>但是，这并不比将一个变量复制到另一个变量花费更多时间。</p>
@@ -1887,7 +1880,7 @@ ChangeTo(<span style="color:Blue;">ref</span> strukt, 10);
 <ol start="2">
 <li><p>如果您的设计类型是外部类型的不可分割的部分，但在结构上是完整的。这意味着说外部类型是指封装类型的实例是不正确的。但是，正确的说封装类型是外部的一部分及其所有属性。当设计作为另一结构的一部分的结构时，这是有用的。</p>
 <ul>
-<li>例如，如果我们采用文件头的结构，将引用从一个文件传递到另一个文件是不合适的，例如一些header.txt文件。这在将文档插入另一个文档时是合适的，而不是通过嵌入文件而是在文件系统中使用引用。一个很好的例子是Windows OS中的快捷方式文件。但是，如果我们谈论文件头(例如包含有关图像大小，压缩方法，摄影参数，GPS坐标等的元数据的JPEG文件头)，那么我们应该使用结构来设计用于解析头的类型。如果您描述结构中的所有标题，您将在内存中获得与文件中​​相同的字段位置。使用简单的不安全的<code>*(Header *)readed&shy;Buffer</code>转换而不进行反序列化，您将获得完全填充的数据结构。</li>
+<li>例如，如果我们采用文件头的结构，将引用从一个文件传递到另一个文件是不合适的，例如一些header.txt文件。这在将文档插入另一个文档时是合适的，而不是通过嵌入文件而是在文件系统中使用引用。一个很好的例子是Windows<span class="spacer"> </span>OS中的快捷方式文件。但是，如果我们谈论文件头(例如包含有关图像大小，压缩方法，摄影参数，GPS坐标等的元数据的JPEG文件头)，那么我们应该使用结构来设计用于解析头的类型。如果您描述结构中的所有标题，您将在内存中获得与文件中​​相同的字段位置。使用简单的不安全的<code>*(Header<span class="spacer"> </span>*)readed&shy;Buffer</code>转换而不进行反序列化，您将获得完全填充的数据结构。</li>
 </ul>
 </li>
 <li><p>这两个例子都没有显示行为的继承。它们表明不需要继承这些实体的行为。它们是独立的。但是，如果我们考虑代码的有效性，我们将从另一方面看到选择：</p>
@@ -1901,15 +1894,15 @@ ChangeTo(<span style="color:Blue;">ref</span> strukt, 10);
 </ol>
 <p>基于我所说的，这里有一些关于使用结构的建议：</p>
 <ol>
-<li>选择集合时，应避免使用存储大型结构的大型数组。这包括基于数组的数据结构。这可能导致转换为大对象堆及其碎片。如果我们的结构有4个字节类型的字段，则需要4个字节，这是错误的。我们应该理解，在32位系统中，每个结构字段在4个字节边界上对齐(每个地址字段应该精确地除以4)，在64位系统中，在8个字节边界上对齐。数组的大小应取决于运行程序的结构和平台的大小。在我们的示例中，4个字节 -  85K /(每个字段4到8个字节*字段数= 4)减去数组头的大小等于每个阵列大约2 600个元素，具体取决于平台(这应该向下舍入) )。那不是很多。</li>
-<li>有时您使用大尺寸结构作为数据源并将其作为字段放在类中，同时复制一个副本以生成数千个实例。然后，根据结构的大小展开类的每个实例。它将导致第0代的膨胀并过渡到第一代甚至两代。如果一个类的实例具有较短的生命周期，并且您认为GC将在第0代收集它们 - 持续1毫秒，您将会感到失望。他们已经在第一代甚至第二代。这有所不同。如果GC收集零点1毫秒，则第一代和第二代收集非常缓慢，这将导致效率降低;</li>
+<li>选择集合时，应避免使用存储大型结构的大型数组。这包括基于数组的数据结构。这可能导致转换为大对象堆及其碎片。如果我们的结构有4个字节类型的字段，则需要4个字节，这是错误的。我们应该理解，在32位系统中，每个结构字段在4个字节边界上对齐(每个地址字段应该精确地除以4)，在64位系统中，在8个字节边界上对齐。数组的大小应取决于运行程序的结构和平台的大小。在我们的示例中，4个字节<span class="spacer"> </span>-<span class="spacer"> </span><span class="spacer"> </span>85K<span class="spacer"> </span>/(每个字段4到8个字节*字段数=<span class="spacer"> </span>4)减去数组头的大小等于每个阵列大约2<span class="spacer"> </span>600个元素，具体取决于平台(这应该向下舍入)<span class="spacer"> </span>)。那不是很多。</li>
+<li>有时您使用大尺寸结构作为数据源并将其作为字段放在类中，同时复制一个副本以生成数千个实例。然后，根据结构的大小展开类的每个实例。它将导致第0代的膨胀并过渡到第一代甚至两代。如果一个类的实例具有较短的生命周期，并且您认为GC将在第0代收集它们<span class="spacer"> </span>-<span class="spacer"> </span>持续1毫秒，您将会感到失望。他们已经在第一代甚至第二代。这有所不同。如果GC收集零点1毫秒，则第一代和第二代收集非常缓慢，这将导致效率降低;</li>
 <li>出于同样的原因，你应该避免通过一系列方法调用传递大型结构。如果所有元素互相调用，这些调用将占用堆栈上的更多空间，并通过Stack&shy;Overflow&shy;Exception使应用程序死机。下一个原因是表现。副本越多，一切都越慢。</li>
 </ol>
 <p>这就是为什么选择数据类型不是一个明显的过程。通常，这可以指过早优化，这是不推荐的。但是，如果您知道您的情况符合上述原则，则可以轻松选择值类型。</p>
 <h2 id="objectboxing">Object基类型和接口的实现。Boxing</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
-<p>看起来我们来自地狱和高水，并且可以指出任何采访，甚至是.NET CLR团队的采访。但是，我们不要急于访问micro&shy;soft.com并寻找空缺。现在，我们需要了解值类型如果它们既不包含对Sync&shy;Block&shy;Index的引用，又不包含指向虚方法表的指针，那么它是如何继承对象的。这将完全解释我们的类型系统和拼图的所有部分将找到他们的位置。但是，我们需要不止一个句子。</p>
+<p>看起来我们来自地狱和高水，并且可以指出任何采访，甚至是.NET<span class="spacer"> </span>CLR团队的采访。但是，我们不要急于访问micro&shy;soft.com并寻找空缺。现在，我们需要了解值类型如果它们既不包含对Sync&shy;Block&shy;Index的引用，又不包含指向虚方法表的指针，那么它是如何继承对象的。这将完全解释我们的类型系统和拼图的所有部分将找到他们的位置。但是，我们需要不止一个句子。</p>
 <div class="paragraph-right-side">15</div>
 </div>
 <div class="paragraph-container">
@@ -1922,7 +1915,7 @@ ChangeTo(<span style="color:Blue;">ref</span> strukt, 10);
 <li>有一个对象的继承，但不是直接的;</li>
 <li>基类型中有To&shy;String，Equals和Get&shy;Hash&shy;Code。在值类型中，这些方法有自己的行为。这意味着，相对于<code>object</code>重写了这些方法;</li>
 <li>此外，如果将类型转换为<code>object</code>，则可以完全调用To&shy;String，Equals和Get&shy;Hash&shy;Code&shy;;</li>
-<li>在为值类型调用实例方法时，该方法获取另一个原始副本的结构。这意味着调用实例方法就像调用静态方法：<code>Method&shy;(ref struct&shy;Instance，newIn&shy;ter&shy;na&shy;lF&shy;iel&shy;dValue)</code>。实际上，这个调用通过了<code>this</code>，但有一个例外。JIT应该编译方法的主体，因此没有必要偏移结构字段，跳过指向结构中不存在的虚方法表的指针。<em>它存在于另一个地方的价值类型</em>。</li>
+<li>在为值类型调用实例方法时，该方法获取另一个原始副本的结构。这意味着调用实例方法就像调用静态方法：<code>Method&shy;(ref<span class="spacer"> </span>struct&shy;Instance，newIn&shy;ter&shy;na&shy;lF&shy;iel&shy;dValue)</code>。实际上，这个调用通过了<code>this</code>，但有一个例外。JIT应该编译方法的主体，因此没有必要偏移结构字段，跳过指向结构中不存在的虚方法表的指针。<em>它存在于另一个地方的价值类型</em>。</li>
 </ul>
 <p>类型在行为上是不同的，但这种差异在CLR的实现级别上并没有那么大。我们稍后会讨论它。</p>
 <p>让我们在程序中写下以下行：</p>
@@ -1936,7 +1929,7 @@ ChangeTo(<span style="color:Blue;">ref</span> strukt, 10);
 <div class="paragraph-right-side">17</div>
 </div>
 <ul>
-<li>CLR在堆上为结构+ Sync&shy;Block&shy;Index + VMT分配值类型的空间(调用To&shy;String，Get&shy;Hash&shy;Code，Equals&shy;);</li>
+<li>CLR在堆上为结构+<span class="spacer"> </span>Sync&shy;Block&shy;Index<span class="spacer"> </span>+<span class="spacer"> </span>VMT分配值类型的空间(调用To&shy;String，Get&shy;Hash&shy;Code，Equals&shy;);</li>
 <li>它在那里复制值类型的实例。</li>
 </ul>
 <div class="paragraph-container">
@@ -2008,7 +2001,7 @@ boo.Boo();
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">21</div>
-<p>第二件事与先前的想法有关，我们可以将一个类型从一个对象转换为IBoo。这是盒装值类型是值类型的引用变体的另一个证明。或者，类型系统中的所有类型都是引用类型。我们可以像使用值类型一样使用结构，完全传递它们的值。正如您在C ++世界中所说的那样，取消引用指向对象的指针。</p>
+<p>第二件事与先前的想法有关，我们可以将一个类型从一个对象转换为IBoo。这是盒装值类型是值类型的引用变体的另一个证明。或者，类型系统中的所有类型都是引用类型。我们可以像使用值类型一样使用结构，完全传递它们的值。正如您在C<span class="spacer"> </span>++世界中所说的那样，取消引用指向对象的指针。</p>
 <div class="paragraph-right-side">21</div>
 </div>
 <p>您可以反对，如果它是真的，它将如下所示：</p>
@@ -2072,7 +2065,7 @@ boxed.Value.ChangeTo(10);
 </div>
 <p>我们有一种新仪器。让我们思考一下我们可以用它做些什么。</p>
 <ul>
-<li>我们的<code>Boxed <T></code>类型与通常的类型相同：在堆上分配内存，在那里传递一个值并允许通过执行一种unbox来获取它;</li>
+<li>我们的<code>Boxed<span class="spacer"> </span><T></code>类型与通常的类型相同：在堆上分配内存，在那里传递一个值并允许通过执行一种unbox来获取它;</li>
 <li>如果您丢失对盒装结构的引用，GC将收集它;</li>
 <li>但是，我们现在可以使用盒装类型，即调用其方法;</li>
 <li>此外，我们可以在SOH/LOH中替换另一个值类型的实例。我们之前无法做到，因为我们必须进行拆箱，将结构更改为另一个并进行反击，为客户提供新的参考。</li>
@@ -2144,12 +2137,12 @@ pool.Free(boxed);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
-<p>代码使用一个小函数，它可以从引用到对象获取指针。该库可在<a href="https://github.com/mumusan/dotnetex/blob/master/libs/">github add&shy;ress</a>上找到。此示例显示通常的装箱将int转换为类型化的引用类型。让我们看看过程中的步骤：</p>
+<p>代码使用一个小函数，它可以从引用到对象获取指针。该库可在<a href="https://github.com/mumusan/dotnetex/blob/master/libs/">github<span class="spacer"> </span>add&shy;ress</a>上找到。此示例显示通常的装箱将int转换为类型化的引用类型。让我们看看过程中的步骤：</p>
 <div class="paragraph-right-side">25</div>
 </div>
 <ol>
 <li>拳击整数。</li>
-<li>获取获取对象的地址(Int32 VMT的地址)</li>
+<li>获取获取对象的地址(Int32<span class="spacer"> </span>VMT的地址)</li>
 <li>获取Simple&shy;Int&shy;Holder的VMT</li>
 <li>将盒装整数的VMT替换为结构的VMT。</li>
 <li>将拆箱拆分为结构类型</li>
@@ -2177,7 +2170,7 @@ pool.Free(boxed);
 <h2 id="section-4">深入拳击</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
-<p>最后一点，我想告诉你<a href="http://referencesource.microsoft.com/#mscorlib/system/enum.cs,36729210e317a805">System&shy;.Enum type</a>。从逻辑上讲，这应该是一个值类型，因为它是通常的枚举：在编程语言中将数字别名化为名称。但是，System&shy;.Enum是一种引用类型。在您的字段和.NET Frame&shy;work中定义的所有枚举数据类型都继承自System&shy;.Enum。它是一种类数据类型。而且，它是一个抽象类，继承自<code>System&shy;.Value&shy;Type</code>。</p>
+<p>最后一点，我想告诉你<a href="http://referencesource.microsoft.com/#mscorlib/system/enum.cs,36729210e317a805">System&shy;.Enum<span class="spacer"> </span>type</a>。从逻辑上讲，这应该是一个值类型，因为它是通常的枚举：在编程语言中将数字别名化为名称。但是，System&shy;.Enum是一种引用类型。在您的字段和.NET<span class="spacer"> </span>Frame&shy;work中定义的所有枚举数据类型都继承自System&shy;.Enum。它是一种类数据类型。而且，它是一个抽象类，继承自<code>System&shy;.Value&shy;Type</code>。</p>
 <div class="paragraph-right-side">26</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2225,13 +2218,13 @@ pool.Free(boxed);
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">29</div>
-<p>为什么这样做？特别是，因为继承的想法 - 例如，要进行自定义枚举，您需要指定可能值的名称。但是，继承值类型是不可能的。因此，开发人员将其设计为一种引用类型，可以在编译时将其转换为值类型。</p>
+<p>为什么这样做？特别是，因为继承的想法<span class="spacer"> </span>-<span class="spacer"> </span>例如，要进行自定义枚举，您需要指定可能值的名称。但是，继承值类型是不可能的。因此，开发人员将其设计为一种引用类型，可以在编译时将其转换为值类型。</p>
 <div class="paragraph-right-side">29</div>
 </div>
 <h2 id="section-5">如果你想亲自看拳击怎么办？</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">30</div>
-<p>幸运的是，您不必使用反汇编程序进入代码丛林。我们有整个.NET平台核心的文本，其中许多在.NET Frame&shy;work CLR和Core&shy;CLR方面是相同的。您可以点击下面的链接，立即查看拳击的实施：</p>
+<p>幸运的是，您不必使用反汇编程序进入代码丛林。我们有整个.NET平台核心的文本，其中许多在.NET<span class="spacer"> </span>Frame&shy;work<span class="spacer"> </span>CLR和Core&shy;CLR方面是相同的。您可以点击下面的链接，立即查看拳击的实施：</p>
 <div class="paragraph-right-side">30</div>
 </div>
 <ul>
@@ -2239,13 +2232,13 @@ pool.Free(boxed);
 特定类型的处理器：
 <ul>
 <li><em><a href="https://github.com/dotnet/coreclr/blob/master/src/vm/amd64/JitHelpers_InlineGetThread.asm#L86-L148">JIT_Box&shy;Fast&shy;MP_Inline&shy;Get&shy;Thread</a></em>
-(AMD64 - multip&shy;ro&shy;cessor or Server GC, implicit Thread Local Storage&shy;)</li>
+(AMD64<span class="spacer"> </span>-<span class="spacer"> </span>multip&shy;ro&shy;cessor<span class="spacer"> </span>or<span class="spacer"> </span>Server<span class="spacer"> </span>GC,<span class="spacer"> </span>implicit<span class="spacer"> </span>Thread<span class="spacer"> </span>Local<span class="spacer"> </span>Storage&shy;)</li>
 <li><em><a href="https://github.com/dotnet/coreclr/blob/8cc7e35dd0a625a3b883703387291739a148e8c8/src/vm/amd64/JitHelpers_Slow.asm#L201-L271">JIT_Box&shy;Fast&shy;MP</a></em>
-(AMD64 - multip&shy;ro&shy;cessor or Server GC)</li>
+(AMD64<span class="spacer"> </span>-<span class="spacer"> </span>multip&shy;ro&shy;cessor<span class="spacer"> </span>or<span class="spacer"> </span>Server<span class="spacer"> </span>GC)</li>
 <li><em><a href="https://github.com/dotnet/coreclr/blob/8cc7e35dd0a625a3b883703387291739a148e8c8/src/vm/amd64/JitHelpers_Slow.asm#L485-L554">JIT_Box&shy;Fast&shy;UP</a></em>
-(AMD64 - single processor or Work&shy;st&shy;ation GC)</li>
+(AMD64<span class="spacer"> </span>-<span class="spacer"> </span>single<span class="spacer"> </span>processor<span class="spacer"> </span>or<span class="spacer"> </span>Works&shy;ta&shy;tion<span class="spacer"> </span>GC)</li>
 <li><em><a href="https://github.com/dotnet/coreclr/blob/38a2a69c786e4273eb1339d7a75f939c410afd69/src/vm/i386/jitinterfacex86.cpp#L756-L886">JIT_Trial&shy;Alloc::Gen&shy;Box&shy;(..)</a></em>
-(x86) connected through Jit&shy;Helpers</li>
+(x86)<span class="spacer"> </span>connected<span class="spacer"> </span>through<span class="spacer"> </span>Jit&shy;Helpers</li>
 </ul>
 </li>
 <li>在一般情况下，JIT内联调用辅助函数
@@ -2253,7 +2246,7 @@ pool.Free(boxed);
 <li>通用版本使用较少优化
 <a href="https://github.com/dotnet/coreclr/blob/master/src/vm/methodtable.cpp#L3734-L3783">Method&shy;Table::Box&shy;(..)</a>
 <ul>
-<li>Finally&shy;, [Copy&shy;Value&shy;Class&shy;Unchecked&shy;(..)] is called
+<li>Finally&shy;,<span class="spacer"> </span>[Copy&shy;Value&shy;Class&shy;Unchecked&shy;(..)]<span class="spacer"> </span>is<span class="spacer"> </span>called
 (<a href="https://github.com/dotnet/coreclr/blob/master/src/vm/object.cpp#L1514-L1581">https://github.com/dotnet/coreclr/blob/master/src/vm/object.cpp#L1514-L1581</a>).
 它的代码显示了为什么最好选择包含8字节大小的结构。</li>
 </ul>
@@ -2262,41 +2255,41 @@ pool.Free(boxed);
 <div class="paragraph-container">
 <div class="paragraph-left-side">31</div>
 <p>这里，唯一的方法是用于取消装箱：
-<em><a href="https://github.com/dotnet/coreclr/blob/03bec77fb4efaa397248a2b9a35c547522221447/src/vm/jithelpers.cpp#L3603-L3626">JIT_Unbox&shy;(..)</a></em>, 是绕 <em><a href="https://github.com/dotnet/coreclr/blob/03bec77fb4efaa397248a2b9a35c547522221447/src/vm/jithelpers.cpp#L3574-L3600">JIT_Unbox_Helper&shy;(..)</a></em>.</p>
+<em><a href="https://github.com/dotnet/coreclr/blob/03bec77fb4efaa397248a2b9a35c547522221447/src/vm/jithelpers.cpp#L3603-L3626">JIT_Unbox&shy;(..)</a></em>,<span class="spacer"> </span>是绕<span class="spacer"> </span><em><a href="https://github.com/dotnet/coreclr/blob/03bec77fb4efaa397248a2b9a35c547522221447/src/vm/jithelpers.cpp#L3574-L3600">JIT_Unbox_Helper&shy;(..)</a></em>.</p>
 <div class="paragraph-right-side">31</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">32</div>
-<p>此外，有趣的是 <a href="https://stackoverflow.com/questions/3743762/unboxing-does-not-create-a-copy-of-the-value-is-this-right">unbo&shy;xing</a>，拆箱并不意味着复制数据到堆。拳击意味着在测试类型的兼容性时将指针传递给堆。取消装箱后的IL操作码将使用此地址定义操作。可以将数据复制到局部变量或堆栈以调用方法。否则，我们会进行双重复制; 首先从堆复制到某处，然后复制到目标位置。</p>
+<p>此外，有趣的是<span class="spacer"> </span><a href="https://stackoverflow.com/questions/3743762/unboxing-does-not-create-a-copy-of-the-value-is-this-right">unbo&shy;xing</a>，拆箱并不意味着复制数据到堆。拳击意味着在测试类型的兼容性时将指针传递给堆。取消装箱后的IL操作码将使用此地址定义操作。可以将数据复制到局部变量或堆栈以调用方法。否则，我们会进行双重复制;<span class="spacer"> </span>首先从堆复制到某处，然后复制到目标位置。</p>
 <div class="paragraph-right-side">32</div>
 </div>
-<h3 id="the-ref-keyword">The ref keyword</h3>
+<h3 id="the-ref-keyword">The<span class="spacer"> </span>ref<span class="spacer"> </span>keyword</h3>
 <blockquote>
 <p>TODO</p>
 </blockquote>
-<h3 id="makeref-reftype-refvalue-arglist">**makeref, **reftype, **refvalue, **arg&shy;list</h3>
+<h3 id="makeref-reftype-refvalue-arglist">**makeref,<span class="spacer"> </span>**reftype,<span class="spacer"> </span>**refvalue,<span class="spacer"> </span>**arg&shy;list</h3>
 <blockquote>
 <p>TODO</p>
 </blockquote>
-<h3 id="implicit-boxing">Impl&shy;icit boxing</h3>
+<h3 id="implicit-boxing">Implicit<span class="spacer"> </span>boxing</h3>
 <blockquote>
 <p>TODO</p>
 </blockquote>
 <h2 id="section-6">问题</h2>
-<h3 id="net-clr">为什么.NET CLR不能为装箱本身做池？</h3>
+<h3 id="net-clr">为什么.NET<span class="spacer"> </span>CLR不能为装箱本身做池？</h3>
 <p>如果我们与任何Java开发人员交谈，我们将了解两件事：</p>
 <ul>
 <li>Java中的所有值类型都是装箱的，这意味着它们本质上不是值类型。整数也是盒装的。</li>
 <li>出于优化的原因，从-128到127的所有整数都取自对象池。</li>
 </ul>
-<p>那么，为什么在装箱期间.NET CLR中不会发生这种情况呢？很简单。因为我们可以更改盒装值类型的内容，所以我们可以执行以下操作：</p>
+<p>那么，为什么在装箱期间.NET<span class="spacer"> </span>CLR中不会发生这种情况呢？很简单。因为我们可以更改盒装值类型的内容，所以我们可以执行以下操作：</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">object</span> x = 1;
 x.GetType().GetField(<span style="color:#A31515;">&quot;m_value&quot;</span>, BindingFlags.Instance | BindingFlags.NonPublic).SetValue(x, 138);
 Console.WriteLine(x); <span style="color:Green;">// -&gt; 138</span>
 </pre></div>
 </div>
-<p>Or like this (С++/CLI):</p>
+<p>Or<span class="spacer"> </span>like<span class="spacer"> </span>this<span class="spacer"> </span>(С++/CLI):</p>
 <div class="lang-cpp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">void</span> ChangeValue(Object^ obj)
 {
@@ -2313,10 +2306,10 @@ Console.WriteLine(x); <span style="color:Green;">// -&gt; 138</span>
 <p>如果在堆栈上完成值类型装箱并且引用将转到堆，则方法内的引用可以转到其他位置，例如，方法可以将引用放在类的字段中。然后该方法将停止，并且制作拳击的方法也将停止。结果，引用将指向堆栈上的死区。</p>
 <div class="paragraph-right-side">33</div>
 </div>
-<h3 id="value-type">为什么不能将Value Type用作字段？</h3>
+<h3 id="value-type">为什么不能将Value<span class="spacer"> </span>Type用作字段？</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">34</div>
-<p>有时我们希望将结构用作使用第一个结构的另一个结构的字段。或者更简单：使用结构作为结构域。不要问我为什么这有用。这不可以。如果使用结构作为其字段或通过依赖于另一个结构，则创建递归，这意味着无限大小结构。但是，.NET Frame&shy;work在某些地方可以执行此操作。一个例子是<code>System&shy;.Char</code>，<a href="http://referencesource.microsoft.com/#mscorlib/system/char.cs,02f2b1a33b09362d">包含它自己</a>:</p>
+<p>有时我们希望将结构用作使用第一个结构的另一个结构的字段。或者更简单：使用结构作为结构域。不要问我为什么这有用。这不可以。如果使用结构作为其字段或通过依赖于另一个结构，则创建递归，这意味着无限大小结构。但是，.NET<span class="spacer"> </span>Frame&shy;work在某些地方可以执行此操作。一个例子是<code>System&shy;.Char</code>，<a href="http://referencesource.microsoft.com/#mscorlib/system/char.cs,02f2b1a33b09362d">包含它自己</a>:</p>
 <div class="paragraph-right-side">34</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>

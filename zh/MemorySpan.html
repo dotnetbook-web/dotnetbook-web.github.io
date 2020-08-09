@@ -1309,14 +1309,7 @@ footer > div {
   src: url("../res/fonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../res/fonts/fa-solid-900.woff2") format("woff2"), url("../res/fonts/fa-solid-900.woff") format("woff"), url("../res/fonts/fa-solid-900.ttf") format("truetype"), url("../res/fonts/fa-solid-900.svg#fontawesome") format("svg"); 
 }
 </style>  
-    <div class="book-title-container d-none d-lg-block">
-        <div class="book-title">Knowledge Base</div>
-        <div class="book-part-title-block">pt.1 <a href="..//ru/Memory/01-00-MemoryManagement-Intro.html" class="book-part-title">Управление памятью</a></div>
-        <div class="book-part-title-block">pt.2 <a href="..//ru/Execution/02-00-ExecutionFlow-Intro.html" class="book-part-title">Поток исполнения команд</a></div>
-        <br><a href="#" class="book-superheading-title">Обоснование выбора</a>
-        / <a href="#" class="book-superheading-title">Упрощенное описание</a>
-        / <a href="#" class="book-superheading-title">Подробное описание</a>
-    </div>
+   
     <header class="header fixed d-block d-lg-none">
         <p class="conflogo">KB</p> 
 
@@ -1434,21 +1427,21 @@ MemoryManager, IMemoryOwner, MemoryPool</a></li>
             <p class="d-none d-sm-block d-md-none">MD</p>
             <p class="d-none d-lg-block d-xl-none">LG</p>
             <p class="d-none d-xl-block">XL</p> -->
-            <h1 id="memoryt-and-spant">Memory<T> and Span<T></h1>
+            <h1 id="memoryt-and-spant">Memory<T><span class="spacer"> </span>and<span class="spacer"> </span>Span<T></h1>
 <blockquote>
 <p><a href="https://github.com/sidristij/dotnetbook/issues/55">讨论链接</a></p>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p>从.NET Core 2.0和.NET Frame&shy;work 4.5开始，我们可以使用新的数据类型： <code>Span</code> 和 <code>Memory</code>。要使用它们，您只需要安装 <code>System&shy;.Memory</code> nuget package:</p>
+<p>从.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.0和.NET<span class="spacer"> </span>Frame&shy;work<span class="spacer"> </span>4.5开始，我们可以使用新的数据类型：<span class="spacer"> </span><code>Span</code><span class="spacer"> </span>和<span class="spacer"> </span><code>Memory</code>。要使用它们，您只需要安装<span class="spacer"> </span><code>System&shy;.Memory</code><span class="spacer"> </span>nuget<span class="spacer"> </span>package:</p>
 <div class="paragraph-right-side">01</div>
 </div>
 <ul>
-<li><code>PM> Install&shy;-Package System&shy;.Memory</code></li>
+<li><code>PM><span class="spacer"> </span>Install&shy;-Package<span class="spacer"> </span>System&shy;.Memory</code></li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p>这些数据类型值得注意，因为CLR团队通过将这些数据类型直接嵌入到核心中，在.NET Core 2.1+ JIT编译器的代码中实现了他们的特殊支持。这些数据类型是什么类型，为什么它们值得整整一章？</p>
+<p>这些数据类型值得注意，因为CLR团队通过将这些数据类型直接嵌入到核心中，在.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.1+<span class="spacer"> </span>JIT编译器的代码中实现了他们的特殊支持。这些数据类型是什么类型，为什么它们值得整整一章？</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <p>如果我们谈论使这些类型出现的问题，我应该说出其中的三个。第一个是非托管代码。</p>
@@ -1459,17 +1452,17 @@ MemoryManager, IMemoryOwner, MemoryPool</a></li>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p>平台开发人员已经尝试为我们提供非托管资源的使用。他们为导入的方法实现了自动包装，并且在大多数情况下都自动运行。这里也属于<code>stac&shy;kalloc</code>，在关于线程堆栈的章节中提到过。但是，正如我所看到的，第一批C＃开发人员来自C ++世界(我的情况)，但现在他们转向更高级的语言(我知道之前用Java&shy;Script编写的开发人员)。这意味着人们对非托管代码和C / C +构造越来越怀疑，这对Assem&shy;bler来说更是如此。</p>
+<p>平台开发人员已经尝试为我们提供非托管资源的使用。他们为导入的方法实现了自动包装，并且在大多数情况下都自动运行。这里也属于<code>stac&shy;kalloc</code>，在关于线程堆栈的章节中提到过。但是，正如我所看到的，第一批C＃开发人员来自C<span class="spacer"> </span>++世界(我的情况)，但现在他们转向更高级的语言(我知道之前用Java&shy;Script编写的开发人员)。这意味着人们对非托管代码和C<span class="spacer"> </span>/<span class="spacer"> </span>C<span class="spacer"> </span>+构造越来越怀疑，这对Assembler来说更是如此。</p>
 <div class="paragraph-right-side">04</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">05</div>
-<p>因此，项目包含越来越少的不安全代码，并且对平台API的信心越来越强。如果我们在公共存储库中搜索<code>stac&shy;kalloc</code>用例，这很容易检查 - 它们很少。但是，让我们使用任何使用它的代码:</p>
+<p>因此，项目包含越来越少的不安全代码，并且对平台API的信心越来越强。如果我们在公共存储库中搜索<code>stac&shy;kalloc</code>用例，这很容易检查<span class="spacer"> </span>-<span class="spacer"> </span>它们很少。但是，让我们使用任何使用它的代码:</p>
 <div class="paragraph-right-side">05</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p><strong>Interop&shy;.Read&shy;Dir class</strong>
+<p><strong>Interop&shy;.Read&shy;Dir<span class="spacer"> </span>class</strong>
 <a href="https://github.com/dotnet/coreclr/blob/b29f6328510207970763580d6f4db864e4b198af/src/mscorlib/shared/Interop/Unix/System.Native/Interop.ReadDir.cs#L71-L83">/src/mscorlib/shared/Interop&shy;/Unix&shy;/System&shy;.Native&shy;/Interop&shy;.Read&shy;Dir&shy;.cs</a></p>
 <div class="paragraph-right-side">06</div>
 </div>
@@ -1491,12 +1484,12 @@ MemoryManager, IMemoryOwner, MemoryPool</a></li>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">07</div>
-<p>我们可以看到为什么它不受欢迎。只需浏览此代码并质疑自己是否信任它。我猜答案是'不'。那么，问问自己为什么。很明显：我们不仅看到了“Dange&shy;rous”这个词，这表明某些东西可能出错，但是有<code>unsafe</code>关键字和<code>byte* buffer = stac&shy;kalloc byte[s_read&shy;Buf&shy;fer&shy;Size];</code>line(具体 - <code>byte *</code>)改变了我们的态度。这是你思考的一个触发因素：“没有其他方法可以做到吗？” 那么，让我们深入了解精神分析：你为什么这么想？一方面，我们使用语言结构，这里提供的语法远不是，例如，C++/CLI，它允许任何东西(甚至插入纯的汇编程序代码)。另一方面，这种语法看起来很不寻常。</p>
+<p>我们可以看到为什么它不受欢迎。只需浏览此代码并质疑自己是否信任它。我猜答案是'不'。那么，问问自己为什么。很明显：我们不仅看到了“Dange&shy;rous”这个词，这表明某些东西可能出错，但是有<code>unsafe</code>关键字和<code>byte*<span class="spacer"> </span>buffer<span class="spacer"> </span>=<span class="spacer"> </span>stac&shy;kalloc<span class="spacer"> </span>byte[s_read&shy;Buf&shy;fer&shy;Size];</code>line(具体<span class="spacer"> </span>-<span class="spacer"> </span><code>byte<span class="spacer"> </span>*</code>)改变了我们的态度。这是你思考的一个触发因素：“没有其他方法可以做到吗？”<span class="spacer"> </span>那么，让我们深入了解精神分析：你为什么这么想？一方面，我们使用语言结构，这里提供的语法远不是，例如，C++/CLI，它允许任何东西(甚至插入纯的汇编程序代码)。另一方面，这种语法看起来很不寻常。</p>
 <div class="paragraph-right-side">07</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p>开发人员隐含或明确地想到的第二个问题是string和char []类型的不兼容性。虽然逻辑上字符串是一个字符数组，但是您不能将字符串强制转换为char []：您只能创建一个新对象并将字符串的内容复制到数组中。引入这种不兼容性是为了在存储方面优化字符串(没有只读数组)。但是，当您开始处理文件时会出现问题。怎么看？作为字符串还是数组？如果选择数组，则无法使用某些设计用于处理字符串的方法。读字符串怎么样？可能太长了。如果您需要解析它，那么您应该为原始数据类型选择什么解析器：您并不总是想要手动解析它们(整数，浮点数，以不同格式给出)。我们有很多经过验证的算法可以更快，更有效地完成它，不是吗？但是，这样的算法通常使用只包含原始类型的字符串。所以，有一个两难的境地。</p>
+<p>开发人员隐含或明确地想到的第二个问题是string和char<span class="spacer"> </span>[]类型的不兼容性。虽然逻辑上字符串是一个字符数组，但是您不能将字符串强制转换为char<span class="spacer"> </span>[]：您只能创建一个新对象并将字符串的内容复制到数组中。引入这种不兼容性是为了在存储方面优化字符串(没有只读数组)。但是，当您开始处理文件时会出现问题。怎么看？作为字符串还是数组？如果选择数组，则无法使用某些设计用于处理字符串的方法。读字符串怎么样？可能太长了。如果您需要解析它，那么您应该为原始数据类型选择什么解析器：您并不总是想要手动解析它们(整数，浮点数，以不同格式给出)。我们有很多经过验证的算法可以更快，更有效地完成它，不是吗？但是，这样的算法通常使用只包含原始类型的字符串。所以，有一个两难的境地。</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <div class="paragraph-container">
@@ -1517,7 +1510,7 @@ MemoryManager, IMemoryOwner, MemoryPool</a></li>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">10</div>
-<p>但是，这种方法很差，因为这种方法会得到不必要的数据。换句话说<em>该方法是为上下文调用的，它不是为</em>而设计的，必须解决一些外部任务。这是一个糟糕的设计。如何避免这些问题？作为一个选项，我们可以使用<code>Array&shy;Segment <T></code>类型，它可以访问数组的一部分：</p>
+<p>但是，这种方法很差，因为这种方法会得到不必要的数据。换句话说<em>该方法是为上下文调用的，它不是为</em>而设计的，必须解决一些外部任务。这是一个糟糕的设计。如何避免这些问题？作为一个选项，我们可以使用<code>Array&shy;Segment<span class="spacer"> </span><T></code>类型，它可以访问数组的一部分：</p>
 <div class="paragraph-right-side">10</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1537,13 +1530,13 @@ MemoryManager, IMemoryOwner, MemoryPool</a></li>
 <p>但是，我认为这在逻辑和性能下降方面都太过分了。与使用数组进行的相同操作相比，<code>Array&shy;Segment</code>的设计很差，并且对元素的访问速度减慢了7倍。</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
-<p>那么我们如何解决这些问题呢？我们如何让开发人员回到使用非托管代码并为他们提供统一且快速的工具来处理异构数据源：数组，字符串和非托管内存。有必要让他们有一种自信，他们不会在不知不觉中犯错误。有必要为它们提供一种不会在性能方面减少本机数据类型的工具，而是解决所列出的问题。<code>Span <T></code>和<code>Memory <T></code>类型就是这些乐器。</p>
+<p>那么我们如何解决这些问题呢？我们如何让开发人员回到使用非托管代码并为他们提供统一且快速的工具来处理异构数据源：数组，字符串和非托管内存。有必要让他们有一种自信，他们不会在不知不觉中犯错误。有必要为它们提供一种不会在性能方面减少本机数据类型的工具，而是解决所列出的问题。<code>Span<span class="spacer"> </span><T></code>和<code>Memory<span class="spacer"> </span><T></code>类型就是这些乐器。</p>
 <div class="paragraph-right-side">11</div>
 </div>
-<h2 id="spant-readonlyspant">Span<T>, Read&shy;Only&shy;Span<T></h2>
+<h2 id="spant-readonlyspant">Span<T>,<span class="spacer"> </span>Read&shy;Only&shy;Span<T></h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
-<p><code>Span</code>类型是一种处理数据数据部分内的数据或其值的子范围的工具。在数组的情况下，它允许读取和写入该子范围的元素，但有一个重要的约束：你得到或创建一个<code>Span <T></code>仅用于<em>临时</em>与数组一起工作，只是为了调用一组方法。但是，为了获得一般性的理解，让我们比较“Span”设计的数据类型，并查看其可能的使用场景。</p>
+<p><code>Span</code>类型是一种处理数据数据部分内的数据或其值的子范围的工具。在数组的情况下，它允许读取和写入该子范围的元素，但有一个重要的约束：你得到或创建一个<code>Span<span class="spacer"> </span><T></code>仅用于<em>临时</em>与数组一起工作，只是为了调用一组方法。但是，为了获得一般性的理解，让我们比较“Span”设计的数据类型，并查看其可能的使用场景。</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <p>第一类数据是通常的数组。数组以下列方式使用<code>Span</code>：</p>
@@ -1589,7 +1582,7 @@ MemoryManager, IMemoryOwner, MemoryPool</a></li>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
-<p>正如我们所看到的，<code>Span <T></code>提供了对读取和写入的内存范围的抽象访问。它给了我们什么？如果我们还记得我们可以使用<code>Span</code>的其他内容，我们将考虑非托管资源和字符串：</p>
+<p>正如我们所看到的，<code>Span<span class="spacer"> </span><T></code>提供了对读取和写入的内存范围的抽象访问。它给了我们什么？如果我们还记得我们可以使用<code>Span</code>的其他内容，我们将考虑非托管资源和字符串：</p>
 <div class="paragraph-right-side">13</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1627,12 +1620,12 @@ buf[3] = <span style="color:#A31515;">&#39;4&#39;</span>; buf[4] = <span style="
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
-<p>这意味着<code>Span <T></code>是一种统一处理内存管理方式的工具，包括托管和非托管内存。它可确保在垃圾收集期间处理此类数据时的安全性。也就是说，如果具有非托管资源的内存范围开始移动，那么它将是安全的。</p>
+<p>这意味着<code>Span<span class="spacer"> </span><T></code>是一种统一处理内存管理方式的工具，包括托管和非托管内存。它可确保在垃圾收集期间处理此类数据时的安全性。也就是说，如果具有非托管资源的内存范围开始移动，那么它将是安全的。</p>
 <div class="paragraph-right-side">14</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">15</div>
-<p>但是，我们应该如此兴奋吗？我们能早点实现吗？例如，在托管数组的情况下毫无疑问：你只需要将一个数组包装在另一个类中(例如，长存在的<a href="https://referencesource.microsoft.com/#mscorlib/system/arraysegment.cs,31">Array&shy;Segment</a>)因此提供了类似的接口，就是这样。此外，你可以用字符串做同样的事情 - 他们有必要的方法。同样，您只需要包含相同类型的字符串并提供使用它的方法。但是，要将字符串，缓冲区和数组存储在一种类型中，您将在单个实例中保留对每个可能变体的引用(显然只有一个活动变体)。</p>
+<p>但是，我们应该如此兴奋吗？我们能早点实现吗？例如，在托管数组的情况下毫无疑问：你只需要将一个数组包装在另一个类中(例如，长存在的<a href="https://referencesource.microsoft.com/#mscorlib/system/arraysegment.cs,31">Array&shy;Segment</a>)因此提供了类似的接口，就是这样。此外，你可以用字符串做同样的事情<span class="spacer"> </span>-<span class="spacer"> </span>他们有必要的方法。同样，您只需要包含相同类型的字符串并提供使用它的方法。但是，要将字符串，缓冲区和数组存储在一种类型中，您将在单个实例中保留对每个可能变体的引用(显然只有一个活动变体)。</p>
 <div class="paragraph-right-side">15</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1646,10 +1639,10 @@ buf[3] = <span style="color:#A31515;">&#39;4&#39;</span>; buf[4] = <span style="
 }
 </pre></div>
 </div>
-<p>或者，基于体系结构，您可以创建三种实现统一接口的类型。因此，不可能在这些数据类型之间创建一个与<code>Span <T></code>不同的统一接口，并保持最大性能。</p>
+<p>或者，基于体系结构，您可以创建三种实现统一接口的类型。因此，不可能在这些数据类型之间创建一个与<code>Span<span class="spacer"> </span><T></code>不同的统一接口，并保持最大性能。</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">16</div>
-<p>接下来，有一个关于<code>Span</code>的<code>ref struct</code>的问题？这些正是我们在求职面试中经常听到的那些“仅在堆叠上存在的结构”。这意味着此数据类型只能在堆栈上分配，不能转到堆。这就是为什么作为ref结构的“Span”是一种上下文数据类型，它支持方法的工作而不是内存中对象的工作。这是我们在尝试理解它时需要的基础。</p>
+<p>接下来，有一个关于<code>Span</code>的<code>ref<span class="spacer"> </span>struct</code>的问题？这些正是我们在求职面试中经常听到的那些“仅在堆叠上存在的结构”。这意味着此数据类型只能在堆栈上分配，不能转到堆。这就是为什么作为ref结构的“Span”是一种上下文数据类型，它支持方法的工作而不是内存中对象的工作。这是我们在尝试理解它时需要的基础。</p>
 <div class="paragraph-right-side">16</div>
 </div>
 <p>现在我们可以定义<code>Span</code>类型和相关的<code>Read&shy;Only&shy;Span</code>类型：</p>
@@ -1675,7 +1668,7 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 </pre></div>
 </div>
 <p>在使用托管指针而不是托管对象时，访问原始缓冲区的速度最高。这意味着您在托管包装器中使用不安全类型，但不使用.NET托管类型。</p>
-<h3 id="spant">Span<T> 用法示例</h3>
+<h3 id="spant">Span<T><span class="spacer"> </span>用法示例</h3>
 <p>在他或她获得一些经验之前，人类本质上无法完全理解某种工具的目的。那么，让我们转向一些例子。</p>
 <h4 id="valuestringbuilder">Value&shy;String&shy;Builder</h4>
 <div class="paragraph-container">
@@ -1685,7 +1678,7 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">18</div>
-<p><code>String&shy;Builder</code>系统类型的主要缺点是什么？它的主要缺点是类型及其基础 - 它是一个引用类型，基于<code>char []</code>，即一个字符数组。至少，这意味着两件事：无论如何我们使用堆(尽管不多)并增加错过CPU现金的机会。</p>
+<p><code>String&shy;Builder</code>系统类型的主要缺点是什么？它的主要缺点是类型及其基础<span class="spacer"> </span>-<span class="spacer"> </span>它是一个引用类型，基于<code>char<span class="spacer"> </span>[]</code>，即一个字符数组。至少，这意味着两件事：无论如何我们使用堆(尽管不多)并增加错过CPU现金的机会。</p>
 <div class="paragraph-right-side">18</div>
 </div>
 <p>我遇到的<code>String&shy;Builder</code>的另一个问题是构造小字符串，即结果字符串必须短，例如少于100个字符。简短格式化会引发性能问题。</p>
@@ -1695,13 +1688,13 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
-<p>这种变体在多大程度上比通过<code>String&shy;Builder</code>手动构建更糟糕？答案并不总是显而易见的。这取决于施工地点和调用此方法的频率。最初，<code>string.Format</code>为内部<code>String&shy;Builder</code>分配内存，它将创建一个字符数组(Source&shy;String&shy;.Length + args.Length * 8)。如果在数组构造期间发现长度被错误地确定，则将创建另一个<code>String&shy;Builder</code>来构造其余部分。这将导致创建单个链表。因此，它必须返回构造的字符串，这意味着另一次复制。那是浪费。如果我们可以摆脱在堆上分配已形成字符串的数组，那将是很好的：这将解决我们的一个问题。</p>
+<p>这种变体在多大程度上比通过<code>String&shy;Builder</code>手动构建更糟糕？答案并不总是显而易见的。这取决于施工地点和调用此方法的频率。最初，<code>string.Format</code>为内部<code>String&shy;Builder</code>分配内存，它将创建一个字符数组(Source&shy;String&shy;.Length<span class="spacer"> </span>+<span class="spacer"> </span>args.Length<span class="spacer"> </span>*<span class="spacer"> </span>8)。如果在数组构造期间发现长度被错误地确定，则将创建另一个<code>String&shy;Builder</code>来构造其余部分。这将导致创建单个链表。因此，它必须返回构造的字符串，这意味着另一次复制。那是浪费。如果我们可以摆脱在堆上分配已形成字符串的数组，那将是很好的：这将解决我们的一个问题。</p>
 <div class="paragraph-right-side">19</div>
 </div>
 <p>让我们从<code>mscorlib</code>的深度看这个类型：</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
-<p><strong>Value&shy;String&shy;Builder class</strong>
+<p><strong>Value&shy;String&shy;Builder<span class="spacer"> </span>class</strong>
 <a href="https://github.com/dotnet/coreclr/blob/efebb38f3c18425c57f94ff910a50e038d13c848/src/mscorlib/shared/System/Text/ValueStringBuilder.cs">/src/mscorlib/shared/System&shy;/Text&shy;/Value&shy;String&shy;Builder</a></p>
 <div class="paragraph-right-side">20</div>
 </div>
@@ -1832,7 +1825,7 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
-<p><strong>String&shy;Builder class</strong> <a href="https://github.com/dotnet/coreclr/blob/68f72dd2587c3365a9fe74d1991f93612c3bc62a/src/mscorlib/src/System/Text/StringBuilder.cs#L47-L62">/src/mscorlib/src/System&shy;/Text&shy;/String&shy;Builder&shy;.cs</a></p>
+<p><strong>String&shy;Builder<span class="spacer"> </span>class</strong><span class="spacer"> </span><a href="https://github.com/dotnet/coreclr/blob/68f72dd2587c3365a9fe74d1991f93612c3bc62a/src/mscorlib/src/System/Text/StringBuilder.cs#L47-L62">/src/mscorlib/src/System&shy;/Text&shy;/String&shy;Builder&shy;.cs</a></p>
 <div class="paragraph-right-side">22</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1892,27 +1885,27 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 <p>承认，这个任务看起来非常类似于<code>Value&shy;String&shy;Builder</code>任务。它以类似的方式解决：</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">24</div>
-<p>** File [Value&shy;List&shy;Builder&shy;.cs (https://github.com/dotnet/coreclr/blob/dbaf2957387c5290a680c8918779683194137b1d/src/System&shy;.Private&shy;.Core&shy;Lib&shy;/shared&shy;/System&shy;/Collections&shy;/Generic&shy;/Value&shy;List&shy;Builder&shy;.cs&shy;)**</p>
+<p>**<span class="spacer"> </span>File<span class="spacer"> </span>[Value&shy;List&shy;Builder&shy;.cs<span class="spacer"> </span>(https://github.com/dotnet/coreclr/blob/dbaf2957387c5290a680c8918779683194137b1d/src/System&shy;.Private&shy;.Core&shy;Lib&shy;/shared&shy;/System&shy;/Collections&shy;/Generic&shy;/Value&shy;List&shy;Builder&shy;.cs&shy;)**</p>
 <div class="paragraph-right-side">24</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">25</div>
-<p>说清楚，这些情况经常发生。但是，之前我们以另一种方式解决了这个问题 我们曾经创建一个<code>List</code>，用数据填充它并丢失对它的引用。如果经常调用该方法，这将导致一种悲惨的情况：许多<code>List</code>实例(和相关的数组)在堆上被挂起。现在解决了这个问题：不会创建其他对象。但是，就像<code>Value&shy;String&shy;Builder</code>一样，它仅针对Micro&shy;soft程序员解决：此类具有<code>internal</code>修饰符。</p>
+<p>说清楚，这些情况经常发生。但是，之前我们以另一种方式解决了这个问题<span class="spacer"> </span>我们曾经创建一个<code>List</code>，用数据填充它并丢失对它的引用。如果经常调用该方法，这将导致一种悲惨的情况：许多<code>List</code>实例(和相关的数组)在堆上被挂起。现在解决了这个问题：不会创建其他对象。但是，就像<code>Value&shy;String&shy;Builder</code>一样，它仅针对Micro&shy;soft程序员解决：此类具有<code>internal</code>修饰符。</p>
 <div class="paragraph-right-side">25</div>
 </div>
 <h3 id="section">规则和使用实践</h3>
 <p>要通过编写使用它的两个或三个或更多方法来完全理解您需要使用的新数据类型。但是，现在可以学习主要规则：</p>
 <ul>
 <li>如果您的方法处理某些输入数据集而不更改其大小，您可以尝试坚持“Span”类型。如果您不打算修改缓冲区，请选择<code>Read&shy;Only&shy;Span</code>类型;</li>
-<li>如果你的方法处理字符串计算一些统计信息或解析这些字符串，它_must_接受<code>Read&shy;Only&shy;Span <char></code>。必须是一个新规则。因为当你接受一个字符串时，你会让某人为你创建一个子字符串;</li>
-<li>如果需要为方法创建一个短数据数组(不超过10 kB)，可以使用<code>Span <TType&shy;> buf = stac&shy;kalloc TType [size]</code>轻松排列。请注意，TType应该是值类型，因为<code>stac&shy;kalloc</code>仅适用于值类型。</li>
+<li>如果你的方法处理字符串计算一些统计信息或解析这些字符串，它_must_接受<code>Read&shy;Only&shy;Span<span class="spacer"> </span><char></code>。必须是一个新规则。因为当你接受一个字符串时，你会让某人为你创建一个子字符串;</li>
+<li>如果需要为方法创建一个短数据数组(不超过10<span class="spacer"> </span>kB)，可以使用<code>Span<span class="spacer"> </span><TType&shy;><span class="spacer"> </span>buf<span class="spacer"> </span>=<span class="spacer"> </span>stac&shy;kalloc<span class="spacer"> </span>TType<span class="spacer"> </span>[size]</code>轻松排列。请注意，TType应该是值类型，因为<code>stac&shy;kalloc</code>仅适用于值类型。</li>
 </ul>
 <p>在其他情况下，您最好仔细查看“Memory”或使用经典数据类型。</p>
 <h3 id="section-1">如何工作？</h3>
-<p>我想谈谈“跨度”功能如何以及为什么值得注意。还有一些事情要谈。这种类型的数据有两个版本：一个用于.NET Core 2.0+，另一个用于其余版本。</p>
+<p>我想谈谈“跨度”功能如何以及为什么值得注意。还有一些事情要谈。这种类型的数据有两个版本：一个用于.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.0+，另一个用于其余版本。</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
-<p><strong>File <a href="https://github.com/dotnet/coreclr/blob/38403e661a4202ca4c8a72e4bbd9a263bddeb891/src/System.Private.CoreLib/shared/System/Span.Fast.cs">Span&shy;.Fast&shy;.cs&shy;, .NET Core 2.0</a></strong></p>
+<p><strong>File<span class="spacer"> </span><a href="https://github.com/dotnet/coreclr/blob/38403e661a4202ca4c8a72e4bbd9a263bddeb891/src/System.Private.CoreLib/shared/System/Span.Fast.cs">Span&shy;.Fast&shy;.cs&shy;,<span class="spacer"> </span>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.0</a></strong></p>
 <div class="paragraph-right-side">26</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1926,7 +1919,7 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 }
 </pre></div>
 </div>
-<p><strong>File ??? [decom&shy;piled]</strong></p>
+<p><strong>File<span class="spacer"> </span>???<span class="spacer"> </span>[decom&shy;piled]</strong></p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">ref</span> <span style="color:Blue;">readonly</span> <span style="color:Blue;">struct</span> Span&lt;T&gt;
 {
@@ -1939,13 +1932,13 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">27</div>
-<p>问题是_huge_ .NET Frame&shy;work和.NET Core 1. *没有以特殊方式更新垃圾收集器(与.NET Core 2.0+不同)，并且他们必须使用指向缓冲区开头的附加指针使用。这意味着，内部的“Span”处理托管的.NET对象，就好像它们是不受管理的一样。只需看看结构的第二个变体：它有三个字段。第一个是对manged对象的引用。第二个是从该对象的开头以字节为单位的偏移量，用于定义数据缓冲区的开头(在字符串中，此缓冲区包含<code>char</code>字符，而在数组中，它包含数组的数据)。最后，第三个字段包含连续放置的缓冲区中的元素数量。</p>
+<p>问题是_huge_<span class="spacer"> </span>.NET<span class="spacer"> </span>Frame&shy;work和.NET<span class="spacer"> </span>Core<span class="spacer"> </span>1.<span class="spacer"> </span>*没有以特殊方式更新垃圾收集器(与.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.0+不同)，并且他们必须使用指向缓冲区开头的附加指针使用。这意味着，内部的“Span”处理托管的.NET对象，就好像它们是不受管理的一样。只需看看结构的第二个变体：它有三个字段。第一个是对manged对象的引用。第二个是从该对象的开头以字节为单位的偏移量，用于定义数据缓冲区的开头(在字符串中，此缓冲区包含<code>char</code>字符，而在数组中，它包含数组的数据)。最后，第三个字段包含连续放置的缓冲区中的元素数量。</p>
 <div class="paragraph-right-side">27</div>
 </div>
 <p>让我们看看<code>Span</code>如何处理字符串，例如：</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
-<p><strong>File <a href="https://github.com/dotnet/coreclr/blob/2b50bba8131acca2ab535e144796941ad93487b7/src/System.Private.CoreLib/shared/System/MemoryExtensions.Fast.cs#L409-L416">coreclr::src/System&shy;.Private&shy;.Core&shy;Lib&shy;/shared&shy;/System&shy;/Memory&shy;Extensions&shy;.Fast&shy;.cs</a></strong></p>
+<p><strong>File<span class="spacer"> </span><a href="https://github.com/dotnet/coreclr/blob/2b50bba8131acca2ab535e144796941ad93487b7/src/System.Private.CoreLib/shared/System/MemoryExtensions.Fast.cs#L409-L416">coreclr::src/System&shy;.Private&shy;.Core&shy;Lib&shy;/shared&shy;/System&shy;/Memory&shy;Extensions&shy;.Fast&shy;.cs</a></strong></p>
 <div class="paragraph-right-side">28</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1958,15 +1951,15 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 }
 </pre></div>
 </div>
-<p><code>string.Get&shy;Raw&shy;String&shy;Data&shy;()</code> 的方式如下：</p>
+<p><code>string.Get&shy;Raw&shy;String&shy;Data&shy;()</code><span class="spacer"> </span>的方式如下：</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">29</div>
-<p><strong>A file with the defi&shy;ni&shy;tion of fields <a href="https://github.com/dotnet/coreclr/blob/2b50bba8131acca2ab535e144796941ad93487b7/src/System.Private.CoreLib/src/System/String.CoreCLR.cs#L16-L23">coreclr::src/System&shy;.Private&shy;.Core&shy;Lib&shy;/src&shy;/System&shy;/String&shy;.Core&shy;CLR.cs</a></strong></p>
+<p><strong>A<span class="spacer"> </span>file<span class="spacer"> </span>with<span class="spacer"> </span>the<span class="spacer"> </span>defi&shy;ni&shy;tion<span class="spacer"> </span>of<span class="spacer"> </span>fields<span class="spacer"> </span><a href="https://github.com/dotnet/coreclr/blob/2b50bba8131acca2ab535e144796941ad93487b7/src/System.Private.CoreLib/src/System/String.CoreCLR.cs#L16-L23">coreclr::src/System&shy;.Private&shy;.Core&shy;Lib&shy;/src&shy;/System&shy;/String&shy;.Core&shy;CLR.cs</a></strong></p>
 <div class="paragraph-right-side">29</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">30</div>
-<p><strong>A file with the defi&shy;ni&shy;tion of Get&shy;Raw&shy;String&shy;Data <a href="https://github.com/dotnet/coreclr/blob/2b50bba8131acca2ab535e144796941ad93487b7/src/System.Private.CoreLib/shared/System/String.cs#L462">coreclr::src/System&shy;.Private&shy;.Core&shy;Lib&shy;/shared&shy;/System&shy;/String&shy;.cs</a></strong></p>
+<p><strong>A<span class="spacer"> </span>file<span class="spacer"> </span>with<span class="spacer"> </span>the<span class="spacer"> </span>defi&shy;ni&shy;tion<span class="spacer"> </span>of<span class="spacer"> </span>Get&shy;Raw&shy;String&shy;Data<span class="spacer"> </span><a href="https://github.com/dotnet/coreclr/blob/2b50bba8131acca2ab535e144796941ad93487b7/src/System.Private.CoreLib/shared/System/String.cs#L462">coreclr::src/System&shy;.Private&shy;.Core&shy;Lib&shy;/shared&shy;/System&shy;/String&shy;.cs</a></strong></p>
 <div class="paragraph-right-side">30</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -1989,13 +1982,13 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 }
 </pre></div>
 </div>
-<p>事实证明，该方法直接访问字符串的内部，而<code>ref char</code>规范允许GC通过在GC处于活动状态时将字符串与字符串一起移动来跟踪字符串内部的非托管引用。</p>
+<p>事实证明，该方法直接访问字符串的内部，而<code>ref<span class="spacer"> </span>char</code>规范允许GC通过在GC处于活动状态时将字符串与字符串一起移动来跟踪字符串内部的非托管引用。</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">31</div>
 <p>数组也是如此：当创建<code>Span</code>时，一些内部JIT代码计算数据数组开头的偏移量，并用此偏移量初始化<code>Span</code>。关于字符串和数组的偏移量的计算方法在关于内存中对象结构的章节中讨论过(.\Objects&shy;Structure&shy;.md&shy;)。</p>
 <div class="paragraph-right-side">31</div>
 </div>
-<h3 id="spant-1">Span<T> 作为返回值</h3>
+<h3 id="spant-1">Span<T><span class="spacer"> </span>作为返回值</h3>
 <p>尽管存在所有的和谐，但是“Span”在从方法返回时有一些逻辑但意外的约束。如果我们查看以下代码：</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">unsafe</span> <span style="color:Blue;">void</span> Main()
@@ -2027,25 +2020,25 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 <p>编译器会禁止它。在我说出原因之前，我想让你猜出这个结构带来了哪些问题。</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">32</div>
-<p>好吧，我希望你能想到，猜到甚至理解原因。如果是的话，我写一篇关于 <a href="./ThreadStack.html">线程堆栈</a> 的详细章节的努力得到了回报。因为当您从完成其工作的方法返回对局部变量的引用时，您可以调用另一个方法，等待它完成其工作，然后使用 x[0.99] 读取这些局部变量的值。</p>
+<p>好吧，我希望你能想到，猜到甚至理解原因。如果是的话，我写一篇关于<span class="spacer"> </span><a href="./ThreadStack.html">线程堆栈</a><span class="spacer"> </span>的详细章节的努力得到了回报。因为当您从完成其工作的方法返回对局部变量的引用时，您可以调用另一个方法，等待它完成其工作，然后使用<span class="spacer"> </span>x[0.99]<span class="spacer"> </span>读取这些局部变量的值。</p>
 <div class="paragraph-right-side">32</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">33</div>
-<p>幸运的是，当我们尝试编写这样的代码时，编译器会在我们的手腕上发出警告：<code>CS8352 Cannot use local 'reff' in this context because it may expose refe&shy;renced vari&shy;ables outside of their decla&shy;ra&shy;tion scope</code>，因为它可能会在其声明范围之外公开引用的变量。编译器是正确的，因为如果你绕过这个错误，在插件中，有可能窃取他人的密码或提升运行我们的插件的权限。</p>
+<p>幸运的是，当我们尝试编写这样的代码时，编译器会在我们的手腕上发出警告：<code>CS8352<span class="spacer"> </span>Cannot<span class="spacer"> </span>use<span class="spacer"> </span>local<span class="spacer"> </span>'reff'<span class="spacer"> </span>in<span class="spacer"> </span>this<span class="spacer"> </span>context<span class="spacer"> </span>because<span class="spacer"> </span>it<span class="spacer"> </span>may<span class="spacer"> </span>expose<span class="spacer"> </span>refe&shy;renced<span class="spacer"> </span>vari&shy;ables<span class="spacer"> </span>outside<span class="spacer"> </span>of<span class="spacer"> </span>their<span class="spacer"> </span>decla&shy;ra&shy;tion<span class="spacer"> </span>scope</code>，因为它可能会在其声明范围之外公开引用的变量。编译器是正确的，因为如果你绕过这个错误，在插件中，有可能窃取他人的密码或提升运行我们的插件的权限。</p>
 <div class="paragraph-right-side">33</div>
 </div>
-<h2 id="memoryt-readonlymemoryt">Memory<T> 和 Read&shy;Only&shy;Memory<T></h2>
+<h2 id="memoryt-readonlymemoryt">Memory<T><span class="spacer"> </span>和<span class="spacer"> </span>Read&shy;Only&shy;Memory<T></h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">34</div>
-<p><code>Memory <T></code>和<code>Span <T></code>之间存在两种视觉差异。第一个是<code>Memory <T></code>类型在类型的标题中不包含<code>ref</code>修饰符。换句话说，<code>Memory <T></code>类型既可以在堆栈上分配，也可以是局部变量，方法参数，或者返回值，在堆上，从那里引用内存中的一些数据。然而，与<code>Span <T></code>相比，这种小差异在<code>Memory&shy;<T></code>的行为和能力方面产生了巨大的差异。与<code>Span <T></code>不同，某些方法使用某些数据缓冲区是，<code>Memory <T></code>类型用于存储有关缓冲区的信息，但不处理它。因此，API存在差异。</p>
+<p><code>Memory<span class="spacer"> </span><T></code>和<code>Span<span class="spacer"> </span><T></code>之间存在两种视觉差异。第一个是<code>Memory<span class="spacer"> </span><T></code>类型在类型的标题中不包含<code>ref</code>修饰符。换句话说，<code>Memory<span class="spacer"> </span><T></code>类型既可以在堆栈上分配，也可以是局部变量，方法参数，或者返回值，在堆上，从那里引用内存中的一些数据。然而，与<code>Span<span class="spacer"> </span><T></code>相比，这种小差异在<code>Memory&shy;<T></code>的行为和能力方面产生了巨大的差异。与<code>Span<span class="spacer"> </span><T></code>不同，某些方法使用某些数据缓冲区是，<code>Memory<span class="spacer"> </span><T></code>类型用于存储有关缓冲区的信息，但不处理它。因此，API存在差异。</p>
 <div class="paragraph-right-side">34</div>
 </div>
 <ul>
-<li><code>Memory <T></code>没有方法来访问它负责的数据。相反，它具有<code>Span</code>属性和<code>Slice</code>方法，它返回<code>Span</code>类型的实例。</li>
-<li>此外，<code>Memory <T></code>包含<code>Pin&shy;()</code>方法，用于存储缓冲区数据应该传递给<code>unsafe</code>代码的场景。如果在.NET中分配内存时调用此方法，则缓冲区将被固定，并且在GC处于活动状态时不会移动。这个方法将返回一个<code>Memory&shy;Handle</code>结构的实例，它封装了'GCHandle&shy;`来表示生命周期的一段，并在内存中固定数组缓冲区。</li>
+<li><code>Memory<span class="spacer"> </span><T></code>没有方法来访问它负责的数据。相反，它具有<code>Span</code>属性和<code>Slice</code>方法，它返回<code>Span</code>类型的实例。</li>
+<li>此外，<code>Memory<span class="spacer"> </span><T></code>包含<code>Pin&shy;()</code>方法，用于存储缓冲区数据应该传递给<code>unsafe</code>代码的场景。如果在.NET中分配内存时调用此方法，则缓冲区将被固定，并且在GC处于活动状态时不会移动。这个方法将返回一个<code>Memory&shy;Handle</code>结构的实例，它封装了'GCHandle&shy;`来表示生命周期的一段，并在内存中固定数组缓冲区。</li>
 </ul>
-<p>但是，我建议我们熟悉整套课程。首先，让我们看一下<code>Memory <T></code>结构本身(这里我只展示那些我发现最重要的类型成员)：</p>
+<p>但是，我建议我们熟悉整套课程。首先，让我们看一下<code>Memory<span class="spacer"> </span><T></code>结构本身(这里我只展示那些我发现最重要的类型成员)：</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
     <span style="color:Blue;">public</span> <span style="color:Blue;">readonly</span> <span style="color:Blue;">struct</span> Memory&lt;T&gt;
     {
@@ -2113,7 +2106,7 @@ Method3(Span&lt;<span style="color:Blue;">byte</span>&gt; buffer)
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">37</div>
-<p>即，处理字符串管理的行。他们说如果我们将<code>Read&shy;Only&shy;Memory <T></code>转换为<code>Memory <T></code>(这些东西在二进制表示中是相同的，甚至有一个注释，这些类型必须以二进制方式重合，因为一个是通过调用从另一个产生的<code>Unsafe&shy;.As</code>)我们将获得一个秘密室有机会改变字符串。这是一个非常危险的机制：</p>
+<p>即，处理字符串管理的行。他们说如果我们将<code>Read&shy;Only&shy;Memory<span class="spacer"> </span><T></code>转换为<code>Memory<span class="spacer"> </span><T></code>(这些东西在二进制表示中是相同的，甚至有一个注释，这些类型必须以二进制方式重合，因为一个是通过调用从另一个产生的<code>Unsafe&shy;.As</code>)我们将获得一个秘密室有机会改变字符串。这是一个非常危险的机制：</p>
 <div class="paragraph-right-side">37</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2187,18 +2180,18 @@ Hello?
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">39</div>
-<p>在这段代码中调用<code>Pin&shy;()</code>并不重要：它可以是<code>Memory</code>，它代表<code>T []</code>，或者<code>string</code>或非托管内存的缓冲区。仅仅数组和字符串将获得一个真正的<code>GCHandle&shy;.Alloc&shy;(array，GCHandle&shy;Type&shy;.Pinned&shy;)</code>并且在非托管内存的情况下什么都不会发生。</p>
+<p>在这段代码中调用<code>Pin&shy;()</code>并不重要：它可以是<code>Memory</code>，它代表<code>T<span class="spacer"> </span>[]</code>，或者<code>string</code>或非托管内存的缓冲区。仅仅数组和字符串将获得一个真正的<code>GCHandle&shy;.Alloc&shy;(array，GCHandle&shy;Type&shy;.Pinned&shy;)</code>并且在非托管内存的情况下什么都不会发生。</p>
 <div class="paragraph-right-side">39</div>
 </div>
-<h2 id="memorymanager-imemoryowner-memorypool">Memory&shy;Manager&shy;, IMemory&shy;Owner&shy;, Memory&shy;Pool</h2>
+<h2 id="memorymanager-imemoryowner-memorypool">Memory&shy;Manager&shy;,<span class="spacer"> </span>IMemory&shy;Owner&shy;,<span class="spacer"> </span>Memory&shy;Pool</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">40</div>
-<p>除了指示结构字段之外，我还要注意，还有另外两个基于另一个实体的<code>internal</code>类型构造函数 - “Memory&shy;Manager”。这不是您可能想到的经典内存管理器，我们稍后会讨论它。您可能已经想过的经典内存管理器，我们稍后会讨论它。与<code>Span</code>类似，<code>Memory</code>引用了一个导航对象，一个偏移量和一个内部缓冲区的大小。请注意，您可以使用<code>new</code>运算符仅从数组创建<code>Memory</code>。或者，您可以使用扩展方法从字符串，数组或<code>Array&shy;Segment</code>创建<code>Memory</code>。我的意思是它不是设计为手动从非托管内存创建的。但是，我们可以看到有一个内部方法使用<code>Memory&shy;Manager</code>创建这个结构。</p>
+<p>除了指示结构字段之外，我还要注意，还有另外两个基于另一个实体的<code>internal</code>类型构造函数<span class="spacer"> </span>-<span class="spacer"> </span>“Memory&shy;Manager”。这不是您可能想到的经典内存管理器，我们稍后会讨论它。您可能已经想过的经典内存管理器，我们稍后会讨论它。与<code>Span</code>类似，<code>Memory</code>引用了一个导航对象，一个偏移量和一个内部缓冲区的大小。请注意，您可以使用<code>new</code>运算符仅从数组创建<code>Memory</code>。或者，您可以使用扩展方法从字符串，数组或<code>Array&shy;Segment</code>创建<code>Memory</code>。我的意思是它不是设计为手动从非托管内存创建的。但是，我们可以看到有一个内部方法使用<code>Memory&shy;Manager</code>创建这个结构。</p>
 <div class="paragraph-right-side">40</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">41</div>
-<p><strong>File <a href="https://github.com/dotnet/corefx/blob/master/src/Common/src/CoreLib/System/Buffers/MemoryManager.cs">Memory&shy;Manager&shy;.cs</a></strong></p>
+<p><strong>File<span class="spacer"> </span><a href="https://github.com/dotnet/corefx/blob/master/src/Common/src/CoreLib/System/Buffers/MemoryManager.cs">Memory&shy;Manager&shy;.cs</a></strong></p>
 <div class="paragraph-right-side">41</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2224,7 +2217,7 @@ Hello?
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">43</div>
-<p><strong>File <a href="https://github.com/dotnet/corefx/blob/888088448ac5dd1053d88434dfd819dcbc0fd9a1/src/Common/tests/System/Buffers/NativeMemoryManager.cs">Native&shy;Memory&shy;Manager&shy;.cs</a></strong></p>
+<p><strong>File<span class="spacer"> </span><a href="https://github.com/dotnet/corefx/blob/888088448ac5dd1053d88434dfd819dcbc0fd9a1/src/Common/tests/System/Buffers/NativeMemoryManager.cs">Native&shy;Memory&shy;Manager&shy;.cs</a></strong></p>
 <div class="paragraph-right-side">43</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2267,10 +2260,10 @@ Hello?
 </pre></div>
 </div>
 <p>这意味着该类允许嵌套调用<code>Pin&shy;()</code>方法，从而计算来自<code>unsafe</code>世界的生成引用。</p>
-<p>与<code>Memory</code>紧密相关的另一个实体是<code>Memory&shy;Pool</code>，它汇集了<code>Memory&shy;Manager</code>实例 (实际上是<code>IMemory&shy;Owner</code>):</p>
+<p>与<code>Memory</code>紧密相关的另一个实体是<code>Memory&shy;Pool</code>，它汇集了<code>Memory&shy;Manager</code>实例<span class="spacer"> </span>(实际上是<code>IMemory&shy;Owner</code>):</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">44</div>
-<p><strong>File <a href="https://github.com/dotnet/corefx/blob/f592e887e2349ed52af6a83070c42adb9d26408c/src/System.Memory/src/System/Buffers/MemoryPool.cs">Memory&shy;Pool&shy;.cs</a></strong></p>
+<p><strong>File<span class="spacer"> </span><a href="https://github.com/dotnet/corefx/blob/f592e887e2349ed52af6a83070c42adb9d26408c/src/System.Memory/src/System/Buffers/MemoryPool.cs">Memory&shy;Pool&shy;.cs</a></strong></p>
 <div class="paragraph-right-side">44</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2291,7 +2284,7 @@ Hello?
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">46</div>
-<p><strong>File <a href="https://github.com/dotnet/corefx/blob/56dfb8834fa50f3bc61ea9b4bfdc9dcc759b6ec9/src/System.Memory/src/System/Buffers/ArrayMemoryPool.cs">Array&shy;Memory&shy;Pool&shy;.cs</a></strong></p>
+<p><strong>File<span class="spacer"> </span><a href="https://github.com/dotnet/corefx/blob/56dfb8834fa50f3bc61ea9b4bfdc9dcc759b6ec9/src/System.Memory/src/System/Buffers/ArrayMemoryPool.cs">Array&shy;Memory&shy;Pool&shy;.cs</a></strong></p>
 <div class="paragraph-right-side">46</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2315,8 +2308,8 @@ Hello?
 <p>基于这种架构，我们有以下图片：</p>
 <ul>
 <li>如果要读取数据(<code>Read&shy;Only&shy;Span</code>)或读取和写入数据(<code>Span</code>)，则应使用<code>Span</code>数据类型作为方法参数。但是，它不应该存储在类的字段中以供将来使用。</li>
-<li>如果需要将类的字段中的引用存储到数据缓冲区，则需要根据目标使用<code>Memory&shy;<T></code>或<code>Read&shy;Only&shy;Memory <T></code>。</li>
-<li><code>Memory&shy;Manager <T></code>是数据缓冲区的所有者(可选)。例如，如果你需要计算<code>Pin&shy;()</code>调用，可能是必要的。或者，如果您需要知道如何释放内存。</li>
+<li>如果需要将类的字段中的引用存储到数据缓冲区，则需要根据目标使用<code>Memory&shy;<T></code>或<code>Read&shy;Only&shy;Memory<span class="spacer"> </span><T></code>。</li>
+<li><code>Memory&shy;Manager<span class="spacer"> </span><T></code>是数据缓冲区的所有者(可选)。例如，如果你需要计算<code>Pin&shy;()</code>调用，可能是必要的。或者，如果您需要知道如何释放内存。</li>
 <li>如果<code>Memory</code>是围绕非托管内存范围构建的，<code>Pin&shy;()</code>什么也不做。但是，这种制服使用不同类型的缓冲区：对于托管代码和非托管代码，交互界面将是相同的。</li>
 <li>每种类型都有公共构造函数。这意味着你可以直接使用<code>Span</code>或从<code>Memory</code>获取它的实例。对于<code>Memory</code>这样，你可以单独创建它，或者你可以创建一个由<code>IMemory&shy;Owner</code>拥有并由<code>Memory</code>引用的内存范围。任何基于<code>Memory&shy;Manger</code>的类型都可以被视为一个特定的案例，它拥有一些本地存储器范围(例如，伴随着来自<code>unsafe</code>世界的引用计数)。另外，如果你需要集中这些缓冲区(预计会有几乎相同大小的缓冲区的频繁流量)，你可以使用<code>Memory&shy;Pool</code>类型。</li>
 <li>如果你打算通过在那里传递一个数据缓冲区来处理<code>unsafe</code>代码，你应该使用<code>Memory</code>类型，它具有<code>Pin&shy;()</code>方法，如果在那里创建了一个缓冲区，它会在.NET堆上自动引脚。</li>
@@ -2325,7 +2318,7 @@ Hello?
 <h2 id="section-2">性能</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">47</div>
-<p>为了衡量新数据类型的性能，我决定使用已经成为标准的库 <a href="https://github.com/dotnet/BenchmarkDotNet">Benchmark&shy;Dot&shy;Net</a>:</p>
+<p>为了衡量新数据类型的性能，我决定使用已经成为标准的库<span class="spacer"> </span><a href="https://github.com/dotnet/BenchmarkDotNet">Benchmark&shy;Dot&shy;Net</a>:</p>
 <div class="paragraph-right-side">47</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2480,18 +2473,18 @@ Hello?
 </pre></div>
 </div>
 <p>现在，让我们看看结果。</p>
-<div class="image-container"><p><img src="../imgs/Span/Performance.png" alt="Perfor&shy;mance chart" /></p>
+<div class="image-container"><p><img src="../imgs/Span/Performance.png" alt="Perfor&shy;mance<span class="spacer"> </span>chart" /></p>
 </div>
 <p>看着它们，我们可以得到以下信息:</p>
 <ul>
 <li><code>Array&shy;Segment</code>很糟糕。但如果你把它包裹在<code>Span</code>中，你可以减少它的可怕性。在这种情况下，性能将提高7倍。</li>
-<li>如果我们考虑使用.NET Frame&shy;work 4.7.1（同样适用于4.5），使用<code>Span</code>会在使用数据缓冲区时显着降低性能。它将减少30-35％。</li>
-<li>但是，如果我们查看.NET Core 2.1+，性能仍然相似甚至增加，因为<code>Span</code>可以使用数据缓冲区的一部分，创建上下文。可以在<code>Array&shy;Segment</code>中找到相同的功能，但它的工作速度非常慢。</li>
+<li>如果我们考虑使用.NET<span class="spacer"> </span>Frame&shy;work<span class="spacer"> </span>4.7.1（同样适用于4.5），使用<code>Span</code>会在使用数据缓冲区时显着降低性能。它将减少30-35％。</li>
+<li>但是，如果我们查看.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.1+，性能仍然相似甚至增加，因为<code>Span</code>可以使用数据缓冲区的一部分，创建上下文。可以在<code>Array&shy;Segment</code>中找到相同的功能，但它的工作速度非常慢。</li>
 </ul>
 <p>因此，我们可以得出关于这些数据类型使用的简单结论：</p>
 <ul>
-<li>对于<code>.NET Frame&shy;work 4.5 +``.NET Core</code>，它们具有唯一的优势：在处理原始数组的子集时，它们比<code>Array&shy;Segment</code>更快;</li>
-<li>在<code>.NET Core 2.1 +</code>中，它们的使用为'Array&shy;Segment<code>和任何'Slice</code>的手动实现提供了无可否认的优势;</li>
+<li>对于<code>.NET<span class="spacer"> </span>Frame&shy;work<span class="spacer"> </span>4.5<span class="spacer"> </span>+``.NET<span class="spacer"> </span>Core</code>，它们具有唯一的优势：在处理原始数组的子集时，它们比<code>Array&shy;Segment</code>更快;</li>
+<li>在<code>.NET<span class="spacer"> </span>Core<span class="spacer"> </span>2.1<span class="spacer"> </span>+</code>中，它们的使用为'Array&shy;Segment<code>和任何'Slice</code>的手动实现提供了无可否认的优势;</li>
 <li>所有这三种方式都尽可能高效，并且使用任何统一数组的工具都无法实现。</li>
 </ul>
 

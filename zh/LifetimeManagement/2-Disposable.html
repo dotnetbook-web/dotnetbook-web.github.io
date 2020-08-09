@@ -1309,14 +1309,7 @@ footer > div {
   src: url("../../res/fonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../../res/fonts/fa-solid-900.woff2") format("woff2"), url("../../res/fonts/fa-solid-900.woff") format("woff"), url("../../res/fonts/fa-solid-900.ttf") format("truetype"), url("../../res/fonts/fa-solid-900.svg#fontawesome") format("svg"); 
 }
 </style>  
-    <div class="book-title-container d-none d-lg-block">
-        <div class="book-title">Knowledge Base</div>
-        <div class="book-part-title-block">pt.1 <a href="../..//ru/Memory/01-00-MemoryManagement-Intro.html" class="book-part-title">Управление памятью</a></div>
-        <div class="book-part-title-block">pt.2 <a href="../..//ru/Execution/02-00-ExecutionFlow-Intro.html" class="book-part-title">Поток исполнения команд</a></div>
-        <br><a href="#" class="book-superheading-title">Обоснование выбора</a>
-        / <a href="#" class="book-superheading-title">Упрощенное описание</a>
-        / <a href="#" class="book-superheading-title">Подробное описание</a>
-    </div>
+   
     <header class="header fixed d-block d-lg-none">
         <p class="conflogo">KB</p> 
 
@@ -1446,7 +1439,7 @@ SafeHandle / CriticalHandle / SafeBuffer / 派生类型</a></li>
             <p class="d-none d-sm-block d-md-none">MD</p>
             <p class="d-none d-lg-block d-xl-none">LG</p>
             <p class="d-none d-xl-block">XL</p> -->
-            <div class="image-container"><p><img src="./imgs/Disposable-Cover.png" alt="IDis&shy;po&shy;sable cover" /></p>
+            <div class="image-container"><p><img src="./imgs/Disposable-Cover.png" alt="IDispo&shy;sable<span class="spacer"> </span>cover" /></p>
 </div>
 <h1 id="section">一次性模式（一次性设计原则）</h1>
 <blockquote>
@@ -1454,11 +1447,11 @@ SafeHandle / CriticalHandle / SafeBuffer / 派生类型</a></li>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">01</div>
-<p>我想几乎所有使用.NET的程序员现在都会说这种模式是小菜一碟。这是平台上使用的最着名的模式。然而，即使是最简单和众所周知的问题域也会有你从未看过的秘密区域。所以，让我们从一开始就为第一次和其他所有人描述整个事情（这样你们每个人都能记住基础知识）。不要跳过这些段落 - 我在看着你！</p>
+<p>我想几乎所有使用.NET的程序员现在都会说这种模式是小菜一碟。这是平台上使用的最着名的模式。然而，即使是最简单和众所周知的问题域也会有你从未看过的秘密区域。所以，让我们从一开始就为第一次和其他所有人描述整个事情（这样你们每个人都能记住基础知识）。不要跳过这些段落<span class="spacer"> </span>-<span class="spacer"> </span>我在看着你！</p>
 <div class="paragraph-right-side">01</div>
 </div>
-<h2 id="idisposable">IDis&shy;po&shy;sable</h2>
-<p>如果我问什么是IDis&shy;po&shy;sable，你肯定会说它是</p>
+<h2 id="idisposable">IDispo&shy;sable</h2>
+<p>如果我问什么是IDispo&shy;sable，你肯定会说它是</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">interface</span> IDisposable
 {
@@ -1469,7 +1462,7 @@ SafeHandle / CriticalHandle / SafeBuffer / 派生类型</a></li>
 <p>界面的目的是什么？我的意思是，如果我们有一个智能垃圾收集器清除内存而不是我们，为什么我们需要清理内存，所以我们甚至不必考虑它。但是，有一些小细节。</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">02</div>
-<p>有一种误解，“`IDis&shy;po&shy;sable<code>用于释放非托管资源。这只是部分正确，要理解它，您只需要记住非托管资源的示例。</code>File<code>类是非托管资源吗？不，也许````Db&shy;Context</code>是一个非托管资源？不，再说一次。非托管资源不属于.NET类型系统。平台没有创建的东西，存在于其范围之外的东西。一个简单的例子是操作系统中打开的文件句柄。句柄是一个数字，用于唯一标识操作系统打开的文件 - 不，不是您。也就是说，所有控制结构（例如文件系统中文件的位置，碎片和其他服务信息中的文件碎片，圆柱体的数量，硬盘的头部或扇区）在操作系统内，但不在.NET平台内。传递给.NET平台的唯一非托管资源是Int&shy;Ptr编号。这个数字由File&shy;Safe&shy;Handle包装，File&shy;Safe&shy;Handle由File类包装。这意味着File类本身不是非托管资源，但使用Int&shy;Ptr形式的附加层来包含非托管资源 - 打开文件的句柄。你怎么看那个文件？在Win&shy;API或Linux OS中使用一组方法。你怎么看那个文件？在Win&shy;API或Linux OS中使用一组方法。你怎么看那个文件？在Win&shy;API或Linux OS中使用一组方法。</p>
+<p>有一种误解，“`IDispo&shy;sable<code>用于释放非托管资源。这只是部分正确，要理解它，您只需要记住非托管资源的示例。</code>File<code>类是非托管资源吗？不，也许````Db&shy;Context</code>是一个非托管资源？不，再说一次。非托管资源不属于.NET类型系统。平台没有创建的东西，存在于其范围之外的东西。一个简单的例子是操作系统中打开的文件句柄。句柄是一个数字，用于唯一标识操作系统打开的文件<span class="spacer"> </span>-<span class="spacer"> </span>不，不是您。也就是说，所有控制结构（例如文件系统中文件的位置，碎片和其他服务信息中的文件碎片，圆柱体的数量，硬盘的头部或扇区）在操作系统内，但不在.NET平台内。传递给.NET平台的唯一非托管资源是Int&shy;Ptr编号。这个数字由File&shy;Safe&shy;Handle包装，File&shy;Safe&shy;Handle由File类包装。这意味着File类本身不是非托管资源，但使用Int&shy;Ptr形式的附加层来包含非托管资源<span class="spacer"> </span>-<span class="spacer"> </span>打开文件的句柄。你怎么看那个文件？在Win&shy;API或Linux<span class="spacer"> </span>OS中使用一组方法。你怎么看那个文件？在Win&shy;API或Linux<span class="spacer"> </span>OS中使用一组方法。你怎么看那个文件？在Win&shy;API或Linux<span class="spacer"> </span>OS中使用一组方法。</p>
 <div class="paragraph-right-side">02</div>
 </div>
 <p>多线程或多处理器程序中的同步原语是非托管资源的第二个示例。这里属于通过P/Invoke传递的数据数组以及互斥锁或信号量。</p>
@@ -1478,19 +1471,19 @@ SafeHandle / CriticalHandle / SafeBuffer / 派生类型</a></li>
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">03</div>
-<p>好。现在我们介绍了非托管资源。为什么我们需要在这些情况下使用IDis&shy;po&shy;sable？因为.NET Frame&shy;work不知道在其领土之外发生了什么。如果使用OS API打开文件，.NET将不知道它。如果为自己的需要分配内存范围（例如使用Virtual&shy;Alloc），.NET也一无所知。如果它不知道，它将不会释放Virtual&shy;Alloc调用占用的内存。或者，它不会关闭通过OS API调用直接打开的文件。这些可能会导致不同的意外后果。如果在不释放内存的情况下分配太多内存（例如，只需将指针设置为null），就可以获得Out&shy;Of&shy;Memory。或者，如果您通过操作系统在文件共享上打开文件而不关闭它，则会长时间锁定该文件共享上的文件。文件共享示例特别好，因为即使关闭与服务器的连接，锁也将保留在IIS端。您无权释放锁定，您必须要求管理员执行<code>iisr&shy;eset</code>或使用特殊软件手动关闭资源。
+<p>好。现在我们介绍了非托管资源。为什么我们需要在这些情况下使用IDispo&shy;sable？因为.NET<span class="spacer"> </span>Frame&shy;work不知道在其领土之外发生了什么。如果使用OS<span class="spacer"> </span>API打开文件，.NET将不知道它。如果为自己的需要分配内存范围（例如使用Virtual&shy;Alloc），.NET也一无所知。如果它不知道，它将不会释放Virtual&shy;Alloc调用占用的内存。或者，它不会关闭通过OS<span class="spacer"> </span>API调用直接打开的文件。这些可能会导致不同的意外后果。如果在不释放内存的情况下分配太多内存（例如，只需将指针设置为null），就可以获得Out&shy;Of&shy;Memory。或者，如果您通过操作系统在文件共享上打开文件而不关闭它，则会长时间锁定该文件共享上的文件。文件共享示例特别好，因为即使关闭与服务器的连接，锁也将保留在IIS端。您无权释放锁定，您必须要求管理员执行<code>iisr&shy;eset</code>或使用特殊软件手动关闭资源。
 远程服务器上的此问题可能成为要解决的复杂任务。</p>
 <div class="paragraph-right-side">03</div>
 </div>
-<p>所有这些情况都需要在类型系统和程序员之间使用通用且熟悉的 <em>交互协议</em>。</p>
+<p>所有这些情况都需要在类型系统和程序员之间使用通用且熟悉的<span class="spacer"> </span><em>交互协议</em>。</p>
 <p>因此，有两种标准方法可以调用它。通常，您可以创建实体实例，以便在一个方法内或在实体实例的生命周期内快速使用它。</p>
 <div class="paragraph-container">
 <div class="paragraph-left-side">04</div>
-<p>第一种方法是将一个实例包装成<code>using（...）{...}</code>。这意味着您指示在使用相关块结束后销毁对象，即调用Dispose（）。第二种方法是在对象生命周期结束时通过引用我们想要释放的对象来销毁它。但.NET只有一个暗示自动销毁对象的终结方法，对吗？但是，最终确定并不合适，因为我们不知道什么时候会被调用。同时，我们需要在特定时间释放一个对象，例如在我们使用打开的文件完成工作之后。这就是为什么我们还需要实现IDis&shy;po&shy;sable并调用Dispose来释放我们拥有的所有资源。因此，我们遵循_protocol_，这非常重要。因为如果有人遵循它，所有参与者都应该这样做以避免问题。</p>
+<p>第一种方法是将一个实例包装成<code>using（...）{...}</code>。这意味着您指示在使用相关块结束后销毁对象，即调用Dispose（）。第二种方法是在对象生命周期结束时通过引用我们想要释放的对象来销毁它。但.NET只有一个暗示自动销毁对象的终结方法，对吗？但是，最终确定并不合适，因为我们不知道什么时候会被调用。同时，我们需要在特定时间释放一个对象，例如在我们使用打开的文件完成工作之后。这就是为什么我们还需要实现IDispo&shy;sable并调用Dispose来释放我们拥有的所有资源。因此，我们遵循_protocol_，这非常重要。因为如果有人遵循它，所有参与者都应该这样做以避免问题。</p>
 <div class="paragraph-right-side">04</div>
 </div>
-<h2 id="idisposable-1">实现IDis&shy;po&shy;sable的不同方法</h2>
-<p>让我们看一下IDis&shy;po&shy;sable从简单到复杂的实现。第一个也是最简单的是使用IDis&shy;po&shy;sable：</p>
+<h2 id="idisposable-1">实现IDispo&shy;sable的不同方法</h2>
+<p>让我们看一下IDispo&shy;sable从简单到复杂的实现。第一个也是最简单的是使用IDispo&shy;sable：</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">class</span> ResourceHolder : IDisposable
 {
@@ -1562,7 +1555,7 @@ SafeHandle / CriticalHandle / SafeBuffer / 派生类型</a></li>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">06</div>
-<p>最后两个例子的行为有什么不同？第一个描述了两个托管资源的交互。这意味着如果程序正常工作，无论如何都会释放资源。由于<code>Disposable&shy;Resource</code>被管理，.NET CLR知道它并且如果它的行为不正确将从它释放内存。请注意，我有意识地不假设<code>Disposable&shy;Resource</code>类型封装。可以有任何逻辑和结构。它可以包含托管和非托管资源。<em>这根本不应该关注我们</em>。没有人要求我们每次都反编译第三方的库，看看他们是使用托管资源还是非托管资源。如果<em>我们的类型</em>使用非托管资源，我们不能不知道这一点。我们在<code>File&shy;Wrapper</code>类中执行此操作。所以，在这种情况下会发生什么？如果我们使用非托管资源，我们有两种情况。第一个是当一切正常并调用Dispose时。第二个是出现问题时Dispose失败。</p>
+<p>最后两个例子的行为有什么不同？第一个描述了两个托管资源的交互。这意味着如果程序正常工作，无论如何都会释放资源。由于<code>Disposable&shy;Resource</code>被管理，.NET<span class="spacer"> </span>CLR知道它并且如果它的行为不正确将从它释放内存。请注意，我有意识地不假设<code>Disposable&shy;Resource</code>类型封装。可以有任何逻辑和结构。它可以包含托管和非托管资源。<em>这根本不应该关注我们</em>。没有人要求我们每次都反编译第三方的库，看看他们是使用托管资源还是非托管资源。如果<em>我们的类型</em>使用非托管资源，我们不能不知道这一点。我们在<code>File&shy;Wrapper</code>类中执行此操作。所以，在这种情况下会发生什么？如果我们使用非托管资源，我们有两种情况。第一个是当一切正常并调用Dispose时。第二个是出现问题时Dispose失败。</p>
 <div class="paragraph-right-side">06</div>
 </div>
 <p>让我们马上说出为什么会出错：</p>
@@ -1577,7 +1570,7 @@ SafeHandle / CriticalHandle / SafeBuffer / 派生类型</a></li>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">08</div>
-<p>我们必须实现一个对象的终结器。'终结者'是故意以这种方式命名的。它可能看起来不像析构函数，因为类似的方法在C＃中调用终结器和在C ++中调用析构函数。区别在于终结器将被调用<em>无论如何</em>，与析构函数（以及<code>Dispose（）</code>相反）。启动垃圾收集时会调用终结器（现在已经足够了解它，但事情有点复杂）。如果<em>出现问题</em>，它用于保证资源的释放。我们必须*实现终结器来释放非托管资源。同样，因为在GC启动时调用终结器，我们不知道何时发生这种情况。</p>
+<p>我们必须实现一个对象的终结器。'终结者'是故意以这种方式命名的。它可能看起来不像析构函数，因为类似的方法在C＃中调用终结器和在C<span class="spacer"> </span>++中调用析构函数。区别在于终结器将被调用<em>无论如何</em>，与析构函数（以及<code>Dispose（）</code>相反）。启动垃圾收集时会调用终结器（现在已经足够了解它，但事情有点复杂）。如果<em>出现问题</em>，它用于保证资源的释放。我们必须*实现终结器来释放非托管资源。同样，因为在GC启动时调用终结器，我们不知道何时发生这种情况。</p>
 <div class="paragraph-right-side">08</div>
 </div>
 <p>让我们扩展我们的代码：</p>
@@ -1666,20 +1659,20 @@ SafeHandle / CriticalHandle / SafeBuffer / 派生类型</a></li>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">11</div>
-<p>但是，此代码包含严重问题，导致其无法按预期工作。如果我们记得垃圾收集的工作原理，我们会注意到一个功能。收集垃圾时，GC <em>主要</em>完成直接从* Object <em>继承的所有内容。接下来，它处理实现</em> Critical&shy;Finalizer&shy;Object *的对象。这成为一个问题，因为我们设计的两个类都继承了Object。我们不知道他们将以何种顺序来到“最后一英里”。但是，更高级别的对象可以使用其终结器来使用非托管资源完成对象。虽然，这听起来不是一个好主意。最终确定的顺序在这里非常有用。要设置它，具有封装的非托管资源的低级类型必须从<code>Critical&shy;Finalizer&shy;Object</code>继承。</p>
+<p>但是，此代码包含严重问题，导致其无法按预期工作。如果我们记得垃圾收集的工作原理，我们会注意到一个功能。收集垃圾时，GC<span class="spacer"> </span><em>主要</em>完成直接从*<span class="spacer"> </span>Object<span class="spacer"> </span><em>继承的所有内容。接下来，它处理实现</em><span class="spacer"> </span>Critical&shy;Finalizer&shy;Object<span class="spacer"> </span>*的对象。这成为一个问题，因为我们设计的两个类都继承了Object。我们不知道他们将以何种顺序来到“最后一英里”。但是，更高级别的对象可以使用其终结器来使用非托管资源完成对象。虽然，这听起来不是一个好主意。最终确定的顺序在这里非常有用。要设置它，具有封装的非托管资源的低级类型必须从<code>Critical&shy;Finalizer&shy;Object</code>继承。</p>
 <div class="paragraph-right-side">11</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">12</div>
-<p>第二个原因更为深刻。想象一下，你敢于编写一个不需要太多记忆的应用程序。它大量分配内存，没有兑现和其他细微之处。有一天，此应用程序将与Out&shy;Of&shy;Memory&shy;Exception崩溃。当它发生时，代码专门运行。它不能分配任何东西，因为它会导致重复的异常，即使第一个异常被捕获。这并不意味着我们不应该创建新的对象实例。即使是简单的方法调用也可能抛出此异常，例如终结。我提醒你，第一次调用方法时会编译方法。这是通常的行为。我们怎样才能防止这个问题？很容易。如果您的对象是从* Critical&shy;Finalizer&shy;Object <em>继承的，则此类型的</em> all *方法将在将其加载到内存后立即编译。</p>
+<p>第二个原因更为深刻。想象一下，你敢于编写一个不需要太多记忆的应用程序。它大量分配内存，没有兑现和其他细微之处。有一天，此应用程序将与Out&shy;Of&shy;Memory&shy;Exception崩溃。当它发生时，代码专门运行。它不能分配任何东西，因为它会导致重复的异常，即使第一个异常被捕获。这并不意味着我们不应该创建新的对象实例。即使是简单的方法调用也可能抛出此异常，例如终结。我提醒你，第一次调用方法时会编译方法。这是通常的行为。我们怎样才能防止这个问题？很容易。如果您的对象是从*<span class="spacer"> </span>Critical&shy;Finalizer&shy;Object<span class="spacer"> </span><em>继承的，则此类型的</em><span class="spacer"> </span>all<span class="spacer"> </span>*方法将在将其加载到内存后立即编译。</p>
 <div class="paragraph-right-side">12</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">13</div>
-<p>为什么这很重要？为什么要对那些过世的人花费太多精力？因为非托管资源可以在系统中暂停很长时间。即使您重新启动计算机后。如果用户从应用程序中的文件共享中打开文件，则前者将被远程主机锁定，并在超时时释放，或者通过关闭文件释放资源时释放。如果您的应用程序在打开文件时崩溃，即使重启后也不会释放。您将不得不等待很长时间，直到远程主机释放它。此外，您不应该在终结器中允许例外。这会导致CLR和应用程序的加速崩溃，因为您无法在* try .. catch *中包装终结器的调用。我的意思是，当您尝试释放资源时，您必须确保它可以被释放。最后但并非不太重要的事实：</p>
+<p>为什么这很重要？为什么要对那些过世的人花费太多精力？因为非托管资源可以在系统中暂停很长时间。即使您重新启动计算机后。如果用户从应用程序中的文件共享中打开文件，则前者将被远程主机锁定，并在超时时释放，或者通过关闭文件释放资源时释放。如果您的应用程序在打开文件时崩溃，即使重启后也不会释放。您将不得不等待很长时间，直到远程主机释放它。此外，您不应该在终结器中允许例外。这会导致CLR和应用程序的加速崩溃，因为您无法在*<span class="spacer"> </span>try<span class="spacer"> </span>..<span class="spacer"> </span>catch<span class="spacer"> </span>*中包装终结器的调用。我的意思是，当您尝试释放资源时，您必须确保它可以被释放。最后但并非不太重要的事实：</p>
 <div class="paragraph-right-side">13</div>
 </div>
-<h2 id="safehandle-criticalhandle-safebuffer">Safe&shy;Handle / Critical&shy;Handle / Safe&shy;Buffer / 派生类型</h2>
+<h2 id="safehandle-criticalhandle-safebuffer">Safe&shy;Handle<span class="spacer"> </span>/<span class="spacer"> </span>Critical&shy;Handle<span class="spacer"> </span>/<span class="spacer"> </span>Safe&shy;Buffer<span class="spacer"> </span>/<span class="spacer"> </span>派生类型</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">14</div>
 <p>我觉得我打算为你打开潘多拉的盒子。我们来谈谈特殊类型：Safe&shy;Handle，Critical&shy;Handle及其派生类型。
@@ -1687,12 +1680,12 @@ SafeHandle / CriticalHandle / SafeBuffer / 派生类型</a></li>
 <div class="paragraph-right-side">14</div>
 </div>
 <ul>
-<li>第一个也很明显的是手柄。对于.NET开发人员来说，这可能是一个毫无意义的词，但它是操作系统世界中非常重要的组成部分。句柄本质上是32位或64位数。它指定与操作系统交互的打开会话。例如，当您打开文件时，您将获得Win&shy;Api函数的句柄。然后你可以使用它并执行 <em>Seek</em>，<em>Read</em> 或 <em>Write</em> 操作。或者，您可以打开一个用于网络访问的套接字。操作系统将再次传递给您一个句柄。在.NET中，句柄存储为 <em>Int&shy;Ptr</em> 类型;</li>
+<li>第一个也很明显的是手柄。对于.NET开发人员来说，这可能是一个毫无意义的词，但它是操作系统世界中非常重要的组成部分。句柄本质上是32位或64位数。它指定与操作系统交互的打开会话。例如，当您打开文件时，您将获得Win&shy;Api函数的句柄。然后你可以使用它并执行<span class="spacer"> </span><em>Seek</em>，<em>Read</em><span class="spacer"> </span>或<span class="spacer"> </span><em>Write</em><span class="spacer"> </span>操作。或者，您可以打开一个用于网络访问的套接字。操作系统将再次传递给您一个句柄。在.NET中，句柄存储为<span class="spacer"> </span><em>Int&shy;Ptr</em><span class="spacer"> </span>类型;</li>
 <li>第二件事是数据阵列。您可以通过不安全的代码处理非托管数组（此处不安全是关键词）或使用Safe&shy;Buffer将数据缓冲区包装到合适的.NET类中。请注意，第一种方式更快（例如，您可以大大优化循环），但第二种方式更安全，因为它基于Safe&shy;Handle&shy;;</li>
 <li>然后去串。字符串很简单，因为我们需要确定我们捕获的字符串的格式和编码。它然后被复制给我们（一个字符串是一个不可变的类），我们不再担心它了。</li>
 <li>最后一件事是刚刚复制的Value&shy;Types，所以我们根本不需要考虑它们。</li>
 </ul>
-<p>Safe&shy;Handle是一个特殊的.NET CLR类，它继承了Critical&shy;Finalizer&shy;Object，并且应该以最安全和最舒适的方式包装操作系统的句柄。</p>
+<p>Safe&shy;Handle是一个特殊的.NET<span class="spacer"> </span>CLR类，它继承了Critical&shy;Finalizer&shy;Object，并且应该以最安全和最舒适的方式包装操作系统的句柄。</p>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 [SecurityCritical, SecurityPermission(SecurityAction.InheritanceDemand, UnmanagedCode=<span style="color:Blue;">true</span>)]
 <span style="color:Blue;">public</span> <span style="color:Blue;">abstract</span> <span style="color:Blue;">class</span> SafeHandle : CriticalFinalizerObject, IDisposable
@@ -1937,13 +1930,13 @@ SafeHandle / CriticalHandle / SafeBuffer / 派生类型</a></li>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">19</div>
-<p>承认这个代码或多或少看起来不错。无论如何，它看起来不像是有问题。事实上，存在严重的问题。类终结器可能会在读取文件时尝试关闭文件，这几乎不可避免地导致错误。因为在这种情况下显式返回错误（<code>Int&shy;Ptr == -1</code>），我们不会看到这个。<code>_handle</code>将设置为零，以下<code>Dispose</code>将无法关闭文件，资源将泄漏。要解决这个问题，你应该使用<code>Safe&shy;Handle</code>，<code>Critical&shy;Handle</code>，<code>Safe&shy;Buffer</code>及其派生类。除了这些类在非托管代码中具有使用计数器之外，这些计数器在将方法的参数传递给非托管世界时也自动递增，而在离开时递减。</p>
+<p>承认这个代码或多或少看起来不错。无论如何，它看起来不像是有问题。事实上，存在严重的问题。类终结器可能会在读取文件时尝试关闭文件，这几乎不可避免地导致错误。因为在这种情况下显式返回错误（<code>Int&shy;Ptr<span class="spacer"> </span>==<span class="spacer"> </span>-1</code>），我们不会看到这个。<code>_handle</code>将设置为零，以下<code>Dispose</code>将无法关闭文件，资源将泄漏。要解决这个问题，你应该使用<code>Safe&shy;Handle</code>，<code>Critical&shy;Handle</code>，<code>Safe&shy;Buffer</code>及其派生类。除了这些类在非托管代码中具有使用计数器之外，这些计数器在将方法的参数传递给非托管世界时也自动递增，而在离开时递减。</p>
 <div class="paragraph-right-side">19</div>
 </div>
 <h2 id="section-2">多线程</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">20</div>
-<p>现在让我们来谈谈薄冰吧。在前面关于IDis&shy;po&shy;sable的部分中，我们触及了一个非常重要的概念，它不仅是一次性类型的设计原则，而且是一般类型的基础。这是对象的完整性概念。这意味着在任何给定的时刻，对象处于严格确定的状态，并且具有该对象的任何动作将其状态变为在设计该对象的类型时预先确定的变体之一。换句话说，对象的任何操作都不应将其转换为未定义状态。这导致上述示例中设计的类型的问题。它们不是线程安全的。当对象的销毁正在进行时，有可能会调用这些类型的公共方法。让我们解决这个问题，并决定是否应该解决它。</p>
+<p>现在让我们来谈谈薄冰吧。在前面关于IDispo&shy;sable的部分中，我们触及了一个非常重要的概念，它不仅是一次性类型的设计原则，而且是一般类型的基础。这是对象的完整性概念。这意味着在任何给定的时刻，对象处于严格确定的状态，并且具有该对象的任何动作将其状态变为在设计该对象的类型时预先确定的变体之一。换句话说，对象的任何操作都不应将其转换为未定义状态。这导致上述示例中设计的类型的问题。它们不是线程安全的。当对象的销毁正在进行时，有可能会调用这些类型的公共方法。让我们解决这个问题，并决定是否应该解决它。</p>
 <div class="paragraph-right-side">20</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2016,7 +2009,7 @@ SafeHandle / CriticalHandle / SafeBuffer / 派生类型</a></li>
 </ul>
 <div class="paragraph-container">
 <div class="paragraph-left-side">22</div>
-<p>现在，让我们说出第二个，在我看来，这是最重要的事情。我们允许销毁一个对象，同时希望再次使用它。在这种情况下我们希望什么？它会失败吗？因为如果首先运行Dispose，那么以下对象方法的使用肯定会导致<code>Object&shy;Disposed&shy;Exception</code>。因此，您应该将Dispose（）调用和类型的其他公共方法之间的同步委托给服务端，即创建<code>File&shy;Wrapper</code>类实例的代码。这是因为只有创建方知道它将如何处理类的实例以及何时销毁它。另一方面，Dispose调用应该只产生严重错误，例如<code>Out&shy;Of&shy;Memory&shy;Exception</code>，但不会产生IOExc&shy;ep&shy;tion。这是因为对实现IDis&shy;po&shy;sable的类的体系结构的要求。这意味着如果一次从多个线程调用Dispose，则实体的销毁可能同时发生在两个线程中（我们跳过检查<code>if（_disposed）return;</code>）。这取决于具体情况：如果资源<em>可以多次</em>释放，则无需进行额外检查。否则，保护是必要的：</p>
+<p>现在，让我们说出第二个，在我看来，这是最重要的事情。我们允许销毁一个对象，同时希望再次使用它。在这种情况下我们希望什么？它会失败吗？因为如果首先运行Dispose，那么以下对象方法的使用肯定会导致<code>Object&shy;Disposed&shy;Exception</code>。因此，您应该将Dispose（）调用和类型的其他公共方法之间的同步委托给服务端，即创建<code>File&shy;Wrapper</code>类实例的代码。这是因为只有创建方知道它将如何处理类的实例以及何时销毁它。另一方面，Dispose调用应该只产生严重错误，例如<code>Out&shy;Of&shy;Memory&shy;Exception</code>，但不会产生IOExcep&shy;tion。这是因为对实现IDispo&shy;sable的类的体系结构的要求。这意味着如果一次从多个线程调用Dispose，则实体的销毁可能同时发生在两个线程中（我们跳过检查<code>if（_disposed）return;</code>）。这取决于具体情况：如果资源<em>可以多次</em>释放，则无需进行额外检查。否则，保护是必要的：</p>
 <div class="paragraph-right-side">22</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2039,7 +2032,7 @@ SafeHandle / CriticalHandle / SafeBuffer / 派生类型</a></li>
 <h2 id="section-3">两个级别的一次性设计原则</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">23</div>
-<p>在.NET书籍和互联网上可以实现的<code>IDis&shy;po&shy;sable</code>最流行的模式是什么？在为潜在的新工作进行面试时，您期望从中获得什么样的模式？最有可能是这一个：</p>
+<p>在.NET书籍和互联网上可以实现的<code>IDispo&shy;sable</code>最流行的模式是什么？在为潜在的新工作进行面试时，您期望从中获得什么样的模式？最有可能是这一个：</p>
 <div class="paragraph-right-side">23</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2079,7 +2072,7 @@ SafeHandle / CriticalHandle / SafeBuffer / 派生类型</a></li>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">24</div>
-<p>What is wrong with this example and why we haven’t written like this before? In fact, this is a good pattern suitable for all situ&shy;a&shy;tions. However&shy;, its ubi&shy;qu&shy;i&shy;tous use is not a good style in my opi&shy;nion as we almost don’t deal with unma&shy;naged reso&shy;urces in prac&shy;tice that makes half of the pattern serve no purpose. Moreover&shy;, since it simul&shy;ta&shy;neously manages both managed and unma&shy;naged reso&shy;urces, it vio&shy;lates the prin&shy;ciple of respon&shy;si&shy;bi&shy;lity divi&shy;sion. I think this is wrong. Let’s look at a slightly diffe&shy;rent approach. <em>Dispo&shy;sable Design Prin&shy;ciple</em>. In brief, it works as follows:</p>
+<p>What<span class="spacer"> </span>is<span class="spacer"> </span>wrong<span class="spacer"> </span>with<span class="spacer"> </span>this<span class="spacer"> </span>example<span class="spacer"> </span>and<span class="spacer"> </span>why<span class="spacer"> </span>we<span class="spacer"> </span>haven’t<span class="spacer"> </span>written<span class="spacer"> </span>like<span class="spacer"> </span>this<span class="spacer"> </span>before?<span class="spacer"> </span>In<span class="spacer"> </span>fact,<span class="spacer"> </span>this<span class="spacer"> </span>is<span class="spacer"> </span>a<span class="spacer"> </span>good<span class="spacer"> </span>pattern<span class="spacer"> </span>suitable<span class="spacer"> </span>for<span class="spacer"> </span>all<span class="spacer"> </span>situ&shy;a&shy;tions.<span class="spacer"> </span>However&shy;,<span class="spacer"> </span>its<span class="spacer"> </span>ubi&shy;qu&shy;i&shy;tous<span class="spacer"> </span>use<span class="spacer"> </span>is<span class="spacer"> </span>not<span class="spacer"> </span>a<span class="spacer"> </span>good<span class="spacer"> </span>style<span class="spacer"> </span>in<span class="spacer"> </span>my<span class="spacer"> </span>opi&shy;nion<span class="spacer"> </span>as<span class="spacer"> </span>we<span class="spacer"> </span>almost<span class="spacer"> </span>don’t<span class="spacer"> </span>deal<span class="spacer"> </span>with<span class="spacer"> </span>unma&shy;naged<span class="spacer"> </span>reso&shy;urces<span class="spacer"> </span>in<span class="spacer"> </span>prac&shy;tice<span class="spacer"> </span>that<span class="spacer"> </span>makes<span class="spacer"> </span>half<span class="spacer"> </span>of<span class="spacer"> </span>the<span class="spacer"> </span>pattern<span class="spacer"> </span>serve<span class="spacer"> </span>no<span class="spacer"> </span>purpose.<span class="spacer"> </span>Moreover&shy;,<span class="spacer"> </span>since<span class="spacer"> </span>it<span class="spacer"> </span>simul&shy;ta&shy;neously<span class="spacer"> </span>manages<span class="spacer"> </span>both<span class="spacer"> </span>managed<span class="spacer"> </span>and<span class="spacer"> </span>unma&shy;naged<span class="spacer"> </span>reso&shy;urces,<span class="spacer"> </span>it<span class="spacer"> </span>vio&shy;lates<span class="spacer"> </span>the<span class="spacer"> </span>prin&shy;ciple<span class="spacer"> </span>of<span class="spacer"> </span>respon&shy;si&shy;bi&shy;lity<span class="spacer"> </span>divi&shy;sion.<span class="spacer"> </span>I<span class="spacer"> </span>think<span class="spacer"> </span>this<span class="spacer"> </span>is<span class="spacer"> </span>wrong.<span class="spacer"> </span>Let’s<span class="spacer"> </span>look<span class="spacer"> </span>at<span class="spacer"> </span>a<span class="spacer"> </span>slightly<span class="spacer"> </span>diffe&shy;rent<span class="spacer"> </span>approach.<span class="spacer"> </span><em>Dispo&shy;sable<span class="spacer"> </span>Design<span class="spacer"> </span>Principle</em>.<span class="spacer"> </span>In<span class="spacer"> </span>brief,<span class="spacer"> </span>it<span class="spacer"> </span>works<span class="spacer"> </span>as<span class="spacer"> </span>follows:</p>
 <div class="paragraph-right-side">24</div>
 </div>
 <div class="paragraph-container">
@@ -2096,7 +2089,7 @@ SafeHandle / CriticalHandle / SafeBuffer / 派生类型</a></li>
 <ul>
 <li>Pre&shy;Prepare&shy;Method，以便在加载类型时可以编译方法</li>
 <li>Security&shy;Safe&shy;Critical，以防止来自代码的调用，在限制下工作</li>
-<li>Reliability&shy;Contract（Consistency&shy;.Will&shy;Not&shy;Corrupt&shy;State，Cer&shy;.Success / May&shy;Fail）]为方法及其所有子调用放置CER</li>
+<li>Reliability&shy;Contract（Consistency&shy;.Will&shy;Not&shy;Corrupt&shy;State，Cer&shy;.Success<span class="spacer"> </span>/<span class="spacer"> </span>May&shy;Fail）]为方法及其所有子调用放置CER</li>
 </ul>
 </li>
 </ul>
@@ -2104,12 +2097,12 @@ SafeHandle / CriticalHandle / SafeBuffer / 派生类型</a></li>
 <li>它们可以引用0级类型，但应增加引用对象的计数器以保证进入“最后一英里”的正确顺序</li>
 <li>级别1类型仅封装受管资源
 <ul>
-<li>它们仅从Level 1类型继承或直接实现IDis&shy;po&shy;sable</li>
-<li>它们不能继承Level 0类型或Critical&shy;Finalizer&shy;Object</li>
+<li>它们仅从Level<span class="spacer"> </span>1类型继承或直接实现IDispo&shy;sable</li>
+<li>它们不能继承Level<span class="spacer"> </span>0类型或Critical&shy;Finalizer&shy;Object</li>
 <li>它们可以封装1级和0级托管类型</li>
-<li>它们通过从Level 0类型开始销毁封装对象并转到Level 1来实现IDisposable&shy;.Dispose</li>
+<li>它们通过从Level<span class="spacer"> </span>0类型开始销毁封装对象并转到Level<span class="spacer"> </span>1来实现IDisposable&shy;.Dispose</li>
 <li>他们没有实现终结器，因为他们不处理非托管资源</li>
-<li>它们应包含一个受保护的属性，可以访问Level 0类型。</li>
+<li>它们应包含一个受保护的属性，可以访问Level<span class="spacer"> </span>0类型。</li>
 </ul>
 </li>
 </ul>
@@ -2117,7 +2110,7 @@ SafeHandle / CriticalHandle / SafeBuffer / 派生类型</a></li>
 <h2 id="dispose">使用Dispose的其他方法</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">26</div>
-<p>创建IDis&shy;po&shy;sable背后的想法是释放非托管资源。但与许多其他模式一样，它对其他任务非常有用，例如，释放对托管资源的引用。虽然发布托管资源听起来不是很有帮助。我的意思是他们被称为有目的管理，所以我们会对C / C ++开发人员咧嘴一笑，对吧？但事实并非如此。总会有一种情况，我们失去对一个对象的引用，但同时认为一切正常：GC将收集垃圾，包括我们的对象。但事实证明，内存增长了。我们进入内存分析程序，看到其他东西保存了这个对象。问题是，在.NET平台和外部类的体系结构中，可以存在隐式捕获实体引用的逻辑。</p>
+<p>创建IDispo&shy;sable背后的想法是释放非托管资源。但与许多其他模式一样，它对其他任务非常有用，例如，释放对托管资源的引用。虽然发布托管资源听起来不是很有帮助。我的意思是他们被称为有目的管理，所以我们会对C<span class="spacer"> </span>/<span class="spacer"> </span>C<span class="spacer"> </span>++开发人员咧嘴一笑，对吧？但事实并非如此。总会有一种情况，我们失去对一个对象的引用，但同时认为一切正常：GC将收集垃圾，包括我们的对象。但事实证明，内存增长了。我们进入内存分析程序，看到其他东西保存了这个对象。问题是，在.NET平台和外部类的体系结构中，可以存在隐式捕获实体引用的逻辑。</p>
 <div class="paragraph-right-side">26</div>
 </div>
 <h3 id="section-4">代表，活动</h3>
@@ -2161,7 +2154,7 @@ SafeHandle / CriticalHandle / SafeBuffer / 派生类型</a></li>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">27</div>
-<p>这段代码显示哪个问题？辅助类在<code>_action</code>字段中存储<code>Action</code>类型委托，在<code>Save&shy;For&shy;Use&shy;In&shy;Future</code>方法中接受。接下来，<code>Primary</code>类中的<code>Plan&shy;Say&shy;Hello</code>方法将指向<code>Stra&shy;tegy</code>方法的指针传递给<code>Secon&shy;dary</code>类。这很奇怪但是，如果在这个例子中，你传递一个静态方法或一个实例方法，传递的<code>Save&shy;For&shy;Use&shy;In&shy;Future</code>将不会被改变，但是<code>Primary</code>类实例将被隐式引用或根本不被引用。从外表看起来你指示要调用哪种方法。但实际上，委托不仅使用方法指针而且还使用指向类实例的指针。主叫方应该了解它必须调用“策略”方法的类的哪个实例！这是<code>Secon&shy;dary</code>类的实例已隐式接受并保存指向<code>Primary</code>类实例的指针，尽管未明确指出。对我们来说，这意味着只有当我们在其他地方传递<code>_foo</code>指针而失去对<code>Primary</code>的引用时，GC <em>才会收集</em><code>Primary</code>对象，因为<code>Secon&shy;dary</code>将保留它。我们怎样才能避免这种情况呢？我们需要一种坚定的方法来释放对我们的引用。完全符合这一目的的机制是<code>IDis&shy;po&shy;sable</code></p>
+<p>这段代码显示哪个问题？辅助类在<code>_action</code>字段中存储<code>Action</code>类型委托，在<code>Save&shy;For&shy;Use&shy;In&shy;Future</code>方法中接受。接下来，<code>Primary</code>类中的<code>Plan&shy;Say&shy;Hello</code>方法将指向<code>Strategy</code>方法的指针传递给<code>Secon&shy;dary</code>类。这很奇怪但是，如果在这个例子中，你传递一个静态方法或一个实例方法，传递的<code>Save&shy;For&shy;Use&shy;In&shy;Future</code>将不会被改变，但是<code>Primary</code>类实例将被隐式引用或根本不被引用。从外表看起来你指示要调用哪种方法。但实际上，委托不仅使用方法指针而且还使用指向类实例的指针。主叫方应该了解它必须调用“策略”方法的类的哪个实例！这是<code>Secon&shy;dary</code>类的实例已隐式接受并保存指向<code>Primary</code>类实例的指针，尽管未明确指出。对我们来说，这意味着只有当我们在其他地方传递<code>_foo</code>指针而失去对<code>Primary</code>的引用时，GC<span class="spacer"> </span><em>才会收集</em><code>Primary</code>对象，因为<code>Secon&shy;dary</code>将保留它。我们怎样才能避免这种情况呢？我们需要一种坚定的方法来释放对我们的引用。完全符合这一目的的机制是<code>IDispo&shy;sable</code></p>
 <div class="paragraph-right-side">27</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2192,7 +2185,7 @@ SafeHandle / CriticalHandle / SafeBuffer / 派生类型</a></li>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">28</div>
-<p>现在这个例子看起来可以接 如果一个类的实例被传递给第三方并且在此过程中对<code>_action</code>委托的引用将丢失，我们将其设置为零，并且将通知第三方有关实例的销毁并删除该引用它。
+<p>现在这个例子看起来可以接<span class="spacer"> </span>如果一个类的实例被传递给第三方并且在此过程中对<code>_action</code>委托的引用将丢失，我们将其设置为零，并且将通知第三方有关实例的销毁并删除该引用它。
 代表运行代码的第二个危险是<code>event</code>的功能原则。让我们来看看它们的结果：</p>
 <div class="paragraph-right-side">28</div>
 </div>
@@ -2213,7 +2206,7 @@ SafeHandle / CriticalHandle / SafeBuffer / 派生类型</a></li>
 <p>C＃messa&shy;ging隐藏了事件的内部，并保存了所有订阅通过<code>event</code>更新的对象。如果出现问题，对已签名对象的引用仍保留在<code>On&shy;Disposed</code>中并保留对象。这是一种奇怪的情况，因为在架构方面我们得到了一个“事件源”的概念，它不应该在逻辑上保持任何东西。但事实上，订阅更新的对象是隐含的。此外，虽然实体属于我们，但我们无法更改此代理数组中的某些内容。我们唯一能做的就是通过为事件源分配null来删除此列表。</p>
 <div class="paragraph-right-side">29</div>
 </div>
-<p>第二种方法是显式实现<code>add</code> /<code>remove</code>方法，这样我们就可以控制一个委托集合。</p>
+<p>第二种方法是显式实现<code>add</code><span class="spacer"> </span>/<code>remove</code>方法，这样我们就可以控制一个委托集合。</p>
 <blockquote>
 <p>这里可能会出现另一种隐含情况。看起来如果将null赋给事件源，以下对事件的订阅将导致<code>Null&shy;Reference&shy;Exception</code>。我认为这更符合逻辑。</p>
 </blockquote>
@@ -2238,7 +2231,7 @@ SafeHandle / CriticalHandle / SafeBuffer / 派生类型</a></li>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">32</div>
-<p>同意，这条线看起来很安全。但它隐藏了一个大问题：现在<code>button</code>变量隐式引用<code>service</code>并保留它。即使我们决定不再需要<code>service</code>，当这个变量存活时，<code>button</code>仍将保持引用。解决这个问题的方法之一是使用一个模式从任何<code>Action</code>（<code>System&shy;.Reactive&shy;.Disposables</code>）创建<code>IDis&shy;po&shy;sable</code>：</p>
+<p>同意，这条线看起来很安全。但它隐藏了一个大问题：现在<code>button</code>变量隐式引用<code>service</code>并保留它。即使我们决定不再需要<code>service</code>，当这个变量存活时，<code>button</code>仍将保持引用。解决这个问题的方法之一是使用一个模式从任何<code>Action</code>（<code>System&shy;.Reactive&shy;.Disposables</code>）创建<code>IDispo&shy;sable</code>：</p>
 <div class="paragraph-right-side">32</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2259,7 +2252,7 @@ subscription.Dispose();
 <h3 id="threadabort">Thread&shy;Abort保护</h3>
 <div class="paragraph-container">
 <div class="paragraph-left-side">33</div>
-<p>为第三方开发人员创建库时，无法预测其在第三方应用程序中的行为。有时您只能猜测程序员对您的库所做的事情会导致特定的结果。一个例子是在多线程环境中运行，当资源清理的一致性成为关键问题时。注意，当我们编写<code>Dispose（）</code>方法时，我们可以保证不存在异常。但是，我们无法确保在运行<code>Dispose（）</code>方法时不会出现“Thread&shy;Abort&shy;Exception”，这会禁用我们的执行线程。在这里我们应该记住，当发生<code>Thread&shy;Abort&shy;Exception</code>时，无论如何都会执行所有catch / finally块（在catch / finally块的末尾Thread&shy;Abort进一步发生）。因此，要确保使用Thread执行某些代码。</p>
+<p>为第三方开发人员创建库时，无法预测其在第三方应用程序中的行为。有时您只能猜测程序员对您的库所做的事情会导致特定的结果。一个例子是在多线程环境中运行，当资源清理的一致性成为关键问题时。注意，当我们编写<code>Dispose（）</code>方法时，我们可以保证不存在异常。但是，我们无法确保在运行<code>Dispose（）</code>方法时不会出现“Thread&shy;Abort&shy;Exception”，这会禁用我们的执行线程。在这里我们应该记住，当发生<code>Thread&shy;Abort&shy;Exception</code>时，无论如何都会执行所有catch<span class="spacer"> </span>/<span class="spacer"> </span>finally块（在catch<span class="spacer"> </span>/<span class="spacer"> </span>finally块的末尾Thread&shy;Abort进一步发生）。因此，要确保使用Thread执行某些代码。</p>
 <div class="paragraph-right-side">33</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2288,7 +2281,7 @@ subscription.Dispose();
 }
 </pre></div>
 </div>
-<p>即使在调用<code>Unsu&shy;bscribe</code>方法和执行其指令之间出现<code>Thread&shy;.Abort</code>，也可以保护它免受这种中止的影响，并且可以顺利运行。</p>
+<p>即使在调用<code>Unsub&shy;scribe</code>方法和执行其指令之间出现<code>Thread&shy;.Abort</code>，也可以保护它免受这种中止的影响，并且可以顺利运行。</p>
 <h2 id="section-5">结果</h2>
 <h3 id="section-6">好处</h3>
 <p>好吧，我们学到了很多关于这个最简单的模式。让我们确定它的优点：</p>
@@ -2302,14 +2295,14 @@ subscription.Dispose();
 <h3 id="section-7">缺点</h3>
 <p>在我看来，这种模式比缺点更有缺点。</p>
 <ol>
-<li>一方面，任何实现此模式的类型都指示其他部分，如果他们使用它，他们会采取某种公开要约。这是隐含的，因为在公开提供的情况下，类型的用户并不总是知道该类型具有该接口。因此，您必须按照IDE提示（键入句点，Dis ..并检查类的筛选成员列表中是否存在方法）。如果您看到Dispose模式，则应在代码中实现它。有时它不会立即发生，在这种情况下，您应该通过添加功能的类型系统实现模式。一个很好的例子是<code>IEnu&shy;me&shy;rator <T></code>需要<code>IDis&shy;po&shy;sable</code>。</li>
-<li>通常在设计接口时，当其中一个接口必须继承IDis&shy;po&shy;sable时，需要将IDis&shy;po&shy;sable插入到类型接口的系统中。 在我看来，这会破坏我们设计的界面。 我的意思是，当您设计界面时，首先要创建交互协议。 这是您可以使用隐藏在界面后面的内容执行的一组操作。 <code>Dispose（）</code>是一种用于销毁类实例的方法。 这与交互协议的本质相矛盾。 实际上，这些是渗透到界面中的实现细节。</li>
-<li>尽管被确定，Dispose（）并不意味着直接破坏一个物体。该对象在* destroy *之后仍然存在，但在另一个状态下。要使其成立，Check&shy;Disposed（）必须是每个公共方法的第一个命令。这看起来像是一个临时的解决方案，有人给我们说：“前进和繁衍”;</li>
-<li>通过* explicit *实现获得一个实现<code>IDis&shy;po&shy;sable</code>的类型的机会也很小。或者你可以得到一个实现IDis&shy;po&shy;sable的类型，但没有机会确定谁必须销毁它：你或者给你的派对。这导致了Dispose（）的多次调用的反模式，允许销毁被破坏的对象;</li>
-<li>完整的实现很困难，托管和非托管资源也不同。在这里，通过GC促进开发人员工作的尝试看起来很尴尬。您可以覆盖<code>virtual void Dispose（）</code>方法并引入一些实现整个模式的Disposable&shy;Object类型，但这并不能解决与模式相关的其他问题;</li>
+<li>一方面，任何实现此模式的类型都指示其他部分，如果他们使用它，他们会采取某种公开要约。这是隐含的，因为在公开提供的情况下，类型的用户并不总是知道该类型具有该接口。因此，您必须按照IDE提示（键入句点，Dis<span class="spacer"> </span>..并检查类的筛选成员列表中是否存在方法）。如果您看到Dispose模式，则应在代码中实现它。有时它不会立即发生，在这种情况下，您应该通过添加功能的类型系统实现模式。一个很好的例子是<code>IEnume&shy;rator<span class="spacer"> </span><T></code>需要<code>IDispo&shy;sable</code>。</li>
+<li>通常在设计接口时，当其中一个接口必须继承IDispo&shy;sable时，需要将IDispo&shy;sable插入到类型接口的系统中。<span class="spacer"> </span>在我看来，这会破坏我们设计的界面。<span class="spacer"> </span>我的意思是，当您设计界面时，首先要创建交互协议。<span class="spacer"> </span>这是您可以使用隐藏在界面后面的内容执行的一组操作。<span class="spacer"> </span><code>Dispose（）</code>是一种用于销毁类实例的方法。<span class="spacer"> </span>这与交互协议的本质相矛盾。<span class="spacer"> </span>实际上，这些是渗透到界面中的实现细节。</li>
+<li>尽管被确定，Dispose（）并不意味着直接破坏一个物体。该对象在*<span class="spacer"> </span>destroy<span class="spacer"> </span>*之后仍然存在，但在另一个状态下。要使其成立，Check&shy;Disposed（）必须是每个公共方法的第一个命令。这看起来像是一个临时的解决方案，有人给我们说：“前进和繁衍”;</li>
+<li>通过*<span class="spacer"> </span>explicit<span class="spacer"> </span>*实现获得一个实现<code>IDispo&shy;sable</code>的类型的机会也很小。或者你可以得到一个实现IDispo&shy;sable的类型，但没有机会确定谁必须销毁它：你或者给你的派对。这导致了Dispose（）的多次调用的反模式，允许销毁被破坏的对象;</li>
+<li>完整的实现很困难，托管和非托管资源也不同。在这里，通过GC促进开发人员工作的尝试看起来很尴尬。您可以覆盖<code>virtual<span class="spacer"> </span>void<span class="spacer"> </span>Dispose（）</code>方法并引入一些实现整个模式的Disposable&shy;Object类型，但这并不能解决与模式相关的其他问题;</li>
 <li>通常，Dispose（）方法在文件末尾实现，而'.ctor'在开头声明。如果修改类或引入新资源，很容易忘记为它们添加处理。</li>
-<li>最后，当对象完全或部分实现该模式的对象图使用模式时，很难确定多线程环境中* dest&shy;ruc&shy;tion *的顺序。我的意思是Dispose（）可以从图的不同端开始。这里最好使用其他模式，例如Life&shy;time模式。</li>
-<li>平台开发人员希望自动化内存控制与现实相结合：应用程序经常与非托管代码交互+您需要控制对象引用的释放，以便垃圾收集器可以收集它们。这在理解诸如“我们应该如何正确实现模式”这样的问题时增加了很多困惑？“有可靠的模式”吗？也许叫<code>delete obj; 删除[] arr;</code>更简单？</li>
+<li>最后，当对象完全或部分实现该模式的对象图使用模式时，很难确定多线程环境中*<span class="spacer"> </span>dest&shy;ruc&shy;tion<span class="spacer"> </span>*的顺序。我的意思是Dispose（）可以从图的不同端开始。这里最好使用其他模式，例如Life&shy;time模式。</li>
+<li>平台开发人员希望自动化内存控制与现实相结合：应用程序经常与非托管代码交互+您需要控制对象引用的释放，以便垃圾收集器可以收集它们。这在理解诸如“我们应该如何正确实现模式”这样的问题时增加了很多困惑？“有可靠的模式”吗？也许叫<code>delete<span class="spacer"> </span>obj;<span class="spacer"> </span>删除[]<span class="spacer"> </span>arr;</code>更简单？</li>
 </ol>
 <h2 id="section-8">域名卸载并退出应用程序</h2>
 <div class="paragraph-container">
@@ -2348,12 +2341,12 @@ subscription.Dispose();
 <h2 id="section-9">典型的实现错误</h2>
 <div class="paragraph-container">
 <div class="paragraph-left-side">38</div>
-<p>正如我向您展示的那样，没有通用模式来实现IDis&shy;po&shy;sable。此外，一些对自动内存控制的依赖会误导人们，并且在实现模式时会做出令人困惑的决定。整个.NET Frame&shy;work在其实现中充满了错误。为了证明我的观点，让我们准确地使用.NET Frame&shy;work的例子来看看这些错误。所有实现都可通过以下方式获得：<a href="http://referencesource.microsoft.com/#mscorlib/system/idisposable.cs,1f55292c3174123d,references">IDis&shy;po&shy;sable Usages</a></p>
+<p>正如我向您展示的那样，没有通用模式来实现IDispo&shy;sable。此外，一些对自动内存控制的依赖会误导人们，并且在实现模式时会做出令人困惑的决定。整个.NET<span class="spacer"> </span>Frame&shy;work在其实现中充满了错误。为了证明我的观点，让我们准确地使用.NET<span class="spacer"> </span>Frame&shy;work的例子来看看这些错误。所有实现都可通过以下方式获得：<a href="http://referencesource.microsoft.com/#mscorlib/system/idisposable.cs,1f55292c3174123d,references">IDispo&shy;sable<span class="spacer"> </span>Usages</a></p>
 <div class="paragraph-right-side">38</div>
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">39</div>
-<p><strong>File&shy;Entry Class</strong> <a href="http://referencesource.microsoft.com/#mscorlib/system/deployment/cmsinterop.cs,eeedb7095d7d3053,references">cmsin&shy;terop.cs</a></p>
+<p><strong>File&shy;Entry<span class="spacer"> </span>Class</strong><span class="spacer"> </span><a href="http://referencesource.microsoft.com/#mscorlib/system/deployment/cmsinterop.cs,eeedb7095d7d3053,references">cmsin&shy;terop.cs</a></p>
 <div class="paragraph-right-side">39</div>
 </div>
 <blockquote>
@@ -2401,11 +2394,11 @@ subscription.Dispose();
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">40</div>
-<p><strong>Semaphore&shy;Slim Class</strong> <a href="https://github.com/dotnet/coreclr/blob/cbcdbd25e74ff9d963eafa202dd63504ca537f7e/src/mscorlib/src/System/Threading/SemaphoreSlim.cs">System&shy;/Threading&shy;/Semaphore&shy;Slim&shy;.cs</a></p>
+<p><strong>Semaphore&shy;Slim<span class="spacer"> </span>Class</strong><span class="spacer"> </span><a href="https://github.com/dotnet/coreclr/blob/cbcdbd25e74ff9d963eafa202dd63504ca537f7e/src/mscorlib/src/System/Threading/SemaphoreSlim.cs">System&shy;/Threading&shy;/Semaphore&shy;Slim&shy;.cs</a></p>
 <div class="paragraph-right-side">40</div>
 </div>
 <blockquote>
-<p>此错误位于.NET Frame&shy;work关于IDis&shy;po&shy;sable的错误的顶部：对于没有终结器的类，Suppress&shy;Finalize。这很常见。</p>
+<p>此错误位于.NET<span class="spacer"> </span>Frame&shy;work关于IDispo&shy;sable的错误的顶部：对于没有终结器的类，Suppress&shy;Finalize。这很常见。</p>
 </blockquote>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
 <span style="color:Blue;">public</span> <span style="color:Blue;">void</span> Dispose()
@@ -2436,7 +2429,7 @@ subscription.Dispose();
 </div>
 <div class="paragraph-container">
 <div class="paragraph-left-side">41</div>
-<p><strong>Calling Close&shy;+Dispose</strong> <a href="https://github.com/alexguirre/NativeWatcher/blob/7208d463c41a709f29c60264bc518c6c0c5713cc/NativeWatcher/Forms/FormsManager.cs">Some Native&shy;Watcher project code</a></p>
+<p><strong>Calling<span class="spacer"> </span>Close&shy;+Dispose</strong><span class="spacer"> </span><a href="https://github.com/alexguirre/NativeWatcher/blob/7208d463c41a709f29c60264bc518c6c0c5713cc/NativeWatcher/Forms/FormsManager.cs">Some<span class="spacer"> </span>Native&shy;Watcher<span class="spacer"> </span>project<span class="spacer"> </span>code</a></p>
 <div class="paragraph-right-side">41</div>
 </div>
 <blockquote>
@@ -2444,7 +2437,7 @@ subscription.Dispose();
 </blockquote>
 <div class="paragraph-container">
 <div class="paragraph-left-side">42</div>
-<p>In fact, Close is another pattern to make things clearer for people. However&shy;, it made everything more unclear.</p>
+<p>In<span class="spacer"> </span>fact,<span class="spacer"> </span>Close<span class="spacer"> </span>is<span class="spacer"> </span>another<span class="spacer"> </span>pattern<span class="spacer"> </span>to<span class="spacer"> </span>make<span class="spacer"> </span>things<span class="spacer"> </span>clearer<span class="spacer"> </span>for<span class="spacer"> </span>people.<span class="spacer"> </span>However&shy;,<span class="spacer"> </span>it<span class="spacer"> </span>made<span class="spacer"> </span>everything<span class="spacer"> </span>more<span class="spacer"> </span>unclear.</p>
 <div class="paragraph-right-side">42</div>
 </div>
 <div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
@@ -2461,12 +2454,12 @@ subscription.Dispose();
 </div>
 <h2 id="section-10">一般结果</h2>
 <ol>
-<li>IDis&shy;po&shy;sable是平台的标准，其实施的质量会影响整个应用程序的质量。此外，在某些情况下，它会影响应用程序的安全性，可以通过非托管资源进行攻击。</li>
-<li>IDis&shy;po&shy;sable的实施必须最大限度地提高效率。对于最终化部分尤其如此，它与其余代码并行工作，加载垃圾收集器。</li>
-<li>实现IDis&shy;po&shy;sable时，不应将Dispose（）与类的公共方法同时使用。破坏不能与使用同时进行。在设计将使用IDis&shy;po&shy;sable对象的类型时应考虑这一点。
+<li>IDispo&shy;sable是平台的标准，其实施的质量会影响整个应用程序的质量。此外，在某些情况下，它会影响应用程序的安全性，可以通过非托管资源进行攻击。</li>
+<li>IDispo&shy;sable的实施必须最大限度地提高效率。对于最终化部分尤其如此，它与其余代码并行工作，加载垃圾收集器。</li>
+<li>实现IDispo&shy;sable时，不应将Dispose（）与类的公共方法同时使用。破坏不能与使用同时进行。在设计将使用IDispo&shy;sable对象的类型时应考虑这一点。
 但是，应该保护不要同时从两个线程调用<code>Dispose（）</code>。这是因为Dispose（）不应该产生错误。</li>
-<li>包含非托管资源的类型应与其他类型分开。我的意思是如果你包装一个非托管资源，你应该为它分配一个单独的类型。此类型应包含fina&shy;li&shy;za&shy;tion，并应继承自<code>Safe&shy;Handle / Critical&shy;Handle / Critical&shy;Finalizer&shy;Object</code>。这种责任分离将导致类型系统的改进支持，并将通过Dispose（）简化实现以销毁类型的实例：具有此实现的类型将不需要实现终结器。</li>
-<li>一般来说，这种模式在使用和代码维护方面都不舒服。当我们通过<code>Life&shy;time</code>模式破坏对象的状态时，我们应该使用Inver&shy;sion of Control方法。但是，我们将在下一节中讨论它。</li>
+<li>包含非托管资源的类型应与其他类型分开。我的意思是如果你包装一个非托管资源，你应该为它分配一个单独的类型。此类型应包含fina&shy;li&shy;za&shy;tion，并应继承自<code>Safe&shy;Handle<span class="spacer"> </span>/<span class="spacer"> </span>Critical&shy;Handle<span class="spacer"> </span>/<span class="spacer"> </span>Critical&shy;Finalizer&shy;Object</code>。这种责任分离将导致类型系统的改进支持，并将通过Dispose（）简化实现以销毁类型的实例：具有此实现的类型将不需要实现终结器。</li>
+<li>一般来说，这种模式在使用和代码维护方面都不舒服。当我们通过<code>Life&shy;time</code>模式破坏对象的状态时，我们应该使用Inver&shy;sion<span class="spacer"> </span>of<span class="spacer"> </span>Control方法。但是，我们将在下一节中讨论它。</li>
 </ol>
 
         </div>
