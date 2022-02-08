@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.NET Platform Architecture</title>
+</head>
+<body>
+    <script src="../../../ru/res/jquery.js"></script>
+    <link rel="stylesheet" href="../../../ru/res/bootstrap.css">
+    <link rel="stylesheet" href="../../../ru/res/awesome.css">
+    <link rel="stylesheet" href="../../../ru/res/default.css">
+   
+    <header class="header fixed d-block d-lg-none">
+        <p class="conflogo">KB</p> 
+
+        <!-- mobile-menu -->
+
+        <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+              <span></span>
+            </label>
+        
+            <div class="menu__box">
+                <p class="menu__header_current">На странице</p>
+                <ol class="menu__list">
+                    
+                </ol>
+                <p class="menu__header_total">Содержание</p>
+                <ul class="menu__header_list">
+                    <li>
+                        <p class="menu__header_total_sub">
+                            Управление памятью
+                        </p>
+                        <p class="menu__header_total_sub2">
+                            Теоретические вопросы:
+                        </p>
+                        <ol class="menu__list">
+                            <li><p><a href="../../../ruru/Memory/01-00-MemoryManagement-Intro.html">
+                                Общие слова
+                            </a></p></li>
+                            <li>
+                                <p>
+                                <a href="../../../ruru/Memory/01-02-MemoryManagement-Basics.html">Введение в управление памятью</a></p>
+                            </li>
+                            <li>
+                                <p>
+                                <a href="../../../ruru/Memory/01-04-MemoryManagement-ThreadStack.html">Стек потока</a></p>
+                            </li>
+                            <li>
+                                <p>
+                                <a href="../../../ruru/Memory/01-06-MemoryManagement-EntitiesLifetime.html">Время жизни сущности</a></p>
+                            </li>
+                            <li>
+                                <p>
+                                <a href="../../../ruru/Memory/01-08-MemoryManagement-RefVsValueTypes.html">RefTypes, ValueTypes, Boxing &amp; Unboxing</a></p>
+                            </li>
+                            <li>
+                                <p>
+                                <a href="../../../ruru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон IDisposable</a></p>
+                            </li>
+                            <li>
+                                <p>
+                                <a href="../../../ruru/Memory/01-12-MemoryManagement-Finalizer.html">Финализация</a></p>
+                            </li>
+                            <li>
+                                <p>
+                                <a href="../../../ruru/Memory/01-14-MemoryManagement-Results.html">Выводы</a></p>
+                            </li>
+                        </ol>
+                        <p class="menu__header_total_sub2">
+                            Практические вопросы:
+                        </p>
+                        <ol class="menu__list" start="9">
+                            <li><p><a href="../../../ruru/Memory/02-02-MemoryManagement-MemorySpan.html">
+                                Memory&lt;T&gt;, Span&lt;T&gt;
+                            </a></p></li>
+                        </ol> 
+                    </li>
+                    <li>
+                        <p class="menu__header_total_sub">
+                            Поток исполнения команд
+                        </p>
+                        <p class="menu__header_total_sub2">
+                            Многопоточность:
+                        </p>
+                        <ol class="menu__list">
+                            <li><p><a href="../../../ruru/Execution/1-Threads/1-OS/1-threadsScheduling.html">
+                                Потоки и планирование потоков
+                            </a></p></li>
+                        </ol>
+                        <p class="menu__header_total_sub2">
+                            Искл­юч­ител­ьные си­ту­а­ции:
+                        </p>
+                        <ol class="menu__list" start="2">
+                            <li><p><a href="../../../ruru/Execution/2-ExceptionalFlow/1-Exceptions-Intro.html">
+                                Введение в исключительные ситуации
+                            </a></p></li>
+                            <li><p><a href="../../../ruru/Execution/2-ExceptionalFlow/2-Exceptions-Architecture.html">
+                                Архитектура исключительной ситуации
+                            </a></p></li>
+                            <li><p><a href="../../../ruru/Execution/2-ExceptionalFlow/3-Exceptions-Events.html">
+                                События об исключительных ситуациях
+                            </a></p></li>
+                            <li><p><a href="../../../ruru/Execution/2-ExceptionalFlow/4-Exceptions-Types.html">
+                                Виды исключительных ситуаций
+                            </a></p></li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="book-container">
+        <div class="article-container">
+            <!--<p class="d-xs-block d-sm-none">XS</p>
+            <p class="d-none d-xs-block d-sm-none">SM</p>
+            <p class="d-none d-sm-block d-md-none">MD</p>
+            <p class="d-none d-lg-block d-xl-none">LG</p>
+            <p class="d-none d-xl-block">XL</p> -->
+            <h2 id="sweep-collect">Sweep<span class="spacer"> </span>&<span class="spacer"> </span>Collect</h2>
+<blockquote class="big-quote">
+<p><span class="spacer"> </span>Адап&shy;та&shy;ция<span class="spacer"> </span>кур&shy;са<span class="spacer"> </span>в<span class="spacer"> </span>про&shy;цес&shy;се</p>
+</blockquote>
+<div class="paragraph-container">
+<div class="paragraph-left-side">01</div>
+<p>Мы<span class="spacer"> </span>расс&shy;мот&shy;ре&shy;ли<span class="spacer"> </span>прак&shy;тич&shy;ес&shy;ки<span class="spacer"> </span>все<span class="spacer"> </span>ста&shy;дии,<span class="spacer"> </span>кро&shy;ме<span class="spacer"> </span>пос&shy;лед&shy;ней.<span class="spacer"> </span>Эта<span class="spacer"> </span>фа&shy;за<span class="spacer"> </span>зач&shy;ис&shy;т&shy;ки<span class="spacer"> </span>и<span class="spacer"> </span>сжа&shy;тия.</p>
+<div class="paragraph-right-side">01</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">02</div>
+<p>Если<span class="spacer"> </span>на<span class="spacer"> </span>фа&shy;зе<span class="spacer"> </span>пла&shy;ни&shy;ро&shy;ва&shy;ния<span class="spacer"> </span>бы&shy;ло<span class="spacer"> </span>ре&shy;ше&shy;но<span class="spacer"> </span>ис&shy;поль&shy;зо&shy;вать<span class="spacer"> </span>sweep,<span class="spacer"> </span>мы<span class="spacer"> </span>дол&shy;ж&shy;ны<span class="spacer"> </span>осущ&shy;ес&shy;т&shy;вить<span class="spacer"> </span>GC<span class="spacer"> </span>пу&shy;тем<span class="spacer"> </span>от&shy;да&shy;чи<span class="spacer"> </span>всех<span class="spacer"> </span>не&shy;ис&shy;поль&shy;зу&shy;е&shy;мых<span class="spacer"> </span>участ&shy;ков<span class="spacer"> </span>на<span class="spacer"> </span>пе&shy;ре&shy;ис&shy;поль&shy;зо&shy;ва&shy;ние.<span class="spacer"> </span>Ког&shy;да<span class="spacer"> </span>на&shy;ши<span class="spacer"> </span>allo&shy;ca&shy;tion<span class="spacer"> </span>con&shy;text,<span class="spacer"> </span>ко&shy;то&shy;рые<span class="spacer"> </span>сущ&shy;ес&shy;тву&shy;ют<span class="spacer"> </span>от<span class="spacer"> </span>раз&shy;ных<span class="spacer"> </span>по&shy;то&shy;ков,<span class="spacer"> </span>нач&shy;нут<span class="spacer"> </span>зак&shy;ан&shy;чив&shy;ать&shy;ся,<span class="spacer"> </span>они<span class="spacer"> </span>бу&shy;дут<span class="spacer"> </span>за&shy;ни&shy;мать<span class="spacer"> </span>эти<span class="spacer"> </span>сво&shy;бод&shy;ные<span class="spacer"> </span>учас&shy;тки<span class="spacer"> </span>меж&shy;ду<span class="spacer"> </span>дру&shy;ги&shy;ми<span class="spacer"> </span>объе&shy;ктами,<span class="spacer"> </span>та&shy;ким<span class="spacer"> </span>об&shy;ра&shy;зом<span class="spacer"> </span>ис&shy;клю&shy;чая<span class="spacer"> </span>фа&shy;зу<span class="spacer"> </span>сжа&shy;тия.<span class="spacer"> </span>Фа&shy;за<span class="spacer"> </span>сжа&shy;тия<span class="spacer"> </span>ра&shy;бо&shy;та&shy;ет<span class="spacer"> </span>доль&shy;ше.<span class="spacer"> </span>Пос&shy;ле<span class="spacer"> </span>этого<span class="spacer"> </span>этапа<span class="spacer"> </span>мы<span class="spacer"> </span>имеем<span class="spacer"> </span>та&shy;кую<span class="spacer"> </span>таб&shy;ли&shy;цу<span class="spacer"> </span>01:27.<span class="spacer"> </span>У<span class="spacer"> </span>нас<span class="spacer"> </span>есть<span class="spacer"> </span>по&shy;ко&shy;ле&shy;ния<span class="spacer"> </span>с<span class="spacer"> </span>ба&shy;ке&shy;та&shy;ми,<span class="spacer"> </span>ко&shy;то&shy;рые<span class="spacer"> </span>ука&shy;зы&shy;вают<span class="spacer"> </span>на<span class="spacer"> </span>од&shy;нос&shy;вя&shy;за&shy;ный<span class="spacer"> </span>спи&shy;сок<span class="spacer"> </span>сво&shy;бод&shy;ных<span class="spacer"> </span>участ&shy;ков.<span class="spacer"> </span>Ба&shy;ке&shy;ты<span class="spacer"> </span>сгруп&shy;пи&shy;ро&shy;ва&shy;ны<span class="spacer"> </span>по<span class="spacer"> </span>раз&shy;ме&shy;рам.<span class="spacer"> </span>Внут&shy;ри<span class="spacer"> </span>од&shy;но&shy;го<span class="spacer"> </span>ба&shy;ке&shy;та<span class="spacer"> </span>идет<span class="spacer"> </span>спи&shy;сок<span class="spacer"> </span>участ&shy;ков<span class="spacer"> </span>при&shy;мер&shy;но<span class="spacer"> </span>од&shy;но&shy;го<span class="spacer"> </span>раз&shy;ме&shy;ра.<span class="spacer"> </span>Мы<span class="spacer"> </span>мо&shy;жем<span class="spacer"> </span>поп&shy;ро&shy;сить<span class="spacer"> </span>у<span class="spacer"> </span>ба&shy;ке&shy;тов<span class="spacer"> </span>учас&shy;ток<span class="spacer"> </span>нуж&shy;но&shy;го<span class="spacer"> </span>раз&shy;ме&shy;ра,<span class="spacer"> </span>и<span class="spacer"> </span>он<span class="spacer"> </span>по<span class="spacer"> </span>прин&shy;ци&shy;пу<span class="spacer"> </span>first<span class="spacer"> </span>fit<span class="spacer"> </span>най&shy;дет<span class="spacer"> </span>нуж&shy;ный<span class="spacer"> </span>ба&shy;кет<span class="spacer"> </span>и<span class="spacer"> </span>че&shy;рез<span class="spacer"> </span>best<span class="spacer"> </span>fit<span class="spacer"> </span>най&shy;дет<span class="spacer"> </span>под&shy;хо&shy;дя&shy;щий<span class="spacer"> </span>учас&shy;ток<span class="spacer"> </span>внут&shy;ри<span class="spacer"> </span>ба&shy;ке&shy;та.</p>
+<div class="paragraph-right-side">02</div>
+</div>
+<p>Gaps&shy;,<span class="spacer"> </span>ко&shy;то&shy;рые<span class="spacer"> </span>мень&shy;ше<span class="spacer"> </span>раз&shy;ме&shy;ра<span class="spacer"> </span>объе&shy;кта<span class="spacer"> </span>иг&shy;но&shy;ри&shy;ру&shy;ют&shy;ся.</p>
+<div class="paragraph-container">
+<div class="paragraph-left-side">03</div>
+<p>Пос&shy;ле<span class="spacer"> </span>этого<span class="spacer"> </span>saved_pre_plug<span class="spacer"> </span>и<span class="spacer"> </span>saved_post_plugs<span class="spacer"> </span>расс&shy;тав&shy;ля&shy;ют&shy;ся<span class="spacer"> </span>по<span class="spacer"> </span>мес&shy;там.<span class="spacer"> </span>По&shy;том<span class="spacer"> </span>вып&shy;ол&shy;ня&shy;ет&shy;ся<span class="spacer"> </span>ра&shy;бо&shy;та<span class="spacer"> </span>по<span class="spacer"> </span>об&shy;нов&shy;ле&shy;нию<span class="spacer"> </span>оче&shy;реди<span class="spacer"> </span>на<span class="spacer"> </span>фи&shy;на&shy;ли&shy;за&shy;цию.<span class="spacer"> </span>И<span class="spacer"> </span>за&shy;тем<span class="spacer"> </span>-<span class="spacer"> </span>пер&shy;ес&shy;тро&shy;е&shy;ние<span class="spacer"> </span>сег&shy;мен&shy;тов<span class="spacer"> </span>па&shy;мя&shy;ти.</p>
+<div class="paragraph-right-side">03</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">04</div>
+<p>Нап&shy;ри&shy;мер,<span class="spacer"> </span>мо&shy;жет<span class="spacer"> </span>так<span class="spacer"> </span>слу&shy;чит&shy;ся,<span class="spacer"> </span>что<span class="spacer"> </span>пос&shy;ле<span class="spacer"> </span>GC<span class="spacer"> </span>у<span class="spacer"> </span>нас<span class="spacer"> </span>часть<span class="spacer"> </span>стра&shy;ниц<span class="spacer"> </span>или<span class="spacer"> </span>сег&shy;мен&shy;тов<span class="spacer"> </span>боль&shy;ше<span class="spacer"> </span>не<span class="spacer"> </span>нуж&shy;ны.<span class="spacer"> </span>За&shy;чем<span class="spacer"> </span>их<span class="spacer"> </span>дер&shy;жать,<span class="spacer"> </span>ес&shy;ли<span class="spacer"> </span>мож&shy;но<span class="spacer"> </span>от&shy;дать<span class="spacer"> </span>ко&shy;му-то<span class="spacer"> </span>еще?<span class="spacer"> </span>Опе&shy;ра&shy;ци&shy;он&shy;ная<span class="spacer"> </span>сис&shy;те&shy;ма<span class="spacer"> </span>боль&shy;шая.<span class="spacer"> </span>Если<span class="spacer"> </span>не<span class="spacer"> </span>от&shy;дать,<span class="spacer"> </span>то<span class="spacer"> </span>все<span class="spacer"> </span>сос&shy;ед&shy;ние<span class="spacer"> </span>при&shy;ло&shy;же&shy;ния<span class="spacer"> </span>бу&shy;дут<span class="spacer"> </span>руг&shy;ать&shy;ся,<span class="spacer"> </span>что<span class="spacer"> </span>ра&shy;бо&shy;та&shy;ют<span class="spacer"> </span>мед&shy;лен&shy;но.<span class="spacer"> </span>Так<span class="spacer"> </span>и<span class="spacer"> </span>есть:<span class="spacer"> </span>по&shy;то&shy;му<span class="spacer"> </span>что<span class="spacer"> </span>на&shy;ше<span class="spacer"> </span>при&shy;ло&shy;же&shy;ние<span class="spacer"> </span>не<span class="spacer"> </span>ос&shy;во&shy;бо&shy;ди&shy;ло<span class="spacer"> </span>опе&shy;рат&shy;ив&shy;ную<span class="spacer"> </span>па&shy;мять<span class="spacer"> </span>под<span class="spacer"> </span>со&shy;се&shy;дей.</p>
+<div class="paragraph-right-side">04</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">05</div>
+<p>Sweep<span class="spacer"> </span>на<span class="spacer"> </span>LOH<span class="spacer"> </span>ра&shy;бо&shy;та&shy;ет<span class="spacer"> </span>по-дру&shy;го&shy;му.<span class="spacer"> </span>Он<span class="spacer"> </span>не<span class="spacer"> </span>ис&shy;поль&shy;зу&shy;ет<span class="spacer"> </span>пла&shy;ни&shy;ро&shy;ва&shy;ние,<span class="spacer"> </span>он<span class="spacer"> </span>об&shy;хо&shy;дит<span class="spacer"> </span>ку&shy;чу.<span class="spacer"> </span>Сво&shy;бод&shy;ные<span class="spacer"> </span>учас&shy;тки<span class="spacer"> </span>объе&shy;ди&shy;няет<span class="spacer"> </span>с<span class="spacer"> </span>сос&shy;ты&shy;ков&shy;ан&shy;ны&shy;ми<span class="spacer"> </span>в<span class="spacer"> </span>один.<span class="spacer"> </span>Осво&shy;бод&shy;ив&shy;ши&shy;е&shy;ся<span class="spacer"> </span>учас&shy;тки<span class="spacer"> </span>меж&shy;ду<span class="spacer"> </span>за&shy;ня&shy;ты&shy;ми<span class="spacer"> </span>доб&shy;ав&shy;ля&shy;ют&shy;ся<span class="spacer"> </span>в<span class="spacer"> </span>спи&shy;сок<span class="spacer"> </span>сво&shy;бод&shy;ных<span class="spacer"> </span>участ&shy;ков.</p>
+<div class="paragraph-right-side">05</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">06</div>
+<p>Для<span class="spacer"> </span>ме&shy;ня<span class="spacer"> </span>бы&shy;ло<span class="spacer"> </span>от&shy;кро&shy;ве&shy;ни&shy;ем,<span class="spacer"> </span>что<span class="spacer"> </span>в<span class="spacer"> </span>обоих<span class="spacer"> </span>хи&shy;пах<span class="spacer"> </span>ме&shy;хан&shy;из&shy;мы<span class="spacer"> </span>од&shy;ни<span class="spacer"> </span>и<span class="spacer"> </span>те<span class="spacer"> </span>же.<span class="spacer"> </span>Прос&shy;то<span class="spacer"> </span>в<span class="spacer"> </span>од&shy;ном<span class="spacer"> </span>хи&shy;пе<span class="spacer"> </span>у<span class="spacer"> </span>них<span class="spacer"> </span>раз&shy;ные<span class="spacer"> </span>при&shy;о&shy;ри&shy;те&shy;ты.<span class="spacer"> </span>В<span class="spacer"> </span>LOH<span class="spacer"> </span>com&shy;pac&shy;ting<span class="spacer"> </span>в<span class="spacer"> </span>нас&shy;толь&shy;ко<span class="spacer"> </span>низ&shy;ком<span class="spacer"> </span>при&shy;о&shy;ри&shy;те&shy;те,<span class="spacer"> </span>что<span class="spacer"> </span>часть<span class="spacer"> </span>ал&shy;гор&shy;ит&shy;ма<span class="spacer"> </span>прос&shy;то<span class="spacer"> </span>от&shy;клю&shy;че&shy;на.<span class="spacer"> </span>Но<span class="spacer"> </span>в<span class="spacer"> </span>це&shy;лом<span class="spacer"> </span>SOH<span class="spacer"> </span>и<span class="spacer"> </span>LOH<span class="spacer"> </span>ис&shy;поль&shy;зу&shy;ет<span class="spacer"> </span>од&shy;ни<span class="spacer"> </span>и<span class="spacer"> </span>те<span class="spacer"> </span>же<span class="spacer"> </span>ал&shy;гор&shy;ит&shy;мы.</p>
+<div class="paragraph-right-side">06</div>
+</div>
+<p>Compacting&shy;.</p>
+<div class="paragraph-container">
+<div class="paragraph-left-side">07</div>
+<p>Если<span class="spacer"> </span>не&shy;об&shy;хо&shy;ди&shy;мо<span class="spacer"> </span>соз&shy;да&shy;ет&shy;ся<span class="spacer"> </span>но&shy;вый<span class="spacer"> </span>эфем&shy;ер&shy;ный<span class="spacer"> </span>сег&shy;мент.<span class="spacer"> </span>Если<span class="spacer"> </span>фа&shy;за<span class="spacer"> </span>пла&shy;ни&shy;ро&shy;ва&shy;ния<span class="spacer"> </span>ре&shy;ши&shy;ла,<span class="spacer"> </span>что<span class="spacer"> </span>пос&shy;ле<span class="spacer"> </span>сжа&shy;тия<span class="spacer"> </span>мес&shy;та<span class="spacer"> </span>под<span class="spacer"> </span>gen_0<span class="spacer"> </span>бу&shy;дет<span class="spacer"> </span>ма&shy;ло<span class="spacer"> </span>-<span class="spacer"> </span>соз&shy;да&shy;ем<span class="spacer"> </span>но&shy;вый<span class="spacer"> </span>сег&shy;мент.<span class="spacer"> </span>За&shy;ме&shy;ня&shy;ем<span class="spacer"> </span>все<span class="spacer"> </span>ссыл&shy;ки<span class="spacer"> </span>на<span class="spacer"> </span>кор&shy;рек&shy;т&shy;ные.<span class="spacer"> </span>Для<span class="spacer"> </span>этого<span class="spacer"> </span>у<span class="spacer"> </span>нас<span class="spacer"> </span>есть<span class="spacer"> </span>ин&shy;фор&shy;ма&shy;ция<span class="spacer"> </span>по<span class="spacer"> </span>gaps&plugs,<span class="spacer"> </span>по<span class="spacer"> </span>ко&shy;то&shy;рым<span class="spacer"> </span>лег&shy;ко<span class="spacer"> </span>пос&shy;чи&shy;тать<span class="spacer"> </span>все<span class="spacer"> </span>сме&shy;ще&shy;ния.<span class="spacer"> </span>Пе&shy;ред<span class="spacer"> </span>тем,<span class="spacer"> </span>как<span class="spacer"> </span>сжи&shy;мать,<span class="spacer"> </span>мы<span class="spacer"> </span>дол&shy;ж&shy;ны<span class="spacer"> </span>все<span class="spacer"> </span>ссыл&shy;ки<span class="spacer"> </span>по&shy;ме&shy;нять.<span class="spacer"> </span>Со&shy;би&shy;рая<span class="spacer"> </span>gen_0<span class="spacer"> </span>мы<span class="spacer"> </span>прос&shy;мат&shy;ри&shy;ва&shy;ем<span class="spacer"> </span>его<span class="spacer"> </span>и<span class="spacer"> </span>кар&shy;точ&shy;ный<span class="spacer"> </span>стол<span class="spacer"> </span>стар&shy;ше&shy;го<span class="spacer"> </span>по&shy;ко&shy;ле&shy;ния.<span class="spacer"> </span>Ког&shy;да<span class="spacer"> </span>это<span class="spacer"> </span>сде&shy;ла&shy;но<span class="spacer"> </span>-<span class="spacer"> </span>на&shy;чи&shy;на&shy;ем<span class="spacer"> </span>ме&shy;нять<span class="spacer"> </span>ссыл&shy;ки<span class="spacer"> </span>в<span class="spacer"> </span>фа&shy;зе<span class="spacer"> </span>сжа&shy;тия<span class="spacer"> </span>до<span class="spacer"> </span>са&shy;мо&shy;го<span class="spacer"> </span>сжа&shy;тия,<span class="spacer"> </span>что&shy;бы<span class="spacer"> </span>не<span class="spacer"> </span>по&shy;те&shy;рять<span class="spacer"> </span>ин&shy;фор&shy;ма&shy;ция<span class="spacer"> </span>по<span class="spacer"> </span>gaps<span class="spacer"> </span>и<span class="spacer"> </span>оф&shy;се&shy;там.<span class="spacer"> </span>Ска&shy;ни&shy;ру&shy;ем<span class="spacer"> </span>все<span class="spacer"> </span>мес&shy;та,<span class="spacer"> </span>про&shy;из&shy;во&shy;дя<span class="spacer"> </span>за&shy;ме&shy;ну.<span class="spacer"> </span>Сна&shy;ча&shy;ла<span class="spacer"> </span>ссыл&shy;ки<span class="spacer"> </span>со<span class="spacer"> </span>сте&shy;ка,<span class="spacer"> </span>ко&shy;то&shy;рые<span class="spacer"> </span>вклю&shy;ча&shy;ют<span class="spacer"> </span>в<span class="spacer"> </span>се&shy;бя<span class="spacer"> </span>все<span class="spacer"> </span>лок&shy;аль&shy;ные<span class="spacer"> </span>пе&shy;рем&shy;ен&shy;ные<span class="spacer"> </span>и<span class="spacer"> </span>па&shy;рам&shy;ет&shy;ры<span class="spacer"> </span>ме&shy;то&shy;дов,<span class="spacer"> </span>пе&shy;ред&shy;ан&shy;ные<span class="spacer"> </span>че&shy;рез<span class="spacer"> </span>стек,<span class="spacer"> </span>а<span class="spacer"> </span>так<span class="spacer"> </span>же<span class="spacer"> </span>eager<span class="spacer"> </span>roots<span class="spacer"> </span>col&shy;lec&shy;tion.<span class="spacer"> </span>По&shy;том<span class="spacer"> </span>ссыл&shy;ки<span class="spacer"> </span>с<span class="spacer"> </span>по&shy;лей<span class="spacer"> </span>объе&shy;к&shy;тов,<span class="spacer"> </span>по&shy;луч&shy;ен&shy;ные<span class="spacer"> </span>че&shy;рез<span class="spacer"> </span>кар&shy;точ&shy;ный<span class="spacer"> </span>стол.<span class="spacer"> </span>За&shy;тем<span class="spacer"> </span>ссыл&shy;ки<span class="spacer"> </span>с<span class="spacer"> </span>по&shy;лей<span class="spacer"> </span>объе&shy;к&shy;тов<span class="spacer"> </span>SOH<span class="spacer"> </span>и<span class="spacer"> </span>LOH<span class="spacer"> </span>с<span class="spacer"> </span>этапа<span class="spacer"> </span>об&shy;хо&shy;да<span class="spacer"> </span>гра&shy;фа.<span class="spacer"> </span>Так&shy;же<span class="spacer"> </span>ссыл&shy;ки<span class="spacer"> </span>с<span class="spacer"> </span>pre<span class="spacer"> </span>и<span class="spacer"> </span>post<span class="spacer"> </span>plugs,<span class="spacer"> </span>по&shy;то&shy;му<span class="spacer"> </span>что<span class="spacer"> </span>при<span class="spacer"> </span>сох&shy;ра&shy;не&shy;нии<span class="spacer"> </span>ту&shy;да<span class="spacer"> </span>мог&shy;ли<span class="spacer"> </span>поп&shy;асть<span class="spacer"> </span>и<span class="spacer"> </span>ссыл&shy;ки.<span class="spacer"> </span>Pinned<span class="spacer"> </span>plugs<span class="spacer"> </span>queue.<span class="spacer"> </span>Ссыл&shy;ки<span class="spacer"> </span>с<span class="spacer"> </span>по&shy;лей<span class="spacer"> </span>объе&shy;к&shy;тов,<span class="spacer"> </span>на&shy;хо&shy;дящ&shy;их&shy;ся<span class="spacer"> </span>в<span class="spacer"> </span>fina&shy;li&shy;za&shy;tion<span class="spacer"> </span>queue.<span class="spacer"> </span>Ссыл&shy;ки<span class="spacer"> </span>с<span class="spacer"> </span>handle<span class="spacer"> </span>tab&shy;les.</p>
+<div class="paragraph-right-side">07</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">08</div>
+<p>Мы<span class="spacer"> </span>дол&shy;ж&shy;ны<span class="spacer"> </span>вып&shy;ол&shy;нить<span class="spacer"> </span>все<span class="spacer"> </span>эти<span class="spacer"> </span>шесть<span class="spacer"> </span>ша&shy;гов.<span class="spacer"> </span>Вы&shy;вод<span class="spacer"> </span>-<span class="spacer"> </span>чем<span class="spacer"> </span>силь&shy;нее<span class="spacer"> </span>свя&shy;зан&shy;ность<span class="spacer"> </span>гра&shy;фа,<span class="spacer"> </span>тем<span class="spacer"> </span>доль&shy;ше<span class="spacer"> </span>ра&shy;бо&shy;та&shy;ет<span class="spacer"> </span>этот<span class="spacer"> </span>шаг.<span class="spacer"> </span>Нуж&shy;но<span class="spacer"> </span>обойти<span class="spacer"> </span>все<span class="spacer"> </span>это<span class="spacer"> </span>очень<span class="spacer"> </span>ак&shy;кур&shy;ат&shy;но,<span class="spacer"> </span>что&shy;бы<span class="spacer"> </span>не<span class="spacer"> </span>про&shy;ма&shy;хив&shy;ать&shy;ся<span class="spacer"> </span>по<span class="spacer"> </span>ке&shy;шу<span class="spacer"> </span>в<span class="spacer"> </span>рам&shy;ках<span class="spacer"> </span>од&shy;но&shy;го<span class="spacer"> </span>учас&shy;тка<span class="spacer"> </span>па&shy;мя&shy;ти.</p>
+<div class="paragraph-right-side">08</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">09</div>
+<p>Да&shy;лее<span class="spacer"> </span>вып&shy;ол&shy;ня&shy;ет&shy;ся<span class="spacer"> </span>ко&shy;пи&shy;ро&shy;ва&shy;ние<span class="spacer"> </span>объе&shy;к&shy;тов<span class="spacer"> </span>на<span class="spacer"> </span>их<span class="spacer"> </span>но&shy;вые<span class="spacer"> </span>мес&shy;та.<span class="spacer"> </span>Пос&shy;ле<span class="spacer"> </span>то&shy;го,<span class="spacer"> </span>как<span class="spacer"> </span>мы<span class="spacer"> </span>по&shy;ме&shy;ня&shy;ли<span class="spacer"> </span>все<span class="spacer"> </span>ад&shy;ре&shy;са,<span class="spacer"> </span>про&shy;ис&shy;хо&shy;дит<span class="spacer"> </span>са&shy;ма<span class="spacer"> </span>фа&shy;за<span class="spacer"> </span>сжа&shy;тия.<span class="spacer"> </span>Из<span class="spacer"> </span>пос&shy;лед&shy;них<span class="spacer"> </span>байт<span class="spacer"> </span>gaps<span class="spacer"> </span>бер&shy;ет&shy;ся<span class="spacer"> </span>зна&shy;че&shy;ние<span class="spacer"> </span>оф&shy;се&shy;та,<span class="spacer"> </span>и<span class="spacer"> </span>на<span class="spacer"> </span>не&shy;го<span class="spacer"> </span>сме&shy;ща&shy;ют&shy;ся<span class="spacer"> </span>все<span class="spacer"> </span>выж&shy;ив&shy;шие<span class="spacer"> </span>объе&shy;кты,<span class="spacer"> </span>что&shy;бы<span class="spacer"> </span>сжать<span class="spacer"> </span>ку&shy;чу.<span class="spacer"> </span>Естес&shy;тве&shy;нно,<span class="spacer"> </span>кро&shy;ме<span class="spacer"> </span>за&shy;пи&shy;не&shy;ных<span class="spacer"> </span>объе&shy;к&shy;тов<span class="spacer"> </span>и<span class="spacer"> </span>тех,<span class="spacer"> </span>ко&shy;то&shy;рые<span class="spacer"> </span>раз&shy;ме&shy;ще&shy;ны<span class="spacer"> </span>пос&shy;ле<span class="spacer"> </span>них.</p>
+<div class="paragraph-right-side">09</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">10</div>
+<p>Пос&shy;ле<span class="spacer"> </span>этого<span class="spacer"> </span>восс&shy;тан&shy;ав&shy;ли&shy;ва&shy;ют&shy;ся<span class="spacer"> </span>все<span class="spacer"> </span>pre<span class="spacer"> </span>и<span class="spacer"> </span>post<span class="spacer"> </span>plugs<span class="spacer"> </span>учас&shy;тки<span class="spacer"> </span>и<span class="spacer"> </span>ис&shy;прав&shy;ля&shy;ем<span class="spacer"> </span>по&shy;ло&shy;же&shy;ние<span class="spacer"> </span>по&shy;ко&shy;ле&shy;ний<span class="spacer"> </span>(пос&shy;ле<span class="spacer"> </span>GC<span class="spacer"> </span>ну&shy;ле&shy;вое<span class="spacer"> </span>по&shy;ко&shy;ле&shy;ние<span class="spacer"> </span>ста&shy;нов&shy;ит&shy;ся<span class="spacer"> </span>пер&shy;вым,<span class="spacer"> </span>пер&shy;вое<span class="spacer"> </span>-<span class="spacer"> </span>вто&shy;рым<span class="spacer"> </span>и<span class="spacer"> </span>ну&shy;ле&shy;вое<span class="spacer"> </span>сдви&shy;га&shy;ет&shy;ся<span class="spacer"> </span>так,<span class="spacer"> </span>что&shy;бы<span class="spacer"> </span>мож&shy;но<span class="spacer"> </span>бы&shy;ло<span class="spacer"> </span>вы&shy;де&shy;лять<span class="spacer"> </span>па&shy;мять<span class="spacer"> </span>даль&shy;ше).</p>
+<div class="paragraph-right-side">10</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">11</div>
+<p>Пос&shy;ле<span class="spacer"> </span>этого<span class="spacer"> </span>уда&shy;ля&shy;ется<span class="spacer"> </span>и<span class="spacer"> </span>раз&shy;ком&shy;ми&shy;че&shy;и&shy;ва&shy;ет&shy;ся<span class="spacer"> </span>па&shy;мять<span class="spacer"> </span>из-под<span class="spacer"> </span>пол&shy;нос&shy;тью<span class="spacer"> </span>ос&shy;во&shy;бод&shy;ив&shy;ших&shy;ся<span class="spacer"> </span>сег&shy;мен&shy;тов.</p>
+<div class="paragraph-right-side">11</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">12</div>
+<p>Пе&shy;ред<span class="spacer"> </span>каж&shy;дым<span class="spacer"> </span>за&shy;пи&shy;не&shy;ным<span class="spacer"> </span>объе&shy;к&shy;том<span class="spacer"> </span>об&shy;ра&shy;зу&shy;ет&shy;ся<span class="spacer"> </span>сво&shy;бод&shy;ный<span class="spacer"> </span>учас&shy;ток.<span class="spacer"> </span>Его<span class="spacer"> </span>на&shy;до<span class="spacer"> </span>сох&shy;ра&shy;нить<span class="spacer"> </span>для<span class="spacer"> </span>даль&shy;ней&shy;ше&shy;го<span class="spacer"> </span>вы&shy;де&shy;ле&shy;ния<span class="spacer"> </span>па&shy;мя&shy;ти.<span class="spacer"> </span>То<span class="spacer"> </span>есть<span class="spacer"> </span>объект<span class="spacer"> </span>за&shy;пи&shy;нен.<span class="spacer"> </span>Сле&shy;ва<span class="spacer"> </span>от<span class="spacer"> </span>не&shy;го<span class="spacer"> </span>за&shy;ня&shy;тое<span class="spacer"> </span>мес&shy;то.<span class="spacer"> </span>И<span class="spacer"> </span>меж&shy;ду<span class="spacer"> </span>за&shy;ня&shy;тым<span class="spacer"> </span>мес&shy;том<span class="spacer"> </span>и<span class="spacer"> </span>за&shy;пи&shy;не&shy;ным<span class="spacer"> </span>объе&shy;к&shy;том<span class="spacer"> </span><span class="spacer"> </span>-<span class="spacer"> </span>сво&shy;бод&shy;ные<span class="spacer"> </span>учас&shy;тки.<span class="spacer"> </span>Что&shy;бы<span class="spacer"> </span>их<span class="spacer"> </span>по&shy;том<span class="spacer"> </span>пе&shy;ре&shy;ис&shy;поль&shy;зо&shy;вать,<span class="spacer"> </span>они<span class="spacer"> </span>сох&shy;ра&shy;ня&shy;ют&shy;ся<span class="spacer"> </span>в<span class="spacer"> </span>спи&shy;сок<span class="spacer"> </span>сво&shy;бод&shy;ных<span class="spacer"> </span>участ&shy;ков.<span class="spacer"> </span>Что&shy;бы<span class="spacer"> </span>это<span class="spacer"> </span>сде&shy;лать<span class="spacer"> </span>нуж&shy;но<span class="spacer"> </span>убед&shy;иться,<span class="spacer"> </span>что<span class="spacer"> </span>есть<span class="spacer"> </span>нуж&shy;ный<span class="spacer"> </span>ба&shy;кет,<span class="spacer"> </span>ли&shy;бо<span class="spacer"> </span>соз&shy;дать<span class="spacer"> </span>но&shy;вый,<span class="spacer"> </span>и<span class="spacer"> </span>уже<span class="spacer"> </span>от&shy;ту&shy;да<span class="spacer"> </span>спус&shy;тить<span class="spacer"> </span>ссыл&shy;ку<span class="spacer"> </span>на<span class="spacer"> </span>од&shy;нос&shy;вя&shy;за&shy;ный<span class="spacer"> </span>спи&shy;сок<span class="spacer"> </span>за&shy;ня&shy;тых<span class="spacer"> </span>участ&shy;ков<span class="spacer"> </span>оп&shy;ре&shy;дел&shy;ен&shy;но&shy;го<span class="spacer"> </span>раз&shy;ме&shy;ра.</p>
+<div class="paragraph-right-side">12</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">13</div>
+<p>По&shy;лу&shy;ча&shy;ет&shy;ся,<span class="spacer"> </span>что<span class="spacer"> </span>за&shy;да&shy;ча<span class="spacer"> </span>sweep<span class="spacer"> </span>-<span class="spacer"> </span>соз&shy;дать<span class="spacer"> </span>од&shy;нос&shy;вя&shy;за&shy;ный<span class="spacer"> </span>спи&shy;сок<span class="spacer"> </span>на<span class="spacer"> </span>сво&shy;бод&shy;ных<span class="spacer"> </span>участ&shy;ках.<span class="spacer"> </span>Сжа&shy;тие<span class="spacer"> </span>-<span class="spacer"> </span>это<span class="spacer"> </span>доль&shy;ше.<span class="spacer"> </span>Что&shy;бы<span class="spacer"> </span>сра&shy;бо&shy;тал<span class="spacer"> </span>sweep,<span class="spacer"> </span>на&shy;до<span class="spacer"> </span>груп&shy;пи&shy;ро&shy;вать<span class="spacer"> </span>объе&shy;кты,<span class="spacer"> </span>срок<span class="spacer"> </span>жиз&shy;ни<span class="spacer"> </span>ко&shy;то&shy;рых<span class="spacer"> </span>сов&shy;па&shy;да&shy;ет.<span class="spacer"> </span><span class="spacer"> </span>Это<span class="spacer"> </span>мак&shy;си&shy;мум,<span class="spacer"> </span>что<span class="spacer"> </span>мы<span class="spacer"> </span>мо&shy;жем<span class="spacer"> </span>сде&shy;лать.</p>
+<div class="paragraph-right-side">13</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">14</div>
+<p>Что&shy;бы<span class="spacer"> </span>не<span class="spacer"> </span>ме&shy;шать<span class="spacer"> </span>GC,<span class="spacer"> </span>мы<span class="spacer"> </span>не<span class="spacer"> </span>ис&shy;поль&shy;зу&shy;ем<span class="spacer"> </span>GCHandle<span class="spacer"> </span>bind.<span class="spacer"> </span>По<span class="spacer"> </span>воз&shy;мож&shy;нос&shy;ти,<span class="spacer"> </span>мы<span class="spacer"> </span>ис&shy;поль&shy;зу&shy;ем<span class="spacer"> </span>толь&shy;ко<span class="spacer"> </span>fixed.<span class="spacer"> </span>В<span class="spacer"> </span>этом<span class="spacer"> </span>слу&shy;чае<span class="spacer"> </span>мы<span class="spacer"> </span>мо&shy;жем<span class="spacer"> </span>из&shy;бе&shy;жать<span class="spacer"> </span>пин&shy;ин&shy;га,<span class="spacer"> </span>по&shy;то&shy;му<span class="spacer"> </span>что<span class="spacer"> </span>fixed<span class="spacer"> </span>-<span class="spacer"> </span>это<span class="spacer"> </span>прос&shy;то<span class="spacer"> </span>на&shy;по&shy;ми&shy;на&shy;ние<span class="spacer"> </span>GC,<span class="spacer"> </span>что<span class="spacer"> </span>ес&shy;ли<span class="spacer"> </span>он<span class="spacer"> </span>здесь<span class="spacer"> </span>очут&shy;ился,<span class="spacer"> </span>то<span class="spacer"> </span>пи&shy;нить<span class="spacer"> </span>на&shy;до.</p>
+<div class="paragraph-right-side">14</div>
+</div>
+
+        </div>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-wrap">
+                    <img src="../../../ru/res/img/logo-w-noindex.svg">
+                    <p>
+                        <a class="footer-link" target="_blank" href="mailto:sidristij@clrium.ru"><i class="far fa-envelope" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="https://vk.com/clrium"><i class="fab fa-vk" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="https://youtube.com/clrium"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="https://github.com/clrium"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="skype:stanislav.sidristyi"><i class="fab fa-skype" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="https://t.me/clrium_group"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

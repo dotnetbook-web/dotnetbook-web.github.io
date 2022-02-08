@@ -1,0 +1,297 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.NET Platform Architecture</title>
+</head>
+<body>
+    <script src="../../../ru/res/jquery.js"></script>
+    <link rel="stylesheet" href="../../../ru/res/bootstrap.css">
+    <link rel="stylesheet" href="../../../ru/res/awesome.css">
+    <link rel="stylesheet" href="../../../ru/res/default.css">
+   
+    <header class="header fixed d-block d-lg-none">
+        <p class="conflogo">KB</p> 
+
+        <!-- mobile-menu -->
+
+        <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+              <span></span>
+            </label>
+        
+            <div class="menu__box">
+                <p class="menu__header_current">На странице</p>
+                <ol class="menu__list">
+                    <li><a href="#section-1" onclick="$('#menu__toggle').click(); return true;">
+Пример 1</a></li>
+
+                </ol>
+                <p class="menu__header_total">Содержание</p>
+                <ul class="menu__header_list">
+                    <li>
+                        <p class="menu__header_total_sub">
+                            Управление памятью
+                        </p>
+                        <p class="menu__header_total_sub2">
+                            Теоретические вопросы:
+                        </p>
+                        <ol class="menu__list">
+                            <li><p><a href="../../../ruru/Memory/01-00-MemoryManagement-Intro.html">
+                                Общие слова
+                            </a></p></li>
+                            <li>
+                                <p>
+                                <a href="../../../ruru/Memory/01-02-MemoryManagement-Basics.html">Введение в управление памятью</a></p>
+                            </li>
+                            <li>
+                                <p>
+                                <a href="../../../ruru/Memory/01-04-MemoryManagement-ThreadStack.html">Стек потока</a></p>
+                            </li>
+                            <li>
+                                <p>
+                                <a href="../../../ruru/Memory/01-06-MemoryManagement-EntitiesLifetime.html">Время жизни сущности</a></p>
+                            </li>
+                            <li>
+                                <p>
+                                <a href="../../../ruru/Memory/01-08-MemoryManagement-RefVsValueTypes.html">RefTypes, ValueTypes, Boxing &amp; Unboxing</a></p>
+                            </li>
+                            <li>
+                                <p>
+                                <a href="../../../ruru/Memory/01-10-MemoryManagement-IDisposable.html">Шаблон IDisposable</a></p>
+                            </li>
+                            <li>
+                                <p>
+                                <a href="../../../ruru/Memory/01-12-MemoryManagement-Finalizer.html">Финализация</a></p>
+                            </li>
+                            <li>
+                                <p>
+                                <a href="../../../ruru/Memory/01-14-MemoryManagement-Results.html">Выводы</a></p>
+                            </li>
+                        </ol>
+                        <p class="menu__header_total_sub2">
+                            Практические вопросы:
+                        </p>
+                        <ol class="menu__list" start="9">
+                            <li><p><a href="../../../ruru/Memory/02-02-MemoryManagement-MemorySpan.html">
+                                Memory&lt;T&gt;, Span&lt;T&gt;
+                            </a></p></li>
+                        </ol> 
+                    </li>
+                    <li>
+                        <p class="menu__header_total_sub">
+                            Поток исполнения команд
+                        </p>
+                        <p class="menu__header_total_sub2">
+                            Многопоточность:
+                        </p>
+                        <ol class="menu__list">
+                            <li><p><a href="../../../ruru/Execution/1-Threads/1-OS/1-threadsScheduling.html">
+                                Потоки и планирование потоков
+                            </a></p></li>
+                        </ol>
+                        <p class="menu__header_total_sub2">
+                            Искл­юч­ител­ьные си­ту­а­ции:
+                        </p>
+                        <ol class="menu__list" start="2">
+                            <li><p><a href="../../../ruru/Execution/2-ExceptionalFlow/1-Exceptions-Intro.html">
+                                Введение в исключительные ситуации
+                            </a></p></li>
+                            <li><p><a href="../../../ruru/Execution/2-ExceptionalFlow/2-Exceptions-Architecture.html">
+                                Архитектура исключительной ситуации
+                            </a></p></li>
+                            <li><p><a href="../../../ruru/Execution/2-ExceptionalFlow/3-Exceptions-Events.html">
+                                События об исключительных ситуациях
+                            </a></p></li>
+                            <li><p><a href="../../../ruru/Execution/2-ExceptionalFlow/4-Exceptions-Types.html">
+                                Виды исключительных ситуаций
+                            </a></p></li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="book-container">
+        <div class="article-container">
+            <!--<p class="d-xs-block d-sm-none">XS</p>
+            <p class="d-none d-xs-block d-sm-none">SM</p>
+            <p class="d-none d-sm-block d-md-none">MD</p>
+            <p class="d-none d-lg-block d-xl-none">LG</p>
+            <p class="d-none d-xl-block">XL</p> -->
+            <h2 id="lifetime">Шаб&shy;лон<span class="spacer"> </span>Life&shy;time</h2>
+<div class="paragraph-container">
+<div class="paragraph-left-side">01</div>
+<p>Пос&shy;ле<span class="spacer"> </span>то&shy;го<span class="spacer"> </span>как<span class="spacer"> </span>мы<span class="spacer"> </span>так<span class="spacer"> </span>под&shy;роб&shy;но<span class="spacer"> </span>расс&shy;мот&shy;ре&shy;ли<span class="spacer"> </span>шаб&shy;лон<span class="spacer"> </span>ос&shy;воб&shy;ож&shy;де&shy;ния<span class="spacer"> </span>рес&shy;ур&shy;сов<span class="spacer"> </span>под<span class="spacer"> </span>наз&shy;ва&shy;ни&shy;ем<span class="spacer"> </span>IDisposable&shy;,<span class="spacer"> </span>мы<span class="spacer"> </span>сфор&shy;му&shy;ли&shy;ро&shy;ва&shy;ли<span class="spacer"> </span>ряд<span class="spacer"> </span>проб&shy;лем&shy;ных<span class="spacer"> </span>зон<span class="spacer"> </span>этого<span class="spacer"> </span>шаб&shy;ло&shy;на,<span class="spacer"> </span>ко&shy;то&shy;рые<span class="spacer"> </span>ус&shy;лож&shy;ня&shy;ют<span class="spacer"> </span>его<span class="spacer"> </span>ис&shy;поль&shy;зо&shy;ва&shy;ние.<span class="spacer"> </span>Что&shy;бы<span class="spacer"> </span>ре&shy;шить<span class="spacer"> </span>эти<span class="spacer"> </span>проб&shy;ле&shy;мы,<span class="spacer"> </span>мы<span class="spacer"> </span>дол&shy;ж&shy;ны<span class="spacer"> </span>раз&shy;ра&shy;бо&shy;тать<span class="spacer"> </span>не&shy;кие<span class="spacer"> </span>про&shy;ти&shy;вод&shy;е&shy;йствия,<span class="spacer"> </span>ко&shy;то&shy;рые<span class="spacer"> </span>при&shy;ве&shy;дут<span class="spacer"> </span>нас<span class="spacer"> </span>к<span class="spacer"> </span>аб&shy;сол&shy;ют&shy;но<span class="spacer"> </span>но&shy;во&shy;му<span class="spacer"> </span>и<span class="spacer"> </span>мощ&shy;но&shy;му<span class="spacer"> </span>инст&shy;рум&shy;енту.<span class="spacer"> </span>Итак,<span class="spacer"> </span>ес&shy;ли<span class="spacer"> </span>предс&shy;та&shy;вить<span class="spacer"> </span>что<span class="spacer"> </span>мы<span class="spacer"> </span>хо&shy;тим<span class="spacer"> </span>из&shy;ме&shy;нить<span class="spacer"> </span>шаб&shy;лон<span class="spacer"> </span>IDispos&shy;able<span class="spacer"> </span>или<span class="spacer"> </span>за&shy;ме&shy;нить<span class="spacer"> </span>чем-то<span class="spacer"> </span>дру&shy;гим,<span class="spacer"> </span>из&shy;ба&shy;вив<span class="spacer"> </span>при<span class="spacer"> </span>этом<span class="spacer"> </span>его<span class="spacer"> </span>от<span class="spacer"> </span>при&shy;су&shy;щих<span class="spacer"> </span>ему<span class="spacer"> </span>нед&shy;ос&shy;тат&shy;ков,<span class="spacer"> </span>то<span class="spacer"> </span>что<span class="spacer"> </span>мы<span class="spacer"> </span>дол&shy;ж&shy;ны<span class="spacer"> </span>сде&shy;лать?<span class="spacer"> </span>Дав&shy;ай&shy;те<span class="spacer"> </span>возь&shy;мем<span class="spacer"> </span>груп&shy;пу<span class="spacer"> </span>ми&shy;ну&shy;сов<span class="spacer"> </span>из<span class="spacer"> </span>пре&shy;ды&shy;ду&shy;щей<span class="spacer"> </span>гла&shy;вы<span class="spacer"> </span>и<span class="spacer"> </span>поп&shy;ро&shy;бу&shy;ем<span class="spacer"> </span>где<span class="spacer"> </span>это<span class="spacer"> </span>во&shy;об&shy;ще<span class="spacer"> </span>воз&shy;мож&shy;но<span class="spacer"> </span>пе&shy;ре&shy;де&shy;лать<span class="spacer"> </span>по&shy;ве&shy;де&shy;ние<span class="spacer"> </span>так,<span class="spacer"> </span>что&shy;бы<span class="spacer"> </span>по&shy;лу&shy;чить<span class="spacer"> </span>плю&shy;сы:</p>
+<div class="paragraph-right-side">01</div>
+</div>
+<ol>
+<li>Что&shy;бы<span class="spacer"> </span>из&shy;бе&shy;жать<span class="spacer"> </span>не<span class="spacer"> </span>яв&shy;нос&shy;ти<span class="spacer"> </span>объя&shy;вле&shy;ния<span class="spacer"> </span>раз&shy;ру&shy;ша&shy;е&shy;мос&shy;ти<span class="spacer"> </span>объе&shy;кта,<span class="spacer"> </span>мы<span class="spacer"> </span>дол&shy;ж&shy;ны<span class="spacer"> </span>ввес&shy;ти<span class="spacer"> </span>но&shy;вый<span class="spacer"> </span>спо&shy;соб<span class="spacer"> </span>увед&shy;ом&shy;ле&shy;ния<span class="spacer"> </span>о<span class="spacer"> </span>том,<span class="spacer"> </span>что<span class="spacer"> </span>класс<span class="spacer"> </span>раз&shy;ру&shy;ша&shy;ем.<span class="spacer"> </span>При&shy;чем<span class="spacer"> </span>не&shy;об&shy;хо&shy;ди&shy;мо<span class="spacer"> </span>сде&shy;лать<span class="spacer"> </span>это<span class="spacer"> </span>так,<span class="spacer"> </span>что&shy;бы<span class="spacer"> </span>поль&shy;зо&shy;ва&shy;тель<span class="spacer"> </span>эк&shy;земп&shy;ля&shy;ра<span class="spacer"> </span>не<span class="spacer"> </span>смог<span class="spacer"> </span>бы<span class="spacer"> </span>обойти<span class="spacer"> </span>этот<span class="spacer"> </span>ме&shy;хан&shy;изм<span class="spacer"> </span>сто&shy;ро&shy;ной.<span class="spacer"> </span>А<span class="spacer"> </span>ка&shy;кой<span class="spacer"> </span>код<span class="spacer"> </span>эк&shy;земп&shy;ля&shy;ра<span class="spacer"> </span>ти&shy;па<span class="spacer"> </span>от&shy;ра&shy;ба&shy;ты&shy;ва&shy;ет<span class="spacer"> </span>в<span class="spacer"> </span>лю&shy;бом<span class="spacer"> </span>слу&shy;чае?<span class="spacer"> </span>Толь&shy;ко<span class="spacer"> </span>конст&shy;руктор.<span class="spacer"> </span>По&shy;лу&shy;ча&shy;ет&shy;ся,<span class="spacer"> </span>конст&shy;руктор<span class="spacer"> </span>дол&shy;жен<span class="spacer"> </span>об&shy;ла&shy;дать<span class="spacer"> </span>та&shy;ки&shy;ми<span class="spacer"> </span>свой&shy;ства&shy;ми,<span class="spacer"> </span>ко&shy;то&shy;рые<span class="spacer"> </span>подс&shy;ка&shy;жут<span class="spacer"> </span>выз&shy;вав&shy;ше&shy;му<span class="spacer"> </span>его<span class="spacer"> </span>ко&shy;ду<span class="spacer"> </span>что<span class="spacer"> </span>эк&shy;земп&shy;ляр<span class="spacer"> </span>раз&shy;ру&shy;ша&shy;ем.<span class="spacer"> </span>И<span class="spacer"> </span>ме&shy;хан&shy;из&shy;мов<span class="spacer"> </span>тут<span class="spacer"> </span>мо&shy;жет<span class="spacer"> </span>быть<span class="spacer"> </span>це&shy;лых<span class="spacer"> </span>два:<span class="spacer"> </span>ли&shy;бо<span class="spacer"> </span>имя<span class="spacer"> </span>клас&shy;са<span class="spacer"> </span>дол&shy;ж&shy;но<span class="spacer"> </span>сод&shy;ер&shy;жать<span class="spacer"> </span>клю&shy;че&shy;вое<span class="spacer"> </span>сло&shy;во<span class="spacer"> </span>(нап&shy;ри&shy;мер,<span class="spacer"> </span>по<span class="spacer"> </span>ана&shy;ло&shy;гии<span class="spacer"> </span>с<span class="spacer"> </span><code>Async</code>,<span class="spacer"> </span>сло&shy;во<span class="spacer"> </span><code>Dispos&shy;able</code>)<span class="spacer"> </span>ли&shy;бо<span class="spacer"> </span>дол&shy;жен<span class="spacer"> </span>быть<span class="spacer"> </span>не&shy;кий<span class="spacer"> </span>па&shy;рам&shy;етр,<span class="spacer"> </span>ко&shy;то&shy;рый<span class="spacer"> </span>не&shy;об&shy;хо&shy;ди&shy;мо<span class="spacer"> </span>пе&shy;ре&shy;дать<span class="spacer"> </span>конст&shy;ру&shy;ктору;</li>
+<li>Проб&shy;ле&shy;ма<span class="spacer"> </span>не&shy;об&shy;хо&shy;дим&shy;ос&shy;ти<span class="spacer"> </span>тя&shy;нуть<span class="spacer"> </span>за<span class="spacer"> </span>со&shy;бой<span class="spacer"> </span>не&shy;кий<span class="spacer"> </span>ин&shy;тер&shy;фейс<span class="spacer"> </span>что&shy;бы<span class="spacer"> </span>раз&shy;ру&shy;шить<span class="spacer"> </span>сущ&shy;ность<span class="spacer"> </span>мо&shy;жет<span class="spacer"> </span>быть<span class="spacer"> </span>ре&shy;ше&shy;на<span class="spacer"> </span>вы&shy;но&shy;сом<span class="spacer"> </span>конт&shy;ро&shy;ля<span class="spacer"> </span>за<span class="spacer"> </span>вре&shy;ме&shy;нем<span class="spacer"> </span>жиз&shy;ни<span class="spacer"> </span>сущ&shy;нос&shy;ти<span class="spacer"> </span>из<span class="spacer"> </span>са&shy;мой<span class="spacer"> </span>сущ&shy;нос&shy;ти.<span class="spacer"> </span>По<span class="spacer"> </span>су&shy;ти,<span class="spacer"> </span>ре&shy;а&shy;ли&shy;за&shy;ци&shy;ей<span class="spacer"> </span>inver&shy;sion<span class="spacer"> </span>of<span class="spacer"> </span>cont&shy;rol<span class="spacer"> </span>про&shy;цес&shy;са<span class="spacer"> </span>раз&shy;ру&shy;ше&shy;ния<span class="spacer"> </span>объе&shy;кта<span class="spacer"> </span>в<span class="spacer"> </span>не&shy;кий<span class="spacer"> </span>сто&shy;рон&shy;ний<span class="spacer"> </span>ме&shy;хан&shy;изм;</li>
+<li>Тре&shy;тья<span class="spacer"> </span>проб&shy;ле&shy;ма<span class="spacer"> </span> &mdash; <span class="spacer"> </span>сущ&shy;ес&shy;тво&shy;ва&shy;ние<span class="spacer"> </span>объе&shy;кта<span class="spacer"> </span>пос&shy;ле<span class="spacer"> </span>его<span class="spacer"> </span>раз&shy;ру&shy;ше&shy;ния.<span class="spacer"> </span>Её,<span class="spacer"> </span>к<span class="spacer"> </span>со&shy;жа&shy;ле&shy;нию,<span class="spacer"> </span>ре&shy;шить<span class="spacer"> </span>прос&shy;то<span class="spacer"> </span>не<span class="spacer"> </span>воз&shy;мож&shy;но:<span class="spacer"> </span>не&shy;дет&shy;ер&shy;ми&shy;ни&shy;ров&shy;ан&shy;ное<span class="spacer"> </span>уда&shy;ле&shy;ние<span class="spacer"> </span>па&shy;мя&shy;ти<span class="spacer"> </span>из-под<span class="spacer"> </span>объе&shy;кта<span class="spacer"> </span>де&shy;ла&shy;ет<span class="spacer"> </span>эту<span class="spacer"> </span>за&shy;да&shy;чу<span class="spacer"> </span>не&shy;ре&shy;ша&shy;е&shy;мой;</li>
+<li>Воп&shy;рос<span class="spacer"> </span>с<span class="spacer"> </span><code>explicit</code><span class="spacer"> </span>ре&shy;а&shy;ли&shy;за&shy;ци&shy;ей<span class="spacer"> </span><code>IDispos&shy;able</code><span class="spacer"> </span>ухо&shy;дит<span class="spacer"> </span>сам<span class="spacer"> </span>со&shy;бой<span class="spacer"> </span>ес&shy;ли<span class="spacer"> </span>IDispos&shy;able<span class="spacer"> </span>не<span class="spacer"> </span>ре&shy;а&shy;ли&shy;зо&shy;вы&shy;вать;</li>
+<li>Проб&shy;ле&shy;ма&shy;ти&shy;ка<span class="spacer"> </span>раз&shy;де&shy;ле&shy;ния<span class="spacer"> </span>вы&shy;де&shy;ле&shy;ния<span class="spacer"> </span>рес&shy;ур&shy;сов<span class="spacer"> </span>и<span class="spacer"> </span>их<span class="spacer"> </span>ос&shy;воб&shy;ож&shy;де&shy;ния<span class="spacer"> </span>по<span class="spacer"> </span>раз&shy;ным<span class="spacer"> </span>ме&shy;то&shy;дам<span class="spacer"> </span>мо&shy;жет<span class="spacer"> </span>быть<span class="spacer"> </span>ре&shy;ше&shy;на<span class="spacer"> </span>рег&shy;ис&shy;тра&shy;ци&shy;ей<span class="spacer"> </span>рес&shy;ур&shy;сов<span class="spacer"> </span>в<span class="spacer"> </span>не&shy;ко&shy;то&shy;ром<span class="spacer"> </span>кон&shy;тей&shy;не&shy;ре,<span class="spacer"> </span>ос&shy;воб&shy;ож&shy;де&shy;ние<span class="spacer"> </span>ко&shy;то&shy;ро&shy;го<span class="spacer"> </span>бу&shy;дет<span class="spacer"> </span>про&shy;ис&shy;хо&shy;дить<span class="spacer"> </span>ав&shy;то&shy;ма&shy;тич&shy;ес&shy;ки;</li>
+<li>Если<span class="spacer"> </span>го&shy;во&shy;рить<span class="spacer"> </span>о<span class="spacer"> </span>слож&shy;нос&shy;ти<span class="spacer"> </span>раз&shy;ру&shy;ше&shy;ния<span class="spacer"> </span>гра&shy;фа<span class="spacer"> </span>объе&shy;к&shy;тов,<span class="spacer"> </span>раз&shy;дел&shy;ен&shy;ных<span class="spacer"> </span>на<span class="spacer"> </span>не&shy;кие<span class="spacer"> </span>слои,<span class="spacer"> </span>ко&shy;то&shy;рые<span class="spacer"> </span>раз&shy;ру&shy;ша&shy;ют&shy;ся<span class="spacer"> </span>са&shy;ми<span class="spacer"> </span>по<span class="spacer"> </span>се&shy;бе<span class="spacer"> </span>(нап&shy;ри&shy;мер,<span class="spacer"> </span>мо&shy;жет<span class="spacer"> </span>быть<span class="spacer"> </span>не&shy;об&shy;хо&shy;ди&shy;мо<span class="spacer"> </span>что&shy;бы<span class="spacer"> </span>был<span class="spacer"> </span>раз&shy;ру&shy;шен<span class="spacer"> </span>ка&shy;кой-то<span class="spacer"> </span>один<span class="spacer"> </span>слой<span class="spacer"> </span>гра&shy;фа,<span class="spacer"> </span>а<span class="spacer"> </span>ос&shy;таль&shy;ные<span class="spacer"> </span>дол&shy;ж&shy;ны<span class="spacer"> </span>кор&shy;рек&shy;т&shy;но<span class="spacer"> </span>сущ&shy;ес&shy;тво&shy;вать<span class="spacer"> </span>даль&shy;ше),<span class="spacer"> </span>от&shy;пи&shy;сы&shy;ва&shy;ясь<span class="spacer"> </span>от<span class="spacer"> </span>из&shy;ме&shy;не&shy;ний<span class="spacer"> </span>в<span class="spacer"> </span>сос&shy;ед&shy;них<span class="spacer"> </span>сло&shy;ях,<span class="spacer"> </span>то<span class="spacer"> </span>тут<span class="spacer"> </span>мож&shy;но<span class="spacer"> </span>яв&shy;но<span class="spacer"> </span>вы&shy;де&shy;лить<span class="spacer"> </span>од&shy;ну<span class="spacer"> </span>об&shy;щую<span class="spacer"> </span>особ&shy;ен&shy;ность:<span class="spacer"> </span>о<span class="spacer"> </span>чём<span class="spacer"> </span>бы<span class="spacer"> </span>ни<span class="spacer"> </span>шла<span class="spacer"> </span>речь,<span class="spacer"> </span>ло&shy;гич&shy;ес&shy;ки<span class="spacer"> </span>мы<span class="spacer"> </span>го&shy;во&shy;рим<span class="spacer"> </span>о<span class="spacer"> </span>не&shy;ких<span class="spacer"> </span>груп&shy;пах<span class="spacer"> </span>объе&shy;к&shy;тов,<span class="spacer"> </span>вре&shy;мя<span class="spacer"> </span>жиз&shy;ни<span class="spacer"> </span>ко&shy;то&shy;рых<span class="spacer"> </span>за&shy;ви&shy;сит<span class="spacer"> </span>друг<span class="spacer"> </span>от<span class="spacer"> </span>дру&shy;га.<span class="spacer"> </span>Т.е.<span class="spacer"> </span>вве&shy;дя<span class="spacer"> </span>по&shy;ня&shy;тие<span class="spacer"> </span>за&shy;ви&shy;сим&shy;ос&shy;ти<span class="spacer"> </span>вре&shy;ме&shy;ни<span class="spacer"> </span>жиз&shy;ни<span class="spacer"> </span>од&shy;ной<span class="spacer"> </span>сущ&shy;нос&shy;ти<span class="spacer"> </span>от<span class="spacer"> </span>вре&shy;ме&shy;ни<span class="spacer"> </span>жиз&shy;ни<span class="spacer"> </span>дру&shy;гой<span class="spacer"> </span>сущ&shy;нос&shy;ти<span class="spacer"> </span>мы<span class="spacer"> </span>ре&shy;шим<span class="spacer"> </span>проб&shy;ле&shy;му<span class="spacer"> </span>очис&shy;тки<span class="spacer"> </span>конк&shy;рет&shy;ной<span class="spacer"> </span>груп&shy;пы<span class="spacer"> </span>объе&shy;к&shy;тов<span class="spacer"> </span>не<span class="spacer"> </span>зат&shy;ра&shy;ги&shy;вая<span class="spacer"> </span>дру&shy;гую<span class="spacer"> </span>груп&shy;пу;</li>
+</ol>
+<div class="paragraph-container">
+<div class="paragraph-left-side">02</div>
+<p>Объ&shy;е&shy;ди&shy;няя<span class="spacer"> </span>все<span class="spacer"> </span>вы&shy;ше<span class="spacer"> </span>ска&shy;зан&shy;ное,<span class="spacer"> </span>мож&shy;но<span class="spacer"> </span>сде&shy;лать<span class="spacer"> </span>ба&shy;зо&shy;вый<span class="spacer"> </span>вы&shy;вод<span class="spacer"> </span>что<span class="spacer"> </span>IDispos&shy;able<span class="spacer"> </span>не<span class="spacer"> </span>да&shy;ет<span class="spacer"> </span>нам<span class="spacer"> </span>пол&shy;ной<span class="spacer"> </span>гиб&shy;кос&shy;ти<span class="spacer"> </span>в<span class="spacer"> </span>уп&shy;рав&shy;ле&shy;нии<span class="spacer"> </span>раз&shy;ру&shy;ше&shy;ни&shy;ем<span class="spacer"> </span>сос&shy;то&shy;я&shy;ния<span class="spacer"> </span>объе&shy;к&shy;тов.<span class="spacer"> </span>Он<span class="spacer"> </span>без&shy;ус&shy;лов&shy;но<span class="spacer"> </span>по&shy;ле&shy;зен<span class="spacer"> </span>в<span class="spacer"> </span>рам&shy;ках<span class="spacer"> </span>не&shy;ко&shy;то&shy;рой<span class="spacer"> </span>груп&shy;пы<span class="spacer"> </span>сце&shy;на&shy;ри&shy;ев,<span class="spacer"> </span>но<span class="spacer"> </span>не<span class="spacer"> </span>яв&shy;ля&shy;ет&shy;ся<span class="spacer"> </span>унив&shy;ер&shy;саль&shy;ным<span class="spacer"> </span>инст&shy;рум&shy;ентом,<span class="spacer"> </span>ко&shy;то&shy;рый<span class="spacer"> </span>спо&shy;со&shy;бен<span class="spacer"> </span>ре&shy;шить<span class="spacer"> </span>все<span class="spacer"> </span>за&shy;да&shy;чи.</p>
+<div class="paragraph-right-side">02</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">03</div>
+<p>Дав&shy;ай&shy;те<span class="spacer"> </span>же<span class="spacer"> </span>най&shy;дем<span class="spacer"> </span>тот<span class="spacer"> </span>ме&shy;хан&shy;изм,<span class="spacer"> </span>ко&shy;то&shy;рый<span class="spacer"> </span>приз&shy;ван<span class="spacer"> </span>по&shy;мочь<span class="spacer"> </span>нам<span class="spacer"> </span>в<span class="spacer"> </span>раз&shy;ру&shy;ше&shy;нии<span class="spacer"> </span>слож&shy;ных<span class="spacer"> </span>струк&shy;тур<span class="spacer"> </span>объе&shy;к&shy;тов.<span class="spacer"> </span>Итак,<span class="spacer"> </span>ос&shy;но&shy;вы&shy;ва&shy;ясь<span class="spacer"> </span>на<span class="spacer"> </span>ра&shy;нее<span class="spacer"> </span>пе&shy;реч&shy;ис&shy;лен&shy;ных<span class="spacer"> </span>рас&shy;суж&shy;де&shy;ни&shy;ях<span class="spacer"> </span>о<span class="spacer"> </span>ме&shy;хан&shy;из&shy;мах<span class="spacer"> </span>улуч&shy;ше&shy;ния<span class="spacer"> </span>шаб&shy;ло&shy;на<span class="spacer"> </span>IDisposable&shy;,<span class="spacer"> </span>сос&shy;та&shy;вим<span class="spacer"> </span>спи&shy;сок<span class="spacer"> </span>те&shy;зи&shy;сов:</p>
+<div class="paragraph-right-side">03</div>
+</div>
+<ul>
+<li>Наш<span class="spacer"> </span>класс<span class="spacer"> </span>ли&shy;бо<span class="spacer"> </span>дол&shy;жен<span class="spacer"> </span>как-то<span class="spacer"> </span>особо<span class="spacer"> </span>на&shy;зыв&shy;ать&shy;ся<span class="spacer"> </span>ли&shy;бо<span class="spacer"> </span>что-ли&shy;бо<span class="spacer"> </span>при&shy;ни&shy;мать<span class="spacer"> </span>в<span class="spacer"> </span>кач&shy;ес&shy;т&shy;ве<span class="spacer"> </span>па&shy;рам&shy;ет&shy;ра<span class="spacer"> </span>конст&shy;ру&shy;ктора;</li>
+<li>Про&shy;цесс<span class="spacer"> </span>раз&shy;ру&shy;ше&shy;ния<span class="spacer"> </span>дол&shy;жен<span class="spacer"> </span>быть<span class="spacer"> </span>от&shy;дан<span class="spacer"> </span>на<span class="spacer"> </span>сто&shy;ро&shy;ну;</li>
+<li>Про&shy;цесс<span class="spacer"> </span>раз&shy;ру&shy;ше&shy;ния<span class="spacer"> </span>дол&shy;жен<span class="spacer"> </span>быть<span class="spacer"> </span>ав&shy;то&shy;ма&shy;ти&shy;зи&shy;ро&shy;ван;</li>
+<li>Так&shy;же<span class="spacer"> </span>дол&shy;ж&shy;на<span class="spacer"> </span>сущ&shy;ес&shy;тво&shy;вать<span class="spacer"> </span>не&shy;кая<span class="spacer"> </span>за&shy;ви&shy;сим&shy;ость<span class="spacer"> </span>вре&shy;ме&shy;ни<span class="spacer"> </span>жиз&shy;ни<span class="spacer"> </span>од&shy;них<span class="spacer"> </span>объе&shy;к&shy;тов<span class="spacer"> </span>от<span class="spacer"> </span>вре&shy;ме&shy;ни<span class="spacer"> </span>жиз&shy;ни<span class="spacer"> </span>дру&shy;гих<span class="spacer"> </span>дру&shy;гих;</li>
+<li>Мы<span class="spacer"> </span>при<span class="spacer"> </span>этом<span class="spacer"> </span>не<span class="spacer"> </span>дол&shy;ж&shy;ны<span class="spacer"> </span>каж&shy;дый<span class="spacer"> </span>раз<span class="spacer"> </span>пи&shy;сать<span class="spacer"> </span>всю<span class="spacer"> </span>ин&shy;ф&shy;раст&shy;рук&shy;ту&shy;ру,<span class="spacer"> </span>как<span class="spacer"> </span>мы<span class="spacer"> </span>де&shy;ла&shy;ем<span class="spacer"> </span>это<span class="spacer"> </span>для<span class="spacer"> </span>слу&shy;чая<span class="spacer"> </span>с<span class="spacer"> </span>IDisposable&shy;;</li>
+</ul>
+<p>По&shy;э&shy;то&shy;му:</p>
+<ul>
+<li>Про&shy;цес&shy;сом<span class="spacer"> </span>раз&shy;ру&shy;ше&shy;ния<span class="spacer"> </span>дол&shy;ж&shy;на<span class="spacer"> </span>за&shy;ним&shy;ать&shy;ся<span class="spacer"> </span>от&shy;дель&shy;ная<span class="spacer"> </span>сущ&shy;ность.<span class="spacer"> </span>На&shy;зовём<span class="spacer"> </span>её<span class="spacer"> </span><code>Life&shy;time</code>;</li>
+<li>Конст&shy;руктор<span class="spacer"> </span>клас&shy;са<span class="spacer"> </span>дол&shy;жен<span class="spacer"> </span>при&shy;ни&shy;мать<span class="spacer"> </span>на<span class="spacer"> </span>вход<span class="spacer"> </span>эк&shy;земп&shy;ляр<span class="spacer"> </span>ти&shy;па<span class="spacer"> </span><code>Life&shy;time</code><span class="spacer"> </span>ес&shy;ли<span class="spacer"> </span>жизнь<span class="spacer"> </span>эк&shy;земп&shy;ля&shy;ра<span class="spacer"> </span>на&shy;ше&shy;го<span class="spacer"> </span>клас&shy;са<span class="spacer"> </span>за&shy;ви&shy;сит<span class="spacer"> </span>от<span class="spacer"> </span>вре&shy;ме&shy;ни<span class="spacer"> </span>жиз&shy;ни<span class="spacer"> </span>внеш&shy;не&shy;го<span class="spacer"> </span><code>Life&shy;time</code><span class="spacer"> </span>ли&shy;бо<span class="spacer"> </span>соз&shy;да&shy;вать<span class="spacer"> </span>свой<span class="spacer"> </span>собст&shy;венный<span class="spacer"> </span>ес&shy;ли<span class="spacer"> </span>за&shy;ви&shy;сим&shy;ос&shy;тей<span class="spacer"> </span>не<span class="spacer"> </span>сущ&shy;ес&shy;тву&shy;ет;</li>
+</ul>
+<div class="paragraph-container">
+<div class="paragraph-left-side">04</div>
+<p>Те&shy;перь,<span class="spacer"> </span>в<span class="spacer"> </span>но&shy;вых<span class="spacer"> </span>ре&shy;а&shy;ли&shy;ях,<span class="spacer"> </span>внеш&shy;ний<span class="spacer"> </span>код<span class="spacer"> </span>бу&shy;дет<span class="spacer"> </span>пе&shy;ре&shy;да&shy;вать<span class="spacer"> </span>нам<span class="spacer"> </span>спе&shy;ци&shy;аль&shy;ный<span class="spacer"> </span>эк&shy;земп&shy;ляр<span class="spacer"> </span><code>Life&shy;time</code>,<span class="spacer"> </span>от<span class="spacer"> </span>ко&shy;то&shy;ро&shy;го<span class="spacer"> </span>мы<span class="spacer"> </span>бу&shy;дем<span class="spacer"> </span>за&shy;ви&shy;сеть<span class="spacer"> </span>и<span class="spacer"> </span>от&shy;но&shy;сит&shy;ель&shy;но<span class="spacer"> </span>вре&shy;ме&shy;ни<span class="spacer"> </span>жиз&shy;ни<span class="spacer"> </span>ко&shy;то&shy;ро&shy;го<span class="spacer"> </span>мы<span class="spacer"> </span>бу&shy;дем<span class="spacer"> </span>сущ&shy;ес&shy;тво&shy;вать.<span class="spacer"> </span>А<span class="spacer"> </span>что&shy;бы<span class="spacer"> </span>нас<span class="spacer"> </span>раз&shy;ру&shy;шить,<span class="spacer"> </span>внеш&shy;ний<span class="spacer"> </span>тип<span class="spacer"> </span>не<span class="spacer"> </span>бу&shy;дет<span class="spacer"> </span>раз&shy;ру&shy;шать<span class="spacer"> </span>нас<span class="spacer"> </span>нап&shy;ря&shy;мую:<span class="spacer"> </span>вмес&shy;то<span class="spacer"> </span>этого<span class="spacer"> </span>он<span class="spacer"> </span>зак&shy;он&shy;чит<span class="spacer"> </span>вре&shy;мя<span class="spacer"> </span>жиз&shy;ни<span class="spacer"> </span>эк&shy;земп&shy;ля&shy;ра<span class="spacer"> </span><code>Life&shy;time</code>,<span class="spacer"> </span>ко&shy;то&shy;рый<span class="spacer"> </span>сам&shy;ос&shy;то&shy;я&shy;тель&shy;но<span class="spacer"> </span>зав&shy;ер&shy;шить<span class="spacer"> </span>вре&shy;мя<span class="spacer"> </span>жиз&shy;ни<span class="spacer"> </span>всех,<span class="spacer"> </span>кто<span class="spacer"> </span>на<span class="spacer"> </span>не&shy;го<span class="spacer"> </span>под&shy;пи&shy;сан.</p>
+<div class="paragraph-right-side">04</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">05</div>
+<p>С<span class="spacer"> </span>та&shy;ким<span class="spacer"> </span>под&shy;хо&shy;дом<span class="spacer"> </span>мы<span class="spacer"> </span>бо&shy;лее<span class="spacer"> </span>не<span class="spacer"> </span>от&shy;да&shy;ем<span class="spacer"> </span>каж&shy;до&shy;му,<span class="spacer"> </span>кто<span class="spacer"> </span>имеет<span class="spacer"> </span>ссыл&shy;ку<span class="spacer"> </span>на<span class="spacer"> </span>наш<span class="spacer"> </span>объект<span class="spacer"> </span>воз&shy;мож&shy;ность<span class="spacer"> </span>раз&shy;ру&shy;шить<span class="spacer"> </span>нас.<span class="spacer"> </span>Пом&shy;ни&shy;те<span class="spacer"> </span>что<span class="spacer"> </span>мы<span class="spacer"> </span>имели<span class="spacer"> </span>в<span class="spacer"> </span>шаб&shy;ло&shy;не<span class="spacer"> </span>IDisposable&shy;?<span class="spacer"> </span>При<span class="spacer"> </span>про&shy;ек&shy;ти&shy;ро&shy;ва&shy;нии<span class="spacer"> </span>клас&shy;са<span class="spacer"> </span>мы<span class="spacer"> </span>дол&shy;ж&shy;ны<span class="spacer"> </span>бы&shy;ли<span class="spacer"> </span>ре&shy;а&shy;ли&shy;зо&shy;вать<span class="spacer"> </span>ин&shy;тер&shy;фейс<span class="spacer"> </span>IDisposable&shy;:<span class="spacer"> </span>сде&shy;лать<span class="spacer"> </span>ме&shy;тод<span class="spacer"> </span><code>Dispose&shy;()</code><span class="spacer"> </span>пуб&shy;лич&shy;ным<span class="spacer"> </span>для<span class="spacer"> </span>всех.<span class="spacer"> </span>Это<span class="spacer"> </span>зна&shy;чит<span class="spacer"> </span>что<span class="spacer"> </span>лю&shy;бой,<span class="spacer"> </span>кто<span class="spacer"> </span>по&shy;лу&shy;чал<span class="spacer"> </span>ссыл&shy;ку<span class="spacer"> </span>на<span class="spacer"> </span>эк&shy;земп&shy;ляр<span class="spacer"> </span>на&shy;ше&shy;го<span class="spacer"> </span>ти&shy;па<span class="spacer"> </span>по&shy;лу&shy;чал<span class="spacer"> </span>так&shy;же<span class="spacer"> </span>сред&shy;с&shy;тво<span class="spacer"> </span>унич&shy;то&shy;же&shy;ния<span class="spacer"> </span>эк&shy;земп&shy;ля&shy;ра<span class="spacer"> </span>на&shy;ше&shy;го<span class="spacer"> </span>ти&shy;па.<span class="spacer"> </span>Те&shy;перь<span class="spacer"> </span>си&shy;ту&shy;а&shy;ция<span class="spacer"> </span>сов&shy;ер&shy;шен&shy;но<span class="spacer"> </span>иная:<span class="spacer"> </span>конст&shy;руктор<span class="spacer"> </span>эк&shy;земп&shy;ля&shy;ра<span class="spacer"> </span>ти&shy;па<span class="spacer"> </span>по&shy;лу&shy;ча&shy;ет<span class="spacer"> </span>в<span class="spacer"> </span>кач&shy;ес&shy;т&shy;ве<span class="spacer"> </span>па&shy;рам&shy;ет&shy;ра<span class="spacer"> </span>от&shy;ре&shy;зок<span class="spacer"> </span>собст&shy;венной<span class="spacer"> </span>жиз&shy;ни<span class="spacer"> </span>как<span class="spacer"> </span>внеш&shy;нюю<span class="spacer"> </span>за&shy;ви&shy;сим&shy;ость.<span class="spacer"> </span>Не<span class="spacer"> </span>выс&shy;тав&shy;ляя<span class="spacer"> </span>при<span class="spacer"> </span>этом<span class="spacer"> </span>ни&shy;ка&shy;ких<span class="spacer"> </span>ме&shy;то&shy;дов<span class="spacer"> </span>на&shy;ру&shy;жу.<span class="spacer"> </span>По&shy;лу&shy;ча&shy;ет&shy;ся,<span class="spacer"> </span>что<span class="spacer"> </span>в<span class="spacer"> </span>дан&shy;ном<span class="spacer"> </span>сце&shy;на&shy;рии<span class="spacer"> </span>вре&shy;ме&shy;нем<span class="spacer"> </span>жиз&shy;ни<span class="spacer"> </span>на&shy;ше&shy;го<span class="spacer"> </span>эк&shy;земп&shy;ля&shy;ра<span class="spacer"> </span>ти&shy;па<span class="spacer"> </span>вла&shy;де&shy;ет<span class="spacer"> </span>толь&shy;ко<span class="spacer"> </span>тот,<span class="spacer"> </span>кто<span class="spacer"> </span>его<span class="spacer"> </span>соз&shy;дал<span class="spacer"> </span>и<span class="spacer"> </span>ник&shy;то<span class="spacer"> </span>иной.<span class="spacer"> </span>С<span class="spacer"> </span>шаб&shy;ло&shy;ном<span class="spacer"> </span>IDispos&shy;able<span class="spacer"> </span>единст&shy;венный<span class="spacer"> </span>путь<span class="spacer"> </span>обойти<span class="spacer"> </span>пуб&shy;ли&shy;ка&shy;цию<span class="spacer"> </span>ме&shy;то&shy;да<span class="spacer"> </span> &mdash; <span class="spacer"> </span>ре&shy;а&shy;ли&shy;зо&shy;вать<span class="spacer"> </span>этот<span class="spacer"> </span>ин&shy;тер&shy;фейс<span class="spacer"> </span>не&shy;яв&shy;но,<span class="spacer"> </span>скрыв<span class="spacer"> </span>та&shy;ким<span class="spacer"> </span>об&shy;ра&shy;зом<span class="spacer"> </span>ме&shy;тод<span class="spacer"> </span><code>Dispose</code>.<span class="spacer"> </span>Одна&shy;ко,<span class="spacer"> </span>не&shy;яв&shy;ная<span class="spacer"> </span>ре&shy;а&shy;ли&shy;за&shy;ция<span class="spacer"> </span>ин&shy;тер&shy;фей&shy;са<span class="spacer"> </span>бу&shy;дет<span class="spacer"> </span>вы&shy;зы&shy;вать<span class="spacer"> </span>мно&shy;го<span class="spacer"> </span>воп&shy;ро&shy;сов,<span class="spacer"> </span>т.к.<span class="spacer"> </span>сов&shy;рем&shy;ен&shy;ные<span class="spacer"> </span>IDE<span class="spacer"> </span>поз&shy;во&shy;ля&shy;ют<span class="spacer"> </span>лег&shy;ко<span class="spacer"> </span>и<span class="spacer"> </span>прос&shy;то<span class="spacer"> </span>уви&shy;деть<span class="spacer"> </span>на&shy;ли&shy;чие<span class="spacer"> </span>этого<span class="spacer"> </span>ме&shy;то&shy;да<span class="spacer"> </span>в<span class="spacer"> </span>струк&shy;ту&shy;ре<span class="spacer"> </span>ти&shy;па.</p>
+<div class="paragraph-right-side">05</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">06</div>
+<p>Те&shy;перь<span class="spacer"> </span>ос&shy;та&shy;лось<span class="spacer"> </span>зак&shy;рыть<span class="spacer"> </span>еще<span class="spacer"> </span>один<span class="spacer"> </span>воп&shy;рос:<span class="spacer"> </span>раз&shy;де&shy;ле&shy;ние<span class="spacer"> </span>зон<span class="spacer"> </span>от&shy;ветст&shy;вен&shy;ности.<span class="spacer"> </span>Ведь<span class="spacer"> </span>ес&shy;ли<span class="spacer"> </span>у<span class="spacer"> </span>нас<span class="spacer"> </span>по&shy;яв&shy;ля&shy;ет&shy;ся<span class="spacer"> </span>за&shy;да&shy;ча<span class="spacer"> </span>пе&shy;ре&shy;дать<span class="spacer"> </span>ко&shy;му-ли&shy;бо<span class="spacer"> </span>свой<span class="spacer"> </span><code>Life&shy;time</code>,<span class="spacer"> </span>не<span class="spacer"> </span>хо&shy;те&shy;лось<span class="spacer"> </span>бы<span class="spacer"> </span>от&shy;да&shy;вать<span class="spacer"> </span>конт&shy;роль<span class="spacer"> </span>над<span class="spacer"> </span>воз&shy;мож&shy;нос&shy;тью<span class="spacer"> </span>вы&shy;зо&shy;ва<span class="spacer"> </span>ме&shy;то&shy;да<span class="spacer"> </span>зап&shy;ус&shy;ка<span class="spacer"> </span>раз&shy;ру&shy;ше&shy;ния,<span class="spacer"> </span>ко&shy;то&shy;рый<span class="spacer"> </span>зак&shy;он&shy;чит<span class="spacer"> </span>жизнь<span class="spacer"> </span>всех,<span class="spacer"> </span>кто<span class="spacer"> </span>под&shy;пи&shy;сан<span class="spacer"> </span>на<span class="spacer"> </span>пе&shy;ред&shy;ан&shy;ный<span class="spacer"> </span>эк&shy;земп&shy;ляр<span class="spacer"> </span><code>Life&shy;time</code>.</p>
+<div class="paragraph-right-side">06</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">07</div>
+<p>Так&shy;же,<span class="spacer"> </span>что&shy;бы<span class="spacer"> </span>ис&shy;поль&shy;зу&shy;ю&shy;щие<span class="spacer"> </span><code>Life&shy;time</code><span class="spacer"> </span>сущ&shy;нос&shy;ти<span class="spacer"> </span>не<span class="spacer"> </span>мог&shy;ли<span class="spacer"> </span>прер&shy;вать<span class="spacer"> </span>вре&shy;мя<span class="spacer"> </span>его<span class="spacer"> </span>жиз&shy;ни<span class="spacer"> </span>сам&shy;ос&shy;то&shy;я&shy;тель&shy;но,<span class="spacer"> </span>не&shy;об&shy;хо&shy;ди&shy;мо<span class="spacer"> </span>ввес&shy;ти<span class="spacer"> </span>раз&shy;де&shy;ле&shy;ние<span class="spacer"> </span>зон<span class="spacer"> </span>от&shy;ветст&shy;вен&shy;ности<span class="spacer"> </span>меж&shy;ду<span class="spacer"> </span>участ&shy;ни&shy;ками<span class="spacer"> </span>про&shy;цес&shy;са:</p>
+<div class="paragraph-right-side">07</div>
+</div>
+<ol>
+<li><code>Lifetime&shy;Def</code>.<span class="spacer"> </span>Экзем&shy;пляр<span class="spacer"> </span>дан&shy;но&shy;го<span class="spacer"> </span>ти&shy;па<span class="spacer"> </span>хра&shy;нит&shy;ся<span class="spacer"> </span>у<span class="spacer"> </span>то&shy;го<span class="spacer"> </span>объе&shy;кта,<span class="spacer"> </span>ко&shy;то&shy;рый<span class="spacer"> </span>бу&shy;дет<span class="spacer"> </span>вла&shy;деть<span class="spacer"> </span>зав&shy;ер&shy;ше&shy;ни&shy;ем<span class="spacer"> </span>вре&shy;ме&shy;ни<span class="spacer"> </span>жиз&shy;ни<span class="spacer"> </span>за&shy;ви&shy;ся&shy;щих<span class="spacer"> </span>от<span class="spacer"> </span>не&shy;го<span class="spacer"> </span>объе&shy;к&shy;тов;</li>
+<li><code>Life&shy;time</code><span class="spacer"> </span>соз&shy;да&shy;ет&shy;ся<span class="spacer"> </span>эк&shy;земп&shy;ля&shy;ром<span class="spacer"> </span><code>Lifetime&shy;Def</code><span class="spacer"> </span>и<span class="spacer"> </span>бу&shy;дет<span class="spacer"> </span>пе&shy;ре&shy;дан<span class="spacer"> </span>всем<span class="spacer"> </span>тем,<span class="spacer"> </span>кто<span class="spacer"> </span>бу&shy;дет<span class="spacer"> </span>так<span class="spacer"> </span>или<span class="spacer"> </span>иначе<span class="spacer"> </span>за&shy;ви&shy;сеть<span class="spacer"> </span>от<span class="spacer"> </span>вла&shy;дель&shy;ца.<span class="spacer"> </span>Са&shy;ми<span class="spacer"> </span>они<span class="spacer"> </span>не<span class="spacer"> </span>мо&shy;гут<span class="spacer"> </span>выз&shy;вать<span class="spacer"> </span>ме&shy;тод<span class="spacer"> </span><code>Termi&shy;nate</code>:<span class="spacer"> </span>он<span class="spacer"> </span>дос&shy;ту&shy;пен<span class="spacer"> </span>толь&shy;ко<span class="spacer"> </span>у<span class="spacer"> </span><code>Lifetime&shy;Def</code>.<span class="spacer"> </span>За&shy;бо&shy;та<span class="spacer"> </span>эк&shy;земп&shy;ля&shy;ров<span class="spacer"> </span>ти&shy;пов,<span class="spacer"> </span>ко&shy;то&shy;рые<span class="spacer"> </span>по&shy;лу&shy;чи&shy;ли<span class="spacer"> </span><code>Life&shy;time</code><span class="spacer"> </span> &mdash; <span class="spacer"> </span>прос&shy;то<span class="spacer"> </span>на&shy;ки&shy;дать<span class="spacer"> </span>внутрь<span class="spacer"> </span>не&shy;го<span class="spacer"> </span>действий,<span class="spacer"> </span>ко&shy;то&shy;рые<span class="spacer"> </span>бу&shy;дут<span class="spacer"> </span>их<span class="spacer"> </span>раз&shy;ру&shy;шать.</li>
+<li><code>Outer&shy;Lifetime</code><span class="spacer"> </span> &mdash; <span class="spacer"> </span>ин&shy;кап&shy;су&shy;ли&shy;ру&shy;ет<span class="spacer"> </span>по&shy;ня&shy;тие<span class="spacer"> </span>rea&shy;donly<span class="spacer"> </span><code>Life&shy;time</code>.<span class="spacer"> </span>Дру&shy;ги&shy;ми<span class="spacer"> </span>сло&shy;ва&shy;ми,<span class="spacer"> </span>это<span class="spacer"> </span>сред&shy;с&shy;тво<span class="spacer"> </span>за&shy;щи&shy;ты<span class="spacer"> </span>от<span class="spacer"> </span>кон&shy;еч&shy;но&shy;го<span class="spacer"> </span>прог&shy;рам&shy;мис&shy;та:<span class="spacer"> </span>что&shy;бы<span class="spacer"> </span>он<span class="spacer"> </span>не<span class="spacer"> </span>мог<span class="spacer"> </span>в<span class="spacer"> </span>пе&shy;ред&shy;ан&shy;ную<span class="spacer"> </span>за&shy;ви&shy;сим&shy;ость<span class="spacer"> </span>до&shy;ба&shy;вить<span class="spacer"> </span>действия<span class="spacer"> </span>по<span class="spacer"> </span>унич&shy;то&shy;же&shy;нию<span class="spacer"> </span>сво&shy;ей.<span class="spacer"> </span>Этот<span class="spacer"> </span>тип<span class="spacer"> </span>ис&shy;поль&shy;зу&shy;ет&shy;ся,<span class="spacer"> </span>ког&shy;да<span class="spacer"> </span>вы<span class="spacer"> </span>от&shy;да&shy;е&shy;те<span class="spacer"> </span>ко&shy;му-ли&shy;бо<span class="spacer"> </span>эк&shy;земп&shy;ляр<span class="spacer"> </span><code>Life&shy;time</code><span class="spacer"> </span>так,<span class="spacer"> </span>что&shy;бы<span class="spacer"> </span>от&shy;но&shy;сит&shy;ель&shy;но<span class="spacer"> </span>не&shy;го<span class="spacer"> </span>мож&shy;но<span class="spacer"> </span>бы&shy;ло<span class="spacer"> </span>бы<span class="spacer"> </span>толь&shy;ко<span class="spacer"> </span>соз&shy;дать<span class="spacer"> </span>но&shy;вый,<span class="spacer"> </span>за&shy;ви&shy;си&shy;мый<span class="spacer"> </span><code>Lifetime&shy;Def</code>.<span class="spacer"> </span>Но<span class="spacer"> </span>до&shy;ба&shy;вить<span class="spacer"> </span>ту&shy;да<span class="spacer"> </span>свои<span class="spacer"> </span>собст&shy;венные<span class="spacer"> </span>бы&shy;ло<span class="spacer"> </span>бы<span class="spacer"> </span>не<span class="spacer"> </span>воз&shy;мож&shy;но.<span class="spacer"> </span>Пуб&shy;лич&shy;но,<span class="spacer"> </span>как<span class="spacer"> </span>и<span class="spacer"> </span><code>Life&shy;time</code>,<span class="spacer"> </span><code>Outer&shy;Lifetime</code><span class="spacer"> </span>сод&shy;ер&shy;жит<span class="spacer"> </span>толь&shy;ко<span class="spacer"> </span>свой&shy;с&shy;тво<span class="spacer"> </span><code>Is&shy;Terminated</code>,<span class="spacer"> </span>од&shy;на&shy;ко<span class="spacer"> </span>на<span class="spacer"> </span>ос&shy;но&shy;ве<span class="spacer"> </span>не&shy;го<span class="spacer"> </span>мож&shy;но<span class="spacer"> </span>соз&shy;дать<span class="spacer"> </span>за&shy;ви&shy;си&shy;мый<span class="spacer"> </span>эк&shy;земп&shy;ляр<span class="spacer"> </span><code>Lifetime&shy;Def</code>,<span class="spacer"> </span>на<span class="spacer"> </span>ос&shy;но&shy;ве<span class="spacer"> </span>ко&shy;то&shy;ро&shy;го<span class="spacer"> </span>мож&shy;но<span class="spacer"> </span>осущ&shy;е&shy;ствлять<span class="spacer"> </span>мен&shy;ед&shy;ж&shy;мент<span class="spacer"> </span>жиз&shy;ни<span class="spacer"> </span>собст&shy;ве&shy;нного<span class="spacer"> </span>эк&shy;земп&shy;ля&shy;ра.</li>
+</ol>
+<p>Расс&shy;мот&shy;рим<span class="spacer"> </span>са&shy;мый<span class="spacer"> </span>ба&shy;зо&shy;вый<span class="spacer"> </span>ва&shy;ри&shy;ант<span class="spacer"> </span>ин&shy;тер&shy;фей&shy;са<span class="spacer"> </span>ти&shy;па:</p>
+<div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">public</span> <span style="color:Blue;">class</span> Lifetime
+{
+    <span style="color:Blue;">public</span> <span style="color:Blue;">static</span> Lifetime Eternal = Define(<span style="color:#A31515;">&quot;Eternal&quot;</span>).Lifetime;
+
+    <span style="color:Blue;">public</span> <span style="color:Blue;">bool</span> IsTerminated { <span style="color:Blue;">get</span>; <span style="color:Blue;">internal</span> <span style="color:Blue;">set</span>; }
+
+    <span style="color:Blue;">public</span> <span style="color:Blue;">void</span> Add(Action action);
+}
+</pre></div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">08</div>
+<p>Что<span class="spacer"> </span>мы<span class="spacer"> </span>здесь<span class="spacer"> </span>ви&shy;дим?<span class="spacer"> </span>Есть<span class="spacer"> </span>но&shy;вая<span class="spacer"> </span>сущ&shy;ность,<span class="spacer"> </span><code>Life&shy;time</code>.<span class="spacer"> </span>Сущ&shy;ность<span class="spacer"> </span>эта<span class="spacer"> </span>имеет<span class="spacer"> </span>свой&shy;с&shy;тво<span class="spacer"> </span><code>Is&shy;Terminated</code>,<span class="spacer"> </span>ко&shy;то&shy;рое<span class="spacer"> </span>приз&shy;ва&shy;но<span class="spacer"> </span>по&shy;мочь<span class="spacer"> </span>в<span class="spacer"> </span>по&shy;ни&shy;ма&shy;нии,<span class="spacer"> </span>зак&shy;он&shy;чи&shy;лось<span class="spacer"> </span>ли<span class="spacer"> </span>вре&shy;мя<span class="spacer"> </span>жиз&shy;ни<span class="spacer"> </span>Life&shy;time<span class="spacer"> </span>и<span class="spacer"> </span>всех,<span class="spacer"> </span>кто<span class="spacer"> </span>от<span class="spacer"> </span>не&shy;го<span class="spacer"> </span>за&shy;ви&shy;сит<span class="spacer"> </span>или<span class="spacer"> </span>еще<span class="spacer"> </span>нет.<span class="spacer"> </span>За&shy;дать<span class="spacer"> </span>спи&shy;сок<span class="spacer"> </span>действий,<span class="spacer"> </span>ко&shy;то&shy;рые<span class="spacer"> </span>дол&shy;ж&shy;ны<span class="spacer"> </span>про&shy;и&shy;зой&shy;ти<span class="spacer"> </span>в<span class="spacer"> </span>слу&shy;чае<span class="spacer"> </span>смер&shy;ти<span class="spacer"> </span>эк&shy;земп&shy;ля&shy;ра<span class="spacer"> </span>ти&shy;па<span class="spacer"> </span><code>Life&shy;time</code><span class="spacer"> </span>мож&shy;но<span class="spacer"> </span>пу&shy;тем<span class="spacer"> </span>их<span class="spacer"> </span>доб&shy;ав&shy;ле&shy;ния<span class="spacer"> </span>во<span class="spacer"> </span>внут&shy;рен&shy;ний<span class="spacer"> </span>спи&shy;сок<span class="spacer"> </span>ме&shy;то&shy;дом<span class="spacer"> </span><code>Add</code>.</p>
+<div class="paragraph-right-side">08</div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">09</div>
+<p>Так&shy;же<span class="spacer"> </span>дав&shy;ай&shy;те<span class="spacer"> </span>расс&shy;мот&shy;рим<span class="spacer"> </span>вто&shy;рой<span class="spacer"> </span>кр&shy;аеуг&shy;ольный<span class="spacer"> </span>ка&shy;мень<span class="spacer"> </span>этого<span class="spacer"> </span>шаб&shy;ло&shy;на:<span class="spacer"> </span>класс<span class="spacer"> </span><code>Lifetime&shy;Def</code>,<span class="spacer"> </span>ко&shy;то&shy;рый<span class="spacer"> </span>вла&shy;де&shy;ет<span class="spacer"> </span>пра&shy;вом<span class="spacer"> </span>на<span class="spacer"> </span>ос&shy;та&shy;нов<span class="spacer"> </span>сро&shy;ка<span class="spacer"> </span>жиз&shy;ни<span class="spacer"> </span>эк&shy;земп&shy;ля&shy;ра<span class="spacer"> </span><code>Life&shy;time</code>,<span class="spacer"> </span>ко&shy;то&shy;рым<span class="spacer"> </span>вла&shy;де&shy;ет.</p>
+<div class="paragraph-right-side">09</div>
+</div>
+<div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">public</span> <span style="color:Blue;">class</span> LifetimeDef : IDisposable
+{
+    <span style="color:Blue;">public</span> Lifetime Lifetime { <span style="color:Blue;">get</span>; }
+    <span style="color:Blue;">public</span> <span style="color:Blue;">string</span> Name { <span style="color:Blue;">get</span>; }
+
+    <span style="color:Blue;">private</span> <span style="color:Blue;">const</span> <span style="color:Blue;">string</span> Noname = <span style="color:#A31515;">&quot;Unnamed&quot;</span>;
+
+    <span style="color:Blue;">public</span> LifetimeDef(<span style="color:Blue;">string</span> name = <span style="color:Blue;">null</span>)
+    {
+        Name = name ?? Noname;
+        Lifetime = <span style="color:Blue;">new</span> Lifetime();
+    }
+
+    <span style="color:Blue;">public</span> <span style="color:Blue;">void</span> Terminate()
+    {
+        Lifetime.Terminate();
+    }
+
+    <span style="color:Blue;">public</span> <span style="color:Blue;">void</span> Dispose()
+    {
+        Terminate();
+    }
+}
+</pre></div>
+</div>
+<div class="paragraph-container">
+<div class="paragraph-left-side">10</div>
+<p>Для<span class="spacer"> </span>удоб&shy;ности<span class="spacer"> </span>он<span class="spacer"> </span>сод&shy;ер&shy;жит<span class="spacer"> </span>не&shy;о&shy;бя&shy;зат&shy;ель&shy;ное<span class="spacer"> </span>по&shy;ле<span class="spacer"> </span><code>Name</code>.<span class="spacer"> </span>Это<span class="spacer"> </span>вве&shy;де&shy;но<span class="spacer"> </span>что&shy;бы<span class="spacer"> </span>при<span class="spacer"> </span>от&shy;лад&shy;ке<span class="spacer"> </span>мно&shy;жест&shy;вен&shy;ные<span class="spacer"> </span>эк&shy;земп&shy;ля&shy;ры<span class="spacer"> </span>ти&shy;па<span class="spacer"> </span><code>Lifetime&shy;Def</code><span class="spacer"> </span>не<span class="spacer"> </span>вво&shy;ди&shy;ли<span class="spacer"> </span>бы<span class="spacer"> </span>в<span class="spacer"> </span>заб&shy;лу&shy;же&shy;ние<span class="spacer"> </span>и<span class="spacer"> </span>поз&shy;во&shy;ля&shy;ли<span class="spacer"> </span>бы<span class="spacer"> </span>лег&shy;ко<span class="spacer"> </span>на&shy;хо&shy;дить<span class="spacer"> </span>не&shy;об&shy;хо&shy;ди&shy;мые<span class="spacer"> </span>сущ&shy;нос&shy;ти.<span class="spacer"> </span>Ме&shy;тод<span class="spacer"> </span><code>Termi&shy;nate</code><span class="spacer"> </span>об&shy;ры&shy;ва&shy;ет<span class="spacer"> </span>жизнь<span class="spacer"> </span>эк&shy;земп&shy;ля&shy;ру<span class="spacer"> </span>клас&shy;са<span class="spacer"> </span>Lifetime&shy;,<span class="spacer"> </span>а<span class="spacer"> </span>ре&shy;а&shy;ли&shy;за&shy;ция<span class="spacer"> </span>шаб&shy;ло&shy;на<span class="spacer"> </span><code>IDispos&shy;able</code><span class="spacer"> </span>поз&shy;во&shy;ля&shy;ет<span class="spacer"> </span>ис&shy;поль&shy;зо&shy;вать<span class="spacer"> </span><code>Lifetime&shy;Def</code><span class="spacer"> </span>в<span class="spacer"> </span>клас&shy;сич&shy;ес&shy;ких<span class="spacer"> </span>сце&shy;на&shy;ри&shy;ях.<span class="spacer"> </span>Нап&shy;ри&shy;мер,<span class="spacer"> </span>в<span class="spacer"> </span>бло&shy;ке<span class="spacer"> </span><code>using</code>:</p>
+<div class="paragraph-right-side">10</div>
+</div>
+<div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
+[Test]
+<span style="color:Blue;">void</span> EntityTest()
+{
+    Entity entity;
+    <span style="color:Blue;">using</span>(<span style="color:Blue;">var</span> ldf = Lifetime.Define())
+    {
+        entity = <span style="color:Blue;">new</span> Entity(lfd.Lifetime);
+        entity.OpenConnection();
+        <span style="color:Green;">//...</span>
+    }
+
+    Assert.Equal(State.Closed, entity.ConnectionState)
+}
+</pre></div>
+</div>
+<h2 id="section">Сце&shy;на&shy;рии<span class="spacer"> </span>ис&shy;поль&shy;зо&shy;ва&shy;ния</h2>
+<div class="paragraph-container">
+<div class="paragraph-left-side">11</div>
+<p>Для<span class="spacer"> </span>то&shy;го<span class="spacer"> </span>что&shy;бы<span class="spacer"> </span>раз&shy;об&shy;рать&shy;ся,<span class="spacer"> </span>с<span class="spacer"> </span>чем<span class="spacer"> </span>мы<span class="spacer"> </span>имеем<span class="spacer"> </span>де&shy;ло,<span class="spacer"> </span>я<span class="spacer"> </span>пред&shy;ла&shy;гаю<span class="spacer"> </span>расс&shy;мот&shy;реть<span class="spacer"> </span>ряд<span class="spacer"> </span>при&shy;ме&shy;ров.</p>
+<div class="paragraph-right-side">11</div>
+</div>
+<h3 id="section-1">При&shy;мер<span class="spacer"> </span>1</h3>
+<div class="lang-csharp editor-colors"><div style="color:Black;background-color:White;"><pre>
+
+<span style="color:Blue;">public</span> <span style="color:Blue;">class</span> Subscriber
+{
+    <span style="color:Blue;">public</span> Subscriber(DataSource dataSource, Lifetime lft)
+    {
+        dataSource.DataArrived.Add(<span style="color:Blue;">this</span>.OnDataArrived);
+        lft.Add(() =&gt; dataSource.DataArrived.Remove(<span style="color:Blue;">this</span>.OnDataArrived));
+    }
+
+    <span style="color:Green;">// Other methods</span>
+}
+
+</pre></div>
+</div>
+
+        </div>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-wrap">
+                    <img src="../../../ru/res/img/logo-w-noindex.svg">
+                    <p>
+                        <a class="footer-link" target="_blank" href="mailto:sidristij@clrium.ru"><i class="far fa-envelope" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="https://vk.com/clrium"><i class="fab fa-vk" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="https://youtube.com/clrium"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="https://github.com/clrium"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="skype:stanislav.sidristyi"><i class="fab fa-skype" aria-hidden="true"></i></a>
+                        <a class="footer-link" target="_blank" href="https://t.me/clrium_group"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
