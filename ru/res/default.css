@@ -225,6 +225,7 @@ blockquote
 {
     padding-left: 0.4em;
     border-left: 0.5em solid rgba(0,0,0,.08);
+    font-style: italic;
 }
 
 blockquote.big-quote, 
@@ -266,8 +267,8 @@ blockquote.big-quote > p {
     line-height: 1em;
 }
 
-.extendable:hover {
-    width: 145%;
+.extendable::hover {
+    width: 145%
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -364,7 +365,6 @@ h5 {
 
 .aside-side-container > li {
     display: block;
-    margin: 0;
     font-family: Charter;
 }
 
@@ -642,13 +642,8 @@ li blockquote {
 /* X_FOOTER */
 
 footer {
-    margin-top: 2em;
+    padding: 1em 2em 1em 2em;
     background-color: black;
-    height: 4em;
-    margin-left: -4cm;
-    margin-right: -4cm;
-    padding-left: 4cm;
-    padding-right: 4cm;
 }
 
 footer > div {
